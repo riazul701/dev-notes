@@ -1,0 +1,2376 @@
+#!/bin/bash
+
+# Follow "rclone" and "mkdocs" style help manual
+function help_overall() {
+  printf "Usage:\njjkk [command]\n\nAvailabe Commands:\n"
+  overall_help_txt="  rsgit||\"restic-git\" script. Does restic and git based backup.\n
+  rsdrive||\"restic-drive\" script. Does restic backup on Portable Storage Device.\n
+  rssync||\"sync-restic-repo\" script. Sync online restic repo to local-pc restic repo.\n
+  rsrestore||\"restore-restic-git\" script. Restore single/all restic and git repository.\n
+  gist||\"gist\" script. GitHub-Gist management script.\n
+  note||\"pnote\" script. Project's markdown-note management script.\n
+  dbsync||\"db-sync\" script. Sync database between online and local-pc in bi-directional way.\n
+  dbackup||\"dbackup\" script. Backup database structure, data, full-db for git commit.\n
+  ||Execute php command. Generate database data using php-faker.\n
+  bisync||(Not Implemented Yet) Bi-directional sync of folder between online and local-pc.";
+  printf "${overall_help_txt}" | column --table --separator "||"
+}
+
+if [[ "$1" == 'help' ]]
+then
+  help_overall
+  exit
+fi
+
+declare -A restic_repo_list
+declare -A git_repo_list
+declare -A note_repo_list
+
+repository_list_file_path="/c/ProgramData/restic-git/restic-git-sync"
+
+repo_config_json=$(cat "${repository_list_file_path}/repository-list.json" | jq -r '.repo_config | [.git_uncommitted_sync_remote_base, .database_sync_remote_base, .db_sync_local_base_path, .db_archive_base_path, .enable_db_archive, .db_host_name, .windows_editor, .linux_editor, .restore_restic_git_base_path, .sync_restic_repo_base_path, .sync_restic_repo_password, .desktop_exclude_base_path, .server_exclude_base_path, .project_drive_path, .document_drive_path, .project_drive_repo_name, .document_drive_repo_name, .project_drive_psd_identification, .document_drive_psd_identification, .drive_restic_repo_password, .gist_list_limit, .max_gist_create, .gist_temporary_file, .gist_temporary_folder] | join(",")')
+IFS=',' read -r -a config_json_array <<<"${repo_config_json}"
+unset IFS
+git_uncommitted_sync_remote_base="${config_json_array[0]}"
+database_sync_remote_base="${config_json_array[1]}"
+db_sync_local_base_path="${config_json_array[2]}"
+db_archive_base_path="${config_json_array[3]}"
+enable_db_archive="${config_json_array[4]}"
+db_host_name="${config_json_array[5]}"
+windows_editor="${config_json_array[6]}"
+linux_editor="${config_json_array[7]}"
+restore_restic_git_base_path="${config_json_array[8]}"
+sync_restic_repo_base_path="${config_json_array[9]}"
+sync_restic_repo_password="${config_json_array[10]}"
+desktop_exclude_base_path="${config_json_array[11]}"
+server_exclude_base_path="${config_json_array[12]}"
+project_drive_path="${config_json_array[13]}"
+document_drive_path="${config_json_array[14]}"
+project_drive_repo_name="${config_json_array[15]}"
+document_drive_repo_name="${config_json_array[16]}"
+project_drive_psd_identification="${config_json_array[17]}"
+document_drive_psd_identification="${config_json_array[18]}"
+drive_restic_repo_password="${config_json_array[19]}"
+gist_list_limit="${config_json_array[20]}"
+max_gist_create="${config_json_array[21]}"
+gist_temporary_file="${config_json_array[22]}"
+gist_temporary_folder="${config_json_array[23]}"
+
+while read -r restic_repo_json; do
+  # echo "${restic_repo_json}" >> "${repository_list_file_path}/test.txt"
+  IFS=',' read -r -a restic_json_array <<<"${restic_repo_json}"
+  unset IFS
+
+  sync_type_json="${restic_json_array[0]}"
+  pwd_json="${restic_json_array[1]}"
+  git_url_json="${restic_json_array[2]}"
+  rclone_name_json="${restic_json_array[3]}"
+  composer_download_json="${restic_json_array[4]}"
+  npm_download_json="${restic_json_array[5]}"
+  database_name_json="${restic_json_array[6]}"
+  restic_address_json="${restic_json_array[7]}"
+  restic_password_json="${restic_json_array[8]}"
+  restic_type_json="${restic_json_array[9]}"
+  workstation_type_json="${restic_json_array[10]}"
+  workstation_name_json="${restic_json_array[11]}"
+  note_path_id_json="${restic_json_array[12]}"
+
+  if [[ "${sync_type_json}" == "restic_only" || "${sync_type_json}" == "restic_git" ]]; then
+    restic_repo_list["${pwd_json}"]="${restic_address_json} ${restic_password_json} ${restic_type_json} ${rclone_name_json} ${workstation_type_json} ${workstation_name_json} ${sync_type_json}"
+  fi
+
+  if [[ "${sync_type_json}" == "git_only" || "${sync_type_json}" == "restic_git" ]]; then
+    git_repo_list["${pwd_json}"]="${git_url_json} ${rclone_name_json} ${composer_download_json} ${npm_download_json} ${database_name_json}"
+  fi
+
+  note_repo_list["${pwd_json}"]="${note_path_id_json}"
+
+done <<<$(cat "${repository_list_file_path}/repository-list.json" | jq -r '.restic_git_repo[] | [.sync_type, .pwd, .git_url, .rclone_name, .composer_download, .npm_download, .database_name, .restic_address, .restic_password, .restic_type, .workstation_type, .workstation_name, .note_path_id] | join(",")')
+
+# echo -e "Repo config values are: \n git_uncommitted_sync_remote_base='${git_uncommitted_sync_remote_base}';\n database_sync_remote_base='${database_sync_remote_base}';\n db_sync_local_base_path='${db_sync_local_base_path}';\n db_archive_base_path='${db_archive_base_path}';\n enable_db_archive='${enable_db_archive}';\n db_host_name='${db_host_name}';\n windows_editor='${windows_editor}';\n linux_editor='${linux_editor}';\n restore_restic_git_base_path='${restore_restic_git_base_path}';\n sync_restic_repo_base_path='${sync_restic_repo_base_path}';\n sync_restic_repo_password='${sync_restic_repo_password}';\n desktop_exclude_base_path='${desktop_exclude_base_path}';\n server_exclude_base_path='${server_exclude_base_path}';\n project_drive_path='${project_drive_path}';\n document_drive_path='${document_drive_path}';\n project_drive_repo_name='${project_drive_repo_name}';\n document_drive_repo_name='${document_drive_repo_name}';\n project_drive_psd_identification='${project_drive_psd_identification}';\n document_drive_psd_identification='${document_drive_psd_identification}';\n drive_restic_repo_password='${drive_restic_repo_password}';\n gist_list_limit='${gist_list_limit}';\n max_gist_create='${max_gist_create}';\n gist_temporary_file='${gist_temporary_file}';\n gist_temporary_folder='${gist_temporary_folder}';\n note_base_path='${note_base_path}';"
+
+# echo "Values of 'restic_repo_list' array: " >> "${repository_list_file_path}/test.txt"
+# for restic_repo_inc in "${!restic_repo_list[@]}"
+# do
+#   echo "restic_repo_list['${restic_repo_inc}']='${restic_repo_list[$restic_repo_inc]}'" >> "${repository_list_file_path}/test.txt"
+# done
+
+# echo "Values of 'git_repo_list' array: " >> "${repository_list_file_path}/test.txt"
+# for git_repo_inc in "${!git_repo_list[@]}"
+# do
+#   echo "git_repo_list['${git_repo_inc}']='${git_repo_list[$git_repo_inc]}'" >> "${repository_list_file_path}/test.txt"
+# done
+
+
+#----------------------------START-SCRIPT: restic-git----------------------------
+
+help_rsgit() {
+  printf "Usage:\njjkk rsgit [work-local] [command]\n\
+  [work-local]: Works with locally synchronized restic repository.\n\nAvailabe Commands:\n"
+  rsgit_help_txt="  init||Initialize new restic repository.\n
+  backup [tag]||Backup restic repository. Tag is optional.\n
+  ||Backup does not work with locally synchronized repositry.\n
+  backup-dry-run||Dry Run/Do Not Save restic repository.\n
+  ||Backup-dry-run does not work with locally synchronized repository.\n
+  restore [snapshot-id]||Restore restic repo snapshot. Snapshot-ID is mandatory.\n
+  snapshots||Shows restic snapshot list.\n
+  forget [snapshot-id]||Forget restic repo snapshot. Snapshot-ID is mandatory.\n
+  prune||Prune/Permanent Delete forgotten restic snapshot.\n
+  check||Check restic repo for errors.\n
+  cache-clear||Clear restic repo cache.\n
+  exclude-edit||Edit exclude.txt file for current project.\n
+  git-uncommitted-sync||Git uncommitted files sync between local-pc and cloud."
+  printf "${rsgit_help_txt}" | column --table --separator "||"
+}
+
+trim_rsgit() {
+    local var="$*"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"
+    printf '%s' "$var"
+}
+
+function git_uncommitted_sync_push_rsgit() {
+  git_repo_url="$1"
+  git_remote_rclone_name=$2
+  #echo "Git Repo URL: ${git_repo_url}; Git Remote Rclone: ${git_remote_rclone_name}"
+  
+  git_changed_files=$(git status -s | awk 'match($0,/"[^"]*"/){print substr($0,RSTART+1,RLENGTH-2);next} {print $2}') # https://stackoverflow.com/questions/71114506/treat-2nd-column-with-space-as-one-column
+  #echo "${git_changed_files}"
+  
+  IFS=$'\n' 
+  read -rd '' -a git_changed_files_array <<<"$git_changed_files"
+  unset IFS
+  
+  rclone purge "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" --verbose
+  rclone mkdir "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" --verbose
+  
+  for ((git_changed_inc = 0; git_changed_inc < ${#git_changed_files_array[@]}; git_changed_inc++))
+  do
+    rclone copyto "${PWD}/${git_changed_files_array[$git_changed_inc]}" "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data/${git_changed_files_array[$git_changed_inc]}" --progress
+    #echo "${git_changed_files_array[$git_changed_inc]}"
+  done
+}
+
+function git_uncommitted_sync_pull_rsgit() {
+  git_repo_url="$1"
+  git_remote_rclone_name=$2
+  #echo "Git Repo URL: ${git_repo_url}; Git Remote Rclone: ${git_remote_rclone_name}"
+  
+  #rclone_changed_files=$(rclone ls "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" | awk 'match($0,/"[^"]*"/){print substr($0,RSTART+1,RLENGTH-2);next} {print $2}') # This does not work here, because "rclone ls" command output includes spaces # https://stackoverflow.com/questions/71114506/treat-2nd-column-with-space-as-one-column
+  
+  rclone_changed_files=$(rclone ls "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" | awk '{sub(/[^ ]+[ ]+/,"")}1') # https://stackoverflow.com/questions/14327442/treat-second-column-with-spaces-as-one-column-with-awk
+  #echo "${rclone_changed_files}"
+  
+  #rclone ls "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data"
+  #exit
+  IFS=$'\n' 
+  read -rd '' -a rclone_changed_files_array <<<"$rclone_changed_files"
+  unset IFS
+  
+  for ((rclone_changed_inc = 0; rclone_changed_inc < ${#rclone_changed_files_array[@]}; rclone_changed_inc++))
+  do
+    # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+    var="${rclone_changed_files_array[$rclone_changed_inc]}"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"   
+    #printf '%s' "$var"
+    #${rclone_changed_files_array[$rclone_changed_inc]}="${var}"
+	#echo "${var}"
+  
+  
+    rclone copyto "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data/${var}" "${PWD}/${var}" --progress
+    #echo "${rclone_changed_files_array[$rclone_changed_inc]}"
+  done
+}
+
+function git_uncommitted_sync_status_rsgit() {
+  git_repo_url="$1"
+  git_remote_rclone_name=$2
+  git_status_remote_path="${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data"
+  rclone tree "${git_status_remote_path}"
+}
+
+function git_uncommitted_sync_rsgit() {
+  git_sync_todo=$1
+  
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ $is_git_repo == 'true' ]]
+  then
+    get_git_repo=${git_repo_list[$PWD]}
+    if [[ $get_git_repo != '' ]]
+    then
+	  git_repo_details=(${git_repo_list[$PWD]})
+	  git_repo_url=${git_repo_details[0]}
+	  git_remote_rclone_name=${git_repo_details[1]}
+	  
+	  # Check "rclone" remote exists or not
+	  if [[ $(rclone listremotes | grep "${git_remote_rclone_name}:") != "${git_remote_rclone_name}:" ]]
+	  then
+	    echo -e "\033[41mRclone: ${git_remote_rclone_name} does not exist! Add it using command -- rclone config\033[m"
+	    exit
+	  fi
+	  
+      if [[ ${git_sync_todo} == "push" ]]
+	  then
+	    git_uncommitted_sync_push_rsgit ${git_repo_url} ${git_remote_rclone_name}
+	  elif [[ ${git_sync_todo} == "pull" ]]
+	  then
+	    git_uncommitted_sync_pull_rsgit ${git_repo_url} ${git_remote_rclone_name}
+	  elif [[ ${git_sync_todo} == "status" ]]
+	  then
+	    git_uncommitted_sync_status_rsgit ${git_repo_url} ${git_remote_rclone_name}
+	  else
+	    echo "Git: Wrong input! Enter correct input - (push/pull)."
+	  fi
+  else
+    echo 'Git: No entry for current directory in git repository list!'
+  fi
+  else
+    echo -e "\033[41mGit: Current directory is not a git repository!\033[m"
+  fi
+}
+
+function restic_init_rsgit() {
+  restic init
+}
+
+function restic_backup_rsgit() {
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+    git_commit_id=$(git rev-parse HEAD)
+    if [[ ${commit_snap_tag_id} == '' ]]
+    then
+      restic backup . --exclude-file="${exclude_file_path}" --tag "git-commit:${git_commit_id}" --verbose
+    else
+      restic backup . --exclude-file="${exclude_file_path}" --tag "git-commit:${git_commit_id}" --tag "${commit_snap_tag_id}" --verbose
+    fi 
+  else
+	if [[ ${commit_snap_tag_id} == '' ]]
+    then
+      restic backup . --exclude-file="${exclude_file_path}" --verbose
+    else
+      restic backup . --exclude-file="${exclude_file_path}" --tag "${commit_snap_tag_id}" --verbose
+    fi
+  fi
+}
+
+function restic_backup_dry_run_rsgit() {
+  restic backup --dry-run . --exclude-file="${exclude_file_path}"
+}
+
+function restic_restore_rsgit() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    read -p "Enter Path of Backup Restoration (For Current Directory Leave Empty): `echo $'\n> '`" restore_path
+	if [[ ${restore_path} == '' ]]
+	then
+	  restic restore ${commit_snap_tag_id} --target . --verbose
+	else
+	  restic restore ${commit_snap_tag_id} --target "${restore_path}" --verbose
+	fi    
+  else
+    echo 'Restore (Restic): Please Enter Snapshot ID.'
+  fi
+}
+
+function restic_snapshots_rsgit() {
+  if [[ ${commit_snap_tag_id} == '' ]]
+  then
+    restic snapshots
+  else
+    restic snapshots --tag "git-commit:${commit_snap_tag_id}"
+  fi
+}
+
+function restic_forget_rsgit() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    restic forget ${commit_snap_tag_id}
+  else
+    echo 'Forget (Restic): Please Enter Snapshot ID.'
+  fi
+}
+
+function restic_prune_rsgit() {
+  restic prune
+}
+
+function restic_check_rsgit() {
+  restic check
+}
+
+# Only use if "exclude.txt" file is changed.
+function restic_cache_clear_rsgit() {
+  restic cache --cleanup --max-age 0
+}
+
+function restic_exclude_file_exist_check_rsgit() {
+  if [ ! -f "$exclude_file_path" ]
+  then
+    echo "Exclude File Not Found!"
+	if [[ ${operating_system} == 'Linux' ]]
+	then
+	  sudo mkdir -p "$exclude_file_parent_folder" && touch "${exclude_file_parent_folder}/exclude.txt"
+	else # Windows-OS
+	  mkdir -p "$exclude_file_parent_folder" && touch "${exclude_file_parent_folder}/exclude.txt" # Windows-OS does not have "sudo" command
+	fi
+	echo "Created exclude file at ${exclude_file_parent_folder}/exclude.txt"
+  fi
+}
+
+function restic_exclude_edit_rsgit() {
+  restic_exclude_file_exist_check_rsgit
+
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    sudo vim "$exclude_file_path"
+  else # Windows-OS
+    vim "$exclude_file_path" # Windows-OS does not have "sudo" command
+  fi
+}
+
+#echo 'echo from "restic-git"'
+#exit
+
+function get_restic_repo_details_rsgit() {
+  working_repo_type="$1"
+  get_restic_repo=${restic_repo_list[$PWD]}
+  if [[ ${get_restic_repo} != '' ]]
+  then
+    get_restic_repo_array=(${get_restic_repo})
+    restic_repo_path_url=${get_restic_repo_array[0]}
+    restic_repo_password=${get_restic_repo_array[1]}
+    restic_repo_type=${get_restic_repo_array[2]} # Restic Repository Type: local/rclone(remote)
+    restic_repo_remote_name=${get_restic_repo_array[3]}
+    workstation_type=${get_restic_repo_array[4]} # Workstation Type: desktop-pc/server-pc
+    workstation_name=${get_restic_repo_array[5]}
+    sync_type=${get_restic_repo_array[6]} # Synchronization Type: restic-git/restic-only/project
+    
+    if [[ ${workstation_type} == 'desktop-pc' ]]
+    then
+      exclude_file_parent_folder="${desktop_exclude_base_path}/${workstation_name}${PWD}"   
+    else
+      exclude_file_parent_folder="${server_exclude_base_path}/${workstation_name}${PWD}"
+    fi
+  
+    exclude_file_path="${exclude_file_parent_folder}/exclude.txt"
+    restic_exclude_file_exist_check_rsgit
+  
+    if [[ ${restic_repo_type} == 'rclone' ]]
+    then
+      # Check "rclone" remote exists or not
+	  if [[ $(rclone listremotes | grep "${restic_repo_remote_name}:") != "${restic_repo_remote_name}:" ]]
+	  then
+	    echo -e "\033[41mRclone: ${restic_repo_remote_name} does not exist! Add it using command -- rclone config\033[m"
+	    exit
+	  fi
+	  
+	  # Use locally synchronized restic repository instead of cloud
+	  if [[ ${working_repo_type} == 'local' ]]
+	  then
+	    sync_repo_local_path="${sync_restic_repo_base_path}/restic-${workstation_name}$PWD"
+		if [ ! -f "${sync_repo_local_path}/config" ]
+	    then
+	      echo -e "\033[41mNo synchronized restic repository for current directory!\033[m"
+		  exit
+	    fi
+		export RESTIC_REPOSITORY=${sync_repo_local_path}
+		export RESTIC_PASSWORD=${sync_restic_repo_password}
+		return
+	  fi
+	
+	  restic_repo_address="rclone:${restic_repo_remote_name}:restic-${workstation_name}${PWD}"
+	  
+#----------------------------START: Auto Open/Close Terminal Window----------------------------
+      # Description: Open new terminal window to run command "rclone serve restic". An easy alternative is implemented above.  
+	  
+      #restic_repo_address="rest:http://localhost:8080/restic-${workstation_name}${PWD}/"
+      #curl_http_code=$(curl --write-out '%{http_code}' --silent --output /dev/null http://127.0.0.1:8080)
+	  #if [[ $curl_http_code == '000' ]] # 200=Successful-Request, 400=Bad-Request(Here this response code is received. It is happened for sending non-valid input. But it works), 404=Not-Found
+	  #then
+	    #if [[ $workstation_type == 'desktop-pc' ]] # For: desktop-pc
+	    #then
+	      #if [[ $operating_system == 'Linux' ]] # Desktop-Linux
+	      #then
+            #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_name}:" & # Tested For: xterm
+            #sleep 3
+          #else # Windows-OS
+	        #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_name}:"
+	      #fi
+	    #else # For: server-pc
+	      #if [[ $operating_system == 'Linux' ]] # Server-Linux
+		  #then
+		    #screen -dmS rclone_serve_restic bash -c "rclone serve restic --verbose ${restic_repo_remote_name}:"
+		  #fi
+	    #fi
+	  #fi
+#--------------------------END: Auto Open/Close Terminal Window---------------------------------
+	  
+    else
+      restic_repo_address=${restic_repo_path_url}  
+    fi
+    export RESTIC_REPOSITORY=${restic_repo_address}
+    export RESTIC_PASSWORD=${restic_repo_password}
+  else
+    echo 'Restic: No entry for current directory in restic repository list!'
+  fi
+}
+
+if [[ "$1" == 'rsgit' ]] # Script/Command: "restic-git"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_rsgit
+    exit
+  fi
+  if [[ $2 == 'work-local' ]]
+  then
+    working_repo_type='local'
+    work_type="$3" # Work Type: init/backup/backup-dry-run/restore/snapshot/forget/prune/check/exclude-edit
+    commit_snap_tag_id="$4" # For Backup it is Tag-Name / For Restore it is Snapshot-ID / For Snapshot it is Git-Commit-ID
+  else
+    working_repo_type='remote'
+    work_type="$2"
+    commit_snap_tag_id="$3"
+  fi
+
+  operating_system=$(uname -s)
+
+  if [[ ${work_type} != "--git-uncommitted-sync" ]]
+  then
+    get_restic_repo_details_rsgit ${working_repo_type}
+  fi
+
+  if [[ ${work_type} == "init" ]]
+  then
+    restic_init_rsgit
+  elif [[ ${work_type} == "backup" ]]
+  then
+    if [[ ${working_repo_type} == 'remote' ]]
+    then
+      restic_backup_rsgit
+    else
+      echo "Sync-Restic-Repo: Backup is not allowed in synchronized restic repository."
+    fi
+  elif [[ ${work_type} == "backup-dry-run" ]]
+  then
+    if [[ ${working_repo_type} == 'remote' ]]
+    then
+    restic_backup_dry_run_rsgit
+    else
+      echo "Sync-Restic-Repo: Backup-Dry-Run is not allowed in synchronized restic repository."
+    fi
+  elif [[ ${work_type} == "restore" ]]
+  then
+    restic_restore_rsgit
+  elif [[ ${work_type} == "snapshots" ]]
+  then
+    restic_snapshots_rsgit
+  elif [[ ${work_type} == "forget" ]]
+  then
+    restic_forget_rsgit
+  elif [[ ${work_type} == "prune" ]]
+  then
+    restic_prune_rsgit
+  elif [[ ${work_type} == "check" ]]
+  then
+    restic_check_rsgit
+  elif [[ ${work_type} == "cache-clear" ]]
+  then
+    restic_cache_clear_rsgit
+  elif [[ ${work_type} == "exclude-edit" ]]
+  then
+    restic_exclude_edit_rsgit
+  elif [[ ${work_type} == "git-uncommitted-sync" ]]
+  then
+    git_uncommitted_sync_pull $3
+  fi
+fi
+#----------------------------END-SCRIPT: restic-git----------------------------
+
+
+#----------------------------START-SCRIPT: restic-drive----------------------------
+function help_rsdrive() {
+  printf "Usage:\njjkk rsdrive [command]\n\nAvailabe Commands:\n"
+  rsdrive_help_txt="  init||Initialize restic repository in Portable HDD.\n
+  backup [tag]||Backup restic repository. Tag is optional.\n
+  backup-dry-run||Dry Run/Do Not Save restic repository.\n
+  restore [snapshot-id]||Restore restic repository snapshot. Snapshot-ID is mandatory.\n
+  snapshots||Shows restic snapshot list.\n
+  forget [snapshot-id]||Forget restic specific snapshot. Snapshot-ID is mandatory.\n
+  prune||Prune/Permanently Delete forgotten snapshots.\n
+  check||Check restic repository for errors.\n
+  cache-clear||Clear restic repository cache.\n
+  exclude-edit||Edit exclude.txt file for drive."
+  printf "${rsdrive_help_txt}" | column --table --separator "||"
+}
+
+function restic_init_rsdrive() {
+  restic init
+}
+
+function restic_backup_rsdrive() {
+  if [[ ${commit_snap_tag_id} == '' ]]
+  then
+    restic backup "${backup_content_path}" --exclude-file="${exclude_file_path}" --verbose
+  else
+    restic backup "${backup_content_path}" --exclude-file="${exclude_file_path}" --tag "${commit_snap_tag_id}" --verbose
+  fi
+}
+
+function restic_backup_dry_run_rsdrive() {
+  restic backup --dry-run "${backup_content_path}" --exclude-file="${exclude_file_path}"
+}
+
+function restic_restore_rsdrive() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    read -p "Enter Path of Backup Restoration: `echo $'\n> '`" restore_path
+	if [[ ${restore_path} != '' ]]
+	then
+	  if [ -d "${restore_path}" ]
+      then
+        restic restore ${commit_snap_tag_id} --target "${restore_path}" --verbose
+	  else
+	    echo "Restore (Restic): Backup restore path '${restore_path}' does not exist!"
+      fi
+	else
+	  echo "Restore (Restic): Backup restore path can not be empty!"
+	fi    
+  else
+    echo "Restore (Restic): Please Enter Snapshot ID."
+  fi
+}
+
+function restic_snapshots_rsdrive() {
+  restic snapshots
+}
+
+function restic_forget_rsdrive() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    restic forget ${commit_snap_tag_id}
+  else
+    echo 'Forget (Restic): Please Enter Snapshot ID.'
+  fi
+}
+
+function restic_prune_rsdrive() {
+  restic prune
+}
+
+function restic_check_rsdrive() {
+  restic check
+}
+
+# Only use if "exclude.txt" file is changed.
+function restic_cache_clear_rsdrive() {
+  restic cache --cleanup --max-age 0
+}
+
+function restic_exclude_file_exist_check_rsdrive() {
+  if [ ! -f "$exclude_file_path" ]
+  then
+    echo "Exclude File Not Found!"
+	if [[ ${operating_system} == 'Linux' ]]
+	then
+	  sudo mkdir -p "${exclude_file_parent_folder}" && touch "${exclude_file_parent_folder}/exclude.txt"
+	else # Windows-OS
+	  mkdir -p "${exclude_file_parent_folder}" && touch "${exclude_file_parent_folder}/exclude.txt" # Windows-OS does not have "sudo" command
+	fi
+	echo "Created exclude file at ${exclude_file_parent_folder}/exclude.txt"
+  fi  
+}
+
+function restic_exclude_edit_rsdrive() {
+  restic_exclude_file_exist_check_rsdrive
+
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    sudo vim "${exclude_file_path}"
+  else # Windows-OS
+    vim "${exclude_file_path}" # Windows-OS does not have "sudo" command
+  fi
+}
+
+if [[ "$1" == "rsdrive" ]] # Script/Command: "restic-drive"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_rsdrive
+    exit
+  fi
+
+  work_type="$2" # Work Type: init/backup/backup-dry-run/restore/snapshot/forget/prune/check
+  commit_snap_tag_id="$3" # For Backup it is Tag-Name / For Restore it is Snapshot-ID
+
+  # Find Portable HDD Drive Letter
+  read -p "Which drive do you want to work with (p[project]/d[document])?: `echo $'\n> '`" drive_work_with
+  if [[ ${drive_work_with} == 'p' ]]
+  then
+    psd_identification_file="${project_drive_psd_identification}"
+    restic_repo_name="${project_drive_repo_name}"
+    backup_content_path="${project_drive_path}"
+  elif [[ ${drive_work_with} == 'd' ]]
+  then
+    psd_identification_file="${document_drive_psd_identification}"
+    restic_repo_name="${document_drive_repo_name}"
+    backup_content_path="${document_drive_path}"
+  else
+    echo 'Restic: Wrong Input! Enter (p[project]/d[document]) [Which drive do you want to work with?]'
+    exit
+  fi
+
+  exclude_file_parent_folder="${desktop_exclude_base_path}/restic-drive${backup_content_path}"
+  exclude_file_path="${exclude_file_parent_folder}/exclude.txt"
+  restic_exclude_file_exist_check_rsdrive
+
+  psd_drive_letter='NOT-FOUND' # psd = portable-storage-device
+  for alphabet in {a..z}
+  do
+    if [ -f "/${alphabet}/${psd_identification_file}" ]
+    then
+      psd_drive_letter="${alphabet}"
+    fi
+  done
+
+  echo "Portable HDD Drive Letter: ${psd_drive_letter}"
+  if [[ ${psd_drive_letter} == 'NOT-FOUND' ]]
+  then
+    exit
+  fi
+
+  restic_psd_repo_path="/${psd_drive_letter}/${restic_repo_name}"
+  read -p "Current Restic Repository Path is '${restic_psd_repo_path}' (To accept leave empty OR write to change): `echo $'\n> '`" restic_repo_path_confirm
+  if [[ "${restic_repo_path_confirm}" != '' ]]
+  then
+    restic_psd_repo_path="${restic_repo_path_confirm}"
+  fi
+  echo "Working Restic Repository Path: '${restic_psd_repo_path}'"
+
+  operating_system=$(uname -s)
+
+  export RESTIC_REPOSITORY=${restic_psd_repo_path}
+  export RESTIC_PASSWORD=${drive_restic_repo_password}
+
+  if [[ ${work_type} == "init" ]]
+  then
+    restic_init_rsdrive
+  elif [[ ${work_type} == "backup" ]]
+  then  
+    restic_backup_rsdrive  
+  elif [[ ${work_type} == "backup-dry-run" ]]
+  then
+    restic_backup_dry_run_rsdrive  
+  elif [[ ${work_type} == "restore" ]]
+  then
+    restic_restore_rsdrive
+  elif [[ ${work_type} == "snapshots" ]]
+  then
+    restic_snapshots_rsdrive
+  elif [[ ${work_type} == "forget" ]]
+  then
+    restic_forget_rsdrive
+  elif [[ ${work_type} == "prune" ]]
+  then
+    restic_prune_rsdrive
+  elif [[ ${work_type} == "check" ]]
+  then
+    restic_check_rsdrive
+  elif [[ ${work_type} == "cache-clear" ]]
+  then
+    restic_cache_clear_rsdrive
+  elif [[ ${work_type} == "exclude-edit" ]]
+  then
+    restic_exclude_edit_rsdrive
+  fi
+fi
+#----------------------------END-SCRIPT: restic-drive----------------------------
+
+
+#----------------------------START-SCRIPT: sync-restic-repo----------------------------
+function help_rssync() {
+  printf "Usage:\njjkk rssync [command]\n\nAvailabe Commands:\n"
+  rssync_help_txt="  [single-repo-sync]||Synchronize current project's restic repo between local-pc and cloud.\n
+  ||This is Default and Optional to mention.\n
+  all-repo-sync||Synchronize all restic repo between local-pc and cloud that are defined in \"json\" file."
+  printf "${rssync_help_txt}" | column --table --separator "||"
+}
+
+function sync_restic_repo_single_rssync() {
+  restic_repo_pwd_path="$1"
+  restic_repo_path_url="$2"
+  restic_repo_from_password="$3"
+  restic_repo_type="$4" # Restic Repository Type: local/rclone(remote)
+  restic_repo_remote_name="$5"
+  restic_workstation_type="$6" # Workstation Type: desktop-pc/server-pc
+  restic_workstation_name="$7"
+  restic_sync_type="$8" # Synchronization Type: restic-git/restic-only/project
+  restic_sync_to_path="${sync_restic_repo_base_path}/restic-${restic_workstation_name}${restic_repo_pwd_path}"
+  
+  if [[ ${restic_repo_type} == 'rclone' ]]
+  then
+    export RESTIC_REPOSITORY=${restic_sync_to_path}
+    export RESTIC_PASSWORD=${sync_restic_repo_password}
+	restic_repo_from_address="rclone:${restic_repo_remote_name}:restic-${restic_workstation_name}${restic_repo_pwd_path}"
+    #restic_repo_from_address="rest:http://localhost:8080/restic-${restic_workstation_name}${restic_repo_pwd_path}/"
+	
+	if [ ! -f "${restic_sync_to_path}/config" ]
+	then
+	  restic init
+	fi
+	export RESTIC_FROM_REPOSITORY=${restic_repo_from_address}
+	export RESTIC_FROM_PASSWORD=${restic_repo_from_password}
+	restic copy
+	
+	unset RESTIC_REPOSITORY
+	unset RESTIC_PASSWORD
+	unset RESTIC_FROM_REPOSITORY
+	unset RESTIC_FROM_PASSWORD
+  fi
+  
+  #echo "${restic_sync_to_path}"
+  #echo "Restic PWD Path: ${restic_repo_pwd_path}; Restic Repo Path URL: ${restic_repo_path_url}; Restic Repo Password: ${restic_repo_password}; Restic Repo Type: ${restic_repo_type}; Restic Repo Remote Name: ${restic_repo_remote_name}; Restic Workstation Type: ${restic_workstation_type}; Restic Workstation Name: ${restic_workstation_name}; Restic Sync Type: ${restic_sync_type}"
+}
+
+function sync_restic_repo_all_rssync() {
+  sync_repo_todo=$1
+ 
+  if [[ ${sync_repo_todo} == 'all_repo_sync' ]]
+  then
+    read -p "Restic-Remote: Do you want to sync remote-backup for all repository (yes[auto]/no/manual/exit[program]) [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_global_confirm
+  else
+    read -p "Restic-Remote: Do you want to sync remote-backup for single repository (yes[auto]/no) [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_single_confirm
+	if [[ ${restic_single_confirm} == 'yes' ]]
+	then
+	  restic_global_confirm='yes' # yes[auto]
+	elif [[ ${restic_single_confirm} == 'no' ]]
+	then
+	  exit
+	else
+	  echo 'Restic-Remote: Wrong Input! Enter (yes/no) [Do you want to sync remote-backup for single repository?]'
+	  exit
+	fi
+    
+  fi
+  
+  if [[ ${restic_global_confirm} != 'yes' && ${restic_global_confirm} != 'no' && ${restic_global_confirm} != 'manual' && ${restic_global_confirm} != 'exit' ]]
+  then
+    echo 'Restic-Remote: Wrong Input! Enter (yes[auto]/no/manual/exit[program]) [Do you want to sync remote-backup?]'
+	exit
+  elif [[ ${restic_global_confirm} == 'no' ]]
+  then
+    return
+  elif [[ ${restic_global_confirm} == 'exit' ]]
+  then
+    echo 'Restic-Remote: Wrong Input! Enter (yes/no) [Do you want to sync remote-backup?]'
+    exit
+  fi
+
+  restic_repo_remote_list=() # "rclone" remotes
+  declare -A restic_repo_remote_data
+  restic_remote_inc=10000001
+  
+  for restic_repo_key in "${!restic_repo_list[@]}"
+  do
+    if [[ "${sync_repo_todo}" == 'single_repo_sync' && "${restic_repo_key}" != $PWD ]]
+	  then
+	    continue
+	  fi
+  
+    restic_repo_details_array=(${restic_repo_list["${restic_repo_key}"]})
+	  restic_repo_path_url=${restic_repo_details_array[0]}
+    restic_repo_password=${restic_repo_details_array[1]}
+    restic_repo_type=${restic_repo_details_array[2]} # Restic Repository Type: local/rclone(remote)
+    restic_repo_remote_name=${restic_repo_details_array[3]}
+    restic_workstation_type=${restic_repo_details_array[4]} # Workstation Type: desktop-pc/server-pc
+    restic_workstation_name=${restic_repo_details_array[5]}
+    restic_sync_type=${restic_repo_details_array[6]} # Synchronization Type: restic_git/restic_only/git_only
+    operating_system=$(uname -s)
+	
+	  if [[ ${restic_repo_type} == 'local' ]]
+	  then
+	    continue
+	  fi
+	
+    if [[ ${restic_workstation_type} == 'desktop-pc' ]]
+    then
+	    if [[ " ${restic_repo_remote_list[*]} " != *"$restic_repo_remote_name"* ]];
+      then
+	      restic_repo_remote_list+=("${restic_repo_remote_name}")
+        #echo "NO, your arr does not contain $SEARCH_STRING"
+      fi
+	  
+	    restic_repo_remote_data["${restic_repo_remote_name}-${restic_remote_inc}"]="${restic_repo_key}*?${restic_repo_list[${restic_repo_key}]}"
+	    ((restic_remote_inc=restic_remote_inc+1))
+	  
+      #sync_restic_repo_single ${restic_repo_key} ${restic_repo_path_url} ${restic_repo_password} ${restic_repo_type} ${restic_repo_remote_name} ${restic_workstation_type} ${restic_workstation_name} ${restic_sync_type}
+    else
+      continue
+    fi
+  done
+  
+  for restic_cloud_inc in "${!restic_repo_remote_list[@]}"; do 
+    printf "%s\t%s\n" "$restic_cloud_inc" "${restic_repo_remote_list[$restic_cloud_inc]}"
+
+    # Check "rclone" remote exists or not
+    if [[ $(rclone listremotes | grep "${restic_repo_remote_list[$restic_cloud_inc]}:") != "${restic_repo_remote_list[$restic_cloud_inc]}:" ]]
+    then
+      echo -e "\033[41mRclone: ${restic_repo_remote_name} does not exist. Add it using command -- rclone config\033[m"
+      continue
+    fi
+	
+	  if [[ ${restic_global_confirm} == 'manual' ]] # Select "rclone-remote" manually (Both Windows-OS and Linux-OS)
+	  then
+	    read -p "Restic-Remote: Do you want to sync remote-backup from \"${restic_repo_remote_list[$restic_cloud_inc]}\" (yes/no[next]/exit[program]) [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_sync_confirm
+	    if [[ ${restic_sync_confirm} == 'no' ]]
+	    then
+	      continue
+	    elif [[ ${restic_sync_confirm} == 'exit' ]]
+	    then
+	      exit
+	    elif [[ ${restic_sync_confirm} != 'yes' && ${restic_sync_confirm} != 'no' && ${restic_sync_confirm} != 'exit' ]]
+	    then
+	      echo 'Restic-Remote: Wrong Input! Enter (yes/no/exit[program]) [Do you want to sync remote-backup?]'
+	      exit
+	    fi
+	  fi
+	
+#----------------------------START: Auto Open/Close Terminal Window----------------------------	
+	#if [[ $operating_system == 'Linux' && ${restic_global_confirm} != 'manual' ]] # If-Start: 'rclone-serve-restic' block # Linux-OS
+	#then
+      #count_rclone_terminal=$(ps ax | grep "${linux_terminal_name}" | grep -v "grep" | wc -l)
+      #if [[ ${count_rclone_terminal} == 0 ]]
+      #then
+        #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+        #sleep 3
+      #elif [[ ${count_rclone_terminal} == 1 ]]
+      #then
+        #echo 'Action to stop rclone'
+	    #sleep 3
+        #rclone_terminal_pid=$(ps ax | grep "${linux_terminal_name}" | grep -v "grep" | awk '{print $1}')
+        #kill -SIGINT ${rclone_terminal_pid}
+	    #sleep 6
+        #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+        #sleep 3
+      #else
+        #echo "Not Zero/One ${linux_terminal_name} running. Start/Close additional ${linux_terminal_name}"
+      #fi
+
+	  #echo "'rclone-serve-restic' for Linux-OS"   
+	#elif [[ ${restic_global_confirm} == 'manual' ]] # 'rclone-serve-restic' Manual Mode (Both Windows-OS and Linux-OS)
+    #then
+	  #read -p "Restic-Remote: Do you want to sync remote-backup from \"${restic_repo_remote_list[$restic_cloud_inc]}\" (yes/no[next]/exit[program]) [Close any running Rclone-Serve-Restic window] [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_sync_confirm
+		
+      #if [[ $restic_sync_confirm == 'yes' ]] # If-Start: 'restic_sync_confirm'
+	  #then
+	    #curl_http_code=$(curl --write-out '%{http_code}' --silent --output /dev/null http://127.0.0.1:8080)
+	    #if [[ $curl_http_code == '000' ]] # If-Start: 'curl_http_code' # 200=Successful-Request, 400=Bad-Request(Here this response code is received. It is happened for sending non-valid input. But it works), 404=Not-Found
+	    #then
+	      #if [[ $restic_workstation_type == 'desktop-pc' ]] # If-Start: 'workstation_type' # For: desktop-pc
+		  #then
+		    #if [[ $operating_system == 'Linux' ]] #If-Start: 'operating_system' # Desktop-Linux
+		    #then
+		      #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+		    #else # Windows-OS
+		      #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		    #fi #If-End: 'operating_system'
+		  #fi # If-End: 'workstation_type'
+		  #sleep 3 # Wait 3 seconds to work, after "rclone" starts
+	    #fi # If-End: 'curl_http_code'
+	  #elif [[ $restic_sync_confirm == 'no' ]]
+	  #then
+	    #continue
+	  #elif [[ $restic_sync_confirm == 'exit' ]]
+	  #then
+	    #exit
+	  #elif [[ ${restic_sync_confirm} != 'yes' && ${restic_sync_confirm} != 'no' && ${restic_sync_confirm} != 'exit' ]]
+      #then
+        #echo 'Restic-Remote: Wrong Input! Enter (yes/no/exit[program]) [Do you want to sync remote-backup?]'
+	    #exit
+	  #fi # If-End: 'restic_sync_confirm'  
+	#else # 'rclone-serve-restic' for Windows-OS
+	  #count_mintty_running=$(ps | grep '/usr/bin/mintty' | wc -l)
+      #if [[ ${count_mintty_running} == 1 ]]
+      #then
+        #restic_git_mintty_pid=$(ps | grep '/usr/bin/mintty' | awk '{print $1}')
+        #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		#sleep 3
+	  #elif [[ ${count_mintty_running} == 2 ]]
+	  #then
+        #echo 'Action to stop rclone'
+		#sleep 3
+	    #rclone_mintty_pid=$(ps | grep '/usr/bin/mintty' | awk '{print $1}' | grep -v "${restic_git_mintty_pid}")
+		#kill -SIGINT ${rclone_mintty_pid}
+		#sleep 6
+		
+		#start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		#sleep 3
+		
+		# ps | grep '/usr/bin/mintty' | awk '{print $1}' | grep -v "${restic_git_mintty_pid}"
+		#echo "Restic Mintty: ${restic_git_mintty_pid}"
+		#echo "Rclone Mintty: ${rclone_mintty_pid}"
+		#exit
+      #else
+        #echo 'Not One/Two Mintty running. Start/Close additional Mintty'
+      #fi	  
+	#fi # If-End: 'rclone-serve-restic' block
+#--------------------------END: Auto Open/Close Terminal Window--------------------------------	
+	
+	  for restic_remote_key in "${!restic_repo_remote_data[@]}"; do
+	    restic_remote_key_trim=${restic_remote_key%?????????} # Trim last 9 character
+	    if [[ "${restic_remote_key_trim}" == "${restic_repo_remote_list[$restic_cloud_inc]}" ]] 
+	    then
+	      # Prints Repository Details: Project Path (PWD), restic-repository-address(local/remote(N/A)) restic-repository-password repository-type(local/rclone) remote-repository-name(rclone/N/A) workstation-type(desktop-pc/server-pc) workstation-name synchronization-type(restic_git/restic_only/git_only)
+		
+	      #echo ${restic_repo_remote_data[${restic_remote_key}]}
+		    #restic_remote_data_array=(${restic_repo_remote_data[${restic_remote_key}]})
+		
+		    IFS='*?' read -r -a restic_remote_data_split <<< "${restic_repo_remote_data[${restic_remote_key}]}"
+		    unset IFS
+		
+		    current_working_directory="${restic_remote_data_split[0]}"
+		    restic_remote_data_array=(${restic_remote_data_split[2]})
+		
+		    sync_restic_repo_single_rssync "${current_working_directory}" "${restic_remote_data_array[0]}" "${restic_remote_data_array[1]}" "${restic_remote_data_array[2]}" "${restic_remote_data_array[3]}" "${restic_remote_data_array[4]}" "${restic_remote_data_array[5]}" "${restic_remote_data_array[6]}"
+	    fi
+	  done
+  done
+}
+
+if [[ "$1" == "rssync" ]] # Script/Command: "sync-restic-repo"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_rssync
+    exit
+  fi
+
+  if [[ "$2" == 'all-repo-sync' ]]
+  then
+    sync_repo_todo='all_repo_sync'
+  else
+    sync_repo_todo='single_repo_sync'
+  fi
+
+  sync_restic_repo_all_rssync ${sync_repo_todo}
+fi
+#----------------------------END-SCRIPT: sync-restic-repo----------------------------
+
+
+#----------------------------START-SCRIPT: restore-restic-git----------------------------
+function help_rsrestore() {
+  printf "Usage:\njjkk rsrestore
+  There are no additional commands.\n"
+}
+
+function git_clone_single_rsrestore() {
+  git_project_pwd_path="$1"
+  git_project_path="${git_project_pwd_path:3}"
+  git_repo_url="$2"
+  git_repo_remote_name="$3"
+  composer_do_download="$4" # PHP Composer
+  npm_do_download="$5" # Node Package Manager (NPM)
+  git_clone_to_path="${restore_restic_git_base_path}/${git_project_path}"
+  
+  if [ ! -d "${git_clone_to_path}" ]
+  then
+    git clone "${git_repo_url}" "${git_clone_to_path}"
+  else
+    echo "Git: Directory ${git_clone_to_path} already exists. Skipping..."
+  fi
+  
+  #echo "Git Project Path: ${git_project_path}; Git Repo URL: ${git_repo_url}; Composer Download: ${composer_do_download}; NPM Download: ${npm_do_download}; Git Clone To Path: ${git_clone_to_path}"
+}
+
+function restic_restore_single_repo_rsrestore() {
+  restic_repo_pwd_path="$1"
+  restic_restore_to_path="${restic_repo_pwd_path:3}"
+  restic_repo_path_url="$2"
+  restic_repo_password="$3"
+  restic_repo_type="$4" # Restic Repository Type: local/rclone(remote)
+  restic_repo_remote_name="$5"
+  restic_workstation_type="$6" # Workstation Type: desktop-pc/server-pc
+  restic_workstation_name="$7"
+  restic_sync_type="$8" # Synchronization Type: restic_git/restic_only/git_only
+  
+  if [[ ${restic_repo_type} == 'rclone' ]]
+  then
+  restic_repo_address="rclone:${restic_repo_remote_name}:restic-${restic_workstation_name}${restic_repo_pwd_path}"
+  #restic_repo_address="rest:http://localhost:8080/restic-${restic_workstation_name}${restic_repo_pwd_path}/"
+  else
+    restic_repo_address=${restic_repo_path_url}
+  fi
+  
+  export RESTIC_REPOSITORY=${restic_repo_address}
+  export RESTIC_PASSWORD=${restic_repo_password}
+  
+  restic_restore_target_path="${restore_restic_git_base_path}/${restic_restore_to_path}"
+  restic restore latest --target "${restic_restore_target_path}"
+  
+  #echo ${restore_restic_git_base_path}/${restic_restore_to_path}
+  #echo "Restic PWD Path: ${restic_repo_pwd_path}; Restic Repo Path URL: ${restic_repo_path_url}; Restic Repo Password: ${restic_repo_password}; Restic Repo Type: ${restic_repo_type}; Restic Repo Remote Name: ${restic_repo_remote_name}; Restic Workstation Type: ${restic_workstation_type}; Restic Workstation Name: ${restic_workstation_name}; Restic Sync Type: ${restic_sync_type}"
+}
+
+function git_clone_all_rsrestore() {
+  read -p "Git: Do you want to clone all git repository (yes/no/exit[program])? [Clone Path: ${restore_restic_git_base_path}]: `echo $'\n> '`" git_global_confirm
+  if [[ ${git_global_confirm} != 'yes' && ${git_global_confirm} != 'no' && ${git_global_confirm} != 'exit' ]]
+  then
+    echo 'Git: Wrong Input! Enter (yes/no/exit[program]) [Do you want to clone all git repository?]'
+	exit
+  elif [[ ${git_global_confirm} == 'no' ]]
+  then
+    return
+  elif [[ ${git_global_confirm} == 'exit' ]]
+  then
+    exit
+  fi
+  
+  for git_repo_key in "${!git_repo_list[@]}"
+  do
+    git_repo_details_array=(${git_repo_list["${git_repo_key}"]})
+    git_clone_single "${git_repo_key}" "${git_repo_details_array[0]}" "${git_repo_details_array[1]}" "${git_repo_details_array[2]}" "${git_repo_details_array[3]}"
+  done
+}
+
+function restic_restore_remote_all_rsrestore() {
+  read -p "Restic-Remote: Do you want to restore backup (yes[auto]/no/manual/exit[program]) [Restore Path: ${restore_restic_git_base_path}]: `echo $'\n> '`" restic_global_confirm
+  
+  if [[ ${restic_global_confirm} != 'yes' && ${restic_global_confirm} != 'no' && ${restic_global_confirm} != 'manual' && ${restic_global_confirm} != 'exit' ]]
+  then
+    echo 'Restic-Remote: Wrong Input! Enter (yes[auto]/no/manual/exit[program]) [Do you want to restore backup?]'
+	exit
+  elif [[ ${restic_global_confirm} == 'no' ]]
+  then
+    return
+  elif [[ ${restic_global_confirm} == 'exit' ]]
+  then
+    exit
+  fi
+
+  restic_repo_remote_list=() # "rclone" remotes
+  declare -A restic_repo_remote_data
+  restic_remote_inc=10000001
+  
+  for restic_repo_key in "${!restic_repo_list[@]}"
+  do
+    restic_repo_details_array=(${restic_repo_list["${restic_repo_key}"]})
+	  restic_repo_path_url=${restic_repo_details_array[0]}
+    restic_repo_password=${restic_repo_details_array[1]}
+    restic_repo_type=${restic_repo_details_array[2]} # Restic Repository Type: local/rclone(remote)
+    restic_repo_remote_name=${restic_repo_details_array[3]}
+    restic_workstation_type=${restic_repo_details_array[4]} # Workstation Type: desktop-pc/server-pc
+    restic_workstation_name=${restic_repo_details_array[5]}
+    restic_sync_type=${restic_repo_details_array[6]} # Synchronization Type: restic_git/restic_only/git_only
+    operating_system=$(uname -s)
+	
+	  if [[ ${restic_repo_type} == 'local' ]]
+	  then
+	    continue
+	  fi
+	
+    if [[ ${restic_workstation_type} == 'desktop-pc' && ${restic_sync_type} == 'restic_git' ]]
+    then
+	    if [[ " ${restic_repo_remote_list[*]} " != *"$restic_repo_remote_name"* ]];
+      then
+	      restic_repo_remote_list+=("${restic_repo_remote_name}")
+        #echo "NO, your arr does not contain $SEARCH_STRING"
+      fi
+	  
+	    restic_repo_remote_data["${restic_repo_remote_name}-${restic_remote_inc}"]="${restic_repo_key}*?${restic_repo_list[${restic_repo_key}]}"
+	    ((restic_remote_inc=restic_remote_inc+1))
+	
+      #restic_restore_single_repo ${restic_repo_key} ${restic_repo_path_url} ${restic_repo_password} ${restic_repo_type} ${restic_repo_remote_name} ${restic_workstation_type} ${restic_workstation_name} ${restic_sync_type}
+    else
+      continue
+    fi
+  done
+  
+  for restic_cloud_inc in "${!restic_repo_remote_list[@]}"; do 
+    printf "%s\t%s\n" "$restic_cloud_inc" "${restic_repo_remote_list[$restic_cloud_inc]}"
+
+    # Check "rclone" remote exists or not
+    if [[ $(rclone listremotes | grep "${restic_repo_remote_list[$restic_cloud_inc]}:") != "${restic_repo_remote_list[$restic_cloud_inc]}:" ]]
+    then
+      echo -e "\033[41mRclone: ${restic_repo_remote_name} does not exist. Add it using command -- rclone config\033[m"
+      continue
+    fi
+	
+	  if [[ ${restic_global_confirm} == 'manual' ]] # Select "rclone-remote" manually (Both Windows-OS and Linux-OS)
+	  then
+	    read -p "Restic-Remote: Do you want to restore backup from \"${restic_repo_remote_list[$restic_cloud_inc]}\" (yes/no[next]/exit[program]) [Restore Path: ${restore_restic_git_base_path}]: `echo $'\n> '`" restic_restore_confirm
+	    if [[ ${restic_restore_confirm} == 'no' ]]
+	    then
+	      continue
+	    elif [[ ${restic_restore_confirm} == 'exit' ]]
+	    then
+	      exit
+	    elif [[ ${restic_restore_confirm} != 'yes' && ${restic_restore_confirm} != 'no' && ${restic_restore_confirm} != 'exit' ]]
+	    then
+	      echo 'Restic-Remote: Wrong Input! Enter (yes/no/exit[program]) [Do you want to restore backup?]'
+		    exit
+	    fi
+	  fi
+	
+#----------------------------START: Auto Open/Close Terminal Window----------------------------	
+    # Description: Open new terminal window to run command "rclone serve restic". An easy alternative is implemented above.
+
+	#if [[ $operating_system == 'Linux' && ${restic_global_confirm} != 'manual' ]] # If-Start: 'rclone-serve-restic' block # Linux-OS
+	#then
+      #count_rclone_terminal=$(ps ax | grep "${linux_terminal_name}" | grep -v "grep" | wc -l)
+      #if [[ ${count_rclone_terminal} == 0 ]]
+      #then
+        #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+        #sleep 3
+      #elif [[ ${count_rclone_terminal} == 1 ]]
+      #then
+        #echo 'Action to stop rclone'
+	    #sleep 3
+        #rclone_terminal_pid=$(ps ax | grep "${linux_terminal_name}" | grep -v "grep" | awk '{print $1}')
+        #kill -SIGINT ${rclone_terminal_pid}
+	    #sleep 6
+        #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+        #sleep 3
+      #else
+        #echo "Not Zero/One ${linux_terminal_name} running. Start/Close additional ${linux_terminal_name}"
+      #fi
+
+	  #echo "'rclone-serve-restic' for Linux-OS"   
+	#elif [[ ${restic_global_confirm} == 'manual' ]] # 'rclone-serve-restic' Manual Mode (Both Windows-OS and Linux-OS)
+    #then
+	  #read -p "Restic-Remote: Do you want to restore backup from \"${restic_repo_remote_list[$restic_cloud_inc]}\" (yes/no[next]/exit[program]) [Close any running Rclone-Serve-Restic window] [Restore Path: ${restore_restic_git_base_path}]: `echo $'\n> '`" restic_restore_confirm
+		
+      #if [[ $restic_restore_confirm == 'yes' ]] # If-Start: 'restic_restore_confirm'
+	  #then
+	    #curl_http_code=$(curl --write-out '%{http_code}' --silent --output /dev/null http://127.0.0.1:8080)
+	    #if [[ $curl_http_code == '000' ]] # If-Start: 'curl_http_code' # 200=Successful-Request, 400=Bad-Request(Here this response code is received. It is happened for sending non-valid input. But it works), 404=Not-Found
+	    #then
+	      #if [[ $restic_workstation_type == 'desktop-pc' ]] # If-Start: 'workstation_type' # For: desktop-pc
+		  #then
+		    #if [[ $operating_system == 'Linux' ]] #If-Start: 'operating_system' # Desktop-Linux
+		    #then
+		      #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+		    #else # Windows-OS
+		      #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		    #fi #If-End: 'operating_system'
+		  #fi # If-End: 'workstation_type'
+		  #sleep 3 # Wait 3 seconds to work, after "rclone" starts
+	    #fi # If-End: 'curl_http_code'
+	  #elif [[ $restic_restore_confirm == 'no' ]]
+	  #then
+	    #continue
+	  #elif [[ $restic_restore_confirm == 'exit' ]]
+	  #then
+	    #exit
+	  #elif [[ ${restic_restore_confirm} != 'yes' && ${restic_restore_confirm} != 'no' && ${restic_restore_confirm} != 'exit' ]]
+      #then
+        #echo 'Restic-Remote: Wrong Input! Enter (yes/no/exit[program]) [Do you want to restore backup?]'
+	    #exit
+	  #fi # If-End: 'restic_restore_confirm'  
+	#else # 'rclone-serve-restic' for Windows-OS
+	  #count_mintty_running=$(ps | grep '/usr/bin/mintty' | wc -l)
+      #if [[ ${count_mintty_running} == 1 ]]
+      #then
+        #restic_git_mintty_pid=$(ps | grep '/usr/bin/mintty' | awk '{print $1}')
+        #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		#sleep 3
+	  #elif [[ ${count_mintty_running} == 2 ]]
+	  #then
+        #echo 'Action to stop rclone'
+		#sleep 3
+	    #rclone_mintty_pid=$(ps | grep '/usr/bin/mintty' | awk '{print $1}' | grep -v "${restic_git_mintty_pid}")
+		#kill -SIGINT ${rclone_mintty_pid}
+		#sleep 6
+		
+		#start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		#sleep 3
+		
+		# ps | grep '/usr/bin/mintty' | awk '{print $1}' | grep -v "${restic_git_mintty_pid}"
+		#echo "Restic Mintty: ${restic_git_mintty_pid}"
+		#echo "Rclone Mintty: ${rclone_mintty_pid}"
+		#exit
+      #else
+        #echo 'Not One/Two Mintty running. Start/Close additional Mintty'
+      #fi	  
+	#fi # If-End: 'rclone-serve-restic' block
+#--------------------------END: Auto Open/Close Terminal Window--------------------------------	
+	
+	for restic_remote_key in "${!restic_repo_remote_data[@]}"; do
+	  restic_remote_key_trim=${restic_remote_key%?????????} # Trim last 9 character
+	  if [[ "${restic_remote_key_trim}" == "${restic_repo_remote_list[$restic_cloud_inc]}" ]] 
+	  then
+	    # Prints Repository Details: Project Path (PWD), restic-repository-address(local/remote(N/A)) restic-repository-password repository-type(local/rclone) remote-repository-name(rclone/N/A) workstation-type(desktop-pc/server-pc) workstation-name synchronization-type(restic-git/restic-only/project)
+		
+	    #echo ${restic_repo_remote_data[${restic_remote_key}]}
+		  #restic_remote_data_array=(${restic_repo_remote_data[${restic_remote_key}]})
+
+      IFS='*?' read -r -a restic_remote_data_split <<< "${restic_repo_remote_data[${restic_remote_key}]}"
+		  unset IFS
+
+      current_working_directory="${restic_remote_data_split[0]}"
+		  restic_remote_data_array=(${restic_remote_data_split[2]})
+		
+		  restic_restore_single_repo "${current_working_directory}" "${restic_remote_data_array[0]}" "${restic_remote_data_array[1]}" "${restic_remote_data_array[2]}" "${restic_remote_data_array[3]}" "${restic_remote_data_array[4]}" "${restic_remote_data_array[5]}" "${restic_remote_data_array[6]}"
+	    fi
+	  done
+  done
+}
+
+function restic_restore_local_all_rsrestore() {
+  read -p "Restic-Local: Do you want to restore backup from local repository (yes/no/exit[program]) [Restore Path: ${restore_restic_git_base_path}]: `echo $'\n> '`" restic_restore_confirm
+  
+  if [[ ${restic_restore_confirm} != 'yes' && ${restic_restore_confirm} != 'no' && ${restic_restore_confirm} != 'exit' ]]
+  then
+    echo 'Restic-Local: Wrong Input! Enter (yes/no/exit[program]) [Do you want to restore backup from local repository?]'
+	  exit
+  elif [[ ${restic_restore_confirm} == 'no' ]]
+  then
+    return
+  elif [[ ${restic_restore_confirm} == 'exit' ]]
+  then
+    exit
+  fi
+  
+  for restic_repo_key in "${!restic_repo_list[@]}"
+  do
+    restic_repo_details_array=(${restic_repo_list[$restic_repo_key]})
+	  restic_repo_path_url=${restic_repo_details_array[0]}
+    restic_repo_password=${restic_repo_details_array[1]}
+    restic_repo_type=${restic_repo_details_array[2]} # Restic Repository Type: local/rclone(remote)
+    restic_repo_remote_name=${restic_repo_details_array[3]}
+    restic_workstation_type=${restic_repo_details_array[4]} # Workstation Type: desktop-pc/server-pc
+    restic_workstation_name=${restic_repo_details_array[5]}
+    restic_sync_type=${restic_repo_details_array[6]} # Synchronization Type: restic_git/restic_only/git_only
+    operating_system=$(uname -s)
+	
+	  if [[ ${restic_repo_type} == 'rclone' ]]
+	  then
+	    continue
+	  fi
+	
+	  if [[ ${restic_workstation_type} == 'desktop-pc' && ${restic_sync_type} == 'restic_git' ]]
+	  then
+	    restic_restore_single_repo ${restic_repo_key} ${restic_repo_path_url} ${restic_repo_password} ${restic_repo_type} ${restic_repo_remote_name} ${restic_workstation_type} ${restic_workstation_name} ${restic_sync_type}
+	  fi
+  done
+}
+
+if [[ "$1" == "rsrestore" ]] # Script/Command: "restore-restic-git"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_rsrestore
+    exit
+  fi
+
+  git_clone_all_rsrestore
+  restic_restore_remote_all_rsrestore
+  restic_restore_local_all_rsrestore
+fi
+#----------------------------END-SCRIPT: restore-restic-git----------------------------
+
+
+#----------------------------START-SCRIPT: gist----------------------------
+function help_ghgist() {
+  printf "Usage:\njjkk gist [command]\n\nAvailabe Commands:\n"
+  ghgist_help_txt="  --create||Create GitHub Gist.\n
+  [description][#tag-1][#tag-2][#tag-3]||List gist using file description, #tag-1, #tag-2, #tag-3.\n
+  ||Then select a gist to edit or delete it."
+  printf "${ghgist_help_txt}" | column --table --separator "||"
+}
+
+function gist_create_ghgist() {
+  gist_create_command="gh gist create"
+  read -p "Enter new gist title(description) (Enter 'exit' to close program): `echo $'\n> '`" entered_gist_description
+  if [[ "${entered_gist_description}" == '' ]]
+  then
+    echo "Gist title(description) can not be empty!"
+	exit
+  elif [[ "${entered_gist_description}" == 'exit' ]]
+  then
+    exit
+  else
+    for ((i=1; i<=${max_gist_create}; i++))
+	  do
+	    read -p "${i}) Choose gist create action (y[es]/n[o]/exit): `echo $'\n> '`" choose_create_action
+	    if [[ "${choose_create_action}" == 'y' ]]
+	    then
+	      read -p "${i}) Enter new file name: `echo $'\n> '`" entered_file_name
+		    if [[ "${entered_file_name}" == '' ]]
+	      then
+	        echo "Gist-Create: File name can not be empty!"
+		      continue
+		    fi
+		    eval touch "'${gist_temporary_folder}/${entered_file_name}'"
+		    eval ${editor_open_command}"'${gist_temporary_folder}/${entered_file_name}'"
+		    gist_create_command+=" '${gist_temporary_folder}/${entered_file_name}'"
+		    continue
+	    elif [[ "${choose_create_action}" == 'exit' ]]
+	    then
+	      exit
+	    elif [[ "${choose_create_action}" == 'n' ]]
+	    then
+	      echo "Gist-Create: Creating Gist..."
+		  break
+	    else
+	      echo "Wrong input! Enter file name to create ('y[es]/n[o]/exit')"
+	    fi
+	  done
+  fi
+  
+  gist_create_command+=" --desc '${entered_gist_description}'"
+  eval "${gist_create_command}"
+  
+  #echo "'${gist_create_command}'"
+  #echo "echo from gist-create"
+}
+
+function gist_view_ghgist() {
+  selected_gist_id="$1"
+  gist_file_list=$(gh gist view "${selected_gist_id}" --files)
+  
+  IFS=$'\n' read -d '' -r -a gist_file_array <<<"$gist_file_list"
+  unset IFS 
+  for ((i = 0; i < ${#gist_file_array[@]}; i++))
+  do
+    echo "$i) ${gist_file_array[$i]}"
+  done
+  
+  read -p "Enter file number you want to view (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  if [[ ${entered_file_number} == 'exit' ]]
+  then
+    exit
+  fi
+  selected_file_view="${gist_file_array[$entered_file_number]}"
+  if [[ ${selected_file_view} == '' ]]
+  then
+    echo "Wrong file number is entered!"
+	exit
+  fi
+  gh gist view "${selected_gist_id}" --filename "${selected_file_view}">"${gist_temporary_file}"
+  ${editor_open_command}"${gist_temporary_file}"
+  #echo "echo from gist-view"
+}
+
+function gist_edit_ghgist() {
+  selected_gist_id="$1"
+  read -p "Enter gist edit type (a[dd-file]/e[dit-file]/t[itle-description]): `echo $'\n> '`" entered_edit_type
+  if [[ "${entered_edit_type}" == 'a' ]] # a[dd-file]
+  then
+    read -p "Enter new file name: `echo $'\n> '`" entered_new_file_name
+	  if [[ "${entered_new_file_name}" == '' ]]
+	  then
+	    echo "New file name can not be empty!"
+	  else
+	    gist_edit_new_file="${gist_temporary_folder}/${entered_new_file_name}"
+	    if [ ! -f "${gist_edit_new_file}" ]
+	    then
+	      touch "${gist_edit_new_file}"
+	    fi
+	    echo ''>"${gist_edit_new_file}"
+	    eval ${editor_open_command}"'${gist_edit_new_file}'"
+	    read -p "New file is opened in editor, write there. Do you want to save changes (y[es]/exit)? `echo $'\n> '`" confirm_save_changes
+	    if [[ "${confirm_save_changes}" == 'y' ]] # y[es]
+	    then
+	      eval ${is_winpty}gh gist edit "${selected_gist_id}" --add "'${gist_edit_new_file}'"
+		    #rm "${gist_edit_new_file}"
+		    echo "Gist-Edit: File added successfully."
+	    else
+	      exit
+	    fi
+	  fi
+  elif [[ "${entered_edit_type}" == 'e' ]] # e[dit-file]
+  then
+    ${is_winpty}gh gist edit "${selected_gist_id}"
+#-----------------------------START: Edit using file number-----------------------------  
+    #gist_file_list=$(gh gist view "${selected_gist_id}" --files)
+  
+    #IFS=$'\n' read -d '' -r -a gist_file_array <<<"$gist_file_list"
+    #unset IFS 
+    #for ((i = 0; i < ${#gist_file_array[@]}; i++))
+    #do
+      #echo "$i) ${gist_file_array[$i]}"
+    #done
+  
+    #read -p "Enter file number you want to view (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+    #if [[ ${entered_file_number} == 'exit' ]]
+    #then
+      #exit
+    #fi
+    #selected_file_edit="${gist_file_array[$entered_file_number]}"
+    #if [[ ${selected_file_edit} == '' ]]
+    #then
+      #echo "Wrong file number is entered!"
+	  #exit
+    #fi
+	#${is_winpty}gh gist edit "${selected_gist_id}" --filename "${selected_file_edit}"
+#-----------------------------END: Edit using file number-----------------------------
+	  echo "Gist-Edit: File edited successfully."
+  elif [[ "${entered_edit_type}" == 't' ]] # t[itle-description]
+  then
+    read -p "Enter new gist description (with '#tag'): `echo $'\n> '`" entered_new_description
+    if [[ "${entered_new_description}" == '' ]]
+    then
+      echo "Gist description can not be empty!"
+    else
+	    eval ${is_winpty}gh gist edit "${selected_gist_id}" --desc "'${entered_new_description}'"
+	    echo "Gist-Edit: Title(Description) edited successfully."
+    fi
+  else
+    echo "Wrong input! Enter gist edit type (add[file]/edit[file]/description)"
+  fi
+  
+  #echo "echo from gist-edit"
+}
+
+function gist_delete_ghgist() {
+  selected_gist_id="$1"
+  selected_gist_description="$2"
+  read -p "Do you want to delete gist '${selected_gist_description}' (yes-delete-this-gist-entirely/no)? `echo $'\n> '`" confirm_gist_delete
+  if [[ "${confirm_gist_delete}" == 'yes-delete-this-gist-entirely' ]]
+  then
+    gh gist delete "${selected_gist_id}"
+  else
+    echo "You have rejected to delete gist." 
+  fi
+  echo "Deleted Gist: ${selected_gist_description}"
+  #echo "echo from gist-delete"
+}
+
+function gist_list_ghgist() {
+  echo "echo from gist-list"
+}
+
+if [[ "$1" == "gist" ]] # Script/Command: "gist"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_ghgist
+    exit
+  fi
+
+  operating_system=$(uname -s)
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    is_winpty=""
+    editor_open_command="${linux_editor} "
+  else
+    is_winpty="winpty " # Git-Bash(mintty.exe) does not support "user-prompt", use "winpty"
+    editor_open_command="start ${windows_editor} "
+  fi
+  if [ ! -d "${gist_temporary_folder}" ]
+  then
+    mkdir -p "${gist_temporary_folder}"
+    touch "${gist_temporary_file}"
+  fi
+  eval rm "${gist_temporary_folder}/*"
+  if [ ! -f "${gist_temporary_file}" ]
+  then
+    touch "${gist_temporary_file}"
+  fi
+
+  if [[ "$2" == "--create" ]]
+  then
+    gist_create_ghgist
+  else
+    description_text="$2" # "gist-description", leave "" (empty) to search only using tag
+    tag_one="$3" # Enter tag name like "#tag-one" "#tag-two" "#tag-three"
+    tag_two="$4"
+    tag_three="$5"  
+    get_gist_list=$(gh gist list --limit ${gist_list_limit} | grep -i "${tag_one}" | grep -i "${tag_two}" | grep -i "${tag_three}" | grep -i "${description_text}")
+  
+    IFS=$'\n' read -d '' -r -a gist_list_array <<<"$get_gist_list"
+    unset IFS 
+    for ((i = 0; i < ${#gist_list_array[@]}; i++))
+    do
+      echo "$i) ${gist_list_array[$i]}"
+    done
+  
+    read -p "Enter gist number you want to work with (Enter 'exit' to close program): `echo $'\n> '`" entered_gist_number
+    if [[ ${entered_gist_number} == 'exit' ]]
+    then
+      exit
+    fi
+    choose_gist_record=${gist_list_array[$entered_gist_number]}
+    if [[ ${choose_gist_record} == '' ]]
+    then
+      echo "Wrong gist number is entered!"
+	    exit
+    fi
+  
+    IFS=" " #It is separator of string. Press keyboard "Tab" character inside double quotation
+    set ${choose_gist_record}   #Set string for IFS
+    selected_gist_id="$1"
+    selected_gist_description="$2"
+    selected_gist_file_count="$3"
+    selected_gist_type="$4"  # Gist type: secret/public
+    echo ${choose_gist_record}
+    unset IFS
+
+    read -p "What to do with selected gist (v[iew]/e[dit]/d[elete]/b[rowser-open]/exit)? `echo $'\n> '`" work_type
+    if [[ ${work_type} == 'v' ]] # v[iew]
+    then
+      gist_view_ghgist "${selected_gist_id}"
+    elif [[ ${work_type} == 'e' ]] # e[dit]
+    then
+      gist_edit_ghgist "${selected_gist_id}"
+    elif [[ ${work_type} == 'd' ]] # d[elete]
+    then
+      gist_delete_ghgist "${selected_gist_id}" "${selected_gist_description}"
+    elif [[ ${work_type} == 'b' ]] # b[rowser-open]
+    then
+      gh gist view "${selected_gist_id}" --web
+    elif [[ ${work_type} == 'exit' ]]
+    then
+      exit
+    else
+      echo "Invalid option selected! Enter option - view/edit/delete/exit"
+    fi
+  
+    #echo "Gist-ID: ${selected_gist_id}; Gist-Description: ${selected_gist_description}; Gist-File-Count: ${selected_gist_file_count}; Gist-Type: ${selected_gist_type}"
+  fi
+
+fi
+#----------------------------END-SCRIPT: gist----------------------------
+
+
+#----------------------------START-SCRIPT: pnote----------------------------
+function help_pjnote() {
+  printf "Usage:\njjkk note [command]\n\nAvailabe Commands:\n"
+  pjnote_help_txt="  create||Create new note.\n
+  open||Open existing note.\n
+  rename||Rename existing note.\n
+  delete||Delete existing note.\n
+  about||Open about.md file. If does not exist, then create.\n
+  todo||Open todo.md file. If does not exist, then create.\n
+  bug||Open bug.md file. If does not exist, then create.\n
+  guide||Open guide.md file. If does not exist, then create.\n
+  document||Open document.md file. If does not exist, then create.\n
+  password||Open password.md file. If does not exist, then create.\n
+  status||Shows changed files using 'git status'.\n
+  commit||Git commit changed files using 'git commit'.\n
+  push||Push git commits using 'git push'.\n
+  fetch||Fetch git commits from remote git repo using 'git fetch'.\n
+  pull||Fetch and Merge git commits from remote git repo using 'git pull'.\n
+  mkdocs-serve||MKDocs serve project markdown files."
+  printf "${pjnote_help_txt}" | column --table --separator "||"
+}
+
+function create_pjnote() {
+  read -p "Enter name for new file with file-extension: `echo $'\n> '`" entered_file_name
+  if [[ "${entered_file_name}" == '' ]]
+  then
+    echo "File name can not be empty!"
+  else
+    touch "${note_parent_folder}/${entered_file_name}"
+	echo "Created file: '${note_parent_folder}/${entered_file_name}'"
+  fi
+}
+
+function open_pjnote() {
+  cd "${note_parent_folder}"
+  
+  file_list_array=( * ) # Shell glob-pattern
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    echo "$i) ${file_list_array[$i]}"
+  done
+  
+  selected_file_number='invalid'
+  read -p "Enter file number you want to open (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    if [[ "${entered_file_number}" == 'exit' ]]
+	then
+	  exit
+	fi
+  
+  if [[ "${entered_file_number}" == "$i" ]]
+	then
+	  selected_file_number="${entered_file_number}"
+	fi
+    #echo "$i) ${file_list_array[$i]}"
+  done
+  
+  if [[ "${selected_file_number}" == 'invalid' ]]
+  then
+    echo "You entered wrong file number!"
+  else
+    echo "Opened file: '${note_parent_folder}/${file_list_array[$selected_file_number]}'"
+    ${editor_open_command}"${note_parent_folder}/${file_list_array[$selected_file_number]}"
+  fi
+  
+  #echo "File Number Selected: ${selected_file_number}"
+}
+
+function rename_pjnote() {
+  cd "${note_parent_folder}"
+  
+  file_list_array=( * )
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    echo "$i) ${file_list_array[$i]}"
+  done
+  
+  selected_file_number='invalid'
+  read -p "Enter file number you want to rename (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    if [[ "${entered_file_number}" == 'exit' ]]
+	  then
+	    exit
+	  fi
+  
+    if [[ "${entered_file_number}" == "$i" ]]
+	  then
+	    selected_file_number="${entered_file_number}"
+	  fi
+    #echo "$i) ${file_list_array[$i]}"
+  done
+  
+  if [[ "${selected_file_number}" == 'invalid' ]]
+  then
+    echo "You entered wrong file number!"
+  else
+    read -p "Enter new name for file '${file_list_array[$selected_file_number]}' with file-extension: `echo $'\n> '`" entered_new_file_name
+	  if [[ "${entered_new_file_name}" == '' ]]
+	  then
+	    echo "File name can not be empty!"
+	  else
+	    mv "${note_parent_folder}/${file_list_array[$selected_file_number]}" "${note_parent_folder}/${entered_new_file_name}"
+	    echo "Renamed file to: '${note_parent_folder}/${entered_new_file_name}'"
+	  fi 
+  fi
+  
+  #echo "File Number Selected: ${selected_file_number}"
+}
+
+function delete_pjnote() {
+  cd "${note_parent_folder}"
+  
+  file_list_array=( * )
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    echo "$i) ${file_list_array[$i]}"
+  done
+  
+  selected_file_number='invalid'
+  read -p "Enter file number you want to delete (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    if [[ "${entered_file_number}" == 'exit' ]]
+	  then
+	    exit
+	  fi
+  
+    if [[ "${entered_file_number}" == "$i" ]]
+	  then
+	    selected_file_number="${entered_file_number}"
+	  fi
+    #echo "$i) ${file_list_array[$i]}"
+  done
+  
+  if [[ "${selected_file_number}" == 'invalid' ]]
+  then
+    echo "You entered wrong file number!"
+  else
+    read -p "Do you want to delete file '${file_list_array[$selected_file_number]}' (yes/no)? `echo $'\n> '`" delete_confirmation
+	  if [[ "${delete_confirmation}" == 'yes' ]]
+	  then
+	    rm "${note_parent_folder}/${file_list_array[$selected_file_number]}"
+	    echo "Deleted file: '${note_parent_folder}/${file_list_array[$selected_file_number]}'"
+	  else
+	    echo "You have rejected to delete file."
+	  fi
+  fi
+  
+  #echo "File Number Selected: ${selected_file_number}"
+}
+
+function about_file_pjnote() {
+  about_file_path="${note_parent_folder}/about.md"
+  if [ ! -f "${about_file_path}" ]
+  then
+    touch "${about_file_path}"
+	  echo "Created about file: '${about_file_path}'"
+  fi
+  
+  echo "Opened file: '${about_file_path}'"
+  ${editor_open_command}"${about_file_path}"
+  #echo 'echo from note-about'
+}
+
+function todo_file_pjnote() {
+  todo_file_path="${note_parent_folder}/todo.md"
+  if [ ! -f "${todo_file_path}" ]
+  then
+    touch "${todo_file_path}"
+	  echo "Created todo file: '${todo_file_path}'"
+  fi
+  
+  echo "Opened file: '${todo_file_path}'"
+  ${editor_open_command}"${todo_file_path}"
+  #echo 'echo from note-todo'
+}
+
+function bug_file_pjnote() {
+  bug_file_path="${note_parent_folder}/bug.md"
+  if [ ! -f "${bug_file_path}" ]
+  then
+    touch "${bug_file_path}"
+	  echo "Created bug file: '${bug_file_path}'"
+  fi
+  
+  echo "Opened file: '${bug_file_path}'"
+  ${editor_open_command}"${bug_file_path}"
+  #echo 'echo from note-bug'
+}
+
+function guide_file_pjnote() {
+  guide_file_path="${note_parent_folder}/guide.md"
+  if [ ! -f "${guide_file_path}" ]
+  then
+    touch "${guide_file_path}"
+	  echo "Created guide file: '${guide_file_path}'"
+  fi
+  
+  echo "Opened file: '${guide_file_path}'"
+  ${editor_open_command}"${guide_file_path}"
+  #echo 'echo from note-guide'
+}
+
+function document_file_pjnote() {
+  document_file_path="${note_parent_folder}/document.md"
+  if [ ! -f "${document_file_path}" ]
+  then
+    touch "${document_file_path}"
+	  echo "Created document file: '${document_file_path}'"
+  fi
+  
+  echo "Opened file: '${document_file_path}'"
+  ${editor_open_command}"${document_file_path}"
+  #echo 'echo from note-document'
+}
+
+function password_file_pjnote() {
+  password_file_path="${note_parent_folder}/password.md"
+  if [ ! -f "${password_file_path}" ]
+  then
+    touch "${password_file_path}"
+	  echo "Created password file: '${password_file_path}'"
+  fi
+  
+  echo "Opened file: '${password_file_path}'"
+  ${editor_open_command}"${password_file_path}"
+  #echo 'echo from note-password'
+}
+
+function git_status_pjnote() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	  git status
+  fi
+
+  #echo 'echo from git-status'
+}
+
+function git_commit_pjnote() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+    if [[ "${git_commit_message}" == '' ]]
+	  then
+	    echo "Git: Commit message is empty. Can not commit!"
+	    exit
+	  fi
+	  git add .
+	  git commit -m "${git_commit_message}"
+  fi
+
+  #echo 'echo from git-commit'
+}
+
+function git_push_pjnote() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	  git push
+  fi
+
+  #echo 'echo from git-push'
+}
+
+function git_fetch_pjnote() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	  git fetch
+  fi
+
+  #echo 'echo from git-fetch'
+}
+
+function git_pull_pjnote() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	  git pull
+  fi
+
+  #echo 'echo from git-pull'
+}
+
+function mkdocs_serve_pjnote() {
+  printf "site_name: PNote\ndocs_dir: ${note_base_path}${PWD}" > "${repository_list_file_path}/mkdocs.yml"
+  cd "${repository_list_file_path}"
+  mkdocs serve
+}
+
+if [[ "$1" == "note" ]] # Script/Command: pnote
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_pjnote
+    exit
+  fi
+
+  note_path_id=${note_repo_list[$PWD]}
+  if [[ "${note_path_id}" == '' ]]
+  then
+    echo 'Note: No entry for current directory in note(restic+git) repository list!'
+    exit
+  fi
+
+  note_base_path=$(cat "${repository_list_file_path}/repository-list.json" | jq -r ".repo_config | .note_base_path_collection | .[${note_path_id}] | .note_base_path")
+  if [[ "${note_base_path}" == "null" ]]
+  then
+    echo "Note Base Path Not Found!"
+    exit
+  fi
+  
+  operating_system=$(uname -s)
+  note_parent_folder="${note_base_path}${PWD}"
+  if [ ! -d "${note_parent_folder}" ]
+  then
+    mkdir -p "${note_parent_folder}"
+    echo "Created folder: ${note_parent_folder}"
+  fi
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    editor_open_command="${linux_editor} "
+  else
+    editor_open_command="start ${windows_editor} "
+  fi
+
+  work_type="$2"
+  git_commit_message="$3"
+
+  if [[ ${work_type} == 'create' ]]
+  then
+    create_pjnote
+  elif [[ ${work_type} == 'open' ]]
+  then
+    open_pjnote
+  elif [[ ${work_type} == 'rename' ]]
+  then
+    rename_pjnote
+  elif [[ ${work_type} == 'delete' ]]
+  then
+    delete_pjnote
+  elif [[ ${work_type} == 'about' ]]
+  then
+    about_file_pjnote
+  elif [[ ${work_type} == 'todo' ]]
+  then
+    todo_file_pjnote
+  elif [[ ${work_type} == 'bug' ]]
+  then
+    bug_file_pjnote
+  elif [[ ${work_type} == 'guide' ]]
+  then
+    guide_file_pjnote
+  elif [[ ${work_type} == 'document' ]]
+  then
+    document_file_pjnote
+  elif [[ ${work_type} == 'password' ]]
+  then
+    password_file_pjnote
+  elif [[ ${work_type} == 'status' ]]
+  then
+    git_status_pjnote  
+  elif [[ ${work_type} == 'commit' ]]
+  then
+    git_commit_pjnote
+  elif [[ ${work_type} == 'push' ]]
+  then
+    git_push_pjnote
+  elif [[ ${work_type} == 'fetch' ]]
+  then
+    git_fetch_pjnote
+  elif [[ ${work_type} == 'pull' ]]
+  then
+    git_pull_pjnote
+  elif [[ ${work_type} == 'mkdocs-serve' ]]
+  then
+    mkdocs_serve_pjnote
+  fi
+fi
+#----------------------------END-SCRIPT: pnote----------------------------
+
+
+#----------------------------START-SCRIPT: db-sync----------------------------
+function help_dbsync() {
+  printf "Usage:\njjkk dbsync (development-env) [command]
+  (development-env): xampp/docker/vagrant development environment.\n\nAvailabe Commands:\n"
+  dbsync_help_txt="  backup||Backup database to local-pc and cloud.\n
+  ||Create database archive if enabled in json file.\n
+  restore||Restore database.\n
+  fetch||Fetch database from cloud to local-pc."
+  printf "${dbsync_help_txt}" | column --table --separator "||"
+}
+
+function db_backup_dbsync() {
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+    git_commit_id=$(git rev-parse --short HEAD)
+	  git_commit_id="_${git_commit_id}"
+  else
+    git_commit_id=''
+  fi
+
+  db_backup_folder="${db_sync_local_base_path}${PWD}"
+  db_file_backup="${current_date_time}_${database_name}${git_commit_id}.sql"
+  if [ ! -d "${db_backup_folder}" ]
+  then
+    mkdir -p "${db_backup_folder}"
+  fi
+  
+  eval rm "${db_backup_folder}/*"
+
+  if [[ "${enable_db_archive}" == "yes" ]]
+  then
+    db_archive_folder="${db_archive_base_path}${PWD}"
+    if [ ! -d "${db_archive_folder}" ]
+    then
+      mkdir -p "${db_archive_folder}"
+    fi
+  fi
+
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    ${mysqldump_path} --routines -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} > "${db_backup_folder}/${db_file_backup}"
+    if [[ "${enable_db_archive}" == "yes" ]]
+    then
+      ${mysqldump_path} --routines -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} | gzip > "${db_archive_folder}/${db_file_backup}.gz"
+    fi
+
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    read -p "Enter MySQL/MariaDB Container Name: `echo $'\n> '`" mysql_container
+    sudo docker exec -it ${mysql_container} sh -c "${mysqldump_path} --routines -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} > \"/home/${db_file_backup}\""
+    sudo docker cp ${mysql_container}:"/home/${db_file_backup}" "${db_backup_folder}/${db_file_backup}"
+    if [[ "${enable_db_archive}" == "yes" ]]
+    then
+      sudo docker exec -it ${mysql_container} sh -c "${mysqldump_path} --routines -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} | gzip > \"/home/${db_file_backup}.gz\""
+      sudo docker cp ${mysql_container}:"/home/${db_file_backup}.gz" "${db_archive_folder}/${db_file_backup}.gz"
+    fi
+    sudo docker exec -it ${mysql_container} sh -c "rm /home/*.sql"
+
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    echo 'DB-Sync: Vagrant-Backup has not impemented yet.'
+	exit
+  fi
+  
+  rclone purge "${rclone_remote_name}:${database_sync_remote_base}${PWD}" --verbose
+  rclone mkdir "${rclone_remote_name}:${database_sync_remote_base}${PWD}" --verbose
+  rclone copyto "${db_backup_folder}/${db_file_backup}" "${rclone_remote_name}:${database_sync_remote_base}${PWD}/${db_file_backup}" --progress
+
+  echo "DB-Sync: Database backup created successfully."
+}
+
+function db_fetch_dbsync() {
+  db_fetch_folder="${db_sync_local_base_path}${PWD}"
+  if [ ! -d "${db_fetch_folder}" ]
+  then
+    mkdir -p "${db_fetch_folder}"
+  fi
+  eval rm "${db_fetch_folder}/*"
+
+  rclone_changed_files=$(rclone ls "${rclone_remote_name}:${database_sync_remote_base}${PWD}" | awk '{sub(/[^ ]+[ ]+/,"")}1') # https://stackoverflow.com/questions/14327442/treat-second-column-with-spaces-as-one-column-with-awk
+  #echo "${rclone_changed_files}"
+  
+  IFS=$'\n' 
+  read -rd '' -a rclone_changed_files_array <<<"$rclone_changed_files"
+  unset IFS
+  
+  for ((rclone_changed_inc = 0; rclone_changed_inc < ${#rclone_changed_files_array[@]}; rclone_changed_inc++))
+  do
+    # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+    var="${rclone_changed_files_array[$rclone_changed_inc]}"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"   
+    #printf '%s' "$var"
+    #${rclone_changed_files_array[$rclone_changed_inc]}="${var}"
+	#echo "${var}"
+  
+    rclone copyto "${rclone_remote_name}:${database_sync_remote_base}${PWD}/${var}" "${db_sync_local_base_path}${PWD}/${var}" --progress
+    #echo "${rclone_changed_files_array[$rclone_changed_inc]}"
+  done
+
+  echo "DB-Sync: Database fetched successfully."
+}
+
+function db_restore_dbsync() {
+  original_pwd="${PWD}"
+  db_restore_folder="${db_sync_local_base_path}${PWD}"
+  cd "${db_restore_folder}"
+  file_list_array=( * ) # Shell glob-pattern
+  db_file_restore=${file_list_array[0]}
+  cd "${original_pwd}"
+  
+  read -p "Do you want to open database file (yes/no): `echo $'\n> '`" confirm_db_file_open
+  if [[ ${confirm_db_file_open} == 'yes' ]]
+  then
+    ${editor_open_command}"${db_restore_folder}/${db_file_restore}"
+  fi
+  
+  read -p "Do you want to restore database '${db_restore_folder}/${db_file_restore}' (yes-restore-db/no): `echo $'\n> '`" confirm_db_restore
+  if [[ ${confirm_db_restore} == 'yes-restore-db'  ]]
+  then
+    echo ''
+  else
+    echo "DB-Sync: You rejected to restore database."
+    exit
+  fi
+  
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    ${mysql_path} -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} < "${db_restore_folder}/${db_file_restore}"	
+
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    read -p "Enter MySQL/MariaDB Container Name: `echo $'\n> '`" mysql_container
+    sudo docker cp "${db_restore_folder}/${db_file_restore}" ${mysql_container}:"/home/${db_file_restore}"
+    sudo docker exec -it ${mysql_container} sh -c "${mysql_path} -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} < \"/home/${db_file_restore}\""
+    sudo docker exec -it ${mysql_container} sh -c "rm /home/*.sql"
+
+	exit
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    echo 'DB-Sync: Vagrant-Restore has not impemented yet.'
+	exit
+  fi
+
+  echo "DB-Sync: Database restored successfully."
+}
+
+if [[ "$1" == "dbsync" ]] # Script/Command: "db-sync"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_dbsync
+    exit
+  fi
+
+  development_env="$2" # Development Environment: xampp/docker/vagrant
+  work_type="$3" # Work Type: backup/restore/fetch
+  current_date_time=$(date '+%Y-%m-%d_%H%M%S')
+  #echo "${current_date_time}"
+
+  if [[ ( ${development_env} != 'xampp' && ${development_env} != 'docker' && ${development_env} != 'vagrant' ) || ( ${work_type} != 'backup' && ${work_type} != 'restore' && ${work_type} != 'fetch' ) ]]
+  then
+    echo "DB-Sync: Please Provide Argument-1 (xampp/docker/vagrant) and Argument-2 (backup/restore/fetch)"
+    exit
+  fi
+
+  get_git_repo=${git_repo_list[$PWD]}
+  if [[ ${get_git_repo} != '' ]]
+  then
+    get_git_repo_array=(${get_git_repo})
+    git_repo_url=${get_git_repo_array[0]}
+    rclone_remote_name=${get_git_repo_array[1]}
+    composer_do_download=${get_git_repo_array[2]} # PHP Composer
+    npm_do_download=${get_git_repo_array[3]} # Node Package Manager (NPM)
+    database_name=${get_git_repo_array[4]}
+    # Check database name exists or not
+    if [[ ${database_name} == 'N/A' ]]
+    then
+      echo "DB-Sync: Database name is 'N/A' for current project"
+	    exit
+    fi
+    # Check "rclone" remote exists or not
+    if [[ $(rclone listremotes | grep "${rclone_remote_name}:") != "${rclone_remote_name}:" ]]
+    then
+      echo -e "\033[41mRclone: ${rclone_remote_name} does not exist! Add it using command -- rclone config\033[m"
+      exit
+    fi
+    if [[ ${work_type} == 'backup' || ${work_type} == 'restore' ]]
+    then
+      read -p "Enter database user name: `echo $'\n> '`" db_user_name
+      read -p "Enter database password: `echo $'\n> '`" db_password
+      echo "DB Host Name: ${db_host_name}; Database Name: ${database_name}; DB User Name: ${db_user_name}; DB Password: ${db_password}"
+    fi
+  else
+    echo 'DB-Sync: No entry for current directory in git repository list!'
+    exit
+  fi
+
+  operating_system=$(uname -s)
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    if [[ ${operating_system} == 'Linux' ]]
+    then
+      mysqldump_path=''
+      mysql_path=''
+	    editor_open_command="${linux_editor} "
+    else # Windows-OS
+      mysqldump_path='../../mysql/bin/mysqldump.exe'
+      mysql_path='../../mysql/bin/mysql.exe'
+	    editor_open_command="start ${windows_editor} "
+    fi
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    mysqldump_path='mysqldump' # LaraDock
+    mysql_path='mysql' # LaraDock
+    editor_open_command="${linux_editor} "
+    sudo docker container ls --filter "name=mysql" --filter "name=mariadb"
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    mysqldump_path='/bin/mysqldump' # Laravel-Homestead
+    mysql_path='/bin/mysql' # Laravel-Homestead
+  fi
+
+  if [[ ${work_type} == 'backup' ]]
+  then
+    db_backup_dbsync
+  elif [[ ${work_type} == 'restore' ]]
+  then
+    db_fetch_dbsync
+    db_restore_dbsync
+  elif [[ ${work_type} == 'fetch' ]]
+  then
+    db_fetch_dbsync
+  fi
+fi
+#----------------------------END-SCRIPT: db-sync----------------------------
+
+
+#----------------------------START-SCRIPT: dbackup----------------------------
+function help_dbackup() {
+  printf "Usage:\njjkk dbackup (development-env) [command]
+  (development-env): xampp/docker/vagrant development environment.\n\nAvailabe Commands:\n"
+  dbackup_help_txt="  backup [--full-db]||Backup database structure and specific data at project path \"__database\" folder.\n
+  ||Option \"--full-db\" is optional to backup full database.\n
+  restore||Restore full database from project path \"__database\" folder.\n
+  php [command]||Execute php command using specific php version.\n
+  setup||Setup php/composer environment.\n
+  generate [table] [count]||Generate database data using php-faker.\n
+  ||Here [table] is table name. [count] is number of rows to generate."
+  printf "${dbackup_help_txt}" | column --table --separator "||"
+}
+
+function db_backup_dbackup() {
+  if [ ! -d "${base_path}/structure" ]
+  then
+    mkdir -p "${base_path}/structure"
+  fi
+  if [ ! -d "${base_path}/data" ]
+  then
+    mkdir -p "${base_path}/data"
+  fi
+  if [[ ${db_full_backup} == 'yes' ]]
+  then
+    if [ ! -d "${base_path}/full" ]
+	  then
+	    mkdir -p "${base_path}/full"
+	  fi
+  fi
+  #eval rm "${base_path}/data/*"
+
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    ${mysqldump_path} --routines --no-data --compact -h "${db_host_name}" -u "${db_user_name}" -p"${db_password}" "${database_name}" > "${base_path}/structure/${database_name}(structure).sql"
+	  if [[ ${db_full_backup} == 'yes' ]]
+	  then
+	    ${mysqldump_path} --routines -h "${db_host_name}" -u "${db_user_name}" -p"${db_password}" "${database_name}" > "${base_path}/full/${database_name}(full).sql"
+	  fi
+	  eval "${mysqldump_path} --routines --no-create-info --compact -h \"${db_host_name}\" -u \"${db_user_name}\" -p\"${db_password}\" \"${database_name}\" ${dump_table_data} > \"${base_path}/data/${database_name}(data).sql\""
+
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    read -p "Enter MySQL/MariaDB Container Name: `echo $'\n> '`" mysql_container
+    sudo docker exec -it ${mysql_container} sh -c "${mysqldump_path} --routines --no-data --compact -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} > \"/home/${database_name}(structure).sql\""
+    sudo docker cp ${mysql_container}:"/home/${database_name}(structure).sql" "./__database/structure/${database_name}(structure).sql"
+    if [[ ${db_full_backup} == 'yes' ]]
+    then
+      sudo docker exec -it ${mysql_container} sh -c "${mysqldump_path} --routines -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} > \"/home/${database_name}(full).sql\""
+      sudo docker cp ${mysql_container}:"/home/${database_name}(full).sql" "./__database/full/${database_name}(full).sql"
+    fi
+    sudo docker exec -it ${mysql_container} sh -c "${mysqldump_path} --routines --no-create-info --compact -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} ${dump_table_data} > \"/home/${database_name}(data).sql\""
+    sudo docker cp ${mysql_container}:"/home/${database_name}(data).sql" "./__database/data/${database_name}(data).sql"
+    sudo docker exec -it ${mysql_container} sh -c "rm /home/*.sql"
+
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    echo 'Vagrant-Backup has not impemented yet.'
+  fi
+  echo "DBackup: Database backup completed successfully."
+}
+
+function db_restore_dbackup() {
+  db_restore_file_path="${base_path}/full/${database_name}(full).sql"
+  if [[ ! -f "${db_restore_file_path}" ]]
+  then
+    echo "DBackup: Database sql file does not exist at: '${db_restore_file_path}'"
+    exit
+  fi
+  read -p "Do you want to restore DB '${db_restore_file_path}'? (yes/no) `echo $'\n> '`" restore_confirm
+  if [[ "${restore_confirm}" != 'yes' ]]
+  then
+    echo "DBackup: You have rejected to restore database!"
+    exit
+  fi
+
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    ${mysql_path} -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} < "${db_restore_file_path}"
+
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    read -p "Enter MySQL/MariaDB Container Name: `echo $'\n> '`" mysql_container
+    sudo docker cp ${db_restore_file_path} ${mysql_container}:"/home/${database_name}(full).sql"
+    sudo docker exec -it ${mysql_container} sh -c "${mysql_path} -h ${db_host_name} -u ${db_user_name} -p${db_password} ${database_name} < \"/home/${database_name}(full).sql\""
+    sudo docker exec -it ${mysql_container} sh -c "rm /home/*.sql"
+  fi
+  echo "DBackup: Database restored successfully."
+}
+
+function php_execute_dbackup() {
+  php_command="$1"
+  ${php_path} ${php_command}
+}
+
+#function composer_execute_dbackup() {}
+
+function setup_environment_dbackup() {
+  # Setup Composer
+  ${php_path} -r "copy('https://getcomposer.org/installer', '${base_path}/composer-setup.php');"
+  ${php_path} -r "if (hash_file('sha384', '${base_path}/composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('${base_path}/composer-setup.php'); } echo PHP_EOL;"
+  ${php_path} ${base_path}/composer-setup.php --install-dir="${base_path}"
+  ${php_path} -r "unlink('${base_path}/composer-setup.php');"
+ 
+  # Setup [FakerPHP/Faker](https://github.com/FakerPHP/Faker)
+  ${php_path} "${base_path}/composer.phar" --working-dir="${base_path}" require fakerphp/faker
+}
+
+function generate_data_dbackup {
+  table_name="$1"
+  row_number="$2"
+  if [[ "${table_name}" == '' || "${row_number}" == '' ]]
+  then
+    echo "Wrong Input! Enter both table-name and row-number."
+	  exit
+  fi
+  ${php_path} "${base_path}/generate-data.php" "${table_name}" "$row_number"
+  #echo "Data generated successfully."
+}
+
+if [[ "$1" == "dbackup" ]] # Script/Command: "dbackup"
+then
+  if [[ "$2" == "help" ]]
+  then
+    help_dbackup
+    exit
+  fi
+
+  base_path="${PWD}/__database"
+  if [[ ! -f "${base_path}/config" ]]
+  then
+    echo "DBackup: Config file does not exist at: '${base_path}/config'"
+    exit
+  fi
+
+  source "${base_path}/config"
+  #dump_table_data="'table 1' 'table 2'"
+  echo "DB Host Name: ${db_host_name}; DB User Name: ${db_user_name}; DB Password: ${db_password}; Database Name: ${database_name}; Dump Table Data: ${dump_table_data}"
+
+  development_env="$2" # Development Environment: xampp/docker/vagrant
+  work_type="$3" # Work Type: backup/restore/fetch
+
+  if [[ ( ${development_env} != 'xampp' && ${development_env} != 'docker' && ${development_env} != 'vagrant' ) || ( ${work_type} != 'backup' && ${work_type} != 'restore' && ${work_type} != 'php' && ${work_type} != 'setup' && ${work_type} != 'generate' ) ]]
+  then
+    echo "DBackup: Please Provide Argument-1 (xampp/docker/vagrant) and Argument-2 (backup/php/setup)"
+    exit
+  fi
+
+  operating_system=$(uname -s)
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    if [[ ${operating_system} == 'Linux' ]]
+    then
+      mysqldump_path=''
+      mysql_path=''
+	    php_path=''
+	    editor_open_command="${linux_editor} "
+    else # Windows-OS
+      mysqldump_path='../../mysql/bin/mysqldump.exe'
+      mysql_path='../../mysql/bin/mysql.exe'
+	    php_path='../../php/php.exe'
+	    editor_open_command="start ${windows_editor} "
+    fi
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    mysqldump_path='mysqldump' # LaraDock
+    mysql_path='mysql' # LaraDock
+    sudo docker container ls --filter "name=mysql" --filter "name=mariadb"
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    mysqldump_path='/bin/mysqldump' # Laravel-Homestead
+    mysql_path='/bin/mysql' # Laravel-Homestead
+  fi
+
+  db_full_backup='no'
+  if [[ "$4" == '--full-db' ]]
+  then
+    db_full_backup='yes'
+  fi 
+
+  if [[ ${work_type} == 'backup' ]]
+  then
+    db_backup_dbackup
+  elif [[ ${work_type} == 'restore' ]]
+  then
+    db_restore_dbackup
+  elif [[ ${work_type} == 'php' ]]
+  then
+    php_execute_dbackup "$4"
+  elif [[ ${work_type} == 'setup' ]]
+  then
+    setup_environment_dbackup
+  elif [[ ${work_type} == 'generate' ]]
+  then
+    generate_data_dbackup "$4" "$5"
+  fi
+fi
+#----------------------------END-SCRIPT: dbackup----------------------------

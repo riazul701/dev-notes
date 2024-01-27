@@ -1,0 +1,251 @@
+#!/bin/bash
+
+gist_list_limit='99999'
+max_gist_create=20
+#windows_editor='notepad++'
+windows_editor='notepad'
+linux_editor='gedit'
+gist_temporary_file='/c/ProgramData/restic-git/temporary-gist/gist-temporary-content'
+gist_temporary_folder='/c/ProgramData/restic-git/temporary-gist'
+
+function gist_create() {
+  gist_create_command="gh gist create"
+  read -p "Enter new gist title(description) (Enter 'exit' to close program): `echo $'\n> '`" entered_gist_description
+  if [[ "${entered_gist_description}" == '' ]]
+  then
+    echo "Gist title(description) can not be empty!"
+	exit
+  elif [[ "${entered_gist_description}" == 'exit' ]]
+  then
+    exit
+  else
+    for ((i=1; i<=${max_gist_create}; i++))
+	do
+	  read -p "${i}) Choose gist create action (y[es]/n[o]/exit): `echo $'\n> '`" choose_create_action
+	  if [[ "${choose_create_action}" == 'y' ]]
+	  then
+	    read -p "${i}) Enter new file name: `echo $'\n> '`" entered_file_name
+		if [[ "${entered_file_name}" == '' ]]
+	    then
+	      echo "Gist-Create: File name can not be empty!"
+		  continue
+		fi
+		eval touch "'${gist_temporary_folder}/${entered_file_name}'"
+		eval ${editor_open_command}"'${gist_temporary_folder}/${entered_file_name}'"
+		gist_create_command+=" '${gist_temporary_folder}/${entered_file_name}'"
+		continue
+	  elif [[ "${choose_create_action}" == 'exit' ]]
+	  then
+	    exit
+	  elif [[ "${choose_create_action}" == 'n' ]]
+	  then
+	    echo "Gist-Create: Creating Gist..."
+		break
+	  else
+	    echo "Wrong input! Enter file name to create ('y[es]/n[o]/exit')"
+	  fi
+	done
+  fi
+  
+  gist_create_command+=" --desc '${entered_gist_description}'"
+  eval "${gist_create_command}"
+  
+  #echo "'${gist_create_command}'"
+  #echo "echo from gist-create"
+}
+
+function gist_view() {
+  selected_gist_id="$1"
+  gist_file_list=$(gh gist view "${selected_gist_id}" --files)
+  
+  IFS=$'\n' read -d '' -r -a gist_file_array <<<"$gist_file_list"
+  unset IFS 
+  for ((i = 0; i < ${#gist_file_array[@]}; i++))
+  do
+    echo "$i) ${gist_file_array[$i]}"
+  done
+  
+  read -p "Enter file number you want to view (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  if [[ ${entered_file_number} == 'exit' ]]
+  then
+    exit
+  fi
+  selected_file_view="${gist_file_array[$entered_file_number]}"
+  if [[ ${selected_file_view} == '' ]]
+  then
+    echo "Wrong file number is entered!"
+	exit
+  fi
+  gh gist view "${selected_gist_id}" --filename "${selected_file_view}">"${gist_temporary_file}"
+  ${editor_open_command}"${gist_temporary_file}"
+  #echo "echo from gist-view"
+}
+
+function gist_edit() {
+  selected_gist_id="$1"
+  read -p "Enter gist edit type (a[dd-file]/e[dit-file]/t[itle-description]): `echo $'\n> '`" entered_edit_type
+  if [[ "${entered_edit_type}" == 'a' ]] # a[dd-file]
+  then
+    read -p "Enter new file name: `echo $'\n> '`" entered_new_file_name
+	if [[ "${entered_new_file_name}" == '' ]]
+	then
+	  echo "New file name can not be empty!"
+	else
+	  gist_edit_new_file="${gist_temporary_folder}/${entered_new_file_name}"
+	  if [ ! -f "${gist_edit_new_file}" ]
+	  then
+	    touch "${gist_edit_new_file}"
+	  fi
+	  echo ''>"${gist_edit_new_file}"
+	  eval ${editor_open_command}"'${gist_edit_new_file}'"
+	  read -p "New file is opened in editor, write there. Do you want to save changes (y[es]/exit)? `echo $'\n> '`" confirm_save_changes
+	  if [[ "${confirm_save_changes}" == 'y' ]] # y[es]
+	  then
+	    eval ${is_winpty}gh gist edit "${selected_gist_id}" --add "'${gist_edit_new_file}'"
+		#rm "${gist_edit_new_file}"
+		echo "Gist-Edit: File added successfully."
+	  else
+	    exit
+	  fi
+	fi
+  elif [[ "${entered_edit_type}" == 'e' ]] # e[dit-file]
+  then
+    ${is_winpty}gh gist edit "${selected_gist_id}"
+#-----------------------------START: Edit using file number-----------------------------  
+    #gist_file_list=$(gh gist view "${selected_gist_id}" --files)
+  
+    #IFS=$'\n' read -d '' -r -a gist_file_array <<<"$gist_file_list"
+    #unset IFS 
+    #for ((i = 0; i < ${#gist_file_array[@]}; i++))
+    #do
+      #echo "$i) ${gist_file_array[$i]}"
+    #done
+  
+    #read -p "Enter file number you want to view (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+    #if [[ ${entered_file_number} == 'exit' ]]
+    #then
+      #exit
+    #fi
+    #selected_file_edit="${gist_file_array[$entered_file_number]}"
+    #if [[ ${selected_file_edit} == '' ]]
+    #then
+      #echo "Wrong file number is entered!"
+	  #exit
+    #fi
+	#${is_winpty}gh gist edit "${selected_gist_id}" --filename "${selected_file_edit}"
+#-----------------------------END: Edit using file number-----------------------------
+	echo "Gist-Edit: File edited successfully."
+  elif [[ "${entered_edit_type}" == 't' ]] # t[itle-description]
+  then
+    read -p "Enter new gist description (with '#tag'): `echo $'\n> '`" entered_new_description
+    if [[ "${entered_new_description}" == '' ]]
+    then
+      echo "Gist description can not be empty!"
+    else
+	  eval ${is_winpty}gh gist edit "${selected_gist_id}" --desc "'${entered_new_description}'"
+	  echo "Gist-Edit: Title(Description) edited successfully."
+    fi
+  else
+    echo "Wrong input! Enter gist edit type (add[file]/edit[file]/description)"
+  fi
+  
+  #echo "echo from gist-edit"
+}
+
+function gist_delete() {
+  selected_gist_id="$1"
+  selected_gist_description="$2"
+  read -p "Do you want to delete gist '${selected_gist_description}' (yes-delete-this-gist-entirely/no)? `echo $'\n> '`" confirm_gist_delete
+  if [[ "${confirm_gist_delete}" == 'yes-delete-this-gist-entirely' ]]
+  then
+    gh gist delete "${selected_gist_id}"
+  else
+    echo "You have rejected to delete gist." 
+  fi
+  echo "Deleted Gist: ${selected_gist_description}"
+  #echo "echo from gist-delete"
+}
+
+function gist_list() {
+  echo "echo from gist-list"
+}
+
+operating_system=$(uname -s)
+if [[ ${operating_system} == 'Linux' ]]
+then
+  is_winpty=""
+  editor_open_command="${linux_editor} "
+else
+  is_winpty="winpty " # Git-Bash(mintty.exe) does not support "user-prompt", use "winpty"
+  editor_open_command="start ${windows_editor} "
+fi
+if [ ! -d "${gist_temporary_folder}" ]
+then
+  mkdir -p "${gist_temporary_folder}"
+  touch "${gist_temporary_file}"
+fi
+eval rm "${gist_temporary_folder}/*"
+if [ ! -f "${gist_temporary_file}" ]
+then
+  touch "${gist_temporary_file}"
+fi
+
+if [[ "$1" == "--create" ]]
+then
+  gist_create
+else
+  description_text="$1" # "gist-description", leave "" (empty) to search only using tag
+  tag_one="$2" # Enter tag name like "#tag-one" "#tag-two" "#tag-three"
+  tag_two="$3"
+  tag_three="$4"  
+  get_gist_list=$(gh gist list --limit ${gist_list_limit} | grep -i "${tag_one}" | grep -i "${tag_two}" | grep -i "${tag_three}" | grep -i "${description_text}")
+  
+  IFS=$'\n' read -d '' -r -a gist_list_array <<<"$get_gist_list"
+  unset IFS 
+  for ((i = 0; i < ${#gist_list_array[@]}; i++))
+  do
+    echo "$i) ${gist_list_array[$i]}"
+  done
+  
+  read -p "Enter gist number you want to work with (Enter 'exit' to close program): `echo $'\n> '`" entered_gist_number
+  if [[ ${entered_gist_number} == 'exit' ]]
+  then
+    exit
+  fi
+  choose_gist_record=${gist_list_array[$entered_gist_number]}
+  if [[ ${choose_gist_record} == '' ]]
+  then
+    echo "Wrong gist number is entered!"
+	exit
+  fi
+  
+  IFS="	" #It is separator of string. Press keyboard "Tab" character inside double quotation
+  set ${choose_gist_record}   #Set string for IFS
+  selected_gist_id="$1"
+  selected_gist_description="$2"
+  selected_gist_file_count="$3"
+  selected_gist_type="$4"  # Gist type: secret/public
+  echo ${choose_gist_record}
+  
+  read -p "What to do with selected gist (v[iew]/e[dit]/d[elete]/b[rowser-open]/exit)? `echo $'\n> '`" work_type
+  if [[ ${work_type} == 'v' ]] # v[iew]
+  then
+    gist_view "${selected_gist_id}"
+  elif [[ ${work_type} == 'e' ]] # e[dit]
+  then
+    gist_edit "${selected_gist_id}"
+  elif [[ ${work_type} == 'd' ]] # d[elete]
+  then
+    gist_delete "${selected_gist_id}" "${selected_gist_description}"
+  elif [[ ${work_type} == 'b' ]] # b[rowser-open]
+  then
+    gh gist view "${selected_gist_id}" --web
+  elif [[ ${work_type} == 'exit' ]]
+  then
+    exit
+  else
+    echo "Invalid option selected! Enter option - view/edit/delete/exit"
+  fi
+  
+  #echo "Gist-ID: ${selected_gist_id}; Gist-Description: ${selected_gist_description}; Gist-File-Count: ${selected_gist_file_count}; Gist-Type: ${selected_gist_type}"
+fi

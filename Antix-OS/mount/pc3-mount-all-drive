@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Check hard disk partition list: sudo fdisk -l
+
+sudo mount /dev/sda2 /c
+sudo mount /dev/sda4 /d
+sudo mount /dev/sda5 /e
+sudo mount /dev/sda6 /f
