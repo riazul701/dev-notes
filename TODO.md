@@ -73,37 +73,4 @@
   * [Logical Volume Management - What is LVM & how to use it (and WHY you should use it) BY DorianDotSlash](https://www.youtube.com/watch?v=214rUhQe7B4)
   * [Managing LVM Snapshots on Arch Linux BY Learn Linux TV](https://www.youtube.com/watch?v=RnjpLZmQ4DM)
 
-* [Linux Crash Course BY Learn Linux TV](https://www.youtube.com/playlist?list=PLT98CRl2KxKHKd_tH3ssq0HPrThx2hESW)
-
-  * Linux Crash Course - usermod
-    * usermod
-    * groups
-    * chage
-    * cat /etc/passwd
-
-  * Linux Crash Course - sudo
-    * sudo
-    * sudo su [Switch to "root" user]
-    * su - [Switch to "root" user] [Switch to another user: su - <user-name>]
-    * which
-    * cat /etc/sudoers
-    * sudo !! [Execute last command with "sudo"]
-    * visudo
-
-  * Linux Crash Course - htop
-    * htop
-
-  * Linux Crash Course - The ps Command
-    * ps
-
-  * Linux Crash Course - Data Streams (stdin, stdout & stderr)
-    * stdin
-    * stdout
-    * stderr
-    * echo $? [stdin/stdout shows: 0, stderr shows: 1]
-    * find /etc -type f 2> /dev/null ["1>" means stdout. "2>" means stderr.]
-    * find /etc -type f > ~/results.txt
-    * find /etc -type f 1> ~/results.txt 2> ~/errors.txt
-    * 
-
 # Proxmox Virtual Environment
