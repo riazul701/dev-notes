@@ -4,11 +4,24 @@
 
 ### Docker Antix-OS WiFi Conflict
 * Problem: Docker wired network conflicts with WiFi, as result internet connection does not work.
-* Solution
+* Solution 1
   * Open "Connman System Tray"
   * Goto "Status" tab
   * Goto "Services" section
   * Move WiFi connection at first position.
+* Solution 2
+  * Open "Connman System Tray"
+  * Goto "Details" tab
+  * Select "Service" (Docker Services)
+  * Goto "Configuration"
+  * Turn Off "General -> AutoConnect"
+  * Do same work for all Docker Services.
+* Solution Check
+  * Open "Connman System Tray"
+  * Goto "Status" tab
+  * Goto "Technologies" section
+  * Check "Wired -> Connected: No"
+  * Check "WiFi -> Connected: Yes"
 
 ## Notes
 * Switch to "root" user inside container: `su -`

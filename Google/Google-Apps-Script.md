@@ -5,6 +5,7 @@
 
 ## Websites
 * [Google Apps Script](https://developers.google.com/apps-script)
+* [google/clasp](https://github.com/google/clasp)
 * [labnol/apps-script-starter](https://github.com/labnol/apps-script-starter)
 * [oshliaer/google-apps-script-awesome-list](https://github.com/oshliaer/google-apps-script-awesome-list)
 * [labnol/google-apps-script.md](https://gist.github.com/labnol/0b67f812a827fd9babc5)
@@ -86,3 +87,11 @@
 * Curl Code
   * {101} [curl POST examples](https://gist.github.com/subfuzion/08c5d85437d5d4f00e58)
   * {102} [Pipe the result of a cut command to curl](https://unix.stackexchange.com/questions/323604/pipe-the-result-of-a-cut-command-to-curl)
+
+* GitHub Pages
+  * {} [How to Deploy Your Vite/Vue 3 Application in GitHub Pages 2023](https://mkay11.medium.com/how-to-deploy-your-vite-vue-3-application-in-github-pages-2023-2b842f50576a)
+  * {} [Vite GitHub Pages](https://vitejs.dev/guide/static-deploy.html#github-pages)
+
+* YouTube Tutorial
+  * {} [Google Apps Script WEB APP with React JS and Router Tutorial BY Get __it Done!](https://www.youtube.com/watch?v=aq2B02DuCs0)
+  * {} [Deploying a Vue.js app to Github Pages BY Pragmatic Reviews](https://www.youtube.com/watch?v=i_XbW-FsLKk)
