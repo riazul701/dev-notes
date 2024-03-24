@@ -25,3 +25,9 @@
   * [Script @php artisan package:discover handling the post-autoload-dump event returned with error code 255](https://stackoverflow.com/questions/50840960/script-php-artisan-packagediscover-handling-the-post-autoload-dump-event-retur)
   * `composer update`
   
+  # References
+
+  * Data To View
+    * [4 Ways to Pass Data to All Views in Laravel](https://laracoding.com/4-ways-to-pass-data-to-all-views-in-laravel/)
+    * [Sharing Data With All Views](https://laravel.com/docs/11.x/views#sharing-data-with-all-views)
+    
