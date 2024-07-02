@@ -68,7 +68,7 @@ include     /etc/nginx/conf.d/phppgadmin.inc*;
 
 * NOTE: Restart Server after any modification.
 
-* NOTE: HestiaCP may install MariaDB "root" user with no password and phpMyAdmin does not allow user to login without password.
+* NOTE: HestiaCP installs MariaDB "root" user with no password and phpMyAdmin does not allow user to login without password.
   * To check enter command: `mysql -u root -p`
   * Create user with following commands.
 
@@ -82,7 +82,7 @@ mysql > GRANT ALL PRIVILEGES ON *.* TO 'myrootusername'@'localhost' WITH GRANT O
 mysql > FLUSH PRIVILEGES;
 ```
 
-* To get phpMyAdmin Password, SSH into HestiaCP machine and enter command: `nano /usr/local/hestia/conf/mysql.conf` <sup>{3}</sup> [It does not work]
+* To get phpMyAdmin "root" user Password, SSH into HestiaCP machine and enter command: `nano /usr/local/hestia/conf/mysql.conf` <sup>{3}</sup> [It does not work]
 
 ### Reset MariaDB "root" password
 

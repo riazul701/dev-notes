@@ -2,6 +2,7 @@
 
 ## Websites
 
+* [XTRADEB](https://xtradeb.net/)
 * [The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)
 * [CLI tools you won't be able to live without](https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6)
 * [100 Great and Must-Have CLI Linux Applications](https://www.linuxlinks.com/100-great-must-have-cli-linux-applications/)

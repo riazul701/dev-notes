@@ -20,6 +20,18 @@
   * GDebi file not found error.
   * Antix does not support Ubuntu PPA, remove it.
 
+## Access
+
+* Live-OS ROOT Acces
+  * {1} [Quick Tips](https://antixlinux.com/quick-tips/)
+  * On live system, username login as demo, username password = demo.
+  * For root access, password = root. Please do not login as root. It is totally unnecessary.
+  * Sudo is configured by default. When prompted for a password, user your username password, not root, for example on live system use demo
+  * Useful documentation:
+  * [antiX-FAQ](https://download.tuxfamily.org/antix/docs-antiX-23/FAQ/index.html)
+  * [Live boot menu options](https://download.tuxfamily.org/antix/docs-antiX-23/Boot_Menu/antiX-gfxboot.html)
+  * [Detailed guide to antiX-live](https://download.tuxfamily.org/antix/docs-antiX-23/live-boot/index.html)
+
 ## Notes
 * Snap runs on Ubuntu, but not in Antix because Antix does not have Systemd, it has SysVinit.
 * When mount /c, /d, /e, /f drives then Antix flux, icewm, jwm menu entry hangs. Restart PC/Unmount drives solve this problem.
@@ -185,3 +197,11 @@
     * Another solution is to use command `sudo app-select`, because it will use Antix-OS python package path.
   * Solution
     * Copy all contents from "/usr/lib/python3/dist-packages/xdg" to "~/.local/lib/python3.9/site-packages/xdg"
+
+# References
+
+* Next Serial: {2}
+
+* Access
+  * {1} [Quick Tips](https://antixlinux.com/quick-tips/)
+  

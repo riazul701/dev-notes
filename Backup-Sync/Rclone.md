@@ -1,16 +1,24 @@
-# Rclone.md
+# Usage
 
-## Rclone Contents
+## Config
+* Reconnect/Refresh Token: `rclone config reconnect <remote-name>:`
+
+## Graphical User Interface - GUI
+* Run this command in a terminal and rclone will download and then display the GUI in a web browser: `rclone rcd --rc-web-gui` <sup>{7}</sup>
+
+# Rclone.md Contents
 
 ## Website
 * [Rclone](https://rclone.org/)
 * [Rclone GitHub](https://github.com/rclone/rclone)
 * [Rclone GUI](https://rclone.org/gui/)
 * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
-* [newhinton/Round-Sync](https://github.com/newhinton/Round-Sync)
+* [newhinton/Round-Sync](https://github.com/newhinton/Round-Sync) || [roundsync.com](https://roundsync.com/)
+* [yuudi/rclone-webui-angular](https://github.com/yuudi/rclone-webui-angular)
 
 ## Notes
 * What is the password for rclone GUI?: The default username is user. The default password is pass.
+* Get rclone config file path: `rclone config file` [Backup and Replace this file to use existing configured accounts in both PC and Android mobile (Round-Sync app)]
 
 ## Guides
 * [The basics of Rclone](https://www.youtube.com/watch?v=YDF1nBaAptw)
@@ -39,8 +47,6 @@
 
 * Using Script <sup>{1}</sup>
   * Command: `sudo -v ; curl https://rclone.org/install.sh | sudo bash`
-
-# Usage
 
 ## Google Drive Sync
 ** Generate Index
@@ -71,8 +77,10 @@ File Path: C:\Program Files\Git\usr\bin\rclone-sync
 
 ## Client Secret ID
 
-* [Making your own client_id](https://rclone.org/drive/#making-your-own-client-id)
-* [Python quickstart](https://developers.google.com/drive/api/quickstart/python)
+* CREATE ONE RCLONE-CLIENT-ID AND USE IT FOR ANY NUMBER (20/30) OF GOOGLE-DRIVE ACCOUNT.
+* {4} [Making your own client_id](https://rclone.org/drive/#making-your-own-client-id)
+* {5} [Python quickstart](https://developers.google.com/drive/api/quickstart/python)
+* {6} [How to delete Project from Google Developers Console](https://stackoverflow.com/questions/24801168/how-to-delete-project-from-google-developers-console)
 
 1. Log into the [Google API Console](https://console.developers.google.com/) with your Google account. It doesn't matter what Google account you use. (It need not be the same account as the Google Drive you want to access)
 2. Select a project or create a new project.
@@ -185,10 +193,18 @@ Guides:
 
 # References
 
-* next-sl: {4}
+* next-sl: {8}
 
 * Install/Uninstall
   * {1} [Rclone Install](https://rclone.org/install/)
+
+* RClone GUI
+  * {7} [Rclone GUI](https://rclone.org/gui/)
+
+* RClone Google Drive
+  * {4} [Making your own client_id](https://rclone.org/drive/#making-your-own-client-id)
+  * {5} [Python quickstart](https://developers.google.com/drive/api/quickstart/python)
+  * {6} [How to delete Project from Google Developers Console](https://stackoverflow.com/questions/24801168/how-to-delete-project-from-google-developers-console)
 
 * Rclone Android
   * {2} [Official Support for the Android platform](https://forum.rclone.org/t/official-support-for-the-android-platform/25024)

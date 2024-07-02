@@ -3,6 +3,7 @@
 ## Image
 
 * [Placeholder image generator](https://placeholder.imageonline.co/)
+* [Picture Resizing Tool](https://picresize.com/)
 
 ## PDF
 

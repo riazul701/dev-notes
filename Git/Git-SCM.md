@@ -186,7 +186,7 @@ git commit -m "Normalize all the line endings"
   * Install "gpg" command if not exists: `sudo apt install gpg`
   * Install "pass" command if not exists: `sudo apt install pass`
   * Generates "gpg-id": `gpg --gen-key` [Here provide Name and Email]
-  * Generates pass file: `pass init <gpg-id>` [<gpg-id> is long hash which is under "pub" tag from `gpg --gen-key` command] [Here a password is optional, which will be required during GitHub/BitBucket authentication]
+  * Generates pass file: `pass init <gpg-id>` [<gpg-id> is long hash which is under "pub" tag from `gpg --gen-key` command] [Here a password is optional, which will be required during GitHub/BitBucket authentication. Do not use password for "LazyGit" software.]
   * Set credential backing store: `git config --global credential.credentialStore gpg`
 * Configuration for [LazyGit](https://github.com/jesseduffield/lazygit)
   * Problem: GPG password prompt does not work with LazyGit.
@@ -253,6 +253,12 @@ git commit -m "Normalize all the line endings"
   * Git fetch: `export GPG_TTY=$(tty) && cd '/pwd/path' && git fetch`
   * Git pull: `export GPG_TTY=$(tty) && cd '/pwd/path' && git pull`
   * Git push: `export GPG_TTY=$(tty) && cd '/pwd/path' && git push`
+
+# Authentication Using SSH
+
+## BitBucket
+
+## GitHub
 
 # Problem and Solution
 
