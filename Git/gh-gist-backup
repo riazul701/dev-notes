@@ -1,0 +1,151 @@
+#!/bin/bash
+
+function gist_backup() {
+  if [ ! -d "Gist_Backup" ]
+  then
+      mkdir "Gist_Backup"
+  fi
+
+  gh gist list --limit 1000000 > gist-backup-list.txt
+  #gh gist list --limit 2 > gist-backup-list.txt
+  total_gist=$(wc -l < "gist-backup-list.txt")
+  gist_counter=1
+
+  while read line
+  do
+      IFS="	"   #It is separator of string. Press keyboard "Tab" character inside double quotation
+      set $line   #Set string for IFS
+      id=$1
+      description=$2
+      type=$4  # secret/public
+      unset IFS
+      clone_path="Gist_Backup/$description"
+
+      while [ -d "$clone_path ($type)" ]
+      do
+        clone_path+=1
+      done 
+      clone_path+=" ($type)"
+      
+      gh gist clone $id "$clone_path"
+      
+      echo -e "\033[1;32m \nBacked Up: $gist_counter / $total_gist\n  \033[0m"
+      ((gist_counter++))
+  done < gist-backup-list.txt
+}
+
+function gist_restore() {
+  ls -d Gist_Backup/*/>gist-restore-list.txt
+  total_gist=$(wc -l < "gist-restore-list.txt")
+  gist_counter=1
+
+  while read line
+  do
+      description=${line%/}
+      create_cmd="gh gist create "
+      type_container=$description
+      type="${type_container##* }"
+      if [ "$type" == "(public)" ]
+      then
+        create_cmd+="--public "
+      fi
+
+    for file_path in "$description"/*
+        do
+    IFS="/"   #It is separator of string.
+          set $file_path   #Set string for IFS
+          root_folder="'$1'"
+          folder_name="$2"
+          folder_name=${folder_name/"'"/"'\''"}  # Escape single quotation ('), otherwise it breaks the final command
+          folder_name="'$folder_name'"
+          #echo $folder_name
+          file_name="'$3'"
+          unset IFS
+          
+          create_cmd+="$root_folder/$folder_name/$file_name "
+        done
+    
+      final_description=$(sed 's/\(.*\) (public)/\1/' <<< $folder_name)  # Remove (public) gist type, which is last word
+      final_description=$(sed 's/\(.*\) (secret)/\1/' <<< $final_description)  # Remove (secret) gist type, which is last word
+
+      create_cmd+="-d "
+      create_cmd+="$final_description"
+      eval $create_cmd
+
+  echo -e "\033[1;32m \nRestored: $gist_counter / $total_gist\n  \033[0m"
+  ((gist_counter++))
+
+  done < gist-restore-list.txt
+}
+
+function gist_delete() {
+  gh gist list --limit 1000000 > gist-delete-list.txt
+  total_gist=$(wc -l < "gist-delete-list.txt")
+  gist_counter=1
+
+  while read line
+  do
+      IFS="	"   #It is separator of string. Press keyboard "Tab" character inside double quotation
+      set $line   #Set string for IFS
+      id=$1
+      gh gist delete $id
+
+      echo -e "\033[1;32m \nDeleted: $gist_counter / $total_gist\n  \033[0m"
+      ((gist_counter++))
+  done < gist-delete-list.txt
+}
+
+work_type=$1
+if [[ $work_type == "backup" ]]
+then
+  echo 'Backup Selected'
+  gist_backup
+elif [[ $work_type == "restore" ]]
+then
+  echo 'Restore Selected'
+  read -p "Enter Text \"I-want-to-restore-my-gist\": `echo $'\n> '`" restore_confirm_1
+  if [[ $restore_confirm_1 == "I-want-to-restore-my-gist" ]]
+  then
+    read -p "Enter Text \"I-am-sure-about-gist-restoration\": `echo $'\n> '`" restore_confirm_2
+    if [[ $restore_confirm_2 == "I-am-sure-about-gist-restoration" ]]
+    then
+      read -p "Enter Text \"I-have-confidence-about-gist-restoration\": `echo $'\n> '`" restore_confirm_3
+      if [[ $restore_confirm_3 == "I-have-confidence-about-gist-restoration" ]]
+      then
+        #echo "Restoration Success"
+        gist_restore
+      else
+        echo "Invalid Argument"
+      fi
+    else
+      echo "Invalid Argument"
+    fi
+  else
+    echo "Invalid Argument"  
+  fi
+elif [[ $work_type == "delete" ]]
+then
+  echo 'Delete Selected'
+  read -p "Enter Text \"I-want-to-delete-my-gist\": `echo $'\n> '`" delete_confirm_1
+  if [[ $delete_confirm_1 == "I-want-to-delete-my-gist" ]]
+  then
+    read -p "Enter Text \"I-am-sure-about-gist-deletion\": `echo $'\n> '`" delete_confirm_2
+    if [[ $delete_confirm_2 == "I-am-sure-about-gist-deletion" ]]
+    then
+      read -p "Enter Text \"I-have-confidence-about-gist-deletion\": `echo $'\n> '`" delete_confirm_3
+      if [[ $delete_confirm_3 == "I-have-confidence-about-gist-deletion" ]]
+      then
+        #echo "Deletion Success"
+        gist_delete
+      else
+        echo "Invalid Argument"
+      fi
+    else
+      echo "Invalid Argument"
+    fi
+  else
+    echo "Invalid Argument"  
+  fi
+else
+  echo 'Invalid Argument'
+fi  

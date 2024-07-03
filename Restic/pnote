@@ -1,0 +1,346 @@
+#!/bin/bash
+
+# For working pc script name will be "note"
+note_base_path='/e/01_NoteBook/Self-Project'
+#windows_editor='notepad++'
+windows_editor='notepad'
+linux_editor='gedit'
+
+function note_create() {
+  read -p "Enter name for new file with file-extension: `echo $'\n> '`" entered_file_name
+  if [[ "${entered_file_name}" == '' ]]
+  then
+    echo "File name can not be empty!"
+  else
+    touch "${note_parent_folder}/${entered_file_name}"
+	echo "Created file: '${note_parent_folder}/${entered_file_name}'"
+  fi
+}
+
+function note_open() {
+  cd "${note_parent_folder}"
+  
+  file_list_array=( * ) # Shell glob-pattern
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    echo "$i) ${file_list_array[$i]}"
+  done
+  
+  selected_file_number='invalid'
+  read -p "Enter file number you want to open (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    if [[ "${entered_file_number}" == 'exit' ]]
+	then
+	  exit
+	fi
+  
+    if [[ "${entered_file_number}" == "$i" ]]
+	then
+	  selected_file_number="${entered_file_number}"
+	fi
+    #echo "$i) ${file_list_array[$i]}"
+  done
+  
+  if [[ "${selected_file_number}" == 'invalid' ]]
+  then
+    echo "You entered wrong file number!"
+  else
+    echo "Opened file: '${note_parent_folder}/${file_list_array[$selected_file_number]}'"
+    ${editor_open_command}"${note_parent_folder}/${file_list_array[$selected_file_number]}"
+  fi
+  
+  #echo "File Number Selected: ${selected_file_number}"
+}
+
+function note_rename() {
+  cd "${note_parent_folder}"
+  
+  file_list_array=( * )
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    echo "$i) ${file_list_array[$i]}"
+  done
+  
+  selected_file_number='invalid'
+  read -p "Enter file number you want to rename (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    if [[ "${entered_file_number}" == 'exit' ]]
+	then
+	  exit
+	fi
+  
+    if [[ "${entered_file_number}" == "$i" ]]
+	then
+	  selected_file_number="${entered_file_number}"
+	fi
+    #echo "$i) ${file_list_array[$i]}"
+  done
+  
+  if [[ "${selected_file_number}" == 'invalid' ]]
+  then
+    echo "You entered wrong file number!"
+  else
+    read -p "Enter new name for file '${file_list_array[$selected_file_number]}' with file-extension: `echo $'\n> '`" entered_new_file_name
+	if [[ "${entered_new_file_name}" == '' ]]
+	then
+	  echo "File name can not be empty!"
+	else
+	  mv "${note_parent_folder}/${file_list_array[$selected_file_number]}" "${note_parent_folder}/${entered_new_file_name}"
+	  echo "Renamed file to: '${note_parent_folder}/${entered_new_file_name}'"
+	fi 
+  fi
+  
+  #echo "File Number Selected: ${selected_file_number}"
+}
+
+function note_delete() {
+  cd "${note_parent_folder}"
+  
+  file_list_array=( * )
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    echo "$i) ${file_list_array[$i]}"
+  done
+  
+  selected_file_number='invalid'
+  read -p "Enter file number you want to delete (Enter 'exit' to close program): `echo $'\n> '`" entered_file_number
+  for ((i = 0; i < ${#file_list_array[@]}; i++))
+  do
+    if [[ "${entered_file_number}" == 'exit' ]]
+	then
+	  exit
+	fi
+  
+    if [[ "${entered_file_number}" == "$i" ]]
+	then
+	  selected_file_number="${entered_file_number}"
+	fi
+    #echo "$i) ${file_list_array[$i]}"
+  done
+  
+  if [[ "${selected_file_number}" == 'invalid' ]]
+  then
+    echo "You entered wrong file number!"
+  else
+    read -p "Do you want to delete file '${file_list_array[$selected_file_number]}' (yes/no)? `echo $'\n> '`" delete_confirmation
+	if [[ "${delete_confirmation}" == 'yes' ]]
+	then
+	  rm "${note_parent_folder}/${file_list_array[$selected_file_number]}"
+	  echo "Deleted file: '${note_parent_folder}/${file_list_array[$selected_file_number]}'"
+	else
+	  echo "You have rejected to delete file."
+	fi
+  fi
+  
+  #echo "File Number Selected: ${selected_file_number}"
+}
+
+function note_about_file() {
+  about_file_path="${note_parent_folder}/about.md"
+  if [ ! -f "${about_file_path}" ]
+  then
+    touch "${about_file_path}"
+	echo "Created about file: '${about_file_path}'"
+  fi
+  
+  echo "Opened file: '${about_file_path}'"
+  ${editor_open_command}${about_file_path}
+  #echo 'echo from note-about'
+}
+
+function note_todo_file() {
+  todo_file_path="${note_parent_folder}/todo.md"
+  if [ ! -f "${todo_file_path}" ]
+  then
+    touch "${todo_file_path}"
+	echo "Created todo file: '${todo_file_path}'"
+  fi
+  
+  echo "Opened file: '${todo_file_path}'"
+  ${editor_open_command}${todo_file_path}
+  #echo 'echo from note-todo'
+}
+
+function note_bug_file() {
+  bug_file_path="${note_parent_folder}/bug.md"
+  if [ ! -f "${bug_file_path}" ]
+  then
+    touch "${bug_file_path}"
+	echo "Created bug file: '${bug_file_path}'"
+  fi
+  
+  echo "Opened file: '${bug_file_path}'"
+  ${editor_open_command}${bug_file_path}
+  #echo 'echo from note-bug'
+}
+
+function note_guide_file() {
+  guide_file_path="${note_parent_folder}/guide.md"
+  if [ ! -f "${guide_file_path}" ]
+  then
+    touch "${guide_file_path}"
+	echo "Created guide file: '${guide_file_path}'"
+  fi
+  
+  echo "Opened file: '${guide_file_path}'"
+  ${editor_open_command}${guide_file_path}
+  #echo 'echo from note-guide'
+}
+
+function note_document_file() {
+  document_file_path="${note_parent_folder}/document.md"
+  if [ ! -f "${document_file_path}" ]
+  then
+    touch "${document_file_path}"
+	echo "Created document file: '${document_file_path}'"
+  fi
+  
+  echo "Opened file: '${document_file_path}'"
+  ${editor_open_command}${document_file_path}
+  #echo 'echo from note-document'
+}
+
+function note_password_file() {
+  password_file_path="${note_parent_folder}/password.md"
+  if [ ! -f "${password_file_path}" ]
+  then
+    touch "${password_file_path}"
+	echo "Created password file: '${password_file_path}'"
+  fi
+  
+  echo "Opened file: '${password_file_path}'"
+  ${editor_open_command}${password_file_path}
+  #echo 'echo from note-password'
+}
+
+function git_status() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	git status
+  fi
+
+  #echo 'echo from git-status'
+}
+
+function git_commit() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+    if [[ "${git_commit_message}" == '' ]]
+	then
+	  echo "Git: Commit message is empty. Can not commit!"
+	  exit
+	fi
+	git add .
+	git commit -m "${git_commit_message}"
+  fi
+
+  #echo 'echo from git-commit'
+}
+
+function git_push() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	git push
+  fi
+
+  #echo 'echo from git-push'
+}
+
+function git_fetch() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	git fetch
+  fi
+
+  #echo 'echo from git-fetch'
+}
+
+function git_pull() {
+  cd "${note_base_path}"
+  echo "Present-Working-Directory: '${PWD}'"
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+	git pull
+  fi
+
+  #echo 'echo from git-pull'
+}
+
+operating_system=$(uname -s)
+note_parent_folder="${note_base_path}${PWD}"
+if [ ! -d "${note_parent_folder}" ]
+then
+  mkdir -p "${note_parent_folder}"
+  echo "Created folder: ${note_parent_folder}"
+fi
+if [[ ${operating_system} == 'Linux' ]]
+then
+  editor_open_command="${linux_editor} "
+else
+  editor_open_command="start ${windows_editor} "
+fi
+
+work_type="$1"
+git_commit_message="$2"
+
+if [[ ${work_type} == 'create' ]]
+then
+  note_create
+elif [[ ${work_type} == 'open' ]]
+then
+  note_open
+elif [[ ${work_type} == 'rename' ]]
+then
+  note_rename
+elif [[ ${work_type} == 'delete' ]]
+then
+  note_delete
+elif [[ ${work_type} == 'about' ]]
+then
+  note_about_file
+elif [[ ${work_type} == 'todo' ]]
+then
+  note_todo_file
+elif [[ ${work_type} == 'bug' ]]
+then
+  note_bug_file
+elif [[ ${work_type} == 'guide' ]]
+then
+  note_guide_file
+elif [[ ${work_type} == 'document' ]]
+then
+  note_document_file
+elif [[ ${work_type} == 'password' ]]
+then
+  note_password_file
+elif [[ ${work_type} == 'status' ]]
+then
+  git_status  
+elif [[ ${work_type} == 'commit' ]]
+then
+  git_commit
+elif [[ ${work_type} == 'push' ]]
+then
+  git_push
+elif [[ ${work_type} == 'fetch' ]]
+then
+  git_fetch
+elif [[ ${work_type} == 'pull' ]]
+then
+  git_pull
+fi

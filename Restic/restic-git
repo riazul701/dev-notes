@@ -1,0 +1,455 @@
+#!/bin/bash
+
+## Git Cross Platform Operating System
+# Git Settings: `git config --global core.autocrlf true`
+
+## General Instruction
+
+# Required software packages are Git, Restic, Rclone, Curl, Git-Bash(Windows-OS), GNU-Screen(Server-OS).
+# On Terminal run command "source restic-git" to export environment variable "RESTIC_REPOSITORY" and "RESTIC_PASSWORD" to Terminal, so that plain restic command can be executed on Terminal. To unset environment variable use command "unset RESTIC_REPOSITORY" and "unset RESTIC_PASSWORD"
+# Set restic repository path, password and exclude-file path in "restic_repo_list" array.
+# Custom restore path format will be "/d/test/restic-restore/test-restore-1"
+# Download remote repository from cloud storage and point to it in "restic-repository-list" script to use it as local repository.
+# Once a file/folder is excluded, then it never can be included (see "restic exclude files" documentation).
+# "restic-exclue-file.txt" file path will be <restic-git-sync>/<exclude>/<desktop/server-1/server-2/server-3>/<present-working-directory-of-project>
+# Content of restic-exclude-file.txt (Be careful when using "*" because once a file/folder is excluded, then it never can be included)
+#```
+#  *
+#  !upload
+#```
+# In Ubuntu-Desktop and Ubuntu-Server/Alpine-Linux(via Vagrant) hard symbolic link does not work because "restic-git" script is not inside any path of linux-os. Moving to "/etc/restic-git-sync" directory works, but soft symbolic link does not update instantly.
+# In Windows-OS hard symbolic link of "restic-git" script works.
+# In Windows-OS Git-Bash does not support "user-prompt". Solution: Open any terminal [Powershell-GitHub](https://github.com/PowerShell/PowerShell) OR [Alacritty](https://github.com/alacritty/alacritty) and then enter command `bash` to enter into Git-Bash. Alternatively in Git-Bash use "winpty <restic-command>" to work with "user-prompt" and to see backup progress.
+# If "rclone serve restic --verbose <remote-restic-repository-name>:" does not keep running, then reinstall "rclone".
+
+## Windows-OS Installation Instruction
+
+# Create file "restic-git", without any file extension. During file save, choose "Save as type: All Files"
+# Make "restic-git" command available globally
+  # There are two ways to make "restic-git" command. One is creating hard symbolic link to "bin" folder and another is moving "restic-git" script to "bin" folder.
+  # Create hard symbolic link of "restic-git" script. Open "cmd" in administrator mode and enter command - [[Command Format: `mklink /H Link Target`]] [[Normal Git Installation: `mklink /H C:\Program Files\Git\usr\bin\restic-git C:\Users\<User_Name>\AppData\Local\restic-git-sync\restic-git`]] [[Git Installation Via Scoop: `mklink /H C:\ProgramData\scoop\apps\git\2.39.0.windows.2\usr\bin\restic-git C:\Users\<User_Name>\AppData\Local\restic-git-sync\restic-git`]]
+  # Move "restic-git" script to "C:\Program Files\Git\usr\bin" folder. If git is installed using Scoop then this path is "C:\ProgramData\scoop\apps\git\2.39.0.windows.2\usr\bin"   
+# Restart Git Bash
+# Set "exclude_file_path" in "restic-repository-list" script. For Windows-OS path format: "/c/Users/<User_Name>/AppData/Local/restic-git-sync/". Create directory structure for "exclude_file" same as folder/file to backup inside "exclude" folder like "/d/test/restic/test-restic-1/exclude.txt".
+# To use Remote repository open Git-Bash in Administrator mode and enter command `rclone serve restic --verbose GoogleDrive101-Restic:` to start REST server in separate Terminal window. Press "Ctrl+C" to stop REST server.
+
+## Linux-OS Installation Instruction
+# Create file "restic-git", without any file extension.
+# Make "restic-git" command available globally
+  # `cd /var` -> `sudo git clone restic-git-sync.git` -> `cd restic-git-sync` -> `sudo chmod a+x restic-git` -> `sudo chmod a+x restic-repository-list` -> `sudo ln -S -v /c/Users/<user_name>/AppData/Local/restic-git-sync/restic-git /usr/bin/restic-git`
+  # If symbolic link does not work, then copy file "restic-git" from "/c/Users/<user_name>/AppData/Local/restic-git-sync" to "/usr/bin" using command `sudo cp /c/Users/<user_name>/AppData/Local/restic-git-sync/restic-git /usr/bin/restic-git`. And make both files executable using command: `sudo chmod a+x restic-git` -> `sudo chmod a+x restic-repository-list`
+  # Error message when creating symbolic link: `ln: failed to create hard link '/usr/bin/restic-git' => 'restic-git': Invalid cross-device link`
+  # On Linux-OS run "restic-git" as: `bash restic-git`
+# Create same directory structure like Windows-OS
+  # Check hard disk partition list: `sudo fdisk -l`
+  # `cd /` -> `ls` -> `sudo mkdir c` -> `sudo mkdir d` -> `sudo mkdir e`
+  # Mount Hard Disk Partition: `sudo mount /dev/sda2 /c` -> `sudo mount /dev/sda4 /d` -> `sudo mount /dev/sda5 /e` [IF SHOWS WARNING: Windows is hibernated, refused to mount. The disk contains an unclean file system (0, 0). Metadata kept in Windows cache, refused to mount. Falling back to read-only mount because the NTFS partition is in an unsafe state. Please resume and shutdown Windows fully (no hibernation or fast restarting.) Could not mount read-write, trying read-only] [SOLUTION: Now restart from Linux-OS to Windows-OS and then restart from Windows-OS to Linux-OS. Do Restart, Not ShutDown] [SOLUTION-2: During Windows ShutDown, press "Shift" key and click "ShutDown" button.]
+  # Unmount Hard Disk Partition: `sudo umount /dev/sda2` -> `sudo umount /dev/sda4` -> `sudo umount /dev/sda5`
+  
+## Server-OS (Ubuntu/Alpine) Installation Instruction
+# Make "restic-git" command available globally
+  # `cd /etc` -> `sudo git clone Restic-Git-Sync.git restic-git-sync` -> `cd restic-git-sync` -> `sudo chmod a+x restic-git` -> `sudo chmod a+x restic-repository-list` -> `sudo ln -S -v /etc/restic-git-sync/restic-git /usr/bin/restic-git`
+  # If symbolic link does not work, then copy file "restic-git" from "/etc/restic-git-sync" to "/usr/bin". And make both files executable using command: `sudo chmod a+x restic-git` -> `sudo chmod a+x restic-repository-list`
+# Install software package on Ubuntu-Server: `sudo apt update` -> `sudo apt install git rclone restic curl screen`
+# Install software package on Alpine-Linux: `sudo apk update` -> `sudo apk add git rclone restic curl screen`
+# On Alpine-Linux run "restic-git" as: `bash restic-git`
+# BUG: GNU-Screen auto starting "rclone-serve-restic" in detached session, does not work instantly. First, attach session "rclone-serve-restic" using command `screen -list` -> `screen -r <process-id-from-screen-list-command>` -> Again detach using keyboard shortcut "Ctrl+a+d", then `bash rclone-git <init/backup/restore/snapshot>` command works.
+
+
+# Define restic repository details - restic_repo_list[present working directory, from where running this script]='restic-repository-address(local/remote(N/A)) restic-repository-password repository-type(local/rclone) remote-repository-name(rclone/N/A) workstation-type(desktop-pc/server-pc) workstation-name(desktop/server-1/server-2) synchronization-type(restic-git/restic-only/project)'
+# Restic remote repository address: restic-desktop/restic-server/restic-server2/restic-server3 [Only one Desktop, but Multiple Server] <then-path-of-pc-working-directory>
+# Defile linux terminal list - 
+#linux_terminal_list=( 
+#  ["xfce4-terminal"]="xfce4-terminal --command"
+#)
+declare -A restic_repo_list
+declare -A git_repo_list
+#declare -A linux_terminal_list
+
+# START: content format for "restic-repository-list" script
+
+#restore_restic_git_base_path=/d/test/restore-restic-git
+
+#git_bash_path=/c/ProgramData/scoop/apps/git/current/git-bash.exe
+#desktop_exclude_base_path=/c/Users/Riazul/AppData/Local/restic-git-sync/exclude
+#server_exclude_base_path=/etc/restic-git-sync/exclude
+#linux_terminal_list=( 
+#  ["xfce4-terminal"]="xfce4-terminal --command" 
+  #["gnome-terminal"]="gnome-terminal --command"
+#)
+
+# PWD(Desktop): /d/test/restic/test-restic-1
+#restic_repo_list['/d/test/restic/test-restic-1']='/d/test/restic-repo/test-repo-1 1234 local N/A desktop-pc desktop restic-git'
+#restic_repo_list['/d/test/restic/test-restic-1']='N/A 1234 rclone GoogleDrive704 desktop-pc desktop restic-git'
+
+# PWD(Server): /home/vagrant/test/restic/test-restic-1
+#restic_repo_list['/home/vagrant/test/restic/test-restic-1']='/home/vagrant/test/restic-repo/test-repo-1 1234 local N/A server-pc server-1 restic-git'
+#restic_repo_list['/home/vagrant/test/restic/test-restic-1']='N/A 1234 rclone GoogleDrive704 server-pc server-1 restic-git'
+
+# END: content format for "restic-repository-list" script
+
+repository_list_file_path="/c/ProgramData/restic-git/restic-git-sync"
+source "${repository_list_file_path}/restic-repository-list"
+source "${repository_list_file_path}/git-repository-list"
+
+trim() {
+    local var="$*"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"
+    printf '%s' "$var"
+}
+
+function git_uncommitted_sync_push() {
+  git_repo_url="$1"
+  git_remote_rclone_name=$2
+  #echo "Git Repo URL: ${git_repo_url}; Git Remote Rclone: ${git_remote_rclone_name}"
+  
+  git_changed_files=$(git status -s | awk 'match($0,/"[^"]*"/){print substr($0,RSTART+1,RLENGTH-2);next} {print $2}') # https://stackoverflow.com/questions/71114506/treat-2nd-column-with-space-as-one-column
+  #echo "${git_changed_files}"
+  
+  IFS=$'\n' 
+  read -rd '' -a git_changed_files_array <<<"$git_changed_files"
+  unset IFS
+  
+  rclone purge "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" --verbose
+  rclone mkdir "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" --verbose
+  
+  for ((git_changed_inc = 0; git_changed_inc < ${#git_changed_files_array[@]}; git_changed_inc++))
+  do
+    rclone copyto "${PWD}/${git_changed_files_array[$git_changed_inc]}" "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data/${git_changed_files_array[$git_changed_inc]}" --progress
+    #echo "${git_changed_files_array[$git_changed_inc]}"
+  done
+}
+
+function git_uncommitted_sync_pull() {
+  git_repo_url="$1"
+  git_remote_rclone_name=$2
+  #echo "Git Repo URL: ${git_repo_url}; Git Remote Rclone: ${git_remote_rclone_name}"
+  
+  #rclone_changed_files=$(rclone ls "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" | awk 'match($0,/"[^"]*"/){print substr($0,RSTART+1,RLENGTH-2);next} {print $2}') # This does not work here, because "rclone ls" command output includes spaces # https://stackoverflow.com/questions/71114506/treat-2nd-column-with-space-as-one-column
+  
+  rclone_changed_files=$(rclone ls "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data" | awk '{sub(/[^ ]+[ ]+/,"")}1') # https://stackoverflow.com/questions/14327442/treat-second-column-with-spaces-as-one-column-with-awk
+  #echo "${rclone_changed_files}"
+  
+  #rclone ls "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data"
+  #exit
+  IFS=$'\n' 
+  read -rd '' -a rclone_changed_files_array <<<"$rclone_changed_files"
+  unset IFS
+  
+  for ((rclone_changed_inc = 0; rclone_changed_inc < ${#rclone_changed_files_array[@]}; rclone_changed_inc++))
+  do
+    # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+    var="${rclone_changed_files_array[$rclone_changed_inc]}"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"   
+    #printf '%s' "$var"
+    #${rclone_changed_files_array[$rclone_changed_inc]}="${var}"
+	#echo "${var}"
+  
+  
+    rclone copyto "${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data/${var}" "${PWD}/${var}" --progress
+    #echo "${rclone_changed_files_array[$rclone_changed_inc]}"
+  done
+}
+
+function git_uncommitted_sync_status() {
+  git_repo_url="$1"
+  git_remote_rclone_name=$2
+  git_status_remote_path="${git_remote_rclone_name}:${git_uncommitted_sync_remote_base}${PWD}/data"
+  rclone tree "${git_status_remote_path}"
+}
+
+function git_uncommitted_sync() {
+  git_sync_todo=$1
+  
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ $is_git_repo == 'true' ]]
+  then
+    get_git_repo=${git_repo_list[$PWD]}
+    if [[ $get_git_repo != '' ]]
+    then
+	  git_repo_details=(${git_repo_list[$PWD]})
+	  git_repo_url=${git_repo_details[0]}
+	  git_remote_rclone_name=${git_repo_details[1]}
+	  
+	  # Check "rclone" remote exists or not
+	  if [[ $(rclone listremotes | grep "${git_remote_rclone_name}:") != "${git_remote_rclone_name}:" ]]
+	  then
+	    echo -e "\033[41mRclone: ${git_remote_rclone_name} does not exist! Add it using command -- rclone config\033[m"
+	    exit
+	  fi
+	  
+      if [[ ${git_sync_todo} == "push" ]]
+	  then
+	    git_uncommitted_sync_push ${git_repo_url} ${git_remote_rclone_name}
+	  elif [[ ${git_sync_todo} == "pull" ]]
+	  then
+	    git_uncommitted_sync_pull ${git_repo_url} ${git_remote_rclone_name}
+	  elif [[ ${git_sync_todo} == "status" ]]
+	  then
+	    git_uncommitted_sync_status ${git_repo_url} ${git_remote_rclone_name}
+	  else
+	    echo "Git: Wrong input! Enter correct input - (push/pull)."
+	  fi
+  else
+    echo 'Git: No entry for current directory in git repository list!'
+  fi
+  else
+    echo -e "\033[41mGit: Current directory is not a git repository!\033[m"
+  fi
+}
+
+function restic_init() {
+  restic init
+}
+
+function restic_backup() {
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+    git_commit_id=$(git rev-parse HEAD)
+    if [[ ${commit_snap_tag_id} == '' ]]
+    then
+      restic backup . --exclude-file="${exclude_file_path}" --tag "git-commit:${git_commit_id}" --verbose
+    else
+      restic backup . --exclude-file="${exclude_file_path}" --tag "git-commit:${git_commit_id}" --tag "${commit_snap_tag_id}" --verbose
+    fi 
+  else
+	if [[ ${commit_snap_tag_id} == '' ]]
+    then
+      restic backup . --exclude-file="${exclude_file_path}" --verbose
+    else
+      restic backup . --exclude-file="${exclude_file_path}" --tag "${commit_snap_tag_id}" --verbose
+    fi
+  fi
+}
+
+function restic_backup_dry_run() {
+  restic backup --dry-run . --exclude-file="${exclude_file_path}"
+}
+
+function restic_restore() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    read -p "Enter Path of Backup Restoration (For Current Directory Leave Empty): `echo $'\n> '`" restore_path
+	if [[ ${restore_path} == '' ]]
+	then
+	  restic restore ${commit_snap_tag_id} --target . --verbose
+	else
+	  restic restore ${commit_snap_tag_id} --target "${restore_path}" --verbose
+	fi    
+  else
+    echo 'Restore (Restic): Please Enter Snapshot ID.'
+  fi
+}
+
+function restic_snapshots() {
+  if [[ ${commit_snap_tag_id} == '' ]]
+  then
+    restic snapshots
+  else
+    restic snapshots --tag "git-commit:${commit_snap_tag_id}"
+  fi
+}
+
+function restic_forget() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    restic forget ${commit_snap_tag_id}
+  else
+    echo 'Forget (Restic): Please Enter Snapshot ID.'
+  fi
+}
+
+function restic_prune() {
+  restic prune
+}
+
+function restic_check() {
+  restic check
+}
+
+# Only use if "exclude.txt" file is changed.
+function restic_cache_clear() {
+  restic cache --cleanup --max-age 0
+}
+
+function restic_exclude_file_exist_check() {
+  if [ ! -f "$exclude_file_path" ]
+  then
+    echo "Exclude File Not Found!"
+	if [[ ${operating_system} == 'Linux' ]]
+	then
+	  sudo mkdir -p "$exclude_file_parent_folder" && touch "${exclude_file_parent_folder}/exclude.txt"
+	else # Windows-OS
+	  mkdir -p "$exclude_file_parent_folder" && touch "${exclude_file_parent_folder}/exclude.txt" # Windows-OS does not have "sudo" command
+	fi
+	echo "Created exclude file at ${exclude_file_parent_folder}/exclude.txt"
+  fi
+}
+
+function restic_exclude_edit() {
+  restic_exclude_file_exist_check
+
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    sudo vim "$exclude_file_path"
+  else # Windows-OS
+    vim "$exclude_file_path" # Windows-OS does not have "sudo" command
+  fi
+}
+
+#echo 'echo from "restic-git"'
+#exit
+
+function get_restic_repo_details() {
+  working_repo_type="$1"
+  get_restic_repo=${restic_repo_list[$PWD]}
+  if [[ ${get_restic_repo} != '' ]]
+  then
+    get_restic_repo_array=(${get_restic_repo})
+    restic_repo_path_url=${get_restic_repo_array[0]}
+    restic_repo_password=${get_restic_repo_array[1]}
+    restic_repo_type=${get_restic_repo_array[2]} # Restic Repository Type: local/rclone(remote)
+    restic_repo_remote_name=${get_restic_repo_array[3]}
+    workstation_type=${get_restic_repo_array[4]} # Workstation Type: desktop-pc/server-pc
+    workstation_name=${get_restic_repo_array[5]}
+    sync_type=${get_restic_repo_array[6]} # Synchronization Type: restic-git/restic-only/project
+    
+    if [[ ${workstation_type} == 'desktop-pc' ]]
+    then
+      exclude_file_parent_folder="${desktop_exclude_base_path}/${workstation_name}${PWD}"   
+    else
+      exclude_file_parent_folder="${server_exclude_base_path}/${workstation_name}${PWD}"
+    fi
+  
+    exclude_file_path="${exclude_file_parent_folder}/exclude.txt"
+    restic_exclude_file_exist_check
+  
+    if [[ ${restic_repo_type} == 'rclone' ]]
+    then
+      # Check "rclone" remote exists or not
+	  if [[ $(rclone listremotes | grep "${restic_repo_remote_name}:") != "${restic_repo_remote_name}:" ]]
+	  then
+	    echo -e "\033[41mRclone: ${restic_repo_remote_name} does not exist! Add it using command -- rclone config\033[m"
+	    exit
+	  fi
+	  
+	  # Use locally synchronized restic repository instead of cloud
+	  if [[ ${working_repo_type} == 'local' ]]
+	  then
+	    sync_repo_local_path="${sync_restic_repo_base_path}/restic-${workstation_name}$PWD"
+		if [ ! -f "${sync_repo_local_path}/config" ]
+	    then
+	      echo -e "\033[41mNo synchronized restic repository for current directory!\033[m"
+		  exit
+	    fi
+		export RESTIC_REPOSITORY=${sync_repo_local_path}
+		export RESTIC_PASSWORD=${sync_restic_repo_password}
+		return
+	  fi
+	
+	  restic_repo_address="rclone:${restic_repo_remote_name}:restic-${workstation_name}${PWD}"
+	  
+#----------------------------START: Auto Open/Close Terminal Window----------------------------
+      # Description: Open new terminal window to run command "rclone serve restic". An easy alternative is implemented above.  
+	  
+      #restic_repo_address="rest:http://localhost:8080/restic-${workstation_name}${PWD}/"
+      #curl_http_code=$(curl --write-out '%{http_code}' --silent --output /dev/null http://127.0.0.1:8080)
+	  #if [[ $curl_http_code == '000' ]] # 200=Successful-Request, 400=Bad-Request(Here this response code is received. It is happened for sending non-valid input. But it works), 404=Not-Found
+	  #then
+	    #if [[ $workstation_type == 'desktop-pc' ]] # For: desktop-pc
+	    #then
+	      #if [[ $operating_system == 'Linux' ]] # Desktop-Linux
+	      #then
+            #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_name}:" & # Tested For: xterm
+            #sleep 3
+          #else # Windows-OS
+	        #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_name}:"
+	      #fi
+	    #else # For: server-pc
+	      #if [[ $operating_system == 'Linux' ]] # Server-Linux
+		  #then
+		    #screen -dmS rclone_serve_restic bash -c "rclone serve restic --verbose ${restic_repo_remote_name}:"
+		  #fi
+	    #fi
+	  #fi
+#--------------------------END: Auto Open/Close Terminal Window---------------------------------
+	  
+    else
+      restic_repo_address=${restic_repo_path_url}  
+    fi
+    export RESTIC_REPOSITORY=${restic_repo_address}
+    export RESTIC_PASSWORD=${restic_repo_password}
+  else
+    echo 'Restic: No entry for current directory in restic repository list!'
+  fi
+}
+
+if [[ $1 == '--work-local' ]]
+then
+  working_repo_type='local'
+  work_type="$2" # Work Type: init/backup/backup-dry-run/restore/snapshot/forget/prune/check/exclude-edit
+  commit_snap_tag_id="$3" # For Backup it is Tag-Name / For Restore it is Snapshot-ID / For Snapshot it is Git-Commit-ID
+else
+  working_repo_type='remote'
+  work_type="$1"
+  commit_snap_tag_id="$2"
+fi
+
+operating_system=$(uname -s)
+
+if [[ ${work_type} != "--git-uncommitted-sync" ]]
+then
+get_restic_repo_details ${working_repo_type}
+fi
+
+if [[ ${work_type} == "init" ]]
+then
+  restic_init
+elif [[ ${work_type} == "backup" ]]
+then
+  if [[ ${working_repo_type} == 'remote' ]]
+  then
+    restic_backup
+  else
+    echo "Sync-Restic-Repo: Backup is not allowed in synchronized restic repository."
+  fi
+elif [[ ${work_type} == "backup-dry-run" ]]
+then
+  if [[ ${working_repo_type} == 'remote' ]]
+  then
+    restic_backup_dry_run
+  else
+    echo "Sync-Restic-Repo: Backup-Dry-Run is not allowed in synchronized restic repository."
+  fi
+elif [[ ${work_type} == "restore" ]]
+then
+  restic_restore
+elif [[ ${work_type} == "snapshots" ]]
+then
+  restic_snapshots
+elif [[ ${work_type} == "forget" ]]
+then
+  restic_forget
+elif [[ ${work_type} == "prune" ]]
+then
+  restic_prune
+elif [[ ${work_type} == "check" ]]
+then
+  restic_check
+elif [[ ${work_type} == "cache-clear" ]]
+then
+  restic_cache_clear
+elif [[ ${work_type} == "exclude-edit" ]]
+then
+  restic_exclude_edit
+elif [[ ${work_type} == "--git-uncommitted-sync" ]]
+then
+  git_uncommitted_sync $2
+fi

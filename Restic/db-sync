@@ -1,0 +1,196 @@
+#!/bin/bash
+
+# Define git repository details - git_repo_list['git project folder path']='git-repository-url php-composer-package-download node-npm-package-download database-name'
+
+#git_repo_list['/d/test/restic/laravel-package']='https://github.com/riazul701/laravel-package.git no no test-db'
+
+declare -A git_repo_list
+
+repository_list_file_path="/c/ProgramData/restic-git/restic-git-sync"
+source "${repository_list_file_path}/git-repository-list"
+db_sync_local_base_path="/c/ProgramData/restic-git/restic-git-sync/database-sync"
+db_server_name='localhost'
+
+function db_backup() {
+  is_git_repo=$(git rev-parse --is-inside-work-tree) # Shows Warning (But Works): fatal: not a git repository (or any of the parent directories): .git
+  if [[ ${is_git_repo} == 'true' ]]
+  then
+    git_commit_id=$(git rev-parse --short HEAD)
+	git_commit_id="_${git_commit_id}"
+  else
+    git_commit_id=''
+  fi
+
+  db_backup_folder="${db_sync_local_base_path}${PWD}"
+  db_file_backup="${current_date_time}_${database_name}${git_commit_id}.sql"
+  if [ ! -d "${db_backup_folder}" ]
+  then
+    mkdir -p "${db_backup_folder}"
+  fi
+  eval rm "${db_backup_folder}/*"
+
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    ${mysqldump_path} --routines -h ${db_server_name} -u ${db_user_name} -p${db_password} ${database_name} > "${db_backup_folder}/${db_file_backup}"
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    echo 'DB-Sync: Docker-Backup has not impemented yet.'
+	exit
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    echo 'DB-Sync: Vagrant-Backup has not impemented yet.'
+	exit
+  fi
+  
+  rclone purge "${rclone_remote_name}:${database_sync_remote_base}${PWD}" --verbose
+  rclone mkdir "${rclone_remote_name}:${database_sync_remote_base}${PWD}" --verbose
+  rclone copyto "${db_backup_folder}/${db_file_backup}" "${rclone_remote_name}:${database_sync_remote_base}${PWD}/${db_file_backup}" --progress
+}
+
+function db_fetch() {
+  db_fetch_folder="${db_sync_local_base_path}${PWD}"
+  if [ ! -d "${db_fetch_folder}" ]
+  then
+    mkdir -p "${db_fetch_folder}"
+  fi
+  eval rm "${db_fetch_folder}/*"
+
+  rclone_changed_files=$(rclone ls "${rclone_remote_name}:${database_sync_remote_base}${PWD}" | awk '{sub(/[^ ]+[ ]+/,"")}1') # https://stackoverflow.com/questions/14327442/treat-second-column-with-spaces-as-one-column-with-awk
+  #echo "${rclone_changed_files}"
+  
+  IFS=$'\n' 
+  read -rd '' -a rclone_changed_files_array <<<"$rclone_changed_files"
+  unset IFS
+  
+  for ((rclone_changed_inc = 0; rclone_changed_inc < ${#rclone_changed_files_array[@]}; rclone_changed_inc++))
+  do
+    # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+    var="${rclone_changed_files_array[$rclone_changed_inc]}"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"   
+    #printf '%s' "$var"
+    #${rclone_changed_files_array[$rclone_changed_inc]}="${var}"
+	#echo "${var}"
+  
+    rclone copyto "${rclone_remote_name}:${database_sync_remote_base}${PWD}/${var}" "${db_sync_local_base_path}${PWD}/${var}" --progress
+    #echo "${rclone_changed_files_array[$rclone_changed_inc]}"
+  done
+}
+
+function db_restore() {
+  original_pwd="${PWD}"
+  db_restore_folder="${db_sync_local_base_path}${PWD}"
+  cd "${db_restore_folder}"
+  file_list_array=( * ) # Shell glob-pattern
+  db_file_restore=${file_list_array[0]}
+  cd "${original_pwd}"
+  
+  read -p "Do you want to open database file (yes/no): `echo $'\n> '`" confirm_db_file_open
+  if [[ ${confirm_db_file_open} == 'yes' ]]
+  then
+    ${editor_open_command}"${db_restore_folder}/${db_file_restore}"
+  fi
+  
+  read -p "Do you want to restore database '${db_restore_folder}/${db_file_restore}' (yes-restore-db/no): `echo $'\n> '`" confirm_db_restore
+  if [[ ${confirm_db_restore} == 'yes-restore-db'  ]]
+  then
+    echo ''
+  else
+    echo "DB-Sync: You rejected to restore database."
+    exit
+  fi
+  
+  if [[ ${development_env} == 'xampp' ]]
+  then
+    ${mysql_path} -h ${db_server_name} -u ${db_user_name} -p${db_password} ${database_name} < "${db_restore_folder}/${db_file_restore}"	
+  elif [[ ${development_env} == 'docker' ]]
+  then
+    echo 'DB-Sync: Docker-Restore has not impemented yet.'
+	exit
+  elif [[ ${development_env} == 'vagrant' ]]
+  then
+    echo 'DB-Sync: Vagrant-Restore has not impemented yet.'
+	exit
+  fi
+}
+
+development_env="$1" # Development Environment: xampp/docker/vagrant
+work_type="$2" # Work Type: backup/restore/fetch
+current_date_time=$(date '+%Y-%m-%d_%H%M%S')
+#echo "${current_date_time}"
+
+if [[ ( ${development_env} != 'xampp' && ${development_env} != 'docker' && ${development_env} != 'vagrant' ) || ( ${work_type} != 'backup' && ${work_type} != 'restore' && ${work_type} != 'fetch' ) ]]
+then
+  echo "Please Provide Argument-1 (xampp/docker/vagrant) and Argument-2 (backup/restore/fetch)"
+  exit
+fi
+
+get_git_repo=${git_repo_list[$PWD]}
+if [[ ${get_git_repo} != '' ]]
+then
+  get_git_repo_array=(${get_git_repo})
+  git_repo_url=${get_git_repo_array[0]}
+  rclone_remote_name=${get_git_repo_array[1]}
+  composer_do_download=${get_git_repo_array[2]} # PHP Composer
+  npm_do_download=${get_git_repo_array[3]} # Node Package Manager (NPM)
+  database_name=${get_git_repo_array[4]}
+  # Check database name exists or not
+  if [[ ${database_name} == 'N/A' ]]
+  then
+    echo "Database name is 'N/A' for current project"
+	exit
+  fi
+  # Check "rclone" remote exists or not
+  if [[ $(rclone listremotes | grep "${rclone_remote_name}:") != "${rclone_remote_name}:" ]]
+  then
+    echo -e "\033[41mRclone: ${rclone_remote_name} does not exist! Add it using command -- rclone config\033[m"
+    exit
+  fi
+  if [[ ${work_type} == 'backup' || ${work_type} == 'restore' ]]
+  then
+    read -p "Enter database user name: `echo $'\n> '`" db_user_name
+    read -p "Enter database password: `echo $'\n> '`" db_password
+    echo "Database Name: ${database_name}; DB User Name: ${db_user_name}; DB Password: ${db_password}"
+  fi
+else
+  echo 'DB-Sync: No entry for current directory in git repository list!'
+  exit
+fi
+
+operating_system=$(uname -s)
+if [[ ${development_env} == 'xampp' ]]
+then
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    mysqldump_path=''
+    mysql_path=''
+	editor_open_command="${linux_editor} "
+  else # Windows-OS
+    mysqldump_path='../../mysql/bin/mysqldump.exe'
+    mysql_path='../../mysql/bin/mysql.exe'
+	editor_open_command="start ${windows_editor} "
+  fi
+elif [[ ${development_env} == 'docker' ]]
+then
+  mysqldump_path='mysqldump'
+  mysql_path='mysql'
+elif [[ ${development_env} == 'vagrant' ]]
+then
+  mysqldump_path='/bin/mysqldump' # Laravel-Homestead
+  mysql_path='/bin/mysql' # Laravel-Homestead
+fi
+
+
+if [[ ${work_type} == 'backup' ]]
+then
+  db_backup
+elif [[ ${work_type} == 'restore' ]]
+then
+  db_fetch
+  db_restore
+elif [[ ${work_type} == 'fetch' ]]
+then
+  db_fetch
+fi

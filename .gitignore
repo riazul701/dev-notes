@@ -1,0 +1,7 @@
+# Ignore downloaded software
+*.exe
+*.deb
+*.AppImage
+*.run
+*.zip
+*.tar.gz

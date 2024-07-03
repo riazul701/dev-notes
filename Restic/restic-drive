@@ -1,0 +1,197 @@
+#!/bin/bash
+
+#------------------------------START: Production Data---------------------------
+project_drive_path='/e'
+document_drive_path='/f'
+project_drive_repo_name='restic_project_drive'
+document_drive_repo_name='restic_document_drive'
+project_drive_psd_identification='psd1_project_drive.`~!@#$%^&()-_=+[{]};,.,;}]{[+=_-)(&^%$#@!~`' # psd = portable-storage-device
+document_drive_psd_identification='psd1_document_drive.`~!@#$%^&()-_=+[{]};,.,;}]{[+=_-)(&^%$#@!~`'
+drive_restic_repo_password='1234'
+#------------------------------END: Production Data---------------------------
+
+#------------------------------START: Test Data-------------------------------
+#project_drive_path=/d/test/project_drive
+#document_drive_path=/d/test/document_drive
+#project_drive_repo_name='restic_project_drive'
+#document_drive_repo_name='restic_document_drive'
+#project_drive_psd_identification=psd_project_drive_identify
+#document_drive_psd_identification=psd_document_drive_identify
+#drive_restic_repo_password='1234'
+#------------------------------END: Test Data-------------------------------
+
+declare -A restic_repo_list
+repository_list_file_path="/c/ProgramData/restic-git/restic-git-sync"
+source "${repository_list_file_path}/restic-repository-list"
+
+function restic_init() {
+  restic init
+}
+
+function restic_backup() {
+  if [[ ${commit_snap_tag_id} == '' ]]
+  then
+    restic backup "${backup_content_path}" --exclude-file="${exclude_file_path}" --verbose
+  else
+    restic backup "${backup_content_path}" --exclude-file="${exclude_file_path}" --tag "${commit_snap_tag_id}" --verbose
+  fi
+}
+
+function restic_backup_dry_run() {
+  restic backup --dry-run "${backup_content_path}" --exclude-file="${exclude_file_path}"
+}
+
+function restic_restore() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    read -p "Enter Path of Backup Restoration: `echo $'\n> '`" restore_path
+	if [[ ${restore_path} != '' ]]
+	then
+	  if [ -d "${restore_path}" ]
+      then
+        restic restore ${commit_snap_tag_id} --target "${restore_path}" --verbose
+	  else
+	    echo "Restore (Restic): Backup restore path '${restore_path}' does not exist!"
+      fi
+	else
+	  echo "Restore (Restic): Backup restore path can not be empty!"
+	fi    
+  else
+    echo "Restore (Restic): Please Enter Snapshot ID."
+  fi
+}
+
+function restic_snapshots() {
+  restic snapshots
+}
+
+function restic_forget() {
+  if [[ ${commit_snap_tag_id} != '' ]]
+  then
+    restic forget ${commit_snap_tag_id}
+  else
+    echo 'Forget (Restic): Please Enter Snapshot ID.'
+  fi
+}
+
+function restic_prune() {
+  restic prune
+}
+
+function restic_check() {
+  restic check
+}
+
+# Only use if "exclude.txt" file is changed.
+function restic_cache_clear() {
+  restic cache --cleanup --max-age 0
+}
+
+function restic_exclude_file_exist_check() {
+  if [ ! -f "$exclude_file_path" ]
+  then
+    echo "Exclude File Not Found!"
+	if [[ ${operating_system} == 'Linux' ]]
+	then
+	  sudo mkdir -p "${exclude_file_parent_folder}" && touch "${exclude_file_parent_folder}/exclude.txt"
+	else # Windows-OS
+	  mkdir -p "${exclude_file_parent_folder}" && touch "${exclude_file_parent_folder}/exclude.txt" # Windows-OS does not have "sudo" command
+	fi
+	echo "Created exclude file at ${exclude_file_parent_folder}/exclude.txt"
+  fi  
+}
+
+function restic_exclude_edit() {
+  restic_exclude_file_exist_check
+
+  if [[ ${operating_system} == 'Linux' ]]
+  then
+    sudo vim "${exclude_file_path}"
+  else # Windows-OS
+    vim "${exclude_file_path}" # Windows-OS does not have "sudo" command
+  fi
+}
+
+work_type="$1" # Work Type: init/backup/backup-dry-run/restore/snapshot/forget/prune/check
+commit_snap_tag_id="$2" # For Backup it is Tag-Name / For Restore it is Snapshot-ID
+
+# Find Portable HDD Drive Letter
+read -p "Which drive do you want to work with (p[project]/d[document])?: `echo $'\n> '`" drive_work_with
+if [[ ${drive_work_with} == 'p' ]]
+then
+  psd_identification_file="${project_drive_psd_identification}"
+  restic_repo_name="${project_drive_repo_name}"
+  backup_content_path="${project_drive_path}"
+elif [[ ${drive_work_with} == 'd' ]]
+then
+  psd_identification_file="${document_drive_psd_identification}"
+  restic_repo_name="${document_drive_repo_name}"
+  backup_content_path="${document_drive_path}"
+else
+  echo 'Restic: Wrong Input! Enter (p[project]/d[document]) [Which drive do you want to work with?]'
+  exit
+fi
+
+exclude_file_parent_folder="${desktop_exclude_base_path}/restic-drive${backup_content_path}"
+exclude_file_path="${exclude_file_parent_folder}/exclude.txt"
+restic_exclude_file_exist_check
+
+psd_drive_letter='NOT-FOUND' # psd = portable-storage-device
+for alphabet in {a..z}
+do
+  if [ -f "/${alphabet}/${psd_identification_file}" ]
+  then
+    psd_drive_letter="${alphabet}"
+  fi
+done
+
+echo "Portable HDD Drive Letter: ${psd_drive_letter}"
+if [[ ${psd_drive_letter} == 'NOT-FOUND' ]]
+then
+  exit
+fi
+
+restic_psd_repo_path="/${psd_drive_letter}/${restic_repo_name}"
+read -p "Current Restic Repository Path is '${restic_psd_repo_path}' (To accept leave empty OR write to change): `echo $'\n> '`" restic_repo_path_confirm
+if [[ "${restic_repo_path_confirm}" != '' ]]
+then
+  restic_psd_repo_path="${restic_repo_path_confirm}"
+fi
+echo "Working Restic Repository Path: '${restic_psd_repo_path}'"
+
+operating_system=$(uname -s)
+
+export RESTIC_REPOSITORY=${restic_psd_repo_path}
+export RESTIC_PASSWORD=${drive_restic_repo_password}
+
+if [[ ${work_type} == "init" ]]
+then
+  restic_init
+elif [[ ${work_type} == "backup" ]]
+then  
+  restic_backup  
+elif [[ ${work_type} == "backup-dry-run" ]]
+then
+  restic_backup_dry_run  
+elif [[ ${work_type} == "restore" ]]
+then
+  restic_restore
+elif [[ ${work_type} == "snapshots" ]]
+then
+  restic_snapshots
+elif [[ ${work_type} == "forget" ]]
+then
+  restic_forget
+elif [[ ${work_type} == "prune" ]]
+then
+  restic_prune
+elif [[ ${work_type} == "check" ]]
+then
+  restic_check
+elif [[ ${work_type} == "cache-clear" ]]
+then
+  restic_cache_clear
+elif [[ ${work_type} == "exclude-edit" ]]
+then
+  restic_exclude_edit
+fi

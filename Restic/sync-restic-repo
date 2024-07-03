@@ -1,0 +1,266 @@
+#!/bin/bash
+
+# Define restic repository details - restic_repo_list[present working directory, from where running this script]='restic-repository-address(local/remote(N/A)) restic-repository-password repository-type(local/rclone) remote-repository-name(rclone/N/A) workstation-type(desktop-pc/server-pc) workstation-name(desktop/server-1/server-2) synchronization-type(restic-git/restic-only/project)'
+
+# PWD(Desktop): /d/test/restic/test-restic-1
+#restic_repo_list['/d/test/restic/test-restic-1']='/d/test/restic-repo/test-repo-1 1234 local N/A desktop-pc desktop restic-git'
+#restic_repo_list['/d/test/restic/test-restic-1']='N/A 1234 rclone GoogleDrive704 desktop-pc desktop project'
+
+# PWD(Server): /home/vagrant/test/restic/test-restic-1
+#restic_repo_list['/home/vagrant/test/restic/test-restic-1']='/home/vagrant/test/restic-repo/test-repo-1 1234 local N/A server-pc server-1 restic-git'
+#restic_repo_list['/home/vagrant/test/restic/test-restic-1']='N/A 1234 rclone GoogleDrive704 server-pc server-1 restic-git'
+
+declare -A restic_repo_list
+
+repository_list_file_path="/c/ProgramData/restic-git/restic-git-sync"
+source "${repository_list_file_path}/restic-repository-list"
+
+function sync_restic_repo_single() {
+  restic_repo_pwd_path="$1"
+  restic_repo_path_url="$2"
+  restic_repo_from_password="$3"
+  restic_repo_type="$4" # Restic Repository Type: local/rclone(remote)
+  restic_repo_remote_name="$5"
+  restic_workstation_type="$6" # Workstation Type: desktop-pc/server-pc
+  restic_workstation_name="$7"
+  restic_sync_type="$8" # Synchronization Type: restic-git/restic-only/project
+  restic_sync_to_path="${sync_restic_repo_base_path}/restic-${restic_workstation_name}${restic_repo_pwd_path}"
+  
+  if [[ ${restic_repo_type} == 'rclone' ]]
+  then
+    export RESTIC_REPOSITORY=${restic_sync_to_path}
+    export RESTIC_PASSWORD=${sync_restic_repo_password}
+	restic_repo_from_address="rclone:${restic_repo_remote_name}:restic-${restic_workstation_name}${restic_repo_pwd_path}"
+    #restic_repo_from_address="rest:http://localhost:8080/restic-${restic_workstation_name}${restic_repo_pwd_path}/"
+	
+	if [ ! -f "${restic_sync_to_path}/config" ]
+	then
+	  restic init
+	fi
+	export RESTIC_FROM_REPOSITORY=${restic_repo_from_address}
+	export RESTIC_FROM_PASSWORD=${restic_repo_from_password}
+	restic copy
+	
+	unset RESTIC_REPOSITORY
+	unset RESTIC_PASSWORD
+	unset RESTIC_FROM_REPOSITORY
+	unset RESTIC_FROM_PASSWORD
+  fi
+  
+  #echo "${restic_sync_to_path}"
+  #echo "Restic PWD Path: ${restic_repo_pwd_path}; Restic Repo Path URL: ${restic_repo_path_url}; Restic Repo Password: ${restic_repo_password}; Restic Repo Type: ${restic_repo_type}; Restic Repo Remote Name: ${restic_repo_remote_name}; Restic Workstation Type: ${restic_workstation_type}; Restic Workstation Name: ${restic_workstation_name}; Restic Sync Type: ${restic_sync_type}"
+}
+
+function sync_restic_repo_all() {
+  sync_repo_todo=$1
+ 
+  if [[ ${sync_repo_todo} == 'all_repo_sync' ]]
+  then
+    read -p "Restic-Remote: Do you want to sync remote-backup for all repository (yes[auto]/no/manual/exit[program]) [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_global_confirm
+  else
+    read -p "Restic-Remote: Do you want to sync remote-backup for single repository (yes[auto]/no) [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_single_confirm
+	if [[ ${restic_single_confirm} == 'yes' ]]
+	then
+	  restic_global_confirm='yes' # yes[auto]
+	elif [[ ${restic_single_confirm} == 'no' ]]
+	then
+	  exit
+	else
+	  echo 'Restic-Remote: Wrong Input! Enter (yes/no) [Do you want to sync remote-backup for single repository?]'
+	  exit
+	fi
+    
+  fi
+  
+  if [[ ${restic_global_confirm} != 'yes' && ${restic_global_confirm} != 'no' && ${restic_global_confirm} != 'manual' && ${restic_global_confirm} != 'exit' ]]
+  then
+    echo 'Restic-Remote: Wrong Input! Enter (yes[auto]/no/manual/exit[program]) [Do you want to sync remote-backup?]'
+	exit
+  elif [[ ${restic_global_confirm} == 'no' ]]
+  then
+    return
+  elif [[ ${restic_global_confirm} == 'exit' ]]
+  then
+    echo 'Restic-Remote: Wrong Input! Enter (yes/no) [Do you want to sync remote-backup?]'
+    exit
+  fi
+
+  restic_repo_remote_list=() # "rclone" remotes
+  declare -A restic_repo_remote_data
+  restic_remote_inc=10000001
+  
+  for restic_repo_key in "${!restic_repo_list[@]}"
+  do
+    if [[ "${sync_repo_todo}" == 'single_repo_sync' && "${restic_repo_key}" != $PWD ]]
+	then
+	  continue
+	fi
+  
+    restic_repo_details_array=(${restic_repo_list["${restic_repo_key}"]})
+	restic_repo_path_url=${restic_repo_details_array[0]}
+    restic_repo_password=${restic_repo_details_array[1]}
+    restic_repo_type=${restic_repo_details_array[2]} # Restic Repository Type: local/rclone(remote)
+    restic_repo_remote_name=${restic_repo_details_array[3]}
+    restic_workstation_type=${restic_repo_details_array[4]} # Workstation Type: desktop-pc/server-pc
+    restic_workstation_name=${restic_repo_details_array[5]}
+    restic_sync_type=${restic_repo_details_array[6]} # Synchronization Type: restic-git/restic-only/project
+    operating_system=$(uname -s)
+	
+	if [[ ${restic_repo_type} == 'local' ]]
+	then
+	  continue
+	fi
+	
+    if [[ ${restic_workstation_type} == 'desktop-pc' ]]
+    then
+	  if [[ " ${restic_repo_remote_list[*]} " != *"$restic_repo_remote_name"* ]];
+      then
+	    restic_repo_remote_list+=("${restic_repo_remote_name}")
+        #echo "NO, your arr does not contain $SEARCH_STRING"
+      fi
+	  
+	  restic_repo_remote_data["${restic_repo_remote_name}-${restic_remote_inc}"]="${restic_repo_key}*?${restic_repo_list[${restic_repo_key}]}"
+	  ((restic_remote_inc=restic_remote_inc+1))
+	  
+      #sync_restic_repo_single ${restic_repo_key} ${restic_repo_path_url} ${restic_repo_password} ${restic_repo_type} ${restic_repo_remote_name} ${restic_workstation_type} ${restic_workstation_name} ${restic_sync_type}
+    else
+      continue
+    fi
+  done
+  
+  for restic_cloud_inc in "${!restic_repo_remote_list[@]}"; do 
+    printf "%s\t%s\n" "$restic_cloud_inc" "${restic_repo_remote_list[$restic_cloud_inc]}"
+
+    # Check "rclone" remote exists or not
+    if [[ $(rclone listremotes | grep "${restic_repo_remote_list[$restic_cloud_inc]}:") != "${restic_repo_remote_list[$restic_cloud_inc]}:" ]]
+    then
+      echo -e "\033[41mRclone: ${restic_repo_remote_name} does not exist. Add it using command -- rclone config\033[m"
+      continue
+    fi
+	
+	if [[ ${restic_global_confirm} == 'manual' ]] # Select "rclone-remote" manually (Both Windows-OS and Linux-OS)
+	then
+	  read -p "Restic-Remote: Do you want to sync remote-backup from \"${restic_repo_remote_list[$restic_cloud_inc]}\" (yes/no[next]/exit[program]) [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_sync_confirm
+	  if [[ ${restic_sync_confirm} == 'no' ]]
+	  then
+	    continue
+	  elif [[ ${restic_sync_confirm} == 'exit' ]]
+	  then
+	    exit
+	  elif [[ ${restic_sync_confirm} != 'yes' && ${restic_sync_confirm} != 'no' && ${restic_sync_confirm} != 'exit' ]]
+	  then
+	    echo 'Restic-Remote: Wrong Input! Enter (yes/no/exit[program]) [Do you want to sync remote-backup?]'
+	    exit
+	  fi
+	fi
+	
+#----------------------------START: Auto Open/Close Terminal Window----------------------------	
+	#if [[ $operating_system == 'Linux' && ${restic_global_confirm} != 'manual' ]] # If-Start: 'rclone-serve-restic' block # Linux-OS
+	#then
+      #count_rclone_terminal=$(ps ax | grep "${linux_terminal_name}" | grep -v "grep" | wc -l)
+      #if [[ ${count_rclone_terminal} == 0 ]]
+      #then
+        #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+        #sleep 3
+      #elif [[ ${count_rclone_terminal} == 1 ]]
+      #then
+        #echo 'Action to stop rclone'
+	    #sleep 3
+        #rclone_terminal_pid=$(ps ax | grep "${linux_terminal_name}" | grep -v "grep" | awk '{print $1}')
+        #kill -SIGINT ${rclone_terminal_pid}
+	    #sleep 6
+        #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+        #sleep 3
+      #else
+        #echo "Not Zero/One ${linux_terminal_name} running. Start/Close additional ${linux_terminal_name}"
+      #fi
+
+	  #echo "'rclone-serve-restic' for Linux-OS"   
+	#elif [[ ${restic_global_confirm} == 'manual' ]] # 'rclone-serve-restic' Manual Mode (Both Windows-OS and Linux-OS)
+    #then
+	  #read -p "Restic-Remote: Do you want to sync remote-backup from \"${restic_repo_remote_list[$restic_cloud_inc]}\" (yes/no[next]/exit[program]) [Close any running Rclone-Serve-Restic window] [Sync Path: ${sync_restic_repo_base_path}]: `echo $'\n> '`" restic_sync_confirm
+		
+      #if [[ $restic_sync_confirm == 'yes' ]] # If-Start: 'restic_sync_confirm'
+	  #then
+	    #curl_http_code=$(curl --write-out '%{http_code}' --silent --output /dev/null http://127.0.0.1:8080)
+	    #if [[ $curl_http_code == '000' ]] # If-Start: 'curl_http_code' # 200=Successful-Request, 400=Bad-Request(Here this response code is received. It is happened for sending non-valid input. But it works), 404=Not-Found
+	    #then
+	      #if [[ $restic_workstation_type == 'desktop-pc' ]] # If-Start: 'workstation_type' # For: desktop-pc
+		  #then
+		    #if [[ $operating_system == 'Linux' ]] #If-Start: 'operating_system' # Desktop-Linux
+		    #then
+		      #${linux_terminal_command} "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:" &
+		    #else # Windows-OS
+		      #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		    #fi #If-End: 'operating_system'
+		  #fi # If-End: 'workstation_type'
+		  #sleep 3 # Wait 3 seconds to work, after "rclone" starts
+	    #fi # If-End: 'curl_http_code'
+	  #elif [[ $restic_sync_confirm == 'no' ]]
+	  #then
+	    #continue
+	  #elif [[ $restic_sync_confirm == 'exit' ]]
+	  #then
+	    #exit
+	  #elif [[ ${restic_sync_confirm} != 'yes' && ${restic_sync_confirm} != 'no' && ${restic_sync_confirm} != 'exit' ]]
+      #then
+        #echo 'Restic-Remote: Wrong Input! Enter (yes/no/exit[program]) [Do you want to sync remote-backup?]'
+	    #exit
+	  #fi # If-End: 'restic_sync_confirm'  
+	#else # 'rclone-serve-restic' for Windows-OS
+	  #count_mintty_running=$(ps | grep '/usr/bin/mintty' | wc -l)
+      #if [[ ${count_mintty_running} == 1 ]]
+      #then
+        #restic_git_mintty_pid=$(ps | grep '/usr/bin/mintty' | awk '{print $1}')
+        #start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		#sleep 3
+	  #elif [[ ${count_mintty_running} == 2 ]]
+	  #then
+        #echo 'Action to stop rclone'
+		#sleep 3
+	    #rclone_mintty_pid=$(ps | grep '/usr/bin/mintty' | awk '{print $1}' | grep -v "${restic_git_mintty_pid}")
+		#kill -SIGINT ${rclone_mintty_pid}
+		#sleep 6
+		
+		#start ${git_bash_path} -c "rclone serve restic --verbose ${restic_repo_remote_list[$restic_cloud_inc]}:"
+		#sleep 3
+		
+		# ps | grep '/usr/bin/mintty' | awk '{print $1}' | grep -v "${restic_git_mintty_pid}"
+		#echo "Restic Mintty: ${restic_git_mintty_pid}"
+		#echo "Rclone Mintty: ${rclone_mintty_pid}"
+		#exit
+      #else
+        #echo 'Not One/Two Mintty running. Start/Close additional Mintty'
+      #fi	  
+	#fi # If-End: 'rclone-serve-restic' block
+#--------------------------END: Auto Open/Close Terminal Window--------------------------------	
+	
+	for restic_remote_key in "${!restic_repo_remote_data[@]}"; do
+	restic_remote_key_trim=${restic_remote_key%?????????} # Trim last 9 character
+	  if [[ "${restic_remote_key_trim}" == "${restic_repo_remote_list[$restic_cloud_inc]}" ]] 
+	  then
+	    # Prints Repository Details: Project Path (PWD), restic-repository-address(local/remote(N/A)) restic-repository-password repository-type(local/rclone) remote-repository-name(rclone/N/A) workstation-type(desktop-pc/server-pc) workstation-name synchronization-type(restic-git/restic-only/project)
+		
+	    #echo ${restic_repo_remote_data[${restic_remote_key}]}
+		#restic_remote_data_array=(${restic_repo_remote_data[${restic_remote_key}]})
+		
+		IFS='*?' read -r -a restic_remote_data_split <<< "${restic_repo_remote_data[${restic_remote_key}]}"
+		unset IFS
+		
+		current_working_directory="${restic_remote_data_split[0]}"
+		restic_remote_data_array=(${restic_remote_data_split[2]})
+		
+		sync_restic_repo_single "${current_working_directory}" "${restic_remote_data_array[0]}" "${restic_remote_data_array[1]}" "${restic_remote_data_array[2]}" "${restic_remote_data_array[3]}" "${restic_remote_data_array[4]}" "${restic_remote_data_array[5]}" "${restic_remote_data_array[6]}"
+	  fi
+	done
+  done
+}
+
+if [[ $1 == '--all-repo-sync' ]]
+then
+  sync_repo_todo='all_repo_sync'
+else
+  sync_repo_todo='single_repo_sync'
+fi
+
+sync_restic_repo_all ${sync_repo_todo}

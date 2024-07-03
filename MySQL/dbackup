@@ -1,0 +1,239 @@
+#!/usr/bin/env php
+<?php
+require_once 'dbackup-config.php';
+
+date_default_timezone_set('Asia/Dhaka');
+$GLOBALS['date_string']   = date("Y-m-d_his_A");
+
+function get_path($software = '') {
+    $GLOBALS['mysqldump_path'] = '';
+    $GLOBALS['mysql_path'] = '';
+
+    if(($software == 'xampp') || ($software == 'vagrant')) {  // For Xampp and Vagrant
+
+        // Path in Xampp - Windows OS
+        $xampp_win_mysqldump = realpath(dirname(__FILE__).'../../../mysql/bin/mysqldump.exe');
+        $xampp_win_mysql = realpath(dirname(__FILE__).'../../../mysql/bin/mysql.exe');
+        // Path in Xampp - Linux (Ubuntu) OS
+        $xampp_linux_mysqldump = realpath(dirname(__FILE__).'/../../bin/mysqldump');
+        $xampp_linux_mysql = realpath(dirname(__FILE__).'/../../bin/mysql');
+        // Path in Vagrant (Laravel Homestead) - Inside Vagrant "vagrant ssh"
+        $vagrant_mysqldump = '/bin/mysqldump';
+        $vagrant_mysql = '/bin/mysql';
+
+        // For Windows OS "PHP_OS==WINNT". For Linux (Ubuntu) OS "PHP_OS==Linux"
+        if(file_exists($xampp_win_mysqldump) && (PHP_OS == 'WINNT')) {  // Xampp in Windows OS
+            $GLOBALS['mysqldump_path'] = $xampp_win_mysqldump;
+        } elseif(file_exists($xampp_linux_mysqldump) && (PHP_OS == 'Linux')) {  // Xampp in Linux (Ubuntu) OS
+            $GLOBALS['mysqldump_path'] = $xampp_linux_mysqldump;
+        } elseif(file_exists($vagrant_mysqldump) && (PHP_OS == 'Linux')) {  // Inside Vagrant "vagrant ssh"
+            $GLOBALS['mysqldump_path'] = $vagrant_mysqldump;
+        } else {
+            //
+        }
+
+        if(file_exists($xampp_win_mysql) && (PHP_OS == 'WINNT')) {  // Xampp in Windows OS
+            $GLOBALS['mysql_path'] = $xampp_win_mysql;
+        } elseif(file_exists($xampp_linux_mysql) && (PHP_OS == 'Linux')) {  // Xampp in Linux (Ubuntu) OS
+            $GLOBALS['mysql_path'] = $xampp_linux_mysql;
+        } elseif(file_exists($vagrant_mysql) && (PHP_OS == 'Linux')) {  // Inside Vagrant "vagrant ssh"
+            $GLOBALS['mysql_path'] = $vagrant_mysql;
+        } else {
+            //
+        }
+
+    } elseif($software == 'docker') {  // For Docker
+
+        // Path in Docker (LaraDock) - Run Command from Host
+        $docker_mysqldump = 'mysqldump';
+        $docker_mysql = 'mysql';
+
+        $GLOBALS['mysqldump_path'] = $docker_mysqldump;
+        $GLOBALS['mysql_path'] = $docker_mysql;
+
+    } else {
+        //
+    }
+    
+
+    // echo $GLOBALS['mysqldump_path'] .  PHP_EOL . $GLOBALS['mysql_path'];
+    // echo $software;
+}
+
+function backup($software = '') {
+    // $cmd = "mysqldump --routines -h {$GLOBALS['server_name']} -u {$GLOBALS['username']} -p{$GLOBALS['password']} {$GLOBALS['database_name']} > " . BACKUP_PATH . "{$GLOBALS['date_string']}_{$GLOBALS['database_name']}.sql";
+
+    if(($software == 'xampp') || ($software == 'vagrant')) {  // For Xampp and Vagrant
+        $db_file_name = "{$GLOBALS['date_string']}_{$GLOBALS['database_name']}.sql";
+        $cmd = "{$GLOBALS['mysqldump_path']} --routines -h {$GLOBALS['server_name']} -u {$GLOBALS['username']} -p{$GLOBALS['password']} {$GLOBALS['database_name']} > " . BACKUP_PATH . DIRECTORY_SEPARATOR . $db_file_name;
+        exec($cmd);
+
+        if($GLOBALS['ftp_sync'] == 'yes') {
+            ftp_db_upload($db_file_name);
+        }
+    } elseif($software == 'docker') {  // For Docker
+
+        echo "Enter MySQL Container Name: ";
+        $mysql_container = trim(fgets(fopen("php://stdin","r")));
+        // echo PHP_EOL . 'MySQL Container: ' . $mysql_container . PHP_EOL;
+
+        $db_file_name = "{$GLOBALS['date_string']}_{$GLOBALS['database_name']}.sql";
+        $cmd = "sudo docker exec -d {$mysql_container} sh -c " . "\"{$GLOBALS['mysqldump_path']} --routines -h {$GLOBALS['server_name']} -u {$GLOBALS['username']} -p{$GLOBALS['password']} {$GLOBALS['database_name']} >" . "/home/" . "{$db_file_name}\"";
+        exec($cmd);
+
+        $cmd_2 = "sudo docker cp {$mysql_container}:/home/{$db_file_name} ./_database_sync";
+        exec($cmd_2);
+
+        $cmd_3 = "sudo docker exec -d {$mysql_container} sh -c \"rm /home/*.sql\"";
+        exec($cmd_3);
+
+        // echo PHP_EOL . 'text from docker - backup fn';
+
+        if($GLOBALS['ftp_sync'] == 'yes') {
+            ftp_db_upload($db_file_name);
+        }
+    } else {
+        //
+    }
+
+    $db_files = array_reverse(scandir(BACKUP_PATH));
+    foreach($db_files as $db_key=>$db_value) {
+        if(($db_key >= $GLOBALS['keep_db']) && ($db_value != ".") && ($db_value != "..") && ($db_value != ".gitkeep")) {
+            unlink(BACKUP_PATH . DIRECTORY_SEPARATOR . $db_value);
+        }
+    }
+
+    // var_dump($db_files);
+    // echo  BACKUP_PATH;
+    // echo 'text from backup fn';
+}
+
+function restore($software = '') {
+
+    $db_files = array_reverse(scandir(BACKUP_PATH));
+    $db_restore_file = $db_files[0];
+
+    if(($software == 'xampp') || ($software == 'vagrant')) {  // For Xampp and Vagrant
+
+        $cmd = "{$GLOBALS['mysql_path']} -h {$GLOBALS['server_name']} -u {$GLOBALS['username']} -p{$GLOBALS['password']} {$GLOBALS['database_name']} < " . BACKUP_PATH . DIRECTORY_SEPARATOR . "$db_restore_file";
+        exec($cmd);
+
+    } elseif($software == 'docker') {
+
+        echo "Enter MySQL Container Name: ";
+        $mysql_container = trim(fgets(fopen("php://stdin","r")));
+        // echo PHP_EOL . 'MySQL Container: ' . $mysql_container . PHP_EOL;
+
+        $cmd = "sudo docker cp ./_database_sync/{$db_restore_file} {$mysql_container}:/home/{$db_restore_file}";
+        exec($cmd);
+
+        $cmd_2 = "sudo docker exec -d {$mysql_container} sh -c \"{$GLOBALS['mysql_path']} -h {$GLOBALS['server_name']} -u {$GLOBALS['username']} -p{$GLOBALS['password']} {$GLOBALS['database_name']} < " . "/home/" . "$db_restore_file\"";
+        exec($cmd_2);
+
+        $cmd_3 = "sudo docker exec -d {$mysql_container} sh -c \"rm /home/*.sql\"";
+        exec($cmd_3);
+
+    } else {
+        //
+    }
+
+    // echo $db_restore;
+    // echo 'text from restore fn';
+}
+
+function ftp_db_upload($file_upload) {
+    $ftp_conn = ftp_connect($GLOBALS['ftp_server']) or die("Could not connect to {$GLOBALS['ftp_server']}");
+    $login = ftp_login($ftp_conn, $GLOBALS['ftp_username'], $GLOBALS['ftp_password']);
+    
+    // open file for reading
+    $file = BACKUP_PATH . DIRECTORY_SEPARATOR . $file_upload;
+    if(file_exists($file)) {
+        $fp = fopen($file,"r");
+        // upload file
+        if (ftp_fput($ftp_conn, $GLOBALS['ftp_path'] . '/' . $file_upload, $fp, FTP_ASCII)) {
+          echo "Successfully uploaded $file." . PHP_EOL;
+        } else {
+          echo "Error uploading $file.";
+        }
+        // close file handler
+        fclose($fp);
+    }
+
+    // get the file list for /
+    $ftp_filelist = array_reverse(ftp_nlist($ftp_conn, $GLOBALS['ftp_path']));
+    foreach($ftp_filelist as $ftp_file_key=>$ftp_file_value) {
+        if(($ftp_file_key >= $GLOBALS['keep_db']) && ($ftp_file_value != ".") && ($ftp_file_value != "..") && ($ftp_file_value != ".htaccess")) {
+            // try to delete file
+            if (ftp_delete($ftp_conn, $GLOBALS['ftp_path'] . '/' . $ftp_file_value)) {
+                echo "$ftp_file_value deleted" . PHP_EOL;
+            } else {
+                echo "Could not delete $ftp_file_value";
+            }
+        }
+    }
+    
+    // close this connection
+    ftp_close($ftp_conn);
+}
+
+function ftp_db_fetch() {
+    $ftp_conn = ftp_connect($GLOBALS['ftp_server']) or die("Could not connect to {$GLOBALS['ftp_server']}");
+    $login = ftp_login($ftp_conn, $GLOBALS['ftp_username'], $GLOBALS['ftp_password']);
+    
+    // get the file list for /
+    $ftp_filelist = ftp_nlist($ftp_conn, $GLOBALS['ftp_path']);
+    
+    // output $filelist
+    // var_dump($ftp_filelist);
+
+    foreach($ftp_filelist as $ftp_file) {
+        if(($ftp_file == ".") || ($ftp_file == "..") || ($ftp_file == ".htaccess")) {
+            continue;
+        } else {
+            $server_file = $GLOBALS['ftp_path'] . '/' . $ftp_file;
+            // open local file to write to
+            $create_file = BACKUP_PATH . DIRECTORY_SEPARATOR . $ftp_file;
+            if(file_exists($create_file)) {
+                continue;
+            } else {
+                $fp = fopen($create_file,"w");
+
+                // download server file and save it to open local file
+                if (ftp_fget($ftp_conn, $fp, $server_file, FTP_ASCII, 0)) {
+                    echo "Successfully written to $create_file." . PHP_EOL;
+                } else {
+                    echo "Error downloading $server_file." . PHP_EOL;
+                }
+                fclose($fp);
+            }
+        }
+    }
+
+    // var_dump($db_files);
+
+    // close connection
+    ftp_close($ftp_conn);
+}
+
+if(array_key_exists("1", $argv) && ($argv[1] == 'fetch')) {
+    ftp_db_fetch();
+} else {
+    if (array_key_exists("1", $argv) && array_key_exists("2", $argv) && (($argv[1] == 'backup') || ($argv[1] == 'restore')) && (($argv[2] == 'xampp') || ($argv[2] == 'docker') || ($argv[2] == 'vagrant'))) {
+        if (function_exists($argv[1])) {
+            // echo "Enter MySQL User Name: ";
+            // $GLOBALS['username'] = trim(fgets(fopen("php://stdin","r")));
+            // echo "Enter MySQL Password: ";
+            // $GLOBALS['password'] = trim(fgets(fopen("php://stdin","r")));
+            // echo "Enter MySQL Database Name: ";
+            // $GLOBALS['database_name'] = trim(fgets(fopen("php://stdin","r")));
+    
+            get_path($argv[2]);
+            echo $argv[1]($argv[2]);
+        } else {
+            echo 'Please Provide Correct Argument - backup/restore';
+        }
+    } else {
+        echo 'Please Provide Argument-1 (backup/restore) and Argument-2 (xampp/docker/vagrant)' . PHP_EOL;
+    }
+}
+
