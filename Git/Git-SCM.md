@@ -2,11 +2,20 @@
 
 # Commands
 
+## Git-Credential-Manager (GCM)
+
+* Shows installation path: `which git-credential-manager`
+* Shows version: `git-credential-manager --version`
+* Shows help: `git-credential-manager --help`
+
 # Elements of Git-SCM
 
 ## Websites
 * [Git Official Site](https://git-scm.com/)
 * [MSYS2](https://www.msys2.org/)
+* [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
+* [GitHub Docs](https://docs.github.com/en)
+* [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
 
 ## Cross Platform Line Ending
 
@@ -95,6 +104,47 @@ git commit -m "Normalize all the line endings"
 ## Notes
 
 * In Windows-Subsystem-for-Linux, git uses "credential.helper" and "credential.credentialStore" from Host Windows-OS.
+* BitBucket Personal Access Token
+  * {18} [Credential Manager doesn't remember apppassword](https://community.atlassian.com/t5/Bitbucket-questions/Credential-Manager-doesn-t-remember-apppassword/qaq-p/2528136)
+  * BitBucket: If you are planning to use an App Password for basic authentication, it must at a minimum have Account Read permissions (as shown below). If your App Password does not have these permissions, you will be re-prompted for credentials on every interaction with the server.
+
+## Multiple User Accounts
+* Want to use multiple user accounts like "user1@github.com", "user2@github.com", "user3@bitbucket.org"
+
+* [Multiple users](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)
+
+* Example: fresh clones
+
+```shell
+# instead of `git clone https://example.com/open-source/library.git`, run:
+git clone https://contrib123@example.com/open-source/library.git
+
+# instead of `git clone https://example.com/big-company/secret-repo.git`, run:
+git clone https://employee9999@example.com/big-company/secret-repo.git
+```
+
+* Example: existing clones
+
+```shell
+# in the `library` repo, run:
+git remote set-url origin https://contrib123@example.com/open-source/library.git
+
+# in the `secret-repo` repo, run:
+git remote set-url origin https://employee9999@example.com/big-company/secret-repo.git
+```
+
+## Delete Cached Credential
+
+### Windows-OS (Delete Credential)
+* [Remove credentials from Git](https://stackoverflow.com/questions/15381198/remove-credentials-from-git)
+  * Goto Control Panel -> User Accounts -> Credential Manager -> Manage Windows Credentials
+  * Remove credential under "git:https://github.com"
+
+### Linux-OS (Delete Credential)
+* GitHub Credential cache is stored in "/home/<user-name>/.password-store/git/https/github.com/<github-username>.gpg"
+  * Delete "<github-username>.gpg" from this folder path.
+* BitBucket Credential cache is stored in "/home/<user-name>/.password-store/git/https/bitbucket.org/<bitbucket-username>.gpg"
+  * Delete "<bitbucket-username>.gpg" from this folder path.
 
 ## Windows-OS Installation
 
@@ -214,6 +264,36 @@ git commit -m "Normalize all the line endings"
   * Pass list: `pass ls`
   * Delete pass: `pass rm -r <pass-name>`
 
+## Linux Server (Headless)
+
+* Error Message: fatal: GPG_TTY is not set; add `export GPG_TTY=$(tty)` to your profile.
+* Solution
+* Follow all procedure from "## Linux-OS Installation"
+* Add to "~/.bashrc" OR "~/.profile" file: `export GPG_TTY=$(tty)`
+* Reload/execute "~/.bashrc" OR "~/.profile" file: `source ~/.bashrc` OR `source ~/.profile`
+
+* GitHub
+  * When use `git clone` (private repository), `git fetch`, `git pull`, `git push` then shows
+    * 1. Device code (Default)
+    * 2. Personal access token
+  * Choose "1"
+    * On Desktop PC Browser enter url "https://github.com/login/device"
+    * Enter "Code" that is shown on Linux-Server's terminal.
+    * Click OK
+  * Choose "2"
+    * Get GitHub Personal Access Token (PAT)
+    * Login to GitHub -> Click "Profile Icon" -> Settings -> Developer Settins -> Personal Access Tokens
+    * Fine-grained tokens: Repository wise access.
+    * Tokens (classic): GitHub Account wise access.
+
+* BitBucket
+  * BitBucket Personal Access Token
+  * {18} [Credential Manager doesn't remember apppassword](https://community.atlassian.com/t5/Bitbucket-questions/Credential-Manager-doesn-t-remember-apppassword/qaq-p/2528136)
+  * BitBucket: If you are planning to use an App Password for basic authentication, it must at a minimum have Account Read permissions (as shown below). If your App Password does not have these permissions, you will be re-prompted for credentials on every interaction with the server.
+  * Get BitBucket Personal Access Token (PAT)
+    * Login to BitBucket -> Settings Icon (right-top position) -> Personal Bitbucket Settings -> App Passwords -> Create App Password
+    * MUST ALLOW "Account: Read" PERMISSION, OTHERWISE CREDENTIAL WILL NOT BE CACHED IN GIT-CREDENTIAL-MANAGER (GCM).
+
 ### GCM Error (Linux-OS)
 
 * Error Message: fatal: No credential store has been selected.
@@ -233,7 +313,7 @@ git commit -m "Normalize all the line endings"
   * [How to fix git credential manager core](https://techoverflow.net/2021/09/19/how-to-fix-git-credential-manager-core-git-fatal-no-credential-backing-store-has-been-selected/)
   * `git config --global credential.credentialStore gpg`
 
-## Git Pull/Push via SSH
+## Git Pull/Push from Another Machine using SSH 
 
 * [Credential stores](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/credstores.md)
   * In Windows-OS: `git config --global credential.credentialStore wincredman [Does not work over a network/SSH session.]
@@ -256,9 +336,11 @@ git commit -m "Normalize all the line endings"
 
 # Authentication Using SSH
 
-## BitBucket
-
 ## GitHub
+* [](https://docs.github.com/en/articles/connecting-to-github-with-ssh)
+
+## BitBucket
+* [Configure SSH and two-step verification](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/)
 
 # Problem and Solution
 
@@ -271,7 +353,7 @@ git commit -m "Normalize all the line endings"
 
 # References
 
-* next-sl: {18}
+* next-sl: {19}
 
 * Credential/Access
   * {1} [SSH vs. HTTPS for Git: Which One Should You Use?](https://phoenixnap.com/kb/git-ssh-vs-https)
@@ -295,3 +377,4 @@ git commit -m "Normalize all the line endings"
   * {15} [zst compression not supported by apt/dpkg](https://unix.stackexchange.com/questions/669004/zst-compression-not-supported-by-apt-dpkg)
   * {16} [How to use Git credential store on WSL (Ubuntu on Windows)?](https://stackoverflow.com/questions/45925964/how-to-use-git-credential-store-on-wsl-ubuntu-on-windows)
   * {17} [RichardBronosky/Storing-git-Credentials.md](https://gist.github.com/RichardBronosky/9ab50abb8698e02341629db21e5fa6bf)
+  * {18} [Credential Manager doesn't remember apppassword](https://community.atlassian.com/t5/Bitbucket-questions/Credential-Manager-doesn-t-remember-apppassword/qaq-p/2528136)

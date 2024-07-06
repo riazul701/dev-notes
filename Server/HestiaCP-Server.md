@@ -95,12 +95,12 @@ ini_set('display_errors', '1');
 
 ## Database
 
-* NOTE: Restart Server after any modification.
+* [Optional] Note: Restart Server after any modification.
 
 * NOTE: HestiaCP installs MariaDB "root" user with no password and phpMyAdmin does not allow user to login without password.
   * To check enter command: `mysql -u root -p`
   * There are three solutions:
-    * (Best-Way) Login to Hestia Control Panel -> "DB" tab -> Add Database: This will create new "DB-User" and "Database"
+    * (BEST-WAY) Login to Hestia Control Panel -> "DB" tab -> Add Database: This will create new "DB-User" and "Database"
     * Create password for mariadb "root" user.
     * Create another user with password.
 
@@ -109,7 +109,7 @@ ini_set('display_errors', '1');
   * [ERROR 1064 (42000): You have an error in your SQL syntax; Want to configure a password as root being the user](https://stackoverflow.com/questions/36099028/error-1064-42000-you-have-an-error-in-your-sql-syntax-want-to-configure-a-pa)
   * First log in to MySQL: `mysql -u root -p`
 
-* Create user with following commands.
+* Create another user with password:
   * Note: If can not login to phpMyAdmin using "root" user, then create another user.
   * {8} [How to create PhpMyAdmin root user creditials](https://hestiacp.com/docs/server-administration/databases.html#how-to-create-phpmyadmin-root-user-creditials)
   * How to create PhpMyAdmin root user credentials
@@ -121,7 +121,14 @@ mysql > GRANT ALL PRIVILEGES ON *.* TO 'another_username'@'localhost' WITH GRANT
 mysql > FLUSH PRIVILEGES;
 ```
 
-* To get phpMyAdmin "root" user Password, SSH into HestiaCP machine and enter command: `nano /usr/local/hestia/conf/mysql.conf` <sup>{9}</sup> [It does not work]
+* [Does not work] To get phpMyAdmin "root" user Password, SSH into HestiaCP machine and enter command: `nano /usr/local/hestia/conf/mysql.conf` <sup>{9}</sup>
+
+##  This service allows sftp connections only
+
+* {10} [SSH is disabled for users (“this service allows sftp connections only”)](https://forum.hestiacp.com/t/ssh-is-disabled-for-users-this-service-allows-sftp-connections-only/11106)
+* {11} [Changing SSH access](https://hestiacp.com/docs/user-guide/users.html#changing-ssh-access)
+* Login to HestiaCP using Admin Account
+* Goto User -> Select "user" -> Edit -> Advanced Options -> SSH Access: bash (previously/by-default it was "nologin") -> Save
 
 # Error and Solution (HestiaCP)
 
@@ -132,7 +139,7 @@ mysql > FLUSH PRIVILEGES;
 
 # References
 
-* next-sl: {10}
+* next-sl: {12}
 
 * Commnads
 
@@ -149,6 +156,8 @@ mysql > FLUSH PRIVILEGES;
   * {7} [“Server” Timezone does not change to PHP](https://forum.hestiacp.com/t/server-timezone-does-not-change-to-php/851)
   * {8} [How to create PhpMyAdmin root user creditials](https://hestiacp.com/docs/server-administration/databases.html#how-to-create-phpmyadmin-root-user-creditials)
   * {9} [Find the PHPmyadmin Password](https://forum.hestiacp.com/t/find-the-phpmyadmin-password/1657)
+  * {10} [SSH is disabled for users (“this service allows sftp connections only”)](https://forum.hestiacp.com/t/ssh-is-disabled-for-users-this-service-allows-sftp-connections-only/11106)
+  * {11} [Changing SSH access](https://hestiacp.com/docs/user-guide/users.html#changing-ssh-access)
 
 * Linux Commands
   * {8} [How can I copy the contents of a folder to another folder in a different directory using terminal?](https://askubuntu.com/questions/86822/how-can-i-copy-the-contents-of-a-folder-to-another-folder-in-a-different-directo)
