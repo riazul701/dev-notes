@@ -12,6 +12,7 @@
 
 ## Websites
 * [Git Official Site](https://git-scm.com/)
+* [GitHub Pages -> Websites for you and your projects](https://pages.github.com/)
 * [MSYS2](https://www.msys2.org/)
 * [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
 * [GitHub Docs](https://docs.github.com/en)
@@ -111,7 +112,7 @@ git commit -m "Normalize all the line endings"
 ## Multiple User Accounts
 * Want to use multiple user accounts like "user1@github.com", "user2@github.com", "user3@bitbucket.org"
 
-* [Multiple users](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)
+* {19} [Multiple users](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)
 
 * Example: fresh clones
 
@@ -353,7 +354,7 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 
 # References
 
-* next-sl: {19}
+* next-sl: {20}
 
 * Credential/Access
   * {1} [SSH vs. HTTPS for Git: Which One Should You Use?](https://phoenixnap.com/kb/git-ssh-vs-https)
@@ -378,3 +379,4 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * {16} [How to use Git credential store on WSL (Ubuntu on Windows)?](https://stackoverflow.com/questions/45925964/how-to-use-git-credential-store-on-wsl-ubuntu-on-windows)
   * {17} [RichardBronosky/Storing-git-Credentials.md](https://gist.github.com/RichardBronosky/9ab50abb8698e02341629db21e5fa6bf)
   * {18} [Credential Manager doesn't remember apppassword](https://community.atlassian.com/t5/Bitbucket-questions/Credential-Manager-doesn-t-remember-apppassword/qaq-p/2528136)
+  * {19} [Multiple users](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)

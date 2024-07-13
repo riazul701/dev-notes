@@ -1,7 +1,8 @@
 # Programming
 
 ## Markdown
-1. Markdown Guide: https://www.markdownguide.org/
+
+* [Markdown Guide](https://www.markdownguide.org/)
 
 ## HTML
 
@@ -16,9 +17,6 @@
 ## Windows-OS
 
 ## Linux-OS
-
-### GNU Screen
-* [YouTube: Screen - terminal multiplexer](https://www.youtube.com/playlist?list=PLew9cBMjbI-39_rdQ6sdw0u91eGPNvW6V)
 
 # Internet
 

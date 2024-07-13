@@ -15,7 +15,14 @@
 ## Package Manager (Selected)
 
 * [Scoop -> Windows Software Package Manager](https://scoop.sh/)
-  
+
+## Password Manager (Selected)
+
+* [Bitwarden](https://bitwarden.com/)
+* [KeePassXC](https://keepassxc.org/) || [KeePassXC GitHub](https://github.com/keepassxreboot/keepassxc)
+* [KeePass](https://keepass.info/download.html)
+* [KeePassDX](https://www.keepassdx.com/) || [KeePassDX GitHub](https://github.com/Kunzisoft/KeePassDX)
+
 ## Internet Software
 
 * Web Browser (Selected)

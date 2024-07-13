@@ -14,7 +14,14 @@
 * [Snapcraft -> Ubuntu Softwrae Package Manager](https://snapcraft.io/)
 * [APT](https://wiki.debian.org/Apt)
 * [Gdebi](https://launchpad.net/gdebi)
-  
+
+## Password Manager (Selected)
+
+* [Bitwarden](https://bitwarden.com/)
+* [KeePassXC](https://keepassxc.org/) || [KeePassXC GitHub](https://github.com/keepassxreboot/keepassxc)
+* [KeePass](https://keepass.info/download.html)
+* [KeePassDX](https://www.keepassdx.com/) || [KeePassDX GitHub](https://github.com/Kunzisoft/KeePassDX)
+
 ## Internet Software (Selected)
 
 * Web Browser (Selected)

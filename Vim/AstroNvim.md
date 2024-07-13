@@ -1,6 +1,10 @@
 # Vim/AstroNvim.md
 
-## Website
+## Websites
+
+* [AstroNvim Site](https://astronvim.com/)
+* [AstroNvim/AstroNvim](https://github.com/AstroNvim/AstroNvim)
+* [AstroNvim/astrocommunity](https://github.com/AstroNvim/astrocommunity)
 
 ## Guides
 
@@ -33,3 +37,10 @@
   * Clone the repository
     * git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
     * nvim
+
+# References
+
+* Tutorials
+
+* YouTube Tutorials
+  * [Neovim With AstroNvim | Your New Advanced Development Editor BY Cretezy](https://www.youtube.com/watch?v=GEHPiZ10gOk)

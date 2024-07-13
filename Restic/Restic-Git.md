@@ -302,31 +302,36 @@
 * Clear cache from "/c/Users/<User-Name>/AppData/Local/restic" directory: `restic-drive cache-clear`
 * Edit exclude-file: `restic-drive exclude-edit`
 
-# "[p]note" script/command
+# "[pj]note" script/command
 
-## General Instruction of "[p]note"
+## General Instruction of "[pj]note"
 
-## Notes of "[p]note"
+## Notes of "[pj]note"
 * Windows-OS open file in editor
   * Open "Notepad": `start notepad "/d/file.txt"`
   * Open "Notepad++": `start notepad++ "/d/file.txt"`
 
-## Commands of "[p]note"
-* Open file "about.md" (create file if not exists): `[p]note about`
-* Open file "todo.md" (create file if not exists): `[p]note todo`
-* Open file "bug.md" (create file if not exists): `[p]note bug`
-* Open file "guide.md" (create file if not exists): `[p]note guide`
-* Open file "document.md" (create file if not exists): `[p]note document`
-* Open file "password.md" (create file if not exists): `[p]note password`
-* Create new file (enter file name with extension): `[p]note create`
-* Open file: `[p]note open`
-* Rename file: `[p]note rename`
-* Delete file: `[p]note delete`
-* Git status - note-files: `[p]note status`
-* Git commit - note-files: `[p]note commit`
-* Git push - note-files: `[p]note push`
-* Git fetch - note-files: `[p]note fetch`
-* Git pull - note-files: `[p]note pull`
+## Commands of "[pj]note"
+* Open file "about.md" (create file if not exists): `[pj]note about`
+* Open file "todo.md" (create file if not exists): `[pj]note todo`
+* Open file "bug.md" (create file if not exists): `[pj]note bug`
+* Open file "guide.md" (create file if not exists): `[pj]note guide`
+* Open file "document.md" (create file if not exists): `[pj]note document`
+* Open file "password.md" (create file if not exists): `[pj]note password`
+* Create new file (enter file name with extension): `[pj]note create`
+* Open file: `[pj]note open`
+* Rename file: `[pj]note rename`
+* Delete file: `[pj]note delete`
+* Git status - note-files: `[pj]note status`
+* Git commit - note-files: `[pj]note commit`
+* Git push - note-files: `[pj]note push`
+* Git fetch - note-files: `[pj]note fetch`
+* Git pull - note-files: `[pj]note pull`
+
+# "[pj]todo" script/command
+
+## Commands of "[pj]todo"
+* Get file basename: `basename /data/backup-file.tar.gz` <sup>{202}</sup>
 
 # "gist" script/command
 
@@ -523,7 +528,7 @@
 
 # References
 
-* next-sl: {202}
+* next-sl: {203}
 
 ## "restic-git" Workflow (Ref)
 
@@ -610,7 +615,7 @@
 ## "restic-drive" script/command (Ref)
   * 
 
-## "[p]note" script/command (Ref)
+## "[pj]note" script/command (Ref)
 
 * Common
   * {56} [using "ls" and preserving the spaces in the resulting array](https://stackoverflow.com/questions/54646366/using-ls-and-preserving-the-spaces-in-the-resulting-array)
@@ -620,6 +625,10 @@
   * {58} [Windows PATH to posix path conversion in bash](https://stackoverflow.com/questions/13701218/windows-path-to-posix-path-conversion-in-bash)
   * {59} [How to check if running in Cygwin, Mac or Linux?](https://stackoverflow.com/questions/3466166/how-to-check-if-running-in-cygwin-mac-or-linux)
   
+## "[pj]todo" script/command (Ref)
+* Common
+  * {202} [Bash get filename from given path on Linux or Unix](https://www.cyberciti.biz/faq/bash-get-filename-from-given-path-on-linux-or-unix/)
+
 ## "gist" script/command (Ref)
 * Common
   * {60} [How to grep for case insensitive string in a file?](https://stackoverflow.com/questions/48492422/how-to-grep-for-case-insensitive-string-in-a-file)

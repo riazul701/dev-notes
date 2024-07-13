@@ -100,26 +100,38 @@ File Path: C:\Program Files\Git\usr\bin\rclone-sync
 * [newhinton/Round-Sync](https://github.com/newhinton/Round-Sync)
 * {2} [Official Support for the Android platform](https://forum.rclone.org/t/official-support-for-the-android-platform/25024)
 
-# Problem and Solution
+# Error and Solution
 
-## 001: Rclone config - port in use/exclude range
-**Problem_001:**
+## 1: Rclone config - port in use/exclude range
+
+**Error_1:**
 
 Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
 
-**Solution_001:**
+**Solution_1:**
 
 Cause of Problem: Rclone cannot start webserver because port is in exclude range.
-Solution:
 
-Solution:
+Solution: <sup>{8}</sup>
 * `net stop winnat`
 * `net start winnat`
 
-Guides:
-* [Cannot bind to some ports due to permission denied](https://stackoverflow.com/questions/48478869/cannot-bind-to-some-ports-due-to-permission-denied)
-* [An attempt was made to access a socket in a way forbidden by its access permissions](https://stackoverflow.com/questions/15619921/an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissi)
-* [[Solved] Rclone Windows can’t create socket for auth webserver even when Win fw disabled](https://forum.rclone.org/t/solved-rclone-windows-cant-create-socket-for-auth-webserver-even-when-win-fw-disabled/35358)
+## 2: Rclone mount giving no response
+
+**Error_2:**
+
+Rclone mount Google-Drive giving no response
+Command: `rclone mount <remote-name>:/ /mount/path/`
+
+**Solution_2:**
+
+* Restart graphical file manager (like: PCManFM).
+* Try other commands <sup>{11}</sup>
+  * `rclone mount <remote-name>:/ /mount/path/` -vv --allow-other
+  * mount helper error: fusermount3: option allow_other only allowed if 'user_allow_other' is set in /etc/fuse.conf
+  * `sudo vim /etc/fuse.conf`
+    * Uncomment (revome "#") from `#user_allow_other`
+    * Save and exit vim: `:wq`
 
 # Rclone Storage providers
 
@@ -193,7 +205,7 @@ Guides:
 
 # References
 
-* next-sl: {8}
+* next-sl: {12}
 
 * Install/Uninstall
   * {1} [Rclone Install](https://rclone.org/install/)
@@ -209,3 +221,13 @@ Guides:
 * Rclone Android
   * {2} [Official Support for the Android platform](https://forum.rclone.org/t/official-support-for-the-android-platform/25024)
   * {3} [turn your android phone into a media server](https://github.com/rclone/rclone/wiki/turn-your-android-phone-into-a-media-server)
+
+* Error and Solution
+
+  * 1: Rclone config - port in use/exclude range
+    * {8} [Cannot bind to some ports due to permission denied](https://stackoverflow.com/questions/48478869/cannot-bind-to-some-ports-due-to-permission-denied)
+    * {9} [An attempt was made to access a socket in a way forbidden by its access permissions](https://stackoverflow.com/questions/15619921/an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissi)
+    * {10} [[Solved] Rclone Windows can’t create socket for auth webserver even when Win fw disabled](https://forum.rclone.org/t/solved-rclone-windows-cant-create-socket-for-auth-webserver-even-when-win-fw-disabled/35358)
+
+  * 2: Rclone mount giving no response
+    * {11} [Rclone mount giving no response](https://forum.rclone.org/t/rclone-mount-giving-no-response/19041)

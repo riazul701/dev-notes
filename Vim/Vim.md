@@ -1,6 +1,6 @@
 # VIM Editor
 
-## Tutorials
+## Websites
 * VIMTUTOR: Learn VIM (If GVIM (from www.vim.org) in installed in Windows8.1 then press "Windows key + S" and enter text "vimtutor")
 * [Vim Cheat Sheet - Rtorr](https://vim.rtorr.com/)
 * [Learn X in Y minutes: Where X=vim](https://learnxinyminutes.com/docs/vim/)
@@ -103,14 +103,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	* Note: [Open Netrw: "vim ."] [Open left file tree: ":Lexplore"] [Press "t" to open file in tab] [Press "gt" to switch tab]
 * 
 
-
 # Gist Management Bash Script
-[https://gist.github.com/typebrook/b0d2e7e67aa50298fdf8111ae7466b56](gist - Manage your gist like a pro)
+
+[gist - Manage your gist like a pro](https://gist.github.com/typebrook/b0d2e7e67aa50298fdf8111ae7466b56)
 
 ## Guides
-* [https://github.com/opencollective/opencollective/issues/1443](Install "tput" command in Alpine Linux)
+
+* [Install "tput" command in Alpine Linux](https://github.com/opencollective/opencollective/issues/1443)
 
 ## Setup
+
 * Install Python3 on Alpine Linux: sudo apk add python3
 * Check Python Version: python --version
 * Download gist-script: curl -L https://git.io/J3DXe -o gist
@@ -118,6 +120,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * Error "tput command not found": sudo apk add ncurses  [This package will install "tput" command of line 332 in gist source code]
 
 ## Setup in Git Bash (Windows OS)
+
 * Download "gist" script using curl: curl -L https://git.io/J3DXe -o gist [If download from Browser then choose "Save as type: All Files"]
 * Move "gist" script to "C:\Program Files\Git\usr\bin" folder.
 * Restart Git Bash and enter command "gist help"
@@ -125,19 +128,20 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * Restart Git Bash and check python version using command "python --version"
 
 ## Commands
-* Configurations
-	* Configuration file location: ~/.config/gist.conf
-	* Set key with a given value: gist config <key> <value>
-	* Remove current value from a key: gist config <key>
-	* Or just modify ~/.config/gist.conf directly: gist config
-	* Set "user": gist config user <your-github-username>
-	* Set "token": gist config token <your-github-api-token>
-	* Set "folder": gist config folder <prefered-directory>
-	* Set "auto_sync": gist config auto_sync true [Automatically clone/update your gists and starred gists as git repos when doing gist fetch. Default to be true.]
-	* Set "action": gist config action 'tail -n +1 *'
-	* Set "EDITOR": gist config EDITOR vim
-	* Set "protocol": gist config protocol https [Default to be HTTPS]
-	* Set "show_untagged": gist config show_untagged false [Default to be true]
+
+  * Configurations
+  * Configuration file location: ~/.config/gist.conf
+  * Set key with a given value: gist config <key> <value>
+  * Remove current value from a key: gist config <key>
+  * Or just modify ~/.config/gist.conf directly: gist config
+  * Set "user": gist config user <your-github-username>
+  * Set "token": gist config token <your-github-api-token>
+  * Set "folder": gist config folder <prefered-directory>
+  * Set "auto_sync": gist config auto_sync true [Automatically clone/update your gists and starred gists as git repos when doing gist fetch. Default to be true.]
+  * Set "action": gist config action 'tail -n +1 *'
+  * Set "EDITOR": gist config EDITOR vim
+  * Set "protocol": gist config protocol https [Default to be HTTPS]
+  * Set "show_untagged": gist config show_untagged false [Default to be true]
 * Show Help: gist help
 * Update and clone gists from Github: gist fetch
 * Clean unnecessary local repos: gist clean
@@ -154,3 +158,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * Delete multiple gist using index: gist delete <INDEX-1> <INDEX-2> <INDEX-3>
 * Delete multiple gist using index range: gist delete {<INDEX-From>..<INDEX-To>}
 * Check information of gist: gist detail <INDEX>
+
+
+# References
+
+* next-sl: {}
+
+* Tutorials
+
+* YouTube Tutorials
+  * [Vim Beginners Guide BY Learn Linux TV](https://www.youtube.com/playlist?list=PLT98CRl2KxKHy4A5N70jMRYAROzzC2a6x)

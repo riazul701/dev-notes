@@ -1,4 +1,4 @@
-# Vim/LunarVim.md
+# Contents of LunarVim
 
 ## Notes
 * Keyboard
@@ -14,15 +14,6 @@
     * Installed plugins: /home/<user-name>/.local/share/lunarvim
 * Conflicts
   * Scoop installed "ruby, gem" conflicts with Git-Bash installed "ruby, gem". For this reason "tmuxinator" does not work. So intall "ruby" only inside Git-Bash. And use LunarVim inside Bash.
-
-## Tutorials
-* chris@machine - LunarVim Maintainer
-  * [YouTube - chris@machine](https://www.youtube.com/@chrisatmachine)
-  * [Odysee - chris@machine](https://odysee.com/@chrisatmachine:f)
-  * [Medium - chris@machine](https://medium.com/@chrisatmachine)
-  * [Website - chris@machine](https://www.chrisatmachine.com/)
-  * [GitHub - chris@machine](https://github.com/ChristianChiarulli)
-  * [TwitchTV - chris@machine](https://www.twitch.tv/chrisatmachine)
 
 ## Commands (LunarVim)
 
@@ -56,6 +47,21 @@
   * [wincent/clipper GitHub](https://github.com/wincent/clipper)
 
 # Installation
+
+## General/Common
+
+### {7} [Resolve EACCES permissions when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+
+* {8} [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+* Reinstall npm with a node version manager (recommended)
+    * OSX or Linux Node version managers: [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+    * Windows Node version managers: [coreybutler/nvm-windows](https://github.com/coreybutler/nvm-windows)
+
+* Manually change npm's default directory
+  * If you are unable to use a Node version manager, you can use a Node installer to install both Node.js and npm on your system.
+  * [Node.js installer](https://nodejs.org/en/download/package-manager)
+  * [NodeSource installer](https://github.com/nodesource/distributions)
 
 ## Windows Installation
 * Mandatory packages
@@ -134,9 +140,93 @@
 * packer.nvim: Error running config for nvim-treesitter: vim/_meta.lua:532: Vim:No C compiler found! "cc", "gcc", "clang", "cl", "zig" are not executable.
 * Failed to install nvim-telescope/telescope-fzf-native.nvim [This git-package needs "gcc" c compiler]
 
-## Antix-OS Installation
+## Lubuntu-24.04/Ubuntu-24.04 Installation
+
+### Install Instruction (Ubuntu)
+
+* Install "neovim"
+  * Using APT
+    * `sudo apt install neovim`
+  * Using AppImage (Latest Version)
+    * `wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage` (Select required Neovim version)
+    * Make it executable for all user `chmod a+x ./nvim.appimage`
+    * Move to executable path: `sudo mv nvim.appimage /usr/bin/nvim`
+    * Error_1: "dlopen(): error loading libfuse.so.2 AppImages require FUSE to run."
+    * Solution_1: `sudo apt-get install fuse libfuse2` <sup>{13}</sup>
+  * Using TAR (Latest Version) <sup>{14}</sup>
+    * `wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz` [Select required Neovim version]
+    * Extract: `tar xzvf nvim-linux64.tar.gz`
+    * Move to path: `sudo mv nvim-linux64 /opt/`
+    * Add to $PATH: `echo 'export PATH=/opt/nvim-linux64/bin:$PATH' >> ~/.bashrc`
+    * Reload $PATH: `source ~/.bashrc`
+  * Check version: `nvim --version`
+
+* Install "git"
+  * Using APT (old version)
+    * `sudo apt install git`
+  * Using APT and PPA (latest version) <sup>{14}</sup>
+    * `sudo add-apt-repository ppa:git-core/ppa`
+    * `sudo apt update`
+    * `sudo apt install git`
+  * Check version: `git --version`
+
+* Install "lazygit"
+  * [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit)
+  * `LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')`
+  * `curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"`
+  * `tar xf lazygit.tar.gz lazygit`
+  * `sudo install lazygit /usr/local/bin`
+  * Check version: `lazygit --version`
+
+* Install "python3" and "python3-pip"
+  * `sudo apt install python3` [Check version: `python3 --version`]
+  * `sudo apt install python3-pip` [Check version: `pip --version`]
+
+* Install "nodejs" and "npm" <sup>{7} {8} {9}</sup>
+  * {9} [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+  * Install nvm: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash` [Select latest NVM version]
+  * Reload $PATH: `source ~/.bashrc`
+  * Check nvm is installed: `command -v nvm`
+  * Check nvm version: `nvm --version`
+  * Install nodejs-lts: `nvm install --lts`
+  * Check nodejs version: `node --version`
+  * Check npm version: `npm --version`
+
+* Install "rustc" (rust language) and "cargo" (rust package manager)
+  * {16} [Install Rust](https://www.rust-lang.org/tools/install)
+  * Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+    * Unattended Install: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y` <sup>{17} {18}</sup>
+  * Reload $PATH: `source ~/.bashrc`
+  * Check rustc version: `rustc --version`
+  * Check cargo version: `cargo --version`
+  * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems. <sup>{19}</sup>
+    * sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc
+    * sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo
+    * sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup
+    * sudo rustup default stable
+
+* Install nerd font <sup>{21}</sup>
+  * Install fzf: `sudo apt install fzf`
+  * `git clone https://github.com/ronniedroid/getnf.git`
+  * `cd getnf`
+  * Install fonts in "~/.local/share/fonts" directory.
+  * ./install.sh [If it does not work, use command: `./getnf`] [Don't use "sudo", as it install fonts in "/root/.local/share/fonts" user directory] [If shows error, check line-endings are in Linux Line-Feed]
+  * Choose "Hack" font.
+  * Restart PC if font is not showing in xfce4-terminal settings.
+  * Open xfce4-terminal -> Edit -> Preferences -> Appearance -> Font -> Select "Hack NF Regular"
+
+* [LunarVim Installation](https://www.lunarvim.org/docs/installation)
+  * Install LunarVim: `LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)`
+    * Add to PATH <sup>{22}</sup>
+      * `echo 'export PATH=/home/<uer-name>/.local/bin:$PATH' >> ~/.bashrc`
+      * Relaod $PATH: `source ~/.bashrc`
+    * Alternative Way: Create Symbolic Link<sup>{23}</sup>
+      * sudo ln -s ~/.local/bin/lvim /usr/bin/lvim
+
+## Antix-OS-22 Installation
 
 ### Install Instruction (Antix-OS)
+
 * Install neovim latest version
   * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
   * sudo apt install neovim [This installs neovim (0.4.4-1), which is not compatible with LunarVim]
@@ -161,23 +251,23 @@
   * curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt-get install -y nodejs
   
 * Install rustc (rust language) and cargo (rust package manager)
-  * [Install Rust](https://www.rust-lang.org/tools/install)
-  * curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    * [run rustup's curl-fetched installer script non-interactively](https://stackoverflow.com/questions/57251508/run-rustups-curl-fetched-installer-script-non-interactively)
-    * [Pass args for script when going thru pipe](https://stackoverflow.com/questions/14693100/pass-args-for-script-when-going-thru-pipe)
-    * Unattended Install: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  * {16} [Install Rust](https://www.rust-lang.org/tools/install)
+  * Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+    * Unattended Install: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y` <sup>{17} {18}</sup>
   * Add to $PATH: `source "$HOME/.cargo/env"`
   * Check rustc version: `rustc --version`
   * Check cargo version: `cargo --version`
-  * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems.
-  * [Create Symlink](https://stackoverflow.com/questions/1951742/how-can-i-symlink-a-file-in-linux)
-    * sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc
-    * sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo
-    * sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup
-    * sudo rustup default stable
-  * `sudo apt install build-essential` [linking with `cc` failed: exit code: 1](https://www.reddit.com/r/rust/comments/i4jlbi/linking_with_cc_failed_exit_code_1/)
+  * Check rustup version: `rustup --version`
+  * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems. <sup>{19}</sup>
+    * `sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc`
+    * `sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo`
+    * `sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup`
+    * `sudo rustup default stable`
 
-* Install dependencies: `sudo apt install gcc build-essential git make python3 python3-pip nodejs npm rustc cargo`
+* Install other dependencies
+  * `sudo apt install build-essential` <sup>{20}</sup>
+  * `sudo apt install gcc`
+  * `sudo apt install make`
 
 * [LunarVim Installation](https://www.lunarvim.org/docs/installation)
   * LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
@@ -188,14 +278,12 @@
     * Alternative Way: [How to create a symbolic link in Linux](https://linuxhint.com/create-symbolic-link-linux/)
       * sudo ln -s ~/.local/bin/lvim /usr/bin/lvim
 
-* Install nerd font
-  * [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
-  * git clone https://github.com/ronniedroid/getnf.git
-  * cd getnf
+* Install nerd font <sup>{21}</sup>
+  * Install fzf: `sudo apt install fzf`
+  * `git clone https://github.com/ronniedroid/getnf.git`
+  * `cd getnf`
   * Install fonts in "~/.local/share/fonts" directory.
   * ./install.sh [If it does not work, use command: `./getnf`] [Don't use "sudo", as it install fonts in "/root/.local/share/fonts" user directory] [If shows error, check line-endings are in Linux Line-Feed]
-  * Error message: fzf: command not found
-  * sudo apt install fzf
   * Choose "Hack" font.
   * Restart PC if font is not showing in xfce4-terminal settings.
   * Open xfce4-terminal -> Edit -> Preferences -> Appearance -> Font -> Select "Hack NF Regular"
@@ -424,6 +512,56 @@
   * [Tmux doesn't render some symbols properly](https://askubuntu.com/questions/1038351/tmux-doesnt-render-some-symbols-properly)
 
 # References
+
+* next-sl: {24}
+
+* Tutorials
+  * chris@machine - LunarVim Maintainer
+    * {1} [YouTube - chris@machine](https://www.youtube.com/@chrisatmachine)
+    * {2} [Odysee - chris@machine](https://odysee.com/@chrisatmachine:f)
+    * {3} [Medium - chris@machine](https://medium.com/@chrisatmachine)
+    * {4} [Website - chris@machine](https://www.chrisatmachine.com/)
+    * {5} [GitHub - chris@machine](https://github.com/ChristianChiarulli)
+    * {6} [TwitchTV - chris@machine](https://www.twitch.tv/chrisatmachine)
+
+* YouTube Tutorials
+
+  * General
+    * [LunarVim BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6)
+    * [LunarVim (IDE for Neovim) BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QoYP4bKw0krF4aEn_3_pfWA)
+    * [Neovim from Scratch BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
+    * [Neovim BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg)
+    * [LunarVim/Neovim - Debugging Demo | Java, Python, Rust, Go, Javascript BY chris@machine](https://www.youtube.com/watch?v=5KQK2id3JtI)
+
+  * Plugings
+    * [indent-blankline - Weekly Neovim Plugin BY CantuCodes](https://www.youtube.com/watch?v=4iPiYljl2RY)
+
+* Guides
+
+* Installation
+
+  * General/Common
+    * {7} [Resolve EACCES permissions when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+    * {8} [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+    * {9} [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+    * {10} [coreybutler/nvm-windows](https://github.com/coreybutler/nvm-windows)
+    * {11} [Node.js installer](https://nodejs.org/en/download/package-manager)
+    * {12} [NodeSource installer](https://github.com/nodesource/distributions)
+
+
+  * Lubuntu-24.04/Ubuntu-24.04 Installation
+    * {13} [Can't run an AppImage on Ubuntu 20.04](https://askubuntu.com/questions/1363783/cant-run-an-appimage-on-ubuntu-20-04)
+    * {14} [Neovim Releases v0.10.0](https://github.com/neovim/neovim/releases/tag/v0.10.0)
+    * {15} [How to Install Latest Git Version on Ubuntu](https://itsfoss.com/install-git-ubuntu/)
+    * {16} [Install Rust](https://www.rust-lang.org/tools/install)
+    * {17} [run rustup's curl-fetched installer script non-interactively](https://stackoverflow.com/questions/57251508/run-rustups-curl-fetched-installer-script-non-interactively)
+    * {18} [Pass args for script when going thru pipe](https://stackoverflow.com/questions/14693100/pass-args-for-script-when-going-thru-pipe)
+    * {19} [Create Symlink](https://stackoverflow.com/questions/1951742/how-can-i-symlink-a-file-in-linux)
+    * {20} [linking with `cc` failed: exit code: 1](https://www.reddit.com/r/rust/comments/i4jlbi/linking_with_cc_failed_exit_code_1/)
+    * {21} [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
+    * {22} [How to Add a Path Permanently in Linux](https://linuxhint.com/add-path-permanently-linux/)
+    * {23} [How to create a symbolic link in Linux](https://linuxhint.com/create-symbolic-link-linux/)
+  
 
 * Neovim
   * [How do I enable the mouse in nvim please?](https://www.reddit.com/r/neovim/comments/yt5ejm/how_do_i_enable_the_mouse_in_nvim_please/)
