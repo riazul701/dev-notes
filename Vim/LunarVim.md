@@ -1,5 +1,7 @@
 # Contents of LunarVim
 
+Goto [References](#references)
+
 ## Notes
 * Keyboard
   * Press "TAB" key after ":" to auto-complete commands.
@@ -142,6 +144,8 @@
 
 ## Lubuntu-24.04/Ubuntu-24.04 Installation
 
+* Checked On OS: Ubuntu-24.04 Desktop, Lubuntu-24.04 Desktop, Ubuntu-22.04 Server, Ubuntu22.04-Vagrant, 
+
 ### Install Instruction (Ubuntu)
 
 * Install "neovim"
@@ -179,8 +183,9 @@
   * Check version: `lazygit --version`
 
 * Install "python3" and "python3-pip"
-  * `sudo apt install python3` [Check version: `python3 --version`]
-  * `sudo apt install python3-pip` [Check version: `pip --version`]
+  * `sudo apt install python3 python3-pip`
+  * Check python3 version: `python3 --version`
+  * Check pip/pip3 version: `pip --version` || `pip3 --version`
 
 * Install "nodejs" and "npm" <sup>{7} {8} {9}</sup>
   * {9} [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
@@ -200,12 +205,19 @@
   * Check rustc version: `rustc --version`
   * Check cargo version: `cargo --version`
   * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems. <sup>{19}</sup>
-    * sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc
-    * sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo
-    * sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup
-    * sudo rustup default stable
+    * `sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc`
+    * `sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo`
+    * `sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup`
+    * `sudo rustup default stable`
 
-* Install nerd font <sup>{21}</sup>
+* Install other dependencies
+  * `sudo apt install build-essential` <sup>{20}</sup>
+  * `sudo apt install gcc make ripgrep`
+  * Check gcc version: `gcc --version`
+  * Check make version: `make --version`
+  * Check build-essential version: `build-essential --version`
+
+* Install nerd font on Host-PC<sup>{21}</sup>
   * Install fzf: `sudo apt install fzf`
   * `git clone https://github.com/ronniedroid/getnf.git`
   * `cd getnf`
@@ -218,10 +230,49 @@
 * [LunarVim Installation](https://www.lunarvim.org/docs/installation)
   * Install LunarVim: `LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)`
     * Add to PATH <sup>{22}</sup>
-      * `echo 'export PATH=/home/<uer-name>/.local/bin:$PATH' >> ~/.bashrc`
+      * `echo 'export PATH=/home/<user-name>/.local/bin:$PATH' >> ~/.bashrc`
       * Relaod $PATH: `source ~/.bashrc`
     * Alternative Way: Create Symbolic Link<sup>{23}</sup>
-      * sudo ln -s ~/.local/bin/lvim /usr/bin/lvim
+      * sudo ln -s ~/.local/bin/lvim /usr/local/bin/lvim
+  * Open `lvim` and enter command `:checkhealth` to check everything is properly installed.
+
+### Error and Solution
+
+**Error_1:** 
+
+  * Error_1 Message:
+  > This environment is externally managed
+  > To install Python packages system-wide, try apt install
+  > python3-xyz, where xyz is the package you are trying to
+  > install.
+  >   
+  > If you wish to install a non-Debian-packaged Python package,
+  > create a virtual environment using python3 -m venv path/to/venv.
+  > Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+  > sure you have python3-full installed.
+  >  
+  > If you wish to install a non-Debian packaged Python application,
+  > it may be easiest to use pipx install xyz, which will manage a
+  > virtual environment for you. Make sure you have pipx installed.
+  >  
+  > See /usr/share/doc/python3.12/README.venv for more information.
+
+  * Solution_1:
+  > * [pip error on Ubuntu: externally-managed-environment × This environment is externally managed](https://askubuntu.com/questions/1465218/pip-error-on-ubuntu-externally-managed-environment-%c3%97-this-environment-is-extern)
+  > * [How do I solve "error: externally-managed-environment" every time I use pip 3? [closed]](https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3)
+  > * This Issue started from Python-3.11+
+
+**Error_2**
+
+  * Error_2 Message:
+  > Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 3500 (unattended-upgr)...
+  
+  * Solution_2:
+  > * [How to Fix 'E: Could not get lock /var/lib/dpkg/lock' Error in Ubuntu Linux](https://itsfoss.com/could-not-get-lock-error/)
+  > * ps aux | grep <process-id>
+  > * sudo kill <process-id>
+  > * sudo kill -9 <process_id>
+  > * sudo killall apt apt-get
 
 ## Antix-OS-22 Installation
 
@@ -332,82 +383,6 @@
 * vagrant ssh
 * sudo apt update
 
-### Install LunarVim Dependencies
-* Install gcc, make, build-essential
-  * sudo apt install gcc make build-essential
-  * Check gcc version: `gcc --version`
-  * Check make version: `make --version`
-  * Check build-essential version: `build-essential --version`
-
-* Install neovim latest version
-  * ~~sudo apt install neovim [This installs neovim (NVIM v0.6.1), which is not compatible with LunarVim]~~
-  * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
-  * Download latest Neovim from [Neovim GitHub Repo](https://github.com/neovim/neovim).
-  * Download Neovim AppImage: `wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage`
-  * Make it executable for all user `chmod a+x ./nvim.appimage`
-  * `sudo mv nvim.appimage /usr/bin/nvim`
-  * Error message: AppImages require FUSE to run.
-  * [How to install safely install fuse on Ubuntu 22.04?](https://askubuntu.com/questions/1409496/how-to-install-safely-install-fuse-on-ubuntu-22-04)
-  * sudo apt install fuse
-  * Check version: `nvim --version`
-  
-* Install git
-  * For general-old version: sudo apt install git
-  
-* Install python3 and python3-pip
-  * sudo apt install python3 [Check version: `python3 --version`]
-  * sudo apt install python3-pip [Check version: `pip --version`]
-  
-* Install nodejs and npm
-  * ~~sudo apt install nodejs npm [Installs old version]~~
-  * [How to install the latest Node.js on Linux?](https://linuxhint.com/how-to-install-latest-node-js-on-linux/) || [nodesource/distributions](https://github.com/nodesource/distributions)
-  * curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs
-  * Check node version: `node --version`
-  * Check npm version: `npm --version`
-
-* Install rustc (rust language) and cargo (rust package manager)
-  * ~~sudo apt install rustc cargo [Installs old version]~~
-  * [Install Rust](https://www.rust-lang.org/tools/install)
-  * curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  * Check rustc version: `rustc --version`
-  * Check cargo version: `cargo --version`
-  * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems.
-  * [Create Symlink](https://stackoverflow.com/questions/1951742/how-can-i-symlink-a-file-in-linux)
-  * sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc
-  * sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo
-  * sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup
-  * sudo rustup default stable
-  * `sudo apt install build-essential` [linking with `cc` failed: exit code: 1](https://www.reddit.com/r/rust/comments/i4jlbi/linking_with_cc_failed_exit_code_1/)
-
-* ~~Install dependencies: `sudo apt install gcc make build-essential git python3 python3-pip nodejs npm rustc cargo`~~
-
-* [LunarVim Installation](https://www.lunarvim.org/docs/installation)
-  * This command shows "Permission Denied Error": `LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)`
-  * Install this way
-  * export LV_BRANCH='release-1.2/neovim-0.8'
-  * echo $LV_BRANCH
-  * wget https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh
-  * bash install.sh
-  * Error message: [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
-    * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
-    * Make a directory for global installations: `mkdir ~/.npm-global`
-    * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
-    * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
-    * Back on the command line, update your system variables: `source ~/.profile`
-  * sudo ln -s ~/.local/bin/lvim /usr/bin/lvim
-
-* Install nerd font on Host PC
-  * [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
-  * git clone https://github.com/ronniedroid/getnf.git
-  * cd getnf
-  * Install fonts in "~/.local/share/fonts" directory.
-  * ./install.sh [If it does not work, use command: `./getnf`] [Don't use "sudo", as it install fonts in "/root/.local/share/fonts" user directory] [If shows error, check line-endings are in Linux Line-Feed]
-  * Error message: fzf: command not found
-  * sudo apt install fzf
-  * Choose "Hack" font.
-  * Restart PC if font is not showing in xfce4-terminal settings.
-  * Open xfce4-terminal -> Edit -> Preferences -> Appearance -> Font -> Select "Hack NF Regular"
-
 ## Alpine317-Vagrant-Installation
 
 ### Setup Vagrant
@@ -511,7 +486,7 @@
   * [UTF-8 character not showing properly in tmux](https://askubuntu.com/questions/410048/utf-8-character-not-showing-properly-in-tmux)
   * [Tmux doesn't render some symbols properly](https://askubuntu.com/questions/1038351/tmux-doesnt-render-some-symbols-properly)
 
-# References
+# References {#references}
 
 * next-sl: {24}
 
@@ -561,7 +536,11 @@
     * {21} [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
     * {22} [How to Add a Path Permanently in Linux](https://linuxhint.com/add-path-permanently-linux/)
     * {23} [How to create a symbolic link in Linux](https://linuxhint.com/create-symbolic-link-linux/)
-  
+    * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
+    * [How to install safely install fuse on Ubuntu 22.04?](https://askubuntu.com/questions/1409496/how-to-install-safely-install-fuse-on-ubuntu-22-04)
+    * [How to install the latest Node.js on Linux?](https://linuxhint.com/how-to-install-latest-node-js-on-linux/)
+    * [nodesource/distributions](https://github.com/nodesource/distributions)
+    * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
 
 * Neovim
   * [How do I enable the mouse in nvim please?](https://www.reddit.com/r/neovim/comments/yt5ejm/how_do_i_enable_the_mouse_in_nvim_please/)
