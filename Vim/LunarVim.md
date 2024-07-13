@@ -142,13 +142,14 @@ Goto [References](#references)
 * packer.nvim: Error running config for nvim-treesitter: vim/_meta.lua:532: Vim:No C compiler found! "cc", "gcc", "clang", "cl", "zig" are not executable.
 * Failed to install nvim-telescope/telescope-fzf-native.nvim [This git-package needs "gcc" c compiler]
 
-## Lubuntu-24.04/Ubuntu-24.04 Installation
+## Linux Installation
 
-* Checked On OS: Ubuntu-24.04 Desktop, Lubuntu-24.04 Desktop, Ubuntu-22.04 Server, Ubuntu22.04-Vagrant, 
+* Checked On OS: Ubuntu-24.04 Desktop, Lubuntu-24.04 Desktop, Ubuntu-22.04 Server, Ubuntu22.04-Vagrant, AntixOS-21, AntixOS-22
 
 ### Install Instruction (Ubuntu)
 
 * Install "neovim"
+  * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
   * Using APT
     * `sudo apt install neovim`
   * Using AppImage (Latest Version)
@@ -173,6 +174,11 @@ Goto [References](#references)
     * `sudo apt update`
     * `sudo apt install git`
   * Check version: `git --version`
+
+* AntixOS-21, AntixOS-22: Install "git" latest version
+  * [About Backports](https://backports.debian.org/Instructions/)
+  * `sudo apt install git/bullseye-backports` [Check version: `git --version`]
+  * For general-old version: `sudo apt install git`
 
 * Install "lazygit"
   * [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit)
@@ -274,106 +280,32 @@ Goto [References](#references)
   > * sudo kill -9 <process_id>
   > * sudo killall apt apt-get
 
-## Antix-OS-22 Installation
+**Error_3**
 
-### Install Instruction (Antix-OS)
+  * Error_3 Message:
+  > [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
 
-* Install neovim latest version
-  * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
-  * sudo apt install neovim [This installs neovim (0.4.4-1), which is not compatible with LunarVim]
-  * Download latest Neovim from [Neovim GitHub Repo](https://github.com/neovim/neovim).
-  * Download Neovim AppImage: `wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage`
-  * Make it executable for all user `chmod a+x ./nvim.appimage`
-  * `sudo mv nvim.appimage /usr/bin/nvim` [Check version: `nvim --version`]
+  * Solution_3:
+  > * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
+  > * Make a directory for global installations: `mkdir ~/.npm-global`
+  > * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
+  > * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
+  > * Back on the command line, update your system variables: `source ~/.profile`
   
-* Install git latest version
-  * [About Backports](https://backports.debian.org/Instructions/)
-  * sudo apt install git/bullseye-backports [Check version: `git --version`]
-  * For general-old version: sudo apt install git
-  
-* Install python3 and python3-pip
-  * sudo apt install python3 [Check version: `python3 --version`]
-  * sudo apt install python3-pip [Check version: `pip --version`]
-  
-* Install nodejs and npm
-  * ~~sudo apt install nodejs [Check version: `node --version`]~~
-  * ~~sudo apt install npm [Check version: `npm --version`]~~
-  * [How to install the latest Node.js on Linux?](https://linuxhint.com/how-to-install-latest-node-js-on-linux/) || [nodesource/distributions](https://github.com/nodesource/distributions)
-  * curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt-get install -y nodejs
-  
-* Install rustc (rust language) and cargo (rust package manager)
-  * {16} [Install Rust](https://www.rust-lang.org/tools/install)
-  * Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-    * Unattended Install: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y` <sup>{17} {18}</sup>
-  * Add to $PATH: `source "$HOME/.cargo/env"`
-  * Check rustc version: `rustc --version`
-  * Check cargo version: `cargo --version`
-  * Check rustup version: `rustup --version`
-  * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems. <sup>{19}</sup>
-    * `sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc`
-    * `sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo`
-    * `sudo ln -s ~/.cargo/bin/rustup /usr/bin/rustup`
-    * `sudo rustup default stable`
+**Error_4**
 
-* Install other dependencies
-  * `sudo apt install build-essential` <sup>{20}</sup>
-  * `sudo apt install gcc`
-  * `sudo apt install make`
+  * Error_4 Message: 
+  > bash ./utils/installer/install_bin.sh : invalid option nametall_bin.sh: line 2: set: pipefail
+  > 
+  > * Reason: this problem happens, when git line ending set to Windows-OS line endings (CR/LF).
+  > * Problem Reason Git Settings: `git config --global core.autocrlf true`
 
-* [LunarVim Installation](https://www.lunarvim.org/docs/installation)
-  * LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-    * Add to PATH
-    * [How to Add a Path Permanently in Linux](https://linuxhint.com/add-path-permanently-linux/)
-      * echo 'export PATH=/home/<uer-name>/.local/bin:$PATH' >> ~/.bashrc
-      * source ~/.bashrc
-    * Alternative Way: [How to create a symbolic link in Linux](https://linuxhint.com/create-symbolic-link-linux/)
-      * sudo ln -s ~/.local/bin/lvim /usr/bin/lvim
-
-* Install nerd font <sup>{21}</sup>
-  * Install fzf: `sudo apt install fzf`
-  * `git clone https://github.com/ronniedroid/getnf.git`
-  * `cd getnf`
-  * Install fonts in "~/.local/share/fonts" directory.
-  * ./install.sh [If it does not work, use command: `./getnf`] [Don't use "sudo", as it install fonts in "/root/.local/share/fonts" user directory] [If shows error, check line-endings are in Linux Line-Feed]
-  * Choose "Hack" font.
-  * Restart PC if font is not showing in xfce4-terminal settings.
-  * Open xfce4-terminal -> Edit -> Preferences -> Appearance -> Font -> Select "Hack NF Regular"
-
-### Error and Solution (Antix-OS)
-* Error: this version of Cargo is older than the `2021` edition, and only supports `2015` and `2018` editions.
-  * [How to fix "this version of Cargo is older than the `2021` edition" error?](https://stackoverflow.com/questions/74697023/how-to-fix-this-version-of-cargo-is-older-than-the-2021-edition-error)
-  * The recommended way to install and maintain a Rust toolchain is with [Rustup](https://rustup.rs/).
-  * sudo apt remove rust
-  * sudo apt remove cargo
-  * curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  * To configure your current shell, run: source "$HOME/.cargo/env"
-  * rustc --version
-  * cargo --version
-  * Rust and Cargo not in path
-
-* This command shows "Permission Denied Error": `LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)`
-  * Install this way
-  * export LV_BRANCH='release-1.2/neovim-0.8'
-  * echo $LV_BRANCH
-  * wget https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh
-  * bash install.sh
-
-* Error message: [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
-  * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
-  * Make a directory for global installations: `mkdir ~/.npm-global`
-  * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
-  * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
-  * Back on the command line, update your system variables: `source ~/.profile`
-  
-* Error message: bash ./utils/installer/install_bin.sh : invalid option nametall_bin.sh: line 2: set: pipefail
-  * Reason: this problem happens, when git line ending set to Windows-OS line endings (CR/LF).
-  * Problem Reason Git Settings: `git config --global core.autocrlf true`
-  * [Git status ignore line endings / identical files / windows & linux environment / dropbox / meld](https://stackoverflow.com/questions/20496084/git-status-ignore-line-endings-identical-files-windows-linux-environment)
-  * Solution:
-    * [Start up script fails with error "-e: invalid option", what is missing?](https://stackoverflow.com/questions/42095374/start-up-script-fails-with-error-e-invalid-option-what-is-missing)
-    * Change line ending to Unix (LF) for this file: `~/.local/share/lunarvim/lvim/utils/installer/install.sh` using Geany editor.
-    * Execute script: `bash ~/.local/share/lunarvim/lvim/utils/installer/install.sh`
-  * Another Solution: Temporarily disable Windows-OS line endings during LunarVim installation: `git config --global core.autocrlf false`
+  * Solution_4:
+  > * [Git status ignore line endings / identical files / windows & linux environment / dropbox / meld](https://stackoverflow.com/questions/20496084/git-status-ignore-line-endings-identical-files-windows-linux-environment)
+  > * [Start up script fails with error "-e: invalid option", what is missing?](https://stackoverflow.com/questions/42095374/start-up-script-fails-with-error-e-invalid-option-what-is-missing)
+  > * Change line ending to Unix (LF) for this file: `~/.local/share/lunarvim/lvim/utils/installer/install.sh` using Geany editor.
+  > * Execute script: `bash ~/.local/share/lunarvim/lvim/utils/installer/install.sh`
+  > * Another Solution: Temporarily disable Windows-OS line endings during LunarVim installation: `git config --global core.autocrlf false`
 
 ## Ubuntu22.04-Vagrant-Installation
 
@@ -539,7 +471,6 @@ Goto [References](#references)
     * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
     * [How to install safely install fuse on Ubuntu 22.04?](https://askubuntu.com/questions/1409496/how-to-install-safely-install-fuse-on-ubuntu-22-04)
     * [How to install the latest Node.js on Linux?](https://linuxhint.com/how-to-install-latest-node-js-on-linux/)
-    * [nodesource/distributions](https://github.com/nodesource/distributions)
     * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
 
 * Neovim
