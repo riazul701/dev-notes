@@ -178,6 +178,8 @@
 * Solution
   * Open "Connman Sytem Tray" -> Details -> Configuration -> Nameservers -> Enter "8.8.8.8" -> OK [No need to restart PC]
   * Alternatively open "/etc/resolv.conf" file and Enter "nameserver 8.8.8.8" -> Restart PC
+  * Google's DNS: 8.8.8.8
+  * CloudFlare's DNS: 1.1.1.1
 
 ## App-Select
 

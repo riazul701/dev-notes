@@ -4,10 +4,10 @@
 
 * [Neovim Site](https://neovim.io/)
 * [Neovim GitHub](https://github.com/neovim/neovim)
+* [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+* [getnf/getnf](https://github.com/getnf/getnf)
 * [josean-dev/dev-environment-files](https://github.com/josean-dev/dev-environment-files) <sup>{1} {2}</sup>
 * {1} [How I Setup Neovim On My Mac To Make it AMAZING in 2024](https://www.josean.com/posts/how-to-setup-neovim-2024) <sup>{2}</sup>
-
-
 
 # References
 

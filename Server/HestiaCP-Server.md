@@ -43,6 +43,7 @@
 * Connection
   * VSFTPD FTP Server Credential: (Host: 101.102.103.104), (UserName: HestiaCP Panel UserName), (Password: HestiaCP Panel Password), (Port: 21)
   * SFTP / SSH Server Credential: (Host: sftp://101.102.103.104), (UserName: Server "root" UserName), (Password: Server "root" Password), (Port: 22)
+    * Instead of "root" user, create another user with "ssh" access.
   
 * By default, HestiaCP website php page does not show any error. Enable error from php script: <sup>{1}</sup>
 ```php
@@ -79,8 +80,8 @@ ini_set('display_errors', '1');
   * Create "example.com" domain with "DNS" and "Email" support in "Standard" user panel.
 
 * Check things are working
-  * Enter into phpMyAdmin: "http://example.com/phpmyadmin"
-  * Enter into HestiaCP control panel: "http://example.com:8083" (Does Not Work)
+  * Enter into phpMyAdmin: "http://example.com/phpmyadmin" [ANY OTHER DOMAIN WORKS: "http://<any-other-domain>/phpmyadmin"]
+  * Enter into HestiaCP control panel: "http://<ip-address>:8083" [Does Not Work: "http://example.com:8083"]
   
 # Configuration (HestiaCP)
 

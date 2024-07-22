@@ -2,6 +2,8 @@
 
 # Usage
 
+{1} [Quickstart Tutorial - Official](https://wiki.vifm.info/index.php/Quickstart_Tutorial)
+
 * Lesson Progress
   * :copy
 
@@ -38,6 +40,7 @@
 
 ## Tutorials
 
+* [Vifm Manual](https://wiki.vifm.info/index.php/Manual)
 * {1} [Quickstart Tutorial - Official](https://wiki.vifm.info/index.php/Quickstart_Tutorial)
 * {2} [Vifm – A Simple and Powerful Text Based File Manager for GNU/Linux](https://fossbytes.com/vifm-beginner-tutorial-file-manager-gnu-linux/)
 * {8} [How to preview images](https://wiki.vifm.info/index.php/How_to_preview_images)

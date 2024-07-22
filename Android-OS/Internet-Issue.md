@@ -1,5 +1,7 @@
 # Android Internet Connection Issue
 
+* [Ubuntu 22.04.1 LTS: DNS address could not be found DNS_PROBE_POSSIBLE](https://askubuntu.com/questions/1435003/ubuntu-22-04-1-lts-dns-address-could-not-be-found-dns-probe-possible)
+
 * Problem Details:
   * Android phone connected to WiFi.
   * Google-Chrome works with Internet perfectly.

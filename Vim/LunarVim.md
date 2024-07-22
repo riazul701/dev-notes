@@ -1,6 +1,25 @@
+# Commands (LunarVim)
+
+## General Commands
+* Shows installation is ok or not: `:checkhealth`
+* Turn on mouse: `:set mouse=a`
+
+## Error and Solution (LunarVim)
+
+**ERROR_1**
+
+  * Message_1:
+  > * `:checkhealth` command
+  > * Clipboard (optional) -> WARNING: No clipboard tool found. Clipboard registers (`+` and `*`) will not work. -> ADVICE: `:help clipboard`
+
 # Contents of LunarVim
 
-Goto [References](#references)
+## Websites
+
+* [lunarvim.org](https://www.lunarvim.org/)
+* [LunarVim/LunarVim](https://github.com/lunarvim/lunarvim)
+* [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+* [getnf/getnf](https://github.com/getnf/getnf)
 
 ## Notes
 * Keyboard
@@ -12,41 +31,18 @@ Goto [References](#references)
     * LunarVim binary: C:\Users\<user-name>\.local\bin\lvim.ps1
     * PowerShell profile: C:\Users\<user-name>\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
   * Linux-OS
-    * Configuration(plugins) file: /home/<user-name>/.config/lvim
-    * Installed plugins: /home/<user-name>/.local/share/lunarvim
+    * LunarVim executable file: `/home/<user-name>/.local/bin`
+      * [Using "${a:-b}" for variable assignment in scripts](https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts)
+      * [What does $@ mean in a shell script?](https://stackoverflow.com/questions/9994295/what-does-mean-in-a-shell-script)
+    * User configuration file: `/home/<user-name>/.config/lvim/config.lua` [On LunarVim dashboard, press "c" to edit this file]
+    * Installed plugins folder: `/home/<user-name>/.local/share/lunarvim/site/pack/lazy/opt/`
+    * Plugins doc files: `/home/<user-name>/.local/share/lunarvim/lazy/readme/doc/`
+    * LunarVim GitHub repository: `/home/<user-name>/.local/share/lunarvim/lvim/`
+    * Cache folder: `/home/<user-name>/.cache/lvim/`
+    * Fonts folder: `/home/<user-name>/.local/share/fonts/`
+    * Node.js packages path (using Node-Version-Manager): 
 * Conflicts
-  * Scoop installed "ruby, gem" conflicts with Git-Bash installed "ruby, gem". For this reason "tmuxinator" does not work. So intall "ruby" only inside Git-Bash. And use LunarVim inside Bash.
-
-## Commands (LunarVim)
-
-### General Commands
-* Shows installation is ok or not: `:checkhealth`
-* Turn on mouse: `:set mouse=a`
-
-## Error and Solution (LunarVim)
-
-### ":checkhealth" command
-* Clipboard (optional) -> WARNING: No clipboard tool found. Clipboard registers (`+` and `*`) will not work. -> ADVICE: `:help clipboard`
-
-## Guides
-* Configuration
-  * [How To Setup LunarVim in Windows](https://medium.com/@peterhaddad/how-to-setup-lunarvim-in-windows-9df9bd220889)
-
-* Clipboard
-  * [How to support clipboard for NeoVim](https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534)
-  * [NeoVim Providers](https://neovim.io/doc/user/provider.html)
-  * [How to use the Windows clipboard from WSL?](https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl)
-  * [vim-system-copy](https://github.com/christoomey/vim-system-copy)
-  * [Copy("+y)/pasting("+p) to/from system clipboard not working.](https://www.reddit.com/r/neovim/comments/xajsgk/copyypastingp_tofrom_system_clipboard_not_working/)
-  * [How to install neovim with +clipboard extension?](https://vi.stackexchange.com/questions/29285/how-to-install-neovim-with-clipboard-extension)
-  * [vim + COPY + mac over SSH](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh)
-  * [How to copy and paste with a clipboard in Tmux](https://linuxhint.com/copy-paste-clipboard-tmux/)
-  * [Forwarding copy to clipboard from dev container to Windows Host](https://stuartleeks.com/posts/vscode-devcontainer-clipboard-forwarding/)
-  * [Accessing the system clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
-  * [How to x11 Forward with Putty on Windows](https://www.youtube.com/watch?v=-oanqpf0xak)
-  * [Clipboard over SSH with Vim](https://defuse.ca/blog/clipboard-over-ssh-with-vim.html)
-  * [jedisct1/piknik GitHub](https://github.com/jedisct1/piknik)
-  * [wincent/clipper GitHub](https://github.com/wincent/clipper)
+  * (Windows-OS) Scoop installed "ruby, gem" conflicts with Git-Bash installed "ruby, gem". For this reason "tmuxinator" does not work. So intall "ruby" only inside Git-Bash. And use LunarVim inside Bash.
 
 # Installation
 
@@ -144,7 +140,7 @@ Goto [References](#references)
 
 ## Linux Installation
 
-* Checked On OS: Ubuntu-24.04 Desktop, Lubuntu-24.04 Desktop, Ubuntu-22.04 Server, Ubuntu22.04-Vagrant, AntixOS-21, AntixOS-22
+* Checked On Debian-Based Linux-OS: Ubuntu-24.04 Desktop, Lubuntu-24.04 Desktop, Ubuntu-22.04 Server, Ubuntu22.04-Vagrant, AntixOS-21, AntixOS-22
 
 ### Install Instruction (Ubuntu)
 
@@ -156,8 +152,8 @@ Goto [References](#references)
     * `wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage` (Select required Neovim version)
     * Make it executable for all user `chmod a+x ./nvim.appimage`
     * Move to executable path: `sudo mv nvim.appimage /usr/bin/nvim`
-    * Error_1: "dlopen(): error loading libfuse.so.2 AppImages require FUSE to run."
-    * Solution_1: `sudo apt-get install fuse libfuse2` <sup>{13}</sup>
+    * **(Ubuntu-24.04)** Error_1: "dlopen(): error loading libfuse.so.2 AppImages require FUSE to run."
+    * **(Ubuntu-24.04)** Solution_1: `sudo apt-get install fuse libfuse2` <sup>{13}</sup>
   * Using TAR (Latest Version) <sup>{14}</sup>
     * `wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz` [Select required Neovim version]
     * Extract: `tar xzvf nvim-linux64.tar.gz`
@@ -175,7 +171,7 @@ Goto [References](#references)
     * `sudo apt install git`
   * Check version: `git --version`
 
-* AntixOS-21, AntixOS-22: Install "git" latest version
+* **(AntixOS-21, AntixOS-22)**: Install "git" latest version
   * [About Backports](https://backports.debian.org/Instructions/)
   * `sudo apt install git/bullseye-backports` [Check version: `git --version`]
   * For general-old version: `sudo apt install git`
@@ -195,7 +191,7 @@ Goto [References](#references)
 
 * Install "nodejs" and "npm" <sup>{7} {8} {9}</sup>
   * {9} [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
-  * Install nvm: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash` [Select latest NVM version]
+  * Install nvm: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash` [Insert latest NVM version]
   * Reload $PATH: `source ~/.bashrc`
   * Check nvm is installed: `command -v nvm`
   * Check nvm version: `nvm --version`
@@ -208,8 +204,9 @@ Goto [References](#references)
   * Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
     * Unattended Install: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y` <sup>{17} {18}</sup>
   * Reload $PATH: `source ~/.bashrc`
-  * Check rustc version: `rustc --version`
+  * Check rustc version: `rustc --version` [`sudo` command does not work]
   * Check cargo version: `cargo --version`
+  * Check rustup version: `rustup --version`
   * LunarVim installation shows error: Unable to find cargo. Make sure to install it to avoid problems. <sup>{19}</sup>
     * `sudo ln -s ~/.cargo/bin/rustc /usr/bin/rustc`
     * `sudo ln -s ~/.cargo/bin/cargo /usr/bin/cargo`
@@ -218,10 +215,11 @@ Goto [References](#references)
 
 * Install other dependencies
   * `sudo apt install build-essential` <sup>{20}</sup>
+  * Check build-essential version: `build-essential --version`
   * `sudo apt install gcc make ripgrep`
   * Check gcc version: `gcc --version`
   * Check make version: `make --version`
-  * Check build-essential version: `build-essential --version`
+  * Check ripgrep version: `rg --version`
 
 * Install nerd font on Host-PC<sup>{21}</sup>
   * Install fzf: `sudo apt install fzf`
@@ -234,7 +232,7 @@ Goto [References](#references)
   * Open xfce4-terminal -> Edit -> Preferences -> Appearance -> Font -> Select "Hack NF Regular"
 
 * [LunarVim Installation](https://www.lunarvim.org/docs/installation)
-  * Install LunarVim: `LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)`
+  * Install LunarVim: `LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)` [Insert latest Neovim branch]
     * Add to PATH <sup>{22}</sup>
       * `echo 'export PATH=/home/<user-name>/.local/bin:$PATH' >> ~/.bashrc`
       * Relaod $PATH: `source ~/.bashrc`
@@ -244,9 +242,9 @@ Goto [References](#references)
 
 ### Error and Solution
 
-**Error_1:** 
+**ERROR_1:** 
 
-  * Error_1 Message:
+  * Message_1:
   > This environment is externally managed
   > To install Python packages system-wide, try apt install
   > python3-xyz, where xyz is the package you are trying to
@@ -264,48 +262,59 @@ Goto [References](#references)
   > See /usr/share/doc/python3.12/README.venv for more information.
 
   * Solution_1:
-  > * [pip error on Ubuntu: externally-managed-environment × This environment is externally managed](https://askubuntu.com/questions/1465218/pip-error-on-ubuntu-externally-managed-environment-%c3%97-this-environment-is-extern)
-  > * [How do I solve "error: externally-managed-environment" every time I use pip 3? [closed]](https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3)
-  > * This Issue started from Python-3.11+
+    * [pip error on Ubuntu: externally-managed-environment × This environment is externally managed](https://askubuntu.com/questions/1465218/pip-error-on-ubuntu-externally-managed-environment-%c3%97-this-environment-is-extern)
+    * [How do I solve "error: externally-managed-environment" every time I use pip 3? [closed]](https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3)
+    * This Issue started from Python-3.11+
 
-**Error_2**
+**ERROR_2**
 
-  * Error_2 Message:
+  * Message_2:
   > Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 3500 (unattended-upgr)...
   
   * Solution_2:
-  > * [How to Fix 'E: Could not get lock /var/lib/dpkg/lock' Error in Ubuntu Linux](https://itsfoss.com/could-not-get-lock-error/)
-  > * ps aux | grep <process-id>
-  > * sudo kill <process-id>
-  > * sudo kill -9 <process_id>
-  > * sudo killall apt apt-get
+    * [How to Fix 'E: Could not get lock /var/lib/dpkg/lock' Error in Ubuntu Linux](https://itsfoss.com/could-not-get-lock-error/)
+    * ps aux | grep <process-id>
+    * sudo kill <process-id>
+    * sudo kill -9 <process_id>
+    * sudo killall apt apt-get
 
-**Error_3**
+**ERROR_3**
 
-  * Error_3 Message:
+  * Message_3:
   > [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
 
   * Solution_3:
-  > * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
-  > * Make a directory for global installations: `mkdir ~/.npm-global`
-  > * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
-  > * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
-  > * Back on the command line, update your system variables: `source ~/.profile`
+    * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
+    * Make a directory for global installations: `mkdir ~/.npm-global`
+    * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
+    * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
+    * Back on the command line, update your system variables: `source ~/.profile`
   
-**Error_4**
+**ERROR_4**
 
-  * Error_4 Message: 
+  * Message_4:
+  > error: rustup could not choose a version of rustc to run, because one wasn't
+  > specified explicitly, and no default is configured.
+  > help: run 'rustup default stable' to download the latest stable release of 
+  > Rust and set it as your default toolchain.
+
+  * Solution_4:
+    * `rustup default stable`
+
+**ERROR_5**
+
+  * Message_5: 
   > bash ./utils/installer/install_bin.sh : invalid option nametall_bin.sh: line 2: set: pipefail
   > 
   > * Reason: this problem happens, when git line ending set to Windows-OS line endings (CR/LF).
   > * Problem Reason Git Settings: `git config --global core.autocrlf true`
 
-  * Solution_4:
-  > * [Git status ignore line endings / identical files / windows & linux environment / dropbox / meld](https://stackoverflow.com/questions/20496084/git-status-ignore-line-endings-identical-files-windows-linux-environment)
-  > * [Start up script fails with error "-e: invalid option", what is missing?](https://stackoverflow.com/questions/42095374/start-up-script-fails-with-error-e-invalid-option-what-is-missing)
-  > * Change line ending to Unix (LF) for this file: `~/.local/share/lunarvim/lvim/utils/installer/install.sh` using Geany editor.
-  > * Execute script: `bash ~/.local/share/lunarvim/lvim/utils/installer/install.sh`
-  > * Another Solution: Temporarily disable Windows-OS line endings during LunarVim installation: `git config --global core.autocrlf false`
+  * Solution_5:
+    * [Git status ignore line endings / identical files / windows & linux environment / dropbox / meld](https://stackoverflow.com/questions/20496084/git-status-ignore-line-endings-identical-files-windows-linux-environment)
+    * [Start up script fails with error "-e: invalid option", what is missing?](https://stackoverflow.com/questions/42095374/start-up-script-fails-with-error-e-invalid-option-what-is-missing)
+    * Change line ending to Unix (LF) for this file: `~/.local/share/lunarvim/lvim/utils/installer/install.sh` using Geany editor.
+    * Execute script: `bash ~/.local/share/lunarvim/lvim/utils/installer/install.sh`
+    * Another Solution: Temporarily disable Windows-OS line endings during LunarVim installation: `git config --global core.autocrlf false`
 
 ## Ubuntu22.04-Vagrant-Installation
 
@@ -444,6 +453,25 @@ Goto [References](#references)
     * [indent-blankline - Weekly Neovim Plugin BY CantuCodes](https://www.youtube.com/watch?v=4iPiYljl2RY)
 
 * Guides
+
+  * Configuration
+    * [How To Setup LunarVim in Windows](https://medium.com/@peterhaddad/how-to-setup-lunarvim-in-windows-9df9bd220889)
+
+  * Clipboard
+    * [How to support clipboard for NeoVim](https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534)
+    * [NeoVim Providers](https://neovim.io/doc/user/provider.html)
+    * [How to use the Windows clipboard from WSL?](https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl)
+    * [vim-system-copy](https://github.com/christoomey/vim-system-copy)
+    * [Copy("+y)/pasting("+p) to/from system clipboard not working.](https://www.reddit.com/r/neovim/comments/xajsgk/copyypastingp_tofrom_system_clipboard_not_working/)
+    * [How to install neovim with +clipboard extension?](https://vi.stackexchange.com/questions/29285/how-to-install-neovim-with-clipboard-extension)
+    * [vim + COPY + mac over SSH](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh)
+    * [How to copy and paste with a clipboard in Tmux](https://linuxhint.com/copy-paste-clipboard-tmux/)
+    * [Forwarding copy to clipboard from dev container to Windows Host](https://stuartleeks.com/posts/vscode-devcontainer-clipboard-forwarding/)
+    * [Accessing the system clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
+    * [How to x11 Forward with Putty on Windows](https://www.youtube.com/watch?v=-oanqpf0xak)
+    * [Clipboard over SSH with Vim](https://defuse.ca/blog/clipboard-over-ssh-with-vim.html)
+    * [jedisct1/piknik GitHub](https://github.com/jedisct1/piknik)
+    * [wincent/clipper GitHub](https://github.com/wincent/clipper)
 
 * Installation
 
