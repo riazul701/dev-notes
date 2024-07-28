@@ -1,4 +1,8 @@
-# HestiaCP-Local.md
+# Commands
+
+* Switch to "root" user: `sudo su -`
+
+# Contents of HestiaCP-Local.md
 
 # VirtualBox + Antix-OS + HestiaCP
 

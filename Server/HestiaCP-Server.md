@@ -1,13 +1,10 @@
-# HestiaCP.md
-
-## Websites
-
-
 # Commands
 
-## Database
+* Switch to "root" user: `sudo su -`
 
-* 
+# Contents of HestiaCP.md
+
+## Websites
 
 # Knowledge
 

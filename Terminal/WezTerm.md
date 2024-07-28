@@ -121,6 +121,9 @@ fall back to basic
 * Tutorials
   * [Keyboard shortcuts in Windows](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec#WindowsVersion=Windows_10)
 
+* YouTube Tutorials
+  * [How To Create An AMAZING macOS Terminal Setup With Wezterm BY Josean Martinez](https://www.youtube.com/watch?v=TTgQV21X0SQ)
+
 * WezTerm Project
   * [Switch to new workspace via wezterm cli #3534](https://github.com/wez/wezterm/discussions/3534)
 

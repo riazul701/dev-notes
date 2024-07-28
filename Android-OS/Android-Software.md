@@ -48,6 +48,7 @@
 * [Opera Browser: Fast & Private BY Opera](https://play.google.com/store/apps/details?id=com.opera.browser)
 * [Advanced Download Manager BY admtorrent](https://play.google.com/store/apps/details?id=com.dv.adm)
 * [SoundCloud: Play Music & Songs BY SoundCloud](https://play.google.com/store/apps/details?id=com.soundcloud.android)
+* [4K Video Downloader for Android](https://www.4kdownload.com/products/videodownloaderandroid-41)
 * [Seal: Video/Audio downloader](https://f-droid.org/en/packages/com.junkfood.seal/) || [Seal GitHub](https://github.com/JunkFood02/Seal)
 
 ## Programming (Selected)

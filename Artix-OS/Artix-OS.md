@@ -1,4 +1,8 @@
-# Artix-OS.md
+# Commands
+
+* Switch to "root" user: `sudo su -`
+
+# Contents of Artix-OS.md
 
 ## Websites
 * [Artix Linux Official Site](https://artixlinux.org/)

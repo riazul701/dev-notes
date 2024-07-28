@@ -1,3 +1,7 @@
+# Synaptic.md
+
+# AppImage.md
+
 # Dpkg.md
 
 # Commands
@@ -9,3 +13,10 @@
 ## Websites
 
 * []()
+
+# Gdebi.md
+
+## Websites
+
+* [Gdebi](https://launchpad.net/gdebi)
+

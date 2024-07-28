@@ -225,8 +225,8 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Check version: `git-credential-manager --version`
 
 * Check Configuration
-  * Check credential helper: `git config --global credential.helper`
-  * Check credential store: `git config --global credential.credentialStore`
+  * Check credential helper: `git config --global credential.helper` [Shows "/usr/local/bin/git-credential-manager"]
+  * Check credential store: `git config --global credential.credentialStore` [Shows "gpg"]
 
 ### Configuration (Linux-OS)
 

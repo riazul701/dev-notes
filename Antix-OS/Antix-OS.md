@@ -1,4 +1,8 @@
-# Antix OS
+# Commands
+
+* Switch to "root" user: `sudo su -`
+
+# Contents of Antix OS
 
 ## Websites
 * [AntiX Linux Official Website](https://antixlinux.com/)

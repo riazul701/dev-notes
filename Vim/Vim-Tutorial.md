@@ -1,5 +1,9 @@
 # Vim/Vim-Tutorial.md
 
+# Linux Command
+
+* Switch to "root" user: `sudo su -`
+
 # "vimtutor" command
 
 * Lesson 1 SUMMARY
@@ -135,26 +139,49 @@
 
 ## [Ch00. Read This First](https://github.com/iggredible/Learn-Vim/blob/master/ch00_read_this_first.md)
 
+* Help
+  * `:help` : manual has all the references you will ever need.
+  * `vimtutor` : is a great place to start
+
+* More Help
+  * `:h CTRL-P` : If you merely search for, you will be directed to normal mode's `Ctrl-P`
+  * `:h i_CTRL-P` : The appended `i_` represents the insert mode.
+
+* vimrc
+  * `:h vimrc` : To see where you should put yours, check out
+  * Inside `~/.vimrc`, add set number `set number`. Save it `(:w)`, then source it `(:source %)`. You should now see line numbers displayed on the left side.
+  * `:set number` : see line numbers displayed on the left side. The downside of this approach is that this setting is temporary. When you close Vim, the option disappears.
+  * Since we are learning about Vim and not Vi, a setting that you must have is the `nocompatible` option. Add set `nocompatible` in your vimrc. Many Vim-specific features are disabled when it is running on `compatible` option.
+
 ## [Ch01. Starting Vim](https://github.com/iggredible/Learn-Vim/blob/master/ch01_starting_vim.md)
 
+* The Vim Command
+  * `vim` : You should see an intro screen. Vim is a modal editor. If you want to type "hello", you need to switch to insert mode with `i`. Press `ihello<Esc>` to insert the text "hello".
+
 * Exiting Vim
-  * Exiting Vim: `:quit`
+  * `:quit` : Exiting Vim
+  * `:q` : Exiting Vim
 
 * Saving a File
-  * To save your changes, type: :write
-  * If this is a new file, you need to give it a name before you can save it: `:w file.txt`
-  * To save and quit, you can combine the :w and :q commands: `:wq`
-  * To quit without saving any changes, add ! after :q to force quit: `:q!`
-  * Help
-    * To learn about different ways to quit Vim, type: `:h write-quit`
+  * `:write` : To save your changes
+  * `:w` : To save your changes
+  * `:w file.txt` : If this is a new file, you need to give it a name before you can save it.
+  * `:wq` : To save and quit, you can combine the `:w` and `:q` commands.
+  * `:q!` : To quit without saving any changes, add `!` after `:q` to force quit.
+
+* Help
+  * `:help {some-command}` : (`:h` for short). You can pass to the `:h` command a topic or a command name as an argument.
+  * `:h write-quit` : To learn about different ways to quit Vim. 
+  * I just typed `:h`, then "quit", then `<Tab>`.
 
 * Opening a File
-  * To open a file (hello1.txt) on Vim from the terminal, run: `vim hello1.txt`
-  * You can also open multiple files at once [in separate buffers]: `vim hello1.txt hello2.txt hello3.txt`
+  * `vim hello1.txt` : To open a file (hello1.txt) on Vim from the terminal.
+  * `vim hello1.txt hello2.txt hello3.txt` : You can also open multiple files at once [in separate buffers]
 
 * Arguments
-  * To check the current Vim version, run: `vim --version`
-  * To see the version from inside Vim, you can run this: `:version`
+  * `vim --version` : To check the current Vim version.
+  * `:history` : explore Vim's command-line history. Vim needs to have `+cmdline_history` feature for the command to work.
+  * `:version` : To see the version from inside Vim.
   * In Vim, you can substitute strings with the :s command (short for :substitute).
   * If you want to open hello.txt and substitute all "pancake" with "bagel", run: `vim +%s/pancake/bagel/g hello.txt`
   * These Vim commands can be stacked: `vim +%s/pancake/bagel/g +%s/bagel/egg/g +%s/egg/donut/g hello.txt`

@@ -18,6 +18,11 @@
 
 * International
 
+### BDIX VPS
+
+* {Low-Price} [GotMyHost](https://gotmyhost.com/vps-hosting-BDIX)
+* [BDIX VPS - Bangladeshi VPS](https://bdixvps.com/vps.html)
+
 ### Shared Hosting
 
 * [ScalaHosting](https://www.scalahosting.com/)
