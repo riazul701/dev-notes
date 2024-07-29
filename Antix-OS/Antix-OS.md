@@ -1,6 +1,9 @@
 # Commands
 
-* Switch to "root" user: `sudo su -`
+* `sudo su -` : Switch to "root" user.
+* `ifconfig` : Get computer's IP address.
+* `sudo gedit &` : Open GUI-App in Background without blocking Terminal.
+* `sudo dpkg --install {{package-name}}.deb` : Install "deb" file using "dpkg".
 
 # Contents of Antix OS
 

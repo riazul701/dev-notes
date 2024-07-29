@@ -34,6 +34,7 @@
 
 * Browser Extension (Selected)
   * Google Chrome
+    * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
     * [simov/markdown-viewer GitHub](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
 
 * Email (Selected)
@@ -237,6 +238,7 @@
 
 * Browser Extension (List)
   * Google Chrome
+    * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
     * [simov/markdown-viewer GitHub](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
 
 * Email (List)

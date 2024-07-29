@@ -1,26 +1,42 @@
+# Commands
+
+## Installation
+
+* `sudo apt install vim` : In many Linux distribution, "vim-tiny" is installed by default. Which does not have `vimtutor` command and online-manual. Install full `vim` with this command.
+
+## General Command
+
+* Open left file explorer: :Lexplore
+* To switch between file opened windows : ctrl + ww (double w) or ctrl + w + (h/j/k/l)
+
 # VIM Editor
 
 ## Websites
+
 * VIMTUTOR: Learn VIM (If GVIM (from www.vim.org) in installed in Windows8.1 then press "Windows key + S" and enter text "vimtutor")
 * [Vim Cheat Sheet - Rtorr](https://vim.rtorr.com/)
 * [Learn X in Y minutes: Where X=vim](https://learnxinyminutes.com/docs/vim/)
 * [Vim cheatsheet - Devhints.io](https://devhints.io/vim)
 * [iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
+* [vim-adventures.com](https://vim-adventures.com/)
+
+## Plugin List
+
+* Database
+  * [tpope/vim-dadbod](https://github.com/tpope/vim-dadbod)
+  * [kristijanhusak/vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui)
+  * [kristijanhusak/vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion)
 
 ## Notes
+
 * Run Vim in Verbose/Debug mode: vim -V9vim.log
-
-# Commands
-
-## General Command
-* Open left file explorer: :Lexplore
-* To switch between file opened windows : ctrl + ww (double w) or ctrl + w + (h/j/k/l)
 
 # Plugins
 
 ## Netrw
 
 ### Resize Netrw ":Lexplore" window
+
 [https://vi.stackexchange.com/questions/10988/toggle-explorer-window]()
 [https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/]()
 * Open file: ~/.vimrc
@@ -28,20 +44,24 @@
 * Save and quit by using command ":wq"
 
 ## NERDTree
+
 [https://github.com/preservim/nerdtree](NERDTree GitHub)
 
 ### Tab Navigation
+
 [https://stackoverflow.com/questions/2413005/switching-between-tabs-in-nerdtree]()
 
 gt = next tab
 gT = previous tab
 
 ### Switching Windows
+
 [https://stackoverflow.com/questions/4446062/two-basic-questions-with-nerdtree-switching-windows-and-finding-files]()
 
 Thus, if your edit window is to the right of the NERDTree window, you would use: ctrl + Wl to go to right window and ctrl + Wh to go to left window. or ctrl + w twice to toggle between the two.
 
 ### Close Tab
+
 [https://vi.stackexchange.com/questions/9967/how-do-i-open-and-close-nerdtree-toggle-nerdtree-view-using-a-single-keystroke]()
 
 To open NerdTree :
@@ -54,9 +74,11 @@ To close NerdTree (in nerdtree window) :
 :q
 
 ## Vim-Gist
+
 ** [https://github.com/mattn/vim-gist](Vim-Gist GitHub)
 
 ### Guides - Vim-Gist
+
 * [https://gist.github.com/typebrook/b0d2e7e67aa50298fdf8111ae7466b56]() {Use this script to get Gist ID by filtering description/tag. Then use it in Vim-Gist.}
 * [https://github.com/defunkt/gist]()
 * [https://superuser.com/questions/486532/how-to-open-files-in-vertically-horizontal-split-windows-in-vim-from-the-command]()
@@ -65,6 +87,7 @@ To close NerdTree (in nerdtree window) :
 	* [https://www.reddit.com/r/vim/comments/6w3jmc/installing_plugins_for_the_vim_in_git_bash_for/]()
 
 ### Vim-Plug "~/.vimrc" content - Vim-Gist
+
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'mattn/webapi-vim'
 Plug 'mattn/vim-gist'
@@ -75,10 +98,12 @@ let g:gist_get_multiplefile = 1
 * Relaod Vim Configuration: After adding the above to the top of your Vim configuration file, reload it (:source ~/.vimrc) or restart Vim. Now run :PlugInstall to install the plugins.
 
 ### Setup Vim-Gist
+
 * $ git config --global github.user Username
 * In ~/.gist-vim file: token xxxxx
 
 ### Setup Vim-Gist in Git Bash (Windows OS)
+
 * Open Git Bash.
 * Show vim details: vim --version
 * Go to user Home directory: cd ~
@@ -89,6 +114,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 * Edit "~/.vimrc" file and install plugin by using ":PlugInstall" command
 
 ### Commands - Vim-Gist
+
 * Help Command: :help gist-setup
 * Show Gist List: :Gist -l  [Press "Enter" or "o" to open gist from list] [:Gist -l | grep "text" command does not work, implement it in source code]
 * Edit the gist:   :Gist -e  [You can update the gist with the ":w" command within the gist buffer.]

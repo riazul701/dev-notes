@@ -1,8 +1,9 @@
 # Commands
 
-* Switch to "root" user: `sudo su -`
-* Open GUI-App in Background without blocking Terminal: `sudo gedit &`
-* Install "deb" file using "dpkg": `sudo dpkg --install vlc.deb`
+* `sudo su -` : Switch to "root" user.
+* `ifconfig` : Get computer's IP address.
+* `sudo gedit &` : Open GUI-App in Background without blocking Terminal.
+* `sudo dpkg --install {{package-name}}.deb` : Install "deb" file using "dpkg".
 
 * Ubuntu Hotspot Create AP
   * `sudo lshw -C network`

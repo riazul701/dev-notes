@@ -21,6 +21,16 @@
 * [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 * [getnf/getnf](https://github.com/getnf/getnf)
 
+* LunarVim-VSCode
+  * {Selected} [LunarVim/vscode/settings.vim](https://github.com/LunarVim/LunarVim/blob/4625145d0278d4a039e55c433af9916d93e7846a/vscode/settings.vim) <sup>{36}</sup>
+  * {Selected} [LunarVim/utils/vscode_config/](https://github.com/LunarVim/LunarVim/tree/4625145d0278d4a039e55c433af9916d93e7846a/utils/vscode_config) <sup>{36}</sup>
+  * {Selected} [vscode-neovim/vscode-neovim](https://github.com/vscode-neovim/vscode-neovim) || [VSCode Neovim BY Alexey Svetliakov](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim) <sup>{36}</sup>
+  * {Selected} [VSpaceCode/vscode-which-key](https://github.com/VSpaceCode/vscode-which-key) || [Which Key BY VSpaceCode](https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey) <sup>{36}</sup>
+  * Reference
+    * [fathulfahmy/lunarkeymap](https://github.com/fathulfahmy/lunarkeymap) || [LunarKeymap BY Patui](https://marketplace.visualstudio.com/items?itemName=fathulfahmy.lunarkeymap)
+    * [LunarVim VSCode Config: colinaaa/keybindings.json](https://gist.github.com/colinaaa/3376dc543f1ca9b10ee3f99b98c4fe0e)
+    * [JrSchmidtt/lunar-vscode-theme](https://github.com/JrSchmidtt/lunar-vscode-theme) || [LunarVim Dark Theme BY Junior Schmidt](https://marketplace.visualstudio.com/items?itemName=JuniorSchmidt.lunar-vscode-theme)
+
 ## Notes
 * Keyboard
   * Press "TAB" key after ":" to auto-complete commands.
@@ -427,9 +437,9 @@
   * [UTF-8 character not showing properly in tmux](https://askubuntu.com/questions/410048/utf-8-character-not-showing-properly-in-tmux)
   * [Tmux doesn't render some symbols properly](https://askubuntu.com/questions/1038351/tmux-doesnt-render-some-symbols-properly)
 
-# References {#references}
+# References
 
-* next-sl: {24}
+* next-sl: {52}
 
 * Tutorials
   * chris@machine - LunarVim Maintainer
@@ -443,35 +453,38 @@
 * YouTube Tutorials
 
   * General
-    * [LunarVim BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6)
-    * [LunarVim (IDE for Neovim) BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QoYP4bKw0krF4aEn_3_pfWA)
-    * [Neovim from Scratch BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
-    * [Neovim BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg)
-    * [LunarVim/Neovim - Debugging Demo | Java, Python, Rust, Go, Javascript BY chris@machine](https://www.youtube.com/watch?v=5KQK2id3JtI)
+    * {30} [LunarVim BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6)
+    * {31} [LunarVim (IDE for Neovim) BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QoYP4bKw0krF4aEn_3_pfWA)
+    * {32} [Neovim from Scratch BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
+    * {33} [Neovim BY chris@machine](https://www.youtube.com/playlist?list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg)
+    * {34} [LunarVim/Neovim - Debugging Demo | Java, Python, Rust, Go, Javascript BY chris@machine](https://www.youtube.com/watch?v=5KQK2id3JtI)
 
   * Plugings
-    * [indent-blankline - Weekly Neovim Plugin BY CantuCodes](https://www.youtube.com/watch?v=4iPiYljl2RY)
+    * {35} [indent-blankline - Weekly Neovim Plugin BY CantuCodes](https://www.youtube.com/watch?v=4iPiYljl2RY)
+
+  * VSCode Neovim
+    * {36} [VSCode with embedded Neovim BY chris@machine](https://www.youtube.com/watch?v=g4dXZ0RQWdw)
 
 * Guides
 
   * Configuration
-    * [How To Setup LunarVim in Windows](https://medium.com/@peterhaddad/how-to-setup-lunarvim-in-windows-9df9bd220889)
+    * {37} [How To Setup LunarVim in Windows](https://medium.com/@peterhaddad/how-to-setup-lunarvim-in-windows-9df9bd220889)
 
   * Clipboard
-    * [How to support clipboard for NeoVim](https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534)
-    * [NeoVim Providers](https://neovim.io/doc/user/provider.html)
-    * [How to use the Windows clipboard from WSL?](https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl)
-    * [vim-system-copy](https://github.com/christoomey/vim-system-copy)
-    * [Copy("+y)/pasting("+p) to/from system clipboard not working.](https://www.reddit.com/r/neovim/comments/xajsgk/copyypastingp_tofrom_system_clipboard_not_working/)
-    * [How to install neovim with +clipboard extension?](https://vi.stackexchange.com/questions/29285/how-to-install-neovim-with-clipboard-extension)
-    * [vim + COPY + mac over SSH](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh)
-    * [How to copy and paste with a clipboard in Tmux](https://linuxhint.com/copy-paste-clipboard-tmux/)
-    * [Forwarding copy to clipboard from dev container to Windows Host](https://stuartleeks.com/posts/vscode-devcontainer-clipboard-forwarding/)
-    * [Accessing the system clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
-    * [How to x11 Forward with Putty on Windows](https://www.youtube.com/watch?v=-oanqpf0xak)
-    * [Clipboard over SSH with Vim](https://defuse.ca/blog/clipboard-over-ssh-with-vim.html)
-    * [jedisct1/piknik GitHub](https://github.com/jedisct1/piknik)
-    * [wincent/clipper GitHub](https://github.com/wincent/clipper)
+    * {38} [How to support clipboard for NeoVim](https://discourse.nixos.org/t/how-to-support-clipboard-for-neovim/9534)
+    * {39} [NeoVim Providers](https://neovim.io/doc/user/provider.html)
+    * {40} [How to use the Windows clipboard from WSL?](https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl)
+    * {41} [vim-system-copy](https://github.com/christoomey/vim-system-copy)
+    * {42} [Copy("+y)/pasting("+p) to/from system clipboard not working.](https://www.reddit.com/r/neovim/comments/xajsgk/copyypastingp_tofrom_system_clipboard_not_working/)
+    * {43} [How to install neovim with +clipboard extension?](https://vi.stackexchange.com/questions/29285/how-to-install-neovim-with-clipboard-extension)
+    * {44} [vim + COPY + mac over SSH](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh)
+    * {45} [How to copy and paste with a clipboard in Tmux](https://linuxhint.com/copy-paste-clipboard-tmux/)
+    * {46} [Forwarding copy to clipboard from dev container to Windows Host](https://stuartleeks.com/posts/vscode-devcontainer-clipboard-forwarding/)
+    * {47} [Accessing the system clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
+    * {48} [How to x11 Forward with Putty on Windows](https://www.youtube.com/watch?v=-oanqpf0xak)
+    * {49} [Clipboard over SSH with Vim](https://defuse.ca/blog/clipboard-over-ssh-with-vim.html)
+    * {50} [jedisct1/piknik GitHub](https://github.com/jedisct1/piknik)
+    * {51} [wincent/clipper GitHub](https://github.com/wincent/clipper)
 
 * Installation
 
@@ -496,11 +509,11 @@
     * {21} [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
     * {22} [How to Add a Path Permanently in Linux](https://linuxhint.com/add-path-permanently-linux/)
     * {23} [How to create a symbolic link in Linux](https://linuxhint.com/create-symbolic-link-linux/)
-    * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
-    * [How to install safely install fuse on Ubuntu 22.04?](https://askubuntu.com/questions/1409496/how-to-install-safely-install-fuse-on-ubuntu-22-04)
-    * [How to install the latest Node.js on Linux?](https://linuxhint.com/how-to-install-latest-node-js-on-linux/)
-    * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
+    * {24} [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
+    * {25} [How to install safely install fuse on Ubuntu 22.04?](https://askubuntu.com/questions/1409496/how-to-install-safely-install-fuse-on-ubuntu-22-04)
+    * {26} [How to install the latest Node.js on Linux?](https://linuxhint.com/how-to-install-latest-node-js-on-linux/)
+    * {27} [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
 
 * Neovim
-  * [How do I enable the mouse in nvim please?](https://www.reddit.com/r/neovim/comments/yt5ejm/how_do_i_enable_the_mouse_in_nvim_please/)
-  * [Netrw Cheatsheet (Vim's File Browser)](https://gist.github.com/seanh/3c32f6d4f1e27669c4d8a1d3ce3c215b)
+  * {28} [How do I enable the mouse in nvim please?](https://www.reddit.com/r/neovim/comments/yt5ejm/how_do_i_enable_the_mouse_in_nvim_please/)
+  * {29} [Netrw Cheatsheet (Vim's File Browser)](https://gist.github.com/seanh/3c32f6d4f1e27669c4d8a1d3ce3c215b)
