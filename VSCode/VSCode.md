@@ -5,6 +5,11 @@
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [coder/code-server](https://github.com/coder/code-server)
 
+* Spacemacs-VSCode
+  * [VSpaceCode Site](https://vspacecode.github.io/) || [GitHub: VSpaceCode/VSpaceCode](https://github.com/VSpaceCode/VSpaceCode)
+  * [VSpaceCode BY VSpaceCode](https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode)
+  * [Which Key BY VSpaceCode](https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey)
+
 * LunarVim-VSCode
   * {Selected} [LunarVim/vscode/settings.vim](https://github.com/LunarVim/LunarVim/blob/4625145d0278d4a039e55c433af9916d93e7846a/vscode/settings.vim) <sup>{1}</sup>
   * {Selected} [LunarVim/utils/vscode_config/](https://github.com/LunarVim/LunarVim/tree/4625145d0278d4a039e55c433af9916d93e7846a/utils/vscode_config) <sup>{1}</sup>
@@ -26,11 +31,12 @@
 
 # References
 
-* next-sl: {2}
+* next-sl: {3}
 
 * Tutorials
 
 * YouTube Tutorials
 
-  * VSCode Neovim
+  * VSCode Vim/Neovim
     * {1} [VSCode with embedded Neovim BY chris@machine](https://www.youtube.com/watch?v=g4dXZ0RQWdw)
+    * {2} [Can VSCode be a reasonable Spacemacs alternative? (VSpaceCode) BY Jack of Some](https://www.youtube.com/watch?v=XW32lPcWOxg)

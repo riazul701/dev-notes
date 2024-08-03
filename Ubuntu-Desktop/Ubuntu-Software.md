@@ -29,13 +29,13 @@
   * [Google Chrome](https://www.google.com/chrome/)
   * [Opera Browser](https://www.opera.com/)
   * [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
-  * [philc/vimium -> Vim browser extension](https://github.com/philc/vimium)
   * [Lynx](https://invisible-island.net/lynx/lynx.html)
 
 * Browser Extension (Selected)
   * Google Chrome
     * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [simov/markdown-viewer GitHub](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+    * [GitHub: simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+    * [GitHub: philc/vimium](https://github.com/philc/vimium) || [Vimium: Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
 
 * Email (Selected)
   * [Thunderbird](https://www.thunderbird.net/en-GB/)
@@ -63,6 +63,9 @@
   * [Skype](https://www.skype.com/en/)
   * [WhatsApp](https://www.whatsapp.com/) || [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
   * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
+
+* Online Tools (Selected)
+  * [YouTube Video Downloader](https://yt5s.biz/enxj100/)
 
 ## Programming (Selected)
 
@@ -232,14 +235,16 @@
   * [Google Chrome](https://www.google.com/chrome/)
   * [Opera Browser](https://www.opera.com/)
   * [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
-  * [philc/vimium -> Vim browser extension](https://github.com/philc/vimium)
   * [Lynx](https://invisible-island.net/lynx/lynx.html)
   * [qutebrowser -> keyboard-driven, vim-like browser](https://github.com/qutebrowser/qutebrowser)
 
 * Browser Extension (List)
   * Google Chrome
     * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [simov/markdown-viewer GitHub](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+    * [GitHub: simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+    * [GitHub: philc/vimium](https://github.com/philc/vimium) || [Vimium: Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+    * [Free Download Manager Integration](https://chromewebstore.google.com/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp)
+    * [Touch VPN - Secure and unlimited VPN proxy BY touchvpn.net](https://chromewebstore.google.com/detail/touch-vpn-secure-and-unli/bihmplhobchoageeokmgbdihknkjbknd)
 
 * Email (List)
   * [Thunderbird](https://www.thunderbird.net/en-GB/)
@@ -265,6 +270,9 @@
   * [Skype](https://www.skype.com/en/)
   * [WhatsApp](https://www.whatsapp.com/) || [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
   * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
+
+* Online Tools (List)
+  * [YouTube Video Downloader](https://yt5s.biz/enxj100/)
 
 ## Programming (List)
   
