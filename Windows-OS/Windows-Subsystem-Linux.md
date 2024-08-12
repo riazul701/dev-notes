@@ -30,11 +30,12 @@
 
 * Check Operating System Version: `cat /etc/os-release` <sup>{31}</sup>
 
-# Elements of WSL
+# Contents of WSL
 
 ## Websites
 * [Windows Subsystem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/)
 * [Enable SystemD in WSL (High Resource Usage)](https://askubuntu.com/questions/1379425/system-has-not-been-booted-with-systemd-as-init-system-pid-1-cant-operate/1379567#1379567)
+* [WSL2 with GUI using Xvnc](https://gist.github.com/tdcosta100/385636cbae39fc8cd0937139e87b1c74)
 
 ## Notes - WSL
 

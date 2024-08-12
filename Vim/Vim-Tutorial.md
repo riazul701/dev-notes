@@ -421,4 +421,244 @@
 
 ## [Ch04. Vim Grammar](https://github.com/iggredible/Learn-Vim/blob/master/ch04_vim_grammar.md)
 
-* 
+* `verb + noun` : There is only one grammar rule in Vim language.
+
+* Nouns (Motions)
+  * `h` : Left
+  * `j` : Down
+  * `k` : Up
+  * `l` : Right
+  * `w` : Move forward to the beginning of the next word
+  * `}` : Jump to the next paragraph
+  * `$` : Go to the end of the line
+
+* Verbs (Operators)
+  * `y` : Yank text (copy)
+  * `d` : Delete text and save to register
+  * `c` : Delete text, save to register, and start insert mode
+
+* Verb and Noun
+  * `y$` : To yank everything from your current location to the end of the line
+  * `dw` : To delete from your current location to the beginning of the next word
+  * `c}` : To change from your current location to the end of the current paragraph
+  * `3k` : If you need to go up 3 lines, instead of pressing `k` 3 times, you can do
+  * `y2h` : To yank two characters to the left
+  * `d2w` : To delete the next two words
+  * `c2j` : To change the next two lines
+  * `dd`, `yy`, and `cc` perform deletion, yank, and change on the entire line
+
+* More Nouns (Text Objects)
+  * `i + object` : Inner text object
+  * `a + object` : Outer text object
+  * If your cursor is somewhere inside the parentheses in the expression `(hello Vim)`
+    * `di(` : To delete the text inside the parentheses without deleting the parentheses
+    * `da(` : To delete the parentheses and the text inside
+  * Example
+  ```javascript
+  const hello = function() {
+    console.log("Hello Vim");
+    return true;
+  }
+  ```
+    * `di(` : To delete the entire "Hello Vim"
+    * `di{` : To delete the content of function (surrounded by `{}`)
+    * `diw` : To delete the "Hello" string
+  * These HTML tags:
+  ```html
+  <div>
+    <h1>Header1</h1>
+    <p>Paragraph1</p>
+    <p>Paragraph2</p>
+  </div>
+  ```
+    * If your cursor is on "Header1" text:
+      * `dit` : To delete "Header1"
+      * `dat` : To delete `<h1>Header1</h1>`
+    * If your cursor is on "div":
+      * `dit` : To delete `h1` and both `p` lines
+      * `dat` : To delete everything
+      * `di<` : To delete "div"
+  * Below is a list of common text objects:
+    * `w` : A word
+    * `p` : A paragraph
+    * `s` : A sentence
+    * `( or )` : A pair of ( )
+    * `{ or }` : A pair of { }
+    * `[ or ]` : A pair of [ ]
+    * `< or >` : A pair of < >
+    * `t` : XML tags
+    * `"` : A pair of " "
+    * `'` : A Pair of ' '
+    * ` : A pair of ` `
+  * To learn more, check out `:h text-objects`
+
+* Composability and Grammar
+  * Suppose you have this messy text below and you want to tabularize it:
+  ```shell
+  Id|Name|Cuteness
+  01|Puppy|Very
+  02|Kitten|Ok
+  03|Bunny|Ok
+  ```
+  * With your cursor on "Id", run `!}column -t -s "|"`
+  * Now you have this pretty tabular data with just one quick command:
+  ```shell
+  Id  Name    Cuteness
+  01  Puppy   Very
+  02  Kitten  Ok
+  03  Bunny   Ok
+  ```
+  * You know that awk can do the job easily. You can do this instead: `!}column -t -s "|" | awk 'NR > 1 && /Ok/ {print $0}'`
+  * Result
+  ```shell
+  02  Kitten  Ok
+  03  Bunny   Ok
+  ```
+
+## [Ch05. Moving in a File](https://github.com/iggredible/Learn-Vim/blob/master/ch05_moving_in_file.md)
+
+* If you need to learn more, check out `:h motion.txt`
+
+* Character Navigation
+  * The most basic motion unit is moving one character left, down, up, and right.
+    * `h` : Left
+    * `j` : Down
+    * `k` : Up
+    * `l` : Right
+    * `gj` : Down in a soft-wrapped line
+    * `gk` : Up in a soft-wrapped line
+
+* Relative Numbering
+  * You can do it by having this on `.vimrc`:
+    * `set relativenumber number`
+
+* Count Your Move
+  * `12j` :  you can go down 12 lines with
+  * `[count] + motion` : The syntax to use count with your motion is
+  * `9l` :  If you want to move 9 characters to the right, instead of pressing `l` 9 times, you can do
+
+* Word Navigation
+  * WORD uses the same letters as word, only uppercased.
+    * `w` : Move forward to the beginning of the next word
+    * `W` : Move forward to the beginning of the next WORD
+    * `e` : Move forward one word to the end of the next word
+    * `E` : Move forward one word to the end of the next WORD
+    * `b` : Move backward to beginning of the previous word
+    * `B` : Move backward to beginning of the previous WORD
+    * `ge` : Move backward to end of the previous word
+    * `gE` : Move backward to end of the previous WORD
+  * For example, suppose you have:
+  ```javascript
+  const hello = "world";
+  ```
+    * `l` : With your cursor at the start of the line, to go to the end of the line with
+
+* Current Line Navigation
+  * Navigation commands
+    * `0` : Go to the first character in the current line
+    * `^` : Go to the first nonblank char in the current line
+    * `g_` : Go to the last non-blank char in the current line
+    * `$` : Go to the last char in the current line
+    * `n|` : Go the column n in the current line
+  * Search commands
+    * `f`    Search forward for a match in the same line
+    * `F`    Search backward for a match in the same line
+    * `t`    Search forward for a match in the same line, stopping before match
+    * `T`    Search backward for a match in the same line, stopping before match
+    * `;`    Repeat the last search in the same line using the same direction
+    * `,`    Repeat the last search in the same line using the opposite direction
+  * Back at the previous example:
+  ```javascript
+  const hello = "world";
+  ```
+    * `$` : With your cursor at the start of the line, you can go to the last character in current line (";") with one keypress
+    * `fw` : If you want to go to "w" in "world", you can use
+  * Sentence navigation
+    * `(` : Jump to the previous sentence
+    * `)` : Jump to the next sentence
+  * Paragraph navigation
+    * `{` : Jump to the previous paragraph
+    * `}` : Jump to the next paragraph
+
+* Match Navigation
+  * `%` : Navigate to another match, usually works for (), [], {}
+
+* Line Number Navigation
+  * Commands
+    * `gg` : Go to the first line
+    * `G` : Go to the last line
+    * `nG` : Go to line n
+    * `n%` : Go to n% in file
+  * `Ctrl-g` : If you want to see total lines in a file, you can use
+
+* Window Navigation
+  * Commands
+    * `H` : Go to top of screen
+    * `M` : Go to medium screen
+    * `L` : Go to bottom of screen
+    * `nH` : Go n line from top
+    * `nL` : Go n line from bottom
+
+* Scrolling
+  * Commands
+    * `Ctrl-E` : Scroll down a line
+    * `Ctrl-D` : Scroll down half screen
+    * `Ctrl-F` : Scroll down whole screen
+    * `Ctrl-Y` : Scroll up a line
+    * `Ctrl-U` : Scroll up half screen
+    * `Ctrl-B` : Scroll up whole screen
+  * Scroll relatively to the current line (zoom screen sight):
+    * `zt`    Bring the current line near the top of your screen
+    * `zz`    Bring the current line to the middle of your screen
+    * `zb`   Bring the current line near the bottom of your screen
+
+* Search Navigation
+  * Commands
+    * `/`    Search forward for a match
+    * `?`    Search backward for a match
+    * `n`    Repeat last search in same direction of previous search
+    * `N`    Repeat last search in opposite direction of previous search
+  * Because I use this no-highlight feature frequently, I created a map in `vimrc`:
+    * `nnoremap <esc><esc> :noh<return><esc>`
+  * Word search commands
+    * `*` : Search for whole word under cursor forward
+    * `#` : Search for whole word under cursor backward
+    * `g*` : Search for word under cursor forward
+    * `g#`    Search for word under cursor backward
+  * Marking Position
+    * Commands
+      * `ma`    Mark position with mark "a"
+      * `` `a ``   Jump to line and column "a"
+      * `'a`    Jump to line "a"
+    * Marks list commands
+      * ''    Jump back to the last line in current buffer before jump
+      * ``` `` ```    Jump back to the last position in current buffer before jump
+      * `` `[ ``    Jump to beginning of previously changed / yanked text
+      * `` `] ``    Jump to the ending of previously changed / yanked text
+      * ` `< ``    Jump to the beginning of last visual selection
+      * `` `> ``    Jump to the ending of last visual selection
+      * `` `0 ``    Jump back to the last edited file when exiting vim
+  * Jump
+    * Here are the commands Vim consider as "jump" commands:
+      * `'`       Go to the marked line
+      * `` ` ``       Go to the marked position
+      * `G`       Go to the line
+      * `` /` ``       Search forward
+      * `?`       Search backward
+      * `n`       Repeat the last search, same direction
+      * `N`       Repeat the last search, opposite direction
+      * `%`       Find match
+      * `(`       Go to the last sentence
+      * `)`       Go to the next sentence
+      * `{`       Go to the last paragraph
+      * `}`       Go to the next paragraph
+      * `L`       Go to the the last line of displayed window
+      * `M`       Go to the middle line of displayed window
+      * `H`       Go to the top line of displayed window
+      * `[[`      Go to the previous section
+      * `]]`      Go to the next section
+      * `:s`      Substitute
+      * `:tag`    Jump to tag definition
+    * For more, check out `:h jump-motions`.
+
+## [Ch06. Insert Mode](https://github.com/iggredible/Learn-Vim/blob/master/ch06_insert_mode.md)

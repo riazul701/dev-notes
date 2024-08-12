@@ -234,6 +234,7 @@
 * [Scoop -> Windows Softwrae Package Manager](https://scoop.sh/)
 * [Winget -> Windows Software Package Manager](https://github.com/microsoft/winget-cli)
 * [Chocolatey -> Windows Software Package Manager](https://chocolatey.org/)
+* [Ninite -> Software Installer](https://ninite.com/)
   
 ## Internet Software (List)
 

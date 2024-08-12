@@ -10,6 +10,10 @@
 
 * [KeePassDX](https://www.keepassdx.com/) || [KeePassDX GitHub](https://github.com/Kunzisoft/KeePassDX)
 
+## Television (Selected)
+
+* [Sportzfy - Live Sports Channel](https://sportzfy.io/)
+
 ## Google (Selected)
 
 * [Gmail BY GoogleLLC](https://play.google.com/store/apps/details?id=com.google.android.gm)

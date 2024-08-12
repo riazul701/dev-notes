@@ -152,11 +152,11 @@
 
 * Checked On Debian-Based Linux-OS: Ubuntu-24.04 Desktop, Lubuntu-24.04 Desktop, Ubuntu-22.04 Server, Ubuntu22.04-Vagrant, AntixOS-21, AntixOS-22
 
-### Install Instruction (Ubuntu)
+### Install Instruction (Ubuntu/Antix)
 
 * Install "neovim"
   * [Neovim Installation Guide](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
-  * Using APT
+  * Using APT (Old Version)
     * `sudo apt install neovim`
   * Using AppImage (Latest Version)
     * `wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage` (Select required Neovim version)
