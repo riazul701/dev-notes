@@ -2,9 +2,32 @@
 
 # Commands
 
+* Notes
+  * Trash directory path: `/home/{{user-name}}/.local/share/vifm/Trash`
+  * `:view` : Enter/Exit into view mode.
+  * `!` means overwrite/recursive in command.
+  * `:!!{{command}}` : Execute command in terminal.
+  * `"` : Display contents of registers.
+  * `-skip` means skip already exist files.
+
 * {20} [Tutorial Manual](https://wiki.vifm.info/index.php/Manual)
 * {21} [Manual](https://vifm.info/manual.shtml)
 * {22} [Vifm Doc](https://vifm.info/vimdoc.shtml)
+
+* TODO Later
+  * Commands
+    * :[range]alink[!?] -skip ...
+    * :apropos
+    * :apropos keyword...
+    * :autocmd
+    * :au[tocmd] {event} {pat} {cmd}
+    * :au[tocmd] [{event}] [{pat}]
+    * :au[tocmd]! [{event}] [{pat}]
+    * :apropos
+    * :cds
+    * :cds[!] pattern string
+    * :keepsel
+    * :keepsel [command...]
 
 * General keys
   * `Ctrl-C or Escape` : cancel most operations (see "Cancellation" section below), clear all selected files.
@@ -74,7 +97,7 @@
   * `Ctrl-W +` : increase size of the view by count.
   * `Ctrl-W <` : decrease size of the view by count.
   * `Ctrl-W >` : increase size of the view by count.
-  * `Ctrl-W |` : set current view size to count.
+  * `Ctrl-W |` : set current view size to count. [For example: `Ctrl-W -> 10 -> |`]
   * `Ctrl-W _` : set current view size to count.
   * `Ctrl-W =` : make size of two views equal.
   * For Ctrl-W +, Ctrl-W -, Ctrl-W <, Ctrl-W >, Ctrl-W | and Ctrl-W _ commands count can be given before and/or after Ctrl-W. The resulting count is a multiplication of those two.
