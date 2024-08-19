@@ -9,6 +9,8 @@
   * `:!!{{command}}` : Execute command in terminal.
   * `"` : Display contents of registers.
   * `-skip` means skip already exist files.
+  * `pushd . ./folder` : `pushd` current directory and sub-directory.
+  * `:sort` ascending/descending change with `h` key.
 
 * {20} [Tutorial Manual](https://wiki.vifm.info/index.php/Manual)
 * {21} [Manual](https://vifm.info/manual.shtml)
@@ -28,6 +30,8 @@
     * :cds[!] pattern string
     * :keepsel
     * :keepsel [command...]
+    * :normal
+    * :norm[al][!] commands
 
 * General keys
   * `Ctrl-C or Escape` : cancel most operations (see "Cancellation" section below), clear all selected files.
