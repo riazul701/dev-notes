@@ -105,13 +105,26 @@
   * When you type nvim it should "just work"
   * Bonus: add this to ~/.bashrc/~/.zshrc etc to create an alias in case you accidentally type vi (I always type it by mistake): alias vi=nvim
   * Bonus #2: Also in your bashrc/zshrc etc set your EDITOR env var so various programs know what editor you prefer to use: EDITOR=/usr/local/bin/nvim
-  
-## DEB File Installation
 
-### Error and Solution (DEB File)
+## ".deb" File Installation
+  
+### GDebi
+
+* [Gdebi](https://launchpad.net/gdebi)
+* Install ".deb" file using GDebi
+  * Install GDebi: `sudo apt install gdebi`
+  * Launch GDebi: `gdebi-gtk`
+
+### Dpkg
+
+* Install ".deb" file: `sudo dpkg -i file-name.deb`
+
+### Error and Solution (".deb" File)
 
 * [zst compression not supported by apt/dpkg](https://unix.stackexchange.com/questions/669004/zst-compression-not-supported-by-apt-dpkg)
   * sudo apt upgrade dpkg
+
+## Synaptic
 
 ## Fonts Installation
 

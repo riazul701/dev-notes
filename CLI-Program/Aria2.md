@@ -6,6 +6,8 @@
 * [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
 * [alexhua/Aria2-Explorer](https://github.com/alexhua/Aria2-Explorer)
 * [RossWang/Aria2-Integration](https://github.com/RossWang/Aria2-Integration)
+* [agalwood/Motrix](https://github.com/agalwood/Motrix)
+* [FlashGot - Firefox Browser Integration](https://flashgot.net/)
 
 ## Notes
 * To resume download, Aria2 needs to enter download command again with url.

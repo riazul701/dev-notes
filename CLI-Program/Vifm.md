@@ -466,6 +466,32 @@
   * "pdftoppm": `sudo apt install poppler-utils` <sup>{16}</sup>
   * "ddjvu":  `sudo apt install djvulibre-bin`
 
+## Preview Test Files
+
+* Image
+  * .bmp, .eps, .gif, .ico, .jpeg, .jpg, .png, .svg, .tif, .tiff
+
+* Video
+  * .3gp, .avi, .mkv, .mov, .mp4, .ogg, .webm, .wmv
+
+* Audio
+  * .mp3, .wav, .wma
+
+* Graphics
+  * .psd, .xcf, .ai 
+
+* Office/document
+  * .doc, .docx, .xls, .xlsx, .ppt, .pptx, .pdf
+
+* Software
+  * .apk, .deb, .exe, .jar, .msi 
+
+* Archive
+  * .zip, .7z, .bz2, .gz, .rar, .tar, .tar.bz2, .tar.gz, .iso, .phar
+
+* Font
+  * .ttf
+
 # References
 
 * next-sl: {23}
