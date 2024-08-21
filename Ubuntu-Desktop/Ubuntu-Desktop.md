@@ -39,7 +39,7 @@
 * [Gdebi](https://launchpad.net/gdebi)
 * Install ".deb" file using GDebi
   * Install GDebi: `sudo apt install gdebi`
-  * Launch GDebi: `gdebi-gtk`
+  * Launch GDebi: `sudo gdebi-gtk`
 
 ### Dpkg
 

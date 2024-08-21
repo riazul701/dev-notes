@@ -433,6 +433,11 @@
   * {12} [ueber-devel/ueberzug](https://github.com/ueber-devel/ueberzug)
   * {13} [jstkdng/ueberzugpp](https://github.com/jstkdng/ueberzugpp)
   * {14} [Derek Taylor/Dotfiles/Repository](https://gitlab.com/dwt1/dotfiles/blob/master/.config/vifm/vifmrc)
+  * {23} [file-examples.com -> sample file download](https://file-examples.com/)
+
+* Terminal/Nerd Font
+  * [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+  * [getnf/getnf](https://github.com/getnf/getnf)
 
 ## Tutorials
 
@@ -457,8 +462,19 @@
 
 ## Image Preview Using [thimc/vifmimg](https://github.com/thimc/vifmimg)
 
-* {10} [thimc/vifmimg](https://github.com/thimc/vifmimg)
 * {8} [How to preview images](https://wiki.vifm.info/index.php/How_to_preview_images)
+* {10} [thimc/vifmimg](https://github.com/thimc/vifmimg)
+
+* Install nerd font on Host-PC<sup>{24}</sup>
+  * Install fzf: `sudo apt install fzf`
+  * `git clone https://github.com/ronniedroid/getnf.git`
+  * `cd getnf`
+  * Install fonts in "~/.local/share/fonts" directory.
+  * ./install.sh [If it does not work, use command: `./getnf`] [Don't use "sudo", as it install fonts in "/root/.local/share/fonts" user directory] [If shows error, check line-endings are in Linux Line-Feed]
+  * Choose "Hack" font.
+  * Restart PC if font is not showing in xfce4-terminal settings.
+  * Open xfce4-terminal -> Edit -> Preferences -> Appearance -> Font -> Select "Hack NF Regular"
+
 * Install required packages
   * "ueberzug": `sudo apt install ueberzug`
   * "ffmpegthumbnailer": `sudo apt install ffmpegthumbnailer`
@@ -467,6 +483,8 @@
   * "ddjvu":  `sudo apt install djvulibre-bin`
 
 ## Preview Test Files
+
+* {23} [file-examples.com -> sample file download](https://file-examples.com/)
 
 * Image
   * .bmp, .eps, .gif, .ico, .jpeg, .jpg, .png, .svg, .tif, .tiff
@@ -494,7 +512,7 @@
 
 # References
 
-* next-sl: {23}
+* next-sl: {25}
 
 * Tutorials
   * {20} [Tutorial Manual](https://wiki.vifm.info/index.php/Manual)
@@ -524,6 +542,8 @@
     * {13} [jstkdng/ueberzugpp](https://github.com/jstkdng/ueberzugpp)
     * {14} [Derek Taylor/Dotfiles/Repository](https://gitlab.com/dwt1/dotfiles/blob/master/.config/vifm/vifmrc)
     * {16} [Pdftoppm, convert PDF files into images from Ubuntu](https://ubunlog.com/en/pdftoppm-convierte-archivos-pdf-en-imagenes/)
+    * {23} [file-examples.com -> sample file download](https://file-examples.com/)
+    * {24} [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
 
 * YouTube Tutorial
   * {18} [VIFM in-depth look and customization BY linux dabbler](https://www.youtube.com/watch?v=hDZ7JscJ5jM)

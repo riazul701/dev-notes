@@ -57,6 +57,7 @@
 
 ## Notes
 
+* Antix-23 is Debian bookworm / Debian 12.
 * Snap runs on Ubuntu, but not in Antix because Antix does not have Systemd, it has SysVinit.
 * When mount /c, /d, /e, /f drives then Antix flux, icewm, jwm menu entry hangs. Restart PC/Unmount drives solve this problem.
 * Fix Windows-OS "C" drive mounting hibernation error on Linux
@@ -113,7 +114,7 @@
 * [Gdebi](https://launchpad.net/gdebi)
 * Install ".deb" file using GDebi
   * Install GDebi: `sudo apt install gdebi`
-  * Launch GDebi: `gdebi-gtk`
+  * Launch GDebi: `sudo gdebi-gtk`
 
 ### Dpkg
 
