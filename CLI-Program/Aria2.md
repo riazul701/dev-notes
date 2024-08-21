@@ -8,6 +8,8 @@
 * [RossWang/Aria2-Integration](https://github.com/RossWang/Aria2-Integration)
 * [agalwood/Motrix](https://github.com/agalwood/Motrix)
 * [FlashGot - Firefox Browser Integration](https://flashgot.net/)
+* [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
+* [baptistecdr/aria2-extensions](https://github.com/baptistecdr/aria2-extensions)
 
 ## Notes
 * To resume download, Aria2 needs to enter download command again with url.

@@ -426,18 +426,31 @@
 * Integrate with Vim
   * [vifm/vifm.vim](https://github.com/vifm/vifm.vim)
 
-* Icon/Image Preview
+* File/Folder Icons
+  * {9} [thimc/vifm_devicons](https://github.com/thimc/vifm_devicons)
+  * {33} [How to add icons?](https://q2a.vifm.info/269/how-to-add-icons?show=270#a270)
+
+* Image/File Preview
   * {10} [thimc/vifmimg](https://github.com/thimc/vifmimg)
   * {11} [thimc/lfimg](https://github.com/thimc/lfimg)
-  * {15} [seebye/ueberzug](https://github.com/seebye/ueberzug)
-  * {12} [ueber-devel/ueberzug](https://github.com/ueber-devel/ueberzug)
-  * {13} [jstkdng/ueberzugpp](https://github.com/jstkdng/ueberzugpp)
   * {14} [Derek Taylor/Dotfiles/Repository](https://gitlab.com/dwt1/dotfiles/blob/master/.config/vifm/vifmrc)
   * {23} [file-examples.com -> sample file download](https://file-examples.com/)
+  * {32} [How do I preview office files?](https://q2a.vifm.info/1227/how-do-i-preview-office-files?show=1227#q1227)
+
+* Image/File Preview Programs
+  * {15} [seebye/ueberzug](https://github.com/seebye/ueberzug)
+  * {13} [jstkdng/ueberzugpp](https://github.com/jstkdng/ueberzugpp)
+  * {12} [ueber-devel/ueberzug](https://github.com/ueber-devel/ueberzug)
+  * {25} [dirkvdb/ffmpegthumbnailer](https://github.com/dirkvdb/ffmpegthumbnailer)
+  * {26} [imagemagick.org](https://imagemagick.org/index.php)
+  * {27} [Poppler -> PDF rendering library](https://poppler.freedesktop.org/)
+  * {30} [DjVu Viewer](http://djvu.sourceforge.net/)
+  * {31} [marianosimone/epub-thumbnailer](https://github.com/marianosimone/epub-thumbnailer)
+  * {35} [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview)
 
 * Terminal/Nerd Font
-  * [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
-  * [getnf/getnf](https://github.com/getnf/getnf)
+  * {28} [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+  * {29} [getnf/getnf](https://github.com/getnf/getnf)
 
 ## Tutorials
 
@@ -460,7 +473,7 @@
 * {9} [thimc/vifm_devicons](https://github.com/thimc/vifm_devicons)
   * Append the `favicons.vifm` file to your `~/.config/vifm/vifmrc` file and restart Vifm to take effect.
 
-## Image Preview Using [thimc/vifmimg](https://github.com/thimc/vifmimg)
+## Image/File Preview Using [thimc/vifmimg](https://github.com/thimc/vifmimg)
 
 * {8} [How to preview images](https://wiki.vifm.info/index.php/How_to_preview_images)
 * {10} [thimc/vifmimg](https://github.com/thimc/vifmimg)
@@ -477,13 +490,75 @@
 
 * Install required packages
   * "ueberzug": `sudo apt install ueberzug`
-  * "ffmpegthumbnailer": `sudo apt install ffmpegthumbnailer`
-  * "imagemagick": `sudo apt install imagemagick`
-  * "pdftoppm": `sudo apt install poppler-utils` <sup>{16}</sup>
-  * "ddjvu":  `sudo apt install djvulibre-bin`
+  * "ffmpegthumbnailer": `sudo apt install ffmpegthumbnailer` <sup>{25}</sup>
+  * "imagemagick": `sudo apt install imagemagick` <sup>{26}</sup>
+  * "pdftoppm": `sudo apt install poppler-utils` <sup>{16} {27}</sup>
+  * "ddjvu":  `sudo apt install djvulibre-bin` <sup>{30}</sup>
+  * [marianosimone/epub-thumbnailer](https://github.com/marianosimone/epub-thumbnailer) <sup>{31}</sup>
+    * Install python3 and pip3: `sudo apt install python3 python3-pip`
+      * Check "python3" version: `python3 --version`
+      * Check "pip3" version: `pip3 --version` [Python Package Manager]
+    * Clone "epub-thumbnailer" repo: `git clone https://github.com/marianosimone/epub-thumbnailer.git`
+    * Goto directory: `cd epub-thumbnailer`
+    * Install "epub-thumbnailer": `sudo python3 install.py install`
+    * For Error "Could not determine your desktop environment version.", See [Error_1](#error_1)
+  * [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview) <sup>{35}</sup>
+    * `sudo apt install xdotool`
+    * `sudo apt install fzf`
+    * `sudo apt install imagemagick`
+    * `sudo apt install nsxiv`
+
+* Installation
+  * Copy the vifmimg and vifmrun scripts to a folder that is included in your $PATH variable for easy access to the files.
+    * Make file executable: `sudo chmod a+x vifmimg vifmrun`
+    * Copy "vifmimg" file to $PATH: `sudo mv vifmimg /usr/local/bin/`
+    * Copy "vifmrun" file to $PATH: `sudo mv vifmrun /usr/local/bin/`
+  * Edit your ~/.config/vifm/vifmrc file and add fileviewer properties like so:
+  ```shell
+    fileviewer *.pdf
+        \ vifmimg pdf %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer *.djvu
+        \ vifmimg djvu %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer *.epub
+        \ vifmimg epub %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer <video/*>
+        \ vifmimg video %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer <image/*>
+        \ vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer <audio/*>
+        \ vifmimg audio %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer <font/*>
+        \ vifmimg font %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+ ```
+  * Launch "vifm" to preview files: `vifmrun`
+
+## Other Files Preview
+
+* Install "zip" to preview ".zip" file: `sudo apt install zip`
 
 ## Preview Test Files
 
+* {34} [filesamples.com -> sample file download](https://filesamples.com/)
 * {23} [file-examples.com -> sample file download](https://file-examples.com/)
 
 * Image
@@ -510,9 +585,43 @@
 * Font
   * .ttf
 
+# Error and Solution
+
+* next-error: Error_2
+
+## [marianosimone/epub-thumbnailer](https://github.com/marianosimone/epub-thumbnailer) <sup>{31}</sup>
+
+### Error_1
+
+* Message_1:
+  * Could not determine your desktop environment version. You can still use the thumbnailer script manually.
+ 
+* Solution_1:
+  * [Works in pcmanfm #16](https://github.com/marianosimone/epub-thumbnailer/issues/16)
+  * Bunsenlab debian stretch
+  * I found that it install.py install /usr/bin/epub-thumbnailer but omits /usr/share/thumbnailers/epub.thumbnailer
+  * I manually copy from master/src to /usr/share/thumbnailers/epub.thumbnailer and it worked with majority of epubs.
+
+## [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview) <sup>{35}</sup>
+
+### Error_2
+
+* Message_2:
+  * magick: command not found
+
+* Solution_2:
+  * [Where is the magick command of Imagemagick?](https://askubuntu.com/questions/1315603/where-is-the-magick-command-of-imagemagick)
+  * The ImageMagick version 6 command line API (shipped with Ubuntu 20.04 and earlier) consists of these commands:
+    * animate, compare, composite, conjure, convert, display, identify, import, mogrify, montage, stream
+    * Check ImageMagick version: `convert --help`
+  * ImageMagick version 7 will unify these commands under the `magick` command.
+    * `magick convert rose.jpg -resize 50% rose.png`
+
+  * [How to Install ImageMagick 7 on Debian and Ubuntu](https://medium.com/@zomev/how-to-install-imagemagick-7-on-debian-and-ubuntu-1af5f207cfdc)
+
 # References
 
-* next-sl: {25}
+* next-sl: {36}
 
 * Tutorials
   * {20} [Tutorial Manual](https://wiki.vifm.info/index.php/Manual)
@@ -530,20 +639,37 @@
 
 * Configuration
 
-  * File/Folder Icon
+  * File/Folder Icons
     * {9} [thimc/vifm_devicons](https://github.com/thimc/vifm_devicons)
+    * {33} [How to add icons?](https://q2a.vifm.info/269/how-to-add-icons?show=270#a270)
 
-  * Icon/Image Preview
+  * Image/File Preview Using [thimc/vifmimg](https://github.com/thimc/vifmimg)
     * {8} [How to preview images](https://wiki.vifm.info/index.php/How_to_preview_images)
     * {10} [thimc/vifmimg](https://github.com/thimc/vifmimg)
     * {11} [thimc/lfimg](https://github.com/thimc/lfimg)
-    * {15} [seebye/ueberzug](https://github.com/seebye/ueberzug)
-    * {12} [ueber-devel/ueberzug](https://github.com/ueber-devel/ueberzug)
-    * {13} [jstkdng/ueberzugpp](https://github.com/jstkdng/ueberzugpp)
     * {14} [Derek Taylor/Dotfiles/Repository](https://gitlab.com/dwt1/dotfiles/blob/master/.config/vifm/vifmrc)
     * {16} [Pdftoppm, convert PDF files into images from Ubuntu](https://ubunlog.com/en/pdftoppm-convierte-archivos-pdf-en-imagenes/)
+    * {32} [How do I preview office files?](https://q2a.vifm.info/1227/how-do-i-preview-office-files?show=1227#q1227)
+
+    * Image/File Preview Programs
+      * {15} [seebye/ueberzug](https://github.com/seebye/ueberzug)
+      * {12} [ueber-devel/ueberzug](https://github.com/ueber-devel/ueberzug)
+      * {13} [jstkdng/ueberzugpp](https://github.com/jstkdng/ueberzugpp)
+      * {25} [dirkvdb/ffmpegthumbnailer](https://github.com/dirkvdb/ffmpegthumbnailer)
+      * {26} [imagemagick.org](https://imagemagick.org/index.php)
+      * {27} [Poppler -> PDF rendering library](https://poppler.freedesktop.org/)
+      * {30} [DjVu Viewer](http://djvu.sourceforge.net/)
+      * {31} [marianosimone/epub-thumbnailer](https://github.com/marianosimone/epub-thumbnailer)
+      * {35} [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview)
+
+    * Terminal/Nerd Font
+      * {24} [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
+      * {28} [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+      * {29} [getnf/getnf](https://github.com/getnf/getnf)
+
+  * Preview Test Files
+    * {34} [filesamples.com -> sample file download](https://filesamples.com/)
     * {23} [file-examples.com -> sample file download](https://file-examples.com/)
-    * {24} [Configure nerd fonts](https://www.lunarvim.org/docs/configuration/nerd-fonts)
 
 * YouTube Tutorial
   * {18} [VIFM in-depth look and customization BY linux dabbler](https://www.youtube.com/watch?v=hDZ7JscJ5jM)
@@ -551,3 +677,14 @@
   * {4} [Icons And Image Previews In Vifm, Plus Xterm Is Great! BY DistroTube](https://www.youtube.com/watch?v=rnMXH_K8hz4)
   * {5} [Vifm and Überzug (Ueberzug) Image Previews BY DistroTube](https://www.youtube.com/watch?v=qgxsduCO1pE)
   * {6} [Ueberzug is dead. Now what? (Terminal image previews without Ueberzug) BY Eric Murphy](https://www.youtube.com/watch?v=nTQWI0OalVk)
+
+### Error_1
+
+  > * Message_1:
+  > * Could not determine your desktop environment version. You can still use the thumbnailer script manually.
+  > 
+  > * Solution_1:
+  > * [Works in pcmanfm #16](https://github.com/marianosimone/epub-thumbnailer/issues/16)
+  > * Bunsenlab debian stretch
+  > * I found that it install.py install /usr/bin/epub-thumbnailer but omits /usr/share/thumbnailers/epub.thumbnailer
+  > * I manually copy from master/src to /usr/share/thumbnailers/epub.thumbnailer and it worked with majority of epubs.

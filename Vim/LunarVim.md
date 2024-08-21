@@ -172,12 +172,12 @@
     * Reload $PATH: `source ~/.bashrc`
   * Check version: `nvim --version`
 
-* Install "git"
-  * Using APT (old version)
-    * `sudo apt install git`
-  * Using APT and PPA (latest version) <sup>{14}</sup>
+* **(Ubuntu, Lubuntu)**: Install "git" latest version
+  *  Using APT and PPA (latest version) <sup>{14}</sup>
     * `sudo add-apt-repository ppa:git-core/ppa`
     * `sudo apt update`
+    * `sudo apt install git`
+  * Using APT (old version)
     * `sudo apt install git`
   * Check version: `git --version`
 

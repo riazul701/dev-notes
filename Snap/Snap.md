@@ -1,5 +1,9 @@
 # Snap Package Manager
 
+## Websites
+
+* [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
+
 ## Guides
 * [Bash only show first column value](https://unix.stackexchange.com/questions/136884/how-to-use-a-shell-command-to-only-show-the-first-column-and-last-column-in-a-te)
 * `/bin/bash^M: bad interpreter: No such file or directory`

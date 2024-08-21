@@ -1,4 +1,5 @@
 # Repology.md
 
 ## Websites
-* [Repology Site](https://repology.org/)
+
+* [repology.org -> the packaging hub](https://repology.org/)
