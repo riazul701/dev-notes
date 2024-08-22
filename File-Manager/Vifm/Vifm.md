@@ -471,7 +471,16 @@
 ## File/Folder Icons
 
 * {9} [thimc/vifm_devicons](https://github.com/thimc/vifm_devicons)
-  * Append the `favicons.vifm` file to your `~/.config/vifm/vifmrc` file and restart Vifm to take effect.
+  * There are two ways to install this.
+  * I recommend the latter because when updates are released you simply need to update a git repo instead of messing with the actual `vifmrc` file.
+  * Way 1:
+    * Append the `favicons.vifm` file to your `~/.config/vifm/vifmrc` file and restart Vifm to take effect.
+  * (Better Way) Way 2:
+    * Append the following line to your vifmrc file: `source /path/to/your/repos/vifm_devicons/favicons.vifm`
+    * OR
+    * Save `favicons.vifm` file to `/home/{{user-name}}/.config/vifm/` directory.
+    * Append the following line to your vifmrc file: `$HOME/.config/vifm/favicons.vifm`
+    * Restart Vifm to take affect.
 
 ## Image/File Preview Using [thimc/vifmimg](https://github.com/thimc/vifmimg)
 

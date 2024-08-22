@@ -25,8 +25,14 @@
 
 * [AntiX Linux Official Website](https://antixlinux.com/)
 * [Repology, the packaging hub](https://repology.org/)
-* [OSBoxes | VirtualBox Image Download](https://www.osboxes.org/)
-* [LinuxVMImages | VirtualBox Image Download](https://www.linuxvmimages.com/)
+* VirtualBox Images
+  * [OSBoxes | VirtualBox Image Download](https://www.osboxes.org/)
+  * [LinuxVMImages | VirtualBox Image Download](https://www.linuxvmimages.com/)
+* Debian Stable/Testing/Unstable(Sid)/Backports
+  * {2} [DebianUnstable](https://wiki.debian.org/DebianUnstable)
+  * {3} [DontBreakDebian](https://wiki.debian.org/DontBreakDebian)
+  * {4} [Debian Backports](https://backports.debian.org/)
+  * {5} [Debian Backports ›› Instructions](https://backports.debian.org/Instructions/)
 * IceWM Themes
   * [How to: add new themes to IceWM Window Manager](https://www.antixforum.com/forums/topic/how-to-add-new-themes-to-icewm-window-manager/)
   * [Ice-WM Themes](https://www.box-look.org/browse?cat=142&ord=latest)
@@ -94,6 +100,51 @@
 * Bangla, Indian fonts installation.
 
 # Software Installation
+
+## Install Backports/Updated Software
+
+* Backports/Updated Software Installation <sup>{2} {3} {4} {5}</sup>
+
+* {2} [DebianUnstable](https://wiki.debian.org/DebianUnstable)
+  * Debian Unstable (also known by its codename "Sid")
+  * The sequence of package propagation in the Debian development process is as follows:
+    * experimental
+    * unstable -> testing -> stable
+  * Attempting to mix packages between Debian repositories will likely create an unusable system.
+  * If you wish to use newer software, it is best to install packages from [Backports](https://backports.debian.org/Instructions/).
+
+* {5} [Debian Backports ›› Instructions](https://backports.debian.org/Instructions/)
+
+  * For Antix-23 (Debian-Bookworm/Debian-12)
+  * Add Backports to sources.list
+    * `deb http://deb.debian.org/debian bookworm-backports main`
+    * to `sources.list` (or add a new file with the ".list" extension to `/etc/apt/sources.list.d/`).
+    * Run `apt update` or `apt-get update`
+  * Installing a Package from Backports
+    * To install something from backports run one of:
+      * `apt install <package>/bookworm-backports`
+      * `apt-get install <package>/bookworm-backports`
+      * OR
+      * `apt install -t bookworm-backports <package>`
+      * `apt-get install -t bookworm-backports <package>`
+      * and of course aptitude may also be used:
+      * `aptitude install <package>/bookworm-backports`
+
+  * For Antix-22 (Debian-Bullseye/Debian-11)
+    * The Old-stable-sloppy Suite
+    * Add Backports to sources.list
+      * `deb http://deb.debian.org/debian bullseye-backports main`
+      * to `sources.list` (or add a new file with the ".list" extension to `/etc/apt/sources.list.d/`).
+      * Run `apt update` or `apt-get update`
+    * Installing a Package from Backports
+      * To install something from backports run one of:
+        * `apt install <package>/bullseye-backports`
+        * `apt-get install <package>/bullseye-backports`
+        * OR
+        * `apt install -t bullseye-backports <package>`
+        * `apt-get install -t bullseye-backports <package>`
+        * and of course aptitude may also be used:
+        * `aptitude install <package>/bullseye-backports`
 
 ## Install AppImage as Regular Software
 
@@ -243,10 +294,18 @@
 
 # References
 
-* Next Serial: {2}
+* Next Serial: {6}
 
 * Access
   * {1} [Quick Tips](https://antixlinux.com/quick-tips/)
+
+* Software Installation
+
+  * Install Backports/Updated Software
+    * {2} [DebianUnstable](https://wiki.debian.org/DebianUnstable)
+    * {3} [DontBreakDebian](https://wiki.debian.org/DontBreakDebian)
+    * {4} [Debian Backports](https://backports.debian.org/)
+    * {5} [Debian Backports ›› Instructions](https://backports.debian.org/Instructions/)
 
 * SSH & SSH-FS
   * [ERROR: "adb push" returned with value 1 #185](https://github.com/Genymobile/scrcpy/issues/185)
