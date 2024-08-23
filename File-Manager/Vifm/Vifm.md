@@ -3,6 +3,7 @@
 # Commands
 
 * Notes
+  * Image/Video preview cache is stored in `/home/{{user-name}}/.cache/vifm` path.
   * Trash directory path: `/home/{{user-name}}/.local/share/vifm/Trash`
   * `:view` : Enter/Exit into view mode.
   * `!` means overwrite/recursive in command.
@@ -452,6 +453,17 @@
   * {28} [nerdfonts.com](https://www.nerdfonts.com/) || [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
   * {29} [getnf/getnf](https://github.com/getnf/getnf)
 
+* Preview Test Files
+  * {34} [filesamples.com -> sample file download](https://filesamples.com/)
+  * {23} [file-examples.com -> sample file download](https://file-examples.com/)
+
+* File Opening Programs
+  * Video
+    * [FFmpeg](https://ffmpeg.org/)
+      * [FFplay is media player using FFmpeg libraries](https://www.ffmpeg.org/ffplay.html)
+    * [MPlayer](https://mplayerhq.hu/)
+    * [VLC media player](https://www.videolan.org/vlc/)
+
 ## Tutorials
 
 * [Vifm Manual](https://wiki.vifm.info/index.php/Manual)
@@ -593,6 +605,31 @@
 
 * Font
   * .ttf
+
+## Open File with Programs
+
+### Video
+
+* Video Extensions
+```shell
+" Video
+filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+          \*.as[fx]},
+          \*.f4v,*.hevc,*.m2ts,*.mjpeg,*.mxf,*.wtv,*.swf,
+         \<video/*>
+```
+
+* [FFmpeg](https://ffmpeg.org/)
+* [FFplay is media player using FFmpeg libraries](https://www.ffmpeg.org/ffplay.html)
+
+* [MPlayer](https://mplayerhq.hu/)
+
+* [VLC media player](https://www.videolan.org/vlc/)
+  ```shell
+  \ {View using VLC}
+  \ vlc %c %i &,
+  ```
 
 # Error and Solution
 
