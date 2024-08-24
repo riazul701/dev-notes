@@ -169,38 +169,54 @@
 ## Graphics/Media Software (Selected)
 
 * Image Viewer (Selected)
+  * [easymodo/qimgv](https://github.com/easymodo/qimgv)
+
+* Image Organizer (Selected)
   * [digiKam => Professional Photo Management](https://www.digikam.org/)
 
 * Image Editor (Selected)
   * [GIMP Image Editor](https://www.gimp.org/)
 
+* Image Tools (Selected)
+  * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
+
+* Image Downloader (List)
+  * [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
+
 * Audio Player (Selected)
+  * [Amarok](https://amarok.kde.org/)
+  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
 
 * Audio Editor (Selected)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
+* Spotify (Selected)
+  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
+  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+
 * Video Player (Selected)
   * [VLC Media Player](https://www.videolan.org/vlc/)
   * [SMPlayer](https://www.smplayer.info/)
+  * [mpv-player/mpv => Command line video player](https://github.com/mpv-player/mpv)
 
-* Video (Selected)
+* Video Editor (Selected)
   * [Shotcut Video Editor](https://shotcut.org/)
+
+* Audio/Video Downloader (Selected)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
 
 * Media Converter (Selected)
   * [HandBrake](https://handbrake.fr/)
   * [FFmpeg](https://ffmpeg.org/)
 
-## Utility (Selected)
+* Screenshot (Selected)
+  * [Flameshot](https://flameshot.org/)
 
-* System Management (Selected)
-  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+## File Management (Selected)
 
-* Sound Booster (Selected)
-  * [FxSound](https://www.fxsound.com/)
-
-* File/Application Manager (Selected)
-  * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
-  * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
+* File Manager (Selected)
+  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
+  * [Vifm GitHub](https://github.com/vifm/vifm) || [Vifm Site](https://vifm.info/)
   * [Linux File Systems for Windows by Paragon Software](https://www.paragon-software.com/home/linuxfs-windows/)
 
 * Encryption (Selected)
@@ -210,30 +226,44 @@
   * [7-Zip](https://www.7-zip.org/)
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
+## Data Transfer (Selected)
+
 * File Transfer (Selected)
   * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [ShareIT](https://www.ushareit.com/product/shareit/)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
 
-* Antivirus (Selected)
-  * [Avast Antivirus](https://www.avast.com/index#pc)
-
 * Android Phone (Selected)
   * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
   * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
+
+## HDD/SSD/USB (Selected)
 
 * USB Bootable (Selected)
   * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
   * [Windows ISO File => Windowstan.com](https://windowstan.com/)
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
 
-* Screenshot (Selected)
-  * [Flameshot](https://flameshot.org/)
-
 * HDD/SSD (Selected)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   * [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark/)
+
+## System Management (Selected)
+
+* System Monitor (Selected)
+  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+
+* Application Manager (Selected)
+  * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
+
+## Utility (Selected)
+
+* Sound Booster (Selected)
+  * [FxSound](https://www.fxsound.com/)
+
+* Antivirus (Selected)
+  * [Avast Antivirus](https://www.avast.com/index#pc)
 
 # Software List - Windows OS
 
@@ -419,31 +449,70 @@
 
 * Language Keyboard (List)
   * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
+
+* Font (List)
+  * []()
   
-## Graphics Software (List)
+## Graphics/Media Software (List)
 
 * Image Viewer (List)
   * [d2phap/ImageGlass](https://github.com/d2phap/ImageGlass)
+  * [easymodo/qimgv](https://github.com/easymodo/qimgv)
+  * [jurplel/qView](https://github.com/jurplel/qView)
+  * [nomacs/nomacs](https://github.com/nomacs/nomacs)
+  * Temporary Collection
+    * [Fragment image viewer](https://www.fragmentapp.info/)
+    * [woelper/oculante](https://github.com/woelper/oculante)
+    * [BLumia/pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
+    * [bluescan/tacentview](https://github.com/bluescan/tacentview)
+    * [torum/Image-viewer](https://github.com/torum/Image-viewer)
 
 * Image Organizer (List)
   * [digiKam => Professional Photo Management](https://www.digikam.org/)
+  * [XnView MP/Classic](https://www.xnview.com/en/)
 
 * Image Editor (List)
   * [Adobe Photoshop](https://www.adobe.com/products/photoshop.html)
   * [GIMP Image Editor](https://www.gimp.org/)
 
+* Image Tools (List)
+  * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
+
+* Image Downloader (List)
+  * [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
+
 * Audio Player (List)
+  * [Amarok](https://amarok.kde.org/)
+  * [clementine-player/Clementine => Music Player](https://github.com/clementine-player/Clementine)
+  * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
+  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
+  * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
+
+* Spotify (List)
+  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
+  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+  * [hrkfdn/ncspot => Cross-platform ncurses Spotify client](https://github.com/hrkfdn/ncspot)
+  * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
+
+* Audio Tools (List)
+  * [MP3TAG](https://www.mp3tag.de/en/index.html)
 
 * Video Player (List)
   * [VLC Media Player](https://www.videolan.org/vlc/)
   * [SMPlayer](https://www.smplayer.info/)
   * [KMPlayer](https://www.kmplayer.com/home)
+  * [mpv-player/mpv => Command line video player](https://github.com/mpv-player/mpv)
+  * [FFplay => Very simple and portable media player using FFmpeg libraries](https://www.ffmpeg.org/ffplay.html)
 
 * Video Editor (List)
   * [Shotcut Video Editor](https://shotcut.org/)
+
+* Audio/Video Downloader (List)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
 
 * Media Converter (List)
   * [HandBrake](https://handbrake.fr/)
@@ -451,26 +520,17 @@
   * [Format Factory](http://pcfreetime.com/formatfactory/)
   * [Any Video Converter](https://www.any-video-converter.com/)
 
-## Utility (List)
+* Screenshot (List)
+  * [Flameshot](https://flameshot.org/)
+  * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
 
-* System Management (List)
-  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+## File Management (List)
 
-* Sound Booster (List)
-  * [FxSound](https://www.fxsound.com/)
-  * [LetaSoft Sound Booster](https://www.letasoft.com/)
-
-* File/Application Manager (List)
-  * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
-  * [Wox-launcher](http://www.wox.one/) || [Wox-launcher GitHub](https://github.com/Wox-launcher/Wox)
-  * [Albert launcher](https://albertlauncher.github.io/) || [Albert launcher GitHub](https://github.com/albertlauncher/albert)
+* File/ Manager (List)
+  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
   * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [Linux File Systems for Windows by Paragon Software](https://www.paragon-software.com/home/linuxfs-windows/)
   * [DiskInternals Linux Reader](https://www.diskinternals.com/linux-reader/)
-
-* Window Management (List)
-  * [TidyTabs](https://www.nurgo-software.com/products/tidytabs)
-  * [Groupy](https://www.stardock.com/products/groupy/)
 
 * Encryption (List)
   * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
@@ -482,12 +542,20 @@
   * [WinRAR](https://www.win-rar.com/start.html?&L=0)
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
+## Data Transfer (List)
+
 * File Transfer (List)
   * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [ShareIT](https://www.ushareit.com/product/shareit/)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
-  
+
+* Android Phone (List)
+  * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
+  * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
+
+## HDD/SSD/USB (List)
+
 * Hard Disk and Partition Manager (List)
   * [Clonezilla](https://clonezilla.org/)
   * [Rescuezilla](https://rescuezilla.com/)
@@ -495,24 +563,37 @@
   * [MiniTool Partition Wizard](https://www.partitionwizard.com/free-partition-manager.html)
   * [GParted => GNOME Partition Editor](https://gparted.org/)
 
-* Antivirus (List)
-  * [Avast Antivirus](https://www.avast.com/index#pc)
-
-* Android Phone (List)
-  * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
-  * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
-  
 * USB Bootable (List)
   * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
   * [Windows ISO File => Windowstan.com](https://windowstan.com/)
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
 
-* Screenshot (List)
-  * [Flameshot](https://flameshot.org/)
-  
 * HDD/SSD (List)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   * [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark/)
+
+## System Management (List)
+
+* System Monitor (List)
+  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+
+* Application Manager (List)
+  * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
+  * [Wox-launcher](http://www.wox.one/) || [Wox-launcher GitHub](https://github.com/Wox-launcher/Wox)
+  * [Albert launcher](https://albertlauncher.github.io/) || [Albert launcher GitHub](https://github.com/albertlauncher/albert)
+
+* Window Management (List)
+  * [TidyTabs](https://www.nurgo-software.com/products/tidytabs)
+  * [Groupy](https://www.stardock.com/products/groupy/)
+
+## Utility (List)
+
+* Sound Booster (List)
+  * [FxSound](https://www.fxsound.com/)
+  * [LetaSoft Sound Booster](https://www.letasoft.com/)
+
+* Antivirus (List)
+  * [Avast Antivirus](https://www.avast.com/index#pc)
 
 # Software Dependency - Windows OS
 

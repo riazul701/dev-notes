@@ -166,45 +166,52 @@
 ## Graphics Software (Selected)
 
 * Image Viewer (Selected)
+  * [easymodo/qimgv](https://github.com/easymodo/qimgv)
+
+* Image Organizer (Selected)
   * [digiKam => Professional Photo Management](https://www.digikam.org/)
 
 * Image Editor (Selected)
   * [GIMP Image Editor](https://www.gimp.org/)
 
+* Image Tools (Selected)
+  * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
+
 * Audio Player (Selected)
+  * [Amarok](https://amarok.kde.org/)
+  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
 
 * Audio Editor (Selected)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
+* Spotify (Selected)
+  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
+  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+
 * Video Player (Selected)
   * [VLC Media Player](https://www.videolan.org/vlc/)
   * [SMPlayer](https://www.smplayer.info/)
+  * [mpv-player/mpv => Command line video player](https://github.com/mpv-player/mpv)
 
 * Video Editor (Selected)
   * [Shotcut Video Editor](https://shotcut.org/)
+
+* Audio/Video Downloader (Selected)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
 
 * Media Converter (Selected)
   * [HandBrake](https://handbrake.fr/)
   * [FFmpeg](https://ffmpeg.org/)
 
-## Utility (Selected)
+* Screenshot (Selected)
+  * [Flameshot](https://flameshot.org/)
 
-* System Management (Selected)
-  * [htop => an interactive process viewer](https://htop.dev/) || [htop GitHub](https://github.com/htop-dev/htop)
-  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
-  * [Stacer => Linux System Optimizer and Monitoring](https://github.com/oguzhaninan/Stacer)
+## File Management (Selected)
 
-* Sound Booster (Selected)
-  * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
-  * [PavuControl => PulseAudio GUI](https://freedesktop.org/software/pulseaudio/pavucontrol/)
-
-* File/Application Manager (Selected)
-  * [Rofi => A window switcher, application launcher](https://github.com/davatorium/rofi)
-  * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
+* File Manager (Selected)
+  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
+  * [Vifm GitHub](https://github.com/vifm/vifm) || [Vifm Site](https://vifm.info/)
   * [PCManFM]()
-
-* Window Management (Selected)
-  * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
 
 * Encryption (Selected)
   * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
@@ -212,30 +219,44 @@
 * Backup and Archive Manager (Selected)
   * [7-Zip](https://www.7-zip.org/)
 
+## Data Transfer (Selected)
+
 * File Transfer (Selected)
   * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
 
-* Antivirus (Selected)
-  * 
-
 * Android Phone (Selected)
   * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
   * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
+
+## HDD/SSD/USB (Selected)
 
 * USB Bootable (Selected)
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
   * [PendriveLinux](https://www.pendrivelinux.com/)
 
-* Screenshot (Selected)
-  * [Flameshot](https://flameshot.org/)
-  
-* Media Player (Selected)
-    * [VLC Media Player](https://www.videolan.org/vlc/)
+## System Management (Selected)
 
-* Media Converter (Selected)
-    * [HandBrake](https://handbrake.fr/)
+* System Monitor (Selected)
+  * [htop => an interactive process viewer](https://htop.dev/) || [htop GitHub](https://github.com/htop-dev/htop)
+  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+  * [Stacer => Linux System Optimizer and Monitoring](https://github.com/oguzhaninan/Stacer)
+
+* Application Manager (Selected)
+  * [Rofi => A window switcher, application launcher](https://github.com/davatorium/rofi)
+
+* Window Management (Selected)
+  * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
+
+## Utility (Selected)
+
+* Sound Booster (Selected)
+  * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+  * [PavuControl => PulseAudio GUI](https://freedesktop.org/software/pulseaudio/pavucontrol/)
+
+* Antivirus (Selected)
+  * [ClamAV]()
  
 # Software List - Ubuntu OS
 
@@ -408,7 +429,12 @@
 * Language Keyboard (List)
   * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
   
-## Graphics Software (List)
+* Font (List)
+  * [FontManager/font-manager](https://github.com/FontManager/font-manager)
+  * [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview)
+  * [Gnome Font Viewer](https://apps.gnome.org/FontViewer/)
+
+## Graphics/Media Software (List)
 
 * Image Viewer (List)
   * [easymodo/qimgv](https://github.com/easymodo/qimgv)
@@ -417,12 +443,17 @@
   * [Mirage](https://mirageiv.sourceforge.net/)
   * [derf/feh](https://github.com/derf/feh)
   * Temporary Collection
+    * [Fragment image viewer](https://www.fragmentapp.info/)
     * [woelper/oculante](https://github.com/woelper/oculante)
+    * [BLumia/pineapple-pictures](https://github.com/BLumia/pineapple-pictures)
+    * [bluescan/tacentview](https://github.com/bluescan/tacentview)
+    * [torum/Image-viewer](https://github.com/torum/Image-viewer)
 
 * Image Organizer (List)
   * [digiKam => Professional Photo Management](https://www.digikam.org/)
-  * [Shotwell](https://wiki.gnome.org/Apps/Shotwell)
   * [XnView MP/Classic](https://www.xnview.com/en/)
+  * [Shotwell](https://wiki.gnome.org/Apps/Shotwell)
+  * [Geeqie => Image viewer and organiser program for Linux](https://www.geeqie.org/)
 
 * Image Editor (List)
   * [GIMP Image Editor](https://www.gimp.org/)
@@ -434,43 +465,53 @@
   * [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
 
 * Audio Player (List)
+  * [Amarok](https://amarok.kde.org/)
+  * [clementine-player/Clementine => Music Player](https://github.com/clementine-player/Clementine)
+  * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
+  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
+  * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
+* Spotify (List)
+  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
+  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+  * [hrkfdn/ncspot => Cross-platform ncurses Spotify client](https://github.com/hrkfdn/ncspot)
+  * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
+
 * Video Player (List)
   * [VLC Media Player](https://www.videolan.org/vlc/)
   * [SMPlayer](https://www.smplayer.info/)
+  * [mpv-player/mpv => Command line video player](https://github.com/mpv-player/mpv)
+  * [FFplay => Very simple and portable media player using FFmpeg libraries](https://www.ffmpeg.org/ffplay.html)
 
-* Video (List)
+* Video Editor (List)
   * [Shotcut Video Editor](https://shotcut.org/)
+
+* Audio/Video Downloader (List)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
 
 * Media Converter (List)
   * [HandBrake](https://handbrake.fr/)
   * [FFmpeg](https://ffmpeg.org/)
 
-## Utility (List)
+* Screenshot (List)
+  * [Flameshot => Cross-platform tool to take screenshots](https://flameshot.org/)
+  * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
+  * [shutter-project/shutter => Screenshot tool for Linux](https://github.com/shutter-project/shutter)
 
-* System Management (List)
-  * [htop => an interactive process viewer](https://htop.dev/) || [htop GitHub](https://github.com/htop-dev/htop)
-  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
-  * [Stacer => Linux System Optimizer and Monitoring](https://github.com/oguzhaninan/Stacer)
+## File Management (List)
 
-* Sound Booster (List)
-  * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
-  * [PavuControl => PulseAudio GUI](https://freedesktop.org/software/pulseaudio/pavucontrol/)
-
-* File/Application Manager (List)
-  * [Rofi => A window switcher, application launcher](https://github.com/davatorium/rofi)
+* File Manager (List)
+  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
   * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [jarun/nnn](https://github.com/jarun/nnn)
   * [ranger](https://ranger.github.io/) || [ranger GitHub](https://github.com/ranger/ranger)
   * [PCManFM]()
   * [Thunar]()
   * [Nautilus]()
-
-* Window Management (List)
-  * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
 
 * Encryption (List)
   * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
@@ -480,28 +521,48 @@
   * [PeaZip](https://peazip.github.io/)
   * [WinRAR](https://www.win-rar.com/start.html?&L=0)
 
+## Data Transfer (List)
+
 * File Transfer (List)
   * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
-  
+
+* Android Phone (List)
+  * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
+  * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
+
+## HDD/SSD/USB (List)
+
 * Hard Disk and Partition Manager (List)
   * [Clonezilla](https://clonezilla.org/)
   * [Rescuezilla](https://rescuezilla.com/)
   * [GParted => GNOME Partition Editor](https://gparted.org/)
 
-* Antivirus (List)
-  * 
-  
-* Android Phone (List)
-  * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
-  * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
-
 * USB Bootable (List)
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
   * [PendriveLinux](https://www.pendrivelinux.com/)
 
-* Screenshot (List)
-  * [Flameshot](https://flameshot.org/)
+## System Management (List)
+
+* System Monitor (List)
+  * [htop => an interactive process viewer](https://htop.dev/) || [htop GitHub](https://github.com/htop-dev/htop)
+  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+  * [Stacer => Linux System Optimizer and Monitoring](https://github.com/oguzhaninan/Stacer)
+
+* Application Manager (List)
+  * [Rofi GitHub => A window switcher, application launcher](https://github.com/davatorium/rofi)
+
+* Window Management (List)
+  * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
+
+## Utility (List)
+
+* Sound Booster (List)
+  * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+  * [PavuControl => PulseAudio GUI](https://freedesktop.org/software/pulseaudio/pavucontrol/)
+
+* Antivirus (List)
+  * [ClamAV]()
   
 # Software Dependency - Ubuntu OS
