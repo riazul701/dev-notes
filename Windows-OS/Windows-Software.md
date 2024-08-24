@@ -15,7 +15,7 @@
 
 ## Package Manager (Selected)
 
-* [Scoop -> Windows Software Package Manager](https://scoop.sh/)
+* [Scoop => Windows Software Package Manager](https://scoop.sh/)
 
 ## Password Manager (Selected)
 
@@ -51,8 +51,8 @@
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
 
 * Online Clipboard (Selected)
-  * [cl1p.net -> The Internet Clipboard](https://cl1p.net/)
-  * [file.io -> Super simple file sharing!](https://www.file.io/)
+  * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
+  * [file.io => Super simple file sharing!](https://www.file.io/)
 	
 * WiFi (Selected)
     * [SniffNet](https://github.com/GyulyVGC/sniffnet)
@@ -73,7 +73,7 @@
 * Version Control & Issue Tracker (Selected)
   * [Git](https://git-scm.com/)
   * [GitHub CLI](https://cli.github.com/)
-  * [DVC -> Data Version Control](https://dvc.org/)
+  * [DVC => Data Version Control](https://dvc.org/)
   * [Lazygit](https://github.com/jesseduffield/lazygit)
   * [SmartGit](https://www.syntevo.com/smartgit/)
   * [Lepton](https://hackjutsu.com/Lepton/) || [Lepton GitHub](https://github.com/hackjutsu/Lepton)
@@ -100,8 +100,8 @@
   * [Notepad++](https://notepad-plus-plus.org/)
   * [Notepad Next](https://github.com/dail8859/NotepadNext)
   * [MindForger](https://mindforger.com/) || [MindForger GitHub](https://github.com/dvorka/mindforger)
-  * [Glow -> Render markdown on CLI](https://github.com/charmbracelet/glow)
-  * [Textualize/frogmouth -> Markdown browser for terminal](https://github.com/Textualize/frogmouth)
+  * [Glow => Render markdown on CLI](https://github.com/charmbracelet/glow)
+  * [Textualize/frogmouth => Markdown browser for terminal](https://github.com/Textualize/frogmouth)
 	
 * Database (Selected)
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
@@ -112,11 +112,11 @@
   * [XAMPP](https://www.apachefriends.org/)
   * [Docker](https://www.docker.com/)
   * [Lazydocker](https://github.com/jesseduffield/lazydocker)
-  * [wagoodman/dive -> Exploring each layer in docker image](https://github.com/wagoodman/dive)
+  * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
   * [Vagrant](https://www.vagrantup.com/)
   * [VirtualBox](https://www.virtualbox.org/)
-  * [VirtualBox VDI Image -> OSBoxes.org](https://www.osboxes.org/)
-  * [LinuxVMImages -> VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
+  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
 
 * Server Management (Selected)
   * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
@@ -142,12 +142,12 @@
   * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
   * [Cmder](https://cmder.app/)
   * [PowerShell GitHub](https://github.com/PowerShell/PowerShell)
-  * [Piknik -> Copy/paste over network](https://github.com/jedisct1/piknik)
-  * [Textualize/rich-cli -> Fancy output in terminal](https://github.com/Textualize/rich-cli)
-  * [Textualize/trogon -> Click CLI into terminal application](https://github.com/Textualize/trogon)
+  * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
+  * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
+  * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
 	
 * FTP/FTPS/SFTP/SSH (Selected)
-  * [termscp -> SCP/SFTP/FTP/S3/SMB](https://termscp.veeso.dev/) || [termscp GitHub](https://github.com/veeso/termscp)
+  * [termscp => SCP/SFTP/FTP/S3/SMB](https://termscp.veeso.dev/) || [termscp GitHub](https://github.com/veeso/termscp)
   * [FileZilla FTP Client](https://filezilla-project.org/)
   * [FileZilla FTP Server](https://filezilla-project.org/)
   * [WinSCP FTP Client](https://winscp.net/eng/index.php)
@@ -166,16 +166,34 @@
 * [Foxit PDF Reader](https://www.foxit.com/pdf-reader/)
 * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
   
-## Graphics Software (Selected)
+## Graphics/Media Software (Selected)
 
-* [GIMP Image Editor](https://www.gimp.org/)
-* [Shotcut Video Editor](https://shotcut.org/)
-* [Audacity Audio Editor](https://www.audacityteam.org/)
+* Image Viewer (Selected)
+  * [digiKam => Professional Photo Management](https://www.digikam.org/)
+
+* Image Editor (Selected)
+  * [GIMP Image Editor](https://www.gimp.org/)
+
+* Audio Player (Selected)
+
+* Audio Editor (Selected)
+  * [Audacity Audio Editor](https://www.audacityteam.org/)
+
+* Video Player (Selected)
+  * [VLC Media Player](https://www.videolan.org/vlc/)
+  * [SMPlayer](https://www.smplayer.info/)
+
+* Video (Selected)
+  * [Shotcut Video Editor](https://shotcut.org/)
+
+* Media Converter (Selected)
+  * [HandBrake](https://handbrake.fr/)
+  * [FFmpeg](https://ffmpeg.org/)
 
 ## Utility (Selected)
 
 * System Management (Selected)
-  * [Glances -> top/htop alternative](https://github.com/nicolargo/glances)
+  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
 
 * Sound Booster (Selected)
   * [FxSound](https://www.fxsound.com/)
@@ -193,8 +211,8 @@
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
 * File Transfer (Selected)
-  * [SnapDrop -> File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
-  * [ShareDrop -> File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
+  * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
+  * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [ShareIT](https://www.ushareit.com/product/shareit/)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
 
@@ -202,22 +220,16 @@
   * [Avast Antivirus](https://www.avast.com/index#pc)
 
 * Android Phone (Selected)
-  * [Genymobile/scrcpy -> Phone Screen on PC](https://github.com/Genymobile/scrcpy)
-  * [srevinsaju/guiscrcpy -> GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
+  * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
+  * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
 
 * USB Bootable (Selected)
-  * [Rufus -> Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
-  * [Windows ISO File -> Windowstan.com](https://windowstan.com/)
-  * [Ventoy -> Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
+  * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
+  * [Windows ISO File => Windowstan.com](https://windowstan.com/)
+  * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
 
 * Screenshot (Selected)
   * [Flameshot](https://flameshot.org/)
-
-* Media Player (Selected)
-    * [VLC Media Player](https://www.videolan.org/vlc/)
-
-* Media Converter (Selected)
-    * [HandBrake](https://handbrake.fr/)
 
 * HDD/SSD (Selected)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
@@ -232,10 +244,10 @@
 
 ## Package Manager (List)
 
-* [Scoop -> Windows Softwrae Package Manager](https://scoop.sh/)
-* [Winget -> Windows Software Package Manager](https://github.com/microsoft/winget-cli)
-* [Chocolatey -> Windows Software Package Manager](https://chocolatey.org/)
-* [Ninite -> Software Installer](https://ninite.com/)
+* [Scoop => Windows Softwrae Package Manager](https://scoop.sh/)
+* [Winget => Windows Software Package Manager](https://github.com/microsoft/winget-cli)
+* [Chocolatey => Windows Software Package Manager](https://chocolatey.org/)
+* [Ninite => Software Installer](https://ninite.com/)
   
 ## Internet Software (List)
 
@@ -245,7 +257,7 @@
   * [Opera Browser](https://www.opera.com/)
   * [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
   * [Lynx](https://invisible-island.net/lynx/lynx.html)
-  * [qutebrowser -> keyboard-driven, vim-like browser](https://github.com/qutebrowser/qutebrowser)
+  * [qutebrowser => keyboard-driven, vim-like browser](https://github.com/qutebrowser/qutebrowser)
 
 * Browser Extension (List)
   * Google Chrome
@@ -270,8 +282,8 @@
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
 
 * Online Clipboard (List)
-  * [cl1p.net -> The Internet Clipboard](https://cl1p.net/)
-  * [file.io -> Super simple file sharing!](https://www.file.io/)
+  * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
+  * [file.io => Super simple file sharing!](https://www.file.io/)
   
 * VPN (List)
   * [Urban VPN](https://www.urban-vpn.com/)
@@ -290,7 +302,7 @@
 * Version Control & Issue Tracker (List)
   * [Git](https://git-scm.com/)
   * [GitHub CLI](https://cli.github.com/)
-  * [DVC -> Data Version Control](https://dvc.org/)
+  * [DVC => Data Version Control](https://dvc.org/)
   * [Lazygit](https://github.com/jesseduffield/lazygit)
   * [SmartGit](https://www.syntevo.com/smartgit/)
   * [Lepton](https://hackjutsu.com/Lepton/) || [Lepton GitHub](https://github.com/hackjutsu/Lepton)
@@ -336,11 +348,11 @@
   * [XAMPP](https://www.apachefriends.org/)
   * [Docker](https://www.docker.com/)
   * [Lazydocker](https://github.com/jesseduffield/lazydocker)
-  * [wagoodman/dive -> Exploring each layer in docker image](https://github.com/wagoodman/dive)
+  * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
   * [Vagrant](https://www.vagrantup.com/)
   * [VirtualBox](https://www.virtualbox.org/)
-  * [VirtualBox VDI Image -> OSBoxes.org](https://www.osboxes.org/)
-  * [LinuxVMImages -> VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
+  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
     
 * Server Management (List)
   * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
@@ -372,12 +384,12 @@
   * [PowerShell GitHub](https://github.com/PowerShell/PowerShell)
   * [Windows Terminal GitHub](https://github.com/microsoft/terminal)
   * [Tabby](https://tabby.sh/) || [Tabby GitHub](https://github.com/eugeny/tabby)
-  * [Piknik -> Copy/paste over network](https://github.com/jedisct1/piknik)
-  * [Textualize/rich-cli -> Fancy output in terminal](https://github.com/Textualize/rich-cli)
-  * [Textualize/trogon -> Click CLI into terminal application](https://github.com/Textualize/trogon)
+  * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
+  * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
+  * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
   
 * FTP/FTPS/SFTP/SSH (List)
-  * [termscp -> SCP/SFTP/FTP/S3/SMB](https://termscp.veeso.dev/) || [termscp GitHub](https://github.com/veeso/termscp)
+  * [termscp => SCP/SFTP/FTP/S3/SMB](https://termscp.veeso.dev/) || [termscp GitHub](https://github.com/veeso/termscp)
   * [FileZilla FTP Client](https://filezilla-project.org/)
   * [FileZilla FTP Server](https://filezilla-project.org/)
   * [WinSCP FTP Client](https://winscp.net/eng/index.php)
@@ -410,20 +422,39 @@
   
 ## Graphics Software (List)
 
+* Image Viewer (List)
+  * [d2phap/ImageGlass](https://github.com/d2phap/ImageGlass)
+
+* Image Organizer (List)
+  * [digiKam => Professional Photo Management](https://www.digikam.org/)
+
 * Image Editor (List)
   * [Adobe Photoshop](https://www.adobe.com/products/photoshop.html)
   * [GIMP Image Editor](https://www.gimp.org/)
 
-* Video Editor (List)
-  * [Shotcut Video Editor](https://shotcut.org/)
+* Audio Player (List)
 
 * Audio Editor (List)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
+* Video Player (List)
+  * [VLC Media Player](https://www.videolan.org/vlc/)
+  * [SMPlayer](https://www.smplayer.info/)
+  * [KMPlayer](https://www.kmplayer.com/home)
+
+* Video Editor (List)
+  * [Shotcut Video Editor](https://shotcut.org/)
+
+* Media Converter (List)
+  * [HandBrake](https://handbrake.fr/)
+  * [FFmpeg](https://ffmpeg.org/)
+  * [Format Factory](http://pcfreetime.com/formatfactory/)
+  * [Any Video Converter](https://www.any-video-converter.com/)
+
 ## Utility (List)
 
 * System Management (List)
-  * [Glances -> top/htop alternative](https://github.com/nicolargo/glances)
+  * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
 
 * Sound Booster (List)
   * [FxSound](https://www.fxsound.com/)
@@ -452,8 +483,8 @@
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
 * File Transfer (List)
-  * [SnapDrop -> File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
-  * [ShareDrop -> File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
+  * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
+  * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [ShareIT](https://www.ushareit.com/product/shareit/)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
   
@@ -462,32 +493,22 @@
   * [Rescuezilla](https://rescuezilla.com/)
   * [EaseUS Partition Master](https://www.easeus.com/partition-manager/)
   * [MiniTool Partition Wizard](https://www.partitionwizard.com/free-partition-manager.html)
-  * [GParted -> GNOME Partition Editor](https://gparted.org/)
+  * [GParted => GNOME Partition Editor](https://gparted.org/)
 
 * Antivirus (List)
   * [Avast Antivirus](https://www.avast.com/index#pc)
 
 * Android Phone (List)
-  * [Genymobile/scrcpy -> Phone Screen on PC](https://github.com/Genymobile/scrcpy)
-  * [srevinsaju/guiscrcpy -> GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
+  * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
+  * [srevinsaju/guiscrcpy => GUI for "Genymobile/scrcpy(GitHub)"](https://github.com/srevinsaju/guiscrcpy)
   
 * USB Bootable (List)
-  * [Rufus -> Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
-  * [Windows ISO File -> Windowstan.com](https://windowstan.com/)
-  * [Ventoy -> Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
+  * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
+  * [Windows ISO File => Windowstan.com](https://windowstan.com/)
+  * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
 
 * Screenshot (List)
   * [Flameshot](https://flameshot.org/)
-
-* Media Player (List)
-  * [VLC Media Player](https://www.videolan.org/vlc/)
-  * [SMPlayer](https://www.smplayer.info/)
-  * [KMPlayer](https://www.kmplayer.com/home)
-
-* Media Converter (List)
-  * [HandBrake](https://handbrake.fr/)
-  * [Format Factory](http://pcfreetime.com/formatfactory/)
-  * [Any Video Converter](https://www.any-video-converter.com/)
   
 * HDD/SSD (List)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
