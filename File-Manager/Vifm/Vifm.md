@@ -496,6 +496,8 @@
 
 ## Image/File Preview Using [thimc/vifmimg](https://github.com/thimc/vifmimg)
 
+* Image preview tested on Antix-23
+
 * {8} [How to preview images](https://wiki.vifm.info/index.php/How_to_preview_images)
 * {10} [thimc/vifmimg](https://github.com/thimc/vifmimg)
 
@@ -528,6 +530,13 @@
     * `sudo apt install fzf`
     * `sudo apt install imagemagick`
     * `sudo apt install nsxiv`
+    * Install it locally
+    ```shell
+    # Download the fontpreview source code, save as fontpreview and make it executeable
+    curl -L https://git.io/raw_fontpreview > fontpreview && chmod +x fontpreview
+    # Then move fontpreview to somewhere in your $PATH
+    sudo mv fontpreview /usr/local/bin/
+    ```
 
 * Installation
   * Copy the vifmimg and vifmrun scripts to a folder that is included in your $PATH variable for easy access to the files.

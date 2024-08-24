@@ -47,8 +47,10 @@
   * [uTorrent](https://www.utorrent.com/)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
-  * [youtube-dl](http://ytdl-org.github.io/youtube-dl/) || [youtube-dl GitHub](https://github.com/ytdl-org/youtube-dl)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
 
 * Online Clipboard (Selected)
   * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
@@ -180,9 +182,6 @@
 * Image Tools (Selected)
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
-* Image Downloader (List)
-  * [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
-
 * Audio Player (Selected)
   * [Amarok](https://amarok.kde.org/)
   * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
@@ -201,9 +200,6 @@
 
 * Video Editor (Selected)
   * [Shotcut Video Editor](https://shotcut.org/)
-
-* Audio/Video Downloader (Selected)
-  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
 
 * Media Converter (Selected)
   * [HandBrake](https://handbrake.fr/)
@@ -308,9 +304,11 @@
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
   * [uGet](https://ugetdm.com/)
   * [Xtreme Download Manager](https://xtremedownloadmanager.com/) || [Xtreme Download Manager GitHub](https://github.com/subhra74/xdm)
-  * [youtube-dl](http://ytdl-org.github.io/youtube-dl/) || [youtube-dl GitHub](https://github.com/ytdl-org/youtube-dl)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
-
+  * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
+  
 * Online Clipboard (List)
   * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
   * [file.io => Super simple file sharing!](https://www.file.io/)
@@ -446,13 +444,33 @@
   * [Adobe Reader](https://get.adobe.com/reader/)
   * [Foxit PDF Reader](https://www.foxit.com/pdf-reader/)
   * [doPDF](https://www.dopdf.com/)
+  * [qpdf/qpdf](https://github.com/qpdf/qpdf)
+  * [MuPDF](https://mupdf.com/)
+  * [Xpdf](https://www.xpdfreader.com/)
+
+* EBook (List)
+  * [kovidgoyal/calibre => View, convert, edit and catalog e-books of major e-book formats](https://github.com/kovidgoyal/calibre)
+  * [FBReader => Supports ePub, mobi, fb2, HTML, RTF, plain text](https://fbreader.org/)
+  * [every-day-things/citadel => Manage your ebook library](https://github.com/every-day-things/citadel)
+  * [Librum-Reader/Librum](https://github.com/Librum-Reader/Librum)
 
 * Language Keyboard (List)
   * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
 
 * Font (List)
-  * []()
+  * [fontforge/fontforge => Font editor for Windows, Mac and Linux](https://github.com/fontforge/fontforge)
+  * [johanmattssonm/birdfont => Font editor for TTF, EOT, SVG and BIRDFONT format](https://github.com/johanmattssonm/birdfont)
+  * [dp4 Font Viewer](https://us.fontviewer.de/)
+  * [FontExplorerL.M.](https://www.lanmisoft.com/fontexplorerlm.php)
+
+* Universal Document/File Viewer (List)
+  * [Okular => The Universal Document Viewer](https://okular.kde.org/)
+  * [QL-Win/QuickLook => Bring macOS “Quick Look” feature to Windows](https://github.com/QL-Win/QuickLook)
+  * [File Viewer Lite](https://windowsfileviewer.com/)
   
+* Office Tools (List)
+  * [phiresky/ripgrep-all => rga: ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.](https://github.com/phiresky/ripgrep-all)
+
 ## Graphics/Media Software (List)
 
 * Image Viewer (List)
@@ -478,9 +496,6 @@
 * Image Tools (List)
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
-* Image Downloader (List)
-  * [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
-
 * Audio Player (List)
   * [Amarok](https://amarok.kde.org/)
   * [clementine-player/Clementine => Music Player](https://github.com/clementine-player/Clementine)
@@ -498,7 +513,10 @@
   * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
 
 * Audio Tools (List)
+  * [Kid3 => Cross-platform Audio Tagger](https://kid3.kde.org/)
   * [MP3TAG](https://www.mp3tag.de/en/index.html)
+
+* Audio Recorder (List)
 
 * Video Player (List)
   * [VLC Media Player](https://www.videolan.org/vlc/)
@@ -510,10 +528,6 @@
 * Video Editor (List)
   * [Shotcut Video Editor](https://shotcut.org/)
 
-* Audio/Video Downloader (List)
-  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
-  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
-
 * Media Converter (List)
   * [HandBrake](https://handbrake.fr/)
   * [FFmpeg](https://ffmpeg.org/)
@@ -523,6 +537,9 @@
 * Screenshot (List)
   * [Flameshot](https://flameshot.org/)
   * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
+
+* Desktop Screen Recorder (List)
+
 
 ## File Management (List)
 

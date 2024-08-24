@@ -15,6 +15,7 @@
 * [Snapcraft => Ubuntu Softwrae Package Manager](https://snapcraft.io/)
 * [APT](https://wiki.debian.org/Apt)
 * [Gdebi](https://launchpad.net/gdebi)
+* [KDE Apps](https://apps.kde.org/)
 
 ## Password Manager (Selected)
 
@@ -46,8 +47,10 @@
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
   * [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
-  * [youtube-dl](http://ytdl-org.github.io/youtube-dl/) || [youtube-dl GitHub](https://github.com/ytdl-org/youtube-dl)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
 
 * Online Clipboard (Selected)
   * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
@@ -184,6 +187,8 @@
 * Audio Editor (Selected)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
+* Audio Recorder (Selected)
+
 * Spotify (Selected)
   * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
   * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
@@ -196,15 +201,14 @@
 * Video Editor (Selected)
   * [Shotcut Video Editor](https://shotcut.org/)
 
-* Audio/Video Downloader (Selected)
-  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
-
 * Media Converter (Selected)
   * [HandBrake](https://handbrake.fr/)
   * [FFmpeg](https://ffmpeg.org/)
 
 * Screenshot (Selected)
   * [Flameshot](https://flameshot.org/)
+
+* Desktop Screen Recorder (Selected)
 
 ## File Management (Selected)
 
@@ -297,8 +301,10 @@
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
   * [uGet](https://ugetdm.com/)
   * [Xtreme Download Manager](https://xtremedownloadmanager.com/) || [Xtreme Download Manager GitHub](https://github.com/subhra74/xdm)
-  * [youtube-dl](http://ytdl-org.github.io/youtube-dl/) || [youtube-dl GitHub](https://github.com/ytdl-org/youtube-dl)
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
 
 * Online Clipboard (List)
   * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
@@ -425,14 +431,33 @@
 
 * PDF (List)
   * [Foxit PDF Reader](https://www.foxit.com/pdf-reader/)
+  * [qpdf/qpdf](https://github.com/qpdf/qpdf)
+  * [MuPDF](https://mupdf.com/)
+  * [Xpdf](https://www.xpdfreader.com/)
+
+* EBook (List)
+  * [kovidgoyal/calibre => View, convert, edit and catalog e-books of major e-book formats](https://github.com/kovidgoyal/calibre)
+  * [FBReader => Supports ePub, mobi, fb2, HTML, RTF, plain text](https://fbreader.org/)
+  * [every-day-things/citadel => Manage your ebook library](https://github.com/every-day-things/citadel)
+  * [Librum-Reader/Librum](https://github.com/Librum-Reader/Librum)
 
 * Language Keyboard (List)
   * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
   
 * Font (List)
-  * [FontManager/font-manager](https://github.com/FontManager/font-manager)
-  * [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview)
+  * [fontforge/fontforge => Font editor for Windows, Mac and Linux](https://github.com/fontforge/fontforge)
+  * [johanmattssonm/birdfont => Font editor for TTF, EOT, SVG and BIRDFONT format](https://github.com/johanmattssonm/birdfont)
+  * [FontManager/font-manager => Font management for GTK Desktop Environments](https://github.com/FontManager/font-manager)
+  * [sdushantha/fontpreview => Font previewer written in bash](https://github.com/sdushantha/fontpreview)
   * [Gnome Font Viewer](https://apps.gnome.org/FontViewer/)
+
+* Universal Document/File Viewer (List)
+  * [Okular => The Universal Document Viewer](https://okular.kde.org/)
+  * [pwmt/zathura => Document viewer](https://github.com/pwmt/zathura)
+  * [Evince](https://wiki.gnome.org/Apps/Evince)
+
+* Office Tools (List)
+  * [phiresky/ripgrep-all => rga: ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.](https://github.com/phiresky/ripgrep-all)
 
 ## Graphics/Media Software (List)
 
@@ -460,9 +485,7 @@
 
 * Image Tools (List)
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
-
-* Image Downloader (List)
-  * [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
+  * [OptiImage => Image compressor](https://apps.kde.org/optiimage/)
 
 * Audio Player (List)
   * [Amarok](https://amarok.kde.org/)
@@ -480,6 +503,9 @@
   * [hrkfdn/ncspot => Cross-platform ncurses Spotify client](https://github.com/hrkfdn/ncspot)
   * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
 
+* Audio Tools (List)
+  * [Kid3 => Cross-platform Audio Tagger](https://kid3.kde.org/)
+
 * Video Player (List)
   * [VLC Media Player](https://www.videolan.org/vlc/)
   * [SMPlayer](https://www.smplayer.info/)
@@ -488,10 +514,6 @@
 
 * Video Editor (List)
   * [Shotcut Video Editor](https://shotcut.org/)
-
-* Audio/Video Downloader (List)
-  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
-  * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
 
 * Media Converter (List)
   * [HandBrake](https://handbrake.fr/)
@@ -512,6 +534,9 @@
   * [PCManFM]()
   * [Thunar]()
   * [Nautilus]()
+  * Temporary Collection
+    * [aleksey-hoffman/sigma-file-manager](https://github.com/aleksey-hoffman/sigma-file-manager)
+    * [xbmc/xbmc](https://github.com/xbmc/xbmc)
 
 * Encryption (List)
   * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
