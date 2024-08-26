@@ -2,6 +2,7 @@
 
 ## Website
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7) <sup>Main Code</sup>
+* [repology.org => The packaging hub](https://repology.org/)
 * [Ameliorated: Tool for modifying Windows](https://ameliorated.io/)
 * [AtlasOS: Redesigned Windows for gamers](https://atlasos.net/)
 * [ReviOS: Customized version of Windows](https://www.revi.cc/)

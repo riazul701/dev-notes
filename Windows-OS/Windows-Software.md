@@ -3,7 +3,9 @@
 ## Websites
 
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
-* [The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)
+* [repology.org => The packaging hub](https://repology.org/)
+* [toolleeo/cli-apps => The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)
+* [rothgar/awesome-tuis => List of projects that provide terminal user interfaces](https://github.com/rothgar/awesome-tuis)
 * [CLI tools you won't be able to live without](https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6)
 * [100 Great and Must-Have CLI Linux Applications](https://www.linuxlinks.com/100-great-must-have-cli-linux-applications/)
 

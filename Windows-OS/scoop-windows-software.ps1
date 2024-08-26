@@ -8,7 +8,7 @@
     Author: Mike Pruett
     Date: October 18th, 2018
 #>
-# Original-Script: https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7
+# [Original-Script => Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
 
 # Scoop Website: https://scoop.sh/
 # Scoop GitHub: https://github.com/ScoopInstaller/Scoop
