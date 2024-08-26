@@ -24,10 +24,10 @@
 ## Websites
 
 * [AntiX Linux Official Website](https://antixlinux.com/)
-* [Repology, the packaging hub](https://repology.org/)
+* [repology.org => The packaging hub](https://repology.org/)
 * VirtualBox Images
-  * [OSBoxes | VirtualBox Image Download](https://www.osboxes.org/)
-  * [LinuxVMImages | VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [OSBoxes => VirtualBox Image Download](https://www.osboxes.org/)
+  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
 * Debian Stable/Testing/Unstable(Sid)/Backports
   * {2} [DebianUnstable](https://wiki.debian.org/DebianUnstable)
   * {3} [DontBreakDebian](https://wiki.debian.org/DontBreakDebian)

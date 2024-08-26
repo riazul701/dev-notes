@@ -14,9 +14,9 @@
 ## Website
 * [Easy Ubuntu Learning: সহজ উবুন্টু শিক্ষা](https://adnan.quaium.com/ubuntu)
 * [Ubuntu and Derivatives Download](https://cdimage.ubuntu.com/)
-* [Repology, the packaging hub](https://repology.org/)
-* [OSBoxes | VirtualBox Image Download](https://www.osboxes.org/)
-* [LinuxVMImages | VirtualBox Image Download](https://www.linuxvmimages.com/)
+* [repology.org => The packaging hub](https://repology.org/)
+* [OSBoxes => VirtualBox Image Download](https://www.osboxes.org/)
+* [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
 
 # Software Installation
 

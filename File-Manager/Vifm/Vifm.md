@@ -581,6 +581,7 @@
         \ vifmimg clear
  ```
   * Launch "vifm" to preview files: `vifmrun`
+  * Make an alias in your shell that points to vifm.
 
 ## Other Files Preview
 

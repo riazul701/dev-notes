@@ -4,7 +4,8 @@
 
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
 * [XTRADEB](https://xtradeb.net/)
-* [The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)
+* [cli-apps => The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)
+* [awesome-tuis => List of projects that provide terminal user interfaces](https://github.com/rothgar/awesome-tuis)
 * [CLI tools you won't be able to live without](https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6)
 * [100 Great and Must-Have CLI Linux Applications](https://www.linuxlinks.com/100-great-must-have-cli-linux-applications/)
 
@@ -495,7 +496,8 @@
   * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)
-  * [Audacity Audio Editor](https://www.audacityteam.org/)
+  * [Audacity => Audio editing and recording](https://www.audacityteam.org/)
+  * [Tenacity => Audio editor/recorder](https://tenacityaudio.org/)
 
 * Spotify (List)
   * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
@@ -503,17 +505,25 @@
   * [hrkfdn/ncspot => Cross-platform ncurses Spotify client](https://github.com/hrkfdn/ncspot)
   * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
 
+* Radio (List)
+  * [coderholic/pyradio => Internet radio player](https://github.com/coderholic/pyradio)
+  * [matteo-pacini/RadioGoGo](https://github.com/matteo-pacini/RadioGoGo)
+
 * Audio Tools (List)
   * [Kid3 => Cross-platform Audio Tagger](https://kid3.kde.org/)
 
 * Video Player (List)
-  * [VLC Media Player](https://www.videolan.org/vlc/)
+  * [VLC Media Player](https://www.videolan.org/vlc/) [VLC NCurses]
   * [SMPlayer](https://www.smplayer.info/)
   * [mpv-player/mpv => Command line video player](https://github.com/mpv-player/mpv)
   * [FFplay => Very simple and portable media player using FFmpeg libraries](https://www.ffmpeg.org/ffplay.html)
+  * [mps-youtube/yewtube => Terminal based YouTube player and downloader](https://github.com/mps-youtube/yewtube)
+  * [pystardust/ytfzf](https://github.com/pystardust/ytfzf)
 
 * Video Editor (List)
-  * [Shotcut Video Editor](https://shotcut.org/)
+  * [mltframework/shotcut](https://github.com/mltframework/shotcut) || [Shotcut Site](https://shotcut.org/)
+  * [OpenShot/openshot-qt](https://github.com/OpenShot/openshot-qt/) || [OpenShot Site](https://www.openshot.org/)
+  * [olive-editor/olive](https://github.com/olive-editor/olive) || [Olive Site](https://olivevideoeditor.org/)
 
 * Media Converter (List)
   * [HandBrake](https://handbrake.fr/)
@@ -524,11 +534,15 @@
   * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
   * [shutter-project/shutter => Screenshot tool for Linux](https://github.com/shutter-project/shutter)
 
+* Desktop Screen Recorder (List)
+  * [ScreenRec](https://screenrec.com/)
+
 ## File Management (List)
 
 * File Manager (List)
   * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
   * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
+  * [sxyazi/yazi](https://github.com/sxyazi/yazi)
   * [jarun/nnn](https://github.com/jarun/nnn)
   * [ranger](https://ranger.github.io/) || [ranger GitHub](https://github.com/ranger/ranger)
   * [PCManFM]()
@@ -536,6 +550,7 @@
   * [Nautilus]()
   * Temporary Collection
     * [aleksey-hoffman/sigma-file-manager](https://github.com/aleksey-hoffman/sigma-file-manager)
+    * [doublecmd/doublecmd](https://github.com/doublecmd/doublecmd)
     * [xbmc/xbmc](https://github.com/xbmc/xbmc)
 
 * Encryption (List)

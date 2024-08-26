@@ -2,4 +2,4 @@
 
 ## Websites
 
-* [repology.org -> the packaging hub](https://repology.org/)
+* [repology.org => The packaging hub](https://repology.org/)
