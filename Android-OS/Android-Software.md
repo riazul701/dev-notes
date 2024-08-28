@@ -8,7 +8,8 @@
 
 ## Password Manager (Selected)
 
-* [KeePassDX](https://www.keepassdx.com/) || [KeePassDX GitHub](https://github.com/Kunzisoft/KeePassDX)
+* [Kunzisoft/KeePassDX => Password Manager
+for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/) 
 
 ## Television (Selected)
 
@@ -53,7 +54,7 @@
 * [Advanced Download Manager BY admtorrent](https://play.google.com/store/apps/details?id=com.dv.adm)
 * [SoundCloud => Play Music & Songs BY SoundCloud](https://play.google.com/store/apps/details?id=com.soundcloud.android)
 * [4K Video Downloader for Android](https://www.4kdownload.com/products/videodownloaderandroid-41)
-* [Seal => Video/Audio downloader](https://f-droid.org/en/packages/com.junkfood.seal/) || [Seal GitHub](https://github.com/JunkFood02/Seal)
+* [Seal => Video/Audio downloader](https://f-droid.org/en/packages/com.junkfood.seal/) || [JunkFood02/Seal](https://github.com/JunkFood02/Seal)
 
 ## Programming (Selected)
 

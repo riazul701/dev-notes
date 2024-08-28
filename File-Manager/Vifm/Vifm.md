@@ -249,13 +249,17 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 * Solution_2:
   * [Where is the magick command of Imagemagick?](https://askubuntu.com/questions/1315603/where-is-the-magick-command-of-imagemagick)
-  * The ImageMagick version 6 command line API (shipped with Ubuntu 20.04 and earlier) consists of these commands:
-    * animate, compare, composite, conjure, convert, display, identify, import, mogrify, montage, stream
-    * Check ImageMagick version: `convert --help`
-  * ImageMagick version 7 will unify these commands under the `magick` command.
-    * `magick convert rose.jpg -resize 50% rose.png`
+    * The ImageMagick version 6 command line API (shipped with Ubuntu 20.04 and earlier) consists of these commands:
+      * animate, compare, composite, conjure, convert, display, identify, import, mogrify, montage, stream
+      * Check ImageMagick version: `convert --help`
+    * ImageMagick version 7 will unify these commands under the `magick` command.
+      * `magick convert rose.jpg -resize 50% rose.png`
 
-  * [How to Install ImageMagick 7 on Debian and Ubuntu](https://medium.com/@zomev/how-to-install-imagemagick-7-on-debian-and-ubuntu-1af5f207cfdc)
+  * [ImageMagick 7](https://www.reddit.com/r/debian/comments/1683rxo/imagemagick_7/)
+  * [Download ImageMagick AppImage](https://imagemagick.org/script/download.php)
+    * Install ImageMagick AppImage
+    * Make it executable for all user `chmod a+x ./magick`
+    * Move to executable path: `sudo mv magick /usr/bin/magick`
 
 # References
 
@@ -315,14 +319,3 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   * {4} [Icons And Image Previews In Vifm, Plus Xterm Is Great! BY DistroTube](https://www.youtube.com/watch?v=rnMXH_K8hz4)
   * {5} [Vifm and Überzug (Ueberzug) Image Previews BY DistroTube](https://www.youtube.com/watch?v=qgxsduCO1pE)
   * {6} [Ueberzug is dead. Now what? (Terminal image previews without Ueberzug) BY Eric Murphy](https://www.youtube.com/watch?v=nTQWI0OalVk)
-
-### Error_1
-
-  > * Message_1:
-  > * Could not determine your desktop environment version. You can still use the thumbnailer script manually.
-  > 
-  > * Solution_1:
-  > * [Works in pcmanfm #16](https://github.com/marianosimone/epub-thumbnailer/issues/16)
-  > * Bunsenlab debian stretch
-  > * I found that it install.py install /usr/bin/epub-thumbnailer but omits /usr/share/thumbnailers/epub.thumbnailer
-  > * I manually copy from master/src to /usr/share/thumbnailers/epub.thumbnailer and it worked with majority of epubs.

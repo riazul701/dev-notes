@@ -22,9 +22,10 @@
 ## Password Manager (Selected)
 
 * [Bitwarden](https://bitwarden.com/)
-* [KeePassXC](https://keepassxc.org/) || [KeePassXC GitHub](https://github.com/keepassxreboot/keepassxc)
+* [keepassxreboot/keepassxc => Cross-platform Password Manager](https://github.com/keepassxreboot/keepassxc) || [KeePassXC Site](https://keepassxc.org/)
 * [KeePass](https://keepass.info/download.html)
-* [KeePassDX](https://www.keepassdx.com/) || [KeePassDX GitHub](https://github.com/Kunzisoft/KeePassDX)
+* [Kunzisoft/KeePassDX => Password Manager
+for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
 
 ## Internet Software (Selected)
 
@@ -38,8 +39,8 @@
 * Browser Extension (Selected)
   * Google Chrome
     * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [GitHub: simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
-    * [GitHub: philc/vimium](https://github.com/philc/vimium) || [Vimium: Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+    * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+    * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
 
 * Email (Selected)
   * [Thunderbird](https://www.thunderbird.net/en-GB/)
@@ -208,7 +209,7 @@
   * [FFmpeg](https://ffmpeg.org/)
 
 * Screenshot (Selected)
-  * [Flameshot](https://flameshot.org/)
+  * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
 
 * Desktop Screen Recorder (Selected)
 
@@ -220,7 +221,7 @@
   * [PCManFM]()
 
 * Encryption (Selected)
-  * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
+  * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
 
 * Backup and Archive Manager (Selected)
   * [7-Zip](https://www.7-zip.org/)
@@ -274,7 +275,15 @@
 * [APT](https://wiki.debian.org/Apt)
 * [Synaptic Package Manager](https://github.com/mvo5/synaptic)
 * [Gdebi](https://launchpad.net/gdebi)
-  
+
+## Password Manager (List)
+
+* [Bitwarden](https://bitwarden.com/)
+* [keepassxreboot/keepassxc => Cross-platform Password Manager](https://github.com/keepassxreboot/keepassxc) || [KeePassXC Site](https://keepassxc.org/)
+* [KeePass](https://keepass.info/download.html)
+* [Kunzisoft/KeePassDX => Password Manager
+for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
+
 ## Internet Software (List)
 
 * Web Browser (List)
@@ -288,19 +297,22 @@
 * Browser Extension (List)
   * Google Chrome
     * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [GitHub: simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
-    * [GitHub: philc/vimium](https://github.com/philc/vimium) || [Vimium: Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+    * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+    * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
     * [Free Download Manager Integration](https://chromewebstore.google.com/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp)
-    * [Touch VPN - Secure and unlimited VPN proxy BY touchvpn.net](https://chromewebstore.google.com/detail/touch-vpn-secure-and-unli/bihmplhobchoageeokmgbdihknkjbknd)
+    * [Touch VPN => Secure and unlimited VPN proxy BY touchvpn.net](https://chromewebstore.google.com/detail/touch-vpn-secure-and-unli/bihmplhobchoageeokmgbdihknkjbknd)
+    * [alyssaxuu/screenity => screen recorder](https://github.com/alyssaxuu/screenity)
 
 * Email (List)
   * [Thunderbird](https://www.thunderbird.net/en-GB/)
+  * [Foundry376/Mailspring](https://github.com/Foundry376/Mailspring)
 
 * Download Manager (List)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
   * [uTorrent](https://www.utorrent.com/)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
+  * [persepolisdm/persepolis => GUI for aria2](https://github.com/persepolisdm/persepolis) [YouTube Download]
   * [uGet](https://ugetdm.com/)
   * [Xtreme Download Manager](https://xtremedownloadmanager.com/) || [Xtreme Download Manager GitHub](https://github.com/subhra74/xdm)
   * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
@@ -321,7 +333,9 @@
   * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
 
 * Online Tools (List)
+  * [CollaboraOnline/online => LibreOffice technology](https://github.com/CollaboraOnline/online)
   * [YouTube Video Downloader](https://yt5s.biz/enxj100/)
+  * [photopea/photopea => Online image editor](https://github.com/photopea/photopea)
 
 ## Programming (List)
   
@@ -390,8 +404,9 @@
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
     
 * Server Management (List)
-  * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
-  * [VestaCP](https://vestacp.com/) || [VestaCP GitHub](https://github.com/serghey-rodin/vesta)
+  * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP Site](https://hestiacp.com/)
+  * [outroll/vesta](https://github.com/outroll/vesta) || [VestaCP Site](https://vestacp.com/)
+  * [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
 
 * Deploy & Tunneling (List)
   * [PHPloy](https://wplancer.com/phploy/) || [PHPloy GitHub](https://github.com/banago/PHPloy)
@@ -424,7 +439,10 @@
   * [TeamViewer](https://www.teamviewer.com/en/)
   * [AnyDesk](https://anydesk.com/en)
   * [Apache Guacamole](https://guacamole.apache.org/)
-  
+
+* Other Programming Tools (List)
+  * [xroche/httrack => Website Copier](https://github.com/xroche/httrack)
+
 ## Office Software (List)
 
 * Office Application (List)
@@ -531,12 +549,13 @@
   * [FFmpeg](https://ffmpeg.org/)
 
 * Screenshot (List)
-  * [Flameshot => Cross-platform tool to take screenshots](https://flameshot.org/)
+  * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
   * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
   * [shutter-project/shutter => Screenshot tool for Linux](https://github.com/shutter-project/shutter)
 
 * Desktop Screen Recorder (List)
   * [ScreenRec](https://screenrec.com/)
+  * []()
 
 ## File Management (List)
 
@@ -555,11 +574,11 @@
     * [xbmc/xbmc](https://github.com/xbmc/xbmc)
 
 * Encryption (List)
-  * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
+  * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
 
 * Backup and Archive Manager (List)
   * [7-Zip](https://www.7-zip.org/)
-  * [PeaZip](https://peazip.github.io/)
+  * [peazip/PeaZip](https://github.com/peazip/PeaZip)
   * [WinRAR](https://www.win-rar.com/start.html?&L=0)
 
 ## Data Transfer (List)
@@ -568,6 +587,8 @@
   * [SnapDrop => File Share on Same Network/WiFi](https://snapdrop.net/) || [SnapDrop GitHub](https://github.com/RobinLinus/snapdrop)
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
+  * [localsend/localsend => Share files to nearby devices, cross-platform](https://github.com/localsend/localsend)
+  * [spieglt/FlyingCarpet => File transfer between Android, iOS, Linux, macOS, and Windows over ad hoc WiFi](https://github.com/spieglt/FlyingCarpet)
 
 * Android Phone (List)
   * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
@@ -584,12 +605,23 @@
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
   * [PendriveLinux](https://www.pendrivelinux.com/)
 
+* HDD/SSD (List)
+  * [Hard Disk Sentinel](https://www.hdsentinel.com/)
+  * [edisionnano/QDiskInfo => Frontend for smartctl](https://github.com/edisionnano/QDiskInfo)
+  * [AnalogJ/scrutiny => Hard Drive S.M.A.R.T Monitoring](https://github.com/AnalogJ/scrutiny)
+  * [Seagate/openSeaChest](https://github.com/Seagate/openSeaChest)
+  * [Smartmontools](https://www.smartmontools.org/)
+  * [ashaduri/gsmartcontrol](https://github.com/ashaduri/gsmartcontrol)
+
+* File System (List)
+
 ## System Management (List)
 
 * System Monitor (List)
   * [htop => an interactive process viewer](https://htop.dev/) || [htop GitHub](https://github.com/htop-dev/htop)
   * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
   * [Stacer => Linux System Optimizer and Monitoring](https://github.com/oguzhaninan/Stacer)
+  * [GyulyVGC/sniffnet => Monitor Internet traffic](https://github.com/GyulyVGC/sniffnet)
 
 * Application Manager (List)
   * [Rofi GitHub => A window switcher, application launcher](https://github.com/davatorium/rofi)
@@ -605,5 +637,9 @@
 
 * Antivirus (List)
   * [ClamAV]()
-  
+
+* Clipboard (List)
+  * [hluk/CopyQ => Clipboard manager](https://github.com/hluk/CopyQ)
+  * [jedisct1/piknik => Copy/paste anything over the network](https://github.com/jedisct1/piknik)
+
 # Software Dependency - Ubuntu OS

@@ -22,9 +22,10 @@
 ## Password Manager (Selected)
 
 * [Bitwarden](https://bitwarden.com/)
-* [KeePassXC](https://keepassxc.org/) || [KeePassXC GitHub](https://github.com/keepassxreboot/keepassxc)
+* [keepassxreboot/keepassxc => Cross-platform Password Manager](https://github.com/keepassxreboot/keepassxc) || [KeePassXC Site](https://keepassxc.org/)
 * [KeePass](https://keepass.info/download.html)
-* [KeePassDX](https://www.keepassdx.com/) || [KeePassDX GitHub](https://github.com/Kunzisoft/KeePassDX)
+* [Kunzisoft/KeePassDX => Password Manager
+for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
 
 ## Internet Software
 
@@ -208,7 +209,7 @@
   * [FFmpeg](https://ffmpeg.org/)
 
 * Screenshot (Selected)
-  * [Flameshot](https://flameshot.org/)
+  * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
 
 ## File Management (Selected)
 
@@ -218,7 +219,7 @@
   * [Linux File Systems for Windows by Paragon Software](https://www.paragon-software.com/home/linuxfs-windows/)
 
 * Encryption (Selected)
-  * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
+  * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
 
 * Backup and Archive Manager (Selected)
   * [7-Zip](https://www.7-zip.org/)
@@ -276,7 +277,15 @@
 * [Winget => Windows Software Package Manager](https://github.com/microsoft/winget-cli)
 * [Chocolatey => Windows Software Package Manager](https://chocolatey.org/)
 * [Ninite => Software Installer](https://ninite.com/)
-  
+
+## Password Manager (List)
+
+* [Bitwarden](https://bitwarden.com/)
+* [keepassxreboot/keepassxc => Cross-platform Password Manager](https://github.com/keepassxreboot/keepassxc) || [KeePassXC Site](https://keepassxc.org/)
+* [KeePass](https://keepass.info/download.html)
+* [Kunzisoft/KeePassDX => Password Manager
+for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
+
 ## Internet Software (List)
 
 * Web Browser (List)
@@ -297,6 +306,7 @@
 
 * Email (List)
   * [Thunderbird](https://www.thunderbird.net/en-GB/)
+  * [Foundry376/Mailspring](https://github.com/Foundry376/Mailspring)
 
 * Download Manager (List)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
@@ -304,6 +314,7 @@
   * [uTorrent](https://www.utorrent.com/)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
+  * [persepolisdm/persepolis => GUI for aria2](https://github.com/persepolisdm/persepolis) [YouTube Download]
   * [uGet](https://ugetdm.com/)
   * [Xtreme Download Manager](https://xtremedownloadmanager.com/) || [Xtreme Download Manager GitHub](https://github.com/subhra74/xdm)
   * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
@@ -325,7 +336,9 @@
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (List)
+  * [CollaboraOnline/online => LibreOffice technology](https://github.com/CollaboraOnline/online)
   * [YouTube Video Downloader](https://yt5s.biz/enxj100/)
+  * [photopea/photopea => Online image editor](https://github.com/photopea/photopea)
 
 ## Programming (List)
   
@@ -385,8 +398,9 @@
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
     
 * Server Management (List)
-  * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
-  * [VestaCP](https://vestacp.com/) || [VestaCP GitHub](https://github.com/serghey-rodin/vesta)
+  * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP](https://hestiacp.com/)
+  * [outroll/vesta](https://github.com/outroll/vesta) || [VestaCP Site](https://vestacp.com/)
+  * [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
 
 * Deploy & Tunneling (List)
   * [PHPloy](https://wplancer.com/phploy/) || [PHPloy GitHub](https://github.com/banago/PHPloy)
@@ -434,7 +448,10 @@
   * [TeamViewer](https://www.teamviewer.com/en/)
   * [AnyDesk](https://anydesk.com/en)
   * [Apache Guacamole](https://guacamole.apache.org/)
-  
+
+* Other Programming Tools (List)
+  * [xroche/httrack => Website Copier](https://github.com/xroche/httrack)
+
 ## Office Software (List)
 
 * Office Application (List)
@@ -537,27 +554,28 @@
   * [Any Video Converter](https://www.any-video-converter.com/)
 
 * Screenshot (List)
-  * [Flameshot](https://flameshot.org/)
+  * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
   * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
 
 * Desktop Screen Recorder (List)
+  * [ScreenRec](https://screenrec.com/)
 
 
 ## File Management (List)
 
-* File/ Manager (List)
+* File Manager (List)
   * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
   * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
-  * [Linux File Systems for Windows by Paragon Software](https://www.paragon-software.com/home/linuxfs-windows/)
-  * [DiskInternals Linux Reader](https://www.diskinternals.com/linux-reader/)
+  * [sxyazi/yazi](https://github.com/sxyazi/yazi)
+  * [files-community/Files](https://github.com/files-community/Files)
 
 * Encryption (List)
-  * [VeraCrypt](https://github.com/veracrypt/VeraCrypt)
+  * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
   * [BitLocker]()
 
 * Backup and Archive Manager (List)
   * [7-Zip](https://www.7-zip.org/)
-  * [PeaZip](https://peazip.github.io/)
+  * [peazip/PeaZip](https://github.com/peazip/PeaZip)
   * [WinRAR](https://www.win-rar.com/start.html?&L=0)
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
@@ -568,6 +586,8 @@
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [ShareIT](https://www.ushareit.com/product/shareit/)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
+  * [localsend/localsend => Share files to nearby devices, cross-platform](https://github.com/localsend/localsend)
+  * [spieglt/FlyingCarpet => File transfer between Android, iOS, Linux, macOS, and Windows over ad hoc WiFi](https://github.com/spieglt/FlyingCarpet)
 
 * Android Phone (List)
   * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
@@ -590,11 +610,25 @@
 * HDD/SSD (List)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   * [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark/)
+  * [Hard Disk Sentinel](https://www.hdsentinel.com/)
+  * [PassMark DiskCheckup](https://www.passmark.com/products/diskcheckup/)
+  * [HDDScan](https://hddscan.com/)
+  * [HD Tune](https://www.hdtune.com/)
+  * [Seagate/openSeaChest](https://github.com/Seagate/openSeaChest)
+  * [IsMyHdOK](https://www.softwareok.com/?Microsoft/IsMyHdOK)
+  * [Smartmontools](https://www.smartmontools.org/)
+  * [ashaduri/gsmartcontrol](https://github.com/ashaduri/gsmartcontrol)
+
+* File System (List)
+  * [Linux File Systems for Windows by Paragon Software](https://www.paragon-software.com/home/linuxfs-windows/)
+  * [DiskInternals Linux Reader](https://www.diskinternals.com/linux-reader/)
+  * [maharmstone/btrfs => Btrfs driver for Windows](https://github.com/maharmstone/btrfs)
 
 ## System Management (List)
 
 * System Monitor (List)
   * [Glances => top/htop alternative](https://github.com/nicolargo/glances)
+  * [GyulyVGC/sniffnet => Monitor Internet traffic](https://github.com/GyulyVGC/sniffnet)
 
 * Application Manager (List)
   * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
@@ -613,6 +647,10 @@
 
 * Antivirus (List)
   * [Avast Antivirus](https://www.avast.com/index#pc)
+
+* Clipboard (List)
+  * [hluk/CopyQ => Clipboard manager](https://github.com/hluk/CopyQ)
+  * [jedisct1/piknik => Copy/paste anything over the network](https://github.com/jedisct1/piknik)
 
 # Software Dependency - Windows OS
 

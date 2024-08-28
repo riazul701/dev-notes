@@ -1,21 +1,25 @@
 # Google-Apps-Script.md
 
 ## Notes
+
 * To URLEncode use tools - jq, python, php.
 
 ## Websites
+
 * [Google Apps Script](https://developers.google.com/apps-script)
-* [google/clasp](https://github.com/google/clasp)
+* [google/clasp => Develop Apps Script projects locally](https://github.com/google/clasp)
 * [labnol/apps-script-starter](https://github.com/labnol/apps-script-starter)
 * [oshliaer/google-apps-script-awesome-list](https://github.com/oshliaer/google-apps-script-awesome-list)
 * [labnol/google-apps-script.md](https://gist.github.com/labnol/0b67f812a827fd9babc5)
 
 ## Code
+
 * [Google App Script CRUD](https://gist.github.com/richardblondet/ce87a397ef669d4d25dd21ea02b9dda1) <sup>Main Code</sup>
 * [googleworkspace/apps-script-samples](https://github.com/googleworkspace/apps-script-samples)
 * [tanaikech/taking-advantage-of-google-apps-script](https://github.com/tanaikech/taking-advantage-of-google-apps-script)
 
 ## Tutorials
+
 * [Google Script CRUD](https://gist.github.com/nyancodeid/abc7f2c3ce47eda753dee8a2b63070ab)
 * [irfansofyana/sheets-api](https://github.com/irfansofyana/sheets-api)
 * [taking-advantage-of-Web-Apps-with-google-apps-script](https://github.com/tanaikech/taking-advantage-of-Web-Apps-with-google-apps-script)
@@ -23,6 +27,7 @@
 * [Sample Scripts for Requesting to Web Apps by Various Languages](https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5)
 
 ## Guides
+
 * [How do I display images from Google Drive on a website?](https://stackoverflow.com/questions/15557392/how-do-i-display-images-from-google-drive-on-a-website)
 
 # Commands
