@@ -38,7 +38,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Browser Extension (Selected)
   * Google Chrome
-    * [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
+    * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
     * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
     * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
 
@@ -96,8 +96,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Unison file synchronizer](https://github.com/bcpierce00/unison)
   * [Syncthing](https://syncthing.net/) || [Syncthing GitHub](https://github.com/syncthing/syncthing)
   * [Rsync](https://rsync.samba.org/) || [Rsync GitHub](https://github.com/WayneD/rsync/)
-  * [Nextcloud](https://nextcloud.com/) || [Nextcloud GitHub](https://github.com/nextcloud/server)
-	
+
 * Editor/IDE (Selected)
   * [Visual Studio Code](https://code.visualstudio.com/)
   * [Neovim](https://neovim.io/) || [Neovim GitHub](https://github.com/neovim/neovim)
@@ -123,19 +122,6 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
   * [MySQL Workbench](https://www.mysql.com/products/workbench/)
   * [DB Browser for SQLite](https://sqlitebrowser.org/)
-	
-* Runtime Environment (Selected)
-  * [XAMPP](https://www.apachefriends.org/)
-  * [Docker](https://www.docker.com/)
-  * [Lazydocker](https://github.com/jesseduffield/lazydocker)
-  * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
-  * [Vagrant](https://www.vagrantup.com/)
-  * [VirtualBox](https://www.virtualbox.org/)
-  * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
-  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
-
-* Server Management (Selected)
-  * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
 
 * Deploy & Tunneling (Selected)
   * [PHPloy](https://wplancer.com/phploy/) || [PHPloy GitHub](https://github.com/banago/PHPloy)
@@ -162,7 +148,25 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Remote Desktop Control (Selected)
   * [TeamViewer](https://www.teamviewer.com/en/)
   * [AnyDesk](https://anydesk.com/en)
-  
+
+## Server & Localhost (Selected)
+
+* Runtime Environment (Selected)
+  * [XAMPP](https://www.apachefriends.org/)
+  * [Docker](https://www.docker.com/)
+  * [Lazydocker](https://github.com/jesseduffield/lazydocker)
+  * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
+  * [Vagrant](https://www.vagrantup.com/)
+  * [VirtualBox](https://www.virtualbox.org/)
+  * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
+  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+
+* Server Management (Selected)
+  * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
+
+* Media Server (Selected)
+  * [Nextcloud](https://nextcloud.com/) || [Nextcloud GitHub](https://github.com/nextcloud/server)
+
 ## Office Software (Selected)
 
 * [LibreOffice](https://www.libreoffice.org/)
@@ -362,8 +366,6 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [SparkleShare](https://www.sparkleshare.org/) || [SparkleShare GitHub](https://github.com/hbons/SparkleShare)
   * [Seafile](https://www.seafile.com/en/home/) || [Seafile GitHub](https://github.com/haiwen/seafile)
   * [Krusader](https://krusader.org/)
-  * [Nextcloud](https://nextcloud.com/) || [Nextcloud GitHub](https://github.com/nextcloud/server)
-  * [ownCloud](https://owncloud.com/) || [ownCloud GitHub](https://github.com/owncloud/core)
 
 * Editor/IDE (List)
   * [Visual Studio Code](https://code.visualstudio.com/)
@@ -392,21 +394,6 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
   * [MySQL Workbench](https://www.mysql.com/products/workbench/)
   * [DB Browser for SQLite](https://sqlitebrowser.org/)
-
-* Runtime Environment (List)
-  * [XAMPP](https://www.apachefriends.org/)
-  * [Docker](https://www.docker.com/)
-  * [Lazydocker](https://github.com/jesseduffield/lazydocker)
-  * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
-  * [Vagrant](https://www.vagrantup.com/)
-  * [VirtualBox](https://www.virtualbox.org/)
-  * [VirtualBox VDI Image -> OSBoxes.org](https://www.osboxes.org/)
-  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
-    
-* Server Management (List)
-  * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP Site](https://hestiacp.com/)
-  * [outroll/vesta](https://github.com/outroll/vesta) || [VestaCP Site](https://vestacp.com/)
-  * [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
 
 * Deploy & Tunneling (List)
   * [PHPloy](https://wplancer.com/phploy/) || [PHPloy GitHub](https://github.com/banago/PHPloy)
@@ -442,6 +429,28 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Other Programming Tools (List)
   * [xroche/httrack => Website Copier](https://github.com/xroche/httrack)
+
+## Server & Localhost (List)
+
+* Runtime Environment (List)
+  * [XAMPP](https://www.apachefriends.org/)
+  * [Docker](https://www.docker.com/)
+  * [Lazydocker](https://github.com/jesseduffield/lazydocker)
+  * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
+  * [Vagrant](https://www.vagrantup.com/)
+  * [VirtualBox](https://www.virtualbox.org/)
+  * [VirtualBox VDI Image -> OSBoxes.org](https://www.osboxes.org/)
+  * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+
+* Server Management (List)
+  * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP Site](https://hestiacp.com/)
+  * [outroll/vesta](https://github.com/outroll/vesta) || [VestaCP Site](https://vestacp.com/)
+  * [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
+
+* Media Server (List)
+  * [Nextcloud](https://nextcloud.com/) || [Nextcloud GitHub](https://github.com/nextcloud/server)
+  * [ownCloud](https://owncloud.com/) || [ownCloud GitHub](https://github.com/owncloud/core)
+  * [jellyfin/jellyfin => Free Software Media System](https://github.com/jellyfin/jellyfin) || [Jellyfin Site](https://jellyfin.org/)
 
 ## Office Software (List)
 

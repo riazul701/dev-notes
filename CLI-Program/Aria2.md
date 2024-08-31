@@ -1,24 +1,38 @@
 # Aria2.md
 
 ## Websites
+
 * [Aria2 Site](https://aria2.github.io/) || [Aria2 GitHub](https://github.com/aria2/aria2)
-* [mayswind/AriaNg](https://github.com/mayswind/AriaNg)
-* [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
-* [alexhua/Aria2-Explorer](https://github.com/alexhua/Aria2-Explorer)
-* [RossWang/Aria2-Integration](https://github.com/RossWang/Aria2-Integration)
-* [agalwood/Motrix](https://github.com/agalwood/Motrix)
-* [FlashGot - Firefox Browser Integration](https://flashgot.net/)
-* [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
-* [baptistecdr/aria2-extensions](https://github.com/baptistecdr/aria2-extensions)
+
+* Aria2 TUI
+  * [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
+
+* Aria2 GUI
+  * [mayswind/AriaNg](https://github.com/mayswind/AriaNg)
+  * [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
+
+* Aria2 Integration
+  * [baptistecdr/aria2-extensions](https://github.com/baptistecdr/aria2-extensions)
+  * [alexhua/Aria2-Explorer](https://github.com/alexhua/Aria2-Explorer)
+  * [FlashGot - Firefox Browser Integration](https://flashgot.net/)
+
+* Aria2 Based Download Manager
+  * [agalwood/Motrix](https://github.com/agalwood/Motrix)
+  * [persepolisdm/persepolis => GUI for aria2](https://github.com/persepolisdm/persepolis) [YouTube Download]
+  * [uGet => Download Manager](https://sourceforge.net/projects/urlget/)
 
 ## Notes
-* To resume download, Aria2 needs to enter download command again with url.
+
+* To resume download, Aria2 needs to enter download command again with same previous url. This also works even after PC restart.
 
 # Commands
+
 * Download with save session (for later resume): `aria2c --save-session=/home/<user-name>/aria2/<file-name> --save-session-interval=1 <download-link>` <sup>{101}</sup>
 * Resume Download: `aria2c --input-file=/home/<user-name>/aria2/<file-name>` <sup>{101}</sup>
 
 # Aria2P
+
+* [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
 
 ## Configuration
 

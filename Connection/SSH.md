@@ -48,6 +48,7 @@
     * Find "OpenSSH Client", then select "Install"
     * Find "OpenSSH Server", then select "Install"
   * Open the "Services" desktop app. (Select "Start", type "services.msc" in the search box, and then select the "Service" app or press "ENTER".)
+    * Alternatively, go from "Task Manager" -> "Services" Tab -> "Open Services" 
   * In the details pane, double-click "OpenSSH SSH Server".
   * On the "General" tab, from the "Startup type" drop-down menu, select "Automatic".
   * To start the service, select "Start".
