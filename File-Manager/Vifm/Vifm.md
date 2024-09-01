@@ -106,7 +106,7 @@
     * Clone "epub-thumbnailer" repo: `git clone https://github.com/marianosimone/epub-thumbnailer.git`
     * Goto directory: `cd epub-thumbnailer`
     * Install "epub-thumbnailer": `sudo python3 install.py install`
-    * For Error "Could not determine your desktop environment version.", See [Error_1](#error_1)
+    * ERROR: "Could not determine your desktop environment version.", See **{{error-1}}**
   * [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview) <sup>{35}</sup>
     * `sudo apt install xdotool`
     * `sudo apt install fzf`
@@ -225,41 +225,41 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 # Error and Solution
 
-* next-error: Error_2
+* next-error: {{error-3}}
 
 ## [marianosimone/epub-thumbnailer](https://github.com/marianosimone/epub-thumbnailer) <sup>{31}</sup>
 
-### Error_1
+**{{error-1}} Could not determine your desktop environment version**
 
-* Message_1:
-  * Could not determine your desktop environment version. You can still use the thumbnailer script manually.
+  * Message_1:
+    * Could not determine your desktop environment version. You can still use the thumbnailer script manually.
  
-* Solution_1:
-  * [Works in pcmanfm #16](https://github.com/marianosimone/epub-thumbnailer/issues/16)
-  * Bunsenlab debian stretch
-  * I found that it install.py install /usr/bin/epub-thumbnailer but omits /usr/share/thumbnailers/epub.thumbnailer
-  * I manually copy from master/src to /usr/share/thumbnailers/epub.thumbnailer and it worked with majority of epubs.
+  * Solution_1:
+    * [Works in pcmanfm #16](https://github.com/marianosimone/epub-thumbnailer/issues/16)
+    * Bunsenlab debian stretch
+    * I found that it install.py install /usr/bin/epub-thumbnailer but omits /usr/share/thumbnailers/epub.thumbnailer
+    * I manually copy from master/src to /usr/share/thumbnailers/epub.thumbnailer and it worked with majority of epubs.
 
 ## [sdushantha/fontpreview](https://github.com/sdushantha/fontpreview) <sup>{35}</sup>
 
-### Error_2
+**{{error-2}} magick: command not found**
 
-* Message_2:
-  * magick: command not found
+  * Message_2:
+    * magick: command not found
 
-* Solution_2:
-  * [Where is the magick command of Imagemagick?](https://askubuntu.com/questions/1315603/where-is-the-magick-command-of-imagemagick)
-    * The ImageMagick version 6 command line API (shipped with Ubuntu 20.04 and earlier) consists of these commands:
-      * animate, compare, composite, conjure, convert, display, identify, import, mogrify, montage, stream
-      * Check ImageMagick version: `convert --help`
-    * ImageMagick version 7 will unify these commands under the `magick` command.
-      * `magick convert rose.jpg -resize 50% rose.png`
+  * Solution_2:
+    * [Where is the magick command of Imagemagick?](https://askubuntu.com/questions/1315603/where-is-the-magick-command-of-imagemagick)
+      * The ImageMagick version 6 command line API (shipped with Ubuntu 20.04 and earlier) consists of these commands:
+        * animate, compare, composite, conjure, convert, display, identify, import, mogrify, montage, stream
+        * Check ImageMagick version: `convert --help`
+      * ImageMagick version 7 will unify these commands under the `magick` command.
+        * `magick convert rose.jpg -resize 50% rose.png`
 
-  * [ImageMagick 7](https://www.reddit.com/r/debian/comments/1683rxo/imagemagick_7/)
-  * [Download ImageMagick AppImage](https://imagemagick.org/script/download.php)
-    * Install ImageMagick AppImage
-    * Make it executable for all user `chmod a+x ./magick`
-    * Move to executable path: `sudo mv magick /usr/bin/magick`
+    * [ImageMagick 7](https://www.reddit.com/r/debian/comments/1683rxo/imagemagick_7/)
+    * [Download ImageMagick AppImage](https://imagemagick.org/script/download.php)
+      * Install ImageMagick AppImage
+      * Make it executable for all user `chmod a+x ./magick`
+      * Move to executable path: `sudo mv magick /usr/bin/magick`
 
 # References
 
