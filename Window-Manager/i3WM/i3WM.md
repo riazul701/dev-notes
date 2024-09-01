@@ -22,16 +22,36 @@
 ## Antix-OS Installation
 
 ### Notes (Antix-OS)
+
 * Package "suckless-tools" is required for "dmenu".
+* Packages: `i3, i3wm/i3-gaps, i3status/i3blocks, i3lock/i3lock-color, polybar, dmenu, rofi, nitrogen, feh, xrandr, arandr`
+
+### Package Introduction
+
+* Using command: `apt show {{package-name}}`
 
 ### Instructions (Antix-OS) <sup>{1} {2} {3}</sup>
-* <sup>{2}</sup> Install required packages: `sudo apt install i3 i3-wm i3blocks i3lock i3status dunst suckless-tools`
+
+* Install i3 and associated packages: `sudo apt install i3`
+  * `apt show i3`
+  * metapackage (i3 window manager, screen locker, menu, statusbar)
+  *  This metapackage installs the i3 window manager (i3-wm), the i3lock screen locker, i3status (for system information) and suckless-tools (for dmenu).
+  * These are all the tools you need to use the i3 window manager efficiently.
+* (Not-Required) Install Individual packages: <sup>{2}</sup>
+  * `sudo apt install i3 i3-wm i3blocks i3lock i3status dunst suckless-tools`
+
+* `/etc/i3/config` file
+  * automatically start `i3-config-wizard` to offer the user to create a keysym-based config which used their favorite modifier (`alt` or `windows`)
+  * `i3-config-wizard` will not launch if there already is a config file in `~/.config/i3/config` (or `$XDG_CONFIG_HOME/i3/config` if set) or `~/.i3/config`.
+  * Please remove the following exec line: `exec i3-config-wizard`
+
 * Reboot computer
 * In login screen press "F1" to change "Sessiontype" to "i3".
 * Disable popup window "Your window manager was not one of the supported window managers. This window is to provide the same function as the Other Desktops menu" <sup>{4}</sup>
   * There is a button at the bottom to disable this screen from popping up each time.
 
 ### Power Management
+
 * [Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)
 
 ```shellscript
@@ -64,6 +84,17 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * Suspend/Sleep PC: `sudo pm-suspend` <sup>{10}</sup>
   * LogOut User(PC): `sudo pkill -u $(whoami)` <sup>{11}</sup>
 
+### Error and Solution
+
+**Error_1:**
+
+  * Message_1: 
+    * Error: status_command not found or is missing a library dependency (exit 127)
+
+  * Solution_1:
+    * 
+  
+
 # Configuration
 
 ## Notes
@@ -83,15 +114,6 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * {27} [Desktop environment => is a complete ecosystem of software and resources](https://wiki.gentoo.org/wiki/Desktop_environment)
   * {28} [Desktop environment Wiki](https://en.wikipedia.org/wiki/Desktop_environment)
   * {29} [Feh => view images and setting the desktop background for tiling window managers](https://wiki.gentoo.org/wiki/Feh)
-
-* YouTube Tutorials
-  * {15} [Install & Customize i3wm and Polybar - Speedrun](https://www.youtube.com/watch?v=kWRQoLFntQc)
-  * {16} [Top 5 BEST Tools for Window Manager Users!](https://www.youtube.com/watch?v=XecZxonyjo0)
-  * {17} [Ricing i3wm with a Custom Theme](https://www.youtube.com/watch?v=kd9g87xjx3I)
-  * {18} [Best Color Schemes for Linux](https://www.youtube.com/watch?v=6SX3yIQuZ2k)
-  * {19} [How to Rice I3 - Customizing i3wm for Noobs](https://www.youtube.com/watch?v=qUJf_ACn6q4)
-  * {20} [Turn Your Window Manager Into A Desktop Environment](https://www.youtube.com/watch?v=FX26s8INUYo)
-  * {21} [Get Rid Of That Bloated Desktop Environment And Install Openbox](https://www.youtube.com/watch?v=T-rQ7iV0agY)
 
 * Guides
 
@@ -119,3 +141,21 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * {22} [RAM Usage of small window managers - a comparison](https://www.reddit.com/r/unixporn/comments/4tfdzu/ram_usage_of_small_window_managers_a_comparison/)
   * {23} [New to awesome: does a window manager replaces a desktop environment?](https://www.reddit.com/r/awesomewm/comments/n1talw/new_to_awesome_does_a_window_manager_replaces_a/)
   * {24} [I compared the RAM use of 15 desktop environments on Ubuntu](https://www.reddit.com/r/xfce/comments/kb0d87/i_compared_the_ram_use_of_15_desktop_environments/)
+
+* YouTube Tutorials
+
+  * i3, i3status, i3blocks, Dmenu, Polybar, Rofi
+    * [I3wm Config Guide BY Fawzan Fawzi](https://www.youtube.com/playlist?list=PL0rXAycsylvXxyPDT5kGQ5MiHcqrZWv69)
+    * [[8a] | i3 Installation & Navigation BY EF - Linux Made Simple](https://www.youtube.com/watch?v=sE3LHJ8lEss)
+    * [[8b] | i3 Basic Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=lvLExb1SUzM)
+    * [[8c] | i3 Step 2 Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=0MEm4pj5dpQ)
+    * [[8d] | i3 Step 3 Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=kuzTkTgAsdg)
+    * [[8e] | Polybar on i3 BY EF - Linux Made Simple](https://www.youtube.com/watch?v=cLB008-FJ5o)
+
+  * {15} [Install & Customize i3wm and Polybar - Speedrun](https://www.youtube.com/watch?v=kWRQoLFntQc)
+  * {16} [Top 5 BEST Tools for Window Manager Users!](https://www.youtube.com/watch?v=XecZxonyjo0)
+  * {17} [Ricing i3wm with a Custom Theme](https://www.youtube.com/watch?v=kd9g87xjx3I)
+  * {18} [Best Color Schemes for Linux](https://www.youtube.com/watch?v=6SX3yIQuZ2k)
+  * {19} [How to Rice I3 - Customizing i3wm for Noobs](https://www.youtube.com/watch?v=qUJf_ACn6q4)
+  * {20} [Turn Your Window Manager Into A Desktop Environment](https://www.youtube.com/watch?v=FX26s8INUYo)
+  * {21} [Get Rid Of That Bloated Desktop Environment And Install Openbox](https://www.youtube.com/watch?v=T-rQ7iV0agY)

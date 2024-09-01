@@ -132,17 +132,37 @@ mysql > FLUSH PRIVILEGES;
 
 ## phpMyAdmin Error
 
-* [Error Existing configuration file (/etc/phpmyadmin/config.inc.php) is not readable](https://forum.hestiacp.com/t/error-existing-configuration-file-etc-phpmyadmin-config-inc-php-is-not-readable/12096)
-  * Permission Fix: `chown -R root:www-data /etc/phpmyadmin/`
+**ERROR: configuration file is not readable**
+
+  * Problem:
+    * Existing configuration file (/etc/phpmyadmin/config.inc.php) is not readable
+
+  * Solution:
+    * [Error Existing configuration file (/etc/phpmyadmin/config.inc.php) is not readable](https://forum.hestiacp.com/t/error-existing-configuration-file-etc-phpmyadmin-config-inc-php-is-not-readable/12096)
+      * Permission Fix: `chown -R root:www-data /etc/phpmyadmin/`
+
+## File-Manager Error
+
+**ERROR: Can not create ".zip" file**
+
+  * Problem:
+    * HestiaCP's online file manager cannot zip/download file for "unknown" error.
+
+  * Solution: <sup>{12}</sup>
+    * Login to VPS server via SSH using "root"/"other" account
+    * Execute command: `zip -r /home/{{user-name}}/web/{{domain-name}}/public_html/{{file-name}}.zip /home/{{user-name}}/web/{{domain-name}}/public_html/{{project}}`
+
+## Git
+
+* Any "non-root" user can not cache tokens/passwords using gpg and pass. Although password store is initialized using gpg and pass for "non-root" user.
 
 # References
 
-* next-sl: {12}
+* next-sl: {13}
 
-* Commnads
+* Tutorials
 
-  * Database
-    * []()
+* Guides
 
 * DNS
   * [How to Flush DNS Cache](https://www.hostinger.com/tutorials/how-to-flush-dns)
@@ -157,10 +177,15 @@ mysql > FLUSH PRIVILEGES;
   * {10} [SSH is disabled for users (“this service allows sftp connections only”)](https://forum.hestiacp.com/t/ssh-is-disabled-for-users-this-service-allows-sftp-connections-only/11106)
   * {11} [Changing SSH access](https://hestiacp.com/docs/user-guide/users.html#changing-ssh-access)
 
+* Error and Solution
+
+  * File-Manager Error
+    * {12} ["zip" command - TLDR](https://tldr.inbrowser.app/pages/linux/zip)
+
 * Linux Commands
   * {8} [How can I copy the contents of a folder to another folder in a different directory using terminal?](https://askubuntu.com/questions/86822/how-can-i-copy-the-contents-of-a-folder-to-another-folder-in-a-different-directo)
 
-* YouTube Tutorial
+* YouTube Tutorials
 
   * PlayList
     * {2} [HestiaCP Tutorial Ubuntu 22.04 - Learn to use Hestia Control Panel BY Ricky Wahowa](https://www.youtube.com/playlist?list=PLhhBJ0l9FKMO6c7vaTBHSmu-rkc7pjwnn)

@@ -1,7 +1,9 @@
 # Rofi.md
 
 ## Websites
+
 * [Rofi GitHub](https://github.com/davatorium/rofi)
+* [newmanls/rofi-themes-collection](https://github.com/newmanls/rofi-themes-collection)
 * [rofi-power-menu GitHub](https://github.com/jluttine/rofi-power-menu)
 * [rofi-calc GitHub](https://github.com/svenstaro/rofi-calc)
 * [rofi-emoji GitHub](https://github.com/Mange/rofi-emoji)
@@ -11,13 +13,13 @@
 
 # References
 
+* next-sl: {4}
+
 * Installation
-  * {1}
 
 * Configuration
-  * {51}
 
 * YouTube Tutorial
-  * {101} [How to Setup and Configure Rofi (The Best App Launcher)](https://www.youtube.com/watch?v=TutfIwxSE_s)
-  * {102} [Make Rofi More Awesome With These Scripts](https://www.youtube.com/watch?v=9yLULFzmg3o)
-  * {103} [Rofi-Edit - An Easy Way to Open Files for the Keyboard Fumblers Amongst Us!](https://www.youtube.com/watch?v=vztMbO_Ssa0)
+  * {1} [How to Setup and Configure Rofi (The Best App Launcher)](https://www.youtube.com/watch?v=TutfIwxSE_s)
+  * {2} [Make Rofi More Awesome With These Scripts](https://www.youtube.com/watch?v=9yLULFzmg3o)
+  * {3} [Rofi-Edit - An Easy Way to Open Files for the Keyboard Fumblers Amongst Us!](https://www.youtube.com/watch?v=vztMbO_Ssa0)

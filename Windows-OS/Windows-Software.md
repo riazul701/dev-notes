@@ -260,6 +260,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Application Manager (Selected)
   * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
 
+* Window Management (Selected)
+
 ## Utility (Selected)
 
 * Sound Booster (Selected)
@@ -647,6 +649,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Window Management (List)
   * [TidyTabs](https://www.nurgo-software.com/products/tidytabs)
   * [Groupy](https://www.stardock.com/products/groupy/)
+  * [glzr-io/glazewm => Tiling window manager for Windows inspired by i3wm](https://github.com/glzr-io/glazewm)
+  * [glzr-io/zebar => Cross-platform taskbars, desktop widgets, and popups](https://github.com/glzr-io/zebar)
 
 ## Utility (List)
 

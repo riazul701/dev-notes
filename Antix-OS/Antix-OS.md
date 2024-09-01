@@ -63,6 +63,7 @@
 
 ## Notes
 
+* ANTIX-LINUX IS NON-SYSTEMD BASED DEBIAN-STABLE. Init systems: sysVinit (default option) or runit. <sup>{6}</sup>
 * Antix-23 is Debian bookworm / Debian 12.
 * Snap runs on Ubuntu, but not in Antix because Antix does not have Systemd, it has SysVinit.
 * When mount /c, /d, /e, /f drives then Antix flux, icewm, jwm menu entry hangs. Restart PC/Unmount drives solve this problem.
@@ -294,7 +295,10 @@
 
 # References
 
-* Next Serial: {6}
+* Next Serial: {7}
+
+* Websites
+  * {6} [antiX also has two possible init systems: sysVinit (default option) or runit.](https://antixlinux.com/download/)
 
 * Access
   * {1} [Quick Tips](https://antixlinux.com/quick-tips/)
