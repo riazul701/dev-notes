@@ -118,7 +118,7 @@ bindsym $mod+Shift+e mode "$leave_menu"
     * `Alt+Shift+j`, `Alt+Shift+k`, `Alt+Shift+l`, `Alt+Shift+;`, `Alt+Shift+c`, `Alt+Shift+r`, `Alt+Shift+e` keyboard shortcuts do not work.
 
   * Solution_2:
-    * [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
+    * {31} [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
       * Recently had a similar issue under X11, trying to use Alt+Shift+Arrow to navigate unread messages on different applications. In my case, the (default) X11 keybindings were using Alt+Shift to switch keyboards.
       * If you look at your X11 Keyboard mappings with `setxkbmap -query`, you might get :
       * `options:    grp:alt_shift_toggle,grp_led:scroll`
@@ -136,7 +136,7 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 # References
 
-* next-sl: {31}
+* next-sl: {32}
 
 * Tutorials
   * {25} [i3 => is a minimalist tiling window manager](https://wiki.gentoo.org/wiki/I3)
@@ -149,7 +149,7 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 * i3 Installation
 
-  * Antix-OS Installation
+  * Antix-OS
     * {30} [i3 Error: Status_command not found (exit 127)](https://www.reddit.com/r/linuxmint/comments/3f9k9s/i3_error_status_command_not_found_exit_127/)
     * {1} [Package: i3 (4.22-2)](https://packages.debian.org/sid/i3)
     * {3} [i3-gaps option now showing while trying to install i3?](https://www.reddit.com/r/i3wm/comments/146s6n4/i3gaps_option_now_showing_while_trying_to_install/)
@@ -175,6 +175,11 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * {22} [RAM Usage of small window managers - a comparison](https://www.reddit.com/r/unixporn/comments/4tfdzu/ram_usage_of_small_window_managers_a_comparison/)
   * {23} [New to awesome: does a window manager replaces a desktop environment?](https://www.reddit.com/r/awesomewm/comments/n1talw/new_to_awesome_does_a_window_manager_replaces_a/)
   * {24} [I compared the RAM use of 15 desktop environments on Ubuntu](https://www.reddit.com/r/xfce/comments/kb0d87/i_compared_the_ram_use_of_15_desktop_environments/)
+
+* Error and Solution
+
+  * Usage
+    * {31} [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
 
 * YouTube Tutorials
 
