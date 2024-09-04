@@ -4,6 +4,14 @@
 
 * [repology.org => The packaging hub](https://repology.org/)
 
+## List
+
+* Lightweight Linux Distro
+  * [AntiX Linux => Debian-Stable based, Non-Systemd, IceWM Window Manager](https://antixlinux.com/)
+  * [BunsenLabs Linux => Debian-Stable based, Systemd, Openbox Window Manager](https://www.bunsenlabs.org/)
+  * [Artix Linux => Rolling-release Arch Linux based, Non-Systemd](https://artixlinux.org/)
+  * [Mabox Linux => Manjaro stable LTS kernel based, Arch-Linux, SystemD, Openbox Window Manager](https://maboxlinux.org/)
+
 ## Tutorials
 
 ## Guides
@@ -36,3 +44,11 @@
   * [10 Linux Distributions and Their Targeted Users](https://www.tutorialspoint.com/10-linux-distributions-and-their-targeted-users)
   * [5 Best Linux Gaming Distributions That You Should Give a Try](https://www.tutorialspoint.com/5-best-linux-gaming-distributions-that-you-should-give-a-try)
   * [10 Best and Most Popular Linux Desktop Environments](https://www.tutorialspoint.com/10-best-and-most-popular-linux-desktop-environments)
+
+# YouTube
+
+## Operating System
+
+* NixOS
+  * [NixOS Has One BIG Problem BY The Linux Cast](https://www.youtube.com/watch?v=i6wSn8OlBNc)
+  * [NixOS - How the store and packages work BY DorianDotSlash](https://www.youtube.com/watch?v=qZtXOjHl3-U)
