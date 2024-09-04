@@ -1,12 +1,14 @@
-# Textualize-Textual.md
+# Textual-Textualize.md
 
 ## Websites
+
 * [Official Site](https://textual.textualize.io/)
-* [Textual GitHub](https://github.com/Textualize/textual)
+* [Textualize/textual](https://github.com/Textualize/textual)
 * [mitosch/textual-terminal](https://github.com/mitosch/textual-terminal)
 * [selectel/pyte](https://github.com/selectel/pyte)
 
 ## Notes
+
 * For Layout Desing: Use Container(), Horizontal(), HorizontalScroll(), Vertical(), VerticalScroll(), Grid(), Header(), Footer()
 * Use "TITLE" for header and "SUB_TITLE" for footer.
 * Import [mitosch/textual-terminal](https://github.com/mitosch/textual-terminal) code into user-defined Textual script.

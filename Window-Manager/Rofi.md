@@ -11,6 +11,16 @@
 * [rofi-mpc GitHub](https://github.com/Marco98/rofi-mpc)
 * [rofi-blurry-powermenu || Full-screen power menu with a blur effect made with Rofi for Linux.](https://github.com/lu0/rofi-blurry-powermenu)
 
+# Installation
+
+## Antix-OS
+
+* `sudo apt install rofi`
+
+# Configuration
+
+
+
 # References
 
 * next-sl: {4}
@@ -20,6 +30,8 @@
 * Configuration
 
 * YouTube Tutorial
-  * {1} [How to Setup and Configure Rofi (The Best App Launcher)](https://www.youtube.com/watch?v=TutfIwxSE_s)
+  * {1} [How to Setup and Configure Rofi (The Best App Launcher BY Eric Murphy)](https://www.youtube.com/watch?v=TutfIwxSE_s)
   * {2} [Make Rofi More Awesome With These Scripts](https://www.youtube.com/watch?v=9yLULFzmg3o)
   * {3} [Rofi-Edit - An Easy Way to Open Files for the Keyboard Fumblers Amongst Us!](https://www.youtube.com/watch?v=vztMbO_Ssa0)
+  * [Rofi Is Like Dmenu But Sucks Less BY DistroTube](https://www.youtube.com/watch?v=a2GWqF32U8Q)
+  * [Make Rofi More Awesome With These Scripts BY The Linux Cast](https://www.youtube.com/watch?v=9yLULFzmg3o)
