@@ -3,7 +3,8 @@
 ## Conflicts with WiFi
 
 ### Docker Antix-OS WiFi Conflict
-* Problem: Docker wired network conflicts with WiFi, as result internet connection does not work.
+
+* Problem: Docker wired network conflicts with WiFi, as a result internet connection does not work.
 * Solution 1
   * Open "Connman System Tray"
   * Goto "Status" tab
@@ -24,6 +25,7 @@
   * Check "WiFi -> Connected: Yes"
 
 ## Notes
+
 * Switch to "root" user inside container: `su -`
 * "docker compose" and "docker-compose" are two different programs. "docker compose" is buit-in inside Docker and "docker-compose" is separate project.
 * Use docker without "sudo"

@@ -16,6 +16,8 @@
 
 ## Guides
 
+## Linux Distribution
+
 * Linux General
 
 * Light-weight Linux Distribution
@@ -45,10 +47,25 @@
   * [5 Best Linux Gaming Distributions That You Should Give a Try](https://www.tutorialspoint.com/5-best-linux-gaming-distributions-that-you-should-give-a-try)
   * [10 Best and Most Popular Linux Desktop Environments](https://www.tutorialspoint.com/10-best-and-most-popular-linux-desktop-environments)
 
+## Package Manager
+
+* Nix Package Manager
+  * [Nix => Red Tomato's Blog](https://tech.aufomm.com/)
+
 # YouTube
 
 ## Operating System
 
+* Arch Linux
+  * [Arch Linux Updates Keep Breaking Packages (I've Given Up On Pacman!) BY DistroTube](https://www.youtube.com/watch?v=tgbpNuOfFQM)
+  * [How to Make Arch Linux Stable and What NOT to Do! BY Chris Titus Tech](https://www.youtube.com/watch?v=xhVS1HKwGWw)
+  * [Fix your Terrible Hipster Distro when it Breaks (Arch/Artix) BY Luke Smith](https://www.youtube.com/watch?v=-1K5vi-q9bo)
+
 * NixOS
   * [NixOS Has One BIG Problem BY The Linux Cast](https://www.youtube.com/watch?v=i6wSn8OlBNc)
   * [NixOS - How the store and packages work BY DorianDotSlash](https://www.youtube.com/watch?v=qZtXOjHl3-U)
+
+## Package Manager
+
+* Nix Package Manager
+  * [How to use Nix on Ubuntu or any Linux Distro BY Li Yang](https://www.youtube.com/watch?v=5Dd7rQPNDT8)
