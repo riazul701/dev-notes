@@ -4,13 +4,16 @@
 
 * [repology.org => The packaging hub](https://repology.org/)
 
-## List
+## Linux Distro List
 
-* Lightweight Linux Distro
+* Lightweight Distro
   * [AntiX Linux => Debian-Stable based, Non-Systemd, IceWM Window Manager](https://antixlinux.com/)
   * [BunsenLabs Linux => Debian-Stable based, Systemd, Openbox Window Manager](https://www.bunsenlabs.org/)
   * [Artix Linux => Rolling-release Arch Linux based, Non-Systemd](https://artixlinux.org/)
   * [Mabox Linux => Manjaro stable LTS kernel based, Arch-Linux, SystemD, Openbox Window Manager](https://maboxlinux.org/)
+
+* Immutable Distro
+  * [Vanilla OS](https://vanillaos.org/)
 
 ## Tutorials
 
@@ -47,6 +50,9 @@
   * [5 Best Linux Gaming Distributions That You Should Give a Try](https://www.tutorialspoint.com/5-best-linux-gaming-distributions-that-you-should-give-a-try)
   * [10 Best and Most Popular Linux Desktop Environments](https://www.tutorialspoint.com/10-best-and-most-popular-linux-desktop-environments)
 
+* Immutable Distros
+  * [12 Immutable Linux Distributions for Those Looking to Embrace the Future](https://itsfoss.com/immutable-linux-distros/)
+
 ## Package Manager
 
 * Nix Package Manager
@@ -57,6 +63,7 @@
 ## Operating System
 
 * Arch Linux
+  * [Arch Linux Install: January 2021 ISO With BTRFS & Snapshots BY EF - Linux Made Simple](https://www.youtube.com/watch?v=Xynotc9BKe8)
   * [Arch Linux Updates Keep Breaking Packages (I've Given Up On Pacman!) BY DistroTube](https://www.youtube.com/watch?v=tgbpNuOfFQM)
   * [How to Make Arch Linux Stable and What NOT to Do! BY Chris Titus Tech](https://www.youtube.com/watch?v=xhVS1HKwGWw)
   * [Fix your Terrible Hipster Distro when it Breaks (Arch/Artix) BY Luke Smith](https://www.youtube.com/watch?v=-1K5vi-q9bo)
@@ -69,3 +76,9 @@
 
 * Nix Package Manager
   * [How to use Nix on Ubuntu or any Linux Distro BY Li Yang](https://www.youtube.com/watch?v=5Dd7rQPNDT8)
+
+## Linux Distribution
+
+* Immutable Distros
+  * [What are immutable distros, and are they the future of Linux? BY The Linux Experiment](https://www.youtube.com/watch?v=9hiPFEUoUyI)
+  * [Immutable Linux, without the hassle? Vanilla OS 2 Orchid BY The Linux Experiment](https://www.youtube.com/watch?v=PuGeR075MkE)

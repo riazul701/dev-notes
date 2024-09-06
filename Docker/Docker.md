@@ -61,3 +61,9 @@
 * sudo service docker stop
 
 ## General Commands
+
+# Problems and Solution
+
+## WSL Docker Pull Takes Long Time
+
+* [Docker on WSL2 very slow](https://stackoverflow.com/questions/62154016/docker-on-wsl2-very-slow)

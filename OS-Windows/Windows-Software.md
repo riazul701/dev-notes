@@ -645,6 +645,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
   * [Wox-launcher](http://www.wox.one/) || [Wox-launcher GitHub](https://github.com/Wox-launcher/Wox)
   * [Albert launcher](https://albertlauncher.github.io/) || [Albert launcher GitHub](https://github.com/albertlauncher/albert)
+  * [microsoft/PowerToys](https://github.com/microsoft/PowerToys)
+  * [cerebroapp/cerebro](https://github.com/cerebroapp/cerebro) || [Cerebro Site](https://www.cerebroapp.com/)
 
 * Window Management (List)
   * [TidyTabs](https://www.nurgo-software.com/products/tidytabs)
@@ -664,6 +666,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Clipboard (List)
   * [hluk/CopyQ => Clipboard manager](https://github.com/hluk/CopyQ)
   * [jedisct1/piknik => Copy/paste anything over the network](https://github.com/jedisct1/piknik)
+
+* Monitor
+  * [f.lux => display adapt to the time of day](https://justgetflux.com/)
 
 # Software Dependency - Windows OS
 

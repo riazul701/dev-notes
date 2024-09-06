@@ -634,6 +634,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Application Manager (List)
   * [Rofi GitHub => A window switcher, application launcher](https://github.com/davatorium/rofi)
+  * [Wox-launcher](http://www.wox.one/) || [Wox-launcher GitHub](https://github.com/Wox-launcher/Wox)
+  * [cerebroapp/cerebro](https://github.com/cerebroapp/cerebro) || [Cerebro Site](https://www.cerebroapp.com/)
 
 * Window Management (List)
   * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
@@ -650,5 +652,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Clipboard (List)
   * [hluk/CopyQ => Clipboard manager](https://github.com/hluk/CopyQ)
   * [jedisct1/piknik => Copy/paste anything over the network](https://github.com/jedisct1/piknik)
+
+* Monitor
+  * [f.lux => display adapt to the time of day](https://justgetflux.com/)
 
 # Software Dependency - Ubuntu OS
