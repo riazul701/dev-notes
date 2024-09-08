@@ -249,8 +249,8 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * By default, git credential-cache stores credentials for 900 seconds.
 
 * Check Configuration
-  * Check credential helper: `git config --global credential.helper`
-  * Check credential store: `git config --global credential.credentialStore`
+  * Check credential helper: `git config --global credential.helper` [Shows: `/usr/local/bin/git-credential-manager`]
+  * Check credential store: `git config --global credential.credentialStore` [Shows: `gpg`]
 
 * GPG Key Management
   * [How to Delete GPG Keys in Linux](https://linuxhint.com/delete-gpg-keys-linux/)
@@ -265,7 +265,7 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Pass list: `pass ls`
   * Delete pass: `pass rm -r <pass-name>`
 
-## Linux Server (Headless)
+## Linux Server (CLI-Only)
 
 * Error Message: fatal: GPG_TTY is not set; add `export GPG_TTY=$(tty)` to your profile.
 * Solution

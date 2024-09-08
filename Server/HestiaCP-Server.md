@@ -157,6 +157,9 @@ mysql > FLUSH PRIVILEGES;
 
 * Any "non-root" user can not cache tokens/passwords using gpg and pass. Although password store is initialized using gpg and pass for "non-root" user.
 
+* ToDo
+  * Configure "git-credential-manager", "gpg", "pass" with "non-root" account and try again.
+
 # References
 
 * next-sl: {13}
