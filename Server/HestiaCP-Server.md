@@ -1,6 +1,7 @@
 # Commands
 
-* Switch to "root" user: `sudo su -`
+* Switch to "root" user (from normal user): `su -` [Do not add "sudo" before command]
+* `chown -R someuser:somegroup {{folder-name}}` : 
 
 # Contents of HestiaCP.md
 
@@ -195,3 +196,6 @@ mysql > FLUSH PRIVILEGES;
     * {4} [How to set up DNS on HestiaCP - Use Cloudflare or Personal Nameservers for HestiaCP DNS BY Ricky Wahowa](https://www.youtube.com/watch?v=CeBCPfD_l0k)
     * {5} [Learn to install Hestia Control Panel, Create Wordpress & Send Emails BY inGuide](https://www.youtube.com/watch?v=mYoJVS7c1yw)
     * {6} [Create Free Email Server With HestiaCP, Contabo VPS and Namecheap & Send Unlimited Free Emails BY Web Shanks](https://www.youtube.com/watch?v=LbO1oVKyD5s)
+
+* Commands
+  * [How can I make chown work recursively?](https://superuser.com/questions/260925/how-can-i-make-chown-work-recursively)
