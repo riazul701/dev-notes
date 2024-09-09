@@ -26,6 +26,7 @@
 * [KeePass](https://keepass.info/download.html)
 * [Kunzisoft/KeePassDX => Password Manager
 for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
+* [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
 
 ## Internet Software (Selected)
 
@@ -256,6 +257,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Application Manager (Selected)
   * [Rofi => A window switcher, application launcher](https://github.com/davatorium/rofi)
+  * [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
 
 * Window Management (Selected)
   * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
@@ -287,6 +289,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * [KeePass](https://keepass.info/download.html)
 * [Kunzisoft/KeePassDX => Password Manager
 for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
+* [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
 
 ## Internet Software (List)
 
@@ -634,6 +637,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Application Manager (List)
   * [Rofi GitHub => A window switcher, application launcher](https://github.com/davatorium/rofi)
+  * [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
   * [Wox-launcher](http://www.wox.one/) || [Wox-launcher GitHub](https://github.com/Wox-launcher/Wox)
   * [cerebroapp/cerebro](https://github.com/cerebroapp/cerebro) || [Cerebro Site](https://www.cerebroapp.com/)
 

@@ -1,6 +1,20 @@
 # Commands
 
+* [chezmoi.io](https://www.chezmoi.io/)
+* `chezmoi --help` : Chezmoi help.
 
+## Paths
+
+* Default source directory: `/home/{{user-name}}/.local/share/chezmoi`
+* Default destination directory: `/home/{{user-name}}`
+* Default cache directory: `/home/{{user-name}}/.cache/chezmoi`
+
+## Commands
+
+* `chezmoi init` : Setup the source directory, generate the config file, and optionally update the destination directory to match the target state.
+
+* Chezmoi add
+  * 
 
 # Chezmoi.md
 
