@@ -1,4 +1,4 @@
-# Commands
+# Commands & Usage
 
 * [chezmoi.io](https://www.chezmoi.io/)
 * `chezmoi --help` : Chezmoi help.
@@ -23,7 +23,7 @@
 * `chezmoi add ~/.ssh/id_rsa --encrypt`
   * [age encryption](https://www.chezmoi.io/user-guide/encryption/age/)
   * `age-keygen -o $HOME/key.txt`
-  * `~/.config/chezmoi/chezmoi.toml`
+  * Contents of : `~/.config/chezmoi/chezmoi.toml`
   ```shell
   encryption = "age"
   [age]
@@ -65,6 +65,42 @@
   * `chezmoi destroy ~/{{file-name}}` : Remove file from both source and destination directory with prompt.
   * `chezmoi destroy --force ~/{{file-name}}` : Remove file from both source and destination directory without prompt.
 
+* chezmoi diff
+  * "diff" output shows in terminal/stdout
+  * `chezmoi diff` : Prints all diff in stdout from source to destination directory.
+  * `chezmoi diff --reverse` : Prints all diff in stdout from destination to source directory directory.
+  * `chezmoi diff | less` : Shows all diff using "less" program.
+  * `chezmoi diff ~/.bashrc` : Prints `~/.bashrc` file diff in stdout from source to destination directory.
+  * `chezmoi diff --reverse ~/.bashrc` : Prints `~/.bashrc` file diff in stdout from destination to source directory.
+
+* chezmoi doctor
+  * `chezmoi doctor` : Check for potential problems.
+  * `chezmoi doctor --no-network` : Do not use any network connections.
+
+* chezmoi dump
+  * Dump the target state of targets (from source directory). If no targets are specified, then the entire target state.
+  * `chezmoi dump ~/.bashrc` : Dump contents of `~/.bashrc` from source directory.
+  * `chezmoi dump --format=yaml` : Dump all files in yaml format.
+  * `chezmoi dump --format=yaml | less` : Dump all files in yaml format using "less" pager program.
+  * `chezmoi dump --format=json` : Dump all files in json format.
+
+* `chezmoi dump-config` : Dump the configuration.
+
+* chezmoi edit
+  * `chezmoi edit ~/.bashrc` : Edit `~/.bashrc` file in source directory.
+  * `chezmoi edit ~/.bashrc --apply` : Edit `~/.bashrc` file in source directory and apply to destination directory.
+  * `chezmoi edit` : Open vim `netrw` file picker.
+
+* `chezmoi edit-config` : Edit the configuration file.
+
+* `chezmoi edit-config-template` : Edit the configuration file template. If no configuration file template exists, then a new one is created with the contents of the current config file.
+
+* chezmoi encrypt
+  * `chezmoi encrypt ~/.config` : Prints `~/.config` file's encrypted content to stdout.
+  * `chezmoi encrypt ~/.config --output=~/encrypted-config` : Write `~/.config` file's encrypted content to `~/encrypted-config`.
+
+* chezmoi execute-template
+
 # Chezmoi.md
 
 ## Websites
@@ -73,6 +109,9 @@
 * [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
 * [FiloSottile/age](https://github.com/FiloSottile/age)
 * [gpg => GNU Privacy Guard](https://www.gnupg.org/)
+* [text/template documentation](https://pkg.go.dev/text/template)
+* [sprig documentation](https://masterminds.github.io/sprig/)
+* [felipecrs/dotfiles => Bootstrap your Ubuntu in a single command!](https://github.com/felipecrs/dotfiles)
 
 # Installation
 
@@ -84,7 +123,69 @@
   * Move to `$PATH`: `sudo mv ~/bin/chezmoi /usr/local/bin/chezmoi`
   * Check version: `chezmoi --version`
 
+# Configuration
+
+## Set Binary/Tool
+
+* Set "diff" command
+```shell
+[diff]
+    command = "vimdiff"
+    pager = "less"
+```
+
+## Encryption
+
+* Chezmoi add encryption
+* `chezmoi add ~/.ssh/id_rsa --encrypt`
+  * [age encryption](https://www.chezmoi.io/user-guide/encryption/age/)
+  * `age-keygen -o $HOME/key.txt`
+  * Contents of : `~/.config/chezmoi/chezmoi.toml`
+  ```shell
+  encryption = "age"
+  [age]
+    identity = "/home/{{user-name}}/key.txt"
+    recipient = "age1ql3z7hjy54pw3hyww5ayyfg7zqgvc7w3j2elw8zmrj2kg5sfn9aqmcac8p"
+  ```
+
+# Templates
+
+## Websites (Templates)
+
+* [Templates Reference](https://www.chezmoi.io/reference/templates/)
+
+## Variables
+
+* **`chezmoi execute-template '{{ VARIABLE-NAME }}'`**
+
+* 
+
+# Error and Solution
+
+* next-error: {{error-1}}
+
+## Package Installation
+
+**{{error-1}}: `which vimdiff` command not found**
+
+  * Message_1:
+    * `chezmoi doctor` comamnd shows `vimdiff` not in $PATH
+
+  * Solution_1:
+    * [vimdiff is not available as 'vim'](https://stackoverflow.com/questions/55418145/vimdiff-is-not-available-as-vim)
+    * Actually, it turns out the answer is that vim is not shipped with Ubuntu 18.04 and other versions,
+    * even though I've been using `vim.tiny` for months via the `vi` command, which is in the `PATH` on installation.
+    * Installing `vim` via `apt install vim` will also install `vimdiff`, among other utilities.
+    * Now the mergetool can be configured to `vimdiff`.
+
 # References
 
+* next-sl: {3}
+
 * Installation
-  * [Chezmoi Install](https://www.chezmoi.io/install/)
+  * {1} [Chezmoi Install](https://www.chezmoi.io/install/)
+
+* Error and Solution
+
+  * Package Installation
+    * {2} [vimdiff is not available as 'vim'](https://stackoverflow.com/questions/55418145/vimdiff-is-not-available-as-vim)

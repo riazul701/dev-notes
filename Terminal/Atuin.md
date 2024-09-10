@@ -1,6 +1,6 @@
-# Autin.md
+# Atuin.md
 
 ## Websites
 
 * [atuinsh/atuin](https://github.com/atuinsh/atuin)
-* [Autin Site](https://atuin.sh/)
+* [Atuin Site](https://atuin.sh/)
