@@ -67,3 +67,9 @@
 ## WSL Docker Pull Takes Long Time
 
 * [Docker on WSL2 very slow](https://stackoverflow.com/questions/62154016/docker-on-wsl2-very-slow)
+
+# References
+
+* YouTube Tutorials
+  * [Best Docker Container Monitoring Tools - Free and open source BY VirtualizationHowto](https://www.youtube.com/watch?v=zxAmqY63eJE)
+  

@@ -111,6 +111,7 @@
 * [gpg => GNU Privacy Guard](https://www.gnupg.org/)
 * [text/template documentation](https://pkg.go.dev/text/template)
 * [sprig documentation](https://masterminds.github.io/sprig/)
+* [twpayne/dotfiles](https://github.com/twpayne/dotfiles)
 * [felipecrs/dotfiles => Bootstrap your Ubuntu in a single command!](https://github.com/felipecrs/dotfiles)
 
 # Installation
@@ -122,6 +123,12 @@
   * Chezmoi is install in `~/bin/chezmoi`
   * Move to `$PATH`: `sudo mv ~/bin/chezmoi /usr/local/bin/chezmoi`
   * Check version: `chezmoi --version`
+
+## KeePassXC CLI
+
+* [Request for an AppImage build for the KeepassXC CLI #10234](https://github.com/keepassxreboot/keepassxc/issues/10234)
+  * Download our normal appimage and use command line variable cli to run the cli.
+  * `./KeePassXC-2.7.6-x86_64.AppImage cli`
 
 # Configuration
 
