@@ -17,9 +17,9 @@
 * next-sl: {4}
 
 * Tutorials
-  * {1} [How to Install Prometheus and Grafana on Ubuntu?](https://antonputra.com/monitoring/install-prometheus-and-grafana-on-ubuntu/) <sup>{2}</sup>
+  * {1} [Install Prometheus and Grafana on Ubuntu 20.04 LTS](https://www.fosstechnix.com/install-prometheus-and-grafana-on-ubuntu/) <sup>{2}</sup>
 
 * YouTube Tutorials
-  * {2} [How to Install Prometheus and Grafana on Ubuntu? (Node Exporter & Alertmanager & Pushgateway) BY Anton Putra](https://www.youtube.com/watch?v=Z7GxBf6us8Y) <sup>{1}</sup>
+  * {2} [Monitoring Linux Server with Prometheus and Grafana using Node Exporter | Install Prometheus Ubuntu BY DevOps Hint](https://www.youtube.com/watch?v=DuYnPOq4D6w) <sup>{1}</sup>
   * {3} [How to install Prometheus on Ubuntu 20.04 | VPS Tutorial BY GreenCloud](https://www.youtube.com/watch?v=tXIjm_0QQpk)
-  * 
+  * [Monitoring Websites with Prometheus | Prometheus Synthetic Monitoring | Prometheus Blackbox Exporter BY Vikas Jha](https://www.youtube.com/watch?v=HbaiglWbhR0)
