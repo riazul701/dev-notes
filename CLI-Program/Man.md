@@ -3,7 +3,7 @@
 * `man {{program-name}}` : Shows manual page of program. An interface to the system reference manuals.
   * `man htop` : Shows manual page of "htop" program. 
 
-# man.md
+# Man.md
 
 ## Websites
 
