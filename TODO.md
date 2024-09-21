@@ -1,3 +1,9 @@
+# Temp
+
+## Desktop Brightness
+
+* [Tyrrrz/LightBulb](https://github.com/Tyrrrz/LightBulb)
+
 # Add to Software Install Script
 
 * [Flameshot](https://github.com/flameshot-org/flameshot) (Antix, Windows)

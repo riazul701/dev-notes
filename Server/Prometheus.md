@@ -2,6 +2,13 @@
 
 ## Websites
 
+# Installation
+
+## Antix
+
+* `apt show prometheus`
+* `apt show prometheus-node-exporter`
+
 # Comparison
 
 # Netdata VS Prometheus

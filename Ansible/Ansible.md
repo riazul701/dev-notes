@@ -129,7 +129,7 @@
   * {156} [Ansible: Register iterating with the loop](https://stackoverflow.com/questions/68388949/ansible-register-iterating-with-the-loop)
   * {157} [shell output to variable](http://net.cmed.us/Home/unixlinux/ansible/shell-output-to-variable)
 
-* YouTube Tutorial
+* YouTube Tutorials
   * {501} [How to SSH Without a Password (like a boss)](https://www.youtube.com/watch?v=j2vBT3T79Pg)
   * {502} [Getting started with Ansible 02 - SSH Overview & Setup](https://www.youtube.com/watch?v=-Q4T9wLsvOQ)
   * {503} [Ansible Shell Module Tutorial - Complete Beginner's Guide](https://www.youtube.com/watch?v=57gAqKvAKck)
