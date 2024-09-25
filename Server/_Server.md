@@ -30,11 +30,16 @@
 
 * next-sl: {}
 
+* Tutorials
+
+  * Grafana
+    * [What's the difference between mimir and thanos ? #3380](https://github.com/grafana/mimir/discussions/3380)
+
 * Graphical User Interface (GUI)
   * {101} [How to setup x11vnc to access with graphical login screen?](https://askubuntu.com/questions/229989/how-to-setup-x11vnc-to-access-with-graphical-login-screen)
   * {102} [What is the simplest way to have remote GUI access to Ubuntu 16.04 “server” from Ubuntu 16.04 “desktop”?](https://askubuntu.com/questions/886313/what-is-the-simplest-way-to-have-remote-gui-access-to-ubuntu-16-04-server-from)
 
-* YouTube Tutorial
+* YouTube Tutorials
 
   * General
     * {151} [Linux Desktop in the Cloud Tutorial | Create and Access From Anywhere](https://www.youtube.com/watch?v=633OWaW3cyo)
@@ -45,3 +50,6 @@
   * Security
     * [DDoS Attack Explained BY PowerCert Animated Videos](https://www.youtube.com/watch?v=ilhGh9CEIwM)
     * [How I survived a DDoS attack BY Jeff Geerling](https://www.youtube.com/watch?v=VPcYMgTYQs0)
+
+  * Grafana
+    * [Open source observability explained - the Grafana Labs stack BY Grafana](https://www.youtube.com/watch?v=WSW1urIXsfA)

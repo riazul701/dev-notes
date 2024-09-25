@@ -63,3 +63,5 @@
   * {2} [Monitoring Linux Server with Prometheus and Grafana using Node Exporter | Install Prometheus Ubuntu BY DevOps Hint](https://www.youtube.com/watch?v=DuYnPOq4D6w) <sup>{1}</sup>
   * {3} [How to install Prometheus on Ubuntu 20.04 | VPS Tutorial BY GreenCloud](https://www.youtube.com/watch?v=tXIjm_0QQpk)
   * [Monitoring Websites with Prometheus | Prometheus Synthetic Monitoring | Prometheus Blackbox Exporter BY Vikas Jha](https://www.youtube.com/watch?v=HbaiglWbhR0)
+  * [Effortless Server Monitoring: Install Grafana, Prometheus & Node Exporter with Docker! BY Techdox](https://www.youtube.com/watch?v=yrscZ-kGc_Y)
+  * [Server Monitoring with Grafana Prometheus and Loki BY Piyush Garg](https://www.youtube.com/watch?v=ddZjhv66o_o)

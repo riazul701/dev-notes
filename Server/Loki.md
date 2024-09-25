@@ -4,6 +4,8 @@
 
 * [grafana/loki](https://github.com/grafana/loki)
 * [Loki Site](https://grafana.com/oss/loki/)
+* [Grafana Cloud Logs](https://grafana.com/products/cloud/logs/)
+* [Grafana Cloud for free](https://grafana.com/pricing/)
 
 # Installation
 
