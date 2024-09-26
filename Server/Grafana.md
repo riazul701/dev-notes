@@ -7,6 +7,9 @@
 
 # References
 
+* Tutorials
+  * [Setting Up Prometheus, Grafana, Loki, Tempo & Mimir for end-to-end Monitoring & Logging Atmosly](https://medium.com/@contact_81356/setting-up-prometheus-grafana-loki-tempo-mimir-for-end-to-end-monitoring-logging-atmosly-b1fb5204e1b4)
+
 * YouTube Tutorials
 
   * Grafana's Other Products

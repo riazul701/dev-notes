@@ -100,6 +100,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * [Cx File Explorer BY Cx File Explorer](https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer)
 * [SHAREit Lite => Fast File Share BY Smart Media4U Technology Pte. Ltd.](https://play.google.com/store/apps/details?id=shareit.lite)
+* [WiFi FTP Server BY Medha Apps](https://play.google.com/store/apps/details?id=com.medhaapps.wififtpserver)
 
 ## Media Player & Converter (Selected)
 
