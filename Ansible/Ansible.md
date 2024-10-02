@@ -130,8 +130,9 @@
   * {157} [shell output to variable](http://net.cmed.us/Home/unixlinux/ansible/shell-output-to-variable)
 
 * YouTube Tutorials
-  * {501} [How to SSH Without a Password (like a boss)](https://www.youtube.com/watch?v=j2vBT3T79Pg)
-  * {502} [Getting started with Ansible 02 - SSH Overview & Setup](https://www.youtube.com/watch?v=-Q4T9wLsvOQ)
-  * {503} [Ansible Shell Module Tutorial - Complete Beginner's Guide](https://www.youtube.com/watch?v=57gAqKvAKck)
-  * {504} [This web UI for Ansible is so damn useful!](https://www.youtube.com/watch?v=NyOSoLn5T5U)
-  * {505} [Solved: Kernel Panic Installing Ubuntu on VirtualBox](https://www.youtube.com/watch?v=cRLPPZdrHwM)
+  * {501} [How to SSH Without a Password (like a boss) BY Tony Teaches Tech](https://www.youtube.com/watch?v=j2vBT3T79Pg)
+  * {502} [Getting started with Ansible 02 - SSH Overview & Setup BY Learn Linux TV](https://www.youtube.com/watch?v=-Q4T9wLsvOQ)
+  * {503} [Ansible Shell Module Tutorial - Complete Beginner's Guide BY Percy Grunwald from TopTechSkills](https://www.youtube.com/watch?v=57gAqKvAKck)
+  * {504} [This web UI for Ansible is so damn useful! BY Christian Lempa](https://www.youtube.com/watch?v=NyOSoLn5T5U)
+  * {505} [Solved: Kernel Panic Installing Ubuntu on VirtualBox BY webpwnized](https://www.youtube.com/watch?v=cRLPPZdrHwM)
+  * [Working with Terraform and Ansible | Choosing the Ultimate IaC Tool BY Akamai Developer](https://www.youtube.com/watch?v=zFwUaPwuJxU)

@@ -1,7 +1,14 @@
-# Commands
+# Commands/Usage
 
 * Switch to "root" user (from normal user): `su -` [Do not add "sudo" before command]
 * `chown -R someuser:somegroup {{folder-name}}` : 
+
+* Extract downloaded ".tar" backup file from HestiaCP control panel.
+  * Extract database ".sql.zst" file
+    * `apt show zstd`
+    * `sudo apt install zstd`
+    * [How can I decompress an archive file having .zst or tar.zst? [closed]](https://stackoverflow.com/questions/45355277/how-can-i-decompress-an-archive-file-having-zst-or-tar-zst)
+      * `unzstd yourfilename.zst`
 
 # Contents of HestiaCP.md
 

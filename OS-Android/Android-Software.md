@@ -122,3 +122,4 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## Utility (Selected)
 
 * [Screen Off and Lock BY Katecca](https://play.google.com/store/apps/details?id=com.katecca.screenofflock)
+* [Assistant for Android BY AA Mobile](https://play.google.com/store/apps/details?id=com.androidassistant.free)

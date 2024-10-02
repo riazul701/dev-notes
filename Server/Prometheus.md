@@ -3,6 +3,7 @@
 ## Websites
 
 * Exporters
+  * [prometheus/node_exporter](https://github.com/prometheus/node_exporter)
   * [prometheus-community/windows_exporter](https://github.com/prometheus-community/windows_exporter)
 
 # Installation
