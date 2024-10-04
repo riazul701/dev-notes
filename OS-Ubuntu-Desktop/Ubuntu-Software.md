@@ -552,6 +552,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [FFplay => Very simple and portable media player using FFmpeg libraries](https://www.ffmpeg.org/ffplay.html)
   * [mps-youtube/yewtube => Terminal based YouTube player and downloader](https://github.com/mps-youtube/yewtube)
   * [pystardust/ytfzf](https://github.com/pystardust/ytfzf)
+  * [celluloid-player/celluloid](https://github.com/celluloid-player/celluloid) || [celluloid-player.github.io](https://celluloid-player.github.io/)
 
 * Video Editor (List)
   * [mltframework/shotcut](https://github.com/mltframework/shotcut) || [Shotcut Site](https://shotcut.org/)

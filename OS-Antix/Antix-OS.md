@@ -293,6 +293,8 @@
   * Solution
     * Copy all contents from "/usr/lib/python3/dist-packages/xdg" to "~/.local/lib/python3.9/site-packages/xdg"
 
+## Vagrant conflicts with VirtualBox in Antix-22
+
 # References
 
 * Next Serial: {7}

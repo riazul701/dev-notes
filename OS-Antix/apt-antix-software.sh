@@ -27,7 +27,7 @@ apt_office_softwares=("git"
 "docker"
 "docker-compose"
 "docker.io"
-"vagrant"
+# "vagrant" # Vagrant conflicts with VirtualBox in Antix-22
 "nodejs"
 "npm"
 # "libreoffice"

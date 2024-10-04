@@ -1,3 +1,7 @@
+# Commands
+
+* `sudo apt install vim` : In many Linux distribution, "vim-tiny" is installed by default. Which does not have `vimtutor` command and online-manual. Install full `vim` with this command.
+
 # Vim.md
 
 ## Websites

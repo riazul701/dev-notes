@@ -12,6 +12,10 @@
 * [helm/helm](https://github.com/helm/helm) || [helm.sh](https://helm.sh/)
 * [artifacthub/hub](https://github.com/artifacthub/hub) || [artifacthub.io](https://artifacthub.io/)
 
+* Security Scan
+  * [inguardians/peirates](https://github.com/inguardians/peirates) || [inguardians.com => peirates](https://www.inguardians.com/peirates/) || [Peirates => Kali Linux](https://www.kali.org/tools/peirates/)
+  * [aquasecurity/trivy](https://github.com/aquasecurity/trivy) || [aquasecurity.github.io/trivy](https://aquasecurity.github.io/trivy/v0.56/)
+
 ## Notes
 
 * Kubernetes orchestrates containers from multiple nodes/machines. Composer orchestrates containers in single node/machine.

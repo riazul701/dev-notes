@@ -30,6 +30,19 @@
 * After several hours domain name works in browser.
 * In server we previously installed HestiaCP control panel.
 * If we reinstall operating system in server and freshly install HestiaCP control panel and use domain name as "FQDN" then domain name does not work. Instead create "Standard" user in HestiaCP panel and add domain, it will activate instantly.
+* DNS add in CloudFlare
+  * Login to CloudFlare
+  * Click on {{user-email}}'s account to see all domain and DNS
+  * Click on "Add a domain" -> Enter an existing domain: {{domain-name without "https://"}} -> Continue -> Add record
+  * Type: A; Name (required): {{domain-name without "https://"}}; IPv4 address (required): {{IPv4 address of HestiaCP server}}
+  * Type: CNAME; Name (required): www; Target (required): {{domain-name}} [Note: CNAME is used for sub-domain. "www" is a subdomain]
+  * NOTE: For IPv6 address "Type: AAAA" is used instead of "Type: A"
+* Domain add in HestiaCP
+  * Login to HestiaCP: {{server-ip}}:8083
+  * Goto WEB -> Add Web Domain
+  * Domain: {{domain-name without "https://"}}; IP Address: {{server-ip address (auto-selected)}}; Uncheck "DNS Support"; Uncheck "Mail Support"
+  * Click on "Save"
+* It will take 3-4 hours to activate domain.
 
 ## HestiaCP
 
