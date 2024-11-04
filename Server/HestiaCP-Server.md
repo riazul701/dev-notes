@@ -14,22 +14,20 @@
 
 ## Websites
 
-# Knowledge
+* DNS
+  * [DNS Lookup](https://mxtoolbox.com/DnsLookup.aspx)
+  * [NsLookup](https://www.nslookup.io/)
 
-## DNS
+## CloudFlare as Name-Server (NS)
 
-* [DNS Lookup](https://mxtoolbox.com/DnsLookup.aspx)
-* [NsLookup](https://www.nslookup.io/)
-
-## CloudFlare
-
-### CloudFlare as Name-Server (NS)
+* If adding domain using CloudFlare's Name-Server, then no need to add "DNS" supoort in Hestia Control Panel.
 
 * For first time we setup website with CloudFlare.
 * We enter CloudFlare's Name Server records to Domain register's NS fields.
 * After several hours domain name works in browser.
 * In server we previously installed HestiaCP control panel.
 * If we reinstall operating system in server and freshly install HestiaCP control panel and use domain name as "FQDN" then domain name does not work. Instead create "Standard" user in HestiaCP panel and add domain, it will activate instantly.
+
 * DNS add in CloudFlare
   * Login to CloudFlare
   * Click on {{user-email}}'s account to see all domain and DNS
@@ -40,19 +38,23 @@
 * Domain add in HestiaCP
   * Login to HestiaCP: {{server-ip}}:8083
   * Goto WEB -> Add Web Domain
-  * Domain: {{domain-name without "https://"}}; IP Address: {{server-ip address (auto-selected)}}; Uncheck "DNS Support"; Uncheck "Mail Support"
-  * Click on "Save"
+    * Domain: {{domain-name without "https://"}}; IP Address: {{server-ip address (auto-selected)}}; Uncheck "DNS Support"; Uncheck "Mail Support"
+    * Click on "Save"
+  * Goto WEB -> Click on "Pencil(Edit)" icon near {{domain-name}}
+    * Aliases: www.{{domain-name}}
+    * Click on "Save"
+    * Open Web-Browser and check "www.{{domain-name}}" works.
 * It will take 3-4 hours to activate domain.
 
-## HestiaCP
+# Knowledge
 
-### PATHS
+## PATHS (HestiaCP)
 
 * If we enter server's IP address into browser then this file will be loaded: "/var/www/html/index.html"
 * Created domain will goto "/home" directory.
 * phpMyAdmin path: "/usr/share/phpmyadmin"
 
-### Instructions
+## Instructions (HestiaCP)
 
 * Installation
   * Light Installation (Low Resources): `bash hst-install.sh --multiphp yes --clamav no --spamassassin no`
@@ -68,9 +70,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ```
-
-* Change server's TimeZone: Admin Panel -> Settings -> Configure -> Basic Options -> Time Zone: Asia/Dhaka <sup>{7}</sup>
-  * Active TimeZone: Go to Settings -> php(version)-fpm -> Restart
 
 * PHP "ini" Settings: Admin Panel -> Settings -> php(version)-fpm -> Edit (Pencil Icon) [First make a backup of "ini" file]
 

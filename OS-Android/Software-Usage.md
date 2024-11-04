@@ -2,6 +2,15 @@
 
 ## Websites
 
+# Social/Communication (Selected)
+
+## [WhatsApp Messenger BY WhatsApp LLC](https://play.google.com/store/apps/details?id=com.whatsapp)
+
+## Websites (WhatsApp)
+* [faq.whatsapp.com](https://faq.whatsapp.com/)
+
+### Read Backup
+
 # Synchronization/Backup (Selected)
 
 ## [SMS Backup & Restore BY SyncTech Pty Ltd](https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore)
@@ -26,6 +35,11 @@
   * View call logs in browser: [http://localhost:8000/calls.xml](http://localhost:8000/calls.xml)
 
 # References
+
+* [WhatsApp Messenger BY WhatsApp LLC](https://play.google.com/store/apps/details?id=com.whatsapp)
+  * {{Phone Root Required}}  [WhatsApp Database Encrypt Decrypt Key for WhatsApp Viewer | WhatsApp Tricks & Tweaks BY local guy](https://www.youtube.com/watch?v=bXZuYQ6gdM0)
+  * [WhatsApp Data Recovery Without Backup || Recover WhatsApp Messages in 2 Minutes BY WhatsApp Tips Official](https://www.youtube.com/watch?v=4euB702pX-g)
+  * [Whatsapp Backup Reader Demonstration | Turn your exported chats to a readable version BY Aymane Hrouch (4YM4N3)](https://www.youtube.com/watch?v=bcFvHOYVUHk)
 
 * [SMS Backup & Restore BY SyncTech Pty Ltd](https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore)
   * {1} [VIEW OR EDIT BACKUP FILES ON COMPUTER (OTHER OPTIONS)](https://www.synctech.com.au/sms-backup-restore/view-or-edit-backup-files-on-computer/)

@@ -225,6 +225,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
   * [Vifm GitHub](https://github.com/vifm/vifm) || [Vifm Site](https://vifm.info/)
   * [PCManFM]()
+  * [Thunar]()
 
 * Encryption (Selected)
   * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)

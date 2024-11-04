@@ -3,18 +3,27 @@
 ## Websites
 
 * [kubernetes/kubernetes](https://github.com/kubernetes/kubernetes) || [kubernetes.io](https://kubernetes.io/)
-* [k3s-io/k3s](https://github.com/k3s-io/k3s/)
 * [kubernetes/minikube](https://github.com/kubernetes/minikube)
+* [k3s-io/k3s](https://github.com/k3s-io/k3s/)
 * [kubernetes-sigs/kind](https://github.com/kubernetes-sigs/kind) || [kind.sigs.k8s.io](https://kind.sigs.k8s.io/)
 * [canonical/microk8s](https://github.com/canonical/microk8s) || [microk8s.io](https://microk8s.io/)
 * [k3d-io/k3d](https://github.com/k3d-io/k3d) || [k3d.io](https://k3d.io/v5.7.4/)
 * [k0sproject/k0s](https://github.com/k0sproject/k0s) || [k0sproject.io](https://k0sproject.io/)
 * [helm/helm](https://github.com/helm/helm) || [helm.sh](https://helm.sh/)
 * [artifacthub/hub](https://github.com/artifacthub/hub) || [artifacthub.io](https://artifacthub.io/)
+* [istio/istio](https://github.com/istio/istio) || [istio.io](https://istio.io/)
+
+* ServerLess
+  * [vmware-archive/kubeless](https://github.com/vmware-archive/kubeless)
+  * [fission/fission](https://github.com/fission/fission) || [fission.io](https://fission.io/)
 
 * Security Scan
   * [inguardians/peirates](https://github.com/inguardians/peirates) || [inguardians.com => peirates](https://www.inguardians.com/peirates/) || [Peirates => Kali Linux](https://www.kali.org/tools/peirates/)
   * [aquasecurity/trivy](https://github.com/aquasecurity/trivy) || [aquasecurity.github.io/trivy](https://aquasecurity.github.io/trivy/v0.56/)
+
+* [Docker Kubernetes MasterClass: DevOps from Scratch - 2024](https://www.udemy.com/course/kubernetes-online-training/?couponCode=ST15MT100124B)
+  * [anshulc55/Kubernetes_Devops](https://github.com/anshulc55/Kubernetes_Devops)
+  * [anshuldevops => Docker Hub](https://hub.docker.com/u/anshuldevops)
 
 ## Notes
 

@@ -1,5 +1,24 @@
 # Usage
 
+## Theme/Wallpaper/Widget Change
+
+* Theme Change
+  * Goto Start-Menu -> Settings -> Themes
+  * Default Theme: Clearview Blue Medium
+  * Dark Theme Selected
+    * antiX-Magic-Medium (NOT antiX-Magic-Medium-MAC, it moves minimize-maximize-close icon to left)
+    * KorstroDark-Medium
+
+* Wallpaper Change
+  * Goto Start-Menu -> Control Centre -> Desktop -> Choose Wallpaper
+
+* Widget (Dark/Light Mode of Applications) Change
+  * Goto Start-Menu -> Applications -> Preferences -> Customize Look and Feel
+  * Alternatively, Goto Start-Menu -> Control Centre -> Desktop -> Customize Look and Feel
+  * This changes Light/Dark mode of all built-in/pre-installed antix applications and also installed applications.
+  * Default Widget: Arc-EvoPro2
+  * Dark Widget: Arc-Dark
+
 ## Keyboard Shortcuts
 
 * "Ctrl+space" -> Open App Selector
@@ -11,6 +30,12 @@
 
 * "Alt+Ctrl+Esc" -> Window List
 * "Alt+Tab" -> Switch Opened Application
+
+## Bluetooth Device
+
+* `service bluetooth status`
+* `sudo service bluetooth start`
+* `sudo service bluetooth stop`
 
 ## Commands
 
@@ -49,6 +74,14 @@
   * GDebi file not found error.
   * Antix does not support Ubuntu PPA, remove it.
 
+## Antix-OS Installation
+
+* Choose partitions (During Installation - Antix-23. Note: Antix-22 does not have this issue)
+  * ERROR => "antiX Linux Installer" Dialog: This system uses EFI, but no valid EFI system partition was assigned to /boot/efi separately. Are you sure to continue?
+  * sda1 => size: 300.0 MB; Use For: ESP; Format: Preserve (FAT32)
+
+* Durint Antix-OS installation, do not Check/Tick "Root (administrator) Account". Because it cause problems during operating-system login.
+
 ## Access
 
 * Live-OS ROOT Acces
@@ -60,6 +93,26 @@
   * [antiX-FAQ](https://download.tuxfamily.org/antix/docs-antiX-23/FAQ/index.html)
   * [Live boot menu options](https://download.tuxfamily.org/antix/docs-antiX-23/Boot_Menu/antiX-gfxboot.html)
   * [Detailed guide to antiX-live](https://download.tuxfamily.org/antix/docs-antiX-23/live-boot/index.html)
+
+## Windows Dual Boot
+
+* After Reinstalling Windows-OS, Reinstall GRUB Bootloader for Dual-Boot.
+  * Launch Antix-OS Live-CD.
+  * Goto Start Menu -> Applications -> System -> Boot Repair
+  * {1} [Quick Tips](https://antixlinux.com/quick-tips/)
+    * On live system, username login as demo, username password = demo.
+    * For root access, password = root. Please do not login as root. It is totally unnecessary.
+    * Sudo is configured by default. When prompted for a password, user your username password, not root, for example on live system use demo
+  * What would you like to do? : Check "Reinstall GRUB bootloader on ESP, MBR or PBR (root)" -> Click "Apply"
+  * Select Boot Method
+    * Install on: ESP
+    * Location: {{HDD/SSD "vfat" partition auto selected}}
+    * Select root location: {{Antix-OS root partition location => Selected by default}}
+  * Click "Apply"
+  * On "Success", Reboot PC.
+
+* In case of error, "Boot Repair" dialog
+  * Select /boot/efi location: {{sda1 300M vfat}}
 
 ## Notes
 

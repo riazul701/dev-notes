@@ -4,6 +4,7 @@
 * Add to Ansible: LazyGit, Tmuxinator, Termscp, Lftp, Starship
 
 ## Websites
+
 * [Ansible Official Site](https://www.ansible.com/)
 * [Ansible GitHub](https://github.com/ansible/ansible)
 * [Ansible Galaxy](https://galaxy.ansible.com/)
@@ -12,7 +13,10 @@
 * Ansible Documentation
   * [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html)
   * [Ansible Galaxy Documents](https://galaxy.ansible.com/docs/)
-* []()
+* Exercises
+  * [Ansible for the DevOps Beginners & System Admins](https://www.udemy.com/course/valaxy-ansible/?couponCode=LETSLEARNNOWPP)
+    * [yankils/ansible](https://github.com/yankils/ansible)
+    * [yankils/ansible_for_beginners](https://github.com/yankils/ansible_for_beginners)
 
 ## Tutorials
 * [Ansible Tutorial](https://www.tutorialspoint.com/ansible/index.htm)

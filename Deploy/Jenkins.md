@@ -1,5 +1,11 @@
 # Jenkins.md
 
+# Websites
+
+* [DevOps Project 1 - CI/CD with Git Jenkins Ansible Kubernetes](https://www.udemy.com/course/valaxy-devops/?couponCode=LETSLEARNNOWPP)
+  * [yankils/Simple-DevOps-Project](https://github.com/yankils/Simple-DevOps-Project)
+  * [yankils/hello-world](https://github.com/yankils/hello-world)
+
 # References
 
 * YouTube Tutorials

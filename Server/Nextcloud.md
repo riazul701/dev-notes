@@ -12,7 +12,7 @@
 
 ## General Instruction - Installation
 * For php version "php-7.4.3" install nextcloud version "nextcloud-25" ("Nextcloud Hub 3 (25.0.5)"). [Download from here](https://download.nextcloud.com/server/releases/latest-25.zip)
-* Connect using Android app on same wifi router: Enter server address "http://192.168.0.112/nextcloud" (Assuming Nextcloud is running using Docker. Docker PC ip address is "192.168.0.112". Permanently set nextcloud server pc ip address in wifi router "DHCP" settings.)
+* Connect using Android app on same wifi router: Enter server address "http://192.168.0.100/nextcloud" (Assuming Nextcloud is running using Docker. Docker PC ip address is "192.168.0.100". Permanently set nextcloud server pc ip address in wifi router "DHCP" settings.)
 
 ## Docker-Linux
 
@@ -102,7 +102,7 @@
 * Open "Cx File Explorer"
 * Goto "NETWORK" tab -> New location -> REMOTE -> WebDAV
 * Enter following details
-  * Host: 192.168.0.112/nextcloud/remote.php/dav/files/demo/
+  * Host: 192.168.0.100/nextcloud/remote.php/dav/files/demo/
   * Port: 80 [http]
   * Username: <Nextcloud login username>
   * Password: <Nextcloud login password>

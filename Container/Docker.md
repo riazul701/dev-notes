@@ -59,7 +59,10 @@ exit
 * [dockersamples/example-voting-app](https://github.com/dockersamples/example-voting-app)
 * [Docker Samples => Docker Hub](https://hub.docker.com/u/dockersamples)
 * [dockersamples/docker-swarm-visualizer](https://github.com/dockersamples/docker-swarm-visualizer)
+
 * [Docker Kubernetes MasterClass: DevOps from Scratch - 2024](https://www.udemy.com/course/kubernetes-online-training/?couponCode=ST15MT100124B)
+  * [anshulc55/Kubernetes_Devops](https://github.com/anshulc55/Kubernetes_Devops)
+  * [anshuldevops => Docker Hub](https://hub.docker.com/u/anshuldevops)
 
 ## Notes
 
