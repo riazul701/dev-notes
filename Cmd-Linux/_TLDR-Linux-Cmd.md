@@ -63,7 +63,7 @@
 * atool - Manage archives of various formats.
 * atop - Linux system and process monitor.
 * aura - The Aura Package Manager: A secure, multilingual package manager for Arch Linux and the AUR.
-* auracle - Command-line tool used to interact with Arch Linux's User Repository, commonlyreferred to as the AUR.
+* auracle - Command-line tool used to interact with Arch Linux's User Repository, commonly referred to as the AUR.
 * aurman - An Arch Linux utility to build and install packages from the Arch User Repository.
 * aurvote - Vote for packages in the Arch User Repository.
 * ausyscall - Program that allows mapping syscall names and numbers.

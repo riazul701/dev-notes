@@ -143,6 +143,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [FileZilla FTP Client](https://filezilla-project.org/)
   * [FileZilla FTP Server](https://filezilla-project.org/)
   * [WinSCP FTP Client](https://winscp.net/eng/index.php)
+  * [PuTTY](https://www.putty.org/)
+  * [MobaXterm](https://mobaxterm.mobatek.net/)
 	* [Windows File System Proxy](https://winfsp.dev/)
     * [winfsp/sshfs-win GitHub](https://github.com/winfsp/sshfs-win)
     * [winfsp/winfsp GitHub](https://github.com/winfsp/winfsp)
@@ -428,6 +430,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [FileZilla FTP Client](https://filezilla-project.org/)
   * [FileZilla FTP Server](https://filezilla-project.org/)
   * [WinSCP FTP Client](https://winscp.net/eng/index.php)
+  * [PuTTY](https://www.putty.org/)
+  * [MobaXterm](https://mobaxterm.mobatek.net/)
   * [Termius](https://termius.com/)
   * [LFTP](http://lftp.yar.ru/) || [LFTP GitHub](https://github.com/lavv17/lftp)
 	* [Windows File System Proxy](https://winfsp.dev/)
@@ -669,8 +673,13 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [hluk/CopyQ => Clipboard manager](https://github.com/hluk/CopyQ)
   * [jedisct1/piknik => Copy/paste anything over the network](https://github.com/jedisct1/piknik)
 
-* Monitor
+* Monitor Brightness
+  * DDC/CI (Display Data Channel/Command Interface) supported monitors, HDMI Cable.
   * [f.lux => display adapt to the time of day](https://justgetflux.com/)
+  * [Dimmer => Adjust the brightness of all monitors, screens and displays](https://www.nelsonpires.com/software/dimmer)
+  * [PangoBright](https://www.pangobright.com/)
+  * [emoacht/Monitorian](https://github.com/emoacht/Monitorian) || [Monitorian BY emoacht](https://www.microsoft.com/store/apps/9nw33j738bl0)
+  * [xanderfrangos/twinkle-tray](https://github.com/xanderfrangos/twinkle-tray) || [twinkletray.com](https://twinkletray.com/) || [Twinkle Tray: Brightness Slider BY Xander Frangos](https://www.microsoft.com/store/productId/9PLJWWSV01LK)
 
 # Software Dependency - Windows OS
 

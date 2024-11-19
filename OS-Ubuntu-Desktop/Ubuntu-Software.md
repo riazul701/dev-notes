@@ -568,6 +568,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
   * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
   * [shutter-project/shutter => Screenshot tool for Linux](https://github.com/shutter-project/shutter)
+  * [Xfce4-screenshooter](https://docs.xfce.org/apps/screenshooter/start)
 
 * Desktop Screen Recorder (List)
   * [ScreenRec](https://screenrec.com/)
@@ -661,7 +662,12 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [hluk/CopyQ => Clipboard manager](https://github.com/hluk/CopyQ)
   * [jedisct1/piknik => Copy/paste anything over the network](https://github.com/jedisct1/piknik)
 
-* Monitor
+* Monitor Brightness
+  * DDC/CI (Display Data Channel/Command Interface) supported monitors, HDMI Cable.
   * [f.lux => display adapt to the time of day](https://justgetflux.com/)
+  * [ddccontrol/ddccontrol](https://github.com/ddccontrol/ddccontrol)
+  * [gddccontrol => A graphical utility to control monitor parameters via software](https://manpages.ubuntu.com/manpages/bionic/man1/gddccontrol.1.html)
+  * [rockowitz/ddcutil](https://github.com/rockowitz/ddcutil) || [ddcutil.com](https://www.ddcutil.com/)
+  * [rockowitz/ddcui](https://github.com/rockowitz/ddcui)
 
 # Software Dependency - Ubuntu OS

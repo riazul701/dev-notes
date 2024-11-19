@@ -1,4 +1,4 @@
-# Putty.md
+# PuTTY.md
 
 ## Websites
 

@@ -301,16 +301,14 @@ current directory.
 * dirs - Displays or manipulates the directory stack.
 * dirsearch - Web path scanner.
 * diskonaut - Terminal disk space navigator, written in Rust.
-* dive - A tool for exploring a Docker image, layer contents, and discovering ways to shrink
-it.
+* dive - A tool for exploring a Docker image, layer contents, and discovering ways to shrink it.
 * doas - Executes a command as another user.
 * docker - Manage Docker containers and images.
 * docsify - Initialize and serve markdown documentation.
 * doctum - A PHP API documentation generator.
 * dog - DNS lookup utility.
 * dokku - Docker powered mini-Heroku (PaaS).
-* dolt - An SQL database that you can fork, clone, branch, merge, push and pull just like a
-Git repository.
+* dolt - An SQL database that you can fork, clone, branch, merge, push and pull just like a Git repository.
 * dot - Render an image of a linear directed network graph from a graphviz file.
 * doxygen - A documentation system for various programming languages.
 * drill - Perform various DNS queries.
@@ -328,15 +326,13 @@ space of a given directory.
 * dust - Dust gives an instant overview of which directories are using disk space.
 * dvc - Data Version Control: like git for data.
 * dwebp - dwebp decompresses WebP files into PNG, PAM, PPM or PGM images.
-* ebook-convert - Can be used to convert e-books between common formats, e.g. PDF, EPUB and
-MOBI.
+* ebook-convert - Can be used to convert e-books between common formats, e.g. PDF, EPUB and MOBI.
 * echo - Print given arguments.
 * ect - Efficient Compression Tool.
 * ed - The original Unix text editor.
 * edgepaint - Colorize edges of a graph layout to clarify crossing edges.
 * eget - Easily install prebuilt binaries from GitHub.
-* egrep - Find patterns in files using extended regular expression (supports ?, +, {}, () and
-|).
+* egrep - Find patterns in files using extended regular expression (supports ?, +, {}, () and |).
 * electron-packager - A tool used to build Electron app executables for Windows, Linux and macOS.
 * elinks - A text based browser similar to lynx.
 * emacs - The extensible, customizable, self-documenting, real-time display editor.
@@ -357,8 +353,7 @@ MOBI.
 * eslint - A pluggable linting utility for JavaScript and JSX.
 * espanso - Cross-platform Text Expander written in Rust.
 * espeak - Uses text-to-speech to speak through the default sound device.
-* etcd - A distributed, reliable key-value store for the most critical data of a distributed
-system.
+* etcd - A distributed, reliable key-value store for the most critical data of a distributed system.
 * etcdctl - Interact with etcd, a highly-available key-value pair store.
 * eva - Simple calculator REPL, similar to bc, with syntax highlighting and persistent
 history.
@@ -379,8 +374,7 @@ history.
 * exrex - Generate all/random matching strings for a regular expression.
 * eza - Modern, maintained replacement for ls, built on exa.
 * f3fix - Edit the partition table of a fake flash drive.
-* f3probe - Probe a block device (e.g. a flash drive or a microSD card) for counterfeit flash
-memory.
+* f3probe - Probe a block device (e.g. a flash drive or a microSD card) for counterfeit flash memory.
 * f3read - Validate .h2w files to test the real capacity of the drive.
 * f3write - Fill a drive out with .h2w files to test its real capacity.
 * factor - Prints the prime factorization of a number.
@@ -392,8 +386,7 @@ place adb doesn't work).
 * fastd - VPN daemon.
 * fastfetch - Display information about your operating system, software and hardware.
 * fastlane - Build and release mobile applications.
-* fastmod - A fast partial replacement for the codemod tool, replace and replace all in the
-whole codebase.
+* fastmod - A fast partial replacement for the codemod tool, replace and replace all in the whole codebase.
 * fc-cache - Scan font directories to build font cache files.
 * fc-list - List available fonts installed on the system.
 * fc-match - Match available fonts.
@@ -431,13 +424,11 @@ friendly.
 * fls - List files and directories in an image file or device.
 * flutter - Google's free, open source, and cross-platform mobile app SDK.
 * flyctl - Command-line tool for flyctl.io.
-* fmt - Reformat a text file by joining its paragraphs and limiting the line width to given
-number of characters (75 by default).
+* fmt - Reformat a text file by joining its paragraphs and limiting the line width to given number of characters (75 by default).
 * fnm - Fast Node.js version manager.
 * fold - Wrap each line in an input file to fit a specified width and print it to stdout.
 * fortune - Print a random quotation (fortune-cookie style).
-* fossa - CLI for the Fossa service - Generate realtime license audits, vulnerability scans and
-reports about dependencies licenses.
+* fossa - CLI for the Fossa service - Generate realtime license audits, vulnerability scans and reports about dependencies licenses.
 * fping - A more powerful ping which can ping multiple hosts.
 * freshclam - Update virus definitions for ClamAV antivirus program.
 * from - Prints mail header lines from the current user's mailbox.
@@ -635,8 +626,7 @@ repository.
 * jrnl - A simple journal application for your command-line.
 * json5 - A command-line tool for converting JSON5 files to JSON.
 * jtbl - Utility to print JSON and JSON Lines data as a table in the terminal.
-* jupyter - Web application to create and share documents that contain code, visualizations
-and notes.
+* jupyter - Web application to create and share documents that contain code, visualizations and notes.
 * just - Save and run project-specific commands.
 * just - just can refer to multiple commands with the same name.
 * jwt - Work with JSON Web Tokens (JWTs).
@@ -652,20 +642,17 @@ paradigm.
 * keep-header - Keep first line untouched by a command, passing it directly to stdout.
 * keepass2 - A light-weight password manager.
 * keepassxc-cli - Command-line interface for KeepassXC.
-* keybase - Key directory that maps social media identities to encryption keys in a publicly
-auditable manner.
+* keybase - Key directory that maps social media identities to encryption keys in a publicly auditable manner.
 * keychain - Re-use ssh-agent and/or gpg-agent between logins.
 * khal - A text-based calendar and scheduling application for the command-line.
 * kill - Sends a signal to a process, usually related to stopping the process.
 * killall - Send kill signal to all instances of a process by name (must be exact name).
-* kismet - A wireless network and device detector, sniffer, wardriving tool, and WIDS (wireless
-intrusion detection) framework.
+* kismet - A wireless network and device detector, sniffer, wardriving tool, and WIDS (wireless intrusion detection) framework.
 * kitty - A fast, feature-rich, GPU based terminal emulator.
 * kiwi-ng - An OS image and appliance builder.
 * kompose - A tool to convert docker-compose applications to Kubernetes.
 * kool - Build software development environments.
-* kosmorro - Compute the ephemerides and the events for a given date, at a given position on
-Earth.
+* kosmorro - Compute the ephemerides and the events for a given date, at a given position on Earth.
 * krita - A sketching and painting program designed for digital artists.
 * krunvm - Create MicroVMs from OCI images.
 * ksh - Korn Shell, a Bash-compatible command-line interpreter.
@@ -693,8 +680,7 @@ Earth.
 * lex - Lexical analyzer generator.
 * license - Create license files for open-source projects.
 * licensor - Write licenses to stdout.
-* lighthouse - Analyzes web applications and web pages, collecting modern performance metrics
-and insights on developer best practices.
+* lighthouse - Analyzes web applications and web pages, collecting modern performance metrics and insights on developer best practices.
 * lilypond - Typeset music and/or produce MIDI from file.
 * lima - This command is an alias of limactl shell for the default VM instance.
 * limactl - Virtual machine manager for Linux guests, with multiple VM templates available.
@@ -764,8 +750,7 @@ and insights on developer best practices.
 * mdp - A command-line based tool to make presentations from Markdown files.
 * mediainfo - Display metadata from video and audio files.
 * meld - Graphical diffing and merging tool.
-* mesg - Check or set a terminal's ability to receive messages from other users, usually from
-the write command.
+* mesg - Check or set a terminal's ability to receive messages from other users, usually from the write command.
 * mg - A small, fast, and portable text editor based on emacs.
 * micro - A modern and intuitive terminal-based text editor.
 * mid3v2 - Edit audio tags.
@@ -790,8 +775,7 @@ TSV, and tabular JSON.
 * mmv - Move and rename files in bulk.
 * mods - AI for the command line, built for pipelines.
 * moe - A WYSIWYG text editor for ISO-8859-15 encoded text.
-* mogrify - Perform operations on multiple images, such as resizing, cropping, flipping, and
-adding effects.
+* mogrify - Perform operations on multiple images, such as resizing, cropping, flipping, and adding effects.
 * molecule - Molecule helps testing Ansible roles.
 * montage - Tiles images into a customizable grid.
 * more - Open a file for interactive reading, allowing scrolling and search.
@@ -846,8 +830,7 @@ locally or globally.
 * neofetch - Display information about your operating system, software and hardware.
 * neomutt - NeoMutt command-line email client.
 * netcat - This command is an alias of nc.
-* netstat - Displays network-related information such as open connections, open socket ports,
-etc.
+* netstat - Displays network-related information such as open connections, open socket ports, etc.
 * newman - Collection runner for Postman.
 * newsboat - An RSS/Atom feed reader for text terminals.
 * nginx - Nginx web server.
@@ -873,8 +856,7 @@ reproducible, and declarative.
 * nomad - Distributed, highly available, datacenter-aware scheduler.
 * nop - Check validity and pretty-print graphs in canonical format.
 * noti - Monitor a process and trigger a banner notification.
-* notmuch - Command-line based program for indexing, searching, reading, and tagging large
-collections of email messages.
+* notmuch - Command-line based program for indexing, searching, reading, and tagging large collections of email messages.
 * now - Cloud platform for serverless deployment.
 * nping - Network packet generation tool/ping utility.
 * npm-check - Check for outdated, incorrect, and unused npm package dependencies.
@@ -940,8 +922,7 @@ database.
 * pake - Turn any webpage into a desktop app with Rust/Tauri.
 * palmtopnm - Convert a Palm bitmap file to a PNM image.
 * pamdepth - Reduce the depth (i.e. color resolution) in an image.
-* pamditherbw - Apply dithering to a greyscale image, i.e. turn it into a pattern of black and white
-pixels that look the same as the original greyscale.
+* pamditherbw - Apply dithering to a greyscale image, i.e. turn it into a pattern of black and white pixels that look the same as the original greyscale.
 * pamfile - Describe Netpbm (PAM or PNM) files.
 * pamflip - Flip or rotate a PAM or PNM image.
 * pamfunc - Apply a simple arithmetic function to a Netpbm image.
@@ -980,8 +961,7 @@ pixels that look the same as the original greyscale.
 * pbmtox10bm - This command is superseded by pbmtoxbm -x10.
 * pbmtoxbm - Convert a PBM image to a X11 or X10 bitmap.
 * pbmtoybm - Convert a PBM file to a Bennet Yee "face" file.
-* pbmtozinc - Convert a PBM image to a Zinc bitmap as used by the Zinc Interface Library Version
-1.0.
+* pbmtozinc - Convert a PBM image to a Zinc bitmap as used by the Zinc Interface Library Version 1.0.
 * pbzip2 - A parallel implementation of the bzip2 file compressor.
 * pcxtoppm - Convert a PCX file to a PPM image.
 * pdf-parser - Identify fundamental elements of a PDF file without rendering it.
@@ -1002,8 +982,7 @@ pixels that look the same as the original greyscale.
 * peco - Interactive filtering tool.
 * peerflix - Stream video- or audio-based torrents to a media player.
 * peerindex - Inspect MRT TABLE_DUMPV2 Peer Index Table.
-* peludna-prognoza - Fetch pollen measurement data for Croatian cities from your terminal using Pliva's
-allergies data API.
+* peludna-prognoza - Fetch pollen measurement data for Croatian cities from your terminal using Pliva's allergies data API.
 * pest - A PHP testing framework with a focus on simplicity.
 * pfetch - Display system information.
 * pgmbentley - Bentleyize a PGM image.
@@ -1025,8 +1004,7 @@ deployment.
 * phpbu - A backup utility framework for PHP.
 * phpcbf - Fix violations detected by phpcs.
 * phpcpd - A copy and paste detector for PHP code.
-* phpcs - Tokenize PHP, JavaScript and CSS files to detect violations of a defined set of coding
-standards.
+* phpcs - Tokenize PHP, JavaScript and CSS files to detect violations of a defined set of coding standards.
 * phpdox - A PHP documentation generator
 * phpenv - A PHP version manager for development purposes.
 * phpize - Prepare a PHP extension for compiling.
@@ -1221,16 +1199,13 @@ terminal.
 * rgrep - Recursively find patterns in files using regular expressions.
 * rhash - Calculate or check common message digests.
 * rich - A toolbox for fancy output in the terminal.
-* rip - Remove files or directories by sending them to the graveyard, allowing for them to
-be recovered.
-* ripgrep - 
-ripgrep is the common name for the command rg.
+* rip - Remove files or directories by sending them to the graveyard, allowing for them to be recovered.
+* ripgrep - ripgrep is the common name for the command rg.
 * rlwrap - Add line editing, persistent history and prompt completion to a REPL command.
 * rm - Remove files or directories.
 * rmdir - Remove directories without files.
 * rmlint - Find space waste and other broken things on your filesystem.
-* roave-backward-compatibility-check - A tool that can be used to verify backward compatibility breaks between two
-versions of a PHP library.
+* roave-backward-compatibility-check - A tool that can be used to verify backward compatibility breaks between two versions of a PHP library.
 * robo - PHP task runner.
 * roll - Rolls a user-defined dice sequence.
 * ROPgadget - Find ROP gadgets in binary files.
@@ -1238,10 +1213,8 @@ versions of a PHP library.
 * rpi-imager - Flash images onto storage devices.
 * rr - Debugging tool designed to record and replay program execution.
 * rss2email - Tool for delivering news from RSS feeds to an email program.
-* rsstail - 
-tail for RSS feeds.
-* rsync - Transfer files either to or from a remote host (but not between two remote hosts),
-by default using SSH.
+* rsstail - tail for RSS feeds.
+* rsync - Transfer files either to or from a remote host (but not between two remote hosts), by default using SSH.
 * rtmpdump - A tool to dump media content streamed over the RTMP protocol.
 * runit - 3-stage init system.
 * runsv - Start and manage a runit service.
@@ -1286,8 +1259,7 @@ SSH connection.
 * shfmt - Shell parser, formatter and interpreter.
 * shift - Move positional parameters.
 * shiori - Simple bookmark manager built with Go.
-* shopt - Manage Bash shell options: variables (stored in $BASHOPTS) that control behavior
-specific to the Bash shell.
+* shopt - Manage Bash shell options: variables (stored in $BASHOPTS) that control behavior specific to the Bash shell.
 * showfigfonts - Display available figlet fonts.
 * shred - Overwrite files to securely delete data.
 * shuf - Generate random permutations.
@@ -1317,8 +1289,7 @@ specific to the Bash shell.
 * speed-test - Test your internet connection speed and ping using https://speedtest.net.
 * speedcrunch - A high-precision scientific calculator
 * speedtest-cli - Test internet bandwidth using https://speedtest.net.
-* speedtest - Official command-line interface for testing internet bandwidth using https://
-speedtest.net.
+* speedtest - Official command-line interface for testing internet bandwidth using https://speedtest.net.
 * spfquery - Query Sender Policy Framework records to validate e-mail senders.
 * sphinx-build - Sphinx documentation generator.
 * spicetify - Customize the Spotify client UI and functionality.
@@ -1326,8 +1297,7 @@ speedtest.net.
 * split - Split a file into pieces.
 * sponge - Soak up the input before writing the output file.
 * spotdl - Download Spotify playlists and songs along with metadata.
-* sqlite-utils - Command-line tool used to manipulate SQLite databases in a number of different
-ways.
+* sqlite-utils - Command-line tool used to manipulate SQLite databases in a number of different ways.
 * sqlite3 - The command-line interface to SQLite 3, which is a self-contained file-based
 embedded SQL engine.
 * sqlmap - Detect and exploit SQL injection flaws.
@@ -1363,18 +1333,15 @@ machine.
 * sudo - Executes a single command as the superuser or another user.
 * sum - Compute checksums and the number of blocks for a file.
 * sup - A tool for managing an RSS feed contained in the current directory.
-* supervisorctl - Supervisor is a client/server system that allows its users to control a number of
-processes on UNIX-like operating systems.
-* supervisord - Supervisor is a client/server system for controlling some processes on UNIX-like
-operating systems.
+* supervisorctl - Supervisor is a client/server system that allows its users to control a number of processes on UNIX-like operating systems.
+* supervisord - Supervisor is a client/server system for controlling some processes on UNIX-like operating systems.
 * surfraw - Query a variety of web search engines.
 * surge - Simple web publishing.
 * sv - Control a running runsv service.
 * svgcleaner - SVG optimizing utility.
 * svgo - SVG Optimizer: a Node.js-based tool for optimizing Scalable Vector Graphics files.
 * svgr - Transform SVGs into React components.
-* swagger-codegen - Generate code and documentation for your REST api from a OpenAPI/swagger
-definition.
+* swagger-codegen - Generate code and documentation for your REST api from a OpenAPI/swagger definition.
 * sync - Flushes all pending write operations to the appropriate disks.
 * syncthing - Continuous bidirectional decentralised folder synchronisation tool.
 * sysbench - Benchmark a System's CPU, IO and memory.
@@ -1398,8 +1365,7 @@ definition.
 * telegram-desktop - Instant messenger with open source clients, chats and stickers.
 * telnet - Connect to a specified port of a host using the telnet protocol.
 * termdown - Countdown timer and stopwatch for the command-line.
-* terminalizer - Utility program which records the terminal and generate animated GIFs or share a
-video.
+* terminalizer - Utility program which records the terminal and generate animated GIFs or share a video.
 * terraform - Create and deploy infrastructure as code to cloud providers.
 * terragrunt - Keep your Terraform CLI arguments DRY.
 * tesseract - OCR (Optical Character Recognition) engine.
@@ -1462,8 +1428,7 @@ ipconfig/ip/ifdata.
 * tre - Show the contents of the current directory as a tree.
 * tred - Compute the transitive reduction of directed graphs.
 * tree - Show the contents of the current directory as a tree.
-* trivy - Scanner for vulnerabilities in container images, file systems, and Git repositories, as
-well as for configuration issues.
+* trivy - Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues.
 * troff - Typesetting processor for the groff (GNU Troff) document formatting system.
 * true - Returns a successful exit status code of 0.
 * truncate - Shrink or extend the size of a file to the specified size.
@@ -1481,8 +1446,7 @@ well as for configuration issues.
 * ufraw-batch - Convert RAW files from cameras into standard image files.
 * ugrep - Ultra fast search tool with query TUI.
 * ulimit - Get and set user limits.
-* umask - Manage the read/write/execute permissions that are masked out (i.e. restricted) for
-newly created files by the user.
+* umask - Manage the read/write/execute permissions that are masked out (i.e. restricted) for newly created files by the user.
 * umount - Unlink a filesystem from its mount point, making it no longer accessible.
 * unalias - Remove aliases.
 * uname - Print details about the current machine and the operating system running on it.
@@ -1503,8 +1467,7 @@ newly created files by the user.
 * upx - Compress or decompress executables.
 * users - Display a list of logged in users.
 * uudecode - Decode files encoded by uuencode.
-* uuencode - Encode binary files into ASCII for transport via mediums that only support simple
-ASCII encoding.
+* uuencode - Encode binary files into ASCII for transport via mediums that only support simple ASCII encoding.
 * vagrant - Manage lightweight, reproducible, and portable development environments.
 * vale - Extensible style checker that supports multiple markup formats, such as Markdown
 and AsciiDoc.
@@ -1514,19 +1477,16 @@ and AsciiDoc.
 * vdir - List directory contents.
 * vectorize-pixelart - Convert PNG pixel art graphics to SVG/EPS vector images.
 * vegeta - A command-line utility and a library for HTTP load testing.
-* vgmstream_cli - Play a wide variety of audio formats used in video games and convert them into
-wav.
+* vgmstream_cli - Play a wide variety of audio formats used in video games and convert them into wav.
 * vgrep - A user friendly pager for grep.
 * vhs - Generate terminal gifs from a tape file.
 * vi - This command is an alias of vim.
 * view - A read-only version of vim.
 * vifm - VI File Manager is a command-line file manager.
-* vim - Vim (Vi IMproved), a command-line text editor, provides several modes for different
-kinds of text manipulation.
+* vim - Vim (Vi IMproved), a command-line text editor, provides several modes for different kinds of text manipulation.
 * vimdiff - Open up two or more files in vim and show the differences between them.
 * vimtutor - Vim tutor, teaching the basic vim commands.
-* virsh - Manage virsh guest domains. (NOTE: 'guest_id' can be the id, name or UUID of the
-guest).
+* virsh - Manage virsh guest domains. (NOTE: 'guest_id' can be the id, name or UUID of the guest).
 * virt-clone - Clone a libvirt virtual machine.
 * visudo - Safely edit the sudoers file.
 * Vite - Create a Vite project.
@@ -1538,8 +1498,7 @@ guest).
 * vzdump - Backup Utility for virtual machines and containers.
 * w - Show who is logged on and what they are doing.
 * w3m - A text-based web browser.
-* waifu2x-ncnn-vulkan - Image upscaler for manga/anime-style images using NCNN neural network
-framework.
+* waifu2x-ncnn-vulkan - Image upscaler for manga/anime-style images using NCNN neural network framework.
 * wait - Wait for a process to complete before proceeding.
 * wal - A tool to create color schemes based on the dominant colors of a wallpaper.
 * wapm - The WebAssembly package manager.
@@ -1572,8 +1531,7 @@ framework.
 * wikit - A command line program for getting Wikipedia summaries easily.
 * winicontopam - Convert a Windows ICO file to a PAM file.
 * wipeclean - Clear the terminal screen using an animated wiper.
-* wkhtmltopdf - An open-source command-line tool to convert HTML documents or web pages into
-PDF files.
+* wkhtmltopdf - An open-source command-line tool to convert HTML documents or web pages into PDF files.
 * wondershaper - Allows the user to limit the bandwidth of one or more network adapters.
 * wordgrinder - Command-line word processor.
 * wormhole - Get things from one computer to another, safely.
@@ -1582,8 +1540,7 @@ PDF files.
 * wpaclean - Clean capture files to get only the 4-way handshake and a beacon.
 * wpscan - WordPress vulnerability scanner.
 * wrangler - Cloudflare Workers command-line tool.
-* write - Write a message on the terminal of a specified logged in user (ctrl-C to stop writing
-messages).
+* write - Write a message on the terminal of a specified logged in user (ctrl-C to stop writing messages).
 * wrk - HTTP benchmarking tool.
 * wuzz - Tool to interactively inspect HTTP requests and responses.
 * x11docker - Securely run GUI applications and desktop UIs in Docker containers.
@@ -1639,14 +1596,12 @@ etc.
 * xzdiff - Invokes diff on files compressed with xz, lzma, gzip, bzip2, lzop, or zstd.
 * xzegrep - This command is an alias of xzgrep --extended-regexp.
 * xzfgrep - This command is an alias of xzgrep --fixed-strings.
-* xzgrep - Search files possibly compressed with xz, lzma, gzip, bzip2, lzop, or zstd using
-regular expressions.
+* xzgrep - Search files possibly compressed with xz, lzma, gzip, bzip2, lzop, or zstd using regular expressions.
 * xzlessvDisplay text from xz and lzma compressed files.
 * xzmore - Display text from xz or lzma compressed files.
 * yacas - Yet Another Computer Algebra System.
 * yacc - Generate an LALR parser (in C) with a given formal grammar specification file.
-* yank - Read input from stdin and display a selection interface that allows a field to be
-selected and copied to the clipboard.
+* yank - Read input from stdin and display a selection interface that allows a field to be selected and copied to the clipboard.
 * yarn - JavaScript and Node.js package manager alternative.
 * ybacklight - Manage screen backlight brightness. See also xbacklight.
 * ybmtopbm - Convert a Bennet Yee "face" file to PBM.
@@ -1672,11 +1627,9 @@ them using string patterns or regular expressions.
 * zgrep - Grep text patterns from files within compressed file (equivalent to grep -Z).
 * zig - The Zig compiler and toolchain.
 * zip - Package and compress (archive) files into zip file.
-* zip2john - A tool to extract password hashes from zip files for use with John the Ripper
-password cracker.
+* zip2john - A tool to extract password hashes from zip files for use with John the Ripper password cracker.
 * zipalign - Zip archive alignment tool.
-* zipgrep - Find patterns in files in a ZIP archive using extended regular expression (supports
-?, +, {}, () and |).
+* zipgrep - Find patterns in files in a ZIP archive using extended regular expression (supports ?, +, {}, () and |).
 * zipinfo - List detailed information about the contents of a .zip file.
 * zipnote - View, add, or edit a zip archive's comments.
 * zless - View gzip and xz compressed files.
