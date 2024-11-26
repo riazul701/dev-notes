@@ -90,3 +90,4 @@
 
 * YouTube Tutorials
   * [AtlasOS vs ReviOS vs Tiny11 - Which is the Best Custom Windows 11? BY NotroDan](https://www.youtube.com/watch?v=2Ya18RAB9Z8)
+  * [আপনার কম্পিউটারে কেন উইন্ডোজ ১১ চলবে না? - This PC can't run windows 11 - Fixed! BY Sohag360](https://www.youtube.com/watch?v=htHI9_sEHbM)

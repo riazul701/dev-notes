@@ -26,6 +26,10 @@
   * [FedeDP/Clight](https://github.com/FedeDP/Clight)
   * [BackLight Unit coNTRoL](http://sven.killig.de/BLUntrl/)
 
+## Warranty
+
+* There is no warranty for "Dead/Stuck Pixel" in Monitor. Therefore, check "Dead/Stuck Pixel" before buying Monitor.
+
 # References
 
 * Guides
@@ -35,3 +39,8 @@
 
 * YouTube
   * [Brightness control for windows 10 | Increase & Decrease brightness in pc | Monitorian |DebajitSaikia BY Debajit Saikia](https://www.youtube.com/watch?v=rs0HfGeME5E)
+
+  * Concept
+    * [এই ৫টি বিষয় দেখে কম্পিউটারের মনিটর কিনুন! Monitor Buying Guide 2023! TechTalk BY Tech Talk](https://www.youtube.com/watch?v=fYIH6WcbpZc)
+    * [HDMI, DisplayPort, DVI, VGA Explained I HDMI vs DisplayPort vs VGA: কোনটা ব্যবহার করবেন? TechTalk BY Tech Talk](https://www.youtube.com/watch?v=2fz2X4J57uU)
+    * [Monitor Refresh Rate Explained in Bangla I Watch Before Buying Monitor I কোন মনিটর সবচেয়ে ভালো? BY Tech Talk](https://www.youtube.com/watch?v=mfERYhZAv5k)
