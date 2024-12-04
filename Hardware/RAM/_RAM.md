@@ -12,6 +12,8 @@
 
 * RAM Speed: MHz * 8 = Speed in MegaByte/Second. For example, 3200MHz * 8 = 25600 MegaByte/Second. <sup>{6}</sup>
 
+* Two RAM 8GB+8GB has better performance than one 16GB RAM. If there is 4 RAM port, then should be inserted in Number-2 and Number-4 port OR Number-1 and Number-3 port. For multiple RAM, buy same brand, same model, same speed and same size. <sup>{7} {8}</sup>
+
 # Windows Memory Diagnostic Tool
 
 * {4} [Hidden tool in Windows to test RAM for Issues BY Buzz2day Tech](https://www.youtube.com/watch?v=RFJHcGK3wEw)
@@ -38,7 +40,7 @@
 
 # References
 
-* next-sl: {7}
+* next-sl: {10}
 
 * Guides
   * {1} [How to run Windows Memory Diagnostic Tool in Windows 10](https://www.microcenter.com/tech_center/article/3067/how-to-run-windows-memory-diagnostic-tool-in-windows-10)
@@ -52,5 +54,6 @@
 
   * Concept
     * {6} [র্যাম কি, কিভাবে কাজ করে, কোনটা কিনবেন? RAM Explained In Bangla I Ram Bus Speed, Timing I TechTalk BY Tech Talk](https://www.youtube.com/watch?v=diUFMBl72so)
-    * [Different Size RAM Use Together? | 8GB + 4GB = 12GB RAM!!! | Problem?! BY The Urbans](https://www.youtube.com/watch?v=6phaMMMlTfA)
-    * [How Much RAM do you Need in PC for Gaming and Editing? | In Laptop and Desktop BY The Urbans](https://www.youtube.com/watch?v=Ja0y5-lO7-E)
+    * {7} [Different Size RAM Use Together? | 8GB + 4GB = 12GB RAM!!! | Problem?! BY The Urbans](https://www.youtube.com/watch?v=6phaMMMlTfA)
+    * {8} [How Much RAM do you Need in PC for Gaming and Editing? | In Laptop and Desktop BY The Urbans](https://www.youtube.com/watch?v=Ja0y5-lO7-E)
+    * {9} [Explaining RAM BY ExplainingComputers](https://www.youtube.com/watch?v=qmJWkfOTOPg)

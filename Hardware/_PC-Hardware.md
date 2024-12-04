@@ -11,16 +11,30 @@
 
 ## Websites
 
-* [HWMonitor for Windows](https://www.cpuid.com/softwares/hwmonitor.html)
-* [hwinfo.com](https://www.hwinfo.com/)
-* [kamgurgul/cpu-info](https://github.com/kamgurgul/cpu-info)
-* [openSUSE/hwinfo](https://github.com/openSUSE/hwinfo)
+* Performance/Test
+  * [HWMonitor for Windows](https://www.cpuid.com/softwares/hwmonitor.html)
+  * [hwinfo.com](https://www.hwinfo.com/)
+  * [kamgurgul/cpu-info](https://github.com/kamgurgul/cpu-info)
+  * [openSUSE/hwinfo](https://github.com/openSUSE/hwinfo)
+  * [passmark.com](https://www.passmark.com/)
+  * [BurnInTest => PC Reliability and Load Testing](https://www.passmark.com/products/burnintest/index.php)
+  * [PerformanceTest](https://www.passmark.com/products/performancetest/index.php)
+  * [CrystalMark Retro](https://crystalmark.info/en/software/crystalmarkretro/)
+  * [Cinebench](https://www.maxon.net/en/cinebench)
 
-* [passmark.com](https://www.passmark.com/)
-* [BurnInTest => PC Reliability and Load Testing](https://www.passmark.com/products/burnintest/index.php)
-* [PerformanceTest](https://www.passmark.com/products/performancetest/index.php)
+* PC Buy
+  * [ryans.com](https://www.ryans.com/)
+  * [startech.com.bd](https://www.startech.com.bd/)
+  * [ultratech.com.bd](https://www.ultratech.com.bd/)
+  * [selltech.com.bd](https://selltech.com.bd/)
+  * [techlandbd.com](https://www.techlandbd.com/)
 
-* [CrystalMark Retro](https://crystalmark.info/en/software/crystalmarkretro/)
+* Tutorials
+  * [YouTube => Branch Education](https://www.youtube.com/@BranchEducation/videos)
+
+## Desktop-PC Transport
+
+* Transport Desktop-PC in Luggage.
 
 # References
 
@@ -55,3 +69,22 @@
   * PC Build
     * {16} [25K 'Gaming PC' Build with Ryzen 5 5600G | Tech Land BD BY Tech Land BD](https://www.youtube.com/watch?v=PpDiq_sbfD0)
     * {17} [25K BDT PC Build Guide 2024 ft. 3400G BY PC Builder Bangladesh](https://www.youtube.com/watch?v=2Q5Z6Z-5bQI)
+    * [😮মাত্র ৬৫০০ টাকায় অসাধারণ ডেস্কটপ পিসি বিল্ড😇Desktop Computer Build 2024 | Intel & Ryzen 5 PC Build. BY One Stop Solution](https://www.youtube.com/watch?v=4po92vuAoj0)
+    * [Ryzen 5 5600G গেমিং ও এডিটিং পিসি!! Ryzen 5 5600G পিসি ঈদ অফারে !! Budget Gaming PC Price 2024 in BD BY Mehedi 360](https://www.youtube.com/watch?v=bcluydueK4o)
+    * [30K PC Build Guide 2024 | Ft. Ryzen 5 5600GT BY PC Builder Bangladesh](https://www.youtube.com/watch?v=qAr_xoQRvmA)
+
+  * Concept
+    * [Explaining USB: From 1.0 to USB4 V2.0 BY ExplainingComputers](https://www.youtube.com/watch?v=PctX3kcTj5U)
+
+  * How Computer Works
+    * [Every Computer Component Explained in 3 Minutes BY The Paint Explainer](https://www.youtube.com/watch?v=OdziYWEkDIM)
+    * [How does Computer Hardware Work? 💻🛠🔬 [3D Animated Teardown] BY Branch Education](https://www.youtube.com/watch?v=d86ws7mQYIg)
+    * [How do Graphics Cards Work? Exploring GPU Architecture BY Branch Education](https://www.youtube.com/watch?v=h9Z4oGN89MU)
+    * [How do Computer Keyboards Work? 🤔⌨⌨🛠 BY Branch Education](https://www.youtube.com/watch?v=h-NM1xSSzHQ)
+    * [How do Hard Disk Drives Work? 💻💿🛠 BY Branch Education](https://www.youtube.com/watch?v=wtdnatmVdIg)
+    * [How does Computer Memory Work? 💻🛠 BY Branch Education](https://www.youtube.com/watch?v=7J7X7aZvMXQ)
+    * [How do Scroll Wheels Work? 🖱🛠🔬BY Branch Education](https://www.youtube.com/watch?v=-HVKm5fIUA8)
+    * [What is Sound? The Fundamental Science Behind Sound BY Branch Education](https://www.youtube.com/watch?v=24yESm63tSY)
+
+  * Laptop
+    * [ব্যবহৃত/ USED ল্যাপটপ কেনার আগে যেসব ব্যাপার জানা দরকার! #usedlaptop #ratulosman #Lenovo #hp #Dell BY Ratul Osman](https://www.youtube.com/watch?v=GmG4TL7F5ZI)

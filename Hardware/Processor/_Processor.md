@@ -12,12 +12,16 @@
 
 ## Websites
 
-* [Intel® Processor Diagnostic Tool](https://www.intel.com/content/www/us/en/download/15951/intel-processor-diagnostic-tool.html)
-* [CPU-Z for Windows® x86/x64](https://www.cpuid.com/softwares/cpu-z.html)
+* Performance/Testing
+  * [Intel® Processor Diagnostic Tool](https://www.intel.com/content/www/us/en/download/15951/intel-processor-diagnostic-tool.html)
+  * [CPU-Z for Windows® x86/x64](https://www.cpuid.com/softwares/cpu-z.html)
+  * [Cinebench](https://www.maxon.net/en/cinebench)
+  * [Prime95 CPU Stress Test](https://www.mersenne.org/download/) <sup>{18}</sup>
 
 * Processor List
   * [List of AMD Ryzen processors](https://en.wikipedia.org/wiki/List_of_AMD_Ryzen_processors)
   * [Windows Processor Requirements](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements)
+  * [techpowerup.com => CPU Specs Database](https://www.techpowerup.com/cpu-specs/)
 
 ## Notes
 
@@ -27,7 +31,7 @@
 
 # References
 
-* next-sl: {18}
+* next-sl: {21}
 
 * Guides
 
@@ -38,6 +42,12 @@
   * Linux
     * {16} [How can I monitor the CPU temperature under linux?](https://superuser.com/questions/25176/how-can-i-monitor-the-cpu-temperature-under-linux)
     * {17} [How do I get the CPU temperature?](https://askubuntu.com/questions/15832/how-do-i-get-the-cpu-temperature)
+
+  * Performance/Test
+    * {18} [Is FurMark CPU Burner a decent stress test?](https://www.reddit.com/r/buildapc/comments/tm2yxn/is_furmark_cpu_burner_a_decent_stress_test/)
+
+  * Comparison
+    * {19} [CPU comparison > AMD Ryzen 5 3400G vs AMD Ryzen 5 5600G](https://versus.com/en/amd-ryzen-5-3400g-vs-amd-ryzen-5-5600g)
 
 * YouTube Tutorials
 
@@ -59,3 +69,4 @@
     * {13} [Intel Vs AMD Processors Comparison Bangla | Which One is better for you? কোনটা ভালো ? BY The Urbans](https://www.youtube.com/watch?v=2h0zf7GKQrQ)
     * {14} [How many Cores do You Need in a CPU/Processor?[Content Creation & Gaming] BY The Urbans](https://www.youtube.com/watch?v=9jdnfv40sHE)
     * {15} [How often should you replace CPU thermal paste? 👉 BY The Urbans](https://www.youtube.com/watch?v=c1q97k1NVK8)
+    * {20} [Explaining Intel & AMD CPUs BY ExplainingComputers](https://www.youtube.com/watch?v=QcxNdXnahOM)
