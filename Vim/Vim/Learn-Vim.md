@@ -2,163 +2,56 @@
 
 * `sudo apt install vim` : In many Linux distribution, "vim-tiny" is installed by default. Which does not have `vimtutor` command and online-manual. Install full `vim` with this command.
 
-# Vim/Vim-Tutorial.md
-
-# "vimtutor" command
-
-* Lesson 1 SUMMARY
-
-  1. The cursor is moved using either the arrow keys or the hjkl keys.
-         h (left)       j (down)       k (up)       l (right)
-
-  2. To start Vim from the shell prompt type:  vim FILENAME <ENTER>
-
-  3. To exit Vim type:     <ESC>   :q!   <ENTER>  to trash all changes.
-           OR type:      <ESC>   :wq   <ENTER>  to save the changes.
-
-  4. To delete the character at the cursor type:  x
-
-  5. To insert or append text type:
-         i   type inserted text   <ESC>         insert before the cursor
-         A   type appended text   <ESC>         append after the line
-
-  NOTE: Pressing <ESC> will place you in Normal mode or will cancel
-      an unwanted and partially completed command.
-
-* Lesson 2 SUMMARY
-  1. To delete from the cursor up to the next word type:    dw
-  2. To delete from the cursor to the end of a line type:    d$
-  3. To delete a whole line type:    dd
-
-  4. To repeat a motion prepend it with a number:   2w
-  5. The format for a change command is:
-               operator   [number]   motion
-     where:
-       operator - is what to do, such as  d  for delete
-       [number] - is an optional count to repeat the motion
-       motion   - moves over the text to operate on, such as  w (word),
-                  $ (to the end of line), etc.
-
-  6. To move to the start of the line use a zero:  0
-
-  7. To undo previous actions, type:           u  (lowercase u)
-     To undo all the changes on a line, type:  U  (capital U)
-     To undo the undo's, type:                 CTRL-R
-
-* Lesson 3 SUMMARY
-  1. To put back text that has just been deleted, type   p .  This puts the
-     deleted text AFTER the cursor (if a line was deleted it will go on the
-     line below the cursor).
-
-  2. To replace the character under the cursor, type   r   and then the
-     character you want to have there.
-
-  3. The change operator allows you to change from the cursor to where the
-     motion takes you.  eg. Type  ce  to change from the cursor to the end of
-     the word,  c$  to change to the end of a line.
-
-  4. The format for change is:
-
-         c   [number]   motion
-
-* Lesson 4 SUMMARY
-  1. CTRL-G  displays your location in the file and the file status.
-             G  moves to the end of the file.
-     number  G  moves to that line number.
-            gg  moves to the first line.
-
-  2. Typing  /  followed by a phrase searches FORWARD for the phrase.
-     Typing  ?  followed by a phrase searches BACKWARD for the phrase.
-     After a search type  n  to find the next occurrence in the same direction
-     or  N  to search in the opposite direction.
-     CTRL-O takes you back to older positions, CTRL-I to newer positions.
-
-  3. Typing  %  while the cursor is on a (,),[,],{, or } goes to its match.
-
-  4. To substitute new for the first old in a line type    :s/old/new
-     To substitute new for all 'old's on a line type       :s/old/new/g
-     To substitute phrases between two line #'s type       :#,#s/old/new/g
-     To substitute all occurrences in the file type        :%s/old/new/g
-     To ask for confirmation each time add 'c'             :%s/old/new/gc
-
-* Lesson 5 SUMMARY
-  1.  :!command  executes an external command.
-
-      Some useful examples are:
-         (Windows)        (Unix)
-          :!dir            :!ls            -  shows a directory listing.
-          :!del FILENAME   :!rm FILENAME   -  removes file FILENAME.
-
-  2.  :w FILENAME  writes the current Vim file to disk with name FILENAME.
-
-  3.  v  motion  :w FILENAME  saves the Visually selected lines in file
-      FILENAME.
-
-  4.  :r FILENAME  retrieves disk file FILENAME and puts it below the
-      cursor position.
-
-  5.  :r !dir  reads the output of the dir command and puts it below the
-      cursor position.
-
-* Lesson 6 SUMMARY
-  1. Type  o  to open a line BELOW the cursor and start Insert mode.
-     Type  O  to open a line ABOVE the cursor.
-
-  2. Type  a  to insert text AFTER the cursor.
-     Type  A  to insert text after the end of the line.
-
-  3. The  e  command moves to the end of a word.
-
-  4. The  y  operator yanks (copies) text,  p  puts (pastes) it.
-
-  5. Typing a capital  R  enters Replace mode until  <ESC>  is pressed.
-
-  6. Typing ":set xxx" sets the option "xxx".  Some options are:
-        'ic' 'ignorecase'       ignore upper/lower case when searching
-        'is' 'incsearch'        show partial matches for a search phrase
-        'hls' 'hlsearch'        highlight all matching phrases
-     You can either use the long or the short option name.
-
-  7. Prepend "no" to switch an option off:   :set noic
-
-* Lesson 7 SUMMARY
-  1. Type  :help  or press <F1> or <HELP>  to open a help window.
-
-  2. Type  :help cmd  to find help on  cmd .
-
-  3. Type  CTRL-W CTRL-W  to jump to another window.
-
-  4. Type  :q  to close the help window.
-
-  5. Create a vimrc startup script to keep your preferred settings.
-
-  6. When typing a  :  command, press CTRL-D to see possible completions.
-     Press <TAB> to use one completion.
-
 # [iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
 
 ## [Ch00. Read This First](https://github.com/iggredible/Learn-Vim/blob/master/ch00_read_this_first.md)
 
-* Help
-  * `:help` : Manual has all the references you will ever need.
+* Ch00. Read This First
+
+* Why This Guide Was Written
   * `vimtutor` : is a great place to start
+  * `:help` : Manual has all the references you will ever need.
+
+* How to Transition to Vim From Using a Different Text Editor
+  * [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)  
+
+* How to Read This Guide
+  * `:s` : substitute command
 
 * More Help
   * `:h CTRL-P` : If you merely search for, you will be directed to normal mode's `Ctrl-P`
   * `:h i_CTRL-P` : The appended `i_` represents the insert mode.
 
-* vimrc
-  * `:h vimrc` : To see where you should put yours, check out
+* Syntax
+  * Vim commands can be abbreviated. For example, `:join` can be abbreviated as `:j`.
+
+* Vimrc
+  * `:h vimrc` : To see where you should put yours, check out. It is usually placed in your home directory and named `.vimrc`
   * Inside `~/.vimrc`, add set number `set number`. Save it `(:w)`, then source it `(:source %)`. You should now see line numbers displayed on the left side.
   * `:set number` : See line numbers displayed on the left side. The downside of this approach is that this setting is temporary. When you close Vim, the option disappears.
-  * Since we are learning about Vim and not Vi, a setting that you must have is the `nocompatible` option. Add set `nocompatible` in your vimrc. Many Vim-specific features are disabled when it is running on `compatible` option.
+  * Since we are learning about Vim and not Vi, a setting that you must have is the `nocompatible` option. Add `set nocompatible` in your vimrc. Many Vim-specific features are disabled when it is running on `compatible` option.
+  * In general, whenever a passage mentions a vimrc option, just add that option into vimrc, save it, and source it.
+
+* Future, Errors, Questions
+
+* I Want More Vim Tricks
+
+* Thank Yous
 
 ## [Ch01. Starting Vim](https://github.com/iggredible/Learn-Vim/blob/master/ch01_starting_vim.md)
+
+* Ch01. Starting Vim
+
+* Installing
+  * To download more information about Vim installation process, check out Vim's official download website or Vim's official github repository:
+    * [Vim website](https://www.vim.org/download.php)
+    * [Vim github](https://github.com/vim/vim)
 
 * The Vim Command
   * `vim` : You should see an intro screen. Vim is a modal editor. If you want to type "hello", you need to switch to insert mode with `i`. Press `ihello<Esc>` to insert the text "hello".
 
 * Exiting Vim
+  * Type `<Esc>` to switch to normal mode. 
   * `:quit` : Exiting Vim
   * `:q` : Exiting Vim
 
@@ -172,28 +65,31 @@
 * Help
   * `:help {some-command}` : (`:h` for short). You can pass to the `:h` command a topic or a command name as an argument.
   * `:h write-quit` : To learn about different ways to quit Vim. 
-  * I just typed `:h`, then "quit", then `<Tab>`.
+  * I just typed `:h`, then "quit", then `<Tab>`.  Vim displayed relevant keywords to choose from.
 
 * Opening a File
   * `vim hello1.txt` : To open a file (hello1.txt) on Vim from the terminal.
   * `vim hello1.txt hello2.txt hello3.txt` : You can also open multiple files at once [in separate buffers]
 
 * Arguments
-  * `vim --version` : To check the current Vim version.
+  * You can pass the vim terminal command with different flags and options.
+  * `vim --version` : To check the current Vim version. And all available features marked with either `+` or `-`.
   * `:history` : Explore Vim's command-line history. Vim needs to have `+cmdline_history` feature for the command to work.
+  * Many things you do from the terminal can also be done from inside Vim.
   * `:version` : To see the version from inside Vim.
+  * If you want to open the file `hello.txt` and immediately execute a Vim command, you can pass to the `vim` command the `+{cmd}` option.
   * `:s` command (short for `:substitute`) : In Vim, you can substitute strings.
   * `vim +%s/pancake/bagel/g hello.txt` : If you want to open hello.txt and substitute all "pancake" with "bagel". 
-  * `vim +%s/pancake/bagel/g +%s/bagel/egg/g +%s/egg/donut/g hello.txt` : These Vim commands can be stacked.
+  * `vim +%s/pancake/bagel/g +%s/bagel/egg/g +%s/egg/donut/g hello.txt` : These Vim commands can be stacked. Vim will replace all instances of "pancake" with "bagel", then replace "bagel" with "egg", then replace "egg" with "donut"
   * You can also pass the -c option followed by a Vim command instead of the + syntax:
     * `vim -c %s/pancake/bagel/g hello.txt`
     * `vim -c %s/pancake/bagel/g -c %s/bagel/egg/g -c %s/egg/donut/g hello.txt`
 
 * Opening Multiple Windows
-  * You can launch Vim on split horizontal and vertical windows with the -o and -O options, respectively.
+  * You can launch Vim on split horizontal and vertical windows with the `-o` and `-O` options, respectively.
   * `vim -o2` : To open Vim with two horizontal windows.
   * `vim -o5` : To open Vim with 5 horizontal windows.
-  * `vim -o5 hello1.txt hello2.txt` : To open Vim with 5 horizontal windows and fill up the first two with hello1.txt and hello2.txt. 
+  * `vim -o5 hello1.txt hello2.txt` : To open Vim with 5 horizontal windows and fill up the first two with hello1.txt and hello2.txt.
   * To open Vim with two vertical windows, 5 vertical windows, and 5 vertical windows with 2 files:
     * `vim -O2`
     * `vim -O5`
@@ -201,26 +97,33 @@
 
 * Suspending
   * `Ctrl-z` : If you need to suspend Vim while in the middle of editing, you can press.
-  * `:stop` or `:suspend` : You can also run either of two commands.
+  * `:stop` or `:suspend` : You can also run either of two commands to suspend.
   * `fg` : To return to the suspended Vim, run this command from the terminal.
 
 * Starting Vim the Smart Way
+  * The `vim` command can take many different options, just like any other terminal command.
   * `+{cmd}` and `-c cmd` : Two options allow you to pass a Vim command as a parameter.
-  * `ls -l | vim -` : Redirect the output of the ls command to be edited in Vim.
-  * `man vim` : To learn more about `vim` command in the terminal. 
-  * `:help` : Continue reading this guide along with this command.
+  * Also being a terminal command, you can combine vim with many other terminal commands.
+  * `ls -l | vim -` : Redirect the output of the `ls` command to be edited in `Vim`.
+  * `man vim` : To learn more about `vim` command in the terminal, check out. 
+  * `:help` : To learn more about the Vim editor, continue reading this guide along with the this command.
 
 ## [Ch02. Buffers, Windows, and Tabs](https://github.com/iggredible/Learn-Vim/blob/master/ch02_buffers_windows_tabs.md)
 
-* `~/.vimrc` : Vim's configuration "vimrc" usually placed in your home directory.
-  * `set hidden` option in vimrc. Without it, whenever you switch buffers and your current buffer is not saved, Vim will prompt you to save the file.
-  * Save it, then source it (run `:source %` from inside the vimrc).
+* Ch02. Buffers, Windows, and Tabs
+  * Vim uses three display abstractions instead of two: buffers, windows, and tabs.
+  * Before you start, make sure you have the `set hidden` option in vimrc. Without it, whenever you switch buffers and your current buffer is not saved, Vim will prompt you to save the file
+  * `~/.vimrc` : Vim's configuration "vimrc" usually placed in your home directory. I have mine on `~/.vimrc`.
+  * `set hidden` option in vimrc. Without it, whenever you switch buffers and your current buffer is not saved, Vim will prompt you to save the file (you don't want that if you want to move quickly). Save it, then source it (run `:source %` from inside the vimrc).
 
 * Buffers
-  * `vim file1.js` : Open "file1.js" in vim.
-  * `vim file1.js file2.js` : Open two new files.
-  * `:buffers` : To see all the buffers.
+  * When you open a file in Vim, the data is bound to a buffer.
+  * `vim file1.js` : Open "file1.js" in vim. Whenever you open a new file, Vim creates a new buffer.
+  * `vim file1.js file2.js` : Open two new files. Vim currently displays `file1.js` buffer, but it actually creates two buffers: `file1.js` buffer and `file2.js` buffer.
+  * `:buffers` : To see all the buffers. You should see both `file1.js` and `file2.js` listed.
     * `:ls` or `:files` : Alternatively, you can use to see all the buffers.
+  * Running `vim file1 file2 file3 ...` filen creates n amount of buffers.
+  * Each time you open a new file, Vim create a new buffer for that file.
   * There are several ways you can traverse buffers:
     * `:bnext` : To go to the next buffer.
     * `:bprevious` : To go to the previous buffer.
@@ -230,7 +133,7 @@
     * `Ctrl-I` : Jump to the newer position in the jump list. [These are not buffer specific methods, but they can be used to jump between different buffers.]
     * `Ctrl-^` : Go to the previously edited buffer.
     * `:bdelete` : To remove buffer, you can type.
-    * `:bdelete 3` : To delete buffer #3
+    * `:bdelete 3` : To delete buffer #3. Accept a buffer number as a parameter
     * `:bdelete` then use `<Tab>` to autocomplete filename.
 
 * Exiting Vim
@@ -239,15 +142,16 @@
   * `:wqall` : To save and quit all buffers. 
 
 * Windows
-  * `vim file1.js` : Open `file1.js` in vim.
+  * `vim file1.js` : Open `file1.js` in vim. You are looking at the `file1.js` buffer, displayed through a window. A window is how you are viewing a buffer through.
   * `:split file2.js` : You are looking at two buffers through two windows. The top window displays `file2.js` buffer. The bottom window displays `file1.js` buffer.
   * If you want to navigate between windows, use these shortcuts:
     * `Ctrl-W H` : Moves the cursor to the left window
     * `Ctrl-W J` : Moves the cursor to the window below
     * `Ctrl-W K` : Moves the cursor to the window upper
     * `Ctrl-W L` : Moves the cursor to the right window
-  * `:vsplit file3.js` : You are now seeing three windows displaying three buffers.
-  * `:buffer file2.js` : You can have multiple windows displaying the same buffer. Now both two windows are displaying `file2.js` buffer.
+  * `:vsplit file3.js` : You are now seeing three windows displaying three buffers. One window displays `file3.js` buffer, another window displays `file2.js` buffer, and another window displays `file1.js` buffer.
+  * `:buffer file2.js` : You can have multiple windows displaying the same buffer. While you're on the top left window, type this. Now both two windows are displaying `file2.js` buffer.
+    * If you start typing on a `file2.js` window, you will see that both windows that display `file2.js` buffers are being updated in real-time.
   * `Ctrl-W C` or type `:quit` : To close the current window. When you close a window, the buffer will still be there (run `:buffers` to confirm this).
   * Here are some useful normal-mode window commands:
     * `Ctrl-W V` : Opens a new vertical split
@@ -260,6 +164,8 @@
     * `:new filename` : Create new window
 
 * Tabs
+  * A tab is a collection of windows. Think of it like a layout for windows.
+  * When you close a tab in Vim, you are not closing a file. You are only closing the layout. The files opened in that layout are still not closed, they are still opened in their buffers.
   * `vim file1.js` : Open `file1.js` in vim.
   * `:tabnew file2.js` : To open `file2.js` in a new tab. Vim autocomplete the file in a new tab by pressing `<Tab>`
   * Below is a list of useful tab navigations:
@@ -271,10 +177,23 @@
     * `:tabfirst` : Go to first tab
   * `gt` : Go to next tab page.
   * `gT` : Go to previous tab.
-  * `3gt` : Go to the third tab. Pass count as argument to `{{count}}gt`.
+  * `3gt` : Go to the third tab. Pass count as argument to `gt`, where count is tab number.
+  * One advantage of having multiple tabs is you can have different window arrangements in different tabs. Maybe you want your first tab to have 3 vertical windows and second tab to have a mixed horizontal and vertical windows layout. Tab is the perfect tool for the job!
   * `vim -p file1.js file2.js file3.js` : To start Vim with multiple tabs.
 
+* Moving in 3D
+  * Moving between windows is like traveling two-dimensionally along the X-Y axis in Cartesian coordinates.
+  * Moving between buffers is like traveling across the Z axis in Cartesian coordinates.
+
+* Using Buffers, Windows, and Tabs the Smart Way
+  * First, I use buffers to store all the required files for the current task.
+  * I use multiple windows to view multiple buffers at once, usually when diffing files, reading docs, or following a code flow.
+  * Instead of tabs, I use `tmux` windows. I usually use multiple tmux windows at once. For example, one tmux window for client-side codes and another for backend codes.
+    * [tmux](https://github.com/tmux/tmux/wiki)
+
 ## [Ch03. Searching Files](https://github.com/iggredible/Learn-Vim/blob/master/ch03_searching_files.md)
+
+* Ch03. Searching Files
 
 * Opening and Editing Files
   * `:edit file.txt` : If `file.txt` exists, it opens the `file.txt` buffer. If `file.txt` doesn't exist, it creates a new buffer for `file.txt`.
