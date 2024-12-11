@@ -8,6 +8,8 @@
 
 ## Notes
 
+* Check there is no loose connection between power supply cable and motherboard port.
+
 * Power-Supply-Unit (PSU) certification in ascending order <sup>{2}</sup>
   * 80 PLUS (WHITE/STANDARD)
   * 80 PLUS BRONZE
@@ -15,6 +17,15 @@
   * 80 PLUS GOLD
   * 80 PLUS PLATINUM
   * 80 PLUS TITANIUM
+
+* Power-Supply-Unit (PSU) Protections <sup>{6}</sup>
+  * OCP - Over Current Protection
+  * OTP - Over Temperature Protection
+  * OVP - Over Voltage Protection
+  * OPP - Over Power Protection
+  * UVP - Under Voltage Protection
+  * SCP - Short Circuit Protection
+  * Also Check Continuous Power Delivery, Not Peak.
 
 * If Power-Supply-Unit is placed at bottom of pc-casing, it has better airflow. In that case, pc-casing must have front-side and back-side cooling fan. <sup>{4}</sup>
 
@@ -28,7 +39,7 @@
 
 # References
 
-* next-sl: {6}
+* next-sl: {7}
 
 * YouTube Tutorials
 
@@ -38,4 +49,5 @@
     * {3} [Power Supply Unit (PSU) কিভাবে Select করবেন BY The SIM Play](https://www.youtube.com/watch?v=Z1nQ1qBzCgc)
     * {4} [Explaining PC Power Supplies BY ExplainingComputers](https://www.youtube.com/watch?v=NQoLFIuJBGQ)
     * {5} [Power Supplies Explained BY PowerCert Animated Videos](https://www.youtube.com/watch?v=ZW1wcoERoDU)
+    * {6} [How to choose BEST Power Supply for PC in 2024. PSU SMPS Buyer's Guide. BY INDIAN GAMER](https://www.youtube.com/watch?v=MaXbA2-EekE)
     

@@ -26,12 +26,22 @@
 ## Notes
 
 * Windows 11: You need a processor that must be in the 8th generation. <sup>{2}</sup>
+* Integrated Graphics <sup>{20}</sup>
+  * AMD processor name ends with letter "G" means, it has integrated graphics and this processor is called APU (Accelarated Processing Unit). All other AMD processors except this naming do not have graphics inbuilt and require external graphics card to get monitor output.
+  * Intel processor name ends with letter "F" means, it does not have integrated graphics and require external graphics card to get monitor output. All other Intel processors (has letter "G" in name) except this have integrated graphics.
 
-# Processor Monitor
+## Processor List
+
+* Most Popular AMD Processors
+  * AMD Ryzen 5 5600g (Best Budget Friendly)
+  * AMD Ryzen 5 3400g (Old)
+  * AMD Ryzen 5 2200g (Old)
+
+* AMD has been pretty quiet about the entry-level 8600G and 8700G CPUs, but why? With reduced PCIe lanes, Zen4c cores, a pretty beefy built-in GPU. <sup>{21}</sup>
 
 # References
 
-* next-sl: {21}
+* next-sl: {22}
 
 * Guides
 
@@ -54,11 +64,15 @@
   * Performance
     * {3} [Processor Health Check | How to Check Processor Performance 2020 Guide | Test your CPU or Processor BY Shadman Hiya](https://www.youtube.com/watch?v=TIB4M4LuCKs)
 
+  * Warranty
+    * [Why Does Overclocking Void Your Warranty? BY Techquickie](https://www.youtube.com/watch?v=TsRWeOPw0vk)
+
   * Product
     * {4} [Ryzen 5 5600G (Vega 7) vs Ryzen 5 3400G (Vega 11) Gaming Test ! 2021 BY PC Support & Gaming Test](https://www.youtube.com/watch?v=OAr52MDKRx8)
     * {5} [AMD Ryzen 5600G vs 3400G vs 3200G Benchmark BY WePC Benchmarks](https://www.youtube.com/watch?v=RNHUMY31-2E)
     * {6} [Ryzen 5 5600G vs Ryzen 5 3400G | Which One To Buy | Hindi BY Tech community](https://www.youtube.com/watch?v=M-TtABtTSp8)
     * {7} [I Bought Most Liked AMD Processor!🤩 Ryzne 5 5600G Worth Buying in 2024? Extreme Gaming Test BY Adi 4 u](https://www.youtube.com/watch?v=ID0TEEZ5LHc)
+    * {21} [AMD failed to mention this... - AMD Ryzen 8000G Series BY ShortCircuit](https://www.youtube.com/watch?v=chwFYURKmIY)
 
   * Concept
     * {8} [রাইজেন কেনার আগে অবশ্যই দেখুন! চায়না, গ্লোবাল কোনটা নিবেন! AMD Ryzen Buying Guide 2023 I TechTalk BY Tech Talk](https://www.youtube.com/watch?v=Kl4Tra8ONbI)
@@ -70,3 +84,9 @@
     * {14} [How many Cores do You Need in a CPU/Processor?[Content Creation & Gaming] BY The Urbans](https://www.youtube.com/watch?v=9jdnfv40sHE)
     * {15} [How often should you replace CPU thermal paste? 👉 BY The Urbans](https://www.youtube.com/watch?v=c1q97k1NVK8)
     * {20} [Explaining Intel & AMD CPUs BY ExplainingComputers](https://www.youtube.com/watch?v=QcxNdXnahOM)
+    * [Processor কেনার সময় কি কি দেখতে হবে BY The SIM Play](https://www.youtube.com/watch?v=7jyIptvd8e0)
+
+  * Name Explained YouTube
+    * [⚡AMD RYZEN Processor Naming Scheme Explained | 🔥AMD CPU Letters | AMD Secret Letters You Didn't Know BY GADGET WORLD](https://www.youtube.com/watch?v=J9NzzV_-G_A)
+    * [Ryzen's Confusing New Numbering Scheme BY Techquickie](https://www.youtube.com/watch?v=oErJG3fThF0)
+    * [Intel Processor Naming Scheme Explained | Intel CPU Letters | Intel Secret Letters You Didn't Know BY GADGET WORLD](https://www.youtube.com/watch?v=uRBmLb5lhrE)

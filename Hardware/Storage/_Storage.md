@@ -13,6 +13,7 @@
 # Notes
 
 * Different SSD has different TBW (Terabytes Written). So check TBW, before buying SSD.
+* 1TB SSD loses about 90GB while the 500GB SSD loses about 45GB. (Assumed computer sizes 1024 and 512 - so it's approximate)<sup>{20} {21}</sup>
 
 ## Product
 
@@ -20,18 +21,19 @@
 
 # References
 
-* next-sl: {12}
+* next-sl: {22}
 
 * Product
-  * [Addlink S70 Lite 1TB M.2 2280 PCIe NVMe SSD](https://www.ultratech.com.bd/addlink-s70-lite-1tb-nvme-ssd)
-  * [Addlink S70 1 TB](https://www.techpowerup.com/ssd-specs/addlink-s70-1-tb.d345)
+  * {11} [Addlink S70 Lite 1TB M.2 2280 PCIe NVMe SSD](https://www.ultratech.com.bd/addlink-s70-lite-1tb-nvme-ssd)
+  * {12} [Addlink S70 1 TB](https://www.techpowerup.com/ssd-specs/addlink-s70-1-tb.d345)
 
 * Guides
 
   * General
     * {1} [How long do SSDs last after passing their TBW limit?](https://www.reddit.com/r/homelab/comments/oouxxi/how_long_do_ssds_last_after_passing_their_tbw/)
     * {2} [What will happen when my SSD has reached its TBW limit?](https://www.quora.com/What-will-happen-when-my-SSD-has-reached-its-TBW-limit)
-    * [Can you put an NVMe SSD in a SATA enclosure?](https://www.reddit.com/r/buildapc/comments/8g134v/can_you_put_an_nvme_ssd_in_a_sata_enclosure/?rdt=38811)
+    * {19} [Can you put an NVMe SSD in a SATA enclosure?](https://www.reddit.com/r/buildapc/comments/8g134v/can_you_put_an_nvme_ssd_in_a_sata_enclosure/?rdt=38811)
+    * {20} [How much usable space is on a 1TB SSD?](https://www.quora.com/How-much-usable-space-is-on-a-1TB-SSD)
 
   * Linux
     * {8} [How can I monitor the CPU temperature under linux?](https://superuser.com/questions/25176/how-can-i-monitor-the-cpu-temperature-under-linux)
@@ -48,8 +50,13 @@
     * {6} [Storage Media Life Expectancy: SSDs, HDDs & More! BY ExplainingComputers](https://www.youtube.com/watch?v=xA9Xq7hb6Q0)
     * {7} [SSD Will Burn?🔥M.2 NVMe SSD Heating Issue🔥 Heatsink vs W/O Heatsink SSD @KshitijKumar1990 BY Kshitij Kumar](https://www.youtube.com/watch?v=fxB-6NXmtnY)
     * {10} [Don't Buy External SSD 2025🔥Don't Waste Your Money @KshitijKumar1990 BY Kshitij Kumar](https://www.youtube.com/watch?v=5Qu-S0FJ_4M)
-    * [Using an Old SSD as External Storage 🖴 DIY in 5 Ep 142 BY Kingston Technology](https://www.youtube.com/watch?v=xZCSZm9M8Tc)
-    * [Install an Internal M.2 into an External Enclosure – DIY in 5 Ep 72 BY Kingston Technology](https://www.youtube.com/watch?v=AKed1OdLwvk)
-    * [Cooling Your SSD with a Heatsink – DIY in 5 Ep 195 BY Kingston Technology](https://www.youtube.com/watch?v=nnp4b5MCoqk)
-    * [Most Important for your PC | Best M.2 SSD Heat Sink BY Sai Techvision](https://www.youtube.com/watch?v=nHV4Fd3VQPA)
-    * [Explaining SSDs: The Price/Performance Trade-off BY ExplainingComputers](https://www.youtube.com/watch?v=F8k_XIEhKWo)
+    * {13} [Using an Old SSD as External Storage 🖴 DIY in 5 Ep 142 BY Kingston Technology](https://www.youtube.com/watch?v=xZCSZm9M8Tc)
+    * {14} [Install an Internal M.2 into an External Enclosure – DIY in 5 Ep 72 BY Kingston Technology](https://www.youtube.com/watch?v=AKed1OdLwvk)
+    * {15} [Cooling Your SSD with a Heatsink – DIY in 5 Ep 195 BY Kingston Technology](https://www.youtube.com/watch?v=nnp4b5MCoqk)
+    * {16} [Most Important for your PC | Best M.2 SSD Heat Sink BY Sai Techvision](https://www.youtube.com/watch?v=nHV4Fd3VQPA)
+    * {17} [Explaining SSDs: The Price/Performance Trade-off BY ExplainingComputers](https://www.youtube.com/watch?v=F8k_XIEhKWo)
+    * {18} [Is COOLING Your SSD A MISTAKE? BY Techquickie](https://www.youtube.com/watch?v=Z3auLJtDb7s)
+    * {21} [What is SSD Overprovisioning? BY Techquickie](https://www.youtube.com/watch?v=Q15wN8JC2L4)
+
+  * nvme 4.0 in 3.0 slot
+    * [PCIe 4.0 M.2 NVMe SSD on PCIe 3.0 slot-Worth it? BY Tao M Studio](https://www.youtube.com/watch?v=qrHRIjooG64)
