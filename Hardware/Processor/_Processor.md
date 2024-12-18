@@ -12,6 +12,11 @@
 
 ## Websites
 
+* Benchmark
+  * [techpowerup.com => CPU Specs Database](https://www.techpowerup.com/cpu-specs/)
+  * [cpubenchmark.net => CPU Benchmarks](https://www.cpubenchmark.net/)
+  * [Top Laptop CPU Ranking](https://laptopmedia.com/top-laptop-cpu-ranking/)
+
 * Performance/Testing
   * [Intel® Processor Diagnostic Tool](https://www.intel.com/content/www/us/en/download/15951/intel-processor-diagnostic-tool.html)
   * [CPU-Z for Windows® x86/x64](https://www.cpuid.com/softwares/cpu-z.html)
@@ -21,11 +26,12 @@
 * Processor List
   * [List of AMD Ryzen processors](https://en.wikipedia.org/wiki/List_of_AMD_Ryzen_processors)
   * [Windows Processor Requirements](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements)
-  * [techpowerup.com => CPU Specs Database](https://www.techpowerup.com/cpu-specs/)
-
+  
 ## Notes
 
 * Windows 11: You need a processor that must be in the 8th generation. <sup>{2}</sup>
+  * [Windows Processor Requirements](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements)
+  
 * Integrated Graphics <sup>{20}</sup>
   * AMD processor name ends with letter "G" means, it has integrated graphics and this processor is called APU (Accelarated Processing Unit). All other AMD processors except this naming do not have graphics inbuilt and require external graphics card to get monitor output.
   * Intel processor name ends with letter "F" means, it does not have integrated graphics and require external graphics card to get monitor output. All other Intel processors (has letter "G" in name) except this have integrated graphics.
@@ -59,6 +65,10 @@
   * Comparison
     * {19} [CPU comparison > AMD Ryzen 5 3400G vs AMD Ryzen 5 5600G](https://versus.com/en/amd-ryzen-5-3400g-vs-amd-ryzen-5-5600g)
 
+  * Name Explained
+    * [Decoding CPU Names: Understanding AMD & Intel's Nomenclature](https://primetechsupport.com/blogs/gaming-pc-repairs/decoding-cpu-names-understanding-amd-intels-nomenclature)
+    * [Understanding AMD Processor Names](https://medium.com/@meCreator/01-understanding-amd-processor-names-3a89261dcd99)
+
 * YouTube Tutorials
 
   * Performance
@@ -85,8 +95,10 @@
     * {15} [How often should you replace CPU thermal paste? 👉 BY The Urbans](https://www.youtube.com/watch?v=c1q97k1NVK8)
     * {20} [Explaining Intel & AMD CPUs BY ExplainingComputers](https://www.youtube.com/watch?v=QcxNdXnahOM)
     * [Processor কেনার সময় কি কি দেখতে হবে BY The SIM Play](https://www.youtube.com/watch?v=7jyIptvd8e0)
+    * [How are Microchips Made? 🖥️🛠️ CPU Manufacturing Process Steps BY Branch Education](https://www.youtube.com/watch?v=dX9CGRZwD-w)
 
   * Name Explained YouTube
     * [⚡AMD RYZEN Processor Naming Scheme Explained | 🔥AMD CPU Letters | AMD Secret Letters You Didn't Know BY GADGET WORLD](https://www.youtube.com/watch?v=J9NzzV_-G_A)
     * [Ryzen's Confusing New Numbering Scheme BY Techquickie](https://www.youtube.com/watch?v=oErJG3fThF0)
     * [Intel Processor Naming Scheme Explained | Intel CPU Letters | Intel Secret Letters You Didn't Know BY GADGET WORLD](https://www.youtube.com/watch?v=uRBmLb5lhrE)
+    * [6 Things You Need to Know About Computers! BY The Mysterious Tech](https://www.youtube.com/watch?v=p86QAKTSalE)

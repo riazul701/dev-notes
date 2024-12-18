@@ -8,15 +8,13 @@
 * VA Panel Monitor's COLOR Is WASHED-OUT (ঝাপসা), So DO NOT Buy It. <sup>{6}</sup>
 * Xiaomi Monitor has BAD COLOR. <sup>{18}</sup>
 
-* Best Monitors
-  * [MSI PRO MP225 21.5 inch 100Hz IPS FHD Monitor](https://www.ultratech.com.bd/msi-pro-mp225-100hz-ips-fhd-monitor)
-  * [MSI PRO MP243X 23.8 Inch 100Hz IPS FHD Monitor](https://www.ultratech.com.bd/msi-pro-mp243x-100hz-ips-fhd-monitor)
-
-* MSI Monitor Display Kit
-  * Brightness Control From Software
-    * {17} {Best Monitor} [১০ হাজার টাকায় 100Hz IPS মনিটর! | MSI PRO MP225 Bangla Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=jD2a4BwNROA)
-    * {6} {VA Panel Has BAD Color} [100hz MSI MP223 Monitor Review | 10000 Taka Best Monitor BY PC Builder Bangladesh](https://www.youtube.com/watch?v=MrZpJ37PimA)
-    * {15} [The BEST Gaming Monitor Settings 2023 BY Vylsa](https://www.youtube.com/watch?v=ydRjb-nPmvM)
+* Brightness Control Software
+  * [MSI Display Kit](https://www.msi.com/Landing/MSI-Display-Kit)
+  * [Lenovo Artery Software](https://smartdisplay.lenovo.com/artery/)
+  * [Lenovo Display Control Center – ThinkColour](https://support.lenovo.com/us/en/downloads/ds547223-lenovo-display-control-center-thinkcolor)
+  * {{VG series}} [ViewSonic vDisplay Manager](https://www.viewsonic.com/bd/products/lcd/vDisplay%20Manager)
+  * [What Is HP Display Center And How To Download It](https://www.hp.com/th-en/shop/tech-takes/post/what-is-hp-display-center)
+  * [LG OnScreen Control => Search Model Number](https://www.lg.com/us/support/software-firmware-drivers) <sup>{29}</sup>
 
 * Specifications
   * [displayspecifications.com](https://www.displayspecifications.com/)
@@ -30,7 +28,7 @@
   * [Pixels Per Inch PPI Calculator](https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php)
 
 * DDC/CI
-  * DDC/CI (Display Data Channel/Command Interface) supported monitors, HDMI Cable.
+  * DDC/CI (Display Data Channel/Command Interface) supported monitors, HDMI/VGA Cable.
   * [Display Data Channel Wikipedia](https://en.wikipedia.org/wiki/Display_Data_Channel)
 
   * Multiple Platform
@@ -43,6 +41,7 @@
     * [xanderfrangos/twinkle-tray](https://github.com/xanderfrangos/twinkle-tray) || [twinkletray.com](https://twinkletray.com/) || [Twinkle Tray: Brightness Slider BY Xander Frangos](https://www.microsoft.com/store/productId/9PLJWWSV01LK)
     * [blackholeearth/Win10_BrightnessSlider](https://github.com/blackholeearth/Win10_BrightnessSlider)
     * [scottaxcell/winddcutil](https://github.com/scottaxcell/winddcutil)
+    * [NirSoft ControlMyMonitor](https://www.nirsoft.net/utils/control_my_monitor.html) <sup>{28}</sup>
 
   * Linux
     * [ddccontrol/ddccontrol](https://github.com/ddccontrol/ddccontrol)
@@ -60,6 +59,7 @@
 * Also check Monitor Bleeding.
 
 * Dead/Stuck Pixel Test
+  * [EIZO MONITOR TEST](https://www.eizo.be/monitor-test/)
   * {10} [Dead Pixel Test BY CharlietoKind](https://www.youtube.com/watch?v=gIA_4nV-CqE)
 
 * Monitor Bleeding Test
@@ -67,13 +67,57 @@
 
 ## Notes
 
+* CHECK Monitor supports VESA Mount For Using Monitor Stand. <sup>{26}</sup>
+
+* MSI Monitor Has Software Control Feature, named "MSI Display Kit". <sup>{17} {15}</sup>
+
+* If You Use Monitor Greater Than 24 Inch, Then You Have To Move Head/Neck To See Display Corner. It can cause Head/Neck Pain. So Do Not Buy Monitor Above 24 Inch. <sup>{25}</sup>
+
+* Do Not Buy Glossy Panel Surface Monitor, Because It Reflect Light. By Anti-Glare/Matte Finishing Monitor. <sup>{24}</sup>
+
 * Graphics-Card "Sync" with Monitor means, Graphics-Card provides FPS (Frame Per Second) according to monitor capability. This feature is Monitor specific.
   * NVIDIA has G-Sync for Monitor
   * AMD has FreeSync for Monitor
 
+# Product
+
+## Best Monitors
+
+* Have Eye-Care Technology and Software OSD Control (Brightness, Contrast, Etc.) Feature
+
+* MSI 100Hz
+  * {{Eye-Care}} [MSI PRO MP225 21.5 inch 100Hz IPS FHD Monitor](https://www.ultratech.com.bd/msi-pro-mp225-100hz-ips-fhd-monitor)
+  * {{Eye-Care}} [MSI PRO MP243X 23.8 Inch 100Hz IPS FHD Monitor](https://www.ultratech.com.bd/msi-pro-mp243x-100hz-ips-fhd-monitor)
+  * {{Eye-Care}} [MSI PRO MP252 24.5 Inch 100Hz IPS FHD Monitor](https://www.ultratech.com.bd/msi-pro-mp252-245-inch-100hz-business-productivity-monitor)
+* Lenovo 75Hz
+  * {{Eye-Care 75Hz}} [Lenovo L22i-40 21.5 Inch FHD IPS HDMI VGA Professional Monitor](https://fourstaritbd.com/lenovo-l22i-40-ips-fhd-monitor/)
+
+## Software Brightness/OSD Control
+
+* HP 75Hz
+  * [HP M22f 21.5 Inch IPS LED FHD Monitor](https://www.ultratech.com.bd/hp-m22f-215-inch-ips-led-fhd-monitor)
+
+* LG Monitor
+  * {29} [LG On Screen Control (OSC) Full Review! LG Monitor Utility Tool (27GL650F/22MP68VQ) Hindi BY GEEKY SOUMYA](https://www.youtube.com/watch?v=vZ5OBicwznU)
+    * Comments
+    * @Kapildev_N._Pol: Sir Yeh har lg monitor pe chalega kya ya phir specific model pe
+      * @GEEKYSOUMYA: Most of the LG Models per chalega
+
+# Specification
+
+## Software Brightness Control
+
+* Software Brightness Control Demo
+  * MSI Display Kit
+    * {17} {Best Monitor} [১০ হাজার টাকায় 100Hz IPS মনিটর! | MSI PRO MP225 Bangla Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=jD2a4BwNROA)
+    * {6} {VA Panel Has BAD Color} [100hz MSI MP223 Monitor Review | 10000 Taka Best Monitor BY PC Builder Bangladesh](https://www.youtube.com/watch?v=MrZpJ37PimA)
+    * {15} [The BEST Gaming Monitor Settings 2023 BY Vylsa](https://www.youtube.com/watch?v=ydRjb-nPmvM)
+  * Lenovo Artery / Display Control Center – ThinkColour
+    * {27} [১০ হাজার টাকায় সেরা!! | Lenovo L22i-40 Bangla Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=96CA_wUjI0Y)
+
 ## PPI (Pixels Per Inch)
 
-* Above 100 PPI Is Good For Reading Text And Programming. Do Not Go Beyond 24 Inch For Full HD.<sup>{19} {20} {21}</sup>
+* Above 100 PPI Is Good For Reading Text And Programming. Do Not Go Beyond 24 Inch For Full HD. 23.8 Inch == 92.56 PPI.<sup>{19} {20} {21}</sup>
   * 21.5 Inch Full HD Monitor Is Best According To PPI. It Has 102.46 PPI. <sup>{21}</sup>
 
 * Monitor PPI List <sup>{13}</sup>
@@ -122,14 +166,14 @@
   * @kunalsehgal3481 => Lol even before watching this video I bought a 22 inch full hd monitor instead of 24 inch just because of ppi. For me size doesn't matter that much, but I don't want a grainy display on a new monitor.
   * @swarajroy5631 => 27inch hamesha 2k k upar kharidna chaiye.
 
-## Product
+## Product Feature
 
 * Check "MSI Display Kit" of MSI-Monitor <sup>{5}</sup>
 * "Dahua DHI-LM22-C201PL" Monitor has DDC/CI (Display Data Channel/Command Interface) Feature. <sup>{6}</sup>
 
 # References
 
-* next-sl: {24}
+* next-sl: {30}
 
 * Monitor Test
   * Dead/Stuck Pixel Test
@@ -140,10 +184,11 @@
 
 * Guides
 
-  * General
+  * DDC/CI (Display Data Channel / Command Interface)
     * {1} [After 10 years of using monitors I found out that you can control their brightness via software (DDC/CI)](https://www.reddit.com/r/Monitors/comments/tok3g9/after_10_years_of_using_monitors_i_found_out_that/?rdt=46942)
     * {2} [How can I get my PC to automatically adjust the screen brightness based on ambient light?](https://www.quora.com/How-can-I-get-my-PC-to-automatically-adjust-the-screen-brightness-based-on-ambient-light)
     * {3} [MSI Monitor keeps auto-adjusting the brightness constantly](https://www.reddit.com/r/Monitors/comments/b6s985/msi_monitor_keeps_autoadjusting_the_brightness/?rdt=43611)
+    * {28} [Why don't more monitor brands have a software-based OSD, that allows for FULL control?](https://www.reddit.com/r/Monitors/comments/mpion4/why_dont_more_monitor_brands_have_a_softwarebased/)
 
   * PPI (Pixels Per Inch)
     * {19} [What Is Pixel Density And Pixels Per Inch (PPI)?](https://www.displayninja.com/what-is-pixel-density/)
@@ -153,7 +198,10 @@
   * DDC/CI (Brightness)
     * {4} [Brightness control for windows 10 | Increase & Decrease brightness in pc | Monitorian |DebajitSaikia BY Debajit Saikia](https://www.youtube.com/watch?v=rs0HfGeME5E)
 
-  * Product
+  * OSD (On Screen Display) Software
+    * {29} [LG On Screen Control (OSC) Full Review! LG Monitor Utility Tool (27GL650F/22MP68VQ) Hindi BY GEEKY SOUMYA](https://www.youtube.com/watch?v=vZ5OBicwznU)
+
+  * Monitor Product
     * {17} {Best Monitor} [১০ হাজার টাকায় 100Hz IPS মনিটর! | MSI PRO MP225 Bangla Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=jD2a4BwNROA)
     * {6} {VA Panel Has BAD Color} [100hz MSI MP223 Monitor Review | 10000 Taka Best Monitor BY PC Builder Bangladesh](https://www.youtube.com/watch?v=MrZpJ37PimA)
     * {5} [24.5inch 100hz IPS Budget Monitor! | MSI Pro MP251 Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=1MIJv3ZpCpE)
@@ -161,6 +209,7 @@
     * {14} [আরও একটা ১০০ হার্জ মনিটর! | Dahua DHI-LM22-C201PL Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=kYHLvJnjuiQ)
     * {15} [The BEST Gaming Monitor Settings 2023 BY Vylsa](https://www.youtube.com/watch?v=ydRjb-nPmvM)
     * {23} [Top 5 Best 100Hz Monitors Tested - Here's The Result ('24 Edition) BY Tech Land BD](https://www.youtube.com/watch?v=jHwQs-K19Y4)
+    * {27} [১০ হাজার টাকায় সেরা!! | Lenovo L22i-40 Bangla Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=96CA_wUjI0Y)
 
   * Bad Monitor
     * {18} [Testing Budget Xiaomi Monitors BY PC Builder Bangladesh](https://www.youtube.com/watch?v=fEnSDCmRnlY)
@@ -170,9 +219,33 @@
     * {8} [HDMI, DisplayPort, DVI, VGA Explained I HDMI vs DisplayPort vs VGA: কোনটা ব্যবহার করবেন? TechTalk BY Tech Talk](https://www.youtube.com/watch?v=2fz2X4J57uU)
     * {9} [Monitor Refresh Rate Explained in Bangla I Watch Before Buying Monitor I কোন মনিটর সবচেয়ে ভালো? BY Tech Talk](https://www.youtube.com/watch?v=mfERYhZAv5k)
     * {12} [Explaining Display Connectors: HDMI, DisplayPort, USB-C, DVI, VGA & Thunderbolt BY ExplainingComputers](https://www.youtube.com/watch?v=R-mJ0J_ACEM)
+    * {24} [IPS vs VA vs TN vs QD-OLED vs WOLED - Which Display Tech is Best? BY Monitors Unboxed](https://www.youtube.com/watch?v=NFPcLmIVIbY)
+    * {25} [Watch This BEFORE You Buy a Monitor! BY The Mysterious Tech](https://www.youtube.com/watch?v=nEAyY9dzAZ0)
+    * [Why Monitor Brands Are Lying to You? BY The Mysterious Tech](https://www.youtube.com/watch?v=iI1eBfMA7WU)
 
   * PPI (Pixels Per Inch) YouTube
     * {13} [Best Monitor Size For 1080p, 1440p, 4K & Ultrawide Monitors: Pixel Density Explained! BY TotallydubbedHD](https://www.youtube.com/watch?v=o6kWpXFDpco)
     * {20} [Ultimate Guide⚡Best Budget Monitors Under 10000, 15000, and 20,000 in 2024 BY TechZonical](https://www.youtube.com/watch?v=OxqiQpt3hJ8)
     * {21} [Don't Make THIS Mistake!! BY Hardware Mana](https://www.youtube.com/watch?v=tVeE-zAQkFI)
     * {22} [27” 1080p Monitors - Do they suck? Viewsonic XG2705 Review - TechteamGB BY TechteamGB](https://www.youtube.com/watch?v=Ub8m5sHEUDQ)
+    * [Monitor Size Matters!!! BY Daniel Owen](https://www.youtube.com/watch?v=2W7_FqInpxY)
+    * [Are You Making This MONITOR Buying Mistake? BY VGYAN TECH](https://www.youtube.com/watch?v=2hUsXEKiBVw)
+
+  * G-Sync/FreeSync/Adaptive Sync
+    * [Nvidia G-Sync vs AMD FreeSync vs Adaptive Sync in 2024 BY Monitors Unboxed](https://www.youtube.com/watch?v=CQdo67SjIHk)
+    * [Replying to Misconceptions, Confusion & Comments: G-Sync vs FreeSync vs Adaptive Sync BY Monitors Unboxed](https://www.youtube.com/watch?v=biSY6WeCDus)
+    * [Your Next Monitor Is A Keeper! - AdaptiveSync Explained BY Techquickie](https://www.youtube.com/watch?v=1fKoBigWEAk)
+
+  * Monitor Stand
+    * {26} [MONITOR STAND Buying Guide for BEGINNERS in India BY INDIAN GAMER](https://www.youtube.com/watch?v=GLqgTLtCPfA)
+    * [Dream মাল্টি মনিটর Setup - All About ARM's & Mounts BY PC Builder Bangladesh](https://www.youtube.com/watch?v=bUGAD0AWWcI)
+    * [Best Way to Setup My Dual Monitors? BY David Zhang](https://www.youtube.com/watch?v=l1N3jlgqcQ4)
+    * [Are Vertical Monitors Worth It for Programming? BY Federico Terzi](https://www.youtube.com/watch?v=CpdQud__yys)
+    * [The Ultimate Monitor Arm Tier List BY BTODtv](https://www.youtube.com/watch?v=80KBIItTMoE)
+    * [$25 vs. $300 Monitor Arm - What Stands Do I Recommend? BY David Zhang](https://www.youtube.com/watch?v=__K4V8pFhf4)
+    * [DO NOT Buy A Monitor Arm Until You’ve Watched This Video BY BTODtv](https://www.youtube.com/watch?v=f4hcvSoPrp8)
+    * [Monitor Arm comparison ft IKEA MALM desk. How to choose? BY Tao M Studio](https://www.youtube.com/watch?v=KVkGNzW4WTQ)
+
+  * Monitor Stand Product
+    * [KALOC DS200 Monitor Arm Unboxing and Installation | First Time Dual Monitor Setup BY Project Galileo](https://www.youtube.com/watch?v=5BFZE45zpw4)
+    * [KALOC DS200 SINGLE DESK MONITOR ARM, ADJUSTABLE GAS SPRING BY Distiplus Lebanon](https://www.youtube.com/watch?v=np9cYe_wUzA)

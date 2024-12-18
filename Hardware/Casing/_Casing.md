@@ -53,3 +53,7 @@
     * {5} [Computer Case Fans! Waste Of Money? (Hindi) BY GEEKY SOUMYA](https://www.youtube.com/watch?v=zX9kCrMTsjw)
     * [PC Case AIRFLOW; A Visual Guide for Optimal Cooling. BY Mr Matt Lee](https://www.youtube.com/watch?v=YNcd-IGMj2c)
     * [Mini Tower VS MID Tower VS Full Tower Cabinet |Which One Is Better?Cabinet Buying Guide 2020 [HINDI] BY Miner TechTips](https://www.youtube.com/watch?v=GZNEox7m9nY)
+
+  * Casing Fan
+    * [কম টাকায় বেস্ট কেসিং ফ্যান । Budget case fan BY TechMania |BD|](https://www.youtube.com/watch?v=rTeqDMDWW4s)
+    * [Deepcool CF-120 Plus case fan quite durable & aesthetics BY TechMania |BD|](https://www.youtube.com/watch?v=viQL4JRxQfs)

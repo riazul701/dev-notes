@@ -39,7 +39,7 @@
 
 # References
 
-* next-sl: {7}
+* next-sl: {8}
 
 * YouTube Tutorials
 
@@ -50,4 +50,5 @@
     * {4} [Explaining PC Power Supplies BY ExplainingComputers](https://www.youtube.com/watch?v=NQoLFIuJBGQ)
     * {5} [Power Supplies Explained BY PowerCert Animated Videos](https://www.youtube.com/watch?v=ZW1wcoERoDU)
     * {6} [How to choose BEST Power Supply for PC in 2024. PSU SMPS Buyer's Guide. BY INDIAN GAMER](https://www.youtube.com/watch?v=MaXbA2-EekE)
+    * {7} [PSU SCAM INDIA BY INDIAN GAMER](https://www.youtube.com/watch?v=dXlShxSRGPo)
     

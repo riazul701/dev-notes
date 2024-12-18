@@ -8,7 +8,9 @@
 
 ## Websites
 
-* [techpowerup.com => SSD Specs Database](https://www.techpowerup.com/ssd-specs/) <sup>{11}</sup>
+* Benchmark
+  * [techpowerup.com => SSD Specs Database](https://www.techpowerup.com/ssd-specs/) <sup>{11}</sup>
+  * [harddrivebenchmark.net => Hard Drive Benchmarks](https://www.harddrivebenchmark.net/)
 
 # Notes
 

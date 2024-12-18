@@ -11,6 +11,9 @@
 
 ## Websites
 
+* Benchmark
+  * [pcbenchmarks.net => System Benchmarks](https://www.pcbenchmarks.net/)
+
 * Performance/Test
   * [HWMonitor for Windows](https://www.cpuid.com/softwares/hwmonitor.html)
   * [hwinfo.com](https://www.hwinfo.com/)
@@ -26,9 +29,9 @@
   * [PCMark 10 — The Complete Benchmark](https://benchmarks.ul.com/pcmark10)
 
 * PC Buy
+  * {{Low Price 1}} [ultratech.com.bd](https://www.ultratech.com.bd/)
   * [ryans.com](https://www.ryans.com/)
   * [startech.com.bd](https://www.startech.com.bd/)
-  * [ultratech.com.bd](https://www.ultratech.com.bd/)
   * [selltech.com.bd](https://selltech.com.bd/)
   * [techlandbd.com](https://www.techlandbd.com/)
 
@@ -50,6 +53,10 @@
 
 * YouTube Tutorials
   
+  * Cautions (PC)
+    * [6 Mistakes That Could Ruin Your PC Build! BY The Mysterious Tech](https://www.youtube.com/watch?v=GR9UgR3-VtY)
+    * [Save your pc from Lightning ! BY TechMania |BD|](https://www.youtube.com/watch?v=JubA4DCjArY)
+
   * BurnInTest (PC)
     * {1} [How to Download, Install and Stress Test your PC with BurnInTest (for Windows) BY PassMark Software](https://www.youtube.com/watch?v=J-Yv0Y4kLvA)
     * {2} [What's New: BurnInTest V11 by PassMark Software BY PassMark Software](https://www.youtube.com/watch?v=1bc987U8ENI)
@@ -81,10 +88,15 @@
     * {20} [😮মাত্র ৬৫০০ টাকায় অসাধারণ ডেস্কটপ পিসি বিল্ড😇Desktop Computer Build 2024 | Intel & Ryzen 5 PC Build. BY One Stop Solution](https://www.youtube.com/watch?v=4po92vuAoj0)
     * {21} [Ryzen 5 5600G গেমিং ও এডিটিং পিসি!! Ryzen 5 5600G পিসি ঈদ অফারে !! Budget Gaming PC Price 2024 in BD BY Mehedi 360](https://www.youtube.com/watch?v=bcluydueK4o)
     * {22} [30K PC Build Guide 2024 | Ft. Ryzen 5 5600GT BY PC Builder Bangladesh](https://www.youtube.com/watch?v=qAr_xoQRvmA)
+    * [জীবনমুখী পিসি বিল্ড!! ৩০ হাজারে এডিটিং পিসি বিল্ড গাইড BY PC Builder Bangladesh](https://www.youtube.com/watch?v=EfXj6pJ4n7o)
 
   * Concept
     * {23} [Explaining USB: From 1.0 to USB4 V2.0 BY ExplainingComputers](https://www.youtube.com/watch?v=PctX3kcTj5U)
     * {36} [Bottleneck কি ? কিভাবে Bottleneck Avoid করবেন BY The SIM Play](https://www.youtube.com/watch?v=kyW_f0_wtNk)
+    * [Capacitors, Resistors, and Electronic Components BY Techquickie](https://www.youtube.com/watch?v=OEL5laB3hfU)
+    * [DON'T Buy a PC Without Watching This Video! BY The Mysterious Tech](https://www.youtube.com/watch?v=bjvM3DJENbA)
+    * [7 Things You NEED TO KNOW About Computers! Pt.2 BY The Mysterious Tech](https://www.youtube.com/watch?v=1Ec7xF5ODhE)
+    * [Laptop vs Desktop... Which is better in 2024? BY The Mysterious Tech](https://www.youtube.com/watch?v=zqh9XrE71rI)
 
   * How Computer Works
     * {24} [Every Computer Component Explained in 3 Minutes BY The Paint Explainer](https://www.youtube.com/watch?v=OdziYWEkDIM)
@@ -107,3 +119,6 @@
   * Thermal Paste/Heatsink
     * {37} [Install Thermal Compound Paste as Fast As Possible BY Techquickie](https://www.youtube.com/watch?v=Q2p6Hk4IfqI)
     * {38} [What is a Heatsink as Fast As Possible BY Techquickie](https://www.youtube.com/watch?v=tX2VKEesUiE)
+
+  * PC Security
+    
