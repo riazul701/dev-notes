@@ -47,9 +47,18 @@
 
 * Transport Desktop-PC in Luggage.
 
+## Resource Monitoring
+
+* {39} [I need a good OSD GPU/CPU temp monitoring software for games](https://www.reddit.com/r/pcgamingtechsupport/comments/i8c3f7/i_need_a_good_osd_gpucpu_temp_monitoring_software/)
+
 # References
 
-* next-sl: {39}
+* next-sl: {40}
+
+* PC-Hardware.md
+
+  * Resource Monitoring
+    * {39} [I need a good OSD GPU/CPU temp monitoring software for games](https://www.reddit.com/r/pcgamingtechsupport/comments/i8c3f7/i_need_a_good_osd_gpucpu_temp_monitoring_software/)
 
 * YouTube Tutorials
   

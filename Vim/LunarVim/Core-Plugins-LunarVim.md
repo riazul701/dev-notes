@@ -1,16 +1,21 @@
 # LunarVim Core Plugins
 
-## [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+* [Core Plugins List](https://www.lunarvim.org/docs/features/core-plugins-list)
+
+## [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+
+* About
+  * A modern plugin manager for Neovim
 
 ## [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 ## [tamago324/nlsp-settings.nvim](https://github.com/tamago324/nlsp-settings.nvim)
 
-## [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+## [nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim/)
 
 ## [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 
-## [https://github.com/williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+## [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
 
 ## [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 
@@ -30,15 +35,33 @@
 
 ## [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 
+* About
+  * Set of preconfigured snippets for different languages.
+
 ## [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+
+* About
+  * Snippet Engine for Neovim written in Lua.
 
 ## [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 
+* About
+  * nvim-cmp source for neovim builtin LSP client
+
 ## [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+
+* About
+  * luasnip completion source for nvim-cmp
 
 ## [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 
+* About
+  * nvim-cmp source for buffer words
+
 ## [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+
+* About
+  * nvim-cmp source for paths
 
 ## [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 
@@ -64,21 +87,36 @@
 
 ## [tamago324/lir.nvim](https://github.com/tamago324/lir.nvim)
 
+* About
+  * Neovim file explorer
+
 ## [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+
+* About
+  * Git integration for buffers
 
 ## [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ## [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 
+* About
+  * Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
+
 ## [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 
-## [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+## [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 
 ## [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+
+* About
+  * A blazing fast and easy to configure neovim statusline plugin written in pure lua
 
 ## [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 
 ## [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+
+* About
+  * A snazzy bufferline for Neovim
 
 ## [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)
 
@@ -86,12 +124,27 @@
 
 ## [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 
+* About
+  * a lua powered greeter like vim-startify / dashboard-nvim
+
 ## [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 
 ## [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 
 ## [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 
-## [lunarvim/onedarker.nvim](lunarvim/onedarker.nvim)
+## [lunarvim/onedarker.nvim](https://github.com/lunarvim/onedarker.nvim)
 
 ## [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+
+* About
+  * Indent guides for Neovim
+
+# Not Mentioned In List
+
+* Not Mentioned In [Core Plugins List](https://www.lunarvim.org/docs/features/core-plugins-list), But Present In `/home/<user-name>/.local/share/lunarvim/site/pack/lazy/opt` Directory.
+
+## [LunarVim/bigfile.nvim](https://github.com/lunarvim/bigfile.nvim)
+
+* About
+  * This plugin automatically disables certain features if the opened file is big.

@@ -18,14 +18,18 @@
     * [JrSchmidtt/lunar-vscode-theme](https://github.com/JrSchmidtt/lunar-vscode-theme) || [LunarVim Dark Theme BY Junior Schmidt](https://marketplace.visualstudio.com/items?itemName=JuniorSchmidt.lunar-vscode-theme)
 
 ## Notes
+
 * Keyboard
   * Press "TAB" key after ":" to auto-complete commands.
+
 * Paths
+
   * Windows-OS
     * Configuration(plugins) file: C:\Users\<user-name>\AppData\Local\lvim
     * Installed plugins: C:\Users\<user-name>\AppData\Roaming\lunarvim
     * LunarVim binary: C:\Users\<user-name>\.local\bin\lvim.ps1
     * PowerShell profile: C:\Users\<user-name>\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
   * Linux-OS
     * LunarVim executable file: `/home/<user-name>/.local/bin`
       * [Using "${a:-b}" for variable assignment in scripts](https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts)
@@ -36,7 +40,9 @@
     * LunarVim GitHub repository: `/home/<user-name>/.local/share/lunarvim/lvim/`
     * Cache folder: `/home/<user-name>/.cache/lvim/`
     * Fonts folder: `/home/<user-name>/.local/share/fonts/`
+    * "mason" language server: `/home/<user-name>/.local/share/lvim/mason/packages`
     * Node.js packages path (using Node-Version-Manager): 
+
 * Conflicts
   * (Windows-OS) Scoop installed "ruby, gem" conflicts with Git-Bash installed "ruby, gem". For this reason "tmuxinator" does not work. So intall "ruby" only inside Git-Bash. And use LunarVim inside Bash.
 

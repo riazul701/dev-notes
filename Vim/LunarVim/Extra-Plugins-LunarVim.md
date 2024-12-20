@@ -1,5 +1,7 @@
 # LunarVim Extra Plugins
 
+* [Example configurations => Extra Plugin List](https://www.lunarvim.org/docs/configuration/plugins/example-configurations)
+
 # Navigation plugins
 
 ## [hop](https://github.com/phaazon/hop.nvim)

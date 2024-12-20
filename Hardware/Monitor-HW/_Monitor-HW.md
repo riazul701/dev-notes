@@ -9,12 +9,15 @@
 * Xiaomi Monitor has BAD COLOR. <sup>{18}</sup>
 
 * Brightness Control Software
-  * [MSI Display Kit](https://www.msi.com/Landing/MSI-Display-Kit)
-  * [Lenovo Artery Software](https://smartdisplay.lenovo.com/artery/)
-  * [Lenovo Display Control Center – ThinkColour](https://support.lenovo.com/us/en/downloads/ds547223-lenovo-display-control-center-thinkcolor)
+  * [MSI Display Kit](https://www.msi.com/Landing/MSI-Display-Kit) <sup>{17} {6} {15}</sup>
+  * [Lenovo Artery Software](https://smartdisplay.lenovo.com/artery/) <sup>{27}</sup>
+  * [Lenovo Display Control Center – ThinkColour](https://support.lenovo.com/us/en/downloads/ds547223-lenovo-display-control-center-thinkcolor) <sup>{27}</sup>
   * {{VG series}} [ViewSonic vDisplay Manager](https://www.viewsonic.com/bd/products/lcd/vDisplay%20Manager)
   * [What Is HP Display Center And How To Download It](https://www.hp.com/th-en/shop/tech-takes/post/what-is-hp-display-center)
   * [LG OnScreen Control => Search Model Number](https://www.lg.com/us/support/software-firmware-drivers) <sup>{29}</sup>
+  * [Acer Display Widget](https://www.acer.com/us-en/acer-display-widget) <sup>{30}</sup>
+  * [Asus DisplayWidget Center](https://www.asus.com/content/monitor-software-osd-displaywidgetcenter/)
+    * [Asus DisplayWidget Supported Monitor](https://zentalk.asus.com/t5/faq/lcd-monitor-asus-displaywidget-center/ta-p/408942)
 
 * Specifications
   * [displayspecifications.com](https://www.displayspecifications.com/)
@@ -73,7 +76,7 @@
 
 * If You Use Monitor Greater Than 24 Inch, Then You Have To Move Head/Neck To See Display Corner. It can cause Head/Neck Pain. So Do Not Buy Monitor Above 24 Inch. <sup>{25}</sup>
 
-* Do Not Buy Glossy Panel Surface Monitor, Because It Reflect Light. By Anti-Glare/Matte Finishing Monitor. <sup>{24}</sup>
+* Do Not Buy Glossy Panel Surface Monitor, Because It Reflects Light. By Anti-Glare/Matte Finishing Monitor. <sup>{24}</sup>
 
 * Graphics-Card "Sync" with Monitor means, Graphics-Card provides FPS (Frame Per Second) according to monitor capability. This feature is Monitor specific.
   * NVIDIA has G-Sync for Monitor
@@ -173,7 +176,7 @@
 
 # References
 
-* next-sl: {30}
+* next-sl: {31}
 
 * Monitor Test
   * Dead/Stuck Pixel Test
@@ -189,6 +192,7 @@
     * {2} [How can I get my PC to automatically adjust the screen brightness based on ambient light?](https://www.quora.com/How-can-I-get-my-PC-to-automatically-adjust-the-screen-brightness-based-on-ambient-light)
     * {3} [MSI Monitor keeps auto-adjusting the brightness constantly](https://www.reddit.com/r/Monitors/comments/b6s985/msi_monitor_keeps_autoadjusting_the_brightness/?rdt=43611)
     * {28} [Why don't more monitor brands have a software-based OSD, that allows for FULL control?](https://www.reddit.com/r/Monitors/comments/mpion4/why_dont_more_monitor_brands_have_a_softwarebased/)
+    * [Why don't any monitors use software controls instead of the OSD?](https://www.reddit.com/r/Monitors/comments/kcg7mp/why_dont_any_monitors_use_software_controls/)
 
   * PPI (Pixels Per Inch)
     * {19} [What Is Pixel Density And Pixels Per Inch (PPI)?](https://www.displayninja.com/what-is-pixel-density/)
@@ -200,6 +204,7 @@
 
   * OSD (On Screen Display) Software
     * {29} [LG On Screen Control (OSC) Full Review! LG Monitor Utility Tool (27GL650F/22MP68VQ) Hindi BY GEEKY SOUMYA](https://www.youtube.com/watch?v=vZ5OBicwznU)
+    * {30} [Acer Display Widget Software Tour w/ VG240YS BY Satyajit Mishra](https://www.youtube.com/watch?v=DsbMznV43EU)
 
   * Monitor Product
     * {17} {Best Monitor} [১০ হাজার টাকায় 100Hz IPS মনিটর! | MSI PRO MP225 Bangla Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=jD2a4BwNROA)
@@ -249,3 +254,11 @@
   * Monitor Stand Product
     * [KALOC DS200 Monitor Arm Unboxing and Installation | First Time Dual Monitor Setup BY Project Galileo](https://www.youtube.com/watch?v=5BFZE45zpw4)
     * [KALOC DS200 SINGLE DESK MONITOR ARM, ADJUSTABLE GAS SPRING BY Distiplus Lebanon](https://www.youtube.com/watch?v=np9cYe_wUzA)
+
+  * Multi-Monitor Setup
+    * [Best Way to Setup My Dual Monitors? BY David Zhang](https://www.youtube.com/watch?v=l1N3jlgqcQ4)
+    * [Dual Monitor Productivity Setup Guide 2022 BY ThisIsE](https://www.youtube.com/watch?v=9YV4-vW174E)
+    * [Ultrawide Monitor VS Dual Monitor Setup - Which one is better? BY The Indian Budget Gamer](https://www.youtube.com/watch?v=JjIwVvuH2tE)
+
+  * Monitor Light Bar
+    * [MONITOR LIGHT BAR complete buying guide. Pros and Cons. Prices. Types etc. BY INDIAN GAMER](https://www.youtube.com/watch?v=3yVOBVpzbIs)
