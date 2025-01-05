@@ -1,8 +1,20 @@
+# Commands/Usage
+
+* `apt show snapd` : Shows information about "snap"/"snapd" package
+* `sudo apt install snapd` : Install "snap"/"snapd" package
+* `which snap` : Shows "snap" installation path
+* `systemctl status snapd` : Check "snapd" status
+* `snap help --all` : Shows help of "snap" command
+
 # Snap Package Manager
 
 ## Websites
 
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
+* [repology.org](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)
+* [snapcraft.io](https://snapcraft.io/)
+* [Snap documentation](https://snapcraft.io/docs)
 
 ## Guides
 * [Bash only show first column value](https://unix.stackexchange.com/questions/136884/how-to-use-a-shell-command-to-only-show-the-first-column-and-last-column-in-a-te)
@@ -21,3 +33,13 @@
   * Get bash path: `which bash` [Shows output: `/usr/bin/bash`]
   * Change "End Of Line": In Notepad++ Edit->EOL Conversion->Unix (LF)
   *
+
+# References
+
+* next-sl: {3}
+
+* Guides
+  * {1} [Snap => Installing the daemon](https://snapcraft.io/docs/installing-snapd)
+  * {2} [Installing snap on Debian](https://snapcraft.io/docs/installing-snap-on-debian)
+
+* YouTube Tutorials

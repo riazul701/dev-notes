@@ -6,6 +6,10 @@
 
 ## Plugin List
 
+* Plugin Manager
+  * [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+  * [Shougo/dein.vim](https://github.com/Shougo/dein.vim)
+
 * Git
   * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 

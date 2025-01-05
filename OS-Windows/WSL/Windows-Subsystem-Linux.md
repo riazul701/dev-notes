@@ -71,7 +71,7 @@
   * Install WSL2 on Windows 10 (older versions)
   * Enable Windows Subsystem for Linux
     * Open Start on Windows 10
-	* Search for Turn Windows features on or off and click the top result to open the app.
+	* Search for Turn Windows features on or off and click the top result to open the app. [[Control Panel -> Programs and Features -> Turn Windows features on or off]]
 	* Check the “Windows Subsystem for Linux” option.
 	* Click the OK button
 	* Click the Restart button.

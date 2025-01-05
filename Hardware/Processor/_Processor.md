@@ -31,6 +31,7 @@
 
 * Windows 11: You need a processor that must be in the 8th generation. <sup>{2}</sup>
   * [Windows Processor Requirements](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements)
+  * Windows 11 requires TPM (Trusted Platform Module) 2.0 in Processor/Motherboard. Check it, before buying.
   
 * Integrated Graphics <sup>{20}</sup>
   * AMD processor name ends with letter "G" means, it has integrated graphics and this processor is called APU (Accelarated Processing Unit). All other AMD processors except this naming do not have graphics inbuilt and require external graphics card to get monitor output.
@@ -70,6 +71,10 @@
     * [Understanding AMD Processor Names](https://medium.com/@meCreator/01-understanding-amd-processor-names-3a89261dcd99)
 
 * YouTube Tutorials
+
+  * Cautions
+    * [Thoda Ruko!!!!! 🔥 Intel 13th Aur 14th Gen Processor Ki Badi Problem BY Sai Techvision](https://www.youtube.com/watch?v=U4eMQEWNGfU)
+    * [Avoid Intel CPUs in 2024: Don't Buy Intel in 2024 BY GEEKY SOUMYA](https://www.youtube.com/watch?v=TuDwshNh9wA)
 
   * Performance
     * {3} [Processor Health Check | How to Check Processor Performance 2020 Guide | Test your CPU or Processor BY Shadman Hiya](https://www.youtube.com/watch?v=TIB4M4LuCKs)

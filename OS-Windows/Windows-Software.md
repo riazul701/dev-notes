@@ -218,6 +218,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Screenshot (Selected)
   * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
 
+* Screen Recorder (Selected)
+  * [obsproject/obs-studio => Live streaming and screen recording](https://github.com/obsproject/obs-studio)
+
 ## File Management (Selected)
 
 * File Manager (Selected)
@@ -574,9 +577,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [flameshot-org/flameshot => Cross-platform tool to take screenshots](https://github.com/flameshot-org/flameshot)
   * [ksnip/ksnip => Cross-platform screenshot and annotation tool](https://github.com/ksnip/ksnip)
 
-* Desktop Screen Recorder (List)
+* Screen Recorder (List)
+  * [obsproject/obs-studio => Live streaming and screen recording](https://github.com/obsproject/obs-studio)
   * [ScreenRec](https://screenrec.com/)
-
 
 ## File Management (List)
 

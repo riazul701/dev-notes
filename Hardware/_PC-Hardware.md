@@ -43,6 +43,11 @@
 * During Motherboard BIOS upgrade, if electricity loss occurs, then motherboard may be dead. <sup>{35}</sup>
 * Change Thermal-Paste after years, because it dried out over time. <sup>{37}</sup>
 
+## Trusted Platform Module (TPM)
+
+* [Find Windows 11 specs, features, and computer requirements](https://www.microsoft.com/en-us/windows/windows-11-specifications)
+* [Enable TPM 2.0 on your PC](https://support.microsoft.com/en-us/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c)
+
 ## Desktop-PC Transport
 
 * Transport Desktop-PC in Luggage.
