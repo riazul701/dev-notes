@@ -4,6 +4,7 @@
 
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
 * [repology.org](https://repology.org/)
+* {1} [Nix Official Packages](https://search.nixos.org/packages)
 * [distrowatch.com](https://distrowatch.com/)
 * [nix-community/home-manager](https://github.com/nix-community/home-manager)
 * [thiagokokada/nix-alien](https://github.com/thiagokokada/nix-alien)
@@ -22,11 +23,28 @@
 * Tutorials
   * [Nix language basics](https://nix.dev/tutorials/nix-language.html)
 
+## Notes
+
+* PATHs
+  * Installed softwares are located at: `/home/{{user-name}}/.nix-profile/bin` [Softwares are installed with `nix-env -iA nixpkgs.{{package-name}}` command] <sup>{1}</sup>
+
+* In Q4OS, Nix adds software to $PATH, for both graphical and command-line software. But Nix does not add software to Menu.
+
+
 # References
 
-* next-sl: {}
+* next-sl: {1}
 
 * Guides
+
+  * General
+    * {1} [Nix Official Packages](https://search.nixos.org/packages)
+
+  * NixOS
+    * [NixOS Basics](https://itsfoss.com/tag/nix-os/)
+
+  * Package Manager
+    * [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/)
 
   * Server
     * [NixOS friendly hosters](https://nixos.wiki/wiki/NixOS_friendly_hosters)

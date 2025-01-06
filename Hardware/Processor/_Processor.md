@@ -75,6 +75,7 @@
   * Cautions
     * [Thoda Ruko!!!!! 🔥 Intel 13th Aur 14th Gen Processor Ki Badi Problem BY Sai Techvision](https://www.youtube.com/watch?v=U4eMQEWNGfU)
     * [Avoid Intel CPUs in 2024: Don't Buy Intel in 2024 BY GEEKY SOUMYA](https://www.youtube.com/watch?v=TuDwshNh9wA)
+    * [Intel chips can’t possibly be this bad… 100% crash rate? BY Fireship](https://www.youtube.com/watch?v=H8LrwI-I_fY)
 
   * Performance
     * {3} [Processor Health Check | How to Check Processor Performance 2020 Guide | Test your CPU or Processor BY Shadman Hiya](https://www.youtube.com/watch?v=TIB4M4LuCKs)

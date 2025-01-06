@@ -24,6 +24,13 @@
 * [Bash array with spaces in elements](https://stackoverflow.com/questions/9084257/bash-array-with-spaces-in-elements)
 * [Linux replace space to newline for a string](https://stackoverflow.com/questions/33533897/linux-replace-space-to-newline-for-a-string)
 
+## Notes
+
+* PATHs
+  * Snap ".desktop"/Menu files are located at: `/var/lib/snapd/desktop/applications`
+
+* In Q4OS, Snap adds software to $PATH, for both graphical and command-line software. Also Snap adds software to Menu.
+
 ## Test Code
 * Install package: `sudo snap install smplayer`
 * Check "smplayer" package installed or not: `snap list | awk '{print $1}' | grep smplayer`
