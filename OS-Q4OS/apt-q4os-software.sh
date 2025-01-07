@@ -1,127 +1,127 @@
 #!/bin/bash
 
-declare -a snap_softwares_all
+
+if [[ "$USER" == "root" ]]
+then
+    echo -e "\033[1;31m Do not run this script with \"sudo\" prefix. \"sudo\" will be used internally when necessary! \033[0m"
+    exit
+fi
+download_path="/home/$USER/Downloads/Debian_Software"
+nix_env_path=$(command -v nix-env)
+apt_list_installed=$(apt list --installed)
+
+declare -A snap_softwares_all
+declare -A snap_office_softwares
+declare -A snap_home_softwares
+declare -A flatpak_softwares_all
+declare -A flatpak_office_softwares
+declare -A flatpak_home_softwares
+declare -A nix_softwares_all
+declare -A nix_office_softwares
+declare -A nix_home_softwares
 declare -a apt_softwares_all
+declare -a apt_office_softwares
+declare -a apt_home_softwares
 declare -A deb_softwares_all
 declare -A deb_office_softwares
 declare -A deb_home_softwares
 declare -a appimage_softwares_all
 declare -a tar_softwares_all
 
-snap_office_softwares=(
-# "firefox"
-"opera"
-# "code --classic"
+snap_office_softwares=( 
+    ["code"]="code --classic"
 )
 
 snap_home_softwares=(
-# "vlc"
-"shotcut --classic"
-# "audacity"
+    ["opera"]="opera"
+)
+
+flatpak_office_softwares=( 
+    ["org.mozilla.Thunderbird"]="org.mozilla.Thunderbird"
+)
+
+flatpak_home_softwares=(
+    ["org.gimp.GIMP"]="org.gimp.GIMP"
+)
+
+nix_office_softwares=( 
+    ["marktext"]="marktext"
+)
+
+nix_home_softwares=(
+    ["audacity"]="audacity"
 )
 
 apt_office_softwares=(
-"git"
-# "git-lfs"
-# "gh"
-# "vim"
-# "restic"
-# "rsync"
-# "sqlite3"
-# "sqlitebrowser"
-# "docker"
-# "docker-compose"
-# "docker.io"
-# "vagrant"
-# "nodejs"
-# "npm"
-#"libreoffice"
-# "p7zip"
-# "p7zip-full"
-# "p7zip-rar"
-# "filezilla"
-# "gimp"
-# "rofi"
-# "virtualbox"
-# "vifm"
-# "pulseaudio"
-# "pavucontrol"
-# "pcmanfm"
-# "gum"
-# "flameshot"
-# "trash-cli"
+    ["filezilla"]="filezilla"
+    # ["flameshot"]="flameshot"
 )
 
 apt_home_softwares=(
-# "vlc"
-# "rclone-browser"
-"smplayer"
-# "smtube"
-# "shotcut"
-# "audacity"
-# "handbrake"
-# "handbrake-cli"
-# "scrcpy"
-# "scrcpy-server"
+    ["smplayer"]="smplayer"
 )
 
-deb_office_softwares=( 
-       ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" 
-       # ["microsoft-edge"]="https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-beta/microsoft-edge-beta_109.0.1518.23-1_amd64.deb"
-	   # ["github-cli"]="https://github.com/cli/cli/releases/download/v2.20.2/gh_2.20.2_linux_amd64.deb"
-	   # ["smart-git"]="https://www.syntevo.com/downloads/smartgit/smartgit-22_1_1.deb"
-	   # ["rclone"]="https://github.com/rclone/rclone/releases/download/v1.62.2/rclone-v1.62.2-linux-amd64.deb"
-	   # ["teamviewer"]="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
-	   # ["anydesk"]="https://download.anydesk.com/linux/anydesk_6.2.1-1_amd64.deb"
-       # ["code"]="https://az764295.vo.msecnd.net/stable/441438abd1ac652551dbe4d408dfcec8a499b8bf/code_1.75.1-1675893397_amd64.deb"
-       # ["sublime-text"]="https://download.sublimetext.com/sublime-text_build-4143_amd64.deb"
-       # ["sublime-merge"]="https://download.sublimetext.com/sublime-merge_build-2083_amd64.deb"
-       # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/1.54.0/debian-bullseye-mindforger_1.54.0-1_amd64.deb"
-       # ["virtualbox"]="https://download.virtualbox.org/virtualbox/7.0.4/virtualbox-7.0_7.0.4-154605~Ubuntu~jammy_amd64.deb"
+deb_office_softwares=(
+    # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
 )
 
 deb_home_softwares=( 
-       # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb" 
-       ["4kvideodownload"]="https://dl.4kdownload.com/app/4kvideodownloader_4.22.2-1_amd64.deb"
+    # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
 )
 	 
 appimage_office_softwares=(
-    "https://github.com/dail8859/NotepadNext/releases/download/v0.5.6/NotepadNext-x86_64.AppImage"
-    # "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
-    # "https://github.com/pbek/QOwnNotes/releases/download/v23.3.7/QOwnNotes-x86_64.AppImage"
+    # "https://github.com/dail8859/NotepadNext/releases/download/v0.5.6/NotepadNext-x86_64.AppImage"
 )
 
 appimage_home_softwares=(
-    "https://github.com/mhoeher/opentodolist/releases/download/3.42.0/OpenTodoList-3.42.0-x86_64.AppImage"
+    # "https://github.com/mhoeher/opentodolist/releases/download/3.42.0/OpenTodoList-3.42.0-x86_64.AppImage"
 )
 
 tar_office_softwares=(
-# "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
-"https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
+    # "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
 )
 
 tar_home_softwares=(
     # "https://github.com/emuell/restic-browser/releases/download/v0.2.5/Restic-Browser-v0.2.5-linux.tar.gz"
-    "https://freefilesync.org/download/FreeFileSync_12.1_Linux.tar.gz"
 )
 
-snap_softwares_all+=("${snap_office_softwares[@]}")
-apt_softwares_all+=("${apt_office_softwares[@]}")
-for deb_office_soft_key in "${!deb_office_softwares[@]}"; do
-    deb_softwares_all[${deb_office_soft_key}]=${deb_office_softwares[$deb_office_soft_key]}
+for snap_cmd in "${!snap_office_softwares[@]}"; do
+    snap_softwares_all[$snap_cmd]=${snap_office_softwares[$snap_cmd]}
+done
+for flatpak_cmd in "${!flatpak_office_softwares[@]}"; do
+    flatpak_softwares_all[$flatpak_cmd]=${flatpak_office_softwares[$flatpak_cmd]}
+done
+for nix_cmd in "${!nix_office_softwares[@]}"; do
+    nix_softwares_all[$nix_cmd]=${nix_office_softwares[$nix_cmd]}
+done
+for apt_cmd in "${!apt_office_softwares[@]}"; do
+    apt_softwares_all[$apt_cmd]=${apt_office_softwares[$apt_cmd]}
+done
+for deb_cmd in "${!deb_office_softwares[@]}"; do
+    deb_softwares_all[$deb_cmd]=${deb_office_softwares[$deb_cmd]}
 done
 appimage_softwares_all+=("${appimage_office_softwares[@]}")
 tar_softwares_all+=("${tar_office_softwares[@]}")
 
-echo -n "Is this a workstation for Home use [yes/no(default)]?"
+echo -n "Is this a workstation for Home use [yes/no(default)]? "
 read workstation_response
 
-if [ "$workstation_response" == "yes" ]
+if [[ "$workstation_response" == "yes" ]]
 then
-    snap_softwares_all+=("${snap_home_softwares[@]}")
-    apt_softwares_all+=("${apt_home_softwares[@]}")
-    for deb_home_soft_key in "${!deb_home_softwares[@]}"; do
-        deb_softwares_all[${deb_home_soft_key}]=${deb_home_softwares[$deb_home_soft_key]}
+    for snap_cmd in "${!snap_home_softwares[@]}"; do
+        snap_softwares_all[$snap_cmd]=${snap_home_softwares[$snap_cmd]}
+    done
+    for flatpak_cmd in "${!flatpak_home_softwares[@]}"; do
+        flatpak_softwares_all[$flatpak_cmd]=${flatpak_home_softwares[$flatpak_cmd]}
+    done
+    for nix_cmd in "${!nix_home_softwares[@]}"; do
+        nix_softwares_all[$nix_cmd]=${nix_home_softwares[$nix_cmd]}
+    done
+    for apt_cmd in "${!apt_home_softwares[@]}"; do
+        apt_softwares_all[$apt_cmd]=${apt_home_softwares[$apt_cmd]}
+    done
+    for deb_cmd in "${!deb_home_softwares[@]}"; do
+        deb_softwares_all[$deb_cmd]=${deb_home_softwares[$deb_cmd]}
     done
     appimage_softwares_all+=("${appimage_home_softwares[@]}")
     tar_softwares_all+=("${tar_home_softwares[@]}")	
@@ -130,7 +130,7 @@ fi
 #--------------------START: Install Package Managers & Directories--------------------
 
 #is_appimagelauncher_pkg_exist=$(dpkg -s appimagelauncher | grep 'Status' | awk '{print $4}')
-#if [ "$is_appimagelauncher_pkg_exist" != "installed" ]
+#if [[ "$is_appimagelauncher_pkg_exist" != 'installed' ]]
 #then
 #    sudo apt --yes install software-properties-common
 #	sudo add-apt-repository --yes ppa:appimagelauncher-team/stable
@@ -145,116 +145,113 @@ for ((i = 0; i < ${#pkg_managers_all[@]}; i++))
 do
     pkg_manager="${pkg_managers_all[$i]}"
     is_pkg_manager_exist=$(dpkg -s $pkg_manager | grep 'Status' | awk '{print $4}')
-    if [ $is_pkg_manager_exist != "installed" ]
+    if [[ "$is_pkg_manager_exist" != 'installed' ]]
     then
         sudo apt --yes install $pkg_manager
     fi
 done
 
-if [ $(command -v nix-env) != '/nix/var/nix/profiles/default/bin/nix-env' ]
+if [[ "$nix_env_path" != '/nix/var/nix/profiles/default/bin/nix-env' ]]
 then    
     echo -e "\033[1;31m Install Nix Package Manager with Following Command and Restart Terminal! \033[0m"
     echo 'sh <(curl -L https://nixos.org/nix/install) --daemon'
+    exit
 fi
 
 # Making Directories
-if [ ! -d deb_file ]
+if [[ ! -d "$download_path/deb" ]]
 then
-    mkdir deb_file
+    mkdir --parents "$download_path/deb"
 fi
-if [ ! -d appimage_file ]
+if [[ ! -d "$download_path/appimage" ]]
 then
-    mkdir appimage_file
+    mkdir --parents "$download_path/appimage"
 fi
-if [ ! -d tar_file ]
+if [[ ! -d "$download_path/tar" ]]
 then
-    mkdir tar_file
+    mkdir --parents "$download_path/tar"
 fi
 #--------------------END: Install Package Managers & Directories--------------------
 
 #-------------------------START: Install Snap Softwares-------------------------
-for ((i = 0; i < ${#snap_softwares_all[@]}; i++))
-do
-    snap_software="${snap_softwares_all[$i]}"
-    snap_split_software_name=($snap_software)
-	snap_software_base_name=${snap_split_software_name[0]}
-	
-	snap_installed_software=$(snap list | awk '{print $1}' | grep ${snap_software_base_name})
-	
-	if [ "$snap_software_base_name" == "$snap_installed_software" ]
+for snap_cmd in "${!snap_softwares_all[@]}"; do
+    snap_software="${snap_softwares_all[$snap_cmd]}"
+    is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "$snap_cmd")
+    if [[ "$snap_cmd" == "$is_snap_soft_installed" ]]
     then
-		echo -e "\033[1;32m Snap => ${snap_software_base_name} is already installed, skipping... \033[0m"
+        echo -e "\033[1;32m Snap => ${snap_software} is already installed, skipping... \033[0m"
     else
-	    snap_apt_installed_software=$(dpkg -s ${snap_software_base_name} | grep 'Status' | awk '{print $4}')
-	   
-	    if [ "$snap_apt_installed_software" == "installed" ]
-	    then
-	        echo -e "\033[1;32m Snap(APT) => ${snap_software_base_name} is already installed, skipping... \033[0m"
-           continue		
-	    fi
-	
-	    sudo snap install ${snap_software}
-	    #echo Snap: "${snap_software_base_name} is going to be installed."
+        sudo snap install ${snap_software}
    fi
-	
 done
 
-echo -e '\033[1;32m Snap => All Software Installed. \033[0m'
+echo -e '\033[1;32m Snap => All Software Installed. \033[0m'	
 #-------------------------END: Install Snap Softwares-------------------------
 
-#-------------------------START: Install APT Softwares-------------------------
-for ((i = 0; i < ${#apt_softwares_all[@]}; i++))
-do
-    apt_software="${apt_softwares_all[$i]}"
-	apt_split_software_name=($apt_software)
-	apt_software_base_name=${apt_split_software_name[0]}
-	
-	apt_installed_software=$(dpkg -s ${apt_software_base_name} | grep 'Status' | awk '{print $4}')
-	   
-	if [ "$apt_installed_software" == "installed" ]
-	then
-	    echo -e "\033[1;32m APT => ${apt_software_base_name} is already installed, skipping... \033[0m"
+#-------------------------START: Install Flatpak Softwares-------------------------
+for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
+    flatpak_software="${flatpak_softwares_all[$flatpak_cmd]}"
+    is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_cmd")
+    if [[ "$flatpak_cmd" == "$is_flatpak_soft_installed" ]]
+    then
+        echo -e "\033[1;32m Flatpak => ${flatpak_software} is already installed, skipping... \033[0m"
     else
-	    apt_snap_installed_software=$(snap list | awk '{print $1}' | grep ${apt_software_base_name})
-	
-	    if [ "$apt_software_base_name" == "$apt_snap_installed_software" ]
-        then
-		    echo -e "\033[1;32m APT(Snap) => ${apt_software_base_name} is already installed, skipping... \033[0m"
-            continue			
-        fi
-	
+        flatpak install --assumeyes flathub ${flatpak_software}
+   fi
+done
+
+echo -e '\033[1;32m Flatpak => All Software Installed. \033[0m'    
+#-------------------------END: Install Flatpak Softwares-------------------------
+
+#-------------------------START: Install Nix Softwares-------------------------
+for nix_cmd in "${!nix_softwares_all[@]}"; do
+    nix_software="${nix_softwares_all[$nix_cmd]}"
+    is_nix_soft_installed=$(nix-env --query | grep "$nix_cmd")
+    if [[ "$is_nix_soft_installed" != '' ]]
+    then
+        echo -e "\033[1;32m Nix => ${nix_software} is already installed, skipping... \033[0m"
+    else
+        nix-env -iA nixpkgs.${nix_software}
+   fi
+done
+
+echo -e '\033[1;32m Nix => All Software Installed. \033[0m'    
+#-------------------------END: Install Nix Softwares-------------------------
+
+#-------------------------START: Install APT Softwares-------------------------
+for apt_cmd in "${!apt_softwares_all[@]}"; do
+    apt_software="${apt_softwares_all[$apt_cmd]}"
+    is_apt_soft_installed=$(echo "$apt_list_installed" | grep "${apt_cmd}" | awk '{print $4}')
+    if [[ "$is_apt_soft_installed" != '' ]]
+    then
+        echo -e "\033[1;32m APT => ${apt_software} is already installed, skipping... \033[0m"
+    else
         sudo apt --yes install ${apt_software}
-	    #echo APT: "${apt_software_base_name} is going to be installed."	
-	fi
+   fi
 done
 
 echo -e '\033[1;32m APT => All Software Installed. \033[0m'
 #-------------------------END: Install APT Softwares-------------------------
 
 #-------------------------START: Install DEB Softwares-------------------------
-for deb_key in "${!deb_softwares_all[@]}"; do
-    deb_file_url_string=${deb_softwares_all[$deb_key]}
-    IFS='/' read -r -a deb_file_url_array <<< "$deb_file_url_string"
+for deb_cmd in "${!deb_softwares_all[@]}"; do
+    deb_url_string=${deb_softwares_all[$deb_cmd]}
+    IFS='/' read -r -a deb_url_array <<< "$deb_url_string"
 	unset IFS
-	deb_file_name=${deb_file_url_array[-1]}
-	deb_installed_software=$(apt list --installed | grep "${deb_key}" | awk '{print $4}')
-	if [ "$deb_installed_software" == "[installed,local]" ]
+	deb_file_name=${deb_url_array[-1]}
+	is_deb_soft_installed=$(echo "$apt_list_installed" | grep "${deb_cmd}" | awk '{print $4}')
+	if [[ "$is_deb_soft_installed" != '' ]]
 	then
-	    echo -e "\033[1;32m DEB => ${deb_key} [${deb_file_name}] is already installed, skipping... \033[0m"
+	    echo -e "\033[1;32m DEB => $deb_cmd ($deb_file_name) is already installed, skipping... \033[0m"
 	else
-	    if [ -f "deb_file/${deb_file_name}" ]
+	    if [[ -f "$download_path/deb/$deb_file_name" ]]
         then
-		    sudo gdebi --non-interactive "deb_file/${deb_file_name}"
-            #echo "File Exists: ${deb_file_name}"
+		    sudo gdebi --non-interactive "$download_path/deb/$deb_file_name"
         else
-		    aria2c --dir="deb_file" ${deb_file_url_string}
-			sudo gdebi --non-interactive "deb_file/${deb_file_name}"
-            #echo "File Does Not Exist"
-        fi
-	    
-	fi
-	
-    #echo "Command Name: $deb_key and File Name: ${deb_softwares_all[$deb_key]}"	
+		    aria2c --dir="$download_path/deb" "$deb_url_string"
+			sudo gdebi --non-interactive "$download_path/deb/$deb_file_name"
+        fi    
+	fi	
 done
 
 echo -e '\033[1;32m DEB => All Software Installed. \033[0m'
@@ -263,16 +260,15 @@ echo -e '\033[1;32m DEB => All Software Installed. \033[0m'
 #-------------------------START: Download AppImage Softwares-------------------------
 for ((i = 0; i < ${#appimage_softwares_all[@]}; i++))
 do
-    appimage_file_url_string="${appimage_softwares_all[$i]}"
-    IFS='/' read -r -a appimage_file_url_array <<< "$appimage_file_url_string"
+    appimage_url_string="${appimage_softwares_all[$i]}"
+    IFS='/' read -r -a appimage_url_array <<< "$appimage_url_string"
     unset IFS
-	appimage_file_name=${appimage_file_url_array[-1]}
-	if [ -f "appimage_file/${appimage_file_name}" ]
+	appimage_file_name=${appimage_url_array[-1]}
+	if [[ -f "$download_path/appimage/$appimage_file_name" ]]
     then
-	    echo -e "\033[1;32m AppImage => File Exists: ${appimage_file_name} \033[0m"
+	    echo -e "\033[1;32m AppImage => File Exists: $appimage_file_name \033[0m"
     else
-		aria2c --dir="appimage_file" ${appimage_file_url_string}
-        #echo "File Does Not Exist: ${appimage_file_url_string}"
+		aria2c --dir="$download_path/appimage" "$appimage_url_string"
     fi
 done
 
@@ -282,16 +278,15 @@ echo -e '\033[1;32m AppImage => All Software Downloaded. \033[0m'
 #-------------------------START: Download TAR Softwares-------------------------
 for ((i = 0; i < ${#tar_softwares_all[@]}; i++))
 do
-    tar_file_url_string="${tar_softwares_all[$i]}"
-    IFS='/' read -r -a tar_file_url_array <<< "$tar_file_url_string"
+    tar_url_string="${tar_softwares_all[$i]}"
+    IFS='/' read -r -a tar_url_array <<< "$tar_url_string"
     unset IFS
-	tar_file_name=${tar_file_url_array[-1]}
-	if [ -f "tar_file/${tar_file_name}" ]
+	tar_file_name=${tar_url_array[-1]}
+	if [[ -f "$download_path/tar/$tar_file_name" ]]
     then
-	    echo -e "\033[1;32m TAR => File Exists: ${tar_file_name} \033[0m"
+	    echo -e "\033[1;32m TAR => File Exists: $tar_file_name \033[0m"
     else
-		aria2c --dir="tar_file" ${tar_file_url_string}
-        #echo "File Does Not Exist: ${tar_file_name}"
+		aria2c --dir="$download_path/tar" "$tar_url_string"
     fi
 done
 

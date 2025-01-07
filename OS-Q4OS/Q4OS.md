@@ -17,7 +17,7 @@
 
 ## Create App/Menu Launcher
 
-* For Nix package manager, no Menu is created for software, create Menu for software with following steps:
+* Manually create Menu for software with following steps:
   * ".desktop"/Menu file is located at: `usr/share/applications`
   * Duplicate any ".desktop" file and edit following fields
     * Name
@@ -26,7 +26,7 @@
     * Exec [Software path, that will be launched]
     * Icon
     * Categories
-    * Skip following fields
+    * Skip editing of following fields
       * Terminal
       * Type
       * StartupNotify

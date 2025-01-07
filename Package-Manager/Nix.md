@@ -1,3 +1,7 @@
+# Commands/Usage
+
+* `nix-env -q` || `nix-env --query` : Shows list of installed packages. <sup>{4}</sup>
+
 # Nix.md
 
 ## Websites
@@ -9,6 +13,7 @@
 * [nix-community/home-manager](https://github.com/nix-community/home-manager)
 * [thiagokokada/nix-alien](https://github.com/thiagokokada/nix-alien)
 * [DeterminateSystems/zero-to-nix](https://github.com/DeterminateSystems/zero-to-nix) || [zero-to-nix.com](https://zero-to-nix.com/)
+* [nix-community/awesome-nix](https://github.com/nix-community/awesome-nix)
 * [nix-community/nix-on-droid](https://github.com/nix-community/nix-on-droid)
 * [Misterio77/nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
 * [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book) || [nixos-and-flakes.thiscute.world](https://nixos-and-flakes.thiscute.world/)
@@ -28,12 +33,12 @@
 * PATHs
   * Installed softwares are located at: `/home/{{user-name}}/.nix-profile/bin` [Softwares are installed with `nix-env -iA nixpkgs.{{package-name}}` command] <sup>{1}</sup>
 
-* In Q4OS, Nix adds software to $PATH, for both graphical and command-line software. But Nix does not add software to Menu.
+* In Q4OS, Nix adds software to $PATH, for both graphical and command-line software. Also Nix adds software to Menu after Log-Out/PC-Restart.
 
 
 # References
 
-* next-sl: {1}
+* next-sl: {5}
 
 * Guides
 
@@ -41,10 +46,11 @@
     * {1} [Nix Official Packages](https://search.nixos.org/packages)
 
   * NixOS
-    * [NixOS Basics](https://itsfoss.com/tag/nix-os/)
+    * {2} [NixOS Basics](https://itsfoss.com/tag/nix-os/)
 
   * Package Manager
-    * [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/)
+    * {3} [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/)
+    * {4} [Why doesn't `nix-env -q` find my installed packages? (NixOS channels, profiles and packages)](https://stackoverflow.com/questions/47953868/why-doesnt-nix-env-q-find-my-installed-packages-nixos-channels-profiles-a)
 
   * Server
     * [NixOS friendly hosters](https://nixos.wiki/wiki/NixOS_friendly_hosters)
