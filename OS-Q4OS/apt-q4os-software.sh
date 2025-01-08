@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Q4OS 5.6 OSBoxes.org VirtualBox Space Usage => Fresh Complete Software Pack: 32GB, After These Softwares Install: . On Host Drive => Before: 117GB, After Install: 
+
 # In Q4OS, Snap adds software to $PATH and Menu. Flatpak does not add software to $PATH, but adds to Menu. Nix adds software to $PATH (instant) and Menu (after logout/restart).
 # Clear Snap Cache: sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
 # Clear Flatpak Cache: flatpak remove --unused
@@ -33,21 +35,21 @@ declare -a appimage_softwares_all
 declare -a tar_softwares_all
 
 snap_office_softwares=(
-    # ["firefox"]="firefox"
-    # ["chromium"]="chromium"
-    # ["opera"]="opera"
-    # ["thunderbird"]="thunderbird"
-    # ["code"]="code --classic"
-    # ["nvim"]="nvim --classic"
-    # ["sublime-text"]="sublime-text --classic"
-    # ["sublime-merge"]="sublime-merge --classic"
-    # ["powershell"]="powershell --classic"
-    # ["skype"]="skype"
-    # ["dvc"]="dvc --classic"
-    # ["lepton"]="lepton"
-    # ["trello-desktop"]="trello-desktop"
-    # ["rclone"]="rclone"
-    # ["restic"]="restic --edge --classic"
+    ["firefox"]="firefox"
+    ["chromium"]="chromium"
+    ["opera"]="opera"
+    ["thunderbird"]="thunderbird"
+    ["code"]="code --classic"
+    ["nvim"]="nvim --classic"
+    ["sublime-text"]="sublime-text --classic"
+    ["sublime-merge"]="sublime-merge --classic"
+    ["powershell"]="powershell --classic"
+    ["skype"]="skype"
+    ["dvc"]="dvc --classic"
+    ["lepton"]="lepton"
+    ["trello-desktop"]="trello-desktop"
+    ["rclone"]="rclone"
+    ["restic"]="restic --edge --classic"
     # ["syncthing-gael"]="syncthing-gael"
     # ["clipboard"]="clipboard --edge"
     # ["glow"]="glow"
@@ -58,8 +60,6 @@ snap_office_softwares=(
     # ["node"]="node --channel=22/stable --classic"
     # ["android-studio"]="android-studio --classic"
     # ["postman"]="postman"
-    # ["termius-app"]="termius-app"
-    # ["glances"]="glances"
     # ["keepassxc"]="keepassxc"
     # ["dive"]="dive"
 )
@@ -99,7 +99,6 @@ nix_office_softwares=(
     # ["musikcube"]="musikcube"
     # ["beebeep"]="beebeep"
     # ["dasel"]="dasel"
-    # ["jq"]="jq"
     # ["gum"]="gum"
 )
 
@@ -149,6 +148,7 @@ apt_office_softwares=(
     # ["thunar"]="thunar"
     # ["7zip"]="7zip"
     # ["htop"]="htop"
+    # ["glances"]="glances"
     # ["stacer"]="stacer"
     # ["rofi"]="rofi"
     # ["i3"]="i3"
@@ -156,6 +156,7 @@ apt_office_softwares=(
     # ["feh"]="feh"
     # ["pulseaudio"]="pulseaudio"
     # ["pavucontrol"]="pavucontrol"
+    # ["jq"]="jq"
 )
 
 apt_home_softwares=(
@@ -242,6 +243,8 @@ fi
 #    sudo apt update
 #fi
 
+sudo apt update
+
 pkg_managers_all=("snapd" "aria2" "gdebi")
 for ((i = 0; i < ${#pkg_managers_all[@]}; i++))
 do
@@ -283,7 +286,7 @@ for snap_cmd in "${!snap_softwares_all[@]}"; do
     then
         echo -e "\033[1;32m Snap => $snap_software is already installed, skipping... \033[0m"
     else
-        sudo snap install "$snap_software"
+        sudo snap install $snap_software
    fi
 done
 
@@ -298,7 +301,7 @@ for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
     then
         echo -e "\033[1;32m Flatpak => $flatpak_software is already installed, skipping... \033[0m"
     else
-        flatpak install --assumeyes flathub "$flatpak_software"
+        flatpak install --assumeyes flathub $flatpak_software
         is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_software")
         if [[ "$flatpak_software" == "$is_flatpak_soft_installed" ]]
         then
@@ -334,7 +337,7 @@ for apt_cmd in "${!apt_softwares_all[@]}"; do
     then
         echo -e "\033[1;32m APT => $apt_software is already installed, skipping... \033[0m"
     else
-        sudo apt --yes install "$apt_software"
+        sudo apt --yes install $apt_software
    fi
 done
 

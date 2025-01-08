@@ -237,7 +237,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * File Manager (Selected)
   * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
-  * [Vifm GitHub](https://github.com/vifm/vifm) || [Vifm Site](https://vifm.info/)
+  * [Yazi => Terminal file manager](https://yazi-rs.github.io/) || [Yazi GitHub](https://github.com/sxyazi/yazi)
+  * [Vifm Site](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [PCManFM]()
   * [Thunar]()
 
@@ -603,8 +604,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * File Manager (List)
   * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
-  * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
-  * [sxyazi/yazi](https://github.com/sxyazi/yazi)
+  * [Yazi => Terminal file manager](https://yazi-rs.github.io/) || [Yazi GitHub](https://github.com/sxyazi/yazi)
+  * [Vifm Site](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [jarun/nnn](https://github.com/jarun/nnn)
   * [ranger](https://ranger.github.io/) || [ranger GitHub](https://github.com/ranger/ranger)
   * [PCManFM]()
