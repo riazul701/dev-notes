@@ -51,7 +51,7 @@ snap_office_softwares=(
     ["rclone"]="rclone"
     ["restic"]="restic --edge --classic"
     # ["syncthing-gael"]="syncthing-gael"
-    # ["clipboard"]="clipboard --edge"
+    ["clipboard"]="clipboard --edge"
     # ["glow"]="glow"
     # ["dbeaver-ce"]="dbeaver-ce"
     # ["mysql-workbench-community"]="mysql-workbench-community"
@@ -282,7 +282,7 @@ fi
 for snap_cmd in "${!snap_softwares_all[@]}"; do
     snap_software="${snap_softwares_all[$snap_cmd]}"
     is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "$snap_cmd")
-    if [[ "$snap_cmd" == "$is_snap_soft_installed" ]]
+    if [[ "$is_snap_soft_installed" != '' ]]
     then
         echo -e "\033[1;32m Snap => $snap_software is already installed, skipping... \033[0m"
     else
@@ -303,7 +303,7 @@ for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
     else
         flatpak install --assumeyes flathub $flatpak_software
         is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_software")
-        if [[ "$flatpak_software" == "$is_flatpak_soft_installed" ]]
+        if [[ "$is_flatpak_soft_installed" != '' ]]
         then
             echo "alias $flatpak_cmd=\"flatpak run $flatpak_software\"" >> ~/.bashrc
             source ~/.bashrc
