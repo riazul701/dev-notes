@@ -25,6 +25,12 @@
 
 * In Q4OS, Snap adds software to $PATH, for both graphical and command-line software. Also Snap adds software to Menu.
 
+## App Auto Update
+
+* {4} [Flatpak vs. Snap: 10 Differences You Should Know](https://itsfoss.com/flatpak-vs-snap/)
+  * Snap applications get updated automatically by default. The user can modify when and how often the updates happen. Also, you can hold and postpone updates for selected snaps.
+  * On the contrary, Flatpak packages do not get updated automatically. If you have Flatpak integration with the software center, you will be notified of available updates, but it will not be forcefully updated.
+
 ## Test Code
 * Install package: `sudo snap install smplayer`
 * Check "smplayer" package installed or not: `snap list | awk '{print $1}' | grep smplayer`
@@ -37,14 +43,14 @@
 
 # References
 
-* next-sl: {4}
+* next-sl: {5}
 
 * Guides
 
   * General
 
   * Comparison
-    * [Flatpak vs. Snap: 10 Differences You Should Know](https://itsfoss.com/flatpak-vs-snap/)
+    * {4} [Flatpak vs. Snap: 10 Differences You Should Know](https://itsfoss.com/flatpak-vs-snap/)
 
   * Bash
     * [Bash only show first column value](https://unix.stackexchange.com/questions/136884/how-to-use-a-shell-command-to-only-show-the-first-column-and-last-column-in-a-te)

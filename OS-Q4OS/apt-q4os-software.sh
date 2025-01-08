@@ -32,47 +32,95 @@ declare -A deb_home_softwares
 declare -a appimage_softwares_all
 declare -a tar_softwares_all
 
-snap_office_softwares=( 
+snap_office_softwares=(
+    # ["firefox"]="firefox"
+    # ["chromium"]="chromium"
+    # ["opera"]="opera"
+    # ["thunderbird"]="thunderbird"
     # ["code"]="code --classic"
+    # ["nvim"]="nvim --classic"
+    # ["sublime-text"]="sublime-text --classic"
+    # ["sublime-merge"]="sublime-merge --classic"
+    # ["powershell"]="powershell --classic"
     # ["skype"]="skype"
     # ["dvc"]="dvc --classic"
     # ["lepton"]="lepton"
-    # ["trello-desktop"]="trello-desktop --edge"
-    # ["rclone"]="rclone --edge"
+    # ["trello-desktop"]="trello-desktop"
+    # ["rclone"]="rclone"
     # ["restic"]="restic --edge --classic"
+    # ["syncthing-gael"]="syncthing-gael"
+    # ["clipboard"]="clipboard --edge"
+    # ["glow"]="glow"
+    # ["dbeaver-ce"]="dbeaver-ce"
+    # ["mysql-workbench-community"]="mysql-workbench-community"
+    # ["sqlitebrowser"]="sqlitebrowser"
+    # ["ngrok"]="ngrok"
+    # ["node"]="node --channel=22/stable --classic"
+    # ["android-studio"]="android-studio --classic"
+    # ["postman"]="postman"
+    # ["termius-app"]="termius-app"
+    # ["glances"]="glances"
+    # ["keepassxc"]="keepassxc"
+    # ["dive"]="dive"
 )
 
 snap_home_softwares=(
-    # ["opera"]="opera"
+    # ["spotify"]="spotify"
+    # ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
+    # ["scrcpy"]="scrcpy"
+    # ["guiscrcpy"]="guiscrcpy"
 )
 
-flatpak_office_softwares=( 
-    ["smartgit"]="com.syntevo.SmartGit"
+flatpak_office_softwares=(
+    # ["wezterm"]="org.wezfurlong.wezterm"
+    # ["smartgit"]="com.syntevo.SmartGit"
+    # ["FreeFileSync"]="org.freefilesync.FreeFileSync"
+    # ["NotepadNext"]="com.github.dail8859.NotepadNext"
+    # ["anydesk"]="com.anydesk.Anydesk"
+    # ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
+    # ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
 )
 
 flatpak_home_softwares=(
-    ["gedit"]="org.gnome.gedit"
+    # ["spotube"]="com.github.KRTirtho.Spotube"
 )
 
 nix_office_softwares=(
+    # ["unison"]="unison"
     # ["lazygit"]="lazygit"
+    # ["lazydocker"]="lazydocker"
     # ["sniffnet"]="sniffnet"
     # ["rclone-browser"]="rclone-browser"
+    # ["backrest"]="backrest"
+    # ["frogmouth"]="frogmouth"
+    # ["httpie-desktop"]="httpie-desktop"
+    # ["termscp"]="termscp"
+    # ["czkawka"]="czkawka"
+    # ["musikcube"]="musikcube"
+    # ["beebeep"]="beebeep"
+    # ["dasel"]="dasel"
+    # ["jq"]="jq"
+    # ["gum"]="gum"
 )
 
 nix_home_softwares=(
-    # ["audacity"]="audacity"
+    # ["piknik"]="piknik"
+    # ["veracrypt"]="veracrypt"
+    # ["ventoy-full"]="ventoy-full"
 )
 
 apt_office_softwares=(
+    # ["libreoffice"]="libreoffice"
+    # ["docker"]="docker"
+    # ["docker.io"]="docker.io"
+    # ["docker-compose"]="docker-compose"
+    # ["podman"]="podman"
     # ["git"]="git"
     # ["git-gui"]="git-gui"
     # ["git-lfs"]="git-lfs"
     # ["gh"]="gh"
-    # ["firefox-esr"]="firefox-esr"
+    # ["vim"]="vim"
     # ["lynx"]="lynx"
-    # ["thunderbird"]="thunderbird"
-    # ["keepassxc"]="keepassxc"
     # ["filezilla"]="filezilla"
     # ["yt-dlp"]="yt-dlp"
     # ["youtube-dl"]="youtube-dl"
@@ -80,10 +128,38 @@ apt_office_softwares=(
     # ["gallery-dl"]="gallery-dl"
     # ["linssid"]="linssid"
     # ["wavemon"]="wavemon"
+    # ["rsync"]="rsync"
+    # ["httpie"]="httpie"
+    # ["lftp"]="lftp"
+    # ["qimgv"]="qimgv"
+    # ["digikam"]="digikam"
+    # ["gimp"]="gimp"
+    # ["clementine"]="clementine"
+    # ["audacity"]=["audacity"]
+    # ["vlc"]="vlc"
+    # ["smplayer"]="smplayer"
+    # ["mpv"]="mpv"
+    # ["shotcut"]="shotcut"
+    # ["handbrake"]="handbrake"
+    # ["handbrake-cli"]="handbrake-cli"
+    # ["ffmpeg"]="ffmpeg"
+    # ["flameshot"]="flameshot"
+    # ["obs-studio"]="obs-studio"
+    # ["pcmanfm"]="pcmanfm"
+    # ["thunar"]="thunar"
+    # ["7zip"]="7zip"
+    # ["htop"]="htop"
+    # ["stacer"]="stacer"
+    # ["rofi"]="rofi"
+    # ["i3"]="i3"
+    # ["polybar"]="polybar"
+    # ["feh"]="feh"
+    # ["pulseaudio"]="pulseaudio"
+    # ["pavucontrol"]="pavucontrol"
 )
 
 apt_home_softwares=(
-    # ["smplayer"]="smplayer"
+    # ["software-cmd"]="software-name"
 )
 
 deb_office_softwares=(

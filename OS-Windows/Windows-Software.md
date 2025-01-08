@@ -108,7 +108,18 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [MindForger](https://mindforger.com/) || [MindForger GitHub](https://github.com/dvorka/mindforger)
   * [Glow => Render markdown on CLI](https://github.com/charmbracelet/glow)
   * [Textualize/frogmouth => Markdown browser for terminal](https://github.com/Textualize/frogmouth)
-	
+
+* Clipboard (Selected)
+  * [getclipboard.app](https://getclipboard.app/) || [Slackadays/Clipboard GitHub](https://github.com/Slackadays/Clipboard)
+
+* Terminal & Tools (Selected)
+  * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
+  * [Cmder](https://cmder.app/)
+  * [PowerShell GitHub](https://github.com/PowerShell/PowerShell)
+  * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
+  * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
+  * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
+
 * Database (Selected)
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
   * [MySQL Workbench](https://www.mysql.com/products/workbench/)
@@ -130,15 +141,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Postman](https://www.postman.com/)
   * [HTTPie](https://httpie.io/) || [HTTPie GitHub](https://github.com/httpie/cli)
   * [HTTPie Desktop](https://github.com/httpie/desktop)
-	  
-* Terminal & Tools (Selected)
-  * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
-  * [Cmder](https://cmder.app/)
-  * [PowerShell GitHub](https://github.com/PowerShell/PowerShell)
-  * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
-  * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
-  * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
-	
+	  	
 * FTP/FTPS/SFTP/SSH (Selected)
   * [termscp => SCP/SFTP/FTP/S3/SMB](https://termscp.veeso.dev/) || [termscp GitHub](https://github.com/veeso/termscp)
   * [FileZilla FTP Client](https://filezilla-project.org/)
@@ -166,6 +169,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [VirtualBox](https://www.virtualbox.org/)
   * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [Podman Site](https://podman.io/) || [Podman GitHub](https://github.com/containers/podman)
+  * [Podman Desktop GUI Site](https://podman-desktop.io/) || [Podman Desktop GUI GitHub](https://github.com/podman-desktop/podman-desktop)
 
 * Server Management (Selected)
   * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
@@ -194,15 +199,15 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (Selected)
-  * [Amarok](https://amarok.kde.org/)
-  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
+  * [Clementine => Modern music player and library organizer](https://www.clementine-player.org/) || [Clementine GitHub](https://github.com/clementine-player/Clementine)
+  * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
 
 * Audio Editor (Selected)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
 * Spotify (Selected)
-  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
-  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+  * [Spotube => Spotify Client for every platform](https://spotube.krtirtho.dev/) || [Spotube GitHub](https://github.com/KRTirtho/spotube)
+  * [Spotify TUI => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
 
 * Video Player (Selected)
   * [VLC Media Player](https://www.videolan.org/vlc/)
@@ -394,6 +399,19 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Glow -> Render markdown on CLI](https://github.com/charmbracelet/glow)
   * [Textualize/frogmouth -> Markdown browser for terminal](https://github.com/Textualize/frogmouth)
 
+* Clipboard (List)
+  * [getclipboard.app](https://getclipboard.app/) || [Slackadays/Clipboard GitHub](https://github.com/Slackadays/Clipboard)
+
+* Terminal & Tools (List)
+  * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
+  * [Cmder](https://cmder.app/)
+  * [PowerShell GitHub](https://github.com/PowerShell/PowerShell)
+  * [Windows Terminal GitHub](https://github.com/microsoft/terminal)
+  * [Tabby](https://tabby.sh/) || [Tabby GitHub](https://github.com/eugeny/tabby)
+  * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
+  * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
+  * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
+
 * Database (List)
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
   * [MySQL Workbench](https://www.mysql.com/products/workbench/)
@@ -418,16 +436,6 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Postman](https://www.postman.com/)
   * [HTTPie](https://httpie.io/) || [HTTPie GitHub](https://github.com/httpie/cli)
   * [HTTPie Desktop](https://github.com/httpie/desktop)
-
-* Terminal & Tools (List)
-  * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
-  * [Cmder](https://cmder.app/)
-  * [PowerShell GitHub](https://github.com/PowerShell/PowerShell)
-  * [Windows Terminal GitHub](https://github.com/microsoft/terminal)
-  * [Tabby](https://tabby.sh/) || [Tabby GitHub](https://github.com/eugeny/tabby)
-  * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
-  * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
-  * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
   
 * FTP/FTPS/SFTP/SSH (List)
   * [termscp => SCP/SFTP/FTP/S3/SMB](https://termscp.veeso.dev/) || [termscp GitHub](https://github.com/veeso/termscp)
@@ -462,6 +470,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [VirtualBox](https://www.virtualbox.org/)
   * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [Podman Site](https://podman.io/) || [Podman GitHub](https://github.com/containers/podman)
+  * [Podman Desktop GUI Site](https://podman-desktop.io/) || [Podman Desktop GUI GitHub](https://github.com/podman-desktop/podman-desktop)
 
 * Server Management (List)
   * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP](https://hestiacp.com/)
@@ -540,15 +550,15 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Amarok](https://amarok.kde.org/)
   * [clementine-player/Clementine => Music Player](https://github.com/clementine-player/Clementine)
   * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
-  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
+  * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
   * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
 
 * Spotify (List)
-  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
-  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+  * [Spotube => Spotify Client for every platform](https://spotube.krtirtho.dev/) || [Spotube GitHub](https://github.com/KRTirtho/spotube)
+  * [Spotify TUI => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
   * [hrkfdn/ncspot => Cross-platform ncurses Spotify client](https://github.com/hrkfdn/ncspot)
   * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
 

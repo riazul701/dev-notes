@@ -117,6 +117,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Textualize/frogmouth => Markdown browser for terminal](https://github.com/Textualize/frogmouth)
   * [Simplenote](https://simplenote.com/) || [insanum/sncli](https://github.com/insanum/sncli)
 
+* Clipboard (Selected)
+  * [getclipboard.app](https://getclipboard.app/) || [Slackadays/Clipboard GitHub](https://github.com/Slackadays/Clipboard)
+
 * Terminal & Tools (Selected)
   * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
   * [Xfce4 Terminal]()
@@ -167,6 +170,10 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [VirtualBox](https://www.virtualbox.org/)
   * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [Podman Site](https://podman.io/) || [Podman GitHub](https://github.com/containers/podman)
+  * [Podman Desktop GUI Site](https://podman-desktop.io/) || [Podman Desktop GUI GitHub](https://github.com/podman-desktop/podman-desktop)
+  * [Distrobox Site](https://distrobox.it/) || [Distrobox GitHub](https://github.com/89luca89/distrobox)
+  * [BoxBuddyRS => Distrobox GUI](https://github.com/Dvlv/BoxBuddyRS)
 
 * Server Management (Selected)
   * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
@@ -195,8 +202,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (Selected)
-  * [Amarok](https://amarok.kde.org/)
-  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
+  * [Clementine => Modern music player and library organizer](https://www.clementine-player.org/) || [Clementine GitHub](https://github.com/clementine-player/Clementine)
+  * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
 
 * Audio Editor (Selected)
   * [Audacity Audio Editor](https://www.audacityteam.org/)
@@ -204,8 +211,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Audio Recorder (Selected)
 
 * Spotify (Selected)
-  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
-  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+  * [Spotify Official](https://snapcraft.io/spotify)
+  * [Spotube => Spotify Client for every platform](https://spotube.krtirtho.dev/) || [Spotube GitHub](https://github.com/KRTirtho/spotube)
+  * [Spotify TUI => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
 
 * Video Player (Selected)
   * [VLC Media Player](https://www.videolan.org/vlc/)
@@ -269,6 +277,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Window Management (Selected)
   * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
+  * [Polybar => Status bars](https://polybar.github.io/) || [Polybar GitHub](https://github.com/polybar/polybar)
+  * [feh => Versatile image viewer, set X11 backgrounds](https://feh.finalrewind.org/) || [feh GitHub](https://github.com/derf/feh)
 
 ## Utility (Selected)
 
@@ -285,6 +295,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * [Snapcraft => Ubuntu Softwrae Package Manager](https://snapcraft.io/)
 * [Flatpak](https://flatpak.org/) || [FlatHub](https://flathub.org/home)
+* [Nix Official Packages](https://search.nixos.org/packages)
 * [AppImage](https://appimage.org/) || [AppImageHub](https://www.appimagehub.com/) || [AppImageKit GitHub](https://github.com/AppImage/AppImageKit) || [AppImageLauncher GitHub](https://github.com/TheAssassin/AppImageLauncher)
 * [APT](https://wiki.debian.org/Apt)
 * [Synaptic Package Manager](https://github.com/mvo5/synaptic)
@@ -393,6 +404,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Textualize/frogmouth => Markdown browser for terminal](https://github.com/Textualize/frogmouth)
   * [Simplenote](https://simplenote.com/) || [insanum/sncli](https://github.com/insanum/sncli)
 
+* Clipboard (List)
+  * [getclipboard.app](https://getclipboard.app/) || [Slackadays/Clipboard GitHub](https://github.com/Slackadays/Clipboard)
+
 * Terminal & Tools (List)
   * [WezTerm Site](https://wezfurlong.org/wezterm/index.html) || [WezTerm GitHub](https://github.com/wez/wezterm)
   * [Xfce4 Terminal]()
@@ -453,6 +467,10 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [VirtualBox](https://www.virtualbox.org/)
   * [VirtualBox VDI Image -> OSBoxes.org](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+  * [Podman Site](https://podman.io/) || [Podman GitHub](https://github.com/containers/podman)
+  * [Podman Desktop GUI Site](https://podman-desktop.io/) || [Podman Desktop GUI GitHub](https://github.com/podman-desktop/podman-desktop)
+  * [Distrobox Site](https://distrobox.it/) || [Distrobox GitHub](https://github.com/89luca89/distrobox)
+  * [BoxBuddyRS => Distrobox GUI](https://github.com/Dvlv/BoxBuddyRS)
 
 * Server Management (List)
   * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP Site](https://hestiacp.com/)
@@ -530,9 +548,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Audio Player (List)
   * [Amarok](https://amarok.kde.org/)
-  * [clementine-player/Clementine => Music Player](https://github.com/clementine-player/Clementine)
+  * [Clementine => modern music player and library organizer](https://www.clementine-player.org/) || [Clementine GitHub](https://github.com/clementine-player/Clementine)
   * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
-  * [clangen/musikcube => Cross-platform, terminal-based music player, audio engine, metadata indexer, and server](https://github.com/clangen/musikcube)
+  * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
   * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)
@@ -540,8 +558,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Tenacity => Audio editor/recorder](https://tenacityaudio.org/)
 
 * Spotify (List)
-  * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube)
-  * [Rigellute/spotify-tui => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
+  * [Spotify Official](https://snapcraft.io/spotify)
+  * [Spotube => Spotify Client for every platform](https://spotube.krtirtho.dev/) || [Spotube GitHub](https://github.com/KRTirtho/spotube)
+  * [Spotify TUI => Spotify for the terminal written in Rust](https://github.com/Rigellute/spotify-tui)
   * [hrkfdn/ncspot => Cross-platform ncurses Spotify client](https://github.com/hrkfdn/ncspot)
   * [aome510/spotify-player => A Spotify player in the terminal with full feature parity](https://github.com/aome510/spotify-player)
 
@@ -654,6 +673,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Window Management (List)
   * [i3 Tiling Window Manager](https://i3wm.org/) || [i3 Window Manager GitHub](https://github.com/i3/i3)
+  * [Polybar => Status bars](https://polybar.github.io/) || [Polybar GitHub](https://github.com/polybar/polybar)
+  * [feh => Versatile image viewer, set X11 backgrounds](https://feh.finalrewind.org/) || [feh GitHub](https://github.com/derf/feh)
+  * [nitrogen => Background browser and setter for X windows](https://github.com/l3ib/nitrogen/)
 
 ## Utility (List)
 
