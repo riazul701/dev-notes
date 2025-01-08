@@ -14,7 +14,10 @@
 
 ## Package Manager & Installer (Selected)
 
-* [Snapcraft => Ubuntu Softwrae Package Manager](https://snapcraft.io/)
+* [Snap Package Manager => Snapcraft](https://snapcraft.io/)
+* [Flatpak Package Manager => flathub.org](https://flathub.org/)
+* [Nix Package Manager](https://search.nixos.org/packages)
+* [AppImage => AppImageHub](https://www.appimagehub.com/)
 * [APT](https://wiki.debian.org/Apt)
 * [Gdebi](https://launchpad.net/gdebi)
 * [KDE Apps](https://apps.kde.org/)
@@ -88,12 +91,14 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Lepton](https://hackjutsu.com/Lepton/) || [Lepton GitHub](https://github.com/hackjutsu/Lepton)
   * [Jira](https://www.atlassian.com/software/jira)
   * [Trello](https://trello.com/home)
+    * [Joshua Redmond/avatartrello-desktop](https://gitlab.com/joshuaredmond/trello-desktop/)
 	
 * File Incremental Backup & Sync (Selected)
   * [Rclone](https://rclone.org/) || [Rclone GitHub](https://github.com/rclone/rclone)
   * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
   * [Restic](https://restic.net/) || [Restic GitHub](https://github.com/restic/restic)
   * [Restic Browser](https://github.com/emuell/restic-browser)
+  * [Backrest => web UI for restic backup](https://github.com/garethgeorge/backrest)
   * [Free File Sync](https://freefilesync.org/)
   * [Unison file synchronizer](https://github.com/bcpierce00/unison)
   * [Syncthing](https://syncthing.net/) || [Syncthing GitHub](https://github.com/syncthing/syncthing)

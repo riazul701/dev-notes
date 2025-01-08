@@ -91,6 +91,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
   * [Restic](https://restic.net/) || [Restic GitHub](https://github.com/restic/restic)
   * [Restic Browser](https://github.com/emuell/restic-browser)
+  * [Backrest => web UI for restic backup](https://github.com/garethgeorge/backrest)
   * [Free File Sync](https://freefilesync.org/)
   * [Unison file synchronizer](https://github.com/bcpierce00/unison)
   * [Syncthing](https://syncthing.net/) || [Syncthing GitHub](https://github.com/syncthing/syncthing)

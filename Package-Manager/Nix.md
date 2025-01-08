@@ -1,6 +1,7 @@
 # Commands/Usage
 
 * `nix-env -q` || `nix-env --query` : Shows list of installed packages. <sup>{4}</sup>
+* `nix-collect-garbage` : clear old nix-store paths and references<sup>{5}</sup>
 
 # Nix.md
 
@@ -33,17 +34,17 @@
 * PATHs
   * Installed softwares are located at: `/home/{{user-name}}/.nix-profile/bin` [Softwares are installed with `nix-env -iA nixpkgs.{{package-name}}` command] <sup>{1}</sup>
 
-* In Q4OS, Nix adds software to $PATH, for both graphical and command-line software. Also Nix adds software to Menu after Log-Out/PC-Restart.
-
+* In Q4OS, Nix adds software to $PATH instantly, for both graphical and command-line software. Also Nix adds software to Menu after logout/restart.
 
 # References
 
-* next-sl: {5}
+* next-sl: {6}
 
 * Guides
 
   * General
     * {1} [Nix Official Packages](https://search.nixos.org/packages)
+    * {5} [Unable to clear old nix-store paths and references](https://www.reddit.com/r/NixOS/comments/15bjqrw/unable_to_clear_old_nixstore_paths_and_references/)
 
   * NixOS
     * {2} [NixOS Basics](https://itsfoss.com/tag/nix-os/)

@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# In Q4OS, Snap adds software to $PATH and Menu. Flatpak does not add software to $PATH, but adds to Menu. Nix adds software to $PATH (instant) and Menu (after logout/restart).
+# Clear Snap Cache: sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
+# Clear Flatpak Cache: flatpak remove --unused
+# Clear Nix Cache: nix-collect-garbage
 
 if [[ "$USER" == "root" ]]
 then
-    echo -e "\033[1;31m Do not run this script with \"sudo\" prefix. \"sudo\" will be used internally when necessary! \033[0m"
+    echo -e '\033[1;31m Do not run this script with "sudo" prefix. "sudo" will be used internally when necessary! \033[0m'
     exit
 fi
 download_path="/home/$USER/Downloads/Debian_Software"
@@ -29,36 +33,57 @@ declare -a appimage_softwares_all
 declare -a tar_softwares_all
 
 snap_office_softwares=( 
-    ["code"]="code --classic"
+    # ["code"]="code --classic"
+    # ["skype"]="skype"
+    # ["dvc"]="dvc --classic"
+    # ["lepton"]="lepton"
+    # ["trello-desktop"]="trello-desktop --edge"
+    # ["rclone"]="rclone --edge"
+    # ["restic"]="restic --edge --classic"
 )
 
 snap_home_softwares=(
-    ["opera"]="opera"
+    # ["opera"]="opera"
 )
 
 flatpak_office_softwares=( 
-    ["org.mozilla.Thunderbird"]="org.mozilla.Thunderbird"
+    ["smartgit"]="com.syntevo.SmartGit"
 )
 
 flatpak_home_softwares=(
-    ["org.gimp.GIMP"]="org.gimp.GIMP"
+    ["gedit"]="org.gnome.gedit"
 )
 
-nix_office_softwares=( 
-    ["marktext"]="marktext"
+nix_office_softwares=(
+    # ["lazygit"]="lazygit"
+    # ["sniffnet"]="sniffnet"
+    # ["rclone-browser"]="rclone-browser"
 )
 
 nix_home_softwares=(
-    ["audacity"]="audacity"
+    # ["audacity"]="audacity"
 )
 
 apt_office_softwares=(
-    ["filezilla"]="filezilla"
-    # ["flameshot"]="flameshot"
+    # ["git"]="git"
+    # ["git-gui"]="git-gui"
+    # ["git-lfs"]="git-lfs"
+    # ["gh"]="gh"
+    # ["firefox-esr"]="firefox-esr"
+    # ["lynx"]="lynx"
+    # ["thunderbird"]="thunderbird"
+    # ["keepassxc"]="keepassxc"
+    # ["filezilla"]="filezilla"
+    # ["yt-dlp"]="yt-dlp"
+    # ["youtube-dl"]="youtube-dl"
+    # ["youtubedl-gui"]="youtubedl-gui"
+    # ["gallery-dl"]="gallery-dl"
+    # ["linssid"]="linssid"
+    # ["wavemon"]="wavemon"
 )
 
 apt_home_softwares=(
-    ["smplayer"]="smplayer"
+    # ["smplayer"]="smplayer"
 )
 
 deb_office_softwares=(
@@ -67,6 +92,7 @@ deb_office_softwares=(
 
 deb_home_softwares=( 
     # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
+    # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
 )
 	 
 appimage_office_softwares=(
@@ -179,9 +205,9 @@ for snap_cmd in "${!snap_softwares_all[@]}"; do
     is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "$snap_cmd")
     if [[ "$snap_cmd" == "$is_snap_soft_installed" ]]
     then
-        echo -e "\033[1;32m Snap => ${snap_software} is already installed, skipping... \033[0m"
+        echo -e "\033[1;32m Snap => $snap_software is already installed, skipping... \033[0m"
     else
-        sudo snap install ${snap_software}
+        sudo snap install "$snap_software"
    fi
 done
 
@@ -191,12 +217,18 @@ echo -e '\033[1;32m Snap => All Software Installed. \033[0m'
 #-------------------------START: Install Flatpak Softwares-------------------------
 for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
     flatpak_software="${flatpak_softwares_all[$flatpak_cmd]}"
-    is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_cmd")
-    if [[ "$flatpak_cmd" == "$is_flatpak_soft_installed" ]]
+    is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_software")
+    if [[ "$flatpak_software" == "$is_flatpak_soft_installed" ]]
     then
-        echo -e "\033[1;32m Flatpak => ${flatpak_software} is already installed, skipping... \033[0m"
+        echo -e "\033[1;32m Flatpak => $flatpak_software is already installed, skipping... \033[0m"
     else
-        flatpak install --assumeyes flathub ${flatpak_software}
+        flatpak install --assumeyes flathub "$flatpak_software"
+        is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_software")
+        if [[ "$flatpak_software" == "$is_flatpak_soft_installed" ]]
+        then
+            echo "alias $flatpak_cmd=\"flatpak run $flatpak_software\"" >> ~/.bashrc
+            source ~/.bashrc
+        fi
    fi
 done
 
@@ -209,9 +241,9 @@ for nix_cmd in "${!nix_softwares_all[@]}"; do
     is_nix_soft_installed=$(nix-env --query | grep "$nix_cmd")
     if [[ "$is_nix_soft_installed" != '' ]]
     then
-        echo -e "\033[1;32m Nix => ${nix_software} is already installed, skipping... \033[0m"
+        echo -e "\033[1;32m Nix => $nix_software is already installed, skipping... \033[0m"
     else
-        nix-env -iA nixpkgs.${nix_software}
+        nix-env -iA nixpkgs.$nix_software
    fi
 done
 
@@ -221,12 +253,12 @@ echo -e '\033[1;32m Nix => All Software Installed. \033[0m'
 #-------------------------START: Install APT Softwares-------------------------
 for apt_cmd in "${!apt_softwares_all[@]}"; do
     apt_software="${apt_softwares_all[$apt_cmd]}"
-    is_apt_soft_installed=$(echo "$apt_list_installed" | grep "${apt_cmd}" | awk '{print $4}')
+    is_apt_soft_installed=$(echo "$apt_list_installed" | grep "$apt_cmd" | awk '{print $4}')
     if [[ "$is_apt_soft_installed" != '' ]]
     then
-        echo -e "\033[1;32m APT => ${apt_software} is already installed, skipping... \033[0m"
+        echo -e "\033[1;32m APT => $apt_software is already installed, skipping... \033[0m"
     else
-        sudo apt --yes install ${apt_software}
+        sudo apt --yes install "$apt_software"
    fi
 done
 
@@ -239,7 +271,7 @@ for deb_cmd in "${!deb_softwares_all[@]}"; do
     IFS='/' read -r -a deb_url_array <<< "$deb_url_string"
 	unset IFS
 	deb_file_name=${deb_url_array[-1]}
-	is_deb_soft_installed=$(echo "$apt_list_installed" | grep "${deb_cmd}" | awk '{print $4}')
+	is_deb_soft_installed=$(echo "$apt_list_installed" | grep "$deb_cmd" | awk '{print $4}')
 	if [[ "$is_deb_soft_installed" != '' ]]
 	then
 	    echo -e "\033[1;32m DEB => $deb_cmd ($deb_file_name) is already installed, skipping... \033[0m"
