@@ -8,74 +8,82 @@ declare -A deb_home_softwares
 declare -a appimage_softwares
 declare -a tar_softwares
 
-#snap_office_softwares=("firefox"
-#"opera"
-#"code --classic")
+#snap_office_softwares=(
+    # "firefox"
+    # "opera"
+    # "code --classic"
+)
 
-#snap_home_softwares=("vlc"
-#"shotcut --classic"
-#"audacity")
+#snap_home_softwares=(
+    # "vlc"
+    # "shotcut --classic"
+    # "audacity"
+# )
 
-apt_office_softwares=("git"
-"git-lfs"
-"gh"
-"vim"
-"restic"
-"rsync"
-"sqlite3"
-"sqlitebrowser"
-"docker"
-"docker-compose"
-"docker.io"
-"vagrant"
-"nodejs"
-"npm"
-#"libreoffice"
-"p7zip"
-"p7zip-full"
-"p7zip-rar"
-"filezilla"
-"gimp"
-"rofi"
-"virtualbox"
-"vifm"
-"pulseaudio"
-"pavucontrol"
-"pcmanfm"
-"gum"
-"flameshot"
-"trash-cli")
+apt_office_softwares=(
+    "git"
+    "git-lfs"
+    "gh"
+    "vim"
+    "restic"
+    "rsync"
+    "sqlite3"
+    "sqlitebrowser"
+    "docker"
+    "docker-compose"
+    "docker.io"
+    "vagrant"
+    "nodejs"
+    "npm"
+    # "libreoffice"
+    "p7zip"
+    "p7zip-full"
+    "p7zip-rar"
+    "filezilla"
+    "gimp"
+    "rofi"
+    "virtualbox"
+    "vifm"
+    "pulseaudio"
+    "pavucontrol"
+    "pcmanfm"
+    "gum"
+    "flameshot"
+    "trash-cli"
+)
 
-apt_home_softwares=("vlc"
-"rclone-browser"
-"smplayer"
-"smtube"
-"shotcut"
-"audacity"
-"handbrake"
-"handbrake-cli"
-"scrcpy"
-"scrcpy-server")
+apt_home_softwares=(
+    "vlc"
+    "rclone-browser"
+    "smplayer"
+    "smtube"
+    "shotcut"
+    "audacity"
+    "handbrake"
+    "handbrake-cli"
+    "scrcpy"
+    "scrcpy-server"
+)
 
 deb_office_softwares=( 
-       ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" 
-       ["microsoft-edge"]="https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-beta/microsoft-edge-beta_109.0.1518.23-1_amd64.deb"
-	   ["github-cli"]="https://github.com/cli/cli/releases/download/v2.20.2/gh_2.20.2_linux_amd64.deb"
-	   ["smart-git"]="https://www.syntevo.com/downloads/smartgit/smartgit-22_1_1.deb"
-	   ["rclone"]="https://github.com/rclone/rclone/releases/download/v1.62.2/rclone-v1.62.2-linux-amd64.deb"
-	   ["teamviewer"]="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
-	   ["anydesk"]="https://download.anydesk.com/linux/anydesk_6.2.1-1_amd64.deb"
-       ["code"]="https://az764295.vo.msecnd.net/stable/441438abd1ac652551dbe4d408dfcec8a499b8bf/code_1.75.1-1675893397_amd64.deb"
-       ["sublime-text"]="https://download.sublimetext.com/sublime-text_build-4143_amd64.deb"
-       ["sublime-merge"]="https://download.sublimetext.com/sublime-merge_build-2083_amd64.deb"
-       ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/1.54.0/debian-bullseye-mindforger_1.54.0-1_amd64.deb"
-       #["virtualbox"]="https://download.virtualbox.org/virtualbox/7.0.4/virtualbox-7.0_7.0.4-154605~Ubuntu~jammy_amd64.deb"
+    ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    ["microsoft-edge"]="https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-beta/microsoft-edge-beta_109.0.1518.23-1_amd64.deb"
+	["github-cli"]="https://github.com/cli/cli/releases/download/v2.20.2/gh_2.20.2_linux_amd64.deb"
+	["smart-git"]="https://www.syntevo.com/downloads/smartgit/smartgit-22_1_1.deb"
+	["rclone"]="https://github.com/rclone/rclone/releases/download/v1.62.2/rclone-v1.62.2-linux-amd64.deb"
+	["teamviewer"]="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
+	["anydesk"]="https://download.anydesk.com/linux/anydesk_6.2.1-1_amd64.deb"
+    ["code"]="https://az764295.vo.msecnd.net/stable/441438abd1ac652551dbe4d408dfcec8a499b8bf/code_1.75.1-1675893397_amd64.deb"
+    ["sublime-text"]="https://download.sublimetext.com/sublime-text_build-4143_amd64.deb"
+    ["sublime-merge"]="https://download.sublimetext.com/sublime-merge_build-2083_amd64.deb"
+    ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/1.54.0/debian-bullseye-mindforger_1.54.0-1_amd64.deb"
+    # ["virtualbox"]="https://download.virtualbox.org/virtualbox/7.0.4/virtualbox-7.0_7.0.4-154605~Ubuntu~jammy_amd64.deb"
 )
 
 deb_home_softwares=( 
-       ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb" 
-       ["4kdownload"]="https://dl.4kdownload.com/app/4kvideodownloader_4.22.2-1_amd64.deb"
-     )
+    ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb" 
+    ["4kdownload"]="https://dl.4kdownload.com/app/4kvideodownloader_4.22.2-1_amd64.deb"
+)
 	 
 appimage_office_softwares=(
     "https://github.com/dail8859/NotepadNext/releases/download/v0.5.6/NotepadNext-x86_64.AppImage"
@@ -83,11 +91,13 @@ appimage_office_softwares=(
     "https://github.com/pbek/QOwnNotes/releases/download/v23.3.7/QOwnNotes-x86_64.AppImage"
 )
 
-appimage_home_softwares=("https://github.com/mhoeher/opentodolist/releases/download/3.42.0/OpenTodoList-3.42.0-x86_64.AppImage")
+appimage_home_softwares=(
+    "https://github.com/mhoeher/opentodolist/releases/download/3.42.0/OpenTodoList-3.42.0-x86_64.AppImage"
+)
 
 tar_office_softwares=(
-"https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
-"https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
+    "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
+    "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
 )
 
 tar_home_softwares=(

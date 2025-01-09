@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Q4OS 5.6 OSBoxes.org VirtualBox Space Usage => Fresh Complete Software Pack: 32GB, After These Softwares Install: . On Host Drive => Before: 117GB, After Install: 
-
 # In Q4OS, Snap adds software to $PATH and Menu. Flatpak does not add software to $PATH, but adds to Menu. Nix adds software to $PATH (instant) and Menu (after logout/restart).
 # Clear Snap Cache: sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
 # Clear Flatpak Cache: flatpak remove --unused
@@ -35,36 +33,36 @@ declare -a appimage_softwares_all
 declare -a tar_softwares_all
 
 snap_office_softwares=(
-    ["firefox"]="firefox"
-    ["chromium"]="chromium"
-    ["opera"]="opera"
-    ["thunderbird"]="thunderbird"
     ["code"]="code --classic"
     ["nvim"]="nvim --classic"
     ["sublime-text"]="sublime-text --classic"
-    ["sublime-merge"]="sublime-merge --classic"
-    ["powershell"]="powershell --classic"
-    ["skype"]="skype"
-    ["dvc"]="dvc --classic"
-    ["lepton"]="lepton"
-    ["trello-desktop"]="trello-desktop"
     ["rclone"]="rclone"
     ["restic"]="restic --edge --classic"
-    # ["syncthing-gael"]="syncthing-gael"
-    ["clipboard"]="clipboard --edge"
-    # ["glow"]="glow"
+    ["postman"]="postman"
     # ["dbeaver-ce"]="dbeaver-ce"
-    # ["mysql-workbench-community"]="mysql-workbench-community"
-    # ["sqlitebrowser"]="sqlitebrowser"
-    # ["ngrok"]="ngrok"
     # ["node"]="node --channel=22/stable --classic"
-    # ["android-studio"]="android-studio --classic"
-    # ["postman"]="postman"
-    # ["keepassxc"]="keepassxc"
-    # ["dive"]="dive"
 )
 
 snap_home_softwares=(
+    # ["firefox"]="firefox"
+    # ["chromium"]="chromium"
+    # ["opera"]="opera"
+    # ["thunderbird"]="thunderbird"
+    # ["sublime-merge"]="sublime-merge --classic"
+    # ["powershell"]="powershell --classic"
+    # ["skype"]="skype"
+    # ["dvc"]="dvc --classic"
+    # ["lepton"]="lepton"
+    # ["trello-desktop"]="trello-desktop"
+    # ["syncthing-gael"]="syncthing-gael"
+    # ["clipboard"]="clipboard --edge"
+    # ["glow"]="glow"
+    # ["mysql-workbench-community"]="mysql-workbench-community"
+    # ["sqlitebrowser"]="sqlitebrowser"
+    # ["ngrok"]="ngrok"
+    # ["android-studio"]="android-studio --classic"
+    # ["keepassxc"]="keepassxc"
+    # ["dive"]="dive"
     # ["spotify"]="spotify"
     # ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
     # ["scrcpy"]="scrcpy"
@@ -72,108 +70,115 @@ snap_home_softwares=(
 )
 
 flatpak_office_softwares=(
-    # ["wezterm"]="org.wezfurlong.wezterm"
-    # ["smartgit"]="com.syntevo.SmartGit"
-    # ["FreeFileSync"]="org.freefilesync.FreeFileSync"
-    # ["NotepadNext"]="com.github.dail8859.NotepadNext"
-    # ["anydesk"]="com.anydesk.Anydesk"
-    # ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
-    # ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
+    ["wezterm"]="org.wezfurlong.wezterm"
+    ["FreeFileSync"]="org.freefilesync.FreeFileSync"
+    ["anydesk"]="com.anydesk.Anydesk"
 )
 
 flatpak_home_softwares=(
+    # ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
+    # ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
+    # ["smartgit"]="com.syntevo.SmartGit"
+    # ["NotepadNext"]="com.github.dail8859.NotepadNext"
     # ["spotube"]="com.github.KRTirtho.Spotube"
 )
 
 nix_office_softwares=(
-    # ["unison"]="unison"
-    # ["lazygit"]="lazygit"
+    ["lunarvim"]="lunarvim"
+    ["yazi"]="yazi"
+    ["unison"]="unison"
+    ["lazygit"]="lazygit"
+    ["termscp"]="termscp"
+    ["dasel"]="dasel"
+    ["gum"]="gum"
+    # ["nerdfonts"]="nerdfonts" # For Lunarvim, Yazi
+)
+
+nix_home_softwares=(
     # ["lazydocker"]="lazydocker"
+    # ["beebeep"]="beebeep"
+    # ["musikcube"]="musikcube"
     # ["sniffnet"]="sniffnet"
     # ["rclone-browser"]="rclone-browser"
     # ["backrest"]="backrest"
     # ["frogmouth"]="frogmouth"
     # ["httpie-desktop"]="httpie-desktop"
-    # ["termscp"]="termscp"
     # ["czkawka"]="czkawka"
-    # ["musikcube"]="musikcube"
-    # ["beebeep"]="beebeep"
-    # ["dasel"]="dasel"
-    # ["gum"]="gum"
-)
-
-nix_home_softwares=(
     # ["piknik"]="piknik"
     # ["veracrypt"]="veracrypt"
     # ["ventoy-full"]="ventoy-full"
 )
 
 apt_office_softwares=(
-    # ["libreoffice"]="libreoffice"
-    # ["docker"]="docker"
-    # ["docker.io"]="docker.io"
-    # ["docker-compose"]="docker-compose"
-    # ["podman"]="podman"
-    # ["git"]="git"
-    # ["git-gui"]="git-gui"
-    # ["git-lfs"]="git-lfs"
-    # ["gh"]="gh"
-    # ["vim"]="vim"
+    ["ibus-avro"]="ibus-avro"
+    ["libreoffice"]="libreoffice"
+    ["docker"]="docker"
+    ["docker.io"]="docker.io"
+    ["docker-compose"]="docker-compose"
+    ["podman"]="podman"
+    ["git"]="git"
+    ["git-gui"]="git-gui"
+    ["git-lfs"]="git-lfs"
+    ["gh"]="gh"
+    ["vim"]="vim"
+    ["vifm"]="vifm"
+    ["filezilla"]="filezilla"
+    ["rsync"]="rsync"
+    ["gimp"]="gimp"
+    ["vlc"]="vlc"
+    ["pcmanfm"]="pcmanfm"
+    ["thunar"]="thunar"
+    ["7zip"]="7zip"
+    ["htop"]="htop"
+    ["glances"]="glances"
+    ["rofi"]="rofi"
+    ["i3"]="i3"
+    ["polybar"]="polybar"
+    ["feh"]="feh"
+    ["pulseaudio"]="pulseaudio"
+    ["pavucontrol"]="pavucontrol"
+    ["jq"]="jq"
+    ["distrobox"]="distrobox"
+    ["tmux"]="tmux"
+    # ["xclip"]="xclip" # For Lunarvim, Yazi
+)
+
+apt_home_softwares=(
     # ["lynx"]="lynx"
-    # ["filezilla"]="filezilla"
     # ["yt-dlp"]="yt-dlp"
     # ["youtube-dl"]="youtube-dl"
     # ["youtubedl-gui"]="youtubedl-gui"
     # ["gallery-dl"]="gallery-dl"
     # ["linssid"]="linssid"
     # ["wavemon"]="wavemon"
-    # ["rsync"]="rsync"
     # ["httpie"]="httpie"
     # ["lftp"]="lftp"
     # ["qimgv"]="qimgv"
     # ["digikam"]="digikam"
-    # ["gimp"]="gimp"
     # ["clementine"]="clementine"
     # ["audacity"]=["audacity"]
-    # ["vlc"]="vlc"
     # ["smplayer"]="smplayer"
     # ["mpv"]="mpv"
     # ["shotcut"]="shotcut"
     # ["handbrake"]="handbrake"
     # ["handbrake-cli"]="handbrake-cli"
-    # ["ffmpeg"]="ffmpeg"
     # ["flameshot"]="flameshot"
     # ["obs-studio"]="obs-studio"
-    # ["pcmanfm"]="pcmanfm"
-    # ["thunar"]="thunar"
-    # ["7zip"]="7zip"
-    # ["htop"]="htop"
-    # ["glances"]="glances"
     # ["stacer"]="stacer"
-    # ["rofi"]="rofi"
-    # ["i3"]="i3"
-    # ["polybar"]="polybar"
-    # ["feh"]="feh"
-    # ["pulseaudio"]="pulseaudio"
-    # ["pavucontrol"]="pavucontrol"
-    # ["jq"]="jq"
-)
-
-apt_home_softwares=(
-    # ["software-cmd"]="software-name"
 )
 
 deb_office_softwares=(
-    # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
+    ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
 )
 
-deb_home_softwares=( 
-    # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
+deb_home_softwares=(
     # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
+    # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
 )
 	 
 appimage_office_softwares=(
-    # "https://github.com/dail8859/NotepadNext/releases/download/v0.5.6/NotepadNext-x86_64.AppImage"
+    # "https://github.com/pbek/QOwnNotes/releases/download/v23.3.7/QOwnNotes-x86_64.AppImage"
 )
 
 appimage_home_softwares=(
@@ -185,7 +190,7 @@ tar_office_softwares=(
 )
 
 tar_home_softwares=(
-    # "https://github.com/emuell/restic-browser/releases/download/v0.2.5/Restic-Browser-v0.2.5-linux.tar.gz"
+    # "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
 )
 
 for snap_cmd in "${!snap_office_softwares[@]}"; do

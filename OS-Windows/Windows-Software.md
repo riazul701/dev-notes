@@ -119,6 +119,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
   * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
   * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
+  * [Nerd Fonts](https://www.nerdfonts.com/) || [Nerd Fonts GitHub](https://github.com/ryanoasis/nerd-fonts)
 
 * Database (Selected)
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
@@ -180,9 +181,14 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Office Software (Selected)
 
-* [LibreOffice](https://www.libreoffice.org/)
-* [Foxit PDF Reader](https://www.foxit.com/pdf-reader/)
-* [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
+* Office Application (Selected)
+  * [LibreOffice](https://www.libreoffice.org/)
+
+* PDF (Selected)
+  * [Foxit PDF Reader](https://www.foxit.com/pdf-reader/)
+
+* Language Keyboard (Selected)
+  * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html) || [Avro Keyboard GitHub](https://github.com/sarim/ibus-avro)
   
 ## Graphics/Media Software (Selected)
 
@@ -411,6 +417,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Piknik => Copy/paste over network](https://github.com/jedisct1/piknik)
   * [Textualize/rich-cli => Fancy output in terminal](https://github.com/Textualize/rich-cli)
   * [Textualize/trogon => Click CLI into terminal application](https://github.com/Textualize/trogon)
+  * [Nerd Fonts](https://www.nerdfonts.com/) || [Nerd Fonts GitHub](https://github.com/ryanoasis/nerd-fonts)
 
 * Database (List)
   * [DBeaver](https://dbeaver.io/) || [DBeaver GitHub](https://github.com/dbeaver/dbeaver)
@@ -505,7 +512,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Librum-Reader/Librum](https://github.com/Librum-Reader/Librum)
 
 * Language Keyboard (List)
-  * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html)
+  * [Avro Keyboard](https://www.omicronlab.com/avro-keyboard.html) || [Avro Keyboard GitHub](https://github.com/sarim/ibus-avro)
 
 * Font (List)
   * [fontforge/fontforge => Font editor for Windows, Mac and Linux](https://github.com/fontforge/fontforge)

@@ -19,6 +19,8 @@
 
 ## Notes
 
+* `:checkhealth` : Shows installation is ok or not
+
 * Keyboard
   * Press "TAB" key after ":" to auto-complete commands.
 
@@ -42,6 +44,9 @@
     * Fonts folder: `/home/<user-name>/.local/share/fonts/`
     * "mason" language server: `/home/<user-name>/.local/share/lvim/mason/packages`
     * Node.js packages path (using Node-Version-Manager): 
+
+* Nix-Lunarvim
+  * If Lunvarvim is installed using Nix package manager, Lunarvim github repo is stored in "/nix/store/{{get folder name from file's last line: /home/user-name/.nix-profile/bin/lvim}}" path.
 
 * Conflicts
   * (Windows-OS) Scoop installed "ruby, gem" conflicts with Git-Bash installed "ruby, gem". For this reason "tmuxinator" does not work. So intall "ruby" only inside Git-Bash. And use LunarVim inside Bash.

@@ -1,8 +1,9 @@
 # LunarVim-Commands
 
 ## General Commands
-* Shows installation is ok or not: `:checkhealth`
-* Turn on mouse: `:set mouse=a`
+
+* `:checkhealth` : Shows installation is ok or not
+* `:set mouse=a` : Turn on mouse: 
 
 ## Error and Solution (LunarVim)
 
