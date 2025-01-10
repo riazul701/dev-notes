@@ -50,6 +50,13 @@ function Enable-Bucket {
 #    iex ((New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh'))
 #}
 
+if (! (scoop info git).Installed ) {
+        Write-Verbose -Message "Installing git"
+        scoop install git --global
+} else {
+    Write-Verbose -Message "Package git already installed! Skipping..."
+}
+
 # Configure Aria2 Download Manager
 Install-ScoopApp -Package "aria2"
 if (!$(scoop config aria2-enabled) -eq $True) {
@@ -59,18 +66,12 @@ if (!$(scoop config aria2-warning-enabled) -eq $False) {
     scoop config aria2-warning-enabled false
 }
 
-if (! (scoop info git).Installed ) {
-        Write-Verbose -Message "Installing git"
-        scoop install git --global
-} else {
-    Write-Verbose -Message "Package git already installed! Skipping..."
-}
-
 ## Add Buckets
+Enable-Bucket -Bucket "main"
 Enable-Bucket -Bucket "extras"
+Enable-Bucket -Bucket "java"
+Enable-Bucket -Bucket "nerd-fonts"
 #Enable-Bucket -Bucket "nonportable"
-#Enable-Bucket -Bucket "java"
-#Enable-Bucket -Bucket "nirsoft"
 #scoop bucket add foosel https://github.com/foosel/scoop-bucket
 
 # Check if Home Workstation
@@ -80,86 +81,96 @@ if ($(Read-Host -Prompt "Is this a workstation for Home use (y/n)?") -eq "y") {
     $HomeWorkstation = $False
 }
 
-# Home Workstation Configurations
-if ($HomeWorkstation) {
-    # Adding games bucket
-    Enable-Bucket -Bucket "games"
-    # Create $Env:UserProfile\bin, if not exist
-    if (!(Test-Path -Path $Env:UserProfile\bin)) {
-        Write-Verbose -Message "Creating bin directory in $Env:UserProfile"
-        New-Item -Path $Env:UserProfile\bin -ItemType Directory | Out-Null
-        #[System.Environment]::SetEnvironmentVariable("PATH", $Env:PATH + ";$Env:UserProfile\bin","USER")
-    }
-}
-
 # Install Scoop Packages
-$Scoop = @(
-    "lazygit",
-	"dvc",
-    #"firefox",
-    #"googlechrome",
-    "opera",
-    "skype",
-    "whatsapp",
-    "gh",
-    "smartgit",
-    "lepton",
-    "jira",
-    "rclone",
-    "restic",
-    "cwrsync",
-    "vscode",
-    "sublime-text",
-    "sublime-merge",
-    "vim",
-    "notepadplusplus",
-    "notepadnext",
-    "mysql-workbench",
-    "dbeaver",
-    "sqlitebrowser",
-    #"docker",
-	#"docker-machine",
-	"docker-compose",
-	"lazydocker",
-    "vagrant",
-	#"virtualbox-np",
-    "ngrok",
-    "nodejs",
-    "nvm",
-    "postman",
-    "cmder-full",
-    "filezilla",
-    "filezilla-server",
-    "winscp",
-    "teamviewer",
-    "anydesk",
-    "libreoffice",
-    "foxit-reader",
-    "gimp",
-    #"geany",
-    "flow-launcher",
-    "charm-gum",
-    "dasel",
-    "flameshot",
-    "vifm",
-    "7zip")
-foreach ($item in $Scoop) {
-    Install-ScoopApp -Package "$item"
+
+$scoop_office_softwares = @(
+    "extras/vcredist2022" # For Lunarvim
+    "main/neovim" # For Lunarvim
+    "main/make" # For Lunarvim
+    "main/python" # For Lunarvim
+    "nodejs" # For Lunarvim
+    "main/rust" # For Lunarvim
+    "main/gcc" # For Lunarvim
+    "main/go" # For Lunarvim
+    "main/lua" # For Lunarvim
+    "main/ruby" # For Lunarvim
+    "main/php" # For Lunarvim
+    "main/composer" # For Lunarvim
+    "java/openjdk" # For Lunarvim
+    "main/julia" # For Lunarvim
+    "main/wget" # For Lunarvim
+    "main/gzip" # For Lunarvim
+    "main/ripgrep" # For Lunarvim
+    "main/fd" # For Lunarvim
+    "nerd-fonts/Hack-NF" # For Lunarvim
+    #"extras/vscode"
+    #"lazygit"
+	#"dvc"
+    #"firefox"
+    #"googlechrome"
+    #"opera"
+    #"skype"
+    #"whatsapp"
+    #"gh"
+    #"smartgit"
+    #"lepton"
+    #"jira"
+    #"rclone"
+    #"restic"
+    #"cwrsync"
+    #"sublime-text"
+    #"sublime-merge"
+    #"vim"
+    #"notepadplusplus"
+    #"notepadnext"
+    #"mysql-workbench"
+    #"dbeaver"
+    #"sqlitebrowser"
+    #"docker"
+	#"docker-machine"
+	#"docker-compose"
+	#"lazydocker"
+    #"vagrant"
+	#"virtualbox-np"
+    #"ngrok"
+    #"nvm"
+    #"postman"
+    #"cmder-full"
+    #"filezilla"
+    #"filezilla-server"
+    #"winscp"
+    #"teamviewer"
+    #"anydesk"
+    #"libreoffice"
+    #"foxit-reader"
+    #"gimp"
+    #"geany"
+    #"flow-launcher"
+    #"charm-gum"
+    #"dasel"
+    #"flameshot"
+    #"vifm"
+    #"7zip"
+)
+
+$scoop_home_softwares = @(
+    #"rclone-browser"
+    #"freedownloadmanager"
+    #"shotcut"
+    #"audacity"
+    #"rufus"
+    #"vlc"
+    #"format-factory"
+    "handbrake"
+)
+
+foreach ($software_name in $scoop_office_softwares) {
+    Install-ScoopApp -Package "$software_name"
 }
 
 # Install Scoop Packages, if Home Workstation
 if ($HomeWorkstation) {
-    Remove-Variable -Name "Scoop"
-    $Scoop = @(
-        "rclone-browser",
-		"freedownloadmanager",
-        "shotcut",
-        "audacity",
-        "rufus",
-        "vlc",
-        #"format-factory",
-        "handbrake")
-    foreach ($item in $Scoop) {
-        Install-ScoopApp -Package "$item"
+    foreach ($software_name in $scoop_home_softwares) {
+        Install-ScoopApp -Package "$software_name"
     }
 }

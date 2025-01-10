@@ -31,9 +31,16 @@
 
 ## FlatSeal
 
+* [Flatseal GitHub](https://github.com/tchx84/flatseal)
 * [Flatseal by Martin Abente Lahaye](https://flathub.org/apps/com.github.tchx84.Flatseal)
-
 * [Manage Flatpak Permissions Graphically With Flatseal](https://itsfoss.com/flatseal/)
+* [YouTube => Flatseal - The Essential Flatpak BY Chris Titus Tech](https://www.youtube.com/watch?v=IfDUXZfDhEI)
+
+## Warehouse
+
+* [Warehouse GitHub](https://github.com/flattool/warehouse)
+* [Warehouse by Heliguy](https://flathub.org/apps/io.github.flattool.Warehouse)
+* [YouTube => Warehouse Makes Flatpaks Even Easier To Use BY DistroTube](https://www.youtube.com/watch?v=XONP03uMq08)
 
 # References
 
