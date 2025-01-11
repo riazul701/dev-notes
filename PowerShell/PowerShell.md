@@ -2,7 +2,9 @@
 
 ## Websites
 
-* [Powershell GitHub]()
+* [Powershell GitHub](https://github.com/PowerShell/PowerShell)
+* [PowerShell Documentation](https://learn.microsoft.com/en-us/powershell/)
+* [gsudo => sudo for Windows](https://gerardog.github.io/gsudo/) || [gsudo GitHub](https://github.com/gerardog/gsudo)
 
 ## Notes
 
@@ -13,4 +15,5 @@
 # References
 
 * Guides
+  * [Running a command as Administrator using PowerShell?](https://stackoverflow.com/questions/7690994/running-a-command-as-administrator-using-powershell)
   * [Everything you wanted to know about arrays](https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-arrays?view=powershell-7.4)

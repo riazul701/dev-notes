@@ -165,6 +165,7 @@ apt_home_softwares=(
     # ["flameshot"]="flameshot"
     # ["obs-studio"]="obs-studio"
     # ["stacer"]="stacer"
+    # ["peazip"]="peazip"
 )
 
 deb_office_softwares=(
