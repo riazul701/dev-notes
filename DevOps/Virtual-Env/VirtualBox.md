@@ -5,7 +5,9 @@
 * [OSBoxes](https://www.osboxes.org/)
 
 ## Notes
+
 * In machine settings, use "Bridge" adapter to get IP from WiFi router. This is dynamic IP.
+* Enable UEFI: Select Virtual Machine -> Settings -> System -> Turn On "Enable EFI (special OSes only)"
 
 # Boot From Media
 

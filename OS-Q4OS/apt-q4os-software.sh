@@ -5,15 +5,6 @@
 # Clear Flatpak Cache: flatpak remove --unused
 # Clear Nix Cache: nix-collect-garbage
 
-if [[ "$USER" == "root" ]]
-then
-    echo -e '\033[1;31m Do not run this script with "sudo" prefix. "sudo" will be used internally when necessary! \033[0m'
-    exit
-fi
-download_path="/home/$USER/Downloads/Debian_Software"
-nix_env_path=$(command -v nix-env)
-apt_list_installed=$(apt list --installed)
-
 declare -A snap_softwares_all
 declare -A snap_office_softwares
 declare -A snap_home_softwares
@@ -193,6 +184,15 @@ tar_office_softwares=(
 tar_home_softwares=(
     # "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
 )
+
+if [[ "$USER" == "root" ]]
+then
+    echo -e '\033[1;31m Do not run this script with "sudo" prefix. "sudo" will be used internally when necessary! \033[0m'
+    exit
+fi
+download_path="/home/$USER/Downloads/Debian_Software"
+nix_env_path=$(command -v nix-env)
+apt_list_installed=$(apt list --installed)
 
 for snap_cmd in "${!snap_office_softwares[@]}"; do
     snap_softwares_all[$snap_cmd]=${snap_office_softwares[$snap_cmd]}

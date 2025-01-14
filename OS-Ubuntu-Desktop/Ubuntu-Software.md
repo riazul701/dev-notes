@@ -74,7 +74,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   
 * Social/Communication (Selected)
   * [Skype](https://www.skype.com/en/)
-  * [WhatsApp](https://www.whatsapp.com/) || [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
+  * [WhatsApp](https://www.whatsapp.com/) || [web.whatsapp.com](https://web.whatsapp.com/)
+    * [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
   * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
 
 * Online Tools (Selected)
@@ -365,7 +366,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   
 * Social/Communication (List)
   * [Skype](https://www.skype.com/en/)
-  * [WhatsApp](https://www.whatsapp.com/) || [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
+  * [WhatsApp](https://www.whatsapp.com/) || [web.whatsapp.com](https://web.whatsapp.com/)
+    * [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
+    * [keshavbhatt/whatsie GitHub](https://github.com/keshavbhatt/whatsie)
   * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
 
 * Online Tools (List)

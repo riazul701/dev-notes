@@ -11,6 +11,12 @@
   * [kkzzhizhou/scoop-apps GitHub](https://github.com/kkzzhizhou/scoop-apps)
   * [TheRandomLabs/Scoop-Python GitHub](https://github.com/TheRandomLabs/Scoop-Python)
 
+## Notes
+
+* $PATH
+  * Global/System-wise installed apps path: `C:\ProgramData\scoop` [Before enable "show hidden items"]
+  * User-wise installed apps path: `C:\Users\{{user-name}}\scoop`
+
 # References
 
 * next-sl: 

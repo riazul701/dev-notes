@@ -12,6 +12,7 @@
 * [massgravel/Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
 * [abbodi1406/KMS_VL_ALL_AIO](https://github.com/abbodi1406/KMS_VL_ALL_AIO)
 * [TGSAN/CMWTAT_Digital_Edition](https://github.com/TGSAN/CMWTAT_Digital_Edition)
+* [LeDragoX/Win-Debloat-Tools GitHub](https://github.com/LeDragoX/Win-Debloat-Tools)
 
 ## Notes
 * Check Windows-10 version: Press "WindowsKey+R" to open "Run" window -> Enter "winver" -> Click "OK"
@@ -90,4 +91,6 @@
 
 * YouTube Tutorials
   * [AtlasOS vs ReviOS vs Tiny11 - Which is the Best Custom Windows 11? BY NotroDan](https://www.youtube.com/watch?v=2Ya18RAB9Z8)
+  * [Windows X Lite: The ULTIMATE Lightweight OS? BY NotroDan](https://www.youtube.com/watch?v=Hcw13JEoCek)
   * [আপনার কম্পিউটারে কেন উইন্ডোজ ১১ চলবে না? - This PC can't run windows 11 - Fixed! BY Sohag360](https://www.youtube.com/watch?v=htHI9_sEHbM)
+  * [Windows LTSC | The Best Version of Windows 10 BY Chris Titus Tech](https://www.youtube.com/watch?v=8dyhoh7u8JA)

@@ -68,7 +68,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   
 * Social/Communication (Selected)
   * [Skype](https://www.skype.com/en/)
-  * [WhatsApp](https://www.whatsapp.com/)
+  * [WhatsApp](https://www.whatsapp.com/) || [web.whatsapp.com](https://web.whatsapp.com/)
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (Selected)
@@ -357,7 +357,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   
 * Social/Communication (List)
   * [Skype](https://www.skype.com/en/)
-  * [WhatsApp](https://www.whatsapp.com/)
+  * [WhatsApp](https://www.whatsapp.com/) || [web.whatsapp.com](https://web.whatsapp.com/)
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (List)
