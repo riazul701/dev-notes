@@ -3,7 +3,14 @@
 * SSH Client
   * `ssh <user-name>@<ip-address>` : Connect to server
 
-* SSH Server
+* SSH Server (Debian-OS with Systemd)
+  * `sudo apt install ssh` : Install OpenSSH, if not present
+  * `systemctl status sshd` : Check ssh service is runnint or not
+  * `systemctl start sshd` : Start ssh service
+  * `systemctl stop sshd` : Stop ssh service
+  * `systemctl restart sshd` : Restart ssh service (For configuration reload)
+
+* SSH Server (Antix-OS without Systemd)
   * `ssh localhost` : Check if sshd(openssh) is running
   * `service ssh status` : Check ssh service is running
   * `service sshd start` : Start ssh service
@@ -118,12 +125,15 @@ Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
 ## Windows-X-Lite/Micro-10/Optimum-10
 
+* Windows-X-Lite creates "Admin" user without password, during installation.
+  * (Must for OpenSSH) Create password for "Admin" user: Windows Start Menu -> Control Panel -> User Accounts -> Manage another account -> Select user "Admin" -> Create new password
+
 * Windows-X-Lite does not have "Settings" -> "Apps" -> "Optional Features" OR PowerShell's `Add-WindowsCapability`.
 
 * Instructions from [scoop.sh/#/apps?q=openssh => "openssh in main" field](https://scoop.sh/#/apps?q=openssh)
   * Windows 10 or higher includes this build of OpenSSH in the system itself, hence it is recommended to use the system OpenSSH there. Run 'sudo $dir\install-sshd.ps1' to install sshd and ssh-agent as a service. Run 'sudo $dir\uninstall-sshd.ps1' to uninstall the services.
 
-* Instructions when run `scoop install main/openssh` command
+* Install OpenSSH using command `scoop install main/openssh` . Shows instructions when run this command:
   * Windows 10 or higher includes this build of OpenSSH in the system itself, hence it is recommended to use the system OpenSSH there.
   * Run 'sudo C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1' to install sshd and ssh-agent as a service.
   * Run 'sudo C:\ProgramData\scoop\apps\openssh\current\uninstall-sshd.ps1' to uninstall the services.
@@ -131,6 +141,15 @@ Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 * NOTE: Windows-OS does have `sudo` command, instead open PowerShell as Administrator mode.
 * When run `C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1` command, shows message
   * Updated Machine PATH to include OpenSSH directory, restart/re-login required to take effect globally.
+
+* {24} [Get started with OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui)
+  * Graphical User Interface (GUI)
+  * Open the "Services" desktop app. (Select "Start", type "services.msc" in the search box, and then select the "Service" app or press "ENTER".)
+    * Alternatively, go from "Task Manager" -> "Services" Tab -> "Open Services" 
+  * In the details pane, double-click "OpenSSH SSH Server".
+  * On the "General" tab, from the "Startup type" drop-down menu, select "Automatic".
+  * To start the service, select "Start".
+  * Note: Installing OpenSSH Server will create and enable a firewall rule named "OpenSSH-Server-In-TCP". This allows inbound SSH traffic on port 22. If this rule is not enabled and this port is not open, connections will be refused or reset.
 
 ## Termux (Android)
 

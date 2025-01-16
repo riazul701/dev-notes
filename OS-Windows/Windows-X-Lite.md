@@ -6,6 +6,12 @@
 * [Windows-X-Lite YouTube](https://www.youtube.com/@WindowsX-Lite)
 
 ## Notes
+
+* Turn On User Account Control (UAC): Windows Start Menu -> Control Panel -> Security and Maintenance -> Change User Account Control settings -> Set slider to "Always notify"
+
+* Windows-X-Lite creates "Admin" user without password, during installation.
+  * (Must for OpenSSH) Create password for "Admin" user: Windows Start Menu -> Control Panel -> User Accounts -> Manage another account -> Select user "Admin" -> Create new password
+
 * Check Windows version: Press "WindowsKey+R" to open "Run" window -> Enter "winver" -> Click "OK"
 
 ## Resource Usage

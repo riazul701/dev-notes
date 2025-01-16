@@ -196,3 +196,6 @@
 
   * Package Installation
     * {2} [vimdiff is not available as 'vim'](https://stackoverflow.com/questions/55418145/vimdiff-is-not-available-as-vim)
+
+* YouTube Tutorials
+  * [Easily moving Linux installs BY Chris Titus Tech](https://www.youtube.com/watch?v=x6063EuxfEA)
