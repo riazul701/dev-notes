@@ -76,9 +76,12 @@
 
 ## Antix-OS Installation
 
-* Choose partitions (During Installation - Antix-23. Note: Antix-22 does not have this issue)
-  * ERROR => "antiX Linux Installer" Dialog: This system uses EFI, but no valid EFI system partition was assigned to /boot/efi separately. Are you sure to continue?
-  * sda1 => size: 300.0 MB; Use For: ESP; Format: Preserve (FAT32)
+* ESP = EFI System Partition
+* Choose partitions (During Installation of Antix-23. Note: Antix-22 does not have this issue)
+  * ERROR => "antiX Linux Installer" shows Dialog:
+    * This system uses EFI, but no valid EFI system partition was assigned to `/boot/efi` separately. Are you sure to continue?
+  * Solution => In hard disk `sda1` create partition:
+    * Size: 300.0 MB; Use For: ESP; Format: Preserve (FAT32)
 
 * Durint Antix-OS installation, do not Check/Tick "Root (administrator) Account". Because it cause problems during operating-system login.
 

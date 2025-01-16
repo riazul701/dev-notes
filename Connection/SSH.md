@@ -1,26 +1,20 @@
-# Server/SSH.md
+# Commands/Usage
 
-# Commands
+* SSH Client
+  * `ssh <user-name>@<ip-address>` : Connect to server
 
-## SSH Client
+* SSH Server
+  * `ssh localhost` : Check if sshd(openssh) is running
+  * `service ssh status` : Check ssh service is running
+  * `service sshd start` : Start ssh service
+  * `service sshd stop` : Stop ssh service
+  * `service sshd restart` : Restart ssh service (For configuration reload)
 
-* Connect to server: `ssh <user-name>@<ip-address>`
+* SSH-Copy-Id
+  * `ssh-copy-id -i ~/.ssh/id_rsa.pub -p 2222  <user-name>@<ip-address>` : Copy public key using different ssh port [NOTE: Never copy your private key to another machine.] <sup>{25}</sup>
 
-## SSH Server
-
-* Check if sshd(openssh) is running: `ssh localhost`
-* Check ssh service is running: `service ssh status`
-* Start ssh service: `service sshd start`
-* Stop ssh service: `service sshd stop`
-* Restart ssh service (For configuration reload): `service sshd restart`
-
-## SSH-Copy-Id
-
-* Copy public key using different ssh port: `ssh-copy-id -i ~/.ssh/id_rsa.pub -p 2222  <user-name>@<ip-address>` [NOTE: Never copy your private key to another machine.] <sup>{25}</sup>
-
-## SSH agent forwarding
-
-* {44} [Using SSH agent forwarding](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding)
+* SSH agent forwarding
+  * {44} [Using SSH agent forwarding](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding)
 
 # Contents of SSH
 
@@ -121,6 +115,22 @@ Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 * Guides
   * {30} [Install openSSH server on Windows 10](https://www.youtube.com/watch?v=0G1Qh-_jBTQ)
   * {31} [Windows 10 Native SSH Client Connect Without Password](https://www.youtube.com/watch?v=Z46YbczqbiE)
+
+## Windows-X-Lite/Micro-10/Optimum-10
+
+* Windows-X-Lite does not have "Settings" -> "Apps" -> "Optional Features" OR PowerShell's `Add-WindowsCapability`.
+
+* Instructions from [scoop.sh/#/apps?q=openssh => "openssh in main" field](https://scoop.sh/#/apps?q=openssh)
+  * Windows 10 or higher includes this build of OpenSSH in the system itself, hence it is recommended to use the system OpenSSH there. Run 'sudo $dir\install-sshd.ps1' to install sshd and ssh-agent as a service. Run 'sudo $dir\uninstall-sshd.ps1' to uninstall the services.
+
+* Instructions when run `scoop install main/openssh` command
+  * Windows 10 or higher includes this build of OpenSSH in the system itself, hence it is recommended to use the system OpenSSH there.
+  * Run 'sudo C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1' to install sshd and ssh-agent as a service.
+  * Run 'sudo C:\ProgramData\scoop\apps\openssh\current\uninstall-sshd.ps1' to uninstall the services.
+
+* NOTE: Windows-OS does have `sudo` command, instead open PowerShell as Administrator mode.
+* When run `C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1` command, shows message
+  * Updated Machine PATH to include OpenSSH directory, restart/re-login required to take effect globally.
 
 ## Termux (Android)
 

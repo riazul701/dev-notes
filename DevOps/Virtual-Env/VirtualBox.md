@@ -7,12 +7,19 @@
 ## Notes
 
 * In machine settings, use "Bridge" adapter to get IP from WiFi router. This is dynamic IP.
-* Enable UEFI: Select Virtual Machine -> Settings -> System -> Turn On "Enable EFI (special OSes only)"
+* Enable UEFI: Select Virtual Machine -> Settings -> System -> Motherboard -> Turn On "Enable EFI (special OSes only)" <sup>{4}</sup>
 
 # Boot From Media
 
+## UEFI Boot Menu
+
+* {9} [F12 boot device selection does not work after manually selecting boot order in EFI](https://forums.virtualbox.org/viewtopic.php?t=103602)
+  * Install a guest linux vm, set EFI option on in settings.
+  * The `F12` key is only used in the legacy BIOS, use the `ESC` key for the (U)EFI BIOS.
+
 ## Boot From USB (Linux-VirtualBox)
-* [How To Boot From USB Drive In Virtualbox In Linux](https://ostechnix.com/how-to-boot-from-usb-drive-in-virtualbox-in-linux/)
+
+* {1} [How To Boot From USB Drive In Virtualbox In Linux](https://ostechnix.com/how-to-boot-from-usb-drive-in-virtualbox-in-linux/)
   * Command to find USB drive details: `sudo fdisk -l` [USB drive name is /dev/sdc]
   * Commands to create a vmdk file: `sudo vboxmanage internalcommands createrawvmdk -filename  ~/usb.vmdk -rawdisk /dev/sdc`
   * In some Linux distros, the vboxmanage command is case-sensitive: `sudo VBoxManage internalcommands createrawvmdk -filename  ~/usb.vmdk -rawdisk /dev/sdc`
@@ -32,7 +39,8 @@
     * You will now see the vmdk file is selected as the virtual hard disk for the new virtual mahine.
 
 ## Boot From USB (Windows-VirtualBox)
-* [How to Make VirtualBox Boot from USB? (Windows-OS)](https://www.partitionwizard.com/partitionmanager/virtualbox-boot-from-usb.html)
+
+* {3} [How to Make VirtualBox Boot from USB? (Windows-OS)](https://www.partitionwizard.com/partitionmanager/virtualbox-boot-from-usb.html)
 
 # Configuration
 
@@ -48,7 +56,7 @@
 
 * Select Virtual-Machine -> Settings -> System -> Processor -> "Enable Nested VT-x/AMD-V" is required for Windows Subsystem for Linux inside Windows-10
 * If this can not be enabled from GUI, then follow instructions below:
-* [Virtualbox enable nested vtx/amd-v greyed out](https://stackoverflow.com/questions/54251855/virtualbox-enable-nested-vtx-amd-v-greyed-out)
+* {5} [Virtualbox enable nested vtx/amd-v greyed out](https://stackoverflow.com/questions/54251855/virtualbox-enable-nested-vtx-amd-v-greyed-out)
   * Execute this: `VBoxManage modifyvm <VirtualMachineName> --nested-hw-virt on`
 * Select Virtual-Machine -> Settings -> System -> Acceleration -> Paravirtualization Interface: None <sup>{6}</sup>
   * Otherwise Windows-10 will not start, when enable "Hyper-V" from Control Panel -> Program and Features -> Turn Windows features on or off
@@ -77,12 +85,16 @@
 
 # References
 
-* Next Serial: {9}
+* Next Serial: {11}
 
 * Tutorial
+  
+* Guides
   * {1} [How To Boot From USB Drive In Virtualbox In Linux](https://ostechnix.com/how-to-boot-from-usb-drive-in-virtualbox-in-linux/)
   * {2} [How To Create An ISO From A Bootable USB Drive In Linux](https://ostechnix.com/create-iso-bootable-usb-drive-linux/)
   * {3} [How to Make VirtualBox Boot from USB? (Windows-OS)](https://www.partitionwizard.com/partitionmanager/virtualbox-boot-from-usb.html)
+  * {9} [F12 boot device selection does not work after manually selecting boot order in EFI](https://forums.virtualbox.org/viewtopic.php?t=103602)
+  * {10} [http://www.webdesignblog.asia/software/virtualbox-moving-vdi-file-re-linking-guest/#sthash.1QOHeiw5.dpbs](http://www.webdesignblog.asia/software/virtualbox-moving-vdi-file-re-linking-guest/#sthash.1QOHeiw5.dpbs)
 
 * Configuration
   * {4} [How to Enable EFI on VirtualBox Virtual Machines Running Linux](https://www.makeuseof.com/set-up-efi-linux-virtual-machine-virtualbox/)
