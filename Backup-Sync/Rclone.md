@@ -45,16 +45,11 @@
 
 ## Linux-OS Installation
 
+* Using Snap package manager
+  * Using Rclone: `sudo snap install rclone`
+
 * Using Script <sup>{1}</sup>
   * Command: `sudo -v ; curl https://rclone.org/install.sh | sudo bash`
-
-## Google Drive Sync
-** Generate Index
-$ rclone lsf . --format "psth" --hash MD5 --files-only --recursive > ~/rclone_index/local_index.txt
-$ rclone lsf testrc: --format "psth" --hash MD5 --files-only --recursive > ~/rclone_index/remote_index.txt
-
-** "rclone-sync" bash script
-File Path: C:\Program Files\Git\usr\bin\rclone-sync
 
 # RClone Google Drive
 
@@ -74,6 +69,14 @@ File Path: C:\Program Files\Git\usr\bin\rclone-sync
 * Sync source to destination. Make destination exact same like source: `rclone sync testrc: . --progress`
 * Bisync current directory to remote: `rclone bisync . testrc: --resync --progress` [`--resync` flag is for error solving and `-progress` flag is for showing progress]
 * 
+
+## Google Drive Sync
+** Generate Index
+$ rclone lsf . --format "psth" --hash MD5 --files-only --recursive > ~/rclone_index/local_index.txt
+$ rclone lsf testrc: --format "psth" --hash MD5 --files-only --recursive > ~/rclone_index/remote_index.txt
+
+** "rclone-sync" bash script
+File Path: C:\Program Files\Git\usr\bin\rclone-sync
 
 ## Client Secret ID
 

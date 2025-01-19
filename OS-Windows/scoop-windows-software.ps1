@@ -18,6 +18,7 @@
 # Execute this script using command: .\install-software.ps1
 
 $scoop_office_softwares = @(
+    "extras/git-credential-manager"
     "main/pwsh" # PowerShell
     "extras/wezterm"
     "extras/googlechrome"

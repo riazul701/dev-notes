@@ -6,6 +6,26 @@
 * [KeePassXC Site](https://keepassxc.org/)
 * [KeePassXC CLI](https://wiki.gentoo.org/wiki/KeePassXC/cli)
 
+# Install KeePassXC
+
+## Install using Snap
+
+* [keepassxc BY Jonathan White (keepassxreboot) => snapcraft.io/keepassxc](https://snapcraft.io/keepassxc)
+  * Install KeePassXC: `sudo snap install keepassxc`
+
+# Error and Solution
+
+## VCRUNTIME140_1.dll was not found
+
+* Error Message_1:
+  * The code execution cannot proceed because VCRUNTIME140_1.dll was not found. Reinstalling the program may fix this problem.
+  * "KeePassXC" is installed using Scoop.
+
+* Solution_1:
+  * [System Error: VCRUNTIME140_1.dll was not found #7564](https://github.com/keepassxreboot/keepassxc/issues/7564)
+  * [Visual Studio 2015, 2017, 2019, and 2022](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)
+  * Download and install [vc_redist.x64.exe](https://aka.ms/vs/17/release/vc_redist.x64.exe) from previous link.
+
 # References
 
 * YouTube Tutorials

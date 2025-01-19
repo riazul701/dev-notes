@@ -2,5 +2,5 @@
 
 ## Websites
 
-* [atuinsh/atuin](https://github.com/atuinsh/atuin)
-* [Atuin Site](https://atuin.sh/)
+* [Atuin => Sync, search and backup shell history](https://atuin.sh/)
+* [atuinsh/atuin GitHub](https://github.com/atuinsh/atuin)

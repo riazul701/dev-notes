@@ -1,23 +1,40 @@
 # Commands & Usage
 
-* [chezmoi.io](https://www.chezmoi.io/)
-* `chezmoi --help` : Chezmoi help.
+## Websites
 
-## Paths
-
-* Default source directory: `/home/{{user-name}}/.local/share/chezmoi`
-* Default destination directory: `/home/{{user-name}}`
-* Default cache directory: `/home/{{user-name}}/.cache/chezmoi`
+* [Chezmoi Commands Reference](https://www.chezmoi.io/reference/commands/)
 
 ## Commands
+
+* `sudo snap install chezmoi --classic` : Install Chezmoi using Snap package manager. 
+
+* `chezmoi --help` : Chezmoi help.
 
 * `chezmoi init` : Setup the source directory, generate the config file, and optionally update the destination directory to match the target state.
 
 * chezmoi add
-  * `chezmoi add ~/.bashrc` : Add plain `~/.bashrc` to source directory.
-  * `chezmoi add ~/.gitconfig --template` : Add `~/.gitconfig` file as template.
-  * `chezmoi add ~/.vim --recursive` : Add `~/.vim` folder.
-  * `chezmoi add ~/.oh-my-zsh --exact --recursive` : Add exact `~/.oh-my-zsh` folder.
+  * Examples
+    * `chezmoi add ~/.bashrc` : Add plain `~/.bashrc` to source directory.
+    * `chezmoi add ~/.gitconfig --template` : Add `~/.gitconfig` file as template.
+    * `chezmoi add ~/.vim --recursive` : Add `~/.vim` folder.
+    * `chezmoi add ~/.oh-my-zsh --exact --recursive` : Add exact `~/.oh-my-zsh` folder.
+  * `chezmoi add {{file-name}} --autotemplate` : Automatically generate a template by replacing strings that match variable values from the data section of the config file.
+  * `chezmoi add {{file}} --create` : Add files that should exist, irrespective of their contents.
+  * `chezmoi add {{file}} --encrypt` : Encrypt files using the defined encryption method. [Configuration: `add.encrypt`]
+  * `chezmoi add {{directory}} --exact` : Set the exact attribute on added directories.
+  * `chezmoi add {{file/directory}} --follow` : If the last part of a target is a symlink, add the target of the symlink instead of the symlink itself.
+  * `chezmoi add {{directory}} --prompt` : Interactively prompt before adding each file.
+  * `chezmoi add {{directory}} --quiet` : Suppress warnings about adding ignored entries.
+  * `chezmoi add {{directory}} --secrets {{ignore|warning|error}}` : Action to take when a secret is found when adding a file. The default is `warning`. [Configuration: `add.secrets`]
+  * `chezmoi add {{directory}} --template` : Set the `template` attribute on added files and symlinks.
+  * `chezmoi add {{directory}} --template-symlinks` : When adding symlink to an absolute path in the source directory or destination directory, create a symlink template with `.chezmoi.sourceDir` or `.chezmoi.homeDir`.
+  * Common flags
+    * `chezmoi add {{directory}} --exclude {{types}}` : Exclude target state entries of specific types. The default is `none`.
+      * `--exclude=scripts` will cause the command to not run scripts and `--exclude=encrypted` will exclude encrypted files.
+    * `chezmoi add {{directory}} --force` : Add targets, even if doing so would cause a source template to be overwritten.
+    * `chezmoi add {{directory}} --include {{types}}` : Include target state entries of specific types. The default is `all`.
+      * `--include=files` specifies all files.
+    * `chezmoi add {{directory}} --recursive` : Recurse into subdirectories. Enabled by default. Can be disabled with `--recursive=false`.
 
 * Chezmoi add encryption
 * `chezmoi add ~/.ssh/id_rsa --encrypt`
@@ -105,18 +122,30 @@
 
 ## Websites
 
-* [Chezmoi Site](https://www.chezmoi.io/)
+* [chezmoi.io => Chezmoi Site](https://www.chezmoi.io/)
 * [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
 * [FiloSottile/age](https://github.com/FiloSottile/age)
 * [gpg => GNU Privacy Guard](https://www.gnupg.org/)
+* [str4d/rage GitHub](https://github.com/str4d/rage)
 * [text/template documentation](https://pkg.go.dev/text/template)
 * [sprig documentation](https://masterminds.github.io/sprig/)
 * [twpayne/dotfiles](https://github.com/twpayne/dotfiles)
 * [felipecrs/dotfiles => Bootstrap your Ubuntu in a single command!](https://github.com/felipecrs/dotfiles)
 
-# Installation
+## Paths
 
-## Antix
+* Default source directory: `/home/{{user-name}}/.local/share/chezmoi`
+* Default destination directory: `/home/{{user-name}}`
+* Default cache directory: `/home/{{user-name}}/.cache/chezmoi`
+
+# Install Chezmoi
+
+## Install using Snap
+
+* [chezmoi BY Tom Payne (twpayne) => snapcraft.io/chezmoi](https://snapcraft.io/chezmoi)
+  * Install Chezmoi: `sudo snap install chezmoi --classic`
+
+## Antix-Linux
 
 * One-line binary install
   * `sh -c "$(curl -fsLS get.chezmoi.io)"`
@@ -159,21 +188,22 @@
 
 ## Websites (Templates)
 
+* [Templating](https://www.chezmoi.io/user-guide/templating)
 * [Templates Reference](https://www.chezmoi.io/reference/templates/)
+
+## Notes (Templates)
+
+* Removing whitespace: `{{-` for the left brackets and `-}}` for the right brackets
 
 ## Variables
 
-* **`chezmoi execute-template '{{ VARIABLE-NAME }}'`**
-
-* 
+* `chezmoi execute-template '{{ VARIABLE-NAME }}'`
 
 # Error and Solution
 
-* next-error: {{error-1}}
-
 ## Package Installation
 
-**{{error-1}}: `which vimdiff` command not found**
+* Error_1: `which vimdiff` command not found
 
   * Message_1:
     * `chezmoi doctor` comamnd shows `vimdiff` not in $PATH
@@ -191,6 +221,12 @@
 
 * Installation
   * {1} [Chezmoi Install](https://www.chezmoi.io/install/)
+
+* Tutorials
+  * [Chezmoi Commands Reference](https://www.chezmoi.io/reference/commands/)
+
+* Guides
+  * [Templating](https://www.chezmoi.io/user-guide/templating)
 
 * Error and Solution
 

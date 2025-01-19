@@ -20,7 +20,7 @@
   * Flatpak ".desktop"/Menu files are located at: `/var/lib/flatpak/exports/share/applications`
   * Launch an executable by providing the full path name: `/var/lib/flatpak/exports/bin/org.mozilla.firefox` <sup>{3}</sup>
 
-* In Q4OS, Flatpak does not add software to $PATH, for both graphical and command-line software. But adds to Menu.
+* In Q4OS ("Q4OS 5.6 TDE (64bit).vdi"), Flatpak does not add software to $PATH, for both graphical and command-line software. But adds to Menu.
 
 ## Add to $PATH
 

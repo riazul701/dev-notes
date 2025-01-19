@@ -1,10 +1,13 @@
 # Commands/Usage
 
+* `echo 'export PATH=$PATH:/snap/bin' >> ~/.bashrc` : Add Snap $PATH to "~/.bashrc", if snap packages are not added to path automatically.
+  * `source ~/.bashrc` : Reload "~/.bashrc" file
 * `sudo sh -c 'rm -rf /var/lib/snapd/cache/*'` : Remove snap cache files in `/var/lib/snapd/cache` without issue. Also there is no need to stop snapd before. <sup>{3}</sup>
 * `apt show snapd` : Shows information about "snap"/"snapd" package
 * `sudo apt install snapd` : Install "snap"/"snapd" package
 * `which snap` : Shows "snap" installation path
-* `systemctl status snapd` : Check "snapd" status
+* `snap --version` : Check "snap"(client) and "snapd"(server) version
+* `systemctl status snapd` : Check "snapd" status (running or not)
 * `snap help --all` : Shows help of "snap" command
 
 # Snap Package Manager
@@ -20,10 +23,12 @@
 ## Notes
 
 * PATHs
+  * Snap binaries (graphical and command-line) are located at: `/snap/bin`
   * Snap ".desktop"/Menu files are located at: `/var/lib/snapd/desktop/applications`
   * Snap cache files are located at: `/var/lib/snapd/cache` <sup>{3}</sup>
 
-* In Q4OS, Snap adds software to $PATH, for both graphical and command-line software. Also Snap adds software to Menu.
+* In Q4OS ("Q4OS 5.6 TDE (64bit).vdi"), Snap adds software to $PATH, for both graphical and command-line software. Also Snap adds software to Menu.
+* In SparkyLinux ("sparkylinux-7.6-x86_64-minimalgui.iso"), Snap does not add software to $PATH, for both graphical and command-line software. Also Snap does not add software to Menu.
 
 ## App Auto Update
 
@@ -39,7 +44,20 @@
   * Error: `bash: ./snap-install.sh: /bin/bash^M: bad interpreter: No such file or directory`
   * Get bash path: `which bash` [Shows output: `/usr/bin/bash`]
   * Change "End Of Line": In Notepad++ Edit->EOL Conversion->Unix (LF)
-  *
+
+# Error and Solution
+
+## Snap Package Download/Verify Error
+
+* Error_1
+  > error: cannot perform the following tasks:
+  > - Fetch and check assertions for snap "rclone" (525) (cannot verify snap "rclone", no matching signatures found)
+
+* Solution_1
+  * {3} [How to remove uninstalled snaps from cache?](https://askubuntu.com/questions/1075050/how-to-remove-uninstalled-snaps-from-cache)
+  * You can remove the files in `/var/lib/snapd/cache` without issue. Also there is no need to stop snapd before.
+  * This was answered in [Snapcraft forum](https://forum.snapcraft.io/t/is-if-safe-for-me-to-remove-cache-files/7641):
+  * Here the command to do that: `sudo sh -c 'rm -rf /var/lib/snapd/cache/*'`
 
 # References
 

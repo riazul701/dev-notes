@@ -50,6 +50,8 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 * BitBucket Credential cache is stored in "/home/<user-name>/.password-store/git/https/bitbucket.org/<bitbucket-username>.gpg"
   * Delete "<bitbucket-username>.gpg" from this folder path.
 
+# Install Git-Credential-Manager
+
 ## Windows-OS Installation
 
 ### Instructions (Windows-OS)
@@ -66,6 +68,8 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 
 ### Git-Bash Configuraion (Windows-OS)
 * [Install instructions](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md)
+* Install GCM using Scoop: `scoop install extras/git-credential-manager`
+  * Add Scoop bucket: `scoop bucket add extras`
 * Configure "git config --global credential.helper" (Attach GCM with Git): `git-credential-manager configure`
   * Shows help: `git-credential-manager --help`
 * [Credential stores](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/credstores.md)
@@ -74,8 +78,8 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
     * This credential store uses Windows DPAPI to encrypt credentials which are stored as files in your file system. The file structure is the same as the [plaintext files credential store](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/credstores.md#plaintext-files) except the first line (the secret value) is protected by DPAPI.
     * By default files are stored in `%USERPROFILE%\.gcm\dpapi_store`. This can be configured using the environment variable `GCM_DPAPI_STORE_PATH` environment variable.
     * If the directory doesn't exist it will be created.
-* Check credential helper: `git config --global credential.helper`
-* Check credential store: `git config --global credential.credentialStore`
+* Check credential helper: `git config --global credential.helper` [Shows path of "git-credential-manager.exe"]
+* Check credential store: `git config --global credential.credentialStore` [Shows "wincredman" / "dpapi"]
 
 ## Windows Subsystem for Linux
 
@@ -109,6 +113,7 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Download DEB file from [GitCredentialManager DEB File](https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.886/gcm-linux_amd64.2.0.886.deb)
   * Use "wget" to download: `wget <URL>`
   * Install: `sudo dpkg -i <path-to-package>`
+  * Check version: `git-credential-manager --version`
   * Installation configure: `git-credential-manager configure`
   * Uninstallation configure: `git-credential-manager unconfigure`
   * Uninstall: `sudo dpkg -r gcm`
@@ -140,14 +145,14 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Install "gpg" command if not exists: `sudo apt install gpg`
   * Install "pass" command if not exists: `sudo apt install pass`
   * Generates "gpg-id": `gpg --gen-key` [Here provide Name and Email]
-  * Generates pass file: `pass init <gpg-id>` [<gpg-id> is long hash which is under "pub" tag from `gpg --gen-key` command] [Here a password is optional, which will be required during GitHub/BitBucket authentication. Do not use password for "LazyGit" software.]
+  * Generates pass file: `pass init <gpg-id>` [<gpg-id> is long hash which is under "pub" tag from `gpg --gen-key` command] [Here a password is optional, which will be required during GitHub/BitBucket authentication. Do not enter any password for "LazyGit" software.]
   * Set credential backing store: `git config --global credential.credentialStore gpg`
 * Configuration for [LazyGit](https://github.com/jesseduffield/lazygit)
   * Problem: GPG password prompt does not work with LazyGit.
   * When `gpg --gen-key` command asks for password, then do not enter any password and press "OK" button.
   * Now, during use of `git push` command, no password will be asked.
 * Check GitCredentialManager is working or not: `git push`
-* [NOT APPLICABLE] Settings for "credentialStore: cache"
+* [[NOT APPLICABLE]] Settings for "credentialStore: cache"
   * Set credential backing store: `git config --global credential.credentialStore cache`
   * By default, git credential-cache stores credentials for 900 seconds.
 
@@ -158,12 +163,14 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 * GPG Key Management
   * [How to Delete GPG Keys in Linux](https://linuxhint.com/delete-gpg-keys-linux/)
   * We have to delete the private key first and then move towards the public key deletion process, as GPG only permits you to delete the public key when its related private key is removed from the system.
+  * Check version: `gpg --version`
   * List public keys: `gpg --list-keys`
   * List private keys: `gpg --list-secret-keys`
   * Delete private key: `gpg --delete-secret-key [Key_ID]`
   * Delete public key: `gpg --delete-key [Key_ID]`
 
 * Pass (password-command) Management
+  * Check version: `pass --version`
   * Pass command help: `pass --help`
   * Pass list: `pass ls`
   * Delete pass: `pass rm -r <pass-name>`
