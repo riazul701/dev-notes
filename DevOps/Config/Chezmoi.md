@@ -13,11 +13,6 @@
 * `chezmoi init` : Setup the source directory, generate the config file, and optionally update the destination directory to match the target state.
 
 * chezmoi add
-  * Examples
-    * `chezmoi add ~/.bashrc` : Add plain `~/.bashrc` to source directory.
-    * `chezmoi add ~/.gitconfig --template` : Add `~/.gitconfig` file as template.
-    * `chezmoi add ~/.vim --recursive` : Add `~/.vim` folder.
-    * `chezmoi add ~/.oh-my-zsh --exact --recursive` : Add exact `~/.oh-my-zsh` folder.
   * `chezmoi add {{file-name}} --autotemplate` : Automatically generate a template by replacing strings that match variable values from the data section of the config file.
   * `chezmoi add {{file}} --create` : Add files that should exist, irrespective of their contents.
   * `chezmoi add {{file}} --encrypt` : Encrypt files using the defined encryption method. [Configuration: `add.encrypt`]
@@ -35,6 +30,11 @@
     * `chezmoi add {{directory}} --include {{types}}` : Include target state entries of specific types. The default is `all`.
       * `--include=files` specifies all files.
     * `chezmoi add {{directory}} --recursive` : Recurse into subdirectories. Enabled by default. Can be disabled with `--recursive=false`.
+  * Examples
+    * `chezmoi add ~/.bashrc` : Add plain `~/.bashrc` to source directory.
+    * `chezmoi add ~/.gitconfig --template` : Add `~/.gitconfig` file as template.
+    * `chezmoi add ~/.vim --recursive` : Add `~/.vim` folder.
+    * `chezmoi add ~/.oh-my-zsh --exact --recursive` : Add exact `~/.oh-my-zsh` folder.
 
 * Chezmoi add encryption
 * `chezmoi add ~/.ssh/id_rsa --encrypt`
@@ -48,6 +48,15 @@
     recipient = "age1ql3z7hjy54pw3hyww5ayyfg7zqgvc7w3j2elw8zmrj2kg5sfn9aqmcac8p"
   ```
   * [How do I configure chezmoi to encrypt files but only request a passphrase the first time chezmoi init is run?](https://www.chezmoi.io/user-guide/frequently-asked-questions/encryption/)
+
+* chezmoi age
+  * `age encrypt [file...]` : Encrypt file or standard input.
+  * `age encrypt [file...] --passphrase` OR `age encrypt [file...] --p` : Encrypt with a passphrase.
+  * `age decrypt [file...]` : Decrypt file or standard input.
+  * `age decrypt [file...] --passphrase` OR `age decrypt [file...] --p` : Decrypt with a passphrase.
+  * Examples
+    * `chezmoi age encrypt --passphrase plaintext.txt > ciphertext.txt`
+    * 
 
 * `chezmoi cat ~/.bashrc` : Write the target contents of targets to stdout. Show contents from source directory.
 * `chezmoi cat-config` : Print the configuration file.
@@ -128,6 +137,7 @@
 * [gpg => GNU Privacy Guard](https://www.gnupg.org/)
 * [str4d/rage GitHub](https://github.com/str4d/rage)
 * [jqlang/jq GitHub](https://github.com/jqlang/jq)
+* [dandavison/delta GitHub](https://github.com/dandavison/delta)
 * Vim
   * [alker0/chezmoi.vim => Highlight dotfiles you manage with chezmoi](https://github.com/alker0/chezmoi.vim)
 * Dotfiles
@@ -136,6 +146,11 @@
 * Documentation
   * [text/template documentation](https://pkg.go.dev/text/template)
   * [sprig documentation](https://masterminds.github.io/sprig/)
+
+## Notes
+
+* Chezmoi has built-in "git", "age" command, these are used if not found on operating system's path.
+* Chezmoi uses "vimdiff" as merge tool by default.
 
 ## Paths
 

@@ -3,6 +3,9 @@
 ## Websites
 
 * [GNU Bash](https://www.gnu.org/software/bash/)
+* Tutorials
+  * [Bash Scripting Tutorial => Ryans Tutorials](https://ryanstutorials.net/bash-scripting-tutorial/)
+  * [Shell Scripting Tutorial => tutorialspoint.com](https://www.tutorialspoint.com/unix/shell_scripting.htm)
 
 ## Notes
 
