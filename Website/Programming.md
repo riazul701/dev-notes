@@ -12,3 +12,7 @@
 * [nanogallery2](https://nanogallery2.nanostudio.org/)
 * [Galleria](https://galleriajs.github.io/)
 * [PhotoSwipe](https://photoswipe.com/)
+
+## Documentation Generator
+
+* [squidfunk/mkdocs-material GitHub](https://github.com/squidfunk/mkdocs-material)

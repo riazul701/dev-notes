@@ -123,14 +123,19 @@
 ## Websites
 
 * [chezmoi.io => Chezmoi Site](https://www.chezmoi.io/)
-* [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
-* [FiloSottile/age](https://github.com/FiloSottile/age)
+* [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
+* [FiloSottile/age GitHub](https://github.com/FiloSottile/age)
 * [gpg => GNU Privacy Guard](https://www.gnupg.org/)
 * [str4d/rage GitHub](https://github.com/str4d/rage)
-* [text/template documentation](https://pkg.go.dev/text/template)
-* [sprig documentation](https://masterminds.github.io/sprig/)
-* [twpayne/dotfiles](https://github.com/twpayne/dotfiles)
-* [felipecrs/dotfiles => Bootstrap your Ubuntu in a single command!](https://github.com/felipecrs/dotfiles)
+* [jqlang/jq GitHub](https://github.com/jqlang/jq)
+* Vim
+  * [alker0/chezmoi.vim => Highlight dotfiles you manage with chezmoi](https://github.com/alker0/chezmoi.vim)
+* Dotfiles
+  * [twpayne/dotfiles](https://github.com/twpayne/dotfiles)
+  * [felipecrs/dotfiles => Bootstrap your Ubuntu in a single command!](https://github.com/felipecrs/dotfiles)
+* Documentation
+  * [text/template documentation](https://pkg.go.dev/text/template)
+  * [sprig documentation](https://masterminds.github.io/sprig/)
 
 ## Paths
 
