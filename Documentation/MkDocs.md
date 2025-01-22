@@ -2,6 +2,8 @@
 
 ## Websites
 
+* [mkdocs.org => Project documentation with Markdown](https://www.mkdocs.org/)
+* [mkdocs/mkdocs GitHub](https://github.com/mkdocs/mkdocs)
 
 ## Guides
 * [How to document a project with MkDocs](https://www.youtube.com/watch?v=X-LbOBAd-xg)
