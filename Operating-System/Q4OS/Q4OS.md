@@ -8,6 +8,9 @@
 
 ## Websites
 
+* [repology.org => The packaging hub](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)
+
 ## Notes
 
 * PATHs

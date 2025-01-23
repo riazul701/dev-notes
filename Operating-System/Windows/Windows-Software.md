@@ -76,6 +76,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Programming (Selected)
 
+* Configuration Management (Selected)
+  * [Chezmoi => Manage your dotfiles across multiple diverse machines](https://www.chezmoi.io/) || [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
+
 * Version Control & Issue Tracker (Selected)
   * [Git](https://git-scm.com/)
   * [GitHub CLI](https://cli.github.com/)
@@ -85,6 +88,15 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Lepton](https://hackjutsu.com/Lepton/) || [Lepton GitHub](https://github.com/hackjutsu/Lepton)
   * [Jira](https://www.atlassian.com/software/jira)
   * [Trello](https://trello.com/home)
+
+* Diff/Merger/Pager (Selected)
+  * [Meld => Visual diff and merge tool](https://meldmerge.org/)
+  * [KDiff3 => File and folder diff and merge](https://apps.kde.org/kdiff3/)
+  * [dandavison.github.io/delta](https://dandavison.github.io/delta/) || [dandavison/delta GitHub](https://github.com/dandavison/delta)
+  * Vimdiff
+  * [neovim's diff mode](https://neovim.io/doc/user/diff.html)
+  * "diff" command
+  * ["less" for Windows](https://github.com/jftuga/less-Windows)
 	
 * File Incremental Backup & Sync (Selected)
   * [Rclone](https://rclone.org/) || [Rclone GitHub](https://github.com/rclone/rclone)
@@ -366,7 +378,10 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [photopea/photopea => Online image editor](https://github.com/photopea/photopea)
 
 ## Programming (List)
-  
+
+* Configuration Management (List)
+  * [Chezmoi => Manage your dotfiles across multiple diverse machines](https://www.chezmoi.io/) || [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
+
 * Version Control & Issue Tracker (List)
   * [Git](https://git-scm.com/)
   * [GitHub CLI](https://cli.github.com/)
@@ -377,6 +392,19 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Jira](https://www.atlassian.com/software/jira)
   * [Trello](https://trello.com/home)
   * [MantisBT](https://www.mantisbt.org/) || [MatisBT GitHub](https://github.com/mantisbt/mantisbt)
+
+* Diff/Merger/Pager (List)
+  * [Meld => Visual diff and merge tool](https://meldmerge.org/)
+  * [KDiff3 => File and folder diff and merge](https://apps.kde.org/kdiff3/)
+  * [dandavison.github.io/delta](https://dandavison.github.io/delta/) || [dandavison/delta GitHub](https://github.com/dandavison/delta)
+  * [so-fancy/diff-so-fancy GitHub](https://github.com/so-fancy/diff-so-fancy)
+  * Vimdiff
+  * [neovim's diff mode](https://neovim.io/doc/user/diff.html)
+  * "diff" command
+  * ["less" for Windows](https://github.com/jftuga/less-Windows)
+  * "more" command (scroll down but not up)
+  * "most" command
+  * [Wilfred/difftastic](https://github.com/Wilfred/difftastic)
 
 * File Incremental Backup & Sync (List)
   * [Rclone](https://rclone.org/) || [Rclone GitHub](https://github.com/rclone/rclone)
@@ -606,6 +634,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [sxyazi/yazi](https://github.com/sxyazi/yazi)
   * [files-community/Files](https://github.com/files-community/Files)
+  * [Double Commander => File manager with two panels side by side](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
 
 * Encryption (List)
   * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)

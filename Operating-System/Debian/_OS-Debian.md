@@ -3,6 +3,8 @@
 ## Websites
 
 * [Live install images => Debian offline installer](https://www.debian.org/CD/live/) <sup>{1}</sup>
+* [repology.org => The packaging hub](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)
 
 # References
 

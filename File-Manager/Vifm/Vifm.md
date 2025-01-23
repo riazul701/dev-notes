@@ -276,6 +276,7 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   
 * Guides
   * {7} [app-assignment for vifm on windows](https://stackoverflow.com/questions/43594291/app-assignment-for-vifm-on-windows)
+  * [Exiting diff mode in vifm](https://stackoverflow.com/questions/78414744/exiting-diff-mode-in-vifm)
 
 * Installation
 

@@ -4,4 +4,9 @@
 * `ifconfig` : Get computer's IP address.
 * `sudo dpkg --install {{package-name}}.deb` : Install "deb" file using "dpkg".
 
-# Contents of Ubuntu-Server.md
+# Ubuntu-Server.md
+
+## Websites
+
+* [repology.org => The packaging hub](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)

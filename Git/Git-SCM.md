@@ -1,5 +1,3 @@
-# Git - Source Code Management (SCM)
-
 # Commands
 
 ## Git-Credential-Manager (GCM)
@@ -8,15 +6,18 @@
 * Shows version: `git-credential-manager --version`
 * Shows help: `git-credential-manager --help`
 
-# Elements of Git-SCM
+# Contents of Git-SCM
 
 ## Websites
 * [Git Official Site](https://git-scm.com/)
 * [GitHub Pages -> Websites for you and your projects](https://pages.github.com/)
 * [MSYS2](https://www.msys2.org/)
 * [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
-* [GitHub Docs](https://docs.github.com/en)
+* [Git GUI Clients](https://git-scm.com/downloads/guis)
 * [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
+* Tutorials
+  * [GitHub Docs](https://docs.github.com/en)
+  * [Backlog Git Tutorial](https://nulab.com/learn/software-development/git-tutorial/)
 
 ## Cross Platform Line Ending
 

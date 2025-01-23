@@ -50,6 +50,7 @@
 
 * [AntiX Linux Official Website](https://antixlinux.com/)
 * [repology.org => The packaging hub](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)
 * VirtualBox Images
   * [OSBoxes => VirtualBox Image Download](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)

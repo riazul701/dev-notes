@@ -1,16 +1,24 @@
+# Commands/Usage
+
+* `winpty lazygit` : Open Lazygit in Git-Bash <sup>{4}</sup>
+
 # Lazygit
 
-## Commands
-* Open Lazygit in Git-Bash: `winpty lazygit`
+## Websites
 
-## Guides
-* [LG just hangs on Git Bash Window (Windows) #235](https://github.com/jesseduffield/lazygit/issues/235)
+* [dandavison/delta GitHub](https://github.com/dandavison/delta)
+
+## Notes
+
+* Lazygit "diff" uses [dandavison/delta GitHub](https://github.com/dandavison/delta) <sup>{3}</sup>
 
 # References
 
-* next-sl: {3}
+* next-sl: {5}
 
-* Tutorials
+* Guides
+  * {4} [LG just hangs on Git Bash Window (Windows) #235](https://github.com/jesseduffield/lazygit/issues/235)
+  * {3} [Related projects => Using delta](https://dandavison.github.io/delta/related-projects.html)
 
 * YouTube Tutorials
   * {1} [15 Lazygit Features In Under 15 Minutes BY Jesse Duffield](https://www.youtube.com/watch?v=CPLdltN7wgE)

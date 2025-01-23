@@ -5,6 +5,10 @@
 * [Xpra-org/xpra](https://github.com/Xpra-org/xpra)
 * [marchaesen/vcxsrv](https://github.com/marchaesen/vcxsrv)
 
+## Notes
+
+* X11-Forwarding from WSL (Windows Subsystem for Linux) to Windows-OS host.
+
 # References
 
 * next-sl: {}

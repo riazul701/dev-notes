@@ -83,6 +83,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Programming (Selected)
 
+* Configuration Management (Selected)
+  * [Chezmoi => Manage your dotfiles across multiple diverse machines](https://www.chezmoi.io/) || [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
+
 * Version Control & Issue Tracker (Selected)
   * [Git](https://git-scm.com/)
   * [GitHub CLI](https://cli.github.com/)
@@ -377,6 +380,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [photopea/photopea => Online image editor](https://github.com/photopea/photopea)
 
 ## Programming (List)
+
+* Configuration Management (List)
+  * [Chezmoi => Manage your dotfiles across multiple diverse machines](https://www.chezmoi.io/) || [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
   
 * Version Control & Issue Tracker (List)
   * [Git](https://git-scm.com/)
@@ -384,10 +390,26 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [DVC => Data Version Control](https://dvc.org/)
   * [Lazygit](https://github.com/jesseduffield/lazygit)
   * [SmartGit](https://www.syntevo.com/smartgit/)
+  * [git-cola.github.io](https://git-cola.github.io/) || [git-cola/git-cola](https://github.com/git-cola/git-cola)
+  * [git-scm.com/docs/gitk](https://git-scm.com/docs/gitk)
+  * [sourcegit-scm/sourcegit](https://github.com/sourcegit-scm/sourcegit)
   * [Lepton](https://hackjutsu.com/Lepton/) || [Lepton GitHub](https://github.com/hackjutsu/Lepton)
   * [Jira](https://www.atlassian.com/software/jira)
   * [Trello](https://trello.com/home)
   * [MantisBT](https://www.mantisbt.org/) || [MatisBT GitHub](https://github.com/mantisbt/mantisbt)
+    
+* Diff/Merger/Pager (List)
+  * [Meld => Visual diff and merge tool](https://meldmerge.org/)
+  * [KDiff3 => File and folder diff and merge](https://apps.kde.org/kdiff3/)
+  * [dandavison.github.io/delta](https://dandavison.github.io/delta/) || [dandavison/delta GitHub](https://github.com/dandavison/delta)
+  * [so-fancy/diff-so-fancy GitHub](https://github.com/so-fancy/diff-so-fancy)
+  * Vimdiff
+  * [neovim's diff mode](https://neovim.io/doc/user/diff.html)
+  * "diff" command
+  * "less" command
+  * "more" command (scroll down but not up)
+  * "most" command
+  * [Wilfred/difftastic](https://github.com/Wilfred/difftastic)
 
 * File Incremental Backup & Sync (List)
   * [Rclone](https://rclone.org/) || [Rclone GitHub](https://github.com/rclone/rclone)
@@ -625,9 +647,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [PCManFM]()
   * [Thunar]()
   * [Nautilus]()
+  * [Double Commander => File manager with two panels side by side](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
   * Temporary Collection
     * [aleksey-hoffman/sigma-file-manager](https://github.com/aleksey-hoffman/sigma-file-manager)
-    * [doublecmd/doublecmd](https://github.com/doublecmd/doublecmd)
     * [xbmc/xbmc](https://github.com/xbmc/xbmc)
 
 * Encryption (List)

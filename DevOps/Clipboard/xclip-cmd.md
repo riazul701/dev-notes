@@ -1,3 +1,3 @@
-# Xclip.md
+# xclip.md
 
 ## Websites

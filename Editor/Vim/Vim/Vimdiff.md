@@ -44,6 +44,12 @@
 
 * `:TOhtml | w ~/Desktop/diff.html` : Export the diff to an HTML web page <sup>{4}</sup>
 
+## Commands From
+
+* {1} [Vim - Diff => tutorialspoint.com](https://www.tutorialspoint.com/vim/vim_diff.htm)
+* {3} [Linux `Vimdiff` Command – How to Compare Two Files in the Command Line](https://www.freecodecamp.org/news/compare-two-files-in-linux-using-vim/)
+* {4} [Using Vim as a Diff Tool](https://www.baeldung.com/linux/vim-diff-tool)
+
 # vimdiff.md
 
 ## Websites

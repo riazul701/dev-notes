@@ -2,6 +2,9 @@
 
 ## Websites
 
+* [codeguy/php-the-right-way](https://github.com/codeguy/php-the-right-way)
+* [ziadoz/awesome-php](https://github.com/ziadoz/awesome-php)
+* [iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
 * [docsifyjs/docsify](https://github.com/docsifyjs/docsify)
 * [sphinx-doc/sphinx](https://github.com/sphinx-doc/sphinx)
 * [readthedocs/readthedocs.org](https://github.com/readthedocs/readthedocs.org)
@@ -10,10 +13,8 @@
 * [phpDocumentor/phpDocumentor](https://github.com/phpDocumentor/phpDocumentor)
 * [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 * [nuhil/bangladesh-geocode](https://github.com/nuhil/bangladesh-geocode)
-* [codeguy/php-the-right-way](https://github.com/codeguy/php-the-right-way)
 * [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
 * [DeterminateSystems/zero-to-nix](https://github.com/DeterminateSystems/zero-to-nix)
-* [iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
 * [LeCoupa/awesome-cheatsheets](https://github.com/LeCoupa/awesome-cheatsheets)
 * [Chalarangelo/30-seconds-of-code](https://github.com/Chalarangelo/30-seconds-of-code)
 * [phanan/htaccess](https://github.com/phanan/htaccess)

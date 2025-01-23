@@ -516,7 +516,9 @@
   * [so-fancy/diff-so-fancy GitHub](https://github.com/so-fancy/diff-so-fancy)
   * Vimdiff
   * [neovim's diff mode](https://neovim.io/doc/user/diff.html)
-  * Less
+  * "less" command
+  * "more" command (scroll down but not up) <sup>{3}</sup>
+  * "most" command
 
 * Other Tools
   * [jqlang/jq GitHub](https://github.com/jqlang/jq)
@@ -619,7 +621,7 @@
 
 # References
 
-* next-sl: {3}
+* next-sl: {4}
 
 * Installation
   * {1} [Chezmoi Install](https://www.chezmoi.io/install/)
@@ -629,6 +631,7 @@
 
 * Guides
   * [Templating](https://www.chezmoi.io/user-guide/templating)
+  * {3} [What are the differences between most, more and less?](https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less)
 
 * Error and Solution
 

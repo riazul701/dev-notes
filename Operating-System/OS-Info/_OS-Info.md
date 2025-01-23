@@ -2,6 +2,8 @@
 
 ## Websites
 
+* [repology.org => The packaging hub](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)
 * [quickemu-project/quickemu GitHub](https://github.com/quickemu-project/quickemu)
 
 # References

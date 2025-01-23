@@ -7,6 +7,7 @@
 ## Websites
 * [Artix Linux Official Site](https://artixlinux.org/)
 * [repology.org => The packaging hub](https://repology.org/)
+* [distrowatch.com](https://distrowatch.com/)
 * [LinuxVMImages => Artix Linux VM](https://www.linuxvmimages.com/images/virtualbox/)
 
 ## Notes
