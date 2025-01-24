@@ -187,6 +187,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Server Management (Selected)
   * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
+  * [FOSSBilling => Hosting automation](https://fossbilling.org/) || [FOSSBilling/FOSSBilling GitHub](https://github.com/FOSSBilling/FOSSBilling)
 
 * Media Server (Selected)
   * [Nextcloud](https://nextcloud.com/) || [Nextcloud GitHub](https://github.com/nextcloud/server)
@@ -512,6 +513,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP](https://hestiacp.com/)
   * [outroll/vesta](https://github.com/outroll/vesta) || [VestaCP Site](https://vestacp.com/)
   * [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
+  * [FOSSBilling => Hosting automation](https://fossbilling.org/) || [FOSSBilling/FOSSBilling GitHub](https://github.com/FOSSBilling/FOSSBilling)
 
 * Media Server (List)
   * [Nextcloud](https://nextcloud.com/) || [Nextcloud GitHub](https://github.com/nextcloud/server)

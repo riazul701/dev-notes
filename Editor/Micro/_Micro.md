@@ -1,5 +1,12 @@
 # Micro.md
 
+## Websites
+
+* [micro => Terminal-based text editor](https://micro-editor.github.io/)
+* [zyedidia/micro GitHub](https://github.com/zyedidia/micro)
+* Tutorial
+  * [zyedidia/micro GitHub => Files: /runtime/help](https://github.com/zyedidia/micro/tree/master/runtime/help)
+
 # References
 
 * YouTube Tutorials

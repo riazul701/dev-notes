@@ -10,6 +10,8 @@
 
 ## Websites
 * [Git Official Site](https://git-scm.com/)
+* [Git SCM to Windows => Official](https://gitforwindows.org/)
+* [github/gitignore GitHub](https://github.com/github/gitignore)
 * [GitHub Pages -> Websites for you and your projects](https://pages.github.com/)
 * [MSYS2](https://www.msys2.org/)
 * [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
