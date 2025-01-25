@@ -74,6 +74,7 @@
     * [Iris](https://iristech.co/iris/)
       * [Iris mini](https://iristech.co/iris-mini/)
   * Linux
+    * [jonls/redshift](https://github.com/jonls/redshift/)
     
 ## Warranty
 

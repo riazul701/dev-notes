@@ -23,7 +23,7 @@
 
 # References
 
-* next-sl: {22}
+* next-sl: {23}
 
 * Product
   * {11} [Addlink S70 Lite 1TB M.2 2280 PCIe NVMe SSD](https://www.ultratech.com.bd/addlink-s70-lite-1tb-nvme-ssd)
@@ -44,6 +44,7 @@
 * YouTube Tutorials
 
   * Product
+    * {22} [M.2 PCIe Nvme Adapter l পুরাতন / নতুন পিসির স্পিড বাড়ান BY TechMania |BD|](https://www.youtube.com/watch?v=HLcGjh1MwFU)
     * {3} [DIY Portable High-Speed Nvme SSD UGREEN M.2 NVMe SSD Enclosure BY TechMania |BD|](https://www.youtube.com/watch?v=4iOHZPw0xFA)
 
   * Concept
