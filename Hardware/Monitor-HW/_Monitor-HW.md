@@ -1,6 +1,6 @@
 # Monitor.md
 
-## Websites
+## Important
 
 * Above 100 PPI Is Good For Reading Text And Programming. Do Not Go Beyond 24 Inch For Full HD.<sup>{19} {20} {21}</sup>
   * 21.5 Inch Full HD Monitor Is Best According To PPI. It Has 102.46 PPI. <sup>{21}</sup>
@@ -8,7 +8,9 @@
 * VA Panel Monitor's COLOR Is WASHED-OUT (ঝাপসা), So DO NOT Buy It. <sup>{6}</sup>
 * Xiaomi Monitor has BAD COLOR. <sup>{18}</sup>
 
-* Brightness Control Software
+## Websites
+
+* Official Brightness Control Software
   * [MSI Display Kit](https://www.msi.com/Landing/MSI-Display-Kit) <sup>{17} {6} {15}</sup>
   * [Lenovo Artery Software](https://smartdisplay.lenovo.com/artery/) <sup>{27}</sup>
   * [Lenovo Display Control Center – ThinkColour](https://support.lenovo.com/us/en/downloads/ds547223-lenovo-display-control-center-thinkcolor) <sup>{27}</sup>
@@ -30,9 +32,7 @@
 * PPI (Pixels Per Inch)
   * [Pixels Per Inch PPI Calculator](https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php)
 
-* DDC/CI
-  * DDC/CI (Display Data Channel/Command Interface) supported monitors, HDMI/VGA Cable.
-  * [Display Data Channel Wikipedia](https://en.wikipedia.org/wiki/Display_Data_Channel)
+* Screen Brightness (Artificial)
 
   * Multiple Platform
     * [f.lux](https://justgetflux.com/)
@@ -40,6 +40,17 @@
   * Windows
     * [Dimmer](https://www.nelsonpires.com/software/dimmer)
     * [PangoBright](https://www.pangobright.com/)
+
+  * Linux
+    * {{Works/Best}} [xrandr](https://www.x.org/wiki/Projects/XRandR/) <sup>{32} {33}</sup>
+      * [ARandR: Another XRandR GUI](http://christian.amsuess.com/tools/arandr/)
+
+* DDC/CI Brightness (Hardware Level)
+
+  * DDC/CI (Display Data Channel/Command Interface) supported monitors, HDMI/VGA Cable.
+  * [Display Data Channel Wikipedia](https://en.wikipedia.org/wiki/Display_Data_Channel)
+
+  * Windows
     * [emoacht/Monitorian](https://github.com/emoacht/Monitorian) || [Monitorian BY emoacht](https://www.microsoft.com/store/apps/9nw33j738bl0)
     * [xanderfrangos/twinkle-tray](https://github.com/xanderfrangos/twinkle-tray) || [twinkletray.com](https://twinkletray.com/) || [Twinkle Tray: Brightness Slider BY Xander Frangos](https://www.microsoft.com/store/productId/9PLJWWSV01LK)
     * [blackholeearth/Win10_BrightnessSlider](https://github.com/blackholeearth/Win10_BrightnessSlider)
@@ -51,11 +62,19 @@
     * [gddccontrol => A graphical utility to control monitor parameters via software](https://manpages.ubuntu.com/manpages/bionic/man1/gddccontrol.1.html)
     * [rockowitz/ddcutil](https://github.com/rockowitz/ddcutil) || [ddcutil.com](https://www.ddcutil.com/)
     * [rockowitz/ddcui](https://github.com/rockowitz/ddcui)
+    * [Hummer12007/brightnessctl](https://github.com/Hummer12007/brightnessctl) <sup>{31} {32}</sup>
+    * [LordAmit/Brightness](https://github.com/LordAmit/Brightness) <sup>{32}</sup>
 
   * Light Sensor
     * [FedeDP/Clight](https://github.com/FedeDP/Clight)
     * [BackLight Unit coNTRoL](http://sven.killig.de/BLUntrl/)
 
+* Collection
+  * Multiple Platform
+    * [Iris](https://iristech.co/iris/)
+      * [Iris mini](https://iristech.co/iris-mini/)
+  * Linux
+    
 ## Warranty
 
 * There is no warranty for "Dead/Stuck Pixel" in Monitor. Therefore, check "Dead/Stuck Pixel" before buying Monitor.
@@ -81,6 +100,39 @@
 * Graphics-Card "Sync" with Monitor means, Graphics-Card provides FPS (Frame Per Second) according to monitor capability. This feature is Monitor specific.
   * NVIDIA has G-Sync for Monitor
   * AMD has FreeSync for Monitor
+
+# Artificial Brightness Control
+
+## Windows Artificial
+
+* Download and install any of the following softwares
+  * [Dimmer](https://www.nelsonpires.com/software/dimmer)
+  * [PangoBright](https://www.pangobright.com/)
+
+## Linux Artificial
+
+* {33} [How do dim screen, even if artifically, below the minimum?](https://unix.stackexchange.com/questions/181496/how-do-dim-screen-even-if-artifically-below-the-minimum)
+  * With xrandr you can affect the gamma and brightness of a display by altering RGB values.
+  * From `man xrandr`:
+    * `--brightness`
+      * Multiply the gamma values on the crtc currently attached to the output to specified floating value. Useful for overly bright or overly dim outputs. However, this is a software only modification, if your hardware has support to actually change the brightness, you will probably prefer to use `xbacklight`.
+  * I can use it like: `xrandr --output DVI-1 --brightness .7`
+  * There is also the `xgamma` package, which does much of the same, but...
+    * `man xgamma`:
+      * Note that the `xgamma` utility is obsolete and deficient, `xrandr` should be used with drivers that support the XRandr extension.
+  * I can use it like: `xgamma -gamma .7`
+
+* Instructions
+  * `xgamma` does not work well for artificial brightness control
+  * `xrandr` : Use this command to get "display" name
+  * `xrandr --output {{display-name}} --brightness {{value}}` : Use this command to set brightness. "value" can be: ".1" to ".9" and "1" means normal hardware brightness.
+  * Add `alias` to `~/.bashrc` file for keyboad shortcuts
+    * `alias b7='xrandr --output {{display-name}} --brightness .7'` [Make 9 copies of this command from value ".1" to ".9"]
+    * `alias bn='xrandr --output {{display-name}} --brightness 1'`
+    * `source ~/.bashrc` : Reload "~/.bashrc" file
+  * `b7` : Open terminal and enter this command to change brightness.
+
+* Note: After computer restart, brightness is resetted to normal hardware brightness. To change normal hardware brightness, use DDC/CI (Display Data Channel / Command Interface) based command/software.
 
 # Product
 
@@ -176,7 +228,7 @@
 
 # References
 
-* next-sl: {31}
+* next-sl: {34}
 
 * Monitor Test
   * Dead/Stuck Pixel Test
@@ -187,12 +239,17 @@
 
 * Guides
 
-  * DDC/CI (Display Data Channel / Command Interface)
+  * Linux Brightness
+    * {33} [How do dim screen, even if artifically, below the minimum?](https://unix.stackexchange.com/questions/181496/how-do-dim-screen-even-if-artifically-below-the-minimum)
+    * {32} [Changing Monitor Brightness on Linux](https://www.baeldung.com/linux/monitor-brightness-change)
+    
+  * DDC/CI (Display Data Channel / Command Interface) Brightness
     * {1} [After 10 years of using monitors I found out that you can control their brightness via software (DDC/CI)](https://www.reddit.com/r/Monitors/comments/tok3g9/after_10_years_of_using_monitors_i_found_out_that/?rdt=46942)
     * {2} [How can I get my PC to automatically adjust the screen brightness based on ambient light?](https://www.quora.com/How-can-I-get-my-PC-to-automatically-adjust-the-screen-brightness-based-on-ambient-light)
     * {3} [MSI Monitor keeps auto-adjusting the brightness constantly](https://www.reddit.com/r/Monitors/comments/b6s985/msi_monitor_keeps_autoadjusting_the_brightness/?rdt=43611)
     * {28} [Why don't more monitor brands have a software-based OSD, that allows for FULL control?](https://www.reddit.com/r/Monitors/comments/mpion4/why_dont_more_monitor_brands_have_a_softwarebased/)
     * [Why don't any monitors use software controls instead of the OSD?](https://www.reddit.com/r/Monitors/comments/kcg7mp/why_dont_any_monitors_use_software_controls/)
+    * {31} [Brightness dimmer in Linux](https://www.reddit.com/r/linuxmasterrace/comments/133rmai/brightness_dimmer_in_linux/?rdt=42969)
 
   * PPI (Pixels Per Inch)
     * {19} [What Is Pixel Density And Pixels Per Inch (PPI)?](https://www.displayninja.com/what-is-pixel-density/)

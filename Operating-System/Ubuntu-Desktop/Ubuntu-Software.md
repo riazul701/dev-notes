@@ -42,8 +42,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Browser Extension (Selected)
   * Google Chrome
-    * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
+    * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [darkreader/darkreader GitHub](https://github.com/darkreader/darkreader) || [Dark Reader Extension](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
+    * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [joue-quroi/adjust-screen-brightness GitHub](https://github.com/joue-quroi/adjust-screen-brightness/) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
     * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
     * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
 
@@ -336,8 +336,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Browser Extension (List)
   * Google Chrome
-    * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [Dark Reader](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
+    * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [darkreader/darkreader GitHub](https://github.com/darkreader/darkreader) || [Dark Reader Extension](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
+    * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [joue-quroi/adjust-screen-brightness GitHub](https://github.com/joue-quroi/adjust-screen-brightness/) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
     * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
     * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
     * [Free Download Manager Integration](https://chromewebstore.google.com/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp)
