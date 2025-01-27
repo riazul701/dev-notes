@@ -16,10 +16,13 @@
 * [MSYS2](https://www.msys2.org/)
 * [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
 * [Git GUI Clients](https://git-scm.com/downloads/guis)
-* [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
+* [newren/git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
 * Tutorials
+  * [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
   * [GitHub Docs](https://docs.github.com/en)
+  * [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
   * [Backlog Git Tutorial](https://nulab.com/learn/software-development/git-tutorial/)
+  * [git-rebase.io](https://git-rebase.io/)
 
 ## Cross Platform Line Ending
 

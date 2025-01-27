@@ -75,7 +75,7 @@ flatpak_home_softwares=(
 )
 
 nix_office_softwares=(
-    ["lunarvim"]="lunarvim"
+    # ["lunarvim"]="lunarvim"
     ["yazi"]="yazi"
     ["unison"]="unison"
     ["lazygit"]="lazygit"

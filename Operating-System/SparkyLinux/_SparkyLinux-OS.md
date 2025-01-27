@@ -7,6 +7,17 @@
 
 ## Notes
 
+## Sparky-Linux Installation
+
+* ESP = EFI System Partition
+* Shows follwing warning during OS installation in UEFI mode (Not BIOS) [GPT Partition]:
+  > No EFI system partition configured
+  > An EFI system partition is necessary to start Sparky.
+  > To configure an EFI system partition, go back and select or create a suitable filesystem. The filesystem must be mounted on `/boot/efi`. The filesystem must have type `FAT32`. The filesystem must be at least 300 MiB in size. The filesystem must have flag `boot` set.
+  > You can continue without setting up an EFI system partition but your system may fail to start.
+  
+* Note: For AntixLinux-23, `/boot/efi` is named as `ESP`
+
 ## Dual Boot with Windows-OS
 
 * {1} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)

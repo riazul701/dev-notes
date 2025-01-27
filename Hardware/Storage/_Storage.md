@@ -14,11 +14,13 @@
 
 # Notes
 
+* M.2 NVMe SSD can be inserted into graphics card slot using adapter (Ugreen brand), so check graphics card slot quantity before buying motherboard. <sup>{22}</sup>
 * Different SSD has different TBW (Terabytes Written). So check TBW, before buying SSD.
 * 1TB SSD loses about 90GB while the 500GB SSD loses about 45GB. (Assumed computer sizes 1024 and 512 - so it's approximate)<sup>{20} {21}</sup>
 
 ## Product
 
+* [UGREEN CM302 (70503) M.2 NVMe to PCIe3.0x4 Express Card Adapter](https://www.globalbrand.com.bd/ugreen-cm302-70503-m-2-nvme-to-pcie3-0x4-express-card-adapter) <sup>{22}</sup>
 * [Corsair MP600 ELITE 1TB PCIe Gen4 x4 NVMe 1.4 M.2 SSD with Heatsink](https://www.ultratech.com.bd/corsair-mp600-elite-1tb-pcie-gen4-x4-nvme-14-m2-ssd-with-heatsink)
 
 # References
