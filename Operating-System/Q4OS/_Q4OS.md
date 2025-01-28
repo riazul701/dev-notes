@@ -18,6 +18,12 @@
 
 * Flatpak is built-in inside of Q4OS.
 
+## Motherboard's UEFI Boot Manager
+
+* In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
+  * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
+  * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
+
 ## Create App/Menu Launcher
 
 * Manually create Menu for software with following steps:

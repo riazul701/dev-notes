@@ -7,6 +7,12 @@
 
 ## Notes
 
+## Motherboard's UEFI Boot Manager
+
+* In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
+  * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
+  * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
+
 ## Sparky-Linux Installation
 
 * ESP = EFI System Partition
@@ -18,7 +24,7 @@
   
 * Note: For AntixLinux-23, `/boot/efi` is named as `ESP`
 
-## Dual Boot with Windows-OS
+## Dual Boot SparkyLinux with Windows-OS
 
 * {1} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)
   * SparkyLinux does not detect Windows-OS on "GRUB" boot loader

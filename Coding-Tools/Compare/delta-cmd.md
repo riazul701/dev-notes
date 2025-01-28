@@ -1,27 +1,27 @@
 # Commands/Usage
 
-* `delta /somewhere/a.txt /somewhere/else/b.txt` : Delta can also be used as a shorthand for diffing two files, even if they are not in a git repo: the following two commands do the same thing:. <sup>{4}</sup>
-  * `git diff /somewhere/a.txt /somewhere/else/b.txt` <sup>{4}</sup>
-* `delta <(sort file1) <(sort file2)` : You can also use [process substitution](https://en.wikipedia.org/wiki/Process_substitution) shell syntax with delta, e.g. <sup>{4}</sup>
-* `diff -u a.txt b.txt | delta` : In addition to git output, delta handles standard unified diff format, e.g. <sup>{4}</sup>
-* `delta --show-themes` : To browse themes, use, or browse the list of theme <sup>{4}</sup>
-* `delta --diff-highlight` : Activate the [diff-highlight](https://github.com/git/git/tree/master/contrib/diff-highlight) emulation mode. <sup>{4}</sup>
-* `delta --diff-so-fancy` : Activate the [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) emulation mode. <sup>{4}</sup>
-* `delta --diff-so-fancy --show-config` : You may want to know which delta configuration values the emulation mode has selected, so that you can adjust them. To do that, use e.g. <sup>{4}</sup>
-* `delta --show-colors` : Use this  to get a demo of the available colors, as background colors to see how they look with syntax highlighting <sup>{4}</sup>
-* Use the `navigate` feature to activate navigation keybindings. In this mode, pressing `n` will jump forward to the next file in the diff, and `N` will jump backwards. <sup>{4}</sup>
-* `delta --list-languages` AND `delta --list-syntax-themes` : To list the supported languages and color themes, use <sup>{4}</sup>
-* `delta --show-syntax-themes` : To see a demo of the color themes, use <sup>{4}</sup>
+* `delta /somewhere/a.txt /somewhere/else/b.txt` : Delta can also be used as a shorthand for diffing two files, even if they are not in a git repo: the following two commands do the same thing:. <sup>{1}</sup>
+  * `git diff /somewhere/a.txt /somewhere/else/b.txt` <sup>{1}</sup>
+* `delta <(sort file1) <(sort file2)` : You can also use [process substitution](https://en.wikipedia.org/wiki/Process_substitution) shell syntax with delta, e.g. <sup>{1}</sup>
+* `diff -u a.txt b.txt | delta` : In addition to git output, delta handles standard unified diff format, e.g. <sup>{1}</sup>
+* `delta --show-themes` : To browse themes, use, or browse the list of theme <sup>{1}</sup>
+* `delta --diff-highlight` : Activate the [diff-highlight](https://github.com/git/git/tree/master/contrib/diff-highlight) emulation mode. <sup>{1}</sup>
+* `delta --diff-so-fancy` : Activate the [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) emulation mode. <sup>{1}</sup>
+* `delta --diff-so-fancy --show-config` : You may want to know which delta configuration values the emulation mode has selected, so that you can adjust them. To do that, use e.g. <sup>{1}</sup>
+* `delta --show-colors` : Use this  to get a demo of the available colors, as background colors to see how they look with syntax highlighting <sup>{1}</sup>
+* Use the `navigate` feature to activate navigation keybindings. In this mode, pressing `n` will jump forward to the next file in the diff, and `N` will jump backwards. <sup>{1}</sup>
+* `delta --list-languages` AND `delta --list-syntax-themes` : To list the supported languages and color themes, use <sup>{1}</sup>
+* `delta --show-syntax-themes` : To see a demo of the color themes, use <sup>{1}</sup>
 
 ## Commands From
 
-* {4} [dandavison.github.io/delta](https://dandavison.github.io/delta/)
+* {1} [dandavison.github.io/delta](https://dandavison.github.io/delta/)
 
 # delta.md
 
 ## Websites
 
-* {4} [dandavison.github.io/delta](https://dandavison.github.io/delta/)
+* {1} [dandavison.github.io/delta](https://dandavison.github.io/delta/)
 * [dandavison/delta GitHub](https://github.com/dandavison/delta)
 * ["less" for Windows](https://github.com/jftuga/less-Windows) <sup>{1}</sup>
 * [so-fancy/diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
@@ -30,7 +30,7 @@
 
 ## Notes
 
-* delta's default pager is "less" `--pager <CMD>` <sup>{2}</sup>
+* delta's default pager is "less" `--pager <CMD>` <sup>{3}</sup>
 
 # Configuration
 
@@ -68,12 +68,12 @@
 
 # References
 
-* next-sl: {4}
+* next-sl: {5}
 
 * Tutorials
-  * {4} [dandavison.github.io/delta](https://dandavison.github.io/delta/)
+  * {1} [dandavison.github.io/delta](https://dandavison.github.io/delta/)
 
 * Guides
-  * {1} [Using Delta on Windows](https://dandavison.github.io/delta/tips-and-tricks/using-delta-on-windows.html)
-  * {2} [Full --help output](https://dandavison.github.io/delta/full---help-output.html)
-  * {3} [directory diff #232](https://github.com/dandavison/delta/issues/232)
+  * {2} [Using Delta on Windows](https://dandavison.github.io/delta/tips-and-tricks/using-delta-on-windows.html)
+  * {3} [Full --help output](https://dandavison.github.io/delta/full---help-output.html)
+  * {4} [directory diff #232](https://github.com/dandavison/delta/issues/232)

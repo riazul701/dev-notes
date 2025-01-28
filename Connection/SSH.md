@@ -127,13 +127,14 @@ Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
 * Windows-X-Lite creates "Admin" user without password, during installation.
   * (Must for OpenSSH) Create password for "Admin" user: Windows Start Menu -> Control Panel -> User Accounts -> Manage another account -> Select user "Admin" -> Create new password
+    * Change account name: Windows Start Menu -> Control Panel -> User Accounts -> Select "Change your account name"
 
 * Windows-X-Lite does not have "Settings" -> "Apps" -> "Optional Features" OR PowerShell's `Add-WindowsCapability`.
 
 * Instructions from [scoop.sh/#/apps?q=openssh => "openssh in main" field](https://scoop.sh/#/apps?q=openssh)
   * Windows 10 or higher includes this build of OpenSSH in the system itself, hence it is recommended to use the system OpenSSH there. Run 'sudo $dir\install-sshd.ps1' to install sshd and ssh-agent as a service. Run 'sudo $dir\uninstall-sshd.ps1' to uninstall the services.
 
-* Install OpenSSH using command `scoop install main/openssh` . Shows instructions when run this command:
+* Open PowerShell in Administrator mode. Install OpenSSH using command `scoop install --global main/openssh` . Shows instructions when run this command:
   * Windows 10 or higher includes this build of OpenSSH in the system itself, hence it is recommended to use the system OpenSSH there.
   * Run 'sudo C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1' to install sshd and ssh-agent as a service.
   * Run 'sudo C:\ProgramData\scoop\apps\openssh\current\uninstall-sshd.ps1' to uninstall the services.
@@ -141,6 +142,13 @@ Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 * NOTE: Windows-OS does have `sudo` command, instead open PowerShell as Administrator mode.
 * When run `C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1` command, shows message
   * Updated Machine PATH to include OpenSSH directory, restart/re-login required to take effect globally.
+
+* Allow connection through Windows Defender Firewall
+  * Go to Control Panel -> Windows Defender Firewall -> Allow an app or feature through Windows Defender Firewall -> Allow another app -> Browse -> "C:\ProgramData\scoop\apps\openssh\current\sshd.exe" -> Open -> Tick "sshd.exe" in "Allowed apps and features" list, also tick "Private" and "Public" -> OK
+  * Go to Control Panel -> Windows Defender Firewall -> Advanced settings -> Inbound Rules -> Enable 4 "sshd.exe" rules (First 2 are from profile: "Private" and "Public") (Next 2 are from profile: "Domain") (For every pair, one is for TCP and another is for UDP connection)
+
+* If Windows Firewall's above technique does not work, then disable Windows Firewall completely
+  * Go to Control Panel -> Windows Defender Firewall -> Turn Windows Defender Firewall on or off -> Tick "Turn off Windows Defender Firewall (not recommended)" for both "Private network settings" and "Public network settings"
 
 * {24} [Get started with OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui)
   * Graphical User Interface (GUI)
@@ -366,6 +374,14 @@ LogLevel Debug3
     * Unmount Phone Memory: `umount /home/<local-user>/mount/<phone-memory-folder>`
     * Unmount SD-Card: `umount /home/<local-user>/mount/<sdcard-folder>`
 
+# Error and Solution
+
+## OpenSSH Install/Config
+
+### Windows-10/Windows-X-Lite
+
+* [Error 1067- on start OpenSSH by net start opensshd in windows cmd](https://stackoverflow.com/questions/39319140/error-1067-on-start-openssh-by-net-start-opensshd-in-windows-cmd)
+
 # References
 
 * next-sl: {45}
@@ -424,6 +440,8 @@ LogLevel Debug3
   * {40} [How do I specify SSH options for SSHFS?](https://askubuntu.com/questions/975818/how-do-i-specify-ssh-options-for-sshfs)
   * {41} [SSHFS-Win · SSHFS for Windows](https://github.com/winfsp/sshfs-win/blob/master/README.md)
   * {38} [System error 67 when attempting to mount #155](https://github.com/winfsp/sshfs-win/issues/155)
+
+* Guides
 
 * YouTube Tutorial
 

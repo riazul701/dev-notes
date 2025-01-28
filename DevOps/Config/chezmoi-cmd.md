@@ -11,9 +11,9 @@
 
 ## Commands
 
-* `sudo snap install chezmoi --classic` : Install Chezmoi using Snap package manager. 
+* `sudo snap install chezmoi --classic` : Install Chezmoi using Snap package manager. {D}
 
-* {D} `chezmoi --help` : Chezmoi help.
+* `chezmoi --help` : Chezmoi help. {D}
 
 * `chezmoi init` : Setup the source directory, generate the config file, and optionally update the destination directory to match the target state.
 

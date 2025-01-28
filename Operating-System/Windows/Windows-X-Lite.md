@@ -7,12 +7,26 @@
 
 ## Notes
 
-* Turn On User Account Control (UAC): Windows Start Menu -> Control Panel -> Security and Maintenance -> Change User Account Control settings -> Set slider to "Always notify"
+* Go to Control Panel: Windows Start Menu -> Settings -> Search for "Control Panel"
+
+* Turn On User Account Control (UAC): Windows Start Menu -> Control Panel -> Security and Maintenance -> Change User Account Control settings -> Set slider to "Notify me only when apps try to make changes to my computer (default)" -> OK
+  * This setting will take effect after you click OK and restart your PC.
 
 * Windows-X-Lite creates "Admin" user without password, during installation.
   * (Must for OpenSSH) Create password for "Admin" user: Windows Start Menu -> Control Panel -> User Accounts -> Manage another account -> Select user "Admin" -> Create new password
+  * Change account name: Windows Start Menu -> Control Panel -> User Accounts -> Select "Change your account name"
 
 * Check Windows version: Press "WindowsKey+R" to open "Run" window -> Enter "winver" -> Click "OK"
+
+* Optimum 10 Pro (Defender Off)
+  * There is two entry during installation: One is "Defender Off", another is "Defender Off + SiB"
+    * Choose only "Defender Off"
+
+## Motherboard's UEFI Boot Manager
+
+* In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
+  * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
+  * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
 
 ## Resource Usage
 

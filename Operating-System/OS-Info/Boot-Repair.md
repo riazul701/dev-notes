@@ -14,6 +14,22 @@
 
 * "GRUB" is most common boot loader system. "Systemd-boot" is default boot loader of Arch Linux.
 
+## Motherboard's UEFI Boot Manager
+
+* In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
+  * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
+  * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
+
+## Dual Boot SparkyLinux with Windows-OS
+
+* {10} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)
+  * SparkyLinux does not detect Windows-OS on "GRUB" boot loader
+  * On SparkyLinux open Terminal and type: `sudo nano /etc/default/grub`
+    * To edit graphically, enter command `sudo pcmanfm`, and edit file `/etc/default/grub`
+  * Uncomment line `#GRUB_DISABLE_OS_PROBER=false` [Remove `#` at first character] -> Save File
+  * Reload GRUB: `sudo update-grub`
+  * Restart PC and check "Windows Boot Manager"
+
 # OS Install/Uninstall
 
 ## OS Uninstaller
@@ -59,8 +75,8 @@
 ## Boot Repair Disk Failure
 
 * In dual boot system, there are two boot managers in motherboard UEFI. One for Linux and other for Windows.
-  * Before reinstall Linux, remove Linux's boot manager.
-  * Before reinstall Windows, remove Windows's boot manager.
+  * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
+  * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
   * If "boot-repair-disk" <sup>{3}</sup> can not restore boot manager properly, then make linux boot manager default in motherboard and add windows boot manager to it, or refresh if previously added.
 
 * Add windows boot manager to linux boot manager, or refresh if previously added.
@@ -103,7 +119,7 @@
 
 # References
 
-* next-sl: {11}
+* next-sl: {12}
 
 * Websites
   * {3} [boot-repair-disk](https://sourceforge.net/projects/boot-repair-cd/)
@@ -122,4 +138,4 @@
   * {1} [How to Dual-Boot Linux Mint 22 and Windows 11: Step-by-Step Guide BY Learn Linux TV](https://www.youtube.com/watch?v=Nn7CPlUpflk)
   * {2} [How to Fix Dual Boot Problems BY Chris Titus Tech](https://www.youtube.com/watch?v=gEB6JEYZekE)
   * {10} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)
-  * [Fixing Linux with Rescatux BY Switched to Linux](https://www.youtube.com/watch?v=vqlgAVyRaqs)
+  * {11} [Fixing Linux with Rescatux BY Switched to Linux](https://www.youtube.com/watch?v=vqlgAVyRaqs)

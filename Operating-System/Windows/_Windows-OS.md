@@ -20,6 +20,12 @@
 * Open PowerShell and enter command "bash" to start bash-shell.
 * Open Git-Bash and enter command "pwsh.exe" to start power-shell.
 
+## Motherboard's UEFI Boot Manager
+
+* In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
+  * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
+  * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
+
 ## On/ShutDown/Sleep/Hibernate
 * [Shut down, sleep, or hibernate your PC](https://support.microsoft.com/en-gb/windows/shut-down-sleep-or-hibernate-your-pc-2941d165-7d0a-a5e8-c5ad-8c972e8e6eff)
   * Turn your PC off completely

@@ -5,7 +5,9 @@
 * [Powershell GitHub](https://github.com/PowerShell/PowerShell)
 * [PowerShell Documentation](https://learn.microsoft.com/en-us/powershell/)
 * [gsudo => sudo for Windows](https://gerardog.github.io/gsudo/) || [gsudo GitHub](https://github.com/gerardog/gsudo)
-
+* Tutorials
+  * [tutorialspoint.com => Powershell Tutorial](https://www.tutorialspoint.com/powershell/index.htm)
+  
 ## Notes
 
 * If Bash is not default shell, then open any terminal and run command `bash` to enter into Bash-Shell.
