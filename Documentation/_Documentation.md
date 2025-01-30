@@ -46,3 +46,4 @@
 * [bregman-arie/devops-exercises](https://github.com/bregman-arie/devops-exercises)
 * [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book)
 * [NixOS/nix.dev](https://github.com/NixOS/nix.dev)
+* [rothgar/awesome-tmux GitHub](https://github.com/rothgar/awesome-tmux)

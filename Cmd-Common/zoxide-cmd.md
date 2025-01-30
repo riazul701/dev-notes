@@ -1,0 +1,1 @@
+# zoxide-cmd.md

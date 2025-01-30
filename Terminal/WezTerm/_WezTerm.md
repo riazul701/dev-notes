@@ -1,6 +1,4 @@
-# WezTerm.md
-
-# Commands
+# Commands/Usage
 
 ## Set "SHELL" Env-Var (Windows-OS)
 
@@ -23,19 +21,25 @@
 # Contents of WezTerm.md
 
 ## Websites
+
 * [WezTerm Site](https://wezfurlong.org/wezterm/index.html)
-* [WezTerm GitHub](https://github.com/wez/wezterm)
+* [wez/wezterm GitHub](https://github.com/wez/wezterm)
+* [josean-dev/dev-environment-files GitHub](https://github.com/josean-dev/dev-environment-files) <sup>{15}</sup>
+* [folke/tokyonight.nvim GitHub](https://github.com/folke/tokyonight.nvim)
 
 ## Tutorials
+
 * Project Setup
   * [Automate terminal configurations with WezTerm](https://cosimomatteini.com/blog/terminal-configurations-with-wezterm)
   * [WezTerm configuration files GitHub](https://github.com/devmatteini/dotfiles/tree/main/config/wezterm)
   * [Startup arrangements #3236](https://github.com/wez/wezterm/discussions/3236)
 
 ## Notes
+
 * WezTerm log file location: "C:\Users\<user-name>\.local\share\wezterm" [Lua-function: "wezterm.log_error()"] [Log to file #1576](https://github.com/wez/wezterm/issues/1576)
 
 ## Project Setup
+
 * Copy "WezTerm-Prject/.wezterm.lua" file to user "HOME(~)" directory.
 * Copy "WezTerm-Prject/project.lua" file to "/e/stproject/wezterm" directory.
 * Copy "WezTerm-Prject/t-larav1.lua" file to "/e/stproject/wezterm/projects" directory. And create new project files here.
@@ -43,6 +47,7 @@
 ## Keyboard Shortcuts
 
 ### Keyboard Commands
+
 * [The Launcher Menu](https://wezfurlong.org/wezterm/config/launch.html#the-launcher-menu)
   * Left click on "+" icon open new Tab. Right click on "+" icon to open Launcher-Menu.
 
@@ -118,34 +123,46 @@ fall back to basic
 
 # References
 
+* next-sl: {}
+
 * Tutorials
-  * [Keyboard shortcuts in Windows](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec#WindowsVersion=Windows_10)
+
+  * General
+    * {1} [Keyboard shortcuts in Windows](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec#WindowsVersion=Windows_10)
+    * {2} [prabirshrestha/dotfiles/.config/wezterm/wezterm.lua](https://github.com/prabirshrestha/dotfiles/blob/main/.config/wezterm/wezterm.lua)
+
+* Configuration
+  * [How To Create An Amazing Terminal Setup With Wezterm](https://www.josean.com/posts/how-to-setup-wezterm-terminal) <sup>{15}</sup>
+
+* Guides
+
+  * WezTerm Project
+    * {3} [Switch to new workspace via wezterm cli #3534](https://github.com/wez/wezterm/discussions/3534)
+
+  * WezTerm
+    * {4} [Log to file #1576](https://github.com/wez/wezterm/issues/1576)
+
+  * WezTerm Official Guide
+    * Keybaord Shortcuts
+      * {5} [Default Key Assignments](https://wezfurlong.org/wezterm/config/default-keys.html)
+    * Launch Program  
+      * {6} [Launching Programs](https://wezfurlong.org/wezterm/config/launch.html)
+      * {7} [ShowLauncher](https://wezfurlong.org/wezterm/config/lua/keyassignment/ShowLauncher.html)
+  
+  * Windows Command Prompt
+    * {8} [Setting and getting Windows environment variables from the command prompt?](https://superuser.com/questions/79612/setting-and-getting-windows-environment-variables-from-the-command-prompt)
+    * {9} [Create alias for a specific command in cmd](https://stackoverflow.com/questions/54866820/create-alias-for-a-specific-command-in-cmd)
+
+  * PowerShell
+    * {10} [How to Set environment variables using PowerShell?](https://www.tutorialspoint.com/how-to-set-environment-variables-using-powershell)
+    * {11} [How do I deal with paths when creating a PowerShell alias for a Windows Subsystem for Linux command?](https://serverfault.com/questions/911513/how-do-i-deal-with-paths-when-creating-a-powershell-alias-for-a-windows-subsyste)
+
+  * Lua Language
+    * {12} [8.1 – The require Function](https://www.lua.org/pil/8.1.html)
+    * {13} [Lua Require function on a full path name](https://stackoverflow.com/questions/11868847/lua-require-function-on-a-full-path-name)
+    * {14} [require os, Am i missing somehting?](https://stackoverflow.com/questions/52517153/require-os-am-i-missing-somehting)
 
 * YouTube Tutorials
-  * [How To Create An AMAZING macOS Terminal Setup With Wezterm BY Josean Martinez](https://www.youtube.com/watch?v=TTgQV21X0SQ)
-
-* WezTerm Project
-  * [Switch to new workspace via wezterm cli #3534](https://github.com/wez/wezterm/discussions/3534)
-
-* WezTerm
-  * [Log to file #1576](https://github.com/wez/wezterm/issues/1576)
-
-* WezTerm Official Guide
-  * Keybaord Shortcuts
-    * [Default Key Assignments](https://wezfurlong.org/wezterm/config/default-keys.html)
-  * Launch Program  
-    * [Launching Programs](https://wezfurlong.org/wezterm/config/launch.html)
-    * [ShowLauncher](https://wezfurlong.org/wezterm/config/lua/keyassignment/ShowLauncher.html)
+  * {15} [How To Create An AMAZING macOS Terminal Setup With Wezterm BY Josean Martinez](https://www.youtube.com/watch?v=TTgQV21X0SQ)
+  * [Make Your Mac Terminal Awesome in 2024: Easy WezTerm & Starship Setup BY Henry Misc](https://www.youtube.com/watch?v=e34qllePuoc)
   
-* Windows Command Prompt
-  * [Setting and getting Windows environment variables from the command prompt?](https://superuser.com/questions/79612/setting-and-getting-windows-environment-variables-from-the-command-prompt)
-  * [Create alias for a specific command in cmd](https://stackoverflow.com/questions/54866820/create-alias-for-a-specific-command-in-cmd)
-
-* PowerShell
-  * [How to Set environment variables using PowerShell?](https://www.tutorialspoint.com/how-to-set-environment-variables-using-powershell)
-  * [How do I deal with paths when creating a PowerShell alias for a Windows Subsystem for Linux command?](https://serverfault.com/questions/911513/how-do-i-deal-with-paths-when-creating-a-powershell-alias-for-a-windows-subsyste)
-
-* Lua Language
-  * [8.1 – The require Function](https://www.lua.org/pil/8.1.html)
-  * [Lua Require function on a full path name](https://stackoverflow.com/questions/11868847/lua-require-function-on-a-full-path-name)
-  * [require os, Am i missing somehting?](https://stackoverflow.com/questions/52517153/require-os-am-i-missing-somehting)

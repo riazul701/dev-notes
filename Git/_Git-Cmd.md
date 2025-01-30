@@ -1,5 +1,10 @@
 # Commands/Usage
 
+## Notes
+
+* GitHub changed the default branch name from `master` to `main` in mid-2020. However, Git itself still uses `master` as the default <sup>{1}</sup>
+* When you install Git, you also get its visual tools, `gitk` and `git-gui`. <sup>{1}</sup>
+
 ## General Commands
 
 * Go to the project’s directory
@@ -12,10 +17,6 @@
 * `echo '# test line' >> CONTRIBUTING.md` : Append text to "CONTRIBUTING.md" file <sup>{1}</sup>
 
 * `vim CONTRIBUTING.md` : Edit "CONTRIBUTING.md" file using "vim" editor <sup>{1}</sup>
-
-## Notes
-
-* GitHub changed the default branch name from `master` to `main` in mid-2020. However, Git itself still uses `master` as the default <sup>{1}</sup>
 
 ## Install Git
 
@@ -171,6 +172,7 @@ doc/**/*.pdf
 ## Commands From
 
 * {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
+* {2} [Git Reference](https://git-scm.com/docs)
 
 # Git-Cmd.md
 
@@ -204,12 +206,13 @@ doc/**/*.pdf
 
 # References
 
-* next-sl: {3}
+* next-sl: {4}
 
 * Tutorials
   * {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
+  * {2} [Git Reference](https://git-scm.com/docs)
 
 * Guides
 
   * Git Index/Staging Area
-    * {2} [Commit only part of a file's changes in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-files-changes-in-git)
+    * {3} [Commit only part of a file's changes in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-files-changes-in-git)

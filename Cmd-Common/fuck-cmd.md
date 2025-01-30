@@ -1,0 +1,1 @@
+# fuck-cmd.md

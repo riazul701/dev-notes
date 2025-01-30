@@ -275,8 +275,13 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   * {17} [Vifm — Powerful command line file manager](https://aliarefwriorr.medium.com/vifm-powerful-command-line-file-manager-f6131de8b8d5)
   
 * Guides
-  * {7} [app-assignment for vifm on windows](https://stackoverflow.com/questions/43594291/app-assignment-for-vifm-on-windows)
-  * [Exiting diff mode in vifm](https://stackoverflow.com/questions/78414744/exiting-diff-mode-in-vifm)
+
+  * General
+    * {7} [app-assignment for vifm on windows](https://stackoverflow.com/questions/43594291/app-assignment-for-vifm-on-windows)
+    * [Exiting diff mode in vifm](https://stackoverflow.com/questions/78414744/exiting-diff-mode-in-vifm)
+
+  * Progress Bar
+    * [Is there a progress bar for long file transfers?](https://q2a.vifm.info/94/progress-bar)
 
 * Installation
 

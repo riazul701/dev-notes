@@ -1,6 +1,6 @@
-# Usage
+# Commands/Usage
 
-## Commands: [Tmux Cheat Sheet](https://tmuxcheatsheet.com/)
+## Commands From [Tmux Cheat Sheet](https://tmuxcheatsheet.com/)
 
 ### Sessions
 
@@ -199,7 +199,12 @@
 ## Websites
 * [Tmux GitHub](https://github.com/tmux/tmux)
 * [Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
+* [rothgar/awesome-tmux GitHub](https://github.com/rothgar/awesome-tmux)
+* [sainnhe/tmux-fzf GitHub](https://github.com/sainnhe/tmux-fzf)
+* [junegunn/tmux-fzf-url](https://github.com/junegunn/tmux-fzf-url)
 * [Tmux Config File BY Learn Linux TV {YouTube}](https://pastebin.com/CDEVZTSC) <sup>{2}</sup>
+* Tutorials
+  * [Tmux integration => FZF](https://junegunn.github.io/fzf/examples/tmux/)
 
 ## Notes
 
@@ -349,22 +354,22 @@
 * Tutorials
   * {1} [How to Use tmux on Linux (and Why It’s Better Than Screen)](https://www.howtogeek.com/671422/how-to-use-tmux-on-linux-and-why-its-better-than-screen/)
 
-* YouTube Tutorials
-  * {2} [Getting Started with tmux BY Learn Linux TV {PlayList}](https://www.youtube.com/playlist?list=PLT98CRl2KxKGiyV1u6wHDV8VwcQdzfuKe)
-  * {3} [Save and Restore Tmux Sessions across Reboots with Tmux Resurrect BY Nick Janetakis](https://www.youtube.com/watch?v=sMbuGf2g7gc)
-  * {4} [Tmux has forever changed the way I write code BY Dreams of Code](https://www.youtube.com/watch?v=DzNmUNvnB04)
-  * {5} [How I Use Tmux With Neovim For An Awesome Dev Workflow On My Mac BY Josean Martinez](https://www.youtube.com/watch?v=U-omALWIBos)
-
 * Guides (Tmux)
 
   * Tmux Config
     * {6} [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/)
 
-* Tmux-Neovim Issue
-  * {7} [True Color (24-bit) and italics with alacritty + tmux + vim (neovim)](https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6)
-  * {8} [neovim background is broken if in tmux #6869](https://github.com/alacritty/alacritty/issues/6869)
-  * {9} [neovim does not work inside tmux #3150](https://github.com/msys2/MSYS2-packages/issues/3150)
+  * Tmux-Neovim Issue
+    * {7} [True Color (24-bit) and italics with alacritty + tmux + vim (neovim)](https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6)
+    * {8} [neovim background is broken if in tmux #6869](https://github.com/alacritty/alacritty/issues/6869)
+    * {9} [neovim does not work inside tmux #3150](https://github.com/msys2/MSYS2-packages/issues/3150)
 
-* Others
-  * {10} [PING: COMMAND NOT FOUND. HOW TO INSTALL PING ON CENTOS / UBUNTU](https://globedrill.com/ping-command-not-found-how-to-install-ping-on-ubuntu-and-centos-server/)
-  * {11} [git-hello-world GitHub](https://github.com/gchowdhury/git-hello-world)
+  * Others
+    * {10} [PING: COMMAND NOT FOUND. HOW TO INSTALL PING ON CENTOS / UBUNTU](https://globedrill.com/ping-command-not-found-how-to-install-ping-on-ubuntu-and-centos-server/)
+    * {11} [git-hello-world GitHub](https://github.com/gchowdhury/git-hello-world)
+
+* YouTube Tutorials
+  * {2} [Getting Started with tmux BY Learn Linux TV {PlayList}](https://www.youtube.com/playlist?list=PLT98CRl2KxKGiyV1u6wHDV8VwcQdzfuKe)
+  * {3} [Save and Restore Tmux Sessions across Reboots with Tmux Resurrect BY Nick Janetakis](https://www.youtube.com/watch?v=sMbuGf2g7gc)
+  * {4} [Tmux has forever changed the way I write code BY Dreams of Code](https://www.youtube.com/watch?v=DzNmUNvnB04)
+  * {5} [How I Use Tmux With Neovim For An Awesome Dev Workflow On My Mac BY Josean Martinez](https://www.youtube.com/watch?v=U-omALWIBos)

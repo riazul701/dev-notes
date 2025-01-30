@@ -3,6 +3,7 @@
 ## Websites
 
 * [cli.github.com](https://cli.github.com/)
+* [GitHub Copilot => The AI editor for everyone](https://github.com/features/copilot)
 
 # References
 

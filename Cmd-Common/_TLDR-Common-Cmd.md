@@ -1194,8 +1194,7 @@ explicit keys, no config options, and UNIX-style composability.
 * rfetch - A configurable fetch program to output system information.
 * rg - Ripgrep is a recursive line-oriented search tool.
 * rga - Ripgrep wrapper with rich file type searching capabilities.
-* rgpt - An automated code review tool that uses GPT you can use straight from your
-terminal.
+* rgpt - An automated code review tool that uses GPT you can use straight from your terminal.
 * rgrep - Recursively find patterns in files using regular expressions.
 * rhash - Calculate or check common message digests.
 * rich - A toolbox for fancy output in the terminal.
@@ -1546,8 +1545,7 @@ and AsciiDoc.
 * x11docker - Securely run GUI applications and desktop UIs in Docker containers.
 * x_x - View Excel and CSV files.
 * xar - Manage .xar archives.
-* xargs - Execute a command with piped arguments coming from another command, a file,
-etc.
+* xargs - Execute a command with piped arguments coming from another command, a file, etc.
 * xbmtopbm - Convert an X11 or X10 bitmap to a PBM image.
 * xcv - Cut, copy, and paste in the command-line.
 * xdelta - Delta encoding utility.
@@ -1641,7 +1639,7 @@ them using string patterns or regular expressions.
 * zola - A static site generator in a single binary with everything built-in.
 * zopflipng - PNG compression utility.
 * zotero - Manage your bibliographies.
-* zoxidevKeep track of the most frequently used directories.
+* zoxide - Keep track of the most frequently used directories.
 * zpool - Manage ZFS pools.
 * zsh - Z SHell, a Bash-compatible command-line interpreter.
 * zstd - Compress or decompress files with Zstandard compression.

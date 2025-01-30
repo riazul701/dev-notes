@@ -34,6 +34,10 @@
     * :normal
     * :norm[al][!] commands
 
+## Compare
+
+* [Compare views](https://vifm.info/manual.shtml#Compare%20views)
+
 ## Keyboard Shortcuts
 
 * General keys

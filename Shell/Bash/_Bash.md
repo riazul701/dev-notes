@@ -22,3 +22,6 @@
 
 * Guides
   * [bashrc vs. bash_profile: What Is the Difference?](https://phoenixnap.com/kb/bashrc-vs-bash-profile)
+
+* YouTube Tutorials
+  * [Unknown Bash shell Tips and Tricks you Must know! BY Dispatch](https://www.youtube.com/watch?v=c773YRyBprw)
