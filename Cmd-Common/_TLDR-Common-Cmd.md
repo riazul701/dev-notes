@@ -1297,8 +1297,7 @@ SSH connection.
 * sponge - Soak up the input before writing the output file.
 * spotdl - Download Spotify playlists and songs along with metadata.
 * sqlite-utils - Command-line tool used to manipulate SQLite databases in a number of different ways.
-* sqlite3 - The command-line interface to SQLite 3, which is a self-contained file-based
-embedded SQL engine.
+* sqlite3 - The command-line interface to SQLite 3, which is a self-contained file-based embedded SQL engine.
 * sqlmap - Detect and exploit SQL injection flaws.
 * srm - Securely remove files or directories.
 * ssh-add - Manage loaded ssh keys in the ssh-agent.
@@ -1307,8 +1306,7 @@ embedded SQL engine.
 * ssh-keygen - Generate ssh keys used for authentication, password-less logins, and other things.
 * ssh-keyscan - Get the public ssh keys of remote hosts.
 * ssh - Secure Shell is a protocol used to securely log onto remote systems.
-* sshd - Secure Shell Daemon - allows remote machines to securely log in to the current
-machine.
+* sshd - Secure Shell Daemon - allows remote machines to securely log in to the current machine.
 * sshfs - Filesystem client based on SSH.
 * sshpass - An ssh password provider.
 * sshuttle - Transparent proxy server that tunnels traffic over an SSH connection.

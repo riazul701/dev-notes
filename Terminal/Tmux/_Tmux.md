@@ -202,7 +202,9 @@
 * [rothgar/awesome-tmux GitHub](https://github.com/rothgar/awesome-tmux)
 * [sainnhe/tmux-fzf GitHub](https://github.com/sainnhe/tmux-fzf)
 * [junegunn/tmux-fzf-url](https://github.com/junegunn/tmux-fzf-url)
-* [Tmux Config File BY Learn Linux TV {YouTube}](https://pastebin.com/CDEVZTSC) <sup>{2}</sup>
+* Configuration
+  * [gpakosz/.tmux GitHub => Oh my tmux! My self-contained, pretty & versatile tmux configuration](https://github.com/gpakosz/.tmux)
+  * [Tmux Config File BY Learn Linux TV {YouTube}](https://pastebin.com/CDEVZTSC) <sup>{2}</sup>
 * Tutorials
   * [Tmux integration => FZF](https://junegunn.github.io/fzf/examples/tmux/)
 
