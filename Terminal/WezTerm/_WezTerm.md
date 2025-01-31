@@ -27,22 +27,9 @@
 * [josean-dev/dev-environment-files GitHub](https://github.com/josean-dev/dev-environment-files) <sup>{15}</sup>
 * [folke/tokyonight.nvim GitHub](https://github.com/folke/tokyonight.nvim)
 
-## Tutorials
-
-* Project Setup
-  * [Automate terminal configurations with WezTerm](https://cosimomatteini.com/blog/terminal-configurations-with-wezterm)
-  * [WezTerm configuration files GitHub](https://github.com/devmatteini/dotfiles/tree/main/config/wezterm)
-  * [Startup arrangements #3236](https://github.com/wez/wezterm/discussions/3236)
-
 ## Notes
 
 * WezTerm log file location: "C:\Users\<user-name>\.local\share\wezterm" [Lua-function: "wezterm.log_error()"] [Log to file #1576](https://github.com/wez/wezterm/issues/1576)
-
-## Project Setup
-
-* Copy "WezTerm-Prject/.wezterm.lua" file to user "HOME(~)" directory.
-* Copy "WezTerm-Prject/project.lua" file to "/e/stproject/wezterm" directory.
-* Copy "WezTerm-Prject/t-larav1.lua" file to "/e/stproject/wezterm/projects" directory. And create new project files here.
 
 ## Keyboard Shortcuts
 
@@ -135,9 +122,6 @@ fall back to basic
   * [How To Create An Amazing Terminal Setup With Wezterm](https://www.josean.com/posts/how-to-setup-wezterm-terminal) <sup>{15}</sup>
 
 * Guides
-
-  * WezTerm Project
-    * {3} [Switch to new workspace via wezterm cli #3534](https://github.com/wez/wezterm/discussions/3534)
 
   * WezTerm
     * {4} [Log to file #1576](https://github.com/wez/wezterm/issues/1576)

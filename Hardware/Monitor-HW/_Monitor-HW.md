@@ -2,6 +2,8 @@
 
 ## Important
 
+* NEVER BUY GLOSSY MONITOR, ALWAYS BUY MATTE/ANTI-GLARE MONITOR.
+
 * Above 100 PPI Is Good For Reading Text And Programming. Do Not Go Beyond 24 Inch For Full HD.<sup>{19} {20} {21}</sup>
   * 21.5 Inch Full HD Monitor Is Best According To PPI. It Has 102.46 PPI. <sup>{21}</sup>
 * Alway Buy IPS Panel Monitor For COLOR. <sup>{6}</sup>
