@@ -2,6 +2,8 @@
 
 ## Websites
 
+* [zsh.org](https://www.zsh.org/)
+
 # References
 
 * YouTube Tutorials

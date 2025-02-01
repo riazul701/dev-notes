@@ -11,12 +11,21 @@
 ## Websites
 * [Git Official Site](https://git-scm.com/)
 * [Git SCM to Windows => Official](https://gitforwindows.org/)
-* [github/gitignore GitHub](https://github.com/github/gitignore)
-* [GitHub Pages -> Websites for you and your projects](https://pages.github.com/)
 * [MSYS2](https://www.msys2.org/)
 * [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
 * [Git GUI Clients](https://git-scm.com/downloads/guis)
-* [newren/git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
+
+* Fzf with Git
+  * [wfxr/forgit GitHub => A utility tool powered by fzf for using git interactively](https://github.com/wfxr/forgit)
+  * [junegunn/fzf-git.sh GitHub => bash and zsh key bindings for Git objects, powered by fzf](https://github.com/junegunn/fzf-git.sh)
+
+* GitHub
+  * [github/gitignore GitHub](https://github.com/github/gitignore)
+  * [GitHub Pages => Websites for you and your projects](https://pages.github.com/)
+
+* Extension/Addon
+  * [newren/git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
+
 * Tutorials
   * [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
   * [GitHub Docs](https://docs.github.com/en)

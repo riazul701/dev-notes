@@ -130,7 +130,7 @@
   * `xrandr` : Use this command to get "display" name
   * `xrandr --output {{display-name}} --brightness {{value}}` : Use this command to set brightness. "value" can be: ".1" to ".9" and "1" means normal hardware brightness.
   * Add `alias` to `~/.bashrc` file for keyboad shortcuts
-    * `alias b7='xrandr --output {{display-name}} --brightness .7'` [Make 9 copies of this command from value ".1" to ".9"]
+    * `alias b7='xrandr --output {{display-name}} --brightness .7'` [Make 9 copies of this command from value ".1" to ".9" and named "b1" to "b9"]
     * `alias bn='xrandr --output {{display-name}} --brightness 1'`
     * `source ~/.bashrc` : Reload "~/.bashrc" file
   * `b7` : Open terminal and enter this command to change brightness.

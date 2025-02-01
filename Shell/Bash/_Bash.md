@@ -4,6 +4,10 @@
 
 * [GNU Bash](https://www.gnu.org/software/bash/)
 * [koalaman/shellcheck GitHub](https://github.com/koalaman/shellcheck)
+
+* Auto-Completion
+  * [lincheney/fzf-tab-completion GitHub => Tab completion using fzf](https://github.com/lincheney/fzf-tab-completion)
+
 * Tutorials
   * [tutorialspoint.com => Shell Scripting Tutorial](https://www.tutorialspoint.com/unix/shell_scripting.htm)
   * [learnshell.org => Interactive Shell Programming tutorial](https://www.learnshell.org/)

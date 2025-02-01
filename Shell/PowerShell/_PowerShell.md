@@ -5,6 +5,10 @@
 * [Powershell GitHub](https://github.com/PowerShell/PowerShell)
 * [PowerShell Documentation](https://learn.microsoft.com/en-us/powershell/)
 * [gsudo => sudo for Windows](https://gerardog.github.io/gsudo/) || [gsudo GitHub](https://github.com/gerardog/gsudo)
+
+* Auto-Completion
+  * [kelleyma49/PSFzf GitHub => A PowerShell wrapper around the fuzzy finder fzf](https://github.com/kelleyma49/PSFzf)
+
 * Tutorials
   * [tutorialspoint.com => Powershell Tutorial](https://www.tutorialspoint.com/powershell/index.htm)
   

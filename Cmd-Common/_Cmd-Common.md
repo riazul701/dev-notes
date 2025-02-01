@@ -18,12 +18,7 @@
   * [util-linux => Wikipedia](https://en.wikipedia.org/wiki/Util-linux)
   * [List of GNU packages => Wikipedia](https://en.wikipedia.org/wiki/List_of_GNU_packages)
   * [List of Unix daemons => Wikipedia](https://en.wikipedia.org/wiki/List_of_Unix_daemons)
-
-## Collected Commands
-
-* [ms-jpq/sad GitHub => CLI search and replace | Space Age seD](https://github.com/ms-jpq/sad)
-* [thomasschafer/scooter GitHub => Interactive find and replace in the terminal](https://github.com/thomasschafer/scooter)
-
+  
 ## Recommended Commands
 
 * {1} [7 Amazing CLI Tools You Need To Try BY Josean Martinez](https://www.youtube.com/watch?v=mmqDYw9C30I)
