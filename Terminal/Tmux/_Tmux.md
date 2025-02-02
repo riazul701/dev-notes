@@ -1,16 +1,38 @@
 # Tmux.md
 
 ## Websites
+
 * [Tmux GitHub](https://github.com/tmux/tmux)
+* [tmux-plugins GitHub => Official tmux plugins](https://github.com/tmux-plugins)
+* [tmux-plugins/tpm GitHub => Official](https://github.com/tmux-plugins/tpm)
+* [Tmuxinator GitHub](https://github.com/tmuxinator/tmuxinator)
 * [Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
 * [rothgar/awesome-tmux GitHub](https://github.com/rothgar/awesome-tmux)
-* [sainnhe/tmux-fzf GitHub](https://github.com/sainnhe/tmux-fzf)
-* [junegunn/tmux-fzf-url](https://github.com/junegunn/tmux-fzf-url)
+
+* Fzf
+  * [sainnhe/tmux-fzf GitHub](https://github.com/sainnhe/tmux-fzf)
+  * [junegunn/tmux-fzf-url](https://github.com/junegunn/tmux-fzf-url)
+
 * Configuration
   * [gpakosz/.tmux GitHub => Oh my tmux! My self-contained, pretty & versatile tmux configuration](https://github.com/gpakosz/.tmux)
   * [Tmux Config File BY Learn Linux TV {YouTube}](https://pastebin.com/CDEVZTSC) <sup>{2}</sup>
+
+* Vim/Neovim
+  * [christoomey/vim-tmux-navigator GitHub](https://github.com/christoomey/vim-tmux-navigator)
+
+* Theme
+  * [janoamaral/tokyo-night-tmux GitHub](https://github.com/janoamaral/tokyo-night-tmux)
+  * [fabioluciano/tmux-tokyo-night GitHub](https://github.com/fabioluciano/tmux-tokyo-night)
+
+* Tmux Plugins
+  * [tmux-plugins/tmux-resurrect GitHub => Official](https://github.com/tmux-plugins/tmux-resurrect)
+  * [tmux-plugins/tmux-continuum GitHub => Official](https://github.com/tmux-plugins/tmux-continuum)
+  * [tmux-plugins/tmux-yank GitHub => Official](https://github.com/tmux-plugins/tmux-yank)
+  
 * Tutorials
   * [Tmux integration => FZF](https://junegunn.github.io/fzf/examples/tmux/)
+
+* Collection
 
 ## Notes
 
@@ -123,8 +145,6 @@
 ### Guides (Nested-Tmux)
 * [Using Tmux Remotely Within a Local Tmux Session](https://simplyian.com/2014/03/29/using-tmux-remotely-within-a-local-tmux-session/)
 * [How to send commands when opening a tmux session inside another tmux session?](https://stackoverflow.com/questions/8518815/how-to-send-commands-when-opening-a-tmux-session-inside-another-tmux-session)
-
-
 
 # Tmux Plugin Manager (TPM)
 

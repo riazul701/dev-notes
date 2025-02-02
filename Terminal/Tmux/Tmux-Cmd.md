@@ -1,5 +1,11 @@
 # Commands
 
+## Configuration Commands
+
+* [How to Reload a Tmux Config File](https://linuxhint.com/how-to-reload-tmux-config-file/)
+  * From Outside of Tmux-Session: `tmux source-file ~/.tmux.conf`
+  * From Inside of Tmux-Session: Press "Prefix + :" and type command `source-file ~/.tmux.conf`
+
 ## Commands From [Tmux Cheat Sheet](https://tmuxcheatsheet.com/)
 
 ### Sessions
