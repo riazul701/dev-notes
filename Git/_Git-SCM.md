@@ -1,10 +1,26 @@
-# Commands
+# Commands/Usage
 
 ## Git-Credential-Manager (GCM)
 
 * Shows installation path: `which git-credential-manager`
 * Shows version: `git-credential-manager --version`
 * Shows help: `git-credential-manager --help`
+
+## Best Practices
+
+### Tense of Git Commit Message
+
+* [Use past tense in git commit messages BY Philomatics](https://www.youtube.com/watch?v=SQNb-NxZBPQ)
+  * @LukinoAndCo: Present tense for commits. Past tense for release notes.
+  * [Should I use past or present tense in git commit messages?](https://stackoverflow.com/questions/3580013/should-i-use-past-or-present-tense-in-git-commit-messages/8059167#8059167)
+  * [git.kernel.org => imperative-mood](https://git.kernel.org/pub/scm/git/git.git/tree/Documentation/SubmittingPatches?h=v2.36.1#n181)
+  * [[imperative-mood]]
+  > Describe your changes in imperative mood, e.g. "make xyzzy do frotz"
+  > instead of "[This patch] makes xyzzy do frotz" or "[I] changed xyzzy
+  > to do frotz", as if you are giving orders to the codebase to change
+  > its behavior.  Try to make sure your explanation can be understood
+  > without external resources. Instead of giving a URL to a mailing list
+  > archive, summarize the relevant points of the discussion.
 
 # Contents of Git-SCM
 

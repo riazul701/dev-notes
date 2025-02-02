@@ -63,24 +63,24 @@
 
 * next-sl: {5}
 
-* Guides
+## Guides
 
-  * General
+* General
 
-  * Comparison
-    * {4} [Flatpak vs. Snap: 10 Differences You Should Know](https://itsfoss.com/flatpak-vs-snap/)
+* Comparison
+  * {4} [Flatpak vs. Snap: 10 Differences You Should Know](https://itsfoss.com/flatpak-vs-snap/)
 
-  * Bash
-    * [Bash only show first column value](https://unix.stackexchange.com/questions/136884/how-to-use-a-shell-command-to-only-show-the-first-column-and-last-column-in-a-te)
-    * `/bin/bash^M: bad interpreter: No such file or directory`
-      * [Bash script – "/bin/bash^M: bad interpreter: No such file or directory" [duplicate]](https://stackoverflow.com/questions/14219092/bash-script-bin-bashm-bad-interpreter-no-such-file-or-directory)
-      * [Are shell scripts sensitive to encoding and line endings?](https://stackoverflow.com/questions/39527571/are-shell-scripts-sensitive-to-encoding-and-line-endings)
-    * [Bash array with spaces in elements](https://stackoverflow.com/questions/9084257/bash-array-with-spaces-in-elements)
-    * [Linux replace space to newline for a string](https://stackoverflow.com/questions/33533897/linux-replace-space-to-newline-for-a-string)
+* Bash
+  * [Bash only show first column value](https://unix.stackexchange.com/questions/136884/how-to-use-a-shell-command-to-only-show-the-first-column-and-last-column-in-a-te)
+  * `/bin/bash^M: bad interpreter: No such file or directory`
+    * [Bash script – "/bin/bash^M: bad interpreter: No such file or directory" [duplicate]](https://stackoverflow.com/questions/14219092/bash-script-bin-bashm-bad-interpreter-no-such-file-or-directory)
+    * [Are shell scripts sensitive to encoding and line endings?](https://stackoverflow.com/questions/39527571/are-shell-scripts-sensitive-to-encoding-and-line-endings)
+  * [Bash array with spaces in elements](https://stackoverflow.com/questions/9084257/bash-array-with-spaces-in-elements)
+  * [Linux replace space to newline for a string](https://stackoverflow.com/questions/33533897/linux-replace-space-to-newline-for-a-string)
 
-  * Snap Package Manager
-    * {1} [Snap => Installing the daemon](https://snapcraft.io/docs/installing-snapd)
-    * {2} [Installing snap on Debian](https://snapcraft.io/docs/installing-snap-on-debian)
-    * {3} [How to remove uninstalled snaps from cache?](https://askubuntu.com/questions/1075050/how-to-remove-uninstalled-snaps-from-cache)
+* Snap Package Manager
+  * {1} [Snap => Installing the daemon](https://snapcraft.io/docs/installing-snapd)
+  * {2} [Installing snap on Debian](https://snapcraft.io/docs/installing-snap-on-debian)
+  * {3} [How to remove uninstalled snaps from cache?](https://askubuntu.com/questions/1075050/how-to-remove-uninstalled-snaps-from-cache)
 
-* YouTube Tutorials
+## YouTube Tutorials
