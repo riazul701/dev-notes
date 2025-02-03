@@ -361,3 +361,10 @@ return config
 * WezTerm is cool! I was able to ditch the overhead of Tmux by using WezTerm. While it may not match all of Tmux's capabilities, it works perfectly for my simple use cases. There’s much more to explore in WezTerm’s configuration, which you can find on their official [website](https://wezfurlong.org/wezterm/config/files.html). Here is my [dotfiles](https://github.com/lovelindhoni/dotfiles) in case if you want to peek. See ya!
 
 * Cover Image from [wezfurlong.org/wezterm](https://wezfurlong.org/wezterm/)
+
+# References
+
+## Guides
+
+* [Is there a tmux-like equivalent for windows?](https://www.reddit.com/r/tmux/comments/l580mi/is_there_a_tmuxlike_equivalent_for_windows/)
+  * [prabirshrestha/dotfiles/.config/wezterm/wezterm.lua => GitHub](https://github.com/prabirshrestha/dotfiles/blob/main/.config/wezterm/wezterm.lua)

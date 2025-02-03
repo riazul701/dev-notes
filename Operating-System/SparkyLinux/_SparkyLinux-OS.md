@@ -7,6 +7,8 @@
 
 ## Notes
 
+# Operating System Install
+
 ## Motherboard's UEFI Boot Manager
 
 * In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
@@ -33,6 +35,33 @@
   * Uncomment line `#GRUB_DISABLE_OS_PROBER=false` [Remove `#` at first character] -> Save File
   * Reload GRUB: `sudo update-grub`
   * Restart PC and check "Windows Boot Manager"
+
+# Configuration
+
+## Create App/Menu Launcher
+
+* Manually create Menu for software with following steps:
+  * ".desktop"/Menu file is located at: `usr/share/applications`
+  * Duplicate any ".desktop" file and edit following fields
+    * Name
+    * Comment
+    * Keywords [Used to search programs from start-menu]
+    * Icon
+    * StartupWMClass
+    * TryExec [Software path, that will be launched]
+    * Exec [Software path, that will be launched]
+    * Categories
+    * Skip editing of following fields
+      * Type
+      * Terminal
+      * StartupNotify
+
+* Create menu entry for "Kitty" terminal
+  * [Install kitty -> Binary install](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+  * Install "Kitty" terminal: `curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin`
+  * Kitty is installed in path : `/home/{{user-name}}/.local/kitty.app/bin`
+  * Value of "TryExec" and "Exec" fields: `/home/{{user-name}}/.local/kitty.app/bin/kitty`
+  * Follow ".desktop"/Menu file of WezTerm terminal, which is installed from ".deb" file using "GDebi" installer.
 
 # References
 

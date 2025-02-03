@@ -18,11 +18,15 @@
 
 * Flatpak is built-in inside of Q4OS.
 
+# Operating System Install
+
 ## Motherboard's UEFI Boot Manager
 
 * In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.
   * Before reinstall Linux, remove Linux's boot manager from motherboard. Also format/delete Linux boot partitions.
   * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
+
+# Configuration
 
 ## Create App/Menu Launcher
 
@@ -39,6 +43,13 @@
       * Terminal
       * Type
       * StartupNotify
+
+* Create menu entry for "Kitty" terminal
+  * [Install kitty -> Binary install](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+  * Install "Kitty" terminal: `curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin`
+  * Kitty is installed in path : `/home/{{user-name}}/.local/kitty.app/bin`
+  * Value of "TryExec" and "Exec" fields: `/home/{{user-name}}/.local/kitty.app/bin/kitty`
+  * Follow ".desktop"/Menu file of WezTerm terminal, which is installed from ".deb" file using "GDebi" installer.
 
 # References
 
