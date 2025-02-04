@@ -33,7 +33,7 @@
 * `ctrl+shift+8` : New tab, profile index: 7
 * `ctrl+shift+9` : New tab, profile index: 8
 * `ctrl+shift+n` : New window
-* `ctrl+tab` : New tab
+* `ctrl+tab` : Next tab
 * `ctrl+alt+comma` : Open default settings file (JSON)
 * `ctrl+shift+space` : Open new tab dropdown
 * `ctrl+comma` : Open settings

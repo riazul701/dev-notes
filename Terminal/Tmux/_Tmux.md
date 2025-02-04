@@ -71,18 +71,25 @@
 # Configuration
 
 ## Instructions (Configuration)
+
 * MUST USE UNIX LINE ENDINGS FOR "~/.tmux.conf" FILE. NOT WINDOWS LINE ENDINGS. FOR WINDOWS LINE ENDINGS, SHOWS "bad key: C-a" ERROR.
 * For Git-Bash(Windows-OS) enter into Bash first: `bash`
 * Create file ".tmux.conf": `touch ~/.tmux.conf`
+
 * [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/)
   * Change prefix key from "Ctrl+b" to "Ctrl+a": `echo 'set-option -g prefix C-a' >> ~/.tmux.conf` 
   * If Tmux shows "bad-key" error, then just use this line. This error occurs because of Windows-Line-Endings. Use Unix-Line-Endings.
+
+* ["tmux set -g mouse-mode on" not scrolling](https://stackoverflow.com/questions/11832199/tmux-set-g-mouse-mode-on-not-scrolling)
+  * Add in `.tmux.conf` file: `set -g mouse on`
+
 * [How to Reload a Tmux Config File](https://linuxhint.com/how-to-reload-tmux-config-file/)
   * From Outside of Tmux-Session: `tmux source-file ~/.tmux.conf`
-  * From Inside of Tmux-Session: Press "Prefix + :" and type command `source-file ~/.tmux.conf`
+  * From Inside of Tmux-Session: Press "Prefix + :" and type command `source-file ~/.tmux.conf` [Prefix => `Ctrl+b` OR `Ctrl+a`]
 
 ## Tmux-Neovim Issue
-  * [True Color (24-bit) and italics with alacritty + tmux + vim (neovim)](https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6)
+
+* [True Color (24-bit) and italics with alacritty + tmux + vim (neovim)](https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6)
   * `echo 'set -g default-terminal "tmux-256color"' >> ~/.tmux.conf`
   * `echo 'set -sg terminal-overrides ",*:RGB"' >> ~/.tmux.conf`
   * Open file "~/.config/nvim/init.lua"(NeoVim) OR "~\AppData\Local\lvim"(LunarVim)
@@ -90,6 +97,7 @@
   * Reload Tmux and Neovim configuration
 
 ## Nerd Font Config
+
 * Error: Locale does not support UTF-8. Unicode characters may not display correctly.
 
 **SCRIPT-WAY**
@@ -124,6 +132,7 @@
     * Created an alias of tmux in my zshrc: `alias tmux='tmux -u'`
 
 ### Guides (Configuration)
+
 * Nerd Font
   * [UTF-8 character not showing properly in tmux](https://askubuntu.com/questions/410048/utf-8-character-not-showing-properly-in-tmux)
   * [Tmux doesn't render some symbols properly](https://askubuntu.com/questions/1038351/tmux-doesnt-render-some-symbols-properly)
@@ -136,6 +145,7 @@
 ## Nested Tmux Session
 
 ### Instructions (Nested-Tmux)
+
 * There are two sessions. One is "Host-OS": `tmux new -s host` and another is "Docker": `tmux new -s docker`. 
 * Inside "Docker" session:
   * [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/) -> `touch ~/.tmux.conf` -> `set-option -g prefix C-a`
@@ -143,12 +153,14 @@
 * Use "Ctrl+b" tmux-prefix for "Host-OS" session. And use "Ctrl+a" tmux-prefix for "Docker" session. 
 
 ### Guides (Nested-Tmux)
+
 * [Using Tmux Remotely Within a Local Tmux Session](https://simplyian.com/2014/03/29/using-tmux-remotely-within-a-local-tmux-session/)
 * [How to send commands when opening a tmux session inside another tmux session?](https://stackoverflow.com/questions/8518815/how-to-send-commands-when-opening-a-tmux-session-inside-another-tmux-session)
 
 # Tmux Plugin Manager (TPM)
 
 ## Websites
+
 * [Tmux Plugin Manager GitHub](https://github.com/tmux-plugins/tpm)
 
 ## Installation
@@ -164,11 +176,13 @@
   * `tmux source ~/.tmux.conf`
 
 ## Installing Plugin
+
 * Add new plugin to ~/.tmux.conf with set -g @plugin '...'
 * Press prefix + I (capital i, as in Install) to fetch the plugin.
 * The plugin was cloned to ~/.tmux/plugins/ dir and sourced.
 
 ## Uninstalling plugins
+
 * Remove (or comment out) plugin from the list.
 * Press prefix + alt + u (lowercase u as in uninstall) to remove the plugin.
 * All the plugins are installed to ~/.tmux/plugins/ so alternatively we can find plugin directory there and remove it.
