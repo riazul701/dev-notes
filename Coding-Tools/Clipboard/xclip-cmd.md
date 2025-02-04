@@ -1,3 +1,0 @@
-# xclip.md
-
-## Websites

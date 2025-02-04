@@ -1,3 +1,0 @@
-# xsel.md
-
-## Websites

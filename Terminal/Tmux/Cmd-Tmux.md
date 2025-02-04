@@ -34,7 +34,7 @@
 * Show all sessions
   * `tmux ls`
   * `tmux list-sessions`
-  * Ctrl + b -> s
+  * `Ctrl + b -> s`
 * Attach to last session
   * `tmux a`
   * `tmux at`

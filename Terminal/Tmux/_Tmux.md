@@ -157,36 +157,6 @@
 * [Using Tmux Remotely Within a Local Tmux Session](https://simplyian.com/2014/03/29/using-tmux-remotely-within-a-local-tmux-session/)
 * [How to send commands when opening a tmux session inside another tmux session?](https://stackoverflow.com/questions/8518815/how-to-send-commands-when-opening-a-tmux-session-inside-another-tmux-session)
 
-# Tmux Plugin Manager (TPM)
-
-## Websites
-
-* [Tmux Plugin Manager GitHub](https://github.com/tmux-plugins/tpm)
-
-## Installation
-* Requirements: tmux version 1.9 (or higher), git, bash
-* Clone TPM: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-* Put this at the bottom of ~/.tmux.conf ($XDG_CONFIG_HOME/tmux/tmux.conf works too):
-  * `# List of plugins`
-  *  `set -g @plugin 'tmux-plugins/tpm'`
-  * `# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)`
-  * `run '~/.tmux/plugins/tpm/tpm'`
-* Reload TMUX environment so TPM is sourced:
-  * `# type this in terminal if tmux is already running`
-  * `tmux source ~/.tmux.conf`
-
-## Installing Plugin
-
-* Add new plugin to ~/.tmux.conf with set -g @plugin '...'
-* Press prefix + I (capital i, as in Install) to fetch the plugin.
-* The plugin was cloned to ~/.tmux/plugins/ dir and sourced.
-
-## Uninstalling plugins
-
-* Remove (or comment out) plugin from the list.
-* Press prefix + alt + u (lowercase u as in uninstall) to remove the plugin.
-* All the plugins are installed to ~/.tmux/plugins/ so alternatively we can find plugin directory there and remove it.
-
 # References
 
 * next-sl: {12}
