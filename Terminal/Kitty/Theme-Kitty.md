@@ -15,9 +15,9 @@
 
 ## Websites
 
-* {1} [kovidgoyal/kitty-themes GitHub => Themes for the kitty terminal](https://github.com/kovidgoyal/kitty-themes)
-* {2} [Changing kitty colors](https://sw.kovidgoyal.net/kitty/kittens/themes/)
-* {3} [catppuccin/kitty GitHub](https://github.com/catppuccin/kitty)
+* [kovidgoyal/kitty-themes GitHub => Themes for the kitty terminal](https://github.com/kovidgoyal/kitty-themes) <sup>{1}</sup>
+* [Changing kitty colors](https://sw.kovidgoyal.net/kitty/kittens/themes/) <sup>{2}</sup>
+* [catppuccin/kitty GitHub](https://github.com/catppuccin/kitty) <sup>{3}</sup>
 
 # [catppuccin/kitty GitHub](https://github.com/catppuccin/kitty) <sup>{3}</sup>
 
@@ -63,7 +63,7 @@ tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows >
 
 * next-sl: {4}
 
-## Themes
+## Websites
 
 * {1} [kovidgoyal/kitty-themes GitHub => Themes for the kitty terminal](https://github.com/kovidgoyal/kitty-themes)
 * {2} [Changing kitty colors](https://sw.kovidgoyal.net/kitty/kittens/themes/)
