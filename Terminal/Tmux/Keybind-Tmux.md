@@ -26,15 +26,15 @@
 * kill/delete all sessions but mysession
   * `tmux kill-session -a -t mysession`
 * Rename session
-  * Ctrl + b -> $
+  * `Ctrl + b -> $`
 * Detach from session
-  * Ctrl + b -> d
+  * `Ctrl + b -> d`
 * Detach others on the session (Maximize window by detach other clients)
   * `:attach -d` 
 * Show all sessions
   * `tmux ls`
   * `tmux list-sessions`
-  * `Ctrl + b -> s`
+  * `Ctrl + b -> s` [Press `Esc` or `q` to cancel]
 * Attach to last session
   * `tmux a`
   * `tmux at`
@@ -200,7 +200,7 @@
 * Show every session, window, pane, etc...
   * `tmux info`
 
-## Commands from `Ctrl + b -> ?`
+## Keybindings from `Ctrl + b -> ?`
 
 * Meaning
   * `C` means `Ctrl` key

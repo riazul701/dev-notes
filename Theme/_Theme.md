@@ -8,6 +8,13 @@
 
 * Tokyo Night Theme for All Platform
 
+## Notes
+
+* Tested on WezTerm terminal
+  * Tree themes are very similar: "Tokyo Night", "Catppuccin Mocha" and "Dracula"
+  * "Tokyo Night" is darker than "Catppuccin Mocha"
+  * "Catppuccin Mocha" is darker than "Dracula"
+
 # Softwares/Packages
 
 ## LibreOffice

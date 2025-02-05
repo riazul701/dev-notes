@@ -15,6 +15,9 @@
   * [tmux-plugins/tmux-yank GitHub => Official](https://github.com/tmux-plugins/tmux-yank)
   * [tmux-plugins/tmux-sensible GitHub => Official](https://github.com/tmux-plugins/tmux-sensible)
 
+* Tmux Git
+  * [arl/gitmux GitHub](https://github.com/arl/gitmux)
+
 # Tmux Plugin Manager (TPM)
 
 ## Instructions From
@@ -83,6 +86,13 @@ tmux source ~/.tmux.conf
 * {4} [junegunn/fzf GitHub => A command-line fuzzy finder](https://github.com/junegunn/fzf/)
 
 ## Commands
+
+### Usage
+
+* Press `Esc` or `q` to quit from various situation
+* To launch tmux-fzf, press `prefix` + `F` (Shift+F).
+
+### Installation
 
 * `apt show copyq` : CopyQ (optional), Access system clipboard, fallback to builtin tmux buffers if copyq is not executable. <sup>{2}</sup>
   * `sudo apt install copyq` : Install CopyQ

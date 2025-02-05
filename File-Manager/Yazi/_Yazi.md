@@ -2,7 +2,8 @@
 
 ## Websites
 
-* [sxyazi/yazi => Terminal file manager written in Rust](https://github.com/sxyazi/yazi)
+* [yazi-rs.github.io => Terminal file manager](https://yazi-rs.github.io/)
+* [sxyazi/yazi GitHub](https://github.com/sxyazi/yazi)
 
 # References
 

@@ -4,6 +4,7 @@
 
 * [sw.kovidgoyal.net/kitty](https://sw.kovidgoyal.net/kitty/)
 * [kovidgoyal/kitty GitHub](https://github.com/kovidgoyal/kitty)
+* [kovidgoyal/kitty-themes GitHub => Themes for the kitty terminal](https://github.com/kovidgoyal/kitty-themes)
 
 ## Notes
 

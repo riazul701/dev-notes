@@ -21,6 +21,7 @@
   * [christoomey/vim-tmux-navigator GitHub](https://github.com/christoomey/vim-tmux-navigator)
 
 * Theme
+  * [catppuccin/tmux GitHub](https://github.com/catppuccin/tmux)
   * [janoamaral/tokyo-night-tmux GitHub](https://github.com/janoamaral/tokyo-night-tmux)
   * [fabioluciano/tmux-tokyo-night GitHub](https://github.com/fabioluciano/tmux-tokyo-night)
 
@@ -35,6 +36,10 @@
 * Collection
 
 ## Notes
+
+## PATH
+
+* Tmux config file location: `~/.tmux.conf` <sup>{12}</sup>
 
 # Installation
 
@@ -76,14 +81,14 @@
 * For Git-Bash(Windows-OS) enter into Bash first: `bash`
 * Create file ".tmux.conf": `touch ~/.tmux.conf`
 
-* [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/)
+* {6} [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/)
   * Change prefix key from "Ctrl+b" to "Ctrl+a": `echo 'set-option -g prefix C-a' >> ~/.tmux.conf` 
   * If Tmux shows "bad-key" error, then just use this line. This error occurs because of Windows-Line-Endings. Use Unix-Line-Endings.
 
-* ["tmux set -g mouse-mode on" not scrolling](https://stackoverflow.com/questions/11832199/tmux-set-g-mouse-mode-on-not-scrolling)
+* {13} ["tmux set -g mouse-mode on" not scrolling](https://stackoverflow.com/questions/11832199/tmux-set-g-mouse-mode-on-not-scrolling)
   * Add in `.tmux.conf` file: `set -g mouse on`
 
-* [How to Reload a Tmux Config File](https://linuxhint.com/how-to-reload-tmux-config-file/)
+* {12} [How to Reload a Tmux Config File](https://linuxhint.com/how-to-reload-tmux-config-file/)
   * From Outside of Tmux-Session: `tmux source-file ~/.tmux.conf`
   * From Inside of Tmux-Session: Press "Prefix + :" and type command `source-file ~/.tmux.conf` [Prefix => `Ctrl+b` OR `Ctrl+a`]
 
@@ -148,7 +153,7 @@
 
 * There are two sessions. One is "Host-OS": `tmux new -s host` and another is "Docker": `tmux new -s docker`. 
 * Inside "Docker" session:
-  * [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/) -> `touch ~/.tmux.conf` -> `set-option -g prefix C-a`
+  * {6} [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/) -> `touch ~/.tmux.conf` -> `set-option -g prefix C-a`
   * Create session - "Code": `tmux new -s code` and "Database": `tmux new -s database`
 * Use "Ctrl+b" tmux-prefix for "Host-OS" session. And use "Ctrl+a" tmux-prefix for "Docker" session. 
 
@@ -159,27 +164,31 @@
 
 # References
 
-* next-sl: {12}
+* next-sl: {14}
 
-* Tutorials
-  * {1} [How to Use tmux on Linux (and Why It’s Better Than Screen)](https://www.howtogeek.com/671422/how-to-use-tmux-on-linux-and-why-its-better-than-screen/)
+## Tutorials
+  
+* {1} [How to Use tmux on Linux (and Why It’s Better Than Screen)](https://www.howtogeek.com/671422/how-to-use-tmux-on-linux-and-why-its-better-than-screen/)
 
-* Guides (Tmux)
+## Guides (Tmux)
 
-  * Tmux Config
-    * {6} [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/)
+* Configuration
+  * {6} [Remap the ctrl+b tmux prefix to ctrl+a](https://koenwoortman.com/tmux-remap-ctrl-b-to-ctrl-a/)
+  * {12} [How to Reload a Tmux Config File](https://linuxhint.com/how-to-reload-tmux-config-file/)
+  * {13} ["tmux set -g mouse-mode on" not scrolling](https://stackoverflow.com/questions/11832199/tmux-set-g-mouse-mode-on-not-scrolling)
 
-  * Tmux-Neovim Issue
-    * {7} [True Color (24-bit) and italics with alacritty + tmux + vim (neovim)](https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6)
-    * {8} [neovim background is broken if in tmux #6869](https://github.com/alacritty/alacritty/issues/6869)
-    * {9} [neovim does not work inside tmux #3150](https://github.com/msys2/MSYS2-packages/issues/3150)
+* Tmux-Neovim Issue
+  * {7} [True Color (24-bit) and italics with alacritty + tmux + vim (neovim)](https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6)
+  * {8} [neovim background is broken if in tmux #6869](https://github.com/alacritty/alacritty/issues/6869)
+  * {9} [neovim does not work inside tmux #3150](https://github.com/msys2/MSYS2-packages/issues/3150)
 
-  * Others
-    * {10} [PING: COMMAND NOT FOUND. HOW TO INSTALL PING ON CENTOS / UBUNTU](https://globedrill.com/ping-command-not-found-how-to-install-ping-on-ubuntu-and-centos-server/)
-    * {11} [git-hello-world GitHub](https://github.com/gchowdhury/git-hello-world)
+* Others
+  * {10} [PING: COMMAND NOT FOUND. HOW TO INSTALL PING ON CENTOS / UBUNTU](https://globedrill.com/ping-command-not-found-how-to-install-ping-on-ubuntu-and-centos-server/)
+  * {11} [git-hello-world GitHub](https://github.com/gchowdhury/git-hello-world)
 
-* YouTube Tutorials
-  * {2} [Getting Started with tmux BY Learn Linux TV {PlayList}](https://www.youtube.com/playlist?list=PLT98CRl2KxKGiyV1u6wHDV8VwcQdzfuKe)
-  * {3} [Save and Restore Tmux Sessions across Reboots with Tmux Resurrect BY Nick Janetakis](https://www.youtube.com/watch?v=sMbuGf2g7gc)
-  * {4} [Tmux has forever changed the way I write code BY Dreams of Code](https://www.youtube.com/watch?v=DzNmUNvnB04)
-  * {5} [How I Use Tmux With Neovim For An Awesome Dev Workflow On My Mac BY Josean Martinez](https://www.youtube.com/watch?v=U-omALWIBos)
+## YouTube Tutorials
+  
+* {2} [Getting Started with tmux BY Learn Linux TV {PlayList}](https://www.youtube.com/playlist?list=PLT98CRl2KxKGiyV1u6wHDV8VwcQdzfuKe)
+* {3} [Save and Restore Tmux Sessions across Reboots with Tmux Resurrect BY Nick Janetakis](https://www.youtube.com/watch?v=sMbuGf2g7gc)
+* {4} [Tmux has forever changed the way I write code BY Dreams of Code](https://www.youtube.com/watch?v=DzNmUNvnB04)
+* {5} [How I Use Tmux With Neovim For An Awesome Dev Workflow On My Mac BY Josean Martinez](https://www.youtube.com/watch?v=U-omALWIBos)
