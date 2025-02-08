@@ -79,7 +79,7 @@
 * [zst compression not supported by apt/dpkg](https://unix.stackexchange.com/questions/669004/zst-compression-not-supported-by-apt-dpkg)
   * sudo apt upgrade dpkg
 
-## Synaptic
+## Synaptic Package Manager
 
 ## Fonts Installation
 

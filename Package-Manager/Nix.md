@@ -1,7 +1,9 @@
 # Commands/Usage
 
+* `nix-env -iA {{package_name}}` : Install a package, using following command syntax. <sup>{6}</sup>
 * `nix-env -q` || `nix-env --query` : Shows list of installed packages. <sup>{4}</sup>
 * `nix-collect-garbage` : clear old nix-store paths and references<sup>{5}</sup>
+* `nix-env --uninstall {{package_name}}` : Remove a package, using given command syntax. <sup>{6}</sup>
 
 # Nix.md
 
@@ -37,27 +39,45 @@
 
 * In Q4OS, Nix adds software to $PATH instantly, for both graphical and command-line software. Also Nix adds software to Menu after logout/restart.
 
+# Install Nix Package Manager
+
+## Debian
+
+* [Nix : the package manager](https://nixos.org/download/) <sup>{7}</sup>
+* [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/) <sup>{3}</sup>
+
+* Multi-user installation (recommended) / global installation
+  * `$ sh <(curl -L https://nixos.org/nix/install) --daemon`
+  * We recommend the multi-user install if you are on Linux running systemd, with SELinux disabled and you can authenticate with `sudo`.
+
+* Single-user installation / local installation
+  * `$ sh <(curl -L https://nixos.org/nix/install) --no-daemon`
+  * Above command will perform a single-user installation of Nix, meaning that `nix` is owned by the invoking user. You should run this under your usual user account, not as `root`. The script will invoke `sudo` to create `/nix` if it doesn’t already exist.
+
 # References
 
-* next-sl: {6}
+* next-sl: {8}
 
-* Guides
+## Guides
 
-  * General
-    * {1} [Nix Official Packages](https://search.nixos.org/packages)
-    * {5} [Unable to clear old nix-store paths and references](https://www.reddit.com/r/NixOS/comments/15bjqrw/unable_to_clear_old_nixstore_paths_and_references/)
+* General
+  * {1} [Nix Official Packages](https://search.nixos.org/packages)
+  
+* NixOS/Nix Package Manager
+  * {2} [NixOS Basics](https://itsfoss.com/tag/nix-os/)
+  * {3} [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/)
+  * {7} [Nix : the package manager](https://nixos.org/download/)
 
-  * NixOS
-    * {2} [NixOS Basics](https://itsfoss.com/tag/nix-os/)
+* Package Install/Uninstall/List
+  * {4} [Why doesn't `nix-env -q` find my installed packages? (NixOS channels, profiles and packages)](https://stackoverflow.com/questions/47953868/why-doesnt-nix-env-q-find-my-installed-packages-nixos-channels-profiles-a)
+  * {5} [Unable to clear old nix-store paths and references](https://www.reddit.com/r/NixOS/comments/15bjqrw/unable_to_clear_old_nixstore_paths_and_references/)
+  * {6} [Install and Remove Packages in NixOS](https://itsfoss.com/nixos-package-management/)
 
-  * Package Manager
-    * {3} [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/)
-    * {4} [Why doesn't `nix-env -q` find my installed packages? (NixOS channels, profiles and packages)](https://stackoverflow.com/questions/47953868/why-doesnt-nix-env-q-find-my-installed-packages-nixos-channels-profiles-a)
+* Server
+  * [NixOS friendly hosters](https://nixos.wiki/wiki/NixOS_friendly_hosters)
 
-  * Server
-    * [NixOS friendly hosters](https://nixos.wiki/wiki/NixOS_friendly_hosters)
-
-* YouTube Tutorials
-  * {1} [Nix BY Li Yang => PlayList](https://www.youtube.com/playlist?list=PLLvdqTlFTmuKsiyAI8Q9FgHP4mY0ktPVq)
-  * [How to use Nix on Ubuntu or any Linux Distro BY Li Yang](https://www.youtube.com/watch?v=5Dd7rQPNDT8)
-  * [I was WRONG! This is the BEST Package Manager. BY Chris Titus Tech](https://www.youtube.com/watch?v=Ty8C2B910EI)
+## YouTube Tutorials
+  
+* {1} [Nix BY Li Yang => PlayList](https://www.youtube.com/playlist?list=PLLvdqTlFTmuKsiyAI8Q9FgHP4mY0ktPVq)
+* [How to use Nix on Ubuntu or any Linux Distro BY Li Yang](https://www.youtube.com/watch?v=5Dd7rQPNDT8)
+* [I was WRONG! This is the BEST Package Manager. BY Chris Titus Tech](https://www.youtube.com/watch?v=Ty8C2B910EI)

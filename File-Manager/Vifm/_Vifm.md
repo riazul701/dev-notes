@@ -60,6 +60,10 @@
 * h when ‘lsview’ is off move up one directory (moves to parent directory node in tree view), otherwise move left one file. <sup>{17}</sup>
 * l when ‘lsview’ is off move into a directory or launches a file, otherwise move right one file. <sup>{17}</sup>
 
+## Directory Compare
+
+* [How To Compare Two Directories on Linux](https://www.baeldung.com/linux/compare-two-directories)
+
 # Configuration
 
 ## File/Folder Icons

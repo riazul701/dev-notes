@@ -47,3 +47,4 @@
 * [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book)
 * [NixOS/nix.dev](https://github.com/NixOS/nix.dev)
 * [rothgar/awesome-tmux GitHub](https://github.com/rothgar/awesome-tmux)
+* [ibraheemdev/modern-unix GitHub](https://github.com/ibraheemdev/modern-unix)

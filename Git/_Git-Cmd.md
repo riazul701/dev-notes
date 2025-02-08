@@ -182,25 +182,7 @@ doc/**/*.pdf
 * [Git SCM to Windows => Official](https://gitforwindows.org/)
 * [github/gitignore GitHub](https://github.com/github/gitignore)
 * [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
-* Git Diff Tool
-* Git Merge Tool
-  * [3.2 Git Branching - Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-  * opendiff
-  * kdiff3
-  * tkdiff
-  * xxdiff
-  * meld
-  * tortoisemerge
-  * gvimdiff
-  * diffuse
-  * diffmerge
-  * ecmerge
-  * p4merge
-  * araxis
-  * bc3
-  * codecompare
-  * vimdiff
-  * [emerge](https://www.gnu.org/software/emacs/manual/html_node/emacs/Emerge.html)
+
 * Test Code
   * [schacon/simplegit-progit GitHub => Code from {1} Git Book](https://github.com/schacon/simplegit-progit)
 

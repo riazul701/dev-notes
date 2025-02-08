@@ -25,6 +25,7 @@
 # Contents of Git-SCM
 
 ## Websites
+
 * [Git Official Site](https://git-scm.com/)
 * [Git SCM to Windows => Official](https://gitforwindows.org/)
 * [MSYS2](https://www.msys2.org/)
@@ -39,6 +40,10 @@
   * [github/gitignore GitHub](https://github.com/github/gitignore)
   * [GitHub Pages => Websites for you and your projects](https://pages.github.com/)
 
+* Git Diff/Merge Tool
+  * [dandavison.github.io/delta](https://dandavison.github.io/delta/) || [dandavison/delta GitHub](https://github.com/dandavison/delta)
+  * [Vim documentation: diff](https://vimdoc.sourceforge.net/htmldoc/diff.html)
+
 * Extension/Addon
   * [newren/git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
 
@@ -48,6 +53,69 @@
   * [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
   * [Backlog Git Tutorial](https://nulab.com/learn/software-development/git-tutorial/)
   * [git-rebase.io](https://git-rebase.io/)
+
+## Notes
+
+# Git Diff/Merge
+
+## Commands
+
+* `git difftool` : Check "difftool" is set properly.
+
+## Git Diff/Merge Tool
+  
+* [3.2 Git Branching - Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+  * opendiff
+  * kdiff3
+  * tkdiff
+  * xxdiff
+  * meld
+  * tortoisemerge
+  * gvimdiff
+  * diffuse
+  * diffmerge
+  * ecmerge
+  * p4merge
+  * araxis
+  * bc3
+  * codecompare
+  * vimdiff
+  * [emerge](https://www.gnu.org/software/emacs/manual/html_node/emacs/Emerge.html)
+
+* Shows tool from `git difftool --tool-help` command
+  * araxis (graphical session)
+  * bc (graphical session)
+  * bc3 (graphical session)
+  * bc4 (graphical session)
+  * codecompare (graphical session)
+  * deltawalker (graphical session)
+  * diffmerge (graphical session)
+  * diffuse (graphical session)
+  * ecmerge (graphical session)
+  * emerge
+  * examdiff (graphical session)
+  * guiffy (graphical session)
+  * gvimdiff (graphical session)
+  * kdiff3 (graphical session)
+  * kompare (graphical session)
+  * meld (graphical session)
+  * nvimdiff
+  * opendiff (graphical session)
+  * p4merge (graphical session)
+  * smerge (graphical session)
+  * tkdiff (graphical session)
+  * winmerge (graphical session)
+  * xxdiff (graphical session)
+
+## Set `delta` as Diff Tool
+
+## Set `vimdiff` as Merge Tool
+
+* [Viewing all `git diffs` with vimdiff](https://stackoverflow.com/questions/3713765/viewing-all-git-diffs-with-vimdiff)
+
+## Set `nvimdiff` as Merge Tool
+
+# Settings/Works
 
 ## Cross Platform Line Ending
 
@@ -115,17 +183,6 @@ git commit -m "Normalize all the line endings"
 * To remove a folder and all files in the folder recursively: `git rm -r --cached <folder>`
 * The removal of the file from the head revision will happen on the next commit.
 
-## GitHub Pages
-* [How to see an HTML page on Github as a normal rendered HTML page to see preview in browser, without downloading?](https://stackoverflow.com/questions/8446218/how-to-see-an-html-page-on-github-as-a-normal-rendered-html-page-to-see-preview)
-  * [htmlpreview/htmlpreview.github.com](https://github.com/htmlpreview/htmlpreview.github.com)
-  * [GitHub Pages](https://pages.github.com/)
-
-## Notes
-
-## Guides
-
-* [Git Detached Head: What This Means and How to Recover](https://www.cloudbees.com/blog/git-detached-head)
-
 # Problem and Solution
 
 * Error: fatal: detected dubious ownership in repository at... To add an exception for this directory, call:...
@@ -138,6 +195,11 @@ git commit -m "Normalize all the line endings"
 # References
 
 * next-sl: {20}
+
+## Guides
+
+* General
+  * [Git Detached Head: What This Means and How to Recover](https://www.cloudbees.com/blog/git-detached-head)
 
 * Credential/Access
   * {1} [SSH vs. HTTPS for Git: Which One Should You Use?](https://phoenixnap.com/kb/git-ssh-vs-https)

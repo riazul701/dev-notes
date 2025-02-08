@@ -54,6 +54,8 @@
 
 ## Websites
 
+* [Vim documentation: diff](https://vimdoc.sourceforge.net/htmldoc/diff.html)
+
 # References
 
 * next-sl: {5}
