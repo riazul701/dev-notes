@@ -331,7 +331,31 @@
 * `open_staging_area` OR `osa` : open the staging area
 * `close_staging_area` OR `csa` : close the staging area panel
 * `toggle_staging_area` OR `tsa` : open/close the staging area panel
-* 
+* `toggle_tree` OR `tree` : toggle showing more than one level of the tree
+* `sort_by_count` OR `sc` : sort by count
+* `sort_by_date` OR `sd` : sort by date
+* `sort_by_size` OR `ss` : sort by size
+* `sort_by_type` OR `st` : sort by type
+* `rm` : `rm -rf {file}`
+* `toggle_counts` OR `counts` : toggle showing number of files in directories
+* `toggle_dates` OR `dates` : toggle showing last modified dates
+* `toggle_device_id` OR `dev` : toggle showing device id
+* `toggle_files` OR `files` : toggle showing files (or just folders)
+* `alt-i` OR `toggle_ignore` OR `gi` : toggle use of .gitignore and .ignore
+* `toggle_git_file_info` OR `gf` : toggle display of git file information
+* `toggle_git_status` OR `gs` : toggle showing only files relevant for git status
+* `toggle_root_fs` OR `rfs` : toggle showing filesystem info on top
+* `alt-h` OR `toggle_hidden` OR `h` : toggle showing hidden files
+* `toggle_perm` OR `perm` : toggle showing file permissions
+* `toggle_sizes` OR `sizes` : toggle showing sizes
+* `toggle_trim_root` : toggle removing nodes at first level too
+* `total_search` : search again but on all children
+* `ctrl-s` OR `search_again` : either put back last search, or search deeper
+* `up` OR `up_tree` : focus the parent of the current root
+* `alt->` OR `move_panel_divider` : move_panel_divider 0 1
+* `alt-<` OR `move_panel_divider` : move_panel_divider 0 -1
+* `clear_output` : clear the --verb-output file
+* `write_output` : write the argument to the --verb-output file
 
 ## [Broot content search](https://dystroy.org/blog/broot-c-search/) <sup>{2}</sup>
 

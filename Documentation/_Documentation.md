@@ -48,3 +48,5 @@
 * [NixOS/nix.dev](https://github.com/NixOS/nix.dev)
 * [rothgar/awesome-tmux GitHub](https://github.com/rothgar/awesome-tmux)
 * [ibraheemdev/modern-unix GitHub](https://github.com/ibraheemdev/modern-unix)
+* [AnirudhG07/awesome-yazi](https://github.com/AnirudhG07/awesome-yazi)
+* [Pradumnasaraf/DevOps](https://github.com/Pradumnasaraf/DevOps)

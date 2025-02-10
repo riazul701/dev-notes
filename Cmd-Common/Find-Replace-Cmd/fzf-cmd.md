@@ -17,8 +17,12 @@
   * [wfxr/forgit GitHub => A utility tool powered by fzf for using git interactively](https://github.com/wfxr/forgit)
   * [junegunn/fzf-git.sh GitHub => bash and zsh key bindings for Git objects, powered by fzf](https://github.com/junegunn/fzf-git.sh)
 
-* Editor/IDE
+* Vim/VSCode
+  * [junegunn/fzf.vim GitHub](https://github.com/junegunn/fzf.vim)
   * [tomrijndorp/vscode-finditfaster GitHub => Find it, but faster! Fast file search for VS Code](https://github.com/tomrijndorp/vscode-finditfaster)
+
+* Image Preview
+  * [junegunn/fzf/bin/fzf-preview.sh](https://github.com/junegunn/fzf/blob/master/bin/fzf-preview.sh)
 
 * Tutorials
   * [Ripgrep integration, a walkthrough](https://junegunn.github.io/fzf/tips/ripgrep-integration/)

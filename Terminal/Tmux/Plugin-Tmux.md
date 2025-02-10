@@ -87,12 +87,12 @@ tmux source ~/.tmux.conf
 
 ## Commands
 
-### Usage
+## Usage
 
 * Press `Esc` or `q` to quit from various situation
 * To launch tmux-fzf, press `prefix` + `F` (Shift+F).
 
-### Installation
+## Installation
 
 * `apt show copyq` : CopyQ (optional), Access system clipboard, fallback to builtin tmux buffers if copyq is not executable. <sup>{2}</sup>
   * `sudo apt install copyq` : Install CopyQ

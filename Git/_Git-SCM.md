@@ -32,12 +32,15 @@
 * [git-ecosystem/git-credential-manager](https://github.com/git-ecosystem/git-credential-manager)
 * [Git GUI Clients](https://git-scm.com/downloads/guis)
 
+* GitIgnore/GitAttributes
+  * [github/gitignore GitHub](https://github.com/github/gitignore)
+  * [gitattributes/gitattributes GitHub](https://github.com/gitattributes/gitattributes)
+
 * Fzf with Git
   * [wfxr/forgit GitHub => A utility tool powered by fzf for using git interactively](https://github.com/wfxr/forgit)
   * [junegunn/fzf-git.sh GitHub => bash and zsh key bindings for Git objects, powered by fzf](https://github.com/junegunn/fzf-git.sh)
 
 * GitHub
-  * [github/gitignore GitHub](https://github.com/github/gitignore)
   * [GitHub Pages => Websites for you and your projects](https://pages.github.com/)
 
 * Git Diff/Merge Tool
@@ -53,6 +56,15 @@
   * [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
   * [Backlog Git Tutorial](https://nulab.com/learn/software-development/git-tutorial/)
   * [git-rebase.io](https://git-rebase.io/)
+
+* Collection
+  * [o2sh/onefetch GitHub => Command-line Git information tool](https://github.com/o2sh/onefetch)
+  * [orhun/git-cliff GitHub => Changelog Generator](https://github.com/orhun/git-cliff)
+  * [git-ftp/git-ftp GitHub](https://github.com/git-ftp/git-ftp)
+  * [gitjournal.io](https://gitjournal.io/) || [GitJournal/GitJournal](https://github.com/GitJournal/GitJournal)
+  * [sobolevn/git-secret GitHub](https://github.com/sobolevn/git-secret)
+  * [hbons/SparkleShare GitHub](https://github.com/hbons/SparkleShare)
+  * [erikbern/git-of-theseus GitHub](https://github.com/erikbern/git-of-theseus)
 
 ## Notes
 

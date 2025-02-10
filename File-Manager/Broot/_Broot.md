@@ -7,6 +7,12 @@
 * [lstwn/broot.vim GitHub => Plugin that integrates broot with neovim/vim](https://github.com/lstwn/broot.vim) <sup>{3}</sup>
 * [trishume/syntect GitHub](https://github.com/trishume/syntect) <sup>{4}</sup>
 
+* Office File Preview
+  * {14} [LibreOffice](https://www.libreoffice.org/)
+
+* PDF File Preview
+  * {15} [mutool - all purpose tool for dealing with PDF files => Debian](https://manpages.debian.org/jessie/mupdf-tools/mutool.1)
+
 * Config
   * [Broot Default Config](https://github.com/Canop/broot/blob/main/resources/default-conf/conf.hjson) <sup>{5}</sup>
   * [Broot Default Verb](https://github.com/Canop/broot/blob/main/resources/default-conf/verbs.hjson) <sup>{6}</sup>
@@ -22,9 +28,23 @@
   * [Broot content search](https://dystroy.org/blog/broot-c-search/) <sup>{10}</sup>
   * [Use broot and meld to diff before commit](https://dystroy.org/blog/gg/) <sup>{11}</sup>
 
+# Install
+
+## Debian
+
+* Install Broot using Nix package manager
+  * On Non NixOS (without flakes): `nix-env -iA nixpkgs.broot`
+
+* Install LibreOffice for office file preview <sup>{14}</sup>
+  * `sudo apt install libreoffice`
+
+* Install "mutool" for PDF file preview <sup>{15}</sup>
+  * `sudo apt install mupdf-tools`
+  * `which mutool` : Check "mutool" installed path
+
 # References
 
-* next-sl: {14}
+* next-sl: {16}
 
 ## Websites
 
@@ -32,6 +52,12 @@
 * {2} [Canop/broot GitHub](https://github.com/Canop/broot)
 * {3} [lstwn/broot.vim GitHub => Plugin that integrates broot with neovim/vim](https://github.com/lstwn/broot.vim)
 * {4} [trishume/syntect GitHub](https://github.com/trishume/syntect)
+
+* Office File Preview
+  * {14} [LibreOffice](https://www.libreoffice.org/)
+
+* PDF File Preview
+  * {15} [mutool - all purpose tool for dealing with PDF files => Debian](https://manpages.debian.org/jessie/mupdf-tools/mutool.1)
 
 * Config
   * {5} [Broot Default Config](https://github.com/Canop/broot/blob/main/resources/default-conf/conf.hjson)
