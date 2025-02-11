@@ -195,11 +195,16 @@
 * Utilities
   * [yazi_types.lua](https://github.com/hankertrix/augment-command.yazi/blob/main/yazi_types.lua) - A type file containing most of Yazi's Lua API.
 
+## Others
+
+* [macydnah/office.yazi GitHub](https://github.com/macydnah/office.yazi)
+
 # Error and Solution
 
 ## `ya pack` clone & copy
 
 * Yazi is installed using Nix package manager
+* Installing Plugin: [git.yazi](https://github.com/yazi-rs/plugins/tree/main/git.yazi)
 
 **Error_Message**
 

@@ -1,4 +1,4 @@
-# fx.md
+# fx-cmd.md
 
 ## Websites
 * [fx Site](https://fx.wtf/)

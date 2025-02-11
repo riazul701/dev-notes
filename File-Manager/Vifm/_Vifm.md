@@ -4,6 +4,7 @@
 
 * General
   * [Vifm - Official Site](https://vifm.info/)
+  * [vifm/vifm GitHub](https://github.com/vifm/vifm)
   * [Vifm Cheatsheet](https://vifm.info/cheatsheets.shtml)
 
 * Integrate with Vim

@@ -1,0 +1,71 @@
+# [git.yazi](https://github.com/yazi-rs/plugins/tree/main/git.yazi)
+
+## Notes
+
+* Yazi v25.2.7 or later is required for this plugin to work.
+
+## About
+
+* Show the status of Git file changes as linemode in the file list.
+
+## Installation
+
+* `ya pack -a yazi-rs/plugins:git`
+
+## Setup
+
+* Add the following to your `~/.config/yazi/init.lua`:
+
+```lua
+require("git"):setup()
+```
+
+* And register it as fetchers in your `~/.config/yazi/yazi.toml`:
+
+```toml
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
+```
+
+# Advanced
+
+* You can customize the [Style](https://yazi-rs.github.io/docs/plugins/layout#style) of the status sign with:
+  * THEME.git.modified
+  * THEME.git.added
+  * THEME.git.untracked
+  * THEME.git.ignored
+  * THEME.git.deleted
+  * THEME.git.updated
+
+* For example:
+
+```lua
+-- ~/.config/yazi/init.lua
+THEME.git = THEME.git or {}
+THEME.git.modified = ui.Style():fg("blue")
+THEME.git.deleted = ui.Style():fg("red"):bold()
+```
+
+* You can also customize the text of the status sign with:
+  * THEME.git.modified_sign
+  * THEME.git.added_sign
+  * THEME.git.untracked_sign
+  * THEME.git.ignored_sign
+  * THEME.git.deleted_sign
+  * THEME.git.updated_sign
+
+* For example:
+
+```lua
+-- ~/.config/yazi/init.lua
+THEME.git = THEME.git or {}
+THEME.git.modified_sign = "M"
+THEME.git.deleted_sign = "D"
+```

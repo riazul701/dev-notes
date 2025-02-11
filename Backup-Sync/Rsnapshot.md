@@ -2,5 +2,5 @@
 
 ## Websites
 
-* [rsnapshot/rsnapshot](https://github.com/rsnapshot/rsnapshot)
-* [Rsnapshot Site](https://rsnapshot.org/)
+* [Rsnapshot => Filesystem snapshot utility](https://rsnapshot.org/)
+* [Rsnapshot GitHub](https://github.com/rsnapshot/rsnapshot)

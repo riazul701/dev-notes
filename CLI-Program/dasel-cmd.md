@@ -1,4 +1,4 @@
-# Dasel.md
+# dasel-cmd.md
 
 ## Websites
 * [dasel Site](https://daseldocs.tomwright.me/)

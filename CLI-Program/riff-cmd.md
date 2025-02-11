@@ -1,4 +1,4 @@
-# riff.md
+# riff-cmd.md
 
 ## Websites
 

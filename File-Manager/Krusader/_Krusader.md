@@ -3,7 +3,7 @@
 ## Websites
 
 * [Krusader => Twin panel file management](https://krusader.org/)
-* [Krusader file manager for KDE Plasma](https://apps.kde.org/krusader/)
+* [Krusader => File manager for KDE Plasma](https://apps.kde.org/krusader/)
 
 # References
 

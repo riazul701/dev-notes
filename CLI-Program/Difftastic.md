@@ -1,4 +1,4 @@
-# difftastic.md
+# Difftastic.md
 
 ## Websites
 

@@ -249,7 +249,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## File Management (Selected)
 
 * File Manager (Selected)
-  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
+  * [Dolphin => KDE's file manager](https://apps.kde.org/dolphin/) || [KDE/dolphin GitHub](https://github.com/KDE/dolphin)
+  * [Double Commander Site](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
   * [Vifm GitHub](https://github.com/vifm/vifm) || [Vifm Site](https://vifm.info/)
   * [Linux File Systems for Windows by Paragon Software](https://www.paragon-software.com/home/linuxfs-windows/)
 
@@ -632,11 +633,12 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## File Management (List)
 
 * File Manager (List)
-  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
+  * [Dolphin => KDE's file manager](https://apps.kde.org/dolphin/) || [KDE/dolphin GitHub](https://github.com/KDE/dolphin)
+  * [Double Commander Site](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
   * [Vifm](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [sxyazi/yazi](https://github.com/sxyazi/yazi)
   * [files-community/Files](https://github.com/files-community/Files)
-  * [Double Commander => File manager with two panels side by side](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
+  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
 
 * Encryption (List)
   * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)

@@ -1,4 +1,4 @@
-# Trash-cli.md
+# trash-cli.md
 
 ## Websites
 

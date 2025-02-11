@@ -248,7 +248,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## File Management (Selected)
 
 * File Manager (Selected)
-  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
+  * [Dolphin => KDE's file manager](https://apps.kde.org/dolphin/) || [KDE/dolphin GitHub](https://github.com/KDE/dolphin)
+  * [Double Commander Site](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
   * [Yazi => Terminal file manager](https://yazi-rs.github.io/) || [Yazi GitHub](https://github.com/sxyazi/yazi)
   * [Vifm Site](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [PCManFM]()
@@ -645,7 +646,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## File Management (List)
 
 * File Manager (List)
-  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
+  * [Dolphin => KDE's file manager](https://apps.kde.org/dolphin/) || [KDE/dolphin GitHub](https://github.com/KDE/dolphin)
+  * [Double Commander Site](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
   * [Yazi => Terminal file manager](https://yazi-rs.github.io/) || [Yazi GitHub](https://github.com/sxyazi/yazi)
   * [Vifm Site](https://vifm.info/) || [Vifm GitHub](https://github.com/vifm/vifm)
   * [jarun/nnn](https://github.com/jarun/nnn)
@@ -653,7 +655,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [PCManFM]()
   * [Thunar]()
   * [Nautilus]()
-  * [Double Commander => File manager with two panels side by side](https://doublecmd.sourceforge.io/) || [doublecmd/doublecmd GitHub](https://github.com/doublecmd/doublecmd)
+  * [Spacedrive GitHub => Cross-platform file explorer, powered by a virtual distributed filesystem](https://github.com/spacedriveapp/spacedrive) || [Spacedrive Site](https://www.spacedrive.com/)
   * Temporary Collection
     * [aleksey-hoffman/sigma-file-manager](https://github.com/aleksey-hoffman/sigma-file-manager)
     * [xbmc/xbmc](https://github.com/xbmc/xbmc)

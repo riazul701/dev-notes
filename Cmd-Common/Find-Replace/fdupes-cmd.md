@@ -1,4 +1,4 @@
-# Fdupes.md
+# fdupes-cmd.md
 
 ## Websites
 

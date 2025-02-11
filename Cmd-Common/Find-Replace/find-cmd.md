@@ -1,4 +1,4 @@
-# Find.md
+# find-cmd.md
 
 ## Websites
 
