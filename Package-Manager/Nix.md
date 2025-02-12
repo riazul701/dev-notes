@@ -1,5 +1,11 @@
 # Commands/Usage
 
+## Important
+
+* Restart terminal, after installing any package using Nix package manager.
+
+## Commands
+
 * `nix-env -iA {{package_name}}` : Install a package, using following command syntax. <sup>{6}</sup>
 * `nix-env -q` || `nix-env --query` : Shows list of installed packages. <sup>{4}</sup>
 * `nix-collect-garbage` : clear old nix-store paths and references<sup>{5}</sup>
