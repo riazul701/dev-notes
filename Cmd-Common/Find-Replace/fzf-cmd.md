@@ -3,6 +3,8 @@
 ## Notes
 
 * Reload `~/.bashrc` after any modification : `source ~/.bashrc`
+* "Kitty" terminal works perfectly with `fzf-git` keybindings. <sup>{14}</sup>
+* "WezTerm" terminal does not work with `fzf-git` keybindings. Conflict happens with `CTRL-G` keybindings. <sup>{14}</sup>
 
 **[junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh)**
 

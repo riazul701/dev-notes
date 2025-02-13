@@ -3,6 +3,7 @@
 ## Important
 
 * Restart terminal, after installing any package using Nix package manager.
+* To install unfree software like "Smartgit", execute `export NIXPKGS_ALLOW_UNFREE=1` to set environment variable.
 
 ## Commands
 

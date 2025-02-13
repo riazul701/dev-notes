@@ -69,6 +69,13 @@
 
 ## Notes
 
+## Git Config Path
+
+* Git has three config location. Priority Local > User > System. <sup>{20}</sup>
+  * Local Config File : `{{git-repo}}/.git/config`
+  * User Config File : `~/.gitconfig`
+  * System Config File : `/etc/gitconfig`
+
 # Git Diff/Merge
 
 ## Commands
@@ -207,12 +214,15 @@ git commit -m "Normalize all the line endings"
 
 # References
 
-* next-sl: {20}
+* next-sl: {21}
 
 ## Guides
 
 * General
   * [Git Detached Head: What This Means and How to Recover](https://www.cloudbees.com/blog/git-detached-head)
+
+* Git Config
+  * {20} [System, global and local Git config files on Windows and Linux](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Where-system-global-and-local-Windows-Git-config-files-are-saved)
 
 * Credential/Access
   * {1} [SSH vs. HTTPS for Git: Which One Should You Use?](https://phoenixnap.com/kb/git-ssh-vs-https)
