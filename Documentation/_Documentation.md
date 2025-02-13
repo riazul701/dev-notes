@@ -50,6 +50,7 @@
 * [ibraheemdev/modern-unix GitHub](https://github.com/ibraheemdev/modern-unix)
 * [AnirudhG07/awesome-yazi](https://github.com/AnirudhG07/awesome-yazi)
 * [Pradumnasaraf/DevOps](https://github.com/Pradumnasaraf/DevOps)
+* [rubiojr/awesome-restic](https://github.com/rubiojr/awesome-restic)
 
 ## Cheat Sheet
 

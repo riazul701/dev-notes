@@ -30,7 +30,7 @@
 * Integrate Fzf with zsh (~/.zshrc) : `source <(fzf --zsh)`
 * Integrate Fzf with fish (~/.config/fish/config.fish) : `fzf --fish | source`
 
-### Install associated packages
+### Install Dependency
 
 **`git` command**
 

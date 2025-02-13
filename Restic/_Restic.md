@@ -1,13 +1,16 @@
 # Restic
 
 ## Website
+
 * [Restic Website](https://restic.net/)
 * [Restic GitHub](https://github.com/restic/restic)
 * [Restic Browser](https://github.com/emuell/restic-browser)
+* [Backrest => Web UI and orchestrator for restic backup](https://github.com/garethgeorge/backrest)
+* [restic-automatic-backup-scheduler GitHub](https://github.com/erikw/restic-automatic-backup-scheduler)
 
-## Guides
+## Tutorials
+
 * [Rclone serve Restic](https://rclone.org/commands/rclone_serve_restic/)
-* 
 
 ## Note
 * To make Git Bash interactive, enable "Experimental pseudo" during git installation.

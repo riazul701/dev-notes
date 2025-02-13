@@ -74,8 +74,6 @@ doc/**/*.pdf
 
 * `git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"` : If you are on a 32-bit Windows system, or you have a 64-bit editor on a 64-bit system, you’ll type something like this <sup>{1}</sup>
 
-* `git init` : By default Git will create a branch called `master` when you create a new repository with <sup>{1}</sup>
-
 * `git config --global init.defaultBranch main` : To set `main` as the default branch name do <sup>{1}</sup>
 
 * `git config --list` : If you want to check your configuration settings, you can use this command to list all the settings Git can find at that point <sup>{1}</sup>
@@ -84,6 +82,8 @@ doc/**/*.pdf
   * `git config user.name` <sup>{1}</sup>
 
 * `git config --show-origin rerere.autoUpdate` : You can query Git as to the origin for that value, and it will tell you which configuration file had the final say in setting that value <sup>{1}</sup>
+
+* `git config --global diff.tool vimdiff` : Viewing all `git diffs` with vimdiff <sup></sup>
 
 ## git help
 
@@ -169,11 +169,6 @@ doc/**/*.pdf
 
 * `git rm \*~` : This command removes all files whose names end with a `~`. <sup>{1}</sup>
 
-## Commands From
-
-* {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
-* {2} [Git Reference](https://git-scm.com/docs)
-
 # Git-Cmd.md
 
 ## Websites
@@ -188,13 +183,22 @@ doc/**/*.pdf
 
 # References
 
-* next-sl: {4}
+* next-sl: {5}
 
-* Tutorials
-  * {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
-  * {2} [Git Reference](https://git-scm.com/docs)
+## Commands From
 
-* Guides
+* {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
+* {2} [Git Reference](https://git-scm.com/docs)
 
-  * Git Index/Staging Area
-    * {3} [Commit only part of a file's changes in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-files-changes-in-git)
+* Specific Command
+  * {4} [Viewing all `git diffs` with vimdiff](https://stackoverflow.com/questions/3713765/viewing-all-git-diffs-with-vimdiff)
+
+## Tutorials
+  
+* {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
+* {2} [Git Reference](https://git-scm.com/docs)
+
+## Guides
+
+* Git Index/Staging Area
+  * {3} [Commit only part of a file's changes in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-files-changes-in-git)
