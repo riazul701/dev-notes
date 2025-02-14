@@ -2,7 +2,7 @@
 
 * Lazygit version `0.45.2`
 
-## [1] Status : Local
+## [1] Status (Local)
 
 * `o` : Open config file
 * `e` : Edit config file
@@ -10,7 +10,7 @@
 * `<enter>` : Switch to recent repo
 * `a` : Show/cycle all branch logs
 
-## [2] Files - Worktrees - Submodules : Local
+## [2] Files (Local)
 
 * `<c-o>` : Copy path to clipboard
 * `<space>` : Stage
@@ -51,9 +51,22 @@
   * `e` : Add to `.git/info/exclude`
 * `r` : Refresh files
 * `s` : Stash
-  * `git stash push -m {{stash-message}}`
+  * `git stash push -m "{{stash-message}}"`
 * `S` : View stash options...
+  * "Stash options"
+  * `a` : Stash all changes
+    * `git stash push -m "{{stash-message}}"`
+  * `i` : Stash all changes and keep index
+    * `git stash push --keep-index -m "{{stash-message}}"`
+  * `U` : Stash all changes including untracked files
+    * `git stash push --include-untracked -m "{{stash-message}}"`
+  * `s` : Stash staged changes
+    * `git stash push --staged -m "{{stash-message}}"`
+  * `u` : Stash unstaged changes
+    * `git stash push -m "{{stash-message}}"`
+  * Cancel
 * `a` : Stage all
+  * `git add -A`
 * `<enter>` : Stage lines / Collapse directory
 * `d` : Discard
 * `g` : View upstream reset options...
@@ -66,7 +79,49 @@
 * `=` : Expand all files
 * `/` : Search the current view by text
 
-## [3] Local branches - Remotes - Tags : Local
+### [2] Files -> `<enter>` : Stage lines / Collapse directory (Local)
+
+* `<left>` : Go to previous hunk
+* `<right>` : Go to next hunk
+* `v` : Toggle range select
+* `a` : Select hunk
+* `<c-o>` : Copy selected text to clipboard
+* `<space>` : Stage
+* `d` : Discard
+* `o` : Open file
+* `e` : Edit file
+* `<esc>` : Return to files panel
+* `<tab>` : Switch view
+* `E` : Edit hunk
+* `c` : Commit
+* `w` : Commit changes without pre-commit hook
+* `C` : Commit changes using git editor
+* `<c-f>` : Find base commit for fixup
+  * Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be ammended/fixed up. [See docs](https://github.com/jesseduffield/lazygit/tree/master/docs/Fixup_Commits.md)
+* `/` : Search the current view by text
+
+## [2] Worktrees (Local)
+
+* `n` : New worktree
+* `<space>` : Switch
+* `o` : Open in editor
+* `d` : Remove
+* `/` : Filter the current view by text
+
+## [2] Files - Submodules (Local)
+
+* `<c-o>` : Copy submodule name to clipboard
+* `<enter>` : Enter
+* `d` : Remove
+* `u` : Update
+* `n` : New submoudule
+* `e` : Update submodule URL
+* `i` : Initialize
+* `b` : View bulk submodule options...
+* Easter egg
+* `/` : Filter the current view by text
+
+## [3] Local branches (Local)
 
 * `<c-o>` : Copy branch name to clipboard
 * `i` : Show git-flow options...
@@ -91,7 +146,28 @@
 * `w` : View worktree options...
 * `/` : Filter the current view by text
 
-## [4] Commits - Reflow : Local
+## [3] Remotes (Local)
+
+* `<enter>` : View branches
+* `n` : New remote
+* `d` : Remove
+* `e` : Edit
+* `f` : Fetch
+* `/` : Filter the current view by text
+
+## [3] Tags (Local)
+
+* `<space>` : Checkout
+* `n` : New tag
+* `d` : Delete
+* `P` : Push tag
+* `g` : Reset...
+* `<c-t>` : Open external diff tool (git difftool)
+* `<enter>` : View commits
+* `w` : View worktree options...
+* `/` : Filter the current view by text
+
+## [4] Commits (Local)
 
 * `<c-o>` : Copy commit hash to clipboard
 * `<c-r>` : Reset copied (cherry-picked) commits selection
@@ -126,7 +202,22 @@
 * `w` : View worktree options...
 * `/` : Search the current view by text
 
-## [5] Stash : Local
+## [4] Reflow (Local)
+
+* `<c-o>` : Copy commit has to clipboard
+* `<space>` : Checkout
+* `y` : Copy commit attribute to clipboard...
+* `o` : Open commit in browser
+* `n` : Create new branch off of commit
+* `g` : Reset...
+* `C` : Copy (cherry-pick)
+* `<c-r>` : Reset copied (cherry-picked) commits selection
+* `<c-t>` : Open external diff tool (git difftool)
+* `<enter>` : View commits
+* `w` : View worktree options...
+* `/` : Filter the current view by text
+
+## [5] Stash (Local)
 
 * `<space>` : Apply
 * `g` : Pop
