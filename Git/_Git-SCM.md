@@ -51,9 +51,9 @@
   * [newren/git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
 
 * Tutorials
+  * [Atlassian/Bitbucket Git Tutorials => Simple Explain Selected](https://www.atlassian.com/git/tutorials)
   * [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
   * [GitHub Docs](https://docs.github.com/en)
-  * [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
   * [Bitbucket Docs](https://support.atlassian.com/bitbucket-cloud/resources/)
   * [Backlog Git Tutorial](https://nulab.com/learn/software-development/git-tutorial/)
   * [git-rebase.io](https://git-rebase.io/)

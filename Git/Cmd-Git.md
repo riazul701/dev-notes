@@ -83,7 +83,9 @@ doc/**/*.pdf
 
 * `git config --show-origin rerere.autoUpdate` : You can query Git as to the origin for that value, and it will tell you which configuration file had the final say in setting that value <sup>{1}</sup>
 
-* `git config --global diff.tool vimdiff` : Viewing all `git diffs` with vimdiff <sup></sup>
+* `git config --global diff.tool vimdiff` : Viewing all `git diffs` with vimdiff <sup>{4}</sup>
+
+* `git config --global merge.tool vimdiff` : Set vimdiff as a git mergetool <sup>{5}</sup>
 
 ## git help
 
@@ -183,7 +185,7 @@ doc/**/*.pdf
 
 # References
 
-* next-sl: {5}
+* next-sl: {6}
 
 ## Commands From
 
@@ -192,6 +194,7 @@ doc/**/*.pdf
 
 * Specific Command
   * {4} [Viewing all `git diffs` with vimdiff](https://stackoverflow.com/questions/3713765/viewing-all-git-diffs-with-vimdiff)
+  * {5} [Use vimdiff as git mergetool](https://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/)
 
 ## Tutorials
   

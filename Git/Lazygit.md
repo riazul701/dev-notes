@@ -2,6 +2,19 @@
 
 * Lazygit version `0.45.2`
 
+## Set Tools
+
+* Set `delta` as pager <sup>{7}</sup>
+```shell
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
+```
+
+* `git config --global diff.tool vimdiff` : Viewing all `git diffs` with vimdiff <sup>{5}</sup>
+* `git config --global merge.tool vimdiff` : Set vimdiff as a git mergetool <sup>{6}</sup>
+
 ## [1] Status (Local)
 
 * `o` : Open config file
@@ -13,8 +26,10 @@
 ## [2] Files (Local)
 
 * `<c-o>` : Copy path to clipboard
+
 * `<space>` : Stage
-  * `git add -- file-1`
+  * `git add -- file1`
+
 * `<c-b>` : Filter files by status
   * "Filtering"
   * `s` : Show only staged files
@@ -22,6 +37,7 @@
   * `t` : Show only tracked files
   * `r` : Reset filter
   * Cancel
+
 * `y` : Copy to clipboard
   * "Copy to clipboard"
   * `n` : File name
@@ -29,6 +45,7 @@
   * `s` : Diff of selected file
   * `a` : Diff of all files
   * Cancel
+
 * `c` : Commit
   * `<c-o>` : Commit menu
       * `e` : Open in editor
@@ -36,22 +53,32 @@
       * `p` : Paste commit message from clipboard
       * Cancel
   * `git commit -m "{{commit-message}}" -m "{{commit-description}}"`
+
 * `w` : Commit changes without pre-commit hook
   * `git commit -m "{{commit-message}}"`
+
 * `A` : Amend last commit
   * `git commit --amend --no-edit --allow-empty`
+
 * `C` : Commit changes using git editor
   * `git commit` : Without message, open editor
+
 * `<c-f>` : Find base commit for fixup
+
 * `e` : Edit
+
 * `o` : Open file
+
 * `i` : Ignore or exclude file...
   * "Ignore or exclude file"
   * `i` : Add to `.gitignore`
   * `e` : Add to `.git/info/exclude`
+
 * `r` : Refresh files
+
 * `s` : Stash
   * `git stash push -m "{{stash-message}}"`
+
 * `S` : View stash options...
   * "Stash options"
   * `a` : Stash all changes
@@ -65,40 +92,84 @@
   * `u` : Stash unstaged changes
     * `git stash push -m "{{stash-message}}"`
   * Cancel
+
 * `a` : Stage all
   * `git add -A`
+
 * `<enter>` : Stage lines / Collapse directory
+  * `<left>` : Go to previous hunk
+  * `<right>` : Go to next hunk
+  * `v` : Toggle range select
+  * `a` : Select hunk
+  * `<c-o>` : Copy selected text to clipboard
+  * `<space>` : Stage
+  * `d` : Discard
+  * `o` : Open file
+  * `e` : Edit file
+  * `<esc>` : Return to files panel
+  * `<tab>` : Switch view
+  * `E` : Edit hunk
+  * `c` : Commit
+  * `w` : Commit changes without pre-commit hook
+  * `C` : Commit changes using git editor
+  * `<c-f>` : Find base commit for fixup
+    * Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be ammended/fixed up. [See docs](https://github.com/jesseduffield/lazygit/tree/master/docs/Fixup_Commits.md)
+  * `/` : Search the current view by text
+
 * `d` : Discard
+  * "Discard changes"
+  * `x` : Discard all changes
+    * `git checkout -- file1`
+    * OR "Deleting path file1"
+  * `u` : Discard unstaged changes
+    * `git checkout -- file1`
+  * Cancel
+
 * `g` : View upstream reset options...
+  * "Reset to @{upstream}"
+  * `m` : Mixed reset `reset --mixed @{upstream}`
+    * `git reset --mixed @{upstream}`
+    * Undo : `git reset {{last-commit-hash}}`
+  * `s` : Soft reset `reset --soft @{upstream}`
+    * `git reset --soft @{upstream}`
+    * Undo : `git reset {{last-commit-hash}}`
+  * `h` : Hard reset `reset --hard @{upstream}`
+    * `git reset hard @{upstream}`
+    * Undo : `git reset {{last-commit-hash}}`
+  * Cancel
+
 * `D` : Reset
-* " ` " : Toggle file tree view
+  * `x` : Nuke working tree `git reset --hard HEAD & git clean -fd`
+    * `git reset --hard HEAD` && `git clean -fd`
+  * `u` : Discard staged changes `git checkout -- .`
+    * `git checkout -- .`
+  * `c` : Discard untracked files `git clean -fd`
+    * `git clean -fd`
+  * `S` : Discard staged changes `stash staged and drop stash`
+    * `git stash push --staged -m "[lazygit] tmp stash"` && `git stash drop`
+  * `s` : Soft reset `git reset --soft HEAD`
+    * `git reset --soft HEAD`
+  * `m` : Mixed reset `git reset --mixed HEAD`
+    * `git reset --mixed HEAD`
+  * `h` : Hard reset `git reset --hard HEAD`
+    * `git reset --hard HEAD`
+  * Cancel
+
+* " \` " : Toggle file tree view
+
 * `<c-t>` : Open external diff tool (git difftool)
+
 * `M` : Open external merge tool
+
 * `f` : Fetch
+
 * `-` : Collapse all files
+
 * `=` : Expand all files
-* `/` : Search the current view by text
 
-### [2] Files -> `<enter>` : Stage lines / Collapse directory (Local)
-
-* `<left>` : Go to previous hunk
-* `<right>` : Go to next hunk
-* `v` : Toggle range select
-* `a` : Select hunk
-* `<c-o>` : Copy selected text to clipboard
-* `<space>` : Stage
-* `d` : Discard
-* `o` : Open file
-* `e` : Edit file
-* `<esc>` : Return to files panel
-* `<tab>` : Switch view
-* `E` : Edit hunk
-* `c` : Commit
-* `w` : Commit changes without pre-commit hook
-* `C` : Commit changes using git editor
-* `<c-f>` : Find base commit for fixup
-  * Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be ammended/fixed up. [See docs](https://github.com/jesseduffield/lazygit/tree/master/docs/Fixup_Commits.md)
 * `/` : Search the current view by text
+  * `n` : Go to next match (like vim)
+  * `N` : Go to previous match (like vim)
 
 ## [2] Worktrees (Local)
 
@@ -284,7 +355,14 @@
 
 # References
 
-* next-sl: {5}
+* next-sl: {8}
+
+## Commands From
+
+* Specific Command
+  * {7} [dandavison/delta GitHub](https://github.com/dandavison/delta)
+  * {5} [Viewing all `git diffs` with vimdiff](https://stackoverflow.com/questions/3713765/viewing-all-git-diffs-with-vimdiff)
+  * {6} [Use vimdiff as git mergetool](https://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/)
 
 ## Guides
 
