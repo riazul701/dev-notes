@@ -66,6 +66,18 @@ doc/**/*.pdf
 
 * `git config --list --show-origin` : You can view all of your settings and where they are coming from using <sup>{1}</sup>
 
+* Set Git Tools
+  * Set `delta` as pager <sup>{6}</sup>
+  ```shell
+  git config --global core.pager delta
+  git config --global interactive.diffFilter 'delta --color-only'
+  git config --global delta.navigate true
+  git config --global merge.conflictStyle zdiff3
+  ```
+  * `git config --global core.editor "vim"` : Set vim as git editor <sup>{7}</sup>
+  * `git config --global diff.tool vimdiff` : Viewing all `git diffs` with vimdiff <sup>{4}</sup>
+  * `git config --global merge.tool vimdiff` : Set vimdiff as a git mergetool <sup>{5}</sup>
+
 * The first thing you should do when you install Git is to set your user name and email address. This is important because every Git commit uses this information, and it’s immutably baked into the commits you start creating: <sup>{1}</sup>
   * `git config --global user.name "John Doe"` <sup>{1}</sup>
   * `git config --global user.email johndoe@example.com` <sup>{1}</sup>
@@ -82,10 +94,6 @@ doc/**/*.pdf
   * `git config user.name` <sup>{1}</sup>
 
 * `git config --show-origin rerere.autoUpdate` : You can query Git as to the origin for that value, and it will tell you which configuration file had the final say in setting that value <sup>{1}</sup>
-
-* `git config --global diff.tool vimdiff` : Viewing all `git diffs` with vimdiff <sup>{4}</sup>
-
-* `git config --global merge.tool vimdiff` : Set vimdiff as a git mergetool <sup>{5}</sup>
 
 ## git help
 
@@ -185,16 +193,18 @@ doc/**/*.pdf
 
 # References
 
-* next-sl: {6}
+* next-sl: {8}
 
 ## Commands From
 
 * {1} [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
 * {2} [Git Reference](https://git-scm.com/docs)
 
-* Specific Command
+* Set Git Tools
+  * {6} [dandavison/delta GitHub](https://github.com/dandavison/delta)
   * {4} [Viewing all `git diffs` with vimdiff](https://stackoverflow.com/questions/3713765/viewing-all-git-diffs-with-vimdiff)
   * {5} [Use vimdiff as git mergetool](https://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/)
+  * {7} [How do I make git use the editor of my choice for editing commit messages?](https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages)
 
 ## Tutorials
   

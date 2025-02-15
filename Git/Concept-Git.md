@@ -6,6 +6,43 @@
 * [Git Book](https://git-scm.com/book/en/v2) || [progit/progit2 GitHub](https://github.com/progit/progit2)
 * [GitHub Docs](https://docs.github.com/en)
 
+# Syntax Concept
+
+## [What's the Difference Between Head^ and Head~ in Git?](https://betterstack.com/community/questions/head-caret-head-tilde-notation/)
+
+* In Git, `HEAD^` and `HEAD~` are used to refer to previous commits, but they have slightly different meanings and uses.
+
+**`HEAD^` (Caret Notation)**
+
+* Syntax: `HEAD^` or `HEAD^n` where `n` is an optional number.
+* Meaning: Refers to the parent commit(s) of the `HEAD` commit.
+* Usage:
+  * `HEAD^` is shorthand for `HEAD^1`, which refers to the first parent of the current commit. In the case of a merge commit, it refers to the first parent (i.e., the commit that was on the branch before the merge).
+  * `HEAD^2` refers to the second parent of a merge commit. Merge commits have more than one parent, so you can specify which parent you want to refer to.
+* `git log HEAD^` : This will show the log of the commit immediately before the current commit.
+
+**`HEAD~` (Tilde Notation)**
+
+* Syntax: `HEAD~n` where `n` is a number.
+* Meaning: Refers to the commit that is `n` commits before `HEAD` in the commit history.
+* Usage:
+  * `HEAD~1` refers to the commit directly before the current commit, which is equivalent to `HEAD^` or `HEAD^1`.
+  * `HEAD~2` refers to the commit that is two commits before the current commit, and so on.
+* `git log HEAD~2` : This will show the log of the commit that is two steps before the current commit.
+
+**Examples**
+
+* These commands show the first parent and the second parent (if it exists) of the current commit.
+```shell
+git show HEAD^
+git show HEAD^2
+```
+* These commands show the commit one step back and three steps back from the current commit.
+```shell
+git show HEAD~1
+git show HEAD~3
+```
+
 # Git Worktree
 
 ## [Git Worktree](https://www.geeksforgeeks.org/git-worktree/)

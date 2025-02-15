@@ -72,6 +72,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (Selected)
+  * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
   * [YouTube Video Downloader](https://yt5s.biz/enxj100/)
 
 ## Programming (Selected)
@@ -375,6 +376,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (List)
+  * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
   * [CollaboraOnline/online => LibreOffice technology](https://github.com/CollaboraOnline/online)
   * [YouTube Video Downloader](https://yt5s.biz/enxj100/)
   * [photopea/photopea => Online image editor](https://github.com/photopea/photopea)
