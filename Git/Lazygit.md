@@ -55,7 +55,11 @@ git config --global merge.conflictStyle zdiff3
   * Cancel
 
 * `c` : Commit
-  * `<c-o>` : Commit menu
+  * Open Window
+    * Commit summary : {{commit-summry}}
+    * Commit description : {{commit-description}}
+    * `<tab>` : Press, to toggle focus
+    * `<c-o>` : Commit Menu
       * `e` : Open in editor
       * `c` : Add co-author
       * `p` : Paste commit message from clipboard
@@ -69,7 +73,9 @@ git config --global merge.conflictStyle zdiff3
   * `git commit --amend --no-edit --allow-empty`
 
 * `C` : Commit changes using git editor
-  * `git commit` : Without message, open editor
+  * Note : Open editor
+  * Cmd Section : Commit
+  * `git commit`
 
 * `<c-f>` : Find base commit for fixup
 
@@ -149,11 +155,24 @@ git config --global merge.conflictStyle zdiff3
     * `git apply --cached {{patch-file-path}}`
   
   * `c` : Commit
-  
+    * Open Window
+      * Commit summary : {{commit-summry}}
+      * Commit description : {{commit-description}}
+      * `<tab>` : Press, to toggle focus
+      * `<c-o>` : Commit Menu
+        * `e` : Open in editor
+        * `c` : Add co-author
+        * `p` : Paste commit message from clipboard
+        * Cancel
+    * `git commit -m "{{commit-message}}" -m "{{commit-description}}"`
+
   * `w` : Commit changes without pre-commit hook
   
   * `C` : Commit changes using git editor
-  
+    * Note : Open editor
+    * Cmd Section : Commit
+    * `git commit`
+
   * `<c-f>` : Find base commit for fixup
     * Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be ammended/fixed up. [See docs](https://github.com/jesseduffield/lazygit/tree/master/docs/Fixup_Commits.md)
   
@@ -212,24 +231,33 @@ git config --global merge.conflictStyle zdiff3
 * `=` : Expand all files
 
 * `/` : Search the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [2] Worktrees (Local Keybind)
 
 * `n` : New worktree
 
   * Window Title : "Worktree"
+
   * Create worktree from ref
     * Steps
-      * New worktree base ref : {{branch/tag/HEAD}}
-      * New worktree path : {{directory-path}} [Directory will be created, if not exists]
+      * New worktree base ref : {{base-branch/tag/HEAD}}
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
       * New branch name (leave blank to checkout {{branch/tag/HEAD}})
       * Error : Preparing worktree (checking out 'main'). fatal 'main' is already checked out at '{{project-path}}'
-    * `git worktree add {{worktree-path}} {{branch/tag/HEAD}}`
-    * Changing directory to {{worktree-path}}
+    * Cmd Section : Add worktree
+      * `git worktree add {{worktree-path}} {{base-branch/tag/HEAD}}`
+      * Changing directory to {{worktree-path}}
   
   * Create worktree from ref (detached)
-    * `git worktree add --detach {{worktree-path}} {{branch/tag/HEAD}}`
-    * Changing directory to {{worktree-path}}
+    * Steps
+      * New worktree base ref : {{base-branch/tag/HEAD}}
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * Cmd Section : Add worktree
+      * `git worktree add --detach {{worktree-path}} {{base-branch/tag/HEAD}}`
+      * Changing directory to {{worktree-path}}
   
   * Cancel
 
@@ -242,6 +270,9 @@ git config --global merge.conflictStyle zdiff3
   * `git worktree remove {{worktree-path}}`
 
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 * Notes
   * Error : You cannot remove the main worktree!
@@ -299,6 +330,9 @@ git config --global merge.conflictStyle zdiff3
 * Easter egg
 
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [3] Local branches (Local Keybind)
 
@@ -418,7 +452,9 @@ git config --global merge.conflictStyle zdiff3
   * `git pull --no-edit --ff-only  {{remote-name}} refs/heads/{{local/remote-branch}}`
 
 * `T` : New tag
-  * Open window containing, "Tag name" and "Tag description" field
+  * Open window
+    * Tag name : {{tag-name}}
+    * Tag description : {{tag-description}}
   * Cmd Section : Create annotated tag
   * `git tag {{tag-name}} refs/heads/{{branch-name}} -m "{{tag-description}}"`
 
@@ -445,40 +481,217 @@ git config --global merge.conflictStyle zdiff3
 * `R` : Rename branch
 
 * `u` : View upstream options...
+
   * Window Title : Upstream options
+
   * View divergence from upstream
+
   * `b` : View divergence from base branch ({{remote-name}}/{{remote-branch}})
+
   * `u` : Unset upstream of selected branch
+    * `git branch --unset-upstream {{branch-name}}`
+
   * `s` : Set upstream of selected branch
+    * Window Title : Enter upstream as '<remote> <branchname>'
+    * `git branch --set-upstream-to={{remote-name}}/{{remote-branch}}` {{local-branch}}
+
   * `g` : Reset checked-out branch onto {{remote-name}}/{{remote-branch}}
+    * Note : View options for resetting the checkout-out branch onto {{remote-name}}/{{remote-branch}}. Note: this will not reset the selected branch onto the upstream, it will reset the checked-out branch onto the upstream.
+    
+    * Window Title : Reset to {{remote-name}}/{{remote/branch}}
+    
+    * `m` : Mixed reset `reset --mixed {{remote-name}}/{{remote/branch}}`
+      * Note : Reset HEAD to the chosen commit, and keep the changes between the current and chosen commit as unstaged changes.
+      * `git reset --mixed {{remote-name}}/{{remote/branch}}`
+    
+    * `s` : Soft reset `reset --soft {{remote-name}}/{{remote/branch}}`
+      * Note : Reset HEAD to the chosen commit, and keep the changes between the current and chosen commit as staged changes.
+      * `git reset --soft {{remote-name}}/{{remote/branch}}`
+    
+    * `h` : Hard reset `reset --hard {{remote-name}}/{{remote/branch}}`
+      * Note : Reset HEAD to the chosen commit, and discard all changes between the current and chosen commit, as well as all current modificatons in the working tree.
+      * `git reset --hard {{remote-name}}/{{remote/branch}}`
+  
   * `r` : Rebase checked-out branch onto {{remote-name}}/{{remote-branch}}
+    * Note : View options for rebasing the checked-out branch onto {{remote-name}}/{{remote-branch}}. Note: this will not rebase the selected branch onto the upstream, it will rebase the checked-out branch onto the upstream.
+
+    * Window Title : Rebase '{{local-branch}}'
+
+    * `s` : Simple rebase onto '{{remote-name}}/{{remote-branch}}'
+      * Cmd Section : Rebase branch
+      * `git rebase --interactive --autostash --keep-empty --no-autosquash --rebase-merges {{remote-name}}/{{remote-branch}}`
+
+    * `i` : Interactive rebase onto '{{remote-name}}/{{remote-branch}}'
+      * Note : Begin an interactive rebase with a break at the start, so you can update the TODO commits before continuing.
+      * Cmd Section : Rebase branch
+      * Beginning interactive rebase at '{{remote-name}}/{{remote-branch}}'
+      * `git rebase --interactive --autostash --keep-empty --no-autosquash --rebase-merges {{remote-name}}/{{remote-branch}}`
+      * `m` : View rebase options
+        * Window Title : Rebase options
+        * `c` : continue
+          * Cmd Section : Merge/Rebase: continue
+          * `git rebase --continue`
+        * `a` : abort
+          * Cmd Section : Merge/Rebase: abort
+          * `git rebase --abort`
+        * `s` : skip
+          * Cmd Section : Merge/Rebase: skip
+          * `git rebase --skip`
+        * Cancel
+
+    * `b` : Rebase onto base branch ({{remote-name}}/{{remote-branch}})
+      * Note : Rebase the checked out branch onto its base branch (i.e. the closest {{local-branch}} branch)
+      * Cmd Section : Rebase branch
+      * `git rebase --interactive --autostash --keep-empty --no-autosquash --rebase-merges refs/remotes/{{remote-name}}/{{remote-branch}}`
+
+    * Cancel
+  
   * Cancel
 
 * `<c-t>` : Open external diff tool (git difftool)
+  * `git difftool --no-prompt --dir-diff {{local-branch}} -- .`
+
 * `<enter>` : View commits
+
 * `w` : View worktree options...
+
+  * Window Title : Worktree
+
+  * Create worktree from {{local-branch}}
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+      * New branch name : {{local-branch}}
+    * Cmd Section : Add worktree
+      * `git worktree add -b {{branch-name}} {{worktree-path}} {{base-branch}}`
+      * Changing directory to {{worktree-path}}
+
+  * Create worktree from {{local-branch}} (detached)
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * Cmd Section : Add worktree
+      * `git worktree add --detach {{worktree-path}} {{base-branch}}`
+      * Changing directory to {{worktree-path}}
+
+  * Cancel
+
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [3] Remotes (Local Keybind)
 
 * `<enter>` : View branches
+
 * `n` : New remote
+  * Steps
+    * New remote name : {{remote-name}}
+    * New remote url : {{remote-url}}
+  * Cmd Section : Add remote
+    * `git remote add {{remote-name}} {{remote-url}}`
+    * `git fetch --no-write-fetch-head {{remote-name}}`
+
 * `d` : Remove
+  * Cmd Section : Remove remote
+  * `git remote remove {{remote-name}}`
+
 * `e` : Edit
+  * Steps
+    * Enter updated remote name for {{existing-remote-name}} : {{remote-name}}
+    * Enter updated remote url for {{existing-remote-name}} : {{remote-url}}
+  * Cmd Section : Update remote
+  * `git remote set-url {{remote-name}} {{remote-url}}`
+
 * `f` : Fetch
+  * `git fetch --no-write-fetch-head {{remote-name}}`
+
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [3] Tags (Local Keybind)
 
 * `<space>` : Checkout
+  * Cmd Section : Checkout tag
+  * `git checkout refs/tags/{{tag-name}}`
+
 * `n` : New tag
+  * Open Window
+    * Tag name : {{tag-name}}
+    * Tag description : {{tag-description}}
+    * `<tab>` : Press, to toggle focus
+    * `<c-o>` : to open menu
+      * Window Title : Commit Menu
+      * `e` : Open in editor
+        * Note : Disabled: This command doesn't support switching to the editor
+      * `c` : Add co-author
+      * `p` : Paste commit messge from clipboard
+      * Cancel
+  * Cmd Section : Create annotated tag
+  * `git tag {{tag-name}} -m "{{tag-description}}"`
+
 * `d` : Delete
+
 * `P` : Push tag
+  * Open Window
+    * Remote to push tag '{{local-tag}}' to : {{remote-name}}
+    * Suggestions (press `<tab>` to focus)
+    * `<tab>` : Press, to toggle focus
+  * Cmd Section : Push tag
+  * `git push {{remote-name}} tag {{local-tag}}`
+
 * `g` : Reset...
+
+  * Window Title : Reset to {{tag-name}}
+
+  * `m` : Mixed reset `reset --mixed {{tag-name}}`
+    * Note : Reset HEAD to the chosen commit, and keep the changes between the current and chosen commit as unstaged changes.
+    * Cmd Section : Reset
+    * `git reset --mixed {{tag-name}}`
+
+  * `s` : Soft reset `reset --soft {{tag-name}}`
+    * Note : Reset HEAD to the chosen commit, and keep the changes between the current and chosen commit as staged changes.
+    * Cmd Section : Reset
+    * `git reset --soft {{tag-name}}`
+
+  * `h` : Hard reset `reset --hard {{tag-name}}`
+    * Note : Reset HEAD to the chosen commit, and discard all changes between the current and chosen commit, as well as all current modifications in the working tree.
+    * Cmd Section : Reset
+    * `git reset --hard {{tag-name}}`
+
+  * Cancel
+
 * `<c-t>` : Open external diff tool (git difftool)
+  * `git difftool --no-prompt --dir-diff {{tag-name}} -- .`
+
 * `<enter>` : View commits
+
 * `w` : View worktree options...
+
+  * Window Title : Worktree
+
+  * Create worktree from {{tag-name}}
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+      * New branch name : {{local-branch}}
+    * Cmd Section : Add worktree
+      * `git worktree add -b {{branch-name}} {{worktree-path}} {{tag-name}}`
+      * Changing directory to {{worktree-path}}
+  
+  * Create worktree from {{tag-name}} (detached)
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * Cmd Section : Add worktree
+      * `git worktree add --detach {{worktree-path}} {{tag-name}}`
+      * Changing directory to {{worktree-path}}
+
+  * Cancel
+
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [4] Commits (Local Keybind)
 
