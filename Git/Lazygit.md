@@ -1162,34 +1162,318 @@ git config --global merge.conflictStyle zdiff3
 
 * `w` : View worktree options...
   
+  * Window Title : Worktree
+
+  * Create worktree from {{selected-commit-hash}}
+  * Steps
+    * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * New branch name : {{branch-name}}
+  * Cmd Section : Add worktree
+      * `git worktree add -b {{branch-name}} {{worktree-path}} {{selected-commit-hash}}`
+      * Changing directory to {{worktree-path}}
+
+  * Create worktree from {{selected-commit-hash}} (detached)
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * Cmd Section : Add worktree
+      * `git worktree add --detach {{worktree-path}} {{selected-commit-hash}}`
+      * Changing directory to {{worktree-path}}
+
+  * Cancel
 
 * `/` : Search the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [4] Reflog (Local Keybind)
 
 * `<c-o>` : Copy commit hash to clipboard
+  * Cmd Section : Copy to clipboard
+    * Copying '{{selected-commit-hash}}' to clipboard
+
 * `<space>` : Checkout
+  * Window Title : Checkout branc or commit
+  * `1` : Checkout branch
+    * Disabled: No branches found at selected commit.
+    * Cmd Section : Checkout branch
+    * `git checkout {{branch-name}}`
+  * `d` : Checkout commit {{selected-commit-hash}} as detached head
+    * Cmd Section : Checkout commit
+    * `git checkout {{selected-commit-hash}}`
+  * Cancel
+
 * `y` : Copy commit attribute to clipboard...
+  * Window Title : Copy to clipboard
+  * Commit hash
+    * Cmd Section : Copy full commit hash to clipboard
+      * Copying '{{selected-commit-hash}}' to clipboard
+  * `s` : Commit subject
+    * Cmd Section : Copy commit subject to clipboard
+      * Copying '{{commit-summary}}' to clipboard
+  * `m` : Commit message
+    * Cmd Section : Copy commit message to clipboard
+      * Copying '{{commit-summary}} {{commit-description}}' to clipboard
+  * `u` : Commit URL
+    * Cmd Section : Copy commit URL to clipboard
+      * Copying '{{commit-url}}' to clipboard
+  * `d` : Commit diff
+    * Cmd Section : Copy commit diff to clipboard
+      * Copying '{{commit-diff}}' to clipboard
+  * `a` : Commit author
+    * Cmd Section : Copy commit author to clipboard
+      * Copying '{{Name <Email>}}' to clipboard
+  * Cancel
+
 * `o` : Open commit in browser
+  * Cmd Section : Open commit in browser
+  * `bash -c "xdg-open "{{github-repo-url}}/commit/{{commit-hash}}" >/dev/null"`
+
 * `n` : Create new branch off of commit
+  * Open Window
+    * New branch name (branch is off of '{{selected-commit-summary}}') : {{branch-name}}
+  * Cmd Section : Create branch
+  * `git checkout -b {{branch-name}} {{selected-commit-hash}} --no-track`
+
 * `g` : Reset...
+  * Window Title : Reset to {{selected-commit-hash}}
+  * `m` : Mixed reset `reset --mixed {{selected-commit-hash}}`
+    * Note : Reset HEAD to the chosen commit, and keep the changes between the current and chosen commit as unstaged changes.
+    * Cmd Section : Reset
+    * `git reset --mixed {{selected-commit-hash}}`
+  * `s` : Soft reset `reset --soft {{selected-commit-hash}}`
+    * Note : Reset HEAD to the chosen commit, and keep the changes between the current and chosen commit as staged changes.
+    * Cmd Section : Reset
+    * `git reset --soft {{selected-commit-hash}}`
+  * `h` : Hard reset `reset --hard {{selected-commit-hash}}`
+    * Note : Reset HEAD to the chosen commit, and discard all changes between the current and chosen commit, as well as all current modifications in the working tree.
+    * Cmd Section : Reset
+    * `git reset --hard {{selected-commit-hash}}`
+  * Cancel
+
 * `C` : Copy (cherry-pick)
+
 * `<c-r>` : Reset copied (cherry-picked) commits selection
+
 * `<c-t>` : Open external diff tool (git difftool)
+  * `git difftool --no-prompt --dir-diff {{selected-commit-hash}}^ {{selected-commit-hash}} -- .`
+
 * `<enter>` : View commits
+
 * `w` : View worktree options...
+  
+  * Window Title : Worktree
+
+  * Create worktree from {{selected-commit-hash}}
+  * Steps
+    * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * New branch name : {{branch-name}}
+  * Cmd Section : Add worktree
+      * `git worktree add -b {{branch-name}} {{worktree-path}} {{selected-commit-hash}}`
+      * Changing directory to {{worktree-path}}
+
+  * Create worktree from {{selected-commit-hash}} (detached)
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * Cmd Section : Add worktree
+      * `git worktree add --detach {{worktree-path}} {{selected-commit-hash}}`
+      * Changing directory to {{worktree-path}}
+
+  * Cancel
+
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## [5] Stash (Local Keybind)
 
 * `<space>` : Apply
+  * Window Title : Stash apply
+    * Window Content : Are you sure you want to apply this stash entry?
+  * Cmd Section : Stash
+    * `git stash apply stash@{0}`
+  * Error : 
+  > Auto-merging file-1
+  > CONFLICT (content): Merge conflict in file-1
+  > HEAD detached at {{commit-hash}}
+  > Unmerged paths:
+  >   (use "git restore --staged <file>..." to unstage)
+  >   (use "git add <file>..." to mark resolution)
+  >    both modified: file-1
+  > 
+  > no changes added to commit (use "git add" and/or "git commit -a")
+
 * `g` : Pop
+  * Window Title : Stash pop
+    * Window Content : Are you sure you want to pop this stash entry?
+  * Cmd Section : Stash
+  * `git stash pop stash@{<index>}`
+
 * `d` : Drop
+  * Window Title : Stash drop
+    * Window Content : Are you sure you want to drop this stash entry?
+  * Cmd Section : Stash
+  * `git stash drop stash@{<index>}`
+
 * `n` : New branch
+  * Open Window
+    * New branch name (branch is off of 'stash@{<index>}: {{stash-message}}') : {{branch-name}}
+  * Cmd Section : Create branch
+  * `git checkout -b {{branch-name}} stash@{<index>} --no-track`
+
 * `r` : Rename stash
+  * Open Window
+    * Rename stash: stash@{<index>} : {{stash-message}}
+  * Cmd Section : Rename stash
+    * `git stash drop stash@{<index>}`
+    * `git stash store -m "{{stash-message}}"`
+    * {{Hash}}
+
 * `<enter>` : View files
+
+  * `<c-o>` : Copy path to clipboard
+    * Cmd Section : Copy to clipboard
+      * Copying '{{file-name}}' to clipboard
+
+  * `c` : Checkout
+    * Cmd Section : Checkout file
+    * `git checkout {{selected-commit-hash}} -- {{file-name}}`
+
+  * `d` : Remove
+    * Window Title : Discard file changes
+    * Window Content : 
+    > Are you sure you want to remove changes to the selected file(s) from this commit?
+    > 
+    > This action will start a rebase, reverting these file changes. Be aware that if subsequent commits depend on these changes, you may need to resolve conflicts. Note: This will also reset any active custom patches.
+    * Cmd Section : 
+      * Changing TODO actions:
+        * {{parent-of-current-commit-hash}}:edit
+      * `git rebase --interactive --autostash --keep-empty --no-autosquash --rebase-merges {{current-commit-hash}}`
+      * `git cat-file -e HEAD^:file-1`
+      * `git checkout HEAD^ -- file-1`
+      * `git commit --amend --no-edit --allow-empty`
+      * `git rebase --continue`
+
+  * `o` : Open file
+    * Cmd Section : Open file
+      * `bash -c "xdg-open "{{file-path}}" >/dev/null"`
+    * Error : xdg-open: file 'file-1' does not exist
+
+  * `e` : Edit
+    * `bash -c "vim -- "{{file-path}}""`
+
+  * `<c-t>` : Open external diff tool (git difftool)
+    * `git difftool --no-prompt {{current-commit-hash}}^ {{current-commit-hash}} -- file-1`
+
+  * `<space>` : Toggle file included in patch
+
+    * `<c-p>` : View custom patch options
+
+      * Window Title : Patch options
+
+      * `c` : Reset patch
+        * Note : Clear the current patch.
+
+      * `a` : Apply patch
+        * Note : Apply the current patch to the working tree.
+        * Error : file-1: does not exist in index
+        * Cmd Section : Apply patch
+          * Creating file '{{patch-file-path}}'
+          * `git apply --3way --index "{{patch-file-path}}"`
+
+      * `r` : Apply patch in reverse
+        * Note : Apply the current patch in reverse to the working tree.
+        * Error : file-1: does not exist in index
+        * Cmd Section : Apply patch in reverse
+          * Creating file '{{patch-file-path}}'
+          * `git apply --3way --index --reverse "{{patch-file-path}}"`
+
+      * `d` : Remove patch from original commit ({{current-commit-hash}})
+        * Note : Remove the current patch from its commit. This is achieved by starting an interactive rebase at the commit, applying the patch in reverse, and then continuing the rebase. If later commits depend on the patch, you may need to resolve conflicts.
+        * Error : 
+        > Created autostash: {{hash}}
+        > {{date-and-time}} Some todos not found in git-rebase-todo
+        > error: There was a problem with the editor
+        > '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
+        > Applied autostash.
+        * Cmd Section : Remove patch from commit
+          * Changing TODO actions:
+            * {{current-commit-hash}}:edit
+          * `git rebase --interactive --autostash --keep-empty --no-autosquash --rebase-merges {{below-commit-hash}}`
+
+      * `i` : Move patch out into index
+        * Note : Move the patch out of its commit and into the index. This is achieved by starting an interactive rebase at the commit, applying the patch in reverse, continuing the rebase to completion, and then applying the patch to the index. If later commits depend on the patch, you may need to resolve conflicts.
+
+
+      * `n` : Move patch into new commit
+        * Note : Move the patch out of its commit and into a new commit sitting on top of the original commit. This is achieved by starting an interactive rebase at the original commit, applying the patch in reverse, then applying the patch to the index and committing it as a new commit, before continuing the rebase to completion. If later commits depend on the patch, you may need to resolve conflicts.
+        * Open Window
+          * Commit summary : {{commit-summary}}
+          * Commit description : {{commit-description}}
+          * `<tab>` : Press, to toggle focus
+          * `<c-o>` : Commit Menu
+            * `e` : Open in editor
+              * Disabled: This command doesn't support switching to the editor
+            * `c` : Add co-author
+            * `p` : Paste commit message from clipboard
+            * Cancel
+        * Error : 
+        > Created autostash: {{hash}}
+        > {{date-and-time}} Some todos not found in git-rebase-todo
+        > error: There was a problem with the editor
+        > '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
+        > Applied autostash.
+        * Cmd Section : Move patch into new commit
+          * Changing TODO actions:
+            * {{current-commit-hash}}:edit
+          * `git rebase --interactive --autostash --keep-empty --no-autosquash --rebase-merges {{below-commit-hash}}`
+
+      * `y` : Copy path to clipboard
+
+      * Cancel
+
+  * `a` : Toggle all files
+    * `<c-p>` : View custom patch options
+
+  * `<enter>` : Enter file / Toggle directory collapsed
+
+  * " \` " : Toggle file tree view
+
+  * `-` : Collapse all files
+  
+  * `=` : Expand all files
+  
+  * `/` : Search the current view by text
+    * `n` : Next match
+    * `N` : Previous match
+    * `<esc>` : Exit search mode
+
 * `w` : View worktree options...
+
+  * Window Title : Worktree
+
+  * Create worktree from stash@{<index>}
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+      * New branch name : {{branch-name}}
+    * Cmd Section : Add worktree
+      * `git worktree add -b {{branch-name}} {{worktree-path}} stash@{<index>}`
+      * Changing directory to {{worktree-path}}
+
+  * Create worktree from stash@{<index>} (detached)
+    * Steps
+      * New worktree path : {{worktree-path}} [Directory will be created, if not exists]
+    * Cmd Section : Add worktree
+      * `git worktree add --detach {{worktree-path}} stash@{<index>}`
+      * Changing directory to {{worktree-path}}
+
+  * Cancel
+
 * `/` : Filter the current view by text
+  * `n` : Next match
+  * `N` : Previous match
+  * `<esc>` : Exit search mode
 
 ## Global Keybind
 
