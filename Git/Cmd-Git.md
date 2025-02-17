@@ -5,6 +5,8 @@
 * GitHub changed the default branch name from `master` to `main` in mid-2020. However, Git itself still uses `master` as the default <sup>{1}</sup>
 * When you install Git, you also get its visual tools, `gitk` and `git-gui`. <sup>{1}</sup>
 
+* In “detached HEAD” state, if you make changes and then create a commit, your new commit won’t belong to any branch and will be unreachable, except by the exact commit hash. Thus, if you need to make changes—say you’re fixing a bug on an older version, for instance—you will generally want to create a branch <sup>{1}</sup>
+
 ## General Commands
 
 * Go to the project’s directory
@@ -145,6 +147,135 @@ doc/**/*.pdf
 * `git commit -m "Story 182: fix benchmarks for speed"` : Alternatively, you can type your commit message inline with the `commit` command by specifying it after a `-m` flag, like this <sup>{1}</sup>
 
 * `git commit -a` : Adding the `-a` option to the `git commit` command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the `git add` part <sup>{1}</sup>
+
+* `git commit --amend` : One of the common undos takes place when you commit too early and possibly forget to add some files, or you mess up your commit message. If you want to redo that commit, make the additional changes you forgot, stage them, and commit again using the `--amend` option <sup>{1}</sup>
+
+## git log
+
+* `git log` : By default, with no arguments, `git log` lists the commits made in that repository in reverse chronological order; that is, the most recent commits show up first. <sup>{1}</sup>
+
+* `git log -p -2` : Shows the difference (the patch output) introduced in each commit. You can also limit the number of log entries displayed, such as using -2 to show only the last two entries. <sup>{1}</sup>
+
+* `git log --stat` : To see some abbreviated stats for each commit, you can use the `--stat` option <sup>{1}</sup>
+
+* `git log --pretty=oneline` : Another really useful option is `--pretty`. This option changes the log output to formats other than the default. The `oneline` value for this option prints each commit on a single line, which is useful if you’re looking at a lot of commits. <sup>{1}</sup>
+
+* `git log --pretty=format:"%h - %an, %ar : %s"` : The most interesting option value is `format`, which allows you to specify your own log output format. <sup>{1}</sup>
+  * Useful specifiers for `git log --pretty=format`
+  * Specifier : Description of Output
+  * `%H` : Commit hash
+  * `%h` : Abbreviated commit hash
+  * `%T` : Tree hash
+  * `%t` : Abbreviated tree hash
+  * `%P` : Parent hashes
+  * `%p` : Abbreviated parent hashes
+  * `%an` : Author name
+  * `%ae` : Author email
+  * `%ad` : Author date (format respects the `--date=option`)
+  * `%ar` : Author date, relative
+  * `%cn` : Committer name
+  * `%ce` : Committer email
+  * `%cd` : Committer date
+  * `%cr` : Committer date, relative
+  * `%s` : Subject
+
+* `git log --pretty=format:"%h %s" --graph` : The `oneline` and `format` option values are particularly useful with another `log` option called `--graph`. This option adds a nice little ASCII graph showing your branch and merge history <sup>{1}</sup>
+
+* `git log` lists the options we’ve covered so far, as well as some other common formatting options that may be useful, along with how they change the output of the `log` command. <sup>{1}</sup>
+  * Common options to `git log`
+  * Option : Description
+  * `-p` : Show the patch introduced with each commit.
+  * `--stat` : Show statistics for files modified in each commit.
+  * `--shortstat` : Display only the changed/insertions/deletions line from the `--stat` command.
+  * `--name-only` : Show the list of files modified after the commit information.
+  * `--name-status` : Show the list of files affected with added/modified/deleted information as well.
+  * `--abbrev-commit` : Show only the first few characters of the SHA-1 checksum instead of all 40.
+  * `--relative-date` : Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format.
+  * `--graph` : Display an ASCII graph of the branch and merge history beside the log output.
+  * `--pretty` : Show commits in an alternate format. Option values include `oneline`, `short`, `full`, `fuller`, and `format` (where you specify your own format).
+  * `--oneline` : Shorthand for `--pretty=oneline --abbrev-commit` used together.
+
+* `git log --since=2.weeks` : The time-limiting options such as `--since` and `--until` are very useful. For example, this command gets the list of commits made in the last two weeks <sup>{1}</sup>
+
+* `git log -S function_name` : Another really helpful filter is the `-S` option (colloquially referred to as Git’s “pickaxe” option), which takes a string and shows only those commits that changed the number of occurrences of that string. For instance, if you wanted to find the last commit that added or removed a reference to a specific function, you could call <sup>{1}</sup>
+
+* `git log -- path/to/file` : If you specify a directory or file name, you can limit the log output to commits that introduced a change to those files. This is always the last option and is generally preceded by double dashes (`--`) to separate the paths from the options <sup>{1}</sup>
+
+* Options to limit the output of `git log` <sup>{1}</sup>
+  * Option : Description
+  * `-<n>` : Show only the last n commits.
+  * `--since, --after` : Limit the commits to those made after the specified date.
+  * `--until, --before` : Limit the commits to those made before the specified date.
+  * `--author` : Only show commits in which the author entry matches the specified string.
+  * `--committer` : Only show commits in which the committer entry matches the specified string.
+  * `--grep` : Only show commits with a commit message containing the string.
+  * `-S` : Only show commits adding or removing code matching the string.
+
+* `git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" \
+   --before="2008-11-01" --no-merges -- t/` : If you want to see which commits modifying test files in the Git source code history were committed by Junio Hamano in the month of October 2008 and are not merge commits, you can run something like this <sup>{1}</sup>
+
+## git reset
+
+* `git reset HEAD CONTRIBUTING.md` : `git status` Right below the “Changes to be committed” text, it says use `git reset HEAD <file>…` to unstage. So, let’s use that advice to unstage the CONTRIBUTING.md file <sup>{1}</sup>
+
+## git restore
+
+* `git restore --staged CONTRIBUTING.md` : `git status`, Right below the “Changes to be committed” text, it says use `git restore --staged <file>…` to unstage. So, let’s use that advice to unstage the CONTRIBUTING.md file <sup>{1}</sup>
+
+* `git restore CONTRIBUTING.md` : It tells you pretty explicitly how to discard the changes you’ve made, in working directory <sup>{1}</sup>
+
+## git checkout
+
+* `git checkout -- CONTRIBUTING.md` : It tells you pretty explicitly how to discard the changes you’ve made, in working directory <sup>{1}</sup>
+
+* `git checkout v2.0.0` : If you want to view the versions of files a tag is pointing to, you can do a `git checkout` of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects <sup>{1}</sup>
+
+* `git checkout -b version2 v2.0.0` : In “detached HEAD” state, if you make changes and then create a commit, the tag will stay the same, but your new commit won’t belong to any branch and will be unreachable, except by the exact commit hash. Thus, if you need to make changes—say you’re fixing a bug on an older version, for instance—you will generally want to create a branch <sup>{1}</sup>
+
+## git remote
+
+* `git remote -v` : You can also specify `-v`, which shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote <sup>{1}</sup>
+
+* `git remote show origin` : If you want to see more information about a particular remote, you can use the `git remote show <remote>` command. If you run this command with a particular shortname, such as `origin`, you get something like this <sup>{1}</sup>
+
+* `git remote rename pb paul` : You can run `git remote rename` to change a remote’s shortname. For instance, if you want to rename `pb` to `paul`, you can do so with <sup>{1}</sup>
+
+* `git remote remove paul` : If you want to remove a remote for some reason—you’ve moved the server or are no longer using a particular mirror, or perhaps a contributor isn’t contributing anymore—you can either use `git remote remove` or `git remote rm` <sup>{1}</sup>
+
+## git fetch
+
+* `git fetch pb` : Now you can use the string `pb` on the command line instead of the whole URL. For example, if you want to fetch all the information that Paul has but that you don’t yet have in your repository, you can run <sup>{1}</sup>
+
+## git push
+
+* `git push origin master` : If you want to push your `master` branch to your `origin` server (again, cloning generally sets up both of those names for you automatically), then you can run this to push any commits you’ve done back up to the server <sup>{1}</sup>
+
+## git tag
+
+* `git tag` : Listing the existing tags in Git is straightforward. Just type `git tag` (with optional `-l` or `--list`) <sup>{1}</sup>
+
+* `git tag -l "v1.8.5*"` : You can also search for tags that match a particular pattern. The Git source repo, for instance, contains more than 500 tags. If you’re interested only in looking at the 1.8.5 series, you can run this <sup>{1}</sup>
+
+* `git tag -a v1.4 -m "my version 1.4"` : Creating an annotated tag in Git is simple. The easiest way is to specify `-a` when you run the `tag` command. The `-m` specifies a tagging message, which is stored with the tag. If you don’t specify a message for an annotated tag, Git launches your editor so you can type it in. <sup>{1}</sup>
+
+* `git show v1.4` : You can see the tag data along with the commit that was tagged by using the `git show` command <sup>{1}</sup>
+
+* `git tag v1.4-lw` : Another way to tag commits is with a lightweight tag. This is basically the commit checksum stored in a file—no other information is kept. To create a lightweight tag, don’t supply any of the `-a`, `-s`, or `-m` options, just provide a tag name <sup>{1}</sup>
+
+* `git show v1.4-lw` : This time, if you run `git show` on the tag, you don’t see the extra tag information. The command just shows the commit <sup>{1}</sup>
+
+* `git tag -a v1.2 9fceb02` : `git log --pretty=oneline`, Now, suppose you forgot to tag the project at v1.2, which was at the “Update rakefile” commit. You can add it after the fact. To tag that commit, you specify the commit checksum (or part of it) at the end of the command <sup>{1}</sup>
+
+* `git push origin v1.5` : By default, the `git push` command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them. This process is just like sharing remote branches—you can run `git push origin <tagname>`. <sup>{1}</sup>
+
+* `git push origin --tags` : If you have a lot of tags that you want to push up at once, you can also use the `--tags` option to the `git push` command. This will transfer all of your tags to the remote server that are not already there. <sup>{1}</sup>
+
+* `git tag -d v1.4-lw` : To delete a tag on your local repository, you can use `git tag -d <tagname>`. For example, we could remove our lightweight tag above as follows <sup>{1}</sup>
+  * Note that this does not remove the tag from any remote servers.
+
+* There are two common variations for deleting a tag from a remote server. <sup>{1}</sup>
+  * `git push origin :refs/tags/v1.4-lw` : The first variation is `git push <remote> :refs/tags/<tagname>`. The way to interpret the above is to read it as the null value before the colon is being pushed to the remote tag name, effectively deleting it.
+  * `git push origin --delete <tagname>` : The second (and more intuitive) way to delete a remote tag is with
 
 ## git diff
 
