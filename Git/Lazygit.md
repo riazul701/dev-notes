@@ -1103,11 +1103,13 @@ git config --global merge.conflictStyle zdiff3
       * `d` : Remove patch from original commit ({{current-commit-hash}})
         * Note : Remove the current patch from its commit. This is achieved by starting an interactive rebase at the commit, applying the patch in reverse, and then continuing the rebase. If later commits depend on the patch, you may need to resolve conflicts.
         * Error : 
-        > Created autostash: {{hash}}
-        > {{date-and-time}} Some todos not found in git-rebase-todo
-        > error: There was a problem with the editor
-        > '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
-        > Applied autostash.
+        ```shell
+        Created autostash: {{hash}}
+        {{date-and-time}} Some todos not found in git-rebase-todo
+        error: There was a problem with the editor
+        '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
+        Applied autostash.
+        ```
         * Cmd Section : Remove patch from commit
           * Changing TODO actions:
             * {{current-commit-hash}}:edit
@@ -1130,11 +1132,13 @@ git config --global merge.conflictStyle zdiff3
             * `p` : Paste commit message from clipboard
             * Cancel
         * Error : 
-        > Created autostash: {{hash}}
-        > {{date-and-time}} Some todos not found in git-rebase-todo
-        > error: There was a problem with the editor
-        > '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
-        > Applied autostash.
+        ```shell
+        Created autostash: {{hash}}
+        {{date-and-time}} Some todos not found in git-rebase-todo
+        error: There was a problem with the editor
+        '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
+        Applied autostash.
+        ```
         * Cmd Section : Move patch into new commit
           * Changing TODO actions:
             * {{current-commit-hash}}:edit
@@ -1294,15 +1298,17 @@ git config --global merge.conflictStyle zdiff3
   * Cmd Section : Stash
     * `git stash apply stash@{0}`
   * Error : 
-  > Auto-merging file-1
-  > CONFLICT (content): Merge conflict in file-1
-  > HEAD detached at {{commit-hash}}
-  > Unmerged paths:
-  >   (use "git restore --staged <file>..." to unstage)
-  >   (use "git add <file>..." to mark resolution)
-  >    both modified: file-1
-  > 
-  > no changes added to commit (use "git add" and/or "git commit -a")
+  ```shell
+  Auto-merging file-1
+  CONFLICT (content): Merge conflict in file-1
+  HEAD detached at {{commit-hash}}
+  Unmerged paths:
+    (use "git restore --staged <file>..." to unstage)
+    (use "git add <file>..." to mark resolution)
+     both modified: file-1
+  
+  no changes added to commit (use "git add" and/or "git commit -a")
+  ```
 
 * `g` : Pop
   * Window Title : Stash pop
@@ -1392,11 +1398,13 @@ git config --global merge.conflictStyle zdiff3
       * `d` : Remove patch from original commit ({{current-commit-hash}})
         * Note : Remove the current patch from its commit. This is achieved by starting an interactive rebase at the commit, applying the patch in reverse, and then continuing the rebase. If later commits depend on the patch, you may need to resolve conflicts.
         * Error : 
-        > Created autostash: {{hash}}
-        > {{date-and-time}} Some todos not found in git-rebase-todo
-        > error: There was a problem with the editor
-        > '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
-        > Applied autostash.
+        ```shell
+        Created autostash: {{hash}}
+        {{date-and-time}} Some todos not found in git-rebase-todo
+        error: There was a problem with the editor
+        '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
+        Applied autostash.
+        ```
         * Cmd Section : Remove patch from commit
           * Changing TODO actions:
             * {{current-commit-hash}}:edit
@@ -1419,11 +1427,13 @@ git config --global merge.conflictStyle zdiff3
             * `p` : Paste commit message from clipboard
             * Cancel
         * Error : 
-        > Created autostash: {{hash}}
-        > {{date-and-time}} Some todos not found in git-rebase-todo
-        > error: There was a problem with the editor
-        > '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
-        > Applied autostash.
+        ```shell
+        Created autostash: {{hash}}
+        {{date-and-time}} Some todos not found in git-rebase-todo
+        error: There was a problem with the editor
+        '"/nix/store/{{nix-hash}}-lazygit-0.45.2/bin/lazygit"'.
+        Applied autostash.
+        ```
         * Cmd Section : Move patch into new commit
           * Changing TODO actions:
             * {{current-commit-hash}}:edit
