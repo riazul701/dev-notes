@@ -2,6 +2,8 @@
 
 ## Notes
 
+* The `.git/info/exclude` file acts just like a `.gitignore`, but isn’t included in commits. <sup>{1}</sup>
+
 * GitHub changed the default branch name from `master` to `main` in mid-2020. However, Git itself still uses `master` as the default <sup>{1}</sup>
 
 * When you install Git, you also get its visual tools, `gitk` and `git-gui`. <sup>{1}</sup>
@@ -37,6 +39,9 @@
 
 * First, unlike `reset --hard`, `checkout` is working-directory safe; it will check to make sure it’s not blowing away files that have changes to them. Actually, it’s a bit smarter than that—it tries to do a trivial merge in the working directory, so all of the files you haven’t changed will be updated. `reset --hard`, on the other hand, will simply replace everything across the board without checking. <sup>{1}</sup>
 
+* It’s important to note that submodules these days keep all their Git data in the top project’s .git directory, so unlike much older versions of Git, destroying a submodule directory won’t lose any commits or branches that you had. <sup>{1}</sup>
+  * With these tools, submodules can be a fairly simple and effective method for developing on several related but still separate projects simultaneously. <sup>{1}</sup>
+
 ## General Commands
 
 * Go to the project’s directory
@@ -50,11 +55,134 @@
 
 * `vim CONTRIBUTING.md` : Edit "CONTRIBUTING.md" file using "vim" editor <sup>{1}</sup>
 
+* `unix2dos hello.rb` : Change Unix line endings to DOS line endings <sup>{1}</sup>
+
 ## Install Git
 
 * `sudo apt install git-all` : If you’re on a Debian-based distribution, such as Ubuntu, try `apt` <sup>{1}</sup>
   * `apt show git-all` : This is a dummy package which brings in all subpackages.
 * `sudo dnf install git-all` : If you’re on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use `dnf` <sup>{1}</sup>
+
+## Environment Variables
+
+* Git always runs inside a `bash` shell, and uses a number of shell environment variables to determine how it behaves. Occasionally, it comes in handy to know what these are, and how they can be used to make Git behave the way you want it to.
+
+**Global Behavior**
+
+* Some of Git’s general behavior as a computer program depends on environment variables. <sup>{1}</sup>
+
+* `GIT_EXEC_PATH` determines where Git looks for its sub-programs (like `git-commit`, `git-diff`, and others). You can check the current setting by running `git --exec-path`. <sup>{1}</sup>
+
+* `HOME` isn’t usually considered customizable (too many other things depend on it), but it’s where Git looks for the global configuration file. If you want a truly portable Git installation, complete with global configuration, you can override `HOME` in the portable Git’s shell profile. <sup>{1}</sup>
+
+* `PREFIX` is similar, but for the system-wide configuration. Git looks for this file at `$PREFIX/etc/gitconfig`. <sup>{1}</sup>
+
+* `GIT_CONFIG_NOSYSTEM`, if set, disables the use of the system-wide configuration file. This is useful if your system config is interfering with your commands, but you don’t have access to change or remove it. <sup>{1}</sup>
+
+* `GIT_PAGER` controls the program used to display multi-page output on the command line. If this is unset, `PAGER` will be used as a fallback. <sup>{1}</sup>
+
+* `GIT_EDITOR` is the editor Git will launch when the user needs to edit some text (a commit message, for example). If unset, `EDITOR` will be used. <sup>{1}</sup>
+
+**Repository Locations**
+
+* Git uses several environment variables to determine how it interfaces with the current repository. <sup>{1}</sup>
+
+* `GIT_DIR` is the location of the `.git` folder. If this isn’t specified, Git walks up the directory tree until it gets to `~` or `/`, looking for a .git directory at every step. <sup>{1}</sup>
+
+* `GIT_CEILING_DIRECTORIES` controls the behavior of searching for a `.git` directory. If you access directories that are slow to load (such as those on a tape drive, or across a slow network connection), you may want to have Git stop trying earlier than it might otherwise, especially if Git is invoked when building your shell prompt. <sup>{1}</sup>
+
+* `GIT_WORK_TREE` is the location of the root of the working directory for a non-bare repository. If `--git-dir` or `GIT_DIR` is specified but none of `--work-tree`, `GIT_WORK_TREE` or `core.worktree` is specified, the current working directory is regarded as the top level of your working tree. <sup>{1}</sup>
+
+* `GIT_INDEX_FILE` is the path to the index file (non-bare repositories only). <sup>{1}</sup>
+
+* `GIT_OBJECT_DIRECTORY` can be used to specify the location of the directory that usually resides at `.git/objects`. <sup>{1}</sup>
+
+* `GIT_ALTERNATE_OBJECT_DIRECTORIES` is a colon-separated list (formatted like `/dir/one:/dir/two:…`) which tells Git where to check for objects if they aren’t in `GIT_OBJECT_DIRECTORY`. If you happen to have a lot of projects with large files that have the exact same contents, this can be used to avoid storing too many copies of them. <sup>{1}</sup>
+
+**Pathspecs**
+
+* A “pathspec” refers to how you specify paths to things in Git, including the use of wildcards. These are used in the `.gitignore` file, but also on the command-line (`git add *.c`). <sup>{1}</sup>
+
+* `GIT_GLOB_PATHSPECS` and `GIT_NOGLOB_PATHSPECS` control the default behavior of wildcards in pathspecs. If `GIT_GLOB_PATHSPECS` is set to 1, wildcard characters act as wildcards (which is the default); if `GIT_NOGLOB_PATHSPECS` is set to 1, wildcard characters only match themselves, meaning something like `*.c` would only match a file named “\*.c”, rather than any file whose name ends with `.c`. You can override this in individual cases by starting the pathspec with `:(glob)` or `:(literal)`, as in `:(glob)\*.c`. <sup>{1}</sup>
+
+* `GIT_LITERAL_PATHSPECS` disables both of the above behaviors; no wildcard characters will work, and the override prefixes are disabled as well. <sup>{1}</sup>
+
+* `GIT_ICASE_PATHSPECS` sets all pathspecs to work in a case-insensitive manner. <sup>{1}</sup>
+
+**Committing**
+
+* The final creation of a Git commit object is usually done by `git-commit-tree`, which uses these environment variables as its primary source of information, falling back to configuration values only if these aren’t present. <sup>{1}</sup>
+
+* `GIT_AUTHOR_NAME` is the human-readable name in the “author” field. <sup>{1}</sup>
+
+* `GIT_AUTHOR_EMAIL` is the email for the “author” field. <sup>{1}</sup>
+
+* `GIT_AUTHOR_DATE` is the timestamp used for the “author” field. <sup>{1}</sup>
+
+* `GIT_COMMITTER_NAME` sets the human name for the “committer” field. <sup>{1}</sup>
+
+* `GIT_COMMITTER_EMAIL` is the email address for the “committer” field. <sup>{1}</sup>
+
+* `GIT_COMMITTER_DATE` is used for the timestamp in the “committer” field. <sup>{1}</sup>
+
+* `EMAIL` is the fallback email address in case the `user.email` configuration value isn’t set. If this isn’t set, Git falls back to the system user and host names. <sup>{1}</sup>
+
+**Networking**
+
+* Git uses the `curl` library to do network operations over HTTP, so `GIT_CURL_VERBOSE` tells Git to emit all the messages generated by that library. This is similar to doing `curl -v` on the command line. <sup>{1}</sup>
+
+* `GIT_SSL_NO_VERIFY` tells Git not to verify SSL certificates. This can sometimes be necessary if you’re using a self-signed certificate to serve Git repositories over HTTPS, or you’re in the middle of setting up a Git server but haven’t installed a full certificate yet. <sup>{1}</sup>
+
+* If the data rate of an HTTP operation is lower than `GIT_HTTP_LOW_SPEED_LIMIT` bytes per second for longer than `GIT_HTTP_LOW_SPEED_TIME` seconds, Git will abort that operation. These values override the `http.lowSpeedLimit` and `http.lowSpeedTime` configuration values. <sup>{1}</sup>
+
+* `GIT_HTTP_USER_AGENT` sets the user-agent string used by Git when communicating over HTTP. The default is a value like `git/2.0.0`. <sup>{1}</sup>
+
+**Diffing and Merging**
+
+* `GIT_DIFF_OPTS` is a bit of a misnomer. The only valid values are `-u<n>` or `--unified=<n>`, which controls the number of context lines shown in a git diff command. <sup>{1}</sup>
+
+* `GIT_EXTERNAL_DIFF` is used as an override for the `diff.external` configuration value. If it’s set, Git will invoke this program when `git diff` is invoked. <sup>{1}</sup>
+
+* `GIT_DIFF_PATH_COUNTER` and `GIT_DIFF_PATH_TOTAL` are useful from inside the program specified by `GIT_EXTERNAL_DIFF` or `diff.external`. The former represents which file in a series is being diffed (starting with 1), and the latter is the total number of files in the batch. <sup>{1}</sup>
+
+* `GIT_MERGE_VERBOSITY` controls the output for the recursive merge strategy. The allowed values are as follows: <sup>{1}</sup>
+  * 0 outputs nothing, except possibly a single error message.
+  * 1 shows only conflicts.
+  * 2 also shows file changes.
+  * 3 shows when files are skipped because they haven’t changed.
+  * 4 shows all paths as they are processed.
+  * 5 and above show detailed debugging information.
+  * The default value is 2.
+
+**Debugging**
+
+* Want to really know what Git is up to? Git has a fairly complete set of traces embedded, and all you need to do is turn them on. The possible values of these variables are as follows: <sup>{1}</sup>
+  * “true”, “1”, or “2” – the trace category is written to stderr.
+  * An absolute path starting with `/` – the trace output will be written to that file.
+
+* `GIT_TRACE` controls general traces, which don’t fit into any specific category. This includes the expansion of aliases, and delegation to other sub-programs. <sup>{1}</sup>
+
+* `GIT_TRACE_PACK_ACCESS` controls tracing of packfile access. The first field is the packfile being accessed, the second is the offset within that file <sup>{1}</sup>
+
+* `GIT_TRACE_PACKET` enables packet-level tracing for network operations. <sup>{1}</sup>
+
+* `GIT_TRACE_PERFORMANCE` controls logging of performance data. The output shows how long each particular git invocation takes. <sup>{1}</sup>
+
+* `GIT_TRACE_SETUP` shows information about what Git is discovering about the repository and environment it’s interacting with. <sup>{1}</sup>
+
+**Miscellaneous**
+
+* `GIT_SSH`, if specified, is a program that is invoked instead of `ssh` when Git tries to connect to an SSH host. It is invoked like `$GIT_SSH [username@]host [-p <port>] <command>`. Note that this isn’t the easiest way to customize how `ssh` is invoked; it won’t support extra command-line parameters. To support extra command-line parameters, you can use `GIT_SSH_COMMAND`, write a wrapper script and set `GIT_SSH` to point to it or use the `~/.ssh/config` file. <sup>{1}</sup>
+
+* `GIT_SSH_COMMAND` sets the SSH command used when Git tries to connect to an SSH host. The command is interpreted by the shell, and extra command-line arguments can be used with `ssh`, such as `GIT_SSH_COMMAND="ssh -i ~/.ssh/my_key" git clone git@example.com:my/repo`. <sup>{1}</sup>
+
+* `GIT_ASKPASS` is an override for the `core.askpass` configuration value. This is the program invoked whenever Git needs to ask the user for credentials, which can expect a text prompt as a command-line argument, and should return the answer on `stdout` (see Credential Storage for more on this subsystem). <sup>{1}</sup>
+
+* `GIT_NAMESPACE` controls access to namespaced refs, and is equivalent to the `--namespace` flag. This is mostly useful on the server side, where you may want to store multiple forks of a single repository in one repository, only keeping the refs separate. <sup>{1}</sup>
+
+* `GIT_FLUSH` can be used to force Git to use non-buffered I/O when writing incrementally to stdout. A value of 1 causes Git to flush more often, a value of 0 causes all output to be buffered. The default value (if this variable is not set) is to choose an appropriate buffering scheme depending on the activity and the output mode. <sup>{1}</sup>
+
+* `GIT_REFLOG_ACTION` lets you specify the descriptive text written to the reflog. <sup>{1}</sup>
 
 ## GitIgnore
 
@@ -85,17 +213,92 @@ doc/*.txt
 doc/**/*.pdf
 ```
 
+## GitAttributes
+
+* Some of these settings can also be specified for a path, so that Git applies those settings only for a subdirectory or subset of files. These path-specific settings are called Git attributes and are set either in a `.gitattributes` file in one of your directories (normally the root of your project) or in the `.git/info/attributes` file if you don’t want the attributes file committed with your project. <sup>{1}</sup>
+
+* Using attributes, you can do things like specify separate merge strategies for individual files or directories in your project, tell Git how to diff non-text files, or have Git filter content before you check it into or out of Git. <sup>{1}</sup>
+
+**Binary Files**
+
+* One cool trick for which you can use Git attributes is telling Git which files are binary (in cases it otherwise may not be able to figure out) and giving Git special instructions about how to handle those files. For instance, some text files may be machine generated and not diffable, whereas some binary files can be diffed. You’ll see how to tell Git which is which. <sup>{1}</sup>
+
+**Identifying Binary Files**
+
+* Some files look like text files but for all intents and purposes are to be treated as binary data. For instance, Xcode projects on macOS contain a file that ends in `.pbxproj`, which is basically a JSON (plain-text JavaScript data format) dataset written out to disk by the IDE, which records your build settings and so on. Although it’s technically a text file (because it’s all UTF-8), you don’t want to treat it as such because it’s really a lightweight database – you can’t merge the contents if two people change it, and diffs generally aren’t helpful. The file is meant to be consumed by a machine. In essence, you want to treat it like a binary file. <sup>{1}</sup>
+
+* To tell Git to treat all `pbxproj` files as binary data, add the following line to your `.gitattributes` file: <sup>{1}</sup>
+  * `*.pbxproj binary` <sup>{1}</sup>
+  * Now, Git won’t try to convert or fix CRLF issues; nor will it try to compute or print a diff for changes in this file when you run `git show` or `git diff` on your project. <sup>{1}</sup>
+
+**Diffing Binary Files**
+
+* `*.docx diff=word` : Put line in your `.gitattributes` file. This tells Git that any file that matches this pattern (`.docx`) should use the “word” filter when you try to view a diff that contains changes. What is the “word” filter? You have to set it up. Here you’ll configure Git to use the docx2txt program to convert Word documents into readable text files, which it will then diff properly. <sup>{1}</sup>
+
+  * First, you’ll need to install docx2txt; you can download it from https://sourceforge.net/projects/docx2txt. Follow the instructions in the `INSTALL` file to put it somewhere your shell can find it. Next, you’ll write a wrapper script to convert output to the format Git expects. Create a file that’s somewhere in your path called `docx2txt`, and add these contents: <sup>{1}</sup>
+  ```shell
+  #!/bin/bash
+  docx2txt.pl "$1" -
+  ```
+  * Don’t forget to `chmod a+x` that file. Finally, you can configure Git to use this script <sup>{1}</sup>
+  * `git config diff.word.textconv docx2txt`
+  * Now Git knows that if it tries to do a diff between two snapshots, and any of the files end in `.docx`, it should run those files through the “word” filter, which is defined as the `docx2txt` program. This effectively makes nice text-based versions of your Word files before attempting to diff them. <sup>{1}</sup>
+  * `git diff`
+
+* `*.png diff=exif` : Put line in your `.gitattributes` file. <sup>{1}</sup>
+  * `git config diff.exif.textconv exiftool` : Configure Git to use this tool
+  * `git diff`
+
+**Exporting Your Repository**
+
+* `test/ export-ignore` : Put line in your `.gitattributes` file. If there is a subdirectory or file that you don’t want to include in your archive file but that you do want checked into your project, you can determine those files via this attribute. <sup>{1}</sup>
+
+* If you want to include a file named `LAST_COMMIT` in your project, and have metadata about the last commit automatically injected into it when `git archive` runs, you can for example set up your `.gitattributes` and `LAST_COMMIT` files like this <sup>{1}</sup>
+* `LAST_COMMIT export-subst`
+```shell
+$ echo 'Last commit date: $Format:%cd by %aN$' > LAST_COMMIT
+$ git add LAST_COMMIT .gitattributes
+$ git commit -am 'adding LAST_COMMIT file for archives'
+```
+
+**Merge Strategies**
+
+* You can also use Git attributes to tell Git to use different merge strategies for specific files in your project. One very useful option is to tell Git to not try to merge specific files when they have conflicts, but rather to use your side of the merge over someone else’s. <sup>{1}</sup>
+
+* `database.xml merge=ours` : Put line in your `.gitattributes` file. Say you have a database settings file called `database.xml` that is different in two branches, and you want to merge in your other branch without messing up the database file. <sup>{1}</sup>
+  * `git config --global merge.ours.driver true` : And then define a dummy `ours` merge strategy with
+  * If you merge in the other branch, instead of having merge conflicts with the `database.xml` file, you see something like this:
+  ```shell
+  $ git merge topic
+  Auto-merging database.xml
+  Merge made by recursive.
+  ```
+  * In this case, `database.xml` stays at whatever version you originally had.
+
+## help
+
+* If you ever need help while using Git, there are three equivalent ways to get the comprehensive manual page (manpage) help for any of the Git commands: <sup>{1}</sup>
+  * `git help <verb>` <sup>{1}</sup>
+  * `git <verb> --help` <sup>{1}</sup>
+  * `man git-<verb>` <sup>{1}</sup>
+
+* `git help config` : you can get the manpage help for the `git config` command by running this <sup>{1}</sup>
+
+* `git add -h` : You can ask for the more concise “help” output with the `-h` option <sup>{1}</sup>
+
 ## config
 
 * `git config` variables can be stored in three different places: <sup>{1}</sup>
 
   * `[path]/etc/gitconfig` file: Contains values applied to every user on the system and all their repositories. If you pass the option `--system` to `git config`, it reads and writes from this file specifically. Because this is a system configuration file, you would need administrative or superuser privilege to make changes to it. <sup>{1}</sup>
+
   * `~/.gitconfig` or `~/.config/git/config` file: Values specific personally to you, the user. You can make Git read and write to this file specifically by passing the `--global` option, and this affects `all` of the repositories you work with on your system. <sup>{1}</sup>
+  
   * `config` file in the Git directory (that is, `.git/config`) of whatever repository you’re currently using: Specific to that single repository. You can force Git to read from and write to this file with the `--local` option, but that is in fact the default. Unsurprisingly, you need to be located somewhere in a Git repository for this option to work properly. <sup>{1}</sup>
 
-* Each level overrides values in the previous level, so values in `.git/config` trump those in `[path]/etc/gitconfig`. <sup>{1}</sup>
+  * Each level overrides values in the previous level, so values in `.git/config` trump those in `[path]/etc/gitconfig`. <sup>{1}</sup>
 
-* On Windows systems, Git looks for the `.gitconfig` file in the `$HOME` directory (`C:\Users\$USER` for most people). It also still looks for `[path]/etc/gitconfig`, although it’s relative to the MSys root, which is wherever you decide to install Git on your Windows system when you run the installer. If you are using version 2.x or later of Git for Windows, there is also a system-level config file at `C:\Documents and Settings\All Users\Application Data\Git\config` on Windows XP, and in `C:\ProgramData\Git\config` on Windows Vista and newer. This config file can only be changed by `git config -f <file>` as an admin. <sup>{1}</sup>
+  * On Windows systems, Git looks for the `.gitconfig` file in the `$HOME` directory (`C:\Users\$USER` for most people). It also still looks for `[path]/etc/gitconfig`, although it’s relative to the MSys root, which is wherever you decide to install Git on your Windows system when you run the installer. If you are using version 2.x or later of Git for Windows, there is also a system-level config file at `C:\Documents and Settings\All Users\Application Data\Git\config` on Windows XP, and in `C:\ProgramData\Git\config` on Windows Vista and newer. This config file can only be changed by `git config -f <file>` as an admin. <sup>{1}</sup>
 
 * `git config --list --show-origin` : You can view all of your settings and where they are coming from using <sup>{1}</sup>
 
@@ -133,16 +336,262 @@ doc/**/*.pdf
 * `git config --global rerere.enabled true` : Now, whenever you do a merge that resolves conflicts, the resolution will be recorded in the cache in case you need it in the future. <sup>{1}</sup>
   *  When rerere is enabled, Git will keep a set of pre- and post-images from successful merges, and if it notices that there’s a conflict that looks exactly like one you’ve already fixed, it’ll just use the fix from last time, without bothering you with it. <sup>{1}</sup>
 
-## help
+* `git config submodule.DbConnector.url PRIVATE_URL` :  If you use a different URL to push to than others would to pull from, use the one that others have access to. You can overwrite this value locally with this command for your own use. When applicable, a relative URL can be helpful. <sup>{1}</sup>
 
-* If you ever need help while using Git, there are three equivalent ways to get the comprehensive manual page (manpage) help for any of the Git commands: <sup>{1}</sup>
-  * `git help <verb>` <sup>{1}</sup>
-  * `git <verb> --help` <sup>{1}</sup>
-  * `man git-<verb>` <sup>{1}</sup>
+* `git config --global diff.submodule log` : Now if you go back into the main project and run `git diff --submodule` you can see that the submodule was updated and get a list of commits that were added to it. If you don’t want to type `--submodule` every time you run `git diff`, you can set it as the default format by setting the `diff.submodule` config value to “log”. <sup>{1}</sup>
 
-* `git help config` : you can get the manpage help for the `git config` command by running this <sup>{1}</sup>
+* `git config -f .gitmodules submodule.DbConnector.branch stable` : This command will by default assume that you want to update the checkout to the default branch of the remote submodule repository (the one pointed to by `HEAD` on the remote). You can, however, set this to something different if you want. For example, if you want to have the `DbConnector` submodule track that repository’s “stable” branch, you can set it in either your `.gitmodules` file (so everyone else also tracks it), or just in your local `.git/config` file. Let’s set it in the `.gitmodules` file <sup>{1}</sup>
 
-* `git add -h` : You can ask for the more concise “help” output with the `-h` option <sup>{1}</sup>
+* `git config status.submodulesummary 1` : If you set the configuration setting `status.submodulesummary`, Git will also show you a short summary of changes to your submodules <sup>{1}</sup>
+
+* `git config push.recurseSubmodules on-demand` : Git went into the `DbConnector` module and pushed it before pushing the main project. If that submodule push fails for some reason, the main project push will also fail. You can make this behavior the default by doing this <sup>{1}</sup>
+
+* `git config --global credential.helper cache` : You can choose one of these methods by setting a Git configuration value. <sup>{1}</sup>
+
+* `git config --global credential.helper 'store --file ~/.my-credentials'` : Some of these helpers have options. The “store” helper can take a `--file <path>` argument, which customizes where the plain-text file is saved (the default is `~/.git-credentials`). The “cache” helper accepts the `--timeout <seconds>` option, which changes the amount of time its daemon is kept running (the default is “900”, or 15 minutes). Here’s an example of how you’d configure the “store” helper with a custom file name <sup>{1}</sup>
+
+* `git config --global credential.helper 'read-only --file /mnt/shared/creds'` : Since its name starts with “git-”, we can use the simple syntax for the configuration value <sup>{1}</sup>
+
+## Basic Client Configuration
+
+* `man git-config` : If you want to see a list of all the options your version of Git recognizes, you can run <sup>{1}</sup>
+
+**core.editor**
+
+* `git config --global core.editor emacs` : By default, Git uses whatever you’ve set as your default text editor via one of the shell environment variables `VISUAL` or `EDITOR`, or else falls back to the `vi` editor to create and edit your commit and tag messages. To change that default to something else, you can use the `core.editor` setting <sup>{1}</sup>
+  * Now, no matter what is set as your default shell editor, Git will fire up Emacs to edit messages. <sup>{1}</sup>
+
+**commit.template**
+
+* If you set this to the path of a file on your system, Git will use that file as the default initial message when you commit. The value in creating a custom commit template is that you can use it to remind yourself (or others) of the proper format and style when creating a commit message. <sup>{1}</sup>
+
+* For instance, consider a template file at `~/.gitmessage.txt` that looks like this: <sup>{1}</sup>
+```shell
+Subject line (try to keep under 50 characters)
+
+Multi-line description of commit,
+feel free to be detailed.
+
+[Ticket: X]
+```
+
+* Note how this commit template reminds the committer to keep the subject line short (for the sake of `git log --oneline` output), to add further detail under that, and to refer to an issue or bug tracker ticket number if one exists. <sup>{1}</sup>
+
+* To tell Git to use it as the default message that appears in your editor when you run git commit, set the commit.template configuration value: <sup>{1}</sup>
+```shell
+$ git config --global commit.template ~/.gitmessage.txt
+$ git commit
+```
+
+* Then, your editor will open to something like this for your placeholder commit message when you commit: <sup>{1}</sup>
+```shell
+Subject line (try to keep under 50 characters)
+
+Multi-line description of commit,
+feel free to be detailed.
+
+[Ticket: X]
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+# modified:   lib/test.rb
+#
+~
+~
+".git/COMMIT_EDITMSG" 14L, 297C
+```
+
+* If your team has a commit-message policy, then putting a template for that policy on your system and configuring Git to use it by default can help increase the chance of that policy being followed regularly. <sup>{1}</sup>
+
+**core.pager**
+
+* `git config --global core.pager ''` : This setting determines which pager is used when Git pages output such as `log` and `diff`. You can set it to `more` or to your favorite pager (by default, it’s `less`), or you can turn it off by setting it to a blank string <sup>{1}</sup>
+  * If you run that, Git will print the entire output of all commands, no matter how long they are. <sup>{1}</sup>
+
+**user.signingkey**
+
+* `git config --global user.signingkey <gpg-key-id>` : If you’re making signed annotated tags (as discussed in Signing Your Work), setting your GPG signing key as a configuration setting makes things easier. Set your key ID like so <sup>{1}</sup>
+
+* `git tag -s <tag-name>` : Now, you can sign tags without having to specify your key every time with the `git tag` command <sup>{1}</sup>
+
+**core.excludesfile**
+
+* You can put patterns in your project’s `.gitignore` file to have Git not see them as untracked files or try to stage them when you run `git add` on them, as discussed in Ignoring Files. <sup>{1}</sup>
+
+* But sometimes you want to ignore certain files for all repositories that you work with. If your computer is running macOS, you’re probably familiar with `.DS_Store` files. If your preferred editor is Emacs or Vim, you know about filenames that end with a `~` or `.swp`. <sup>{1}</sup>
+
+* This setting lets you write a kind of global `.gitignore` file. If you create a `~/.gitignore_global` file with these contents: <sup>{1}</sup>
+```shell
+*~
+.*.swp
+.DS_Store
+```
+
+* `git config --global core.excludesfile ~/.gitignore_global` : …and you run this , Git will never again bother you about those files. <sup>{1}</sup>
+
+**help.autocorrect**
+
+* If you mistype a command, it shows you something like this: <sup>{1}</sup>
+```shell
+$ git chekcout master
+git: 'chekcout' is not a git command. See 'git --help'.
+
+The most similar command is
+    checkout
+```
+
+* Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set `help.autocorrect` to 1, Git will actually run this command for you: <sup>{1}</sup>
+```shell
+$ git chekcout master
+WARNING: You called a Git command named 'chekcout', which does not exist.
+Continuing under the assumption that you meant 'checkout'
+in 0.1 seconds automatically...
+```
+
+* Note that “0.1 seconds” business. `help.autocorrect` is actually an integer which represents tenths of a second. So if you set it to 50, Git will give you 5 seconds to change your mind before executing the autocorrected command. <sup>{1}</sup>
+
+**Colors in Git**
+
+* Git fully supports colored terminal output, which greatly aids in visually parsing command output quickly and easily. A number of options can help you set the coloring to your preference. <sup>{1}</sup>
+
+**color.ui**
+
+* Git automatically colors most of its output, but there’s a master switch if you don’t like this behavior. <sup>{1}</sup>
+
+* `git config --global color.ui false` : To turn off all Git’s colored terminal output, do this <sup>{1}</sup>
+
+* The default setting is `auto`, which colors output when it’s going straight to a terminal, but omits the color-control codes when the output is redirected to a pipe or a file. <sup>{1}</sup>
+
+* You can also set it to `always` to ignore the difference between terminals and pipes. You’ll rarely want this; in most scenarios, if you want color codes in your redirected output, you can instead pass a `--color` flag to the Git command to force it to use color codes. The default setting is almost always what you’ll want. <sup>{1}</sup>
+
+**color.\***
+
+* If you want to be more specific about which commands are colored and how, Git provides verb-specific coloring settings. Each of these can be set to true, false, or always: <sup>{1}</sup>
+```shell
+color.branch
+color.diff
+color.interactive
+color.status
+```
+
+* `git config --global color.diff.meta "blue black bold"` : In addition, each of these has subsettings you can use to set specific colors for parts of the output, if you want to override each color. For example, to set the meta information in your diff output to blue foreground, black background, and bold text, you can run this <sup>{1}</sup>
+
+* You can set the color to any of the following values: `normal`, `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, or `white`. If you want an attribute like bold in the previous example, you can choose from `bold`, `dim`, `ul` (underline), `blink`, and `reverse` (swap foreground and background). <sup>{1}</sup>
+
+**External Merge and Diff Tools**
+
+* Now you can set up your config file to use your custom merge resolution and diff tools. So, you can either run four config commands: <sup>{1}</sup>
+```shell
+$ git config --global merge.tool extMerge
+$ git config --global mergetool.extMerge.cmd \
+  'extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
+$ git config --global mergetool.extMerge.trustExitCode false
+$ git config --global diff.external extDiff
+```
+
+* or you can edit your ~/.gitconfig file to add these lines:
+```shell
+[merge]
+  tool = extMerge
+[mergetool "extMerge"]
+  cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  trustExitCode = false
+[diff]
+  external = extDiff
+```
+
+* `git diff 32d1776b1^ 32d1776b1` : After all this is set, if you run diff commands such as this. Instead of getting the diff output on the command line, Git fires up P4Merge, which looks something like this. <sup>{1}</sup>
+
+* Git comes preset to use a number of other merge-resolution tools without your having to set up the cmd configuration. To see a list of the tools it supports, try this: <sup>{1}</sup>
+```shell
+$ git mergetool --tool-help
+'git mergetool --tool=<tool>' may be set to one of the following:
+        emerge
+        gvimdiff
+        gvimdiff2
+        opendiff
+        p4merge
+        vimdiff
+        vimdiff2
+
+The following tools are valid, but not currently available:
+        araxis
+        bc3
+        codecompare
+        deltawalker
+        diffmerge
+        diffuse
+        ecmerge
+        kdiff3
+        meld
+        tkdiff
+        tortoisemerge
+        xxdiff
+
+Some of the tools listed above only work in a windowed
+environment. If run in a terminal-only session, they will fail.
+```
+
+* `git config --global merge.tool kdiff3` : If you’re not interested in using KDiff3 for diff but rather want to use it just for merge resolution, and the kdiff3 command is in your path, then you can run this. If you run this instead of setting up the `extMerge` and `extDiff` files, Git will use KDiff3 for merge resolution and the normal Git diff tool for diffs. <sup>{1}</sup>
+
+**Formatting and Whitespace**
+
+* Formatting and whitespace issues are some of the more frustrating and subtle problems that many developers encounter when collaborating, especially cross-platform. It’s very easy for patches or other collaborated work to introduce subtle whitespace changes because editors silently introduce them, and if your files ever touch a Windows system, their line endings might be replaced. Git has a few configuration options to help with these issues. <sup>{1}</sup>
+
+**core.autocrlf**
+
+* If you’re programming on Windows and working with people who are not (or vice-versa), you’ll probably run into line-ending issues at some point. This is because Windows uses both a carriage-return character and a linefeed character for newlines in its files, whereas macOS and Linux systems use only the linefeed character. This is a subtle but incredibly annoying fact of cross-platform work; many editors on Windows silently replace existing LF-style line endings with CRLF, or insert both line-ending characters when the user hits the enter key. <sup>{1}</sup>
+
+* `git config --global core.autocrlf true` : Git can handle this by auto-converting CRLF line endings into LF when you add a file to the index, and vice versa when it checks out code onto your filesystem. You can turn on this functionality with the `core.autocrlf` setting. If you’re on a Windows machine, set it to `true`—this converts LF endings into CRLF when you check out code <sup>{1}</sup>
+
+* `git config --global core.autocrlf input` : If you’re on a Linux or macOS system that uses LF line endings, then you don’t want Git to automatically convert them when you check out files; however, if a file with CRLF endings accidentally gets introduced, then you may want Git to fix it. You can tell Git to convert CRLF to LF on commit but not the other way around by setting `core.autocrlf` to `input`
+  * This setup should leave you with CRLF endings in Windows checkouts, but LF endings on macOS and Linux systems and in the repository. <sup>{1}</sup>
+
+* `git config --global core.autocrlf false` : If you’re a Windows programmer doing a Windows-only project, then you can turn off this functionality, recording the carriage returns in the repository by setting the config value to `false` <sup>{1}</sup>
+
+**core.whitespace**
+
+* Git comes preset to detect and fix some whitespace issues. It can look for six primary whitespace issues—three are enabled by default and can be turned off, and three are disabled by default but can be activated. <sup>{1}</sup>
+
+* The three that are turned on by default are `blank-at-eol`, which looks for spaces at the end of a line; `blank-at-eof`, which notices blank lines at the end of a file; and `space-before-tab`, which looks for spaces before tabs at the beginning of a line. <sup>{1}</sup>
+
+* The three that are disabled by default but can be turned on are `indent-with-non-tab`, which looks for lines that begin with spaces instead of tabs (and is controlled by the `tabwidth` option); `tab-in-indent`, which watches for tabs in the indentation portion of a line; and `cr-at-eol`, which tells Git that carriage returns at the end of lines are OK. <sup>{1}</sup>
+
+* `git config --global core.whitespace \
+    trailing-space,-space-before-tab,indent-with-non-tab,tab-in-indent,cr-at-eol` : You can tell Git which of these you want enabled by setting `core.whitespace` to the values you want on or off, separated by commas. You can disable an option by prepending a `-` in front of its name, or use the default value by leaving it out of the setting string entirely. For example, if you want all but `space-before-tab` to be set, you can do this (with `trailing-space` being a short-hand to cover both `blank-at-eol` and `blank-at-eof`) <sup>{1}</sup>
+
+  * `git config --global core.whitespace \
+    -space-before-tab,indent-with-non-tab,tab-in-indent,cr-at-eol` : Or you can specify the customizing part only <sup>{1}</sup>
+
+* `git apply --whitespace=warn <patch>` : Git will detect these issues when you run a `git diff` command and try to color them so you can possibly fix them before you commit. It will also use these values to help you when you apply patches with `git apply`. When you’re applying patches, you can ask Git to warn you if it’s applying patches with the specified whitespace issues <sup>{1}</sup>
+
+* `git apply --whitespace=fix <patch>` : Or you can have Git try to automatically fix the issue before applying the patch <sup>{1}</sup>
+
+* `git rebase --whitespace=fix` : These options apply to the git rebase command as well. If you’ve committed whitespace issues but haven’t yet pushed upstream, you can run this to have Git automatically fix whitespace issues as it’s rewriting the patches. <sup>{1}</sup>
+
+**Server Configuration**
+
+* `receive.fsckObjects`
+* `receive.denyNonFastForwards`
+* `receive.denyDeletes`
+
+## credential
+
+* Here’s what a `.gitconfig` would look like if you had a credentials file on a thumb drive, but wanted to use the in-memory cache to save some typing if the drive isn’t plugged in: <sup>{1}</sup>
+```shell
+[credential]
+    helper = store --file /mnt/thumbdrive/.git-credentials
+    helper = cache --timeout 30000
+```
+
+* Here’s the same example from above, but skipping git-credential and going straight for git-credential-store: <sup>{1}</sup>
+  * `git credential-store --file ~/git.store store`
+  * `git credential-store --file ~/git.store get`
+
+* `git credential-read-only --file=/mnt/shared/creds get` : We’ll save our helper as `git-credential-read-only`, put it somewhere in our `PATH` and mark it executable. Here’s what an interactive session looks like <sup>{1}</sup>
 
 ## alias
 
@@ -162,6 +611,14 @@ $ git config --global alias.st status
   * `git last`
 
 * `git config --global alias.visual '!gitk'` : Git simply replaces the new command with whatever you alias it for. However, maybe you want to run an external command, rather than a Git subcommand. In that case, you start the command with a `!` character. This is useful if you write your own tools that work with a Git repository. We can demonstrate by aliasing `git visual` to run `gitk` <sup>{1}</sup>
+
+* You may want to set up some aliases for some of these commands as they can be quite long and you can’t set configuration options for most of them to make them defaults. We covered setting up Git aliases in Git Aliases, but here is an example of what you may want to set up if you plan on working with submodules in Git a lot. <sup>{1}</sup>
+```shell
+$ git config alias.sdiff '!'"git diff && git submodule foreach 'git diff'"
+$ git config alias.spush 'push --recurse-submodules=on-demand'
+$ git config alias.supdate 'submodule update --remote --merge'
+```
+  * This way you can simply run `git supdate` when you want to update your submodules, or `git spush` to push with submodule dependency checking. <sup>{1}</sup>
 
 ## init
 
@@ -188,6 +645,8 @@ $ git config --global alias.st status
 
 * `git clone ssh://[user@]server/project.git` : To clone a Git repository over SSH, you can specify an `ssh://` URL like this <sup>{1}</sup>
   * `git clone [user@]server:project.git` : Or you can use the shorter scp-like syntax for the SSH protocol <sup>{1}</sup>
+
+* `git clone repo.bundle repo` : On the other side, say you are sent this repo.bundle file and want to work on the project. You can clone from the binary file into a directory, much like you would from a URL. <sup>{1}</sup>
 
 ## add
 
@@ -472,6 +931,8 @@ What now> 1
 
 * `git checkout -b version2 v2.0.0` : In “detached HEAD” state, if you make changes and then create a commit, the tag will stay the same, but your new commit won’t belong to any branch and will be unreachable, except by the exact commit hash. Thus, if you need to make changes—say you’re fixing a bug on an older version, for instance—you will generally want to create a branch <sup>{1}</sup>
 
+* `git checkout --recurse-submodules master` : Using the `--recurse-submodules` flag of `git checkout` can also be useful when you work on several branches in the superproject, each having your submodule pointing at different commits. Indeed, if you switch between branches that record the submodule at different commits, upon executing `git status` the submodule will appear as “modified”, and indicate “new commits”. That is because the submodule state is by default not carried over when switching branches. <sup>{1}</sup>
+
 ## switch
 
 * From Git version 2.23 onwards you can use `git switch` instead of `git checkout` to: <sup>{1}</sup>
@@ -526,6 +987,34 @@ What now> 1
   ```
 
 * `git merge origin/serverfix` : To merge this work into your current working branch, you can run this <sup>{1}</sup>
+
+* `git merge --abort` : If you perhaps weren’t expecting conflicts and don’t want to quite deal with the situation yet, you can simply back out of the merge with this. <sup>{1}</sup>
+
+* `git merge -Xignore-space-change whitespace` : If you see that you have a lot of whitespace issues in a merge, you can simply abort it and do it again, this time with `-Xignore-all-space` or `-Xignore-space-change`. The first option ignores whitespace completely when comparing lines, the second treats sequences of one or more whitespace characters as equivalent. <sup>{1}</sup>
+
+* You can extract a copy of each of these versions of the conflicted file with the git show command and a special syntax. <sup>{1}</sup>
+```shell
+$ git show :1:hello.rb > hello.common.rb
+$ git show :2:hello.rb > hello.ours.rb
+$ git show :3:hello.rb > hello.theirs.rb
+```
+  * If you want to get a little more hard core, you can also use the `ls-files -u` plumbing command to get the actual SHA-1s of the Git blobs for each of these files. <sup>{1}</sup>
+  ```shell
+  $ git ls-files -u
+  100755 ac51efdc3df4f4fd328d1a02ad05331d8e2c9111 1 hello.rb
+  100755 36c06c8752c78d2aff89571132f3bf7841a7b5c3 2 hello.rb
+  100755 e85207e04dfdd5eb0a1e9febbc67fd837c44a1cd 3 hello.rb
+  ```
+
+* Now that we have the content of all three stages in our working directory, we can manually fix up theirs to fix the whitespace issue and re-merge the file with the little-known `git merge-file` command which does just that. <sup>{1}</sup>
+  * `dos2unix hello.theirs.rb`
+  * `git merge-file -p \
+    hello.ours.rb hello.common.rb hello.theirs.rb > hello.rb`
+  * `git diff -b`
+
+* `git rerere status` : `git rerere` will also tell you what it has recorded the pre-merge state for with <sup>{1}</sup>
+
+* `git rerere diff` : This will show the current state of the resolution—what you started with to resolve and what you’ve resolved it to. <sup>{1}</sup>
 
 ## mergetool
 
@@ -638,6 +1127,11 @@ Saved working directory and index state WIP on master: 1b65b17 added the index f
 
 * `git push -u origin featureA` : Pushes `featureA` branch commits up to the server, with upstream tracking. <sup>{1}</sup>
 
+* `git push --recurse-submodules=check` : You can ask Git to check that all your submodules have been pushed properly before pushing the main project. The `git push` command takes the `--recurse-submodules` argument which can be set to either “check” or “on-demand”. The “check” option will make `push` simply fail if any of the committed submodule changes haven’t been pushed. <sup>{1}</sup>
+
+* `git push --recurse-submodules=on-demand` : Git went into the `DbConnector` module and pushed it before pushing the main project. If that submodule push fails for some reason, the main project push will also fail. You can make this behavior the default by doing  <sup>{1}</sup>
+  * `git config push.recurseSubmodules on-demand`. <sup>{1}</sup>
+
 ## remote
 
 * `git remote -v` : You can also specify `-v`, which shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote <sup>{1}</sup>
@@ -651,6 +1145,84 @@ Saved working directory and index state WIP on master: 1b65b17 added the index f
 * `git remote remove paul` : If you want to remove a remote for some reason—you’ve moved the server or are no longer using a particular mirror, or perhaps a contributor isn’t contributing anymore—you can either use `git remote remove` or `git remote rm` <sup>{1}</sup>
 
 ## submodule
+
+* Notes
+  * It’s important to note that submodules these days keep all their Git data in the top project’s .git directory, so unlike much older versions of Git, destroying a submodule directory won’t lose any commits or branches that you had. <sup>{1}</sup>
+
+  * With these tools, submodules can be a fairly simple and effective method for developing on several related but still separate projects simultaneously. <sup>{1}</sup>
+
+* `git submodule add https://github.com/chaconinc/DbConnector` : To add a new submodule you use the `git submodule add` command with the absolute or relative URL of the project you would like to start tracking. In this example, we’ll add a library called “DbConnector”. <sup>{1}</sup>
+
+* First you should notice the new `.gitmodules` file. This is a configuration file that stores the mapping between the project’s URL and the local subdirectory you’ve pulled it into: <sup>{1}</sup>
+```shell
+[submodule "DbConnector"]
+  path = DbConnector
+  url = https://github.com/chaconinc/DbConnector
+```
+
+* Cloning a Project with Submodules <sup>{1}</sup>
+
+  * `git clone https://github.com/chaconinc/MainProject` : Here we’ll clone a project with a submodule in it. When you clone such a project, by default you get the directories that contain submodules, but none of the files within them yet <sup>{1}</sup>
+  
+  * `git submodule init` : The DbConnector directory is there, but empty. You must run two commands from the main project: `git submodule init` to initialize your local configuration file, and `git submodule update` to fetch all the data from that project and check out the appropriate commit listed in your superproject <sup>{1}</sup>
+  
+  * `git clone --recurse-submodules https://github.com/chaconinc/MainProject` : There is another way to do this which is a little simpler, however. If you pass `--recurse-submodules` to the `git clone` command, it will automatically initialize and update each submodule in the repository, including nested submodules if any of the submodules in the repository have submodules themselves. <sup>{1}</sup>
+
+* `git submodule update --remote DbConnector` : If you prefer to not manually fetch and merge in the subdirectory. If you run `git submodule update --remote`, Git will go into your submodules and fetch and update for you. <sup>{1}</sup>
+
+* `git submodule update --init --recursive` : By default, the `git pull` command recursively fetches submodules changes, as we can see in the output of the first command above. However, it does not update the submodules. This is shown by the output of the `git status` command, which shows the submodule is “modified”, and has “new commits”. What’s more, the brackets showing the new commits point left (<), indicating that these commits are recorded in MainProject but are not present in the local `DbConnector` checkout. To finalize the update, you need to run `git submodule update` <sup>{1}</sup>
+
+* `git submodule sync --recursive` OR `git submodule update --init --recursive` : There is a special situation that can happen when pulling superproject updates: it could be that the upstream repository has changed the URL of the submodule in the `.gitmodules` file in one of the commits you pull. This can happen for example if the submodule project changes its hosting platform. In that case, it is possible for `git pull --recurse-submodules`, or `git submodule update`, to fail if the superproject references a submodule commit that is not found in the submodule remote locally configured in your repository. In order to remedy this situation, the `git submodule sync command` is required <sup>{1}</sup>
+  * `git submodule sync --recursive` : copy the new URL to your local config <sup>{1}</sup>
+  * `git submodule update --init --recursive` : update the submodule from the new URL <sup>{1}</sup>
+
+* `git submodule update --remote --merge` : Let’s try updating our submodule with the “merge” option. To specify it manually, we can just add the `--merge` option to our `update` call. Here we’ll see that there was a change on the server for this submodule and it gets merged in. <sup>{1}</sup>
+
+* `git submodule update --remote --rebase` : Now if we update our submodule we can see what happens when we have made a local change and upstream also has a change we need to incorporate. <sup>{1}</sup>
+  * `git submodule update --remote` : If you forget the `--rebase` or `--merge`, Git will just update the submodule to whatever is on the server and reset your project to a detached HEAD state. <sup>{1}</sup>
+
+* `git submodule update --remote` : If you haven’t committed your changes in your submodule and you run a `submodule update` that would cause issues, Git will fetch the changes but not overwrite unsaved work in your submodule directory. <sup>{1}</sup>
+
+* `git submodule update --remote --merge` : If you made changes that conflict with something changed upstream, Git will let you know when you run the update. <sup>{1}</sup>
+
+* `git submodule foreach 'git stash'` : There is a `foreach` submodule command to run some arbitrary command in each submodule. This can be really helpful if you have a number of submodules in the same project. For example, let’s say we want to start a new feature or do a bugfix and we have work going on in several submodules. We can easily stash all the work in all our submodules. <sup>{1}</sup>
+  * `git submodule foreach 'git checkout -b featureA'` : Then we can create a new branch and switch to it in all our submodules. <sup>{1}</sup>
+  * `git diff; git submodule foreach 'git diff'` : You get the idea. One really useful thing you can do is produce a nice unified diff of what is changed in your main project and all your subprojects as well. <sup>{1}</sup>
+
+* Switching from subdirectories to submodules <sup>{1}</sup>
+
+  * The other main caveat that many people run into involves switching from subdirectories to submodules. If you’ve been tracking files in your project and you want to move them out into a submodule, you must be careful or Git will get angry at you. Assume that you have files in a subdirectory of your project, and you want to switch it to a submodule. If you delete the subdirectory and then run `submodule add`, Git yells at you: <sup>{1}</sup>
+  ```shell
+  $ rm -Rf CryptoLibrary/
+  $ git submodule add https://github.com/chaconinc/CryptoLibrary
+  'CryptoLibrary' already exists in the index
+  ```
+
+  * You have to unstage the `CryptoLibrary` directory first. Then you can add the submodule: <sup>{1}</sup>
+  ```shell
+  $ git rm -r CryptoLibrary
+  $ git submodule add https://github.com/chaconinc/CryptoLibrary
+  ```
+
+  * Now suppose you did that in a branch. If you try to switch back to a branch where those files are still in the actual tree rather than a submodule — you get this error: <sup>{1}</sup>
+  ```shell
+  $ git checkout master
+  error: The following untracked working tree files would be overwritten by checkout:
+    CryptoLibrary/Makefile
+    CryptoLibrary/includes/crypto.h
+    ...
+  Please move or remove them before you can switch branches.
+  Aborting
+  ```
+
+  * You can force it to switch with checkout -f, but be careful that you don’t have unsaved changes in there as they could be overwritten with that command. <sup>{1}</sup>
+  ```shell
+  $ git checkout -f master
+  warning: unable to rmdir CryptoLibrary: Directory not empty
+  Switched to branch 'master'
+  ```
+
+  * Then, when you switch back, you get an empty `CryptoLibrary` directory for some reason and `git submodule update` may not fix it either. You may need to go into your submodule directory and run a `git checkout .` to get all your files back. You could run this in a `submodule foreach` script to run it for multiple submodules. <sup>{1}</sup>
 
 ## show
 
@@ -765,6 +1337,10 @@ Saved working directory and index state WIP on master: 1b65b17 added the index f
 * `git log -L :git_deflate_bound:zlib.c` : If we wanted to see every change made to the function `git_deflate_bound` in the `zlib.c` file, we could run this. This will try to figure out what the bounds of that function are and then look through the history and show us every change that was made to the function as a series of patches back to when the function was first created. <sup>{1}</sup>
   * If Git can’t figure out how to match a function or method in your programming language, you can also provide it with a regular expression (or regex). For example, this would have done the same thing as the example above: `git log -L '/unsigned long git_deflate_bound/',/^}/:zlib.c`. You could also give it a range of lines or a single line number and you’ll get the same sort of output. <sup>{1}</sup>
 
+* `git log --pretty=format:'%h %s' --graph` : Look at the history of your project <sup>{1}</sup>
+
+* `git log -p --submodule` : This is pretty cool as we can actually see the log of commits that we’re about to commit to in our submodule. Once committed, you can see this information after the fact as well when you run `git log -p`. <sup>{1}</sup>
+
 ## diff
 
 * `git diff` : To see what you’ve changed but not yet staged, type this with no other arguments <sup>{1}</sup>
@@ -779,7 +1355,19 @@ Saved working directory and index state WIP on master: 1b65b17 added the index f
 
 * `git diff master...contrib` : The triple-dot syntax, This command shows you only the work your current topic branch has introduced since its common ancestor with `master`. <sup>{1}</sup>
 
-* `git log --pretty=format:'%h %s' --graph` : Look at the history of your project <sup>{1}</sup>
+* `git diff --ours` : To compare your result to what you had in your branch before the merge, in other words, to see what the merge introduced, you can run this <sup>{1}</sup>
+
+* `git diff --theirs -b` : If we want to see how the result of the merge differed from what was on their side, you can run this. In this and the following example, we have to use `-b` to strip out the whitespace because we’re comparing it to what is in Git. <sup>{1}</sup>
+
+* `git diff --base -b` : You can see how the file has changed from both sides during merge conflict with this <sup>{1}</sup>
+
+* `git diff-tree -p rack_branch` : Another slightly weird thing is that to get a diff between what you have in your `rack` subdirectory and the code in your `rack_branch` branch—to see if you need to merge them—you can’t use the normal `diff` command. Instead, you must run `git diff-tree` with the branch you want to compare to <sup>{1}</sup>
+
+* `git diff-tree -p rack_remote/master` : To compare what is in your rack subdirectory with what the master branch on the server was the last time you fetched, you can run this <sup>{1}</sup>
+
+* `git diff --cached DbConnector` : The other listing in the `git status` output is the project folder entry. If you run `git diff` on that, you see something interesting <sup>{1}</sup>
+
+* `git diff --cached --submodule` : If you want a little nicer diff output, you can pass the `--submodule` option to `git diff`. <sup>{1}</sup>
 
 ## difftool
 
@@ -830,17 +1418,17 @@ Saved working directory and index state WIP on master: 1b65b17 added the index f
   * Running this command gives you a list of commits in your text editor
   * It’s important to note that these commits are listed in the opposite order than you normally see them using the `log` command. If you run a `log`, you see something like this:
     * `git log --pretty=format:"%h %s" HEAD~3..HEAD`
-```shell
-$ git rebase -i HEAD~3
-Stopped at f7f3f6d... Change my name a bit
-You can amend the commit now, with
+  ```shell
+  $ git rebase -i HEAD~3
+  Stopped at f7f3f6d... Change my name a bit
+  You can amend the commit now, with
+  
+         git commit --amend
 
-       git commit --amend
-
-Once you're satisfied with your changes, run
-
-       git rebase --continue
-```
+  Once you're satisfied with your changes, run
+  
+         git rebase --continue
+  ```
   * These instructions tell you exactly what to do. Type: `git commit --amend`
   * Change the commit message, and exit the editor. Then, run: `git rebase --continue`
   * This command will apply the other two commits automatically, and then you’re done. If you change `pick` to `edit` on more lines, you can repeat these steps for each commit you change to `edit`. Each time, Git will stop, let you amend the commit, and continue when you’re finished.
@@ -849,7 +1437,18 @@ Once you're satisfied with your changes, run
 
 ## bisect
 
+* `git bisect start` : First you run `git bisect start` to get things going, and then you use `git bisect bad` to tell the system that the current commit you’re on is broken. Then, you must tell bisect when the last known good state was, using `git bisect good <good_commit>` <sup>{1}</sup>
+  * `git bisect start HEAD v1.0`
+
+* `git bisect reset` : When you’re finished, you should run this to reset your HEAD to where you were before you started, or you’ll end up in a weird state <sup>{1}</sup>
+
+* `git bisect run test-error.sh` : Doing so automatically runs `test-error.sh` on each checked-out commit until Git finds the first broken commit. You can also run something like `make` or `make tests` or whatever you have that runs automated tests for you. <sup>{1}</sup>
+
 ## blame
+
+* `git blame -L 69,82 Makefile` : The following example uses `git blame` to determine which commit and committer was responsible for lines in the top-level Linux kernel `Makefile` and, further, uses the `-L` option to restrict the output of the annotation to lines 69 through 82 of that file <sup>{1}</sup>
+
+* `git blame -C -L 141,153 GITPackUpload.m` : You are refactoring a file named `GITServerHandler.m` into multiple files, one of which is `GITPackUpload.m`. By blaming `GITPackUpload.m` with the `-C` option, you can see where sections of the code originally came from <sup>{1}</sup>
 
 ## grep
 
@@ -885,6 +1484,68 @@ Once you're satisfied with your changes, run
 
 ## svn
 
+**Git and Subversion**
+
+* `git svn clone file:///tmp/test-svn -T trunk -b branches -t tags` : Now that you have a Subversion repository to which you have write access, you can go through a typical workflow. You’ll start with the `git svn clone` command, which imports an entire Subversion repository into a local Git repository. Remember that if you’re importing from a real hosted Subversion repository, you should replace the `file:///tmp/test-svn` here with the URL of your Subversion repository <sup>{1}</sup>
+
+* `git svn dcommit` : Next, you need to push your change upstream. Notice how this changes the way you work with Subversion – you can do several commits offline and then push them all at once to the Subversion server. To push to a Subversion server, you run this command <sup>{1}</sup>
+
+* `git svn rebase` : To resolve this (conflict) situation, you can run `git svn rebase`, which pulls down any changes on the server that you don’t have yet and rebases any work you have on top of what is on the server <sup>{1}</sup>
+
+* `git svn log` : If you’re used to Subversion and want to see your history in SVN output style, you can run this to view your commit history in SVN formatting <sup>{1}</sup>
+
+* `git svn blame README.txt` : Much as the `git svn log` command simulates the `svn log` command offline, you can get the equivalent of `svn annotate` by running `git svn blame [FILE]`. The output looks like this <sup>{1}</sup>
+
+* `git svn info` : You can also get the same sort of information that `svn info` gives you by running this <sup>{1}</sup>
+
+* `git svn show-ignore > .git/info/exclude` : The second command is `git svn show-ignore`, which prints to stdout the lines you need to put in a `.gitignore` file so you can redirect the output into your project exclude file <sup>{1}</sup>
+  * That way, you don’t litter the project with `.gitignore` files. This is a good option if you’re the only Git user on a Subversion team, and your teammates don’t want `.gitignore` files in the project. <sup>{1}</sup>
+
+**Git and Mercurial**
+
+* `hg clone http://selenic.com/repo/hello /tmp/hello` : All you need is a Mercurial repository you can push to. Fortunately, every Mercurial repository can act this way, so we’ll just use the "hello world" repository everyone uses to learn Mercurial. <sup>{1}</sup>
+
+* `git clone hg::/tmp/hello /tmp/hello-git` : As you’ll see, these two systems are similar enough that there isn’t much friction. As always with Git, first we clone <sup>{1}</sup>
+
+* `cp .hgignore .git/info/exclude` : There’s one more thing we should attend to before we continue: ignores. Mercurial and Git use a very similar mechanism for this, but it’s likely you don’t want to actually commit a `.gitignore` file into a Mercurial repository. Fortunately, Git has a way to ignore files that’s local to an on-disk repository, and the Mercurial format is compatible with Git, so you just have to copy it over <sup>{1}</sup>
+
+* `hg log -G --style compact` : That’s it! If you take a look at the Mercurial repository, you’ll see that this did what we’d expect <sup>{1}</sup>
+
+* `hg log -l 1` : Mercurial’s concept of a “branch” is more heavyweight. The branch that a changeset is made on is recorded with the changeset, which means it will always be in the repository history. Here’s an example of a commit that was made on the `develop` branch <sup>{1}</sup>
+
+* Note the line that begins with “branch”. Git can’t really replicate this (and doesn’t need to; both types of branch can be represented as a Git ref), but git-remote-hg needs to understand the difference, because Mercurial cares. <sup>{1}</sup>
+  * `git checkout -b featureA` : Creating Mercurial bookmarks is as easy as creating Git branches. On the Git side <sup>{1}</sup>
+  * `hg bookmarks` : That’s all there is to it. On the Mercurial side, it looks like this <sup>{1}</sup>
+
+* `hg branches` : Shows Mercurial banch list <sup>{1}</sup>
+
+**Git and Perforce**
+
+* Perforce provides a product called Git Fusion (available at https://www.perforce.com/manuals/git-fusion/), which synchronizes a Perforce server with Git repositories on the server side. <sup>{1}</sup>
+
+* You should take note of the IP address that’s shown here, we’ll be using it later on. Next, we’ll create a Perforce user. Select the “Login” option at the bottom and press enter (or SSH to the machine), and log in as root. Then use these commands to create a user: <sup>{1}</sup>
+```shell
+$ p4 -p localhost:1666 -u super user -f john
+$ p4 -p localhost:1666 -u john passwd
+$ exit
+```
+
+* `git p4 clone //depot/www/live www-shallow` : As with anything in Git, the first command is to clone <sup>{1}</sup>
+
+* `git p4 sync` : We’ve made two new commits that we’re ready to submit to the Perforce server. Let’s check if anyone else was working today <sup>{1}</sup>
+
+* `git p4 rebase` : Looks like they were, and `master` and `p4/master` have diverged. Perforce’s branching system is nothing like Git’s, so submitting merge commits doesn’t make any sense. Git-p4 recommends that you rebase your commits, and even comes with a shortcut to do so <sup>{1}</sup>
+
+* `git p4 submit` : The result is as though we just did a `git push`, which is the closest analogy to what actually did happen. <sup>{1}</sup>
+
+* `git p4 submit -n` : The `-n` flag is short for `--dry-run`, which tries to report what would happen if the submit command were run for real. <sup>{1}</sup>
+
+* `git p4 clone --detect-branches //depot/project@all` : Note the “@all” specifier in the depot path; that tells git-p4 to clone not just the latest changeset for that subtree, but all changesets that have ever touched those paths. This is closer to Git’s concept of a clone, but if you’re working on a project with a long history, it could take a while. <sup>{1}</sup>
+
+  * The `--detect-branches` flag tells git-p4 to use Perforce’s branch specs to map the branches to Git refs. If these mappings aren’t present on the Perforce server (which is a perfectly valid way to use Perforce), you can tell git-p4 what the branch mappings are, and you get the same result: <sup>{1}</sup>
+    * `git config git-p4.branchList main:dev`
+    * `git clone --detect-branches //depot/project@all .`
+
 ## fast-import
 
 ## clean
@@ -914,7 +1575,13 @@ What now>
 
 ## gc
 
+* `git gc` : The initial format in which Git saves objects on disk is called a “loose” object format. However, occasionally Git packs up several of these objects into a single binary file called a “packfile” in order to save space and be more efficient. Git does this if you have too many loose objects around, if you run the `git gc` command manually, or if you push to a remote server. To see what happens, you can manually ask Git to pack up the objects by calling the `git gc` command <sup>{1}</sup>
+
+* `git gc --auto` : Occasionally, Git automatically runs a command called “auto gc”. Most of the time, this command does nothing. However, if there are too many loose objects (objects not in a packfile) or too many packfiles, Git launches a full-fledged git gc command. The “gc” stands for garbage collect, and the command does a number of things: it gathers up all the loose objects and places them in packfiles, it consolidates packfiles into one big packfile, and it removes objects that aren’t reachable from any commit and are a few months old. You can run `auto gc` manually as follows <sup>{1}</sup>
+
 ## fsck
+
+* `git fsck --full` : Because the reflog data is kept in the `.git/logs/` directory, you effectively have no reflog. How can you recover that commit at this point? One way is to use the `git fsck` utility, which checks your database for integrity. If you run it with the `--full` option, it shows you all objects that aren’t pointed to by another object <sup>{1}</sup>
 
 ## reflog
 
@@ -943,6 +1610,9 @@ git filter-branch --commit-filter '
         fi' HEAD
 ```
 
+* `git filter-branch --index-filter \
+  'git rm --ignore-unmatch --cached git.tgz' -- 7b30847^..` : You must rewrite all the commits downstream from `7b30847` to fully remove this file from your Git history. To do so, you use `filter-branch`, which you used in Rewriting History. The `--index-filter` option is similar to the `--tree-filter` option used in Rewriting History, except that instead of passing a command that modifies files checked out on disk, you’re modifying your staging area or index each time. <sup>{1}</sup>
+
 ## instaweb
 
 ## archive
@@ -953,13 +1623,39 @@ git filter-branch --commit-filter '
 
 ## bundle
 
+* `git bundle create repo.bundle HEAD master` : If you want to send that repository to someone and you don’t have access to a repository to push to, or simply don’t want to set one up, you can bundle it with this. Now you have a file named `repo.bundle` that has all the data needed to re-create the repository’s `master` branch. <sup>{1}</sup>
+
+* `git clone repo.bundle repo` : On the other side, say you are sent this repo.bundle file and want to work on the project. You can clone from the binary file into a directory, much like you would from a URL. <sup>{1}</sup>
+
+* `git bundle create commits.bundle master ^9a466c5` : So now that we have the list of commits we want to include in the bundle, let’s bundle them up. We do that with the `git bundle create` command, giving it a filename we want our bundle to be and the range of commits we want to go into it. Now we have a commits.bundle file in our directory <sup>{1}</sup>
+  * `git bundle verify ../commits.bundle` : When he gets the bundle, he can inspect it to see what it contains before she imports it into her repository. The first command is the bundle verify command that will make sure the file is actually a valid Git bundle and that you have all the necessary ancestors to reconstitute it properly. <sup>{1}</sup>
+
 ## daemon
 
 ## update-server-info
 
 ## cat-file
 
-* `git cat-file -p HEAD` : Shows details of `HEAD` pointer <sup>{1}</sup>
+* `git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4` : Once you have content in your object database, you can examine that content with the `git cat-file` command. This command is sort of a Swiss army knife for inspecting Git objects. Passing `-p` to `cat-file` instructs the command to first figure out the type of content, then display it appropriately <sup>{1}</sup>
+
+* `git cat-file -p HEAD` : Inspect/Shows details of `HEAD` pointer <sup>{1}</sup>
+
+* `git cat-file commit ca82a6` : You have to figure out how to get the commit message from each of these commits to test. To get the raw commit data, you can use another plumbing command called `git cat-file`. <sup>{1}</sup>
+
+* Now, you can add content to Git and pull it back out again. You can also do this with content in files. For example, you can do some simple version control on a file. First, create a new file and save its contents in your database: <sup>{1}</sup>
+```shell
+$ echo 'version 1' > test.txt
+$ git hash-object -w test.txt
+83baae61804e65cc73a7201a7252750c76066a30
+```
+
+* Let’s say you have a project where the most-recent tree looks something like this. The `master^{tree}` syntax specifies the tree object that is pointed to by the last commit on your `master` branch. <sup>{1}</sup>
+```shell
+$ git cat-file -p master^{tree}
+100644 blob a906cb2a4a904a152e80877d4088654daad0c859      README
+100644 blob 8f94139338f9404f26296befa88755fc2598c289      Rakefile
+040000 tree 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0      lib
+```
 
 ## check-ignore
 
@@ -967,13 +1663,19 @@ git filter-branch --commit-filter '
 
 ## commit-tree
 
+* `echo 'First commit' | git commit-tree d8329f` : To create a commit object, you call `commit-tree` and specify a single tree SHA-1 and which commit objects, if any, directly preceded it. Start with the first tree you wrote <sup>{1}</sup>
+
 ## count-objects
+
+* `git count-objects -v` : You can run the `count-objects` command to quickly see how much space you’re using <sup>{1}</sup>
 
 ## diff-index
 
 ## for-each-ref
 
 ## hash-object
+
+* `echo 'test content' | git hash-object -w --stdin` : In its simplest form, `git hash-object` would take the content you handed to it and merely return the unique key that would be used to store it in your Git database. The `-w` option then tells the command to not simply return the key, but to write that object to the database. Finally, the `--stdin` option tells `git hash-object` to get the content to be processed from stdin; otherwise, the command would expect a filename argument at the end of the command containing the content to be used. <sup>{1}</sup>
 
 ## ls-files
 
@@ -994,7 +1696,13 @@ git filter-branch --commit-filter '
 
 ## read-tree
 
+* `git read-tree --prefix=bak d8329fc1cc938780ffdd9f94e0d364e0ea74f579` : You can read trees into your staging area by calling this. In this case, you can read an existing tree into your staging area as a subtree by using the `--prefix` option with this command <sup>{1}</sup>
+
 ## rev-list
+
+* `git rev-list 538c33..d14fc7` : You can get a list of the SHA-1 values of all the commits that are being pushed by taking the `$newrev` and `$oldrev` values and passing them to a Git plumbing command called `git rev-list`. This is basically the `git log` command, but by default it prints out only the SHA-1 values and no other information. So, to get a list of all the commit SHA-1s introduced between one commit SHA-1 and another, you can run something like this <sup>{1}</sup>
+
+* `git rev-list --objects --all | grep 82c99a3` : To find out what file it is, you’ll use the `rev-list` command, which you used briefly in Enforcing a Specific Commit-Message Format. If you pass `--objects` to `rev-list`, it lists all the commit SHA-1s and also the blob SHA-1s with the file paths associated with them. You can use this to find your blob’s name <sup>{1}</sup>
 
 ## rev-parse
 
@@ -1004,18 +1712,56 @@ git filter-branch --commit-filter '
 
 ## symbolic-ref
 
+* `git symbolic-ref HEAD` : You can also manually edit this file (`.git/HEAD`), but again a safer command exists to do so: `git symbolic-ref`. You can read the value of your HEAD via this command <sup>{1}</sup>
+
+* `git symbolic-ref HEAD refs/heads/test` : You can also set the value of HEAD using the same command <sup>{1}</sup>
+
+* You can’t set a symbolic reference outside of the refs style: <sup>{1}</sup>
+```shell
+$ git symbolic-ref HEAD test
+fatal: Refusing to point HEAD outside of refs/
+```
+
 ## update-index
 
 ## update-ref
 
+* `git update-ref refs/heads/master 1a410efbd13591db07496601ebc7a059dd55cfe9` : You aren’t encouraged to directly edit the reference files; instead, Git provides the safer command `git update-ref` to do this if you want to update a reference. That’s basically what a branch in Git is: a simple pointer or reference to the head of a line of work. <sup>{1}</sup>
+  * `git update-ref refs/heads/test cac0ca` : To create a branch back at the second commit, you can do this <sup>{1}</sup>
+
+* `git update-ref refs/tags/v1.0 cac0cab538b970a37ea1e769cbbde608743bc96d` : As discussed in Git Basics, there are two types of tags: annotated and lightweight. You can make a lightweight tag by running something like this <sup>{1}</sup>
+
+* `git tag -a v1.1 1a410efbd13591db07496601ebc7a059dd55cfe9 -m 'Test tag'` : If you create an annotated tag, Git creates a tag object and then writes a reference to point to it rather than directly to the commit. You can see this by creating an annotated tag (using the `-a` option) <sup>{1}</sup>
+  * Here’s the object SHA-1 value it created: `cat .git/refs/tags/v1.1` <sup>{1}</sup>
+
 ## verify-pack
 
+* `git verify-pack -v .git/objects/pack/pack-978e03944f5c581011e6998cd0e9e30000905586.idx` : When Git packs objects, it looks for files that are named and sized similarly, and stores just the deltas from one version of the file to the next. You can look into the packfile and see what Git did to save space. The `git verify-pack` plumbing command allows you to see what was packed up <sup>{1}</sup>
+
+* `git verify-pack -v .git/objects/pack/pack-29…69.idx \
+  | sort -k 3 -n \
+  | tail -3` : But suppose you didn’t; how would you identify what file or files were taking up so much space? If you run `git gc`, all the objects are in a packfile; you can identify the big objects by running another plumbing command called `git verify-pack` and sorting on the third field in the output, which is file size. You can also pipe it through the `tail` command because you’re only interested in the last few largest files <sup>{1}</sup>
+  * Shows Output
+  ```shell
+  dadf7258d699da2c8d89b09ef6670edb7d5f91b4 commit 229 159 12
+  033b4468fa6b2a9547a70d88d1bbe8bf3f9ed0d5 blob   22044 5792 4977696
+  82c99a3e86bb1267b236a4b6eff7868d97489af1 blob   4975916 4976258 1438
+  ```
+  * The big object is at the bottom: 5MB.
+
 ## write-tree
+
+* `git write-tree` : Now, you can use this to write the staging area out to a tree object. No -w option is needed—calling this command automatically creates a tree object from the state of the index if that tree doesn’t yet exist <sup>{1}</sup>
 
 ## Others
 
 * `git ls-remote https://github.com/schacon/blink` : If we run this command against the “blink” repository we were using earlier, we will get a list of all the branches and tags and other references in the repository. <sup>{1}</sup>
   * `git ls-remote origin` : Of course, if you’re in your repository and you run this or whatever remote you want to check, it will show you something similar to this. <sup>{1}</sup>
+
+* `git replace 81a708d c6e1e95` : To combine them, you can simply call git replace with the commit you want to replace and then the commit you want to replace it with. So we want to replace the "fourth" commit in the master branch with the "fourth" commit in the project-history/master branch <sup>{1}</sup>
+
+* `git prune --expire now` : The packed repository size is down to 8K, which is much better than 5MB. You can see from the size value that the big object is still in your loose objects, so it’s not gone; but it won’t be transferred on a push or subsequent clone, which is what is important. If you really wanted to, you could remove the object completely by running `git prune` with the `--expire` option <sup>{1}</sup>
+  * `git count-objects -v` : Let’s see how much space you saved. <sup>{1}</sup>
 
 * Sign Commits and Tags
   * [7.4 Git Tools - Signing Your Work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
