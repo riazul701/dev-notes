@@ -8,7 +8,7 @@
 
 * VIMTUTOR: Learn VIM (If GVIM (from www.vim.org) in installed in Windows8.1 then press "Windows key + S" and enter text "vimtutor")
 * [GitHub: philc/vimium](https://github.com/philc/vimium) || [Vimium: Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
-* [Vim Cheat Sheet - Rtorr](https://vim.rtorr.com/)
+* [Vim Cheat Sheet - Rtorr](https://vim.rtorr.com/) || [rtorr/vim-cheat-sheet GitHub](https://github.com/rtorr/vim-cheat-sheet)
 * [Learn X in Y minutes: Where X=vim](https://learnxinyminutes.com/docs/vim/)
 * [Vim cheatsheet - Devhints.io](https://devhints.io/vim)
 * [iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
