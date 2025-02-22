@@ -11,6 +11,7 @@
   * [rothgar/awesome-tuis => List of projects that provide terminal user interfaces](https://github.com/rothgar/awesome-tuis)
   * [CLI tools you won't be able to live without](https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6)
   * [100 Great and Must-Have CLI Linux Applications](https://www.linuxlinks.com/100-great-must-have-cli-linux-applications/)
+  * [terminaltrove.com => List of Terminal Tools (A-Z)](https://terminaltrove.com/list/)
 
 * Command List
   * [List of GNU Core Utilities commands => Wikipedia](https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands)

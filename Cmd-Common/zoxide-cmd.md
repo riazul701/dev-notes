@@ -6,8 +6,12 @@
 
 # References
 
-* next-sl: {2}
+* next-sl: {3}
 
 ## Websites
 
 * {1} [ajeetdsouza/zoxide GitHub](https://github.com/ajeetdsouza/zoxide)
+
+## Commands From
+
+* {2} [zoxide => TLDR.sh](https://tldr.inbrowser.app/pages/common/zoxide)

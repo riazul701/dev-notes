@@ -1470,6 +1470,721 @@ set undofile
 :later 10f    go to the state 10 saves later
 ```
 
+# Visual Mode
+
+## The Three Types of Visual Modes
+
+* Vim has three different visual modes. They are:
+  * `v` : Character-wise visual mode
+  * `V` : Line-wise visual mode
+  * `Ctrl-V` : Block-wise visual mode
+
+* Try moving around with `h/j/k/l` and watch the cursor move.
+
+* `gU` : Vim uppercases the highlighted characters
+
+* On the bottom left of your Vim window, you will see either `-- VISUAL --`, `-- VISUAL LINE --`, or `-- VISUAL BLOCK --` displayed to indicate which visual mode you are in.
+
+* While you are inside a visual mode, you can switch to another visual mode by pressing either `v`, `V`, or `Ctrl-V`.
+
+* `<Esc>`, `Ctrl-C`, `V`, `v`: There are three ways to exit the visual mode like this and the same key as your current visual mode. What the latter means is if you are currently in the line-wise visual mode (`V`), you can exit it by pressing `V` again. If you are in the character-wise visual mode, you can exit it by pressing `v`.
+
+* `gv` : Go to the previous visual mode
+
+## Visual Mode Navigation
+
+* `o` or `O` : You can toggle the cursor location with either by this.
+  * `k` : Now when you press this, it no longer reduces the selection, but expands it upward.
+
+## Visual Mode Grammar
+
+* `d` : Pressing this will delete the selection, similar to normal mode.
+  * Notice the grammar rule from normal mode, verb + noun, does not apply. 
+  * The grammar rule in visual mode is noun + verb, where noun is the highlighted text. Select the text block first, then the command follows.
+
+* `x` : Running this deletes all highlighted texts.
+
+* `r=` : A first-level header is a series of "=" below a text. Run this, voila! This saves you from typing "=" manually.
+
+* `:h visual-operators` : To learn more about operators in visual mode, check out this.
+
+## Visual Mode and Command-line Commands
+
+* `:s/const/let/g` : Highlight the first two lines with any visual mode and run the substitute command
+
+## Adding Text on Multiple Lines
+
+* If you need to add a semicolon at the end of each line:
+  * `Ctrl-V jj` : Run block-wise visual mode and go down two lines.
+  * `$` : Highlight to the end of the line.
+  * Append (`A`) then type ";".
+  * `<Esc>` : Exit visual mode.
+  * Alternatively, you can also use the `:normal` command to add text on multiple lines:
+    * `vjj` : Highlight all lines.
+    * Type `:normal! A;`.
+    * Remember, `:normal` command executes normal mode commands. You can instruct it to run `A;` to append text ";" at the end of the line.
+
+## Incrementing Numbers
+
+* Vim has `Ctrl-X` and `Ctrl-A` commands to decrement and increment numbers.
+
+* Let's increment them to make them unique:
+  * Move your cursor to the "1" on the second line.
+  * Start block-wise visual mode and go down 3 lines (`Ctrl-V 3j`). This highlights the remaining "1"s. Now all "1" should be highlighted (except the first line).
+  * Run `g Ctrl-A`.
+    * `g Ctrl-A` increments numbers on multiple lines.
+
+* `Ctrl-X/Ctrl-A` can increment letters too, with the number formats option:
+  * `set nrformats+=alpha`
+  * The `nrformats` option instructs Vim which bases are considered as "numbers" for `Ctrl-A` and `Ctrl-X` to increment and decrement.
+  * By adding `alpha`, an alphabetical character is now considered as a number.
+
+* Put your cursor on the second "app-a". Use the same technique as above (`Ctrl-V 3j` then `g Ctrl-A`) to increment the ids.
+
+## Selecting the Last Visual Mode Area
+
+* `gv` : can quickly highlight the last visual mode highlight.
+```shell
+`<    Go to the first place of the previous visual mode highlight
+`>    Go to the last place of the previous visual mode highlight
+```
+
+* `:s/const/let/g` : you can selectively execute command-line commands on a highlighted text, like this.
+  * When you did that, you'd see this below:
+  ```shell
+  :`<,`>s/const/let/g
+  ```
+  * You were actually executing a ranged `s/const/let/g` command (with the two marks as the addresses).
+
+* If instead you needed to substitute from the start of the highlighted text to the end of the file, you just change the command to:
+```shell
+:`<,$s/const/let/g
+```
+
+## Entering Visual Mode From Insert Mode
+
+* `Ctrl-O v` : You can also enter visual mode from the insert mode. To go to character-wise visual mode while you are in insert mode
+  * Recall that running `Ctrl-O` while in the insert mode lets you execute a normal mode command.
+  * Notice that on the bottom left of the screen, it says `--(insert) VISUAL--`. This trick works with any visual mode operator: `v`, `V`, and `Ctrl-V`.
+
+## Select Mode
+
+* Vim has a mode similar to visual mode called the select mode. Like the visual mode, it also has three different modes:
+  * `gh` : Character-wise select mode
+  * `gH` : Line-wise select mode
+  * `gCtrl-h` : Block-wise select mode
+
+* Select mode emulates a regular editor's text highlighting behavior closer than Vim's visual mode does.
+
+* Contrast this select mode with visual mode: if you highlight a line of text with line-wise visual mode (`V`) and type "y", the highlighted text will not be deleted and replaced by the literal letter "y", it will be yanked. You can't execute normal mode commands on highlighted text in select mode.
+
+## Learn Visual Mode the Smart Way
+
+* `viwd` : visually highlight an inner word then delete
+
+* `diw` : delete an inner word
+
+# Search and Substitute
+
+* Everything you can do with `/` can also be done with `?`
+
+## Smart Case Sensitivity
+
+* Just add `set ignorecase` in your `vimrc` and all your search terms become case insensitive.
+
+* One way to do that is to turn off `ignorecase` option by running `set noignorecase`
+
+* You can combine both `ignorecase` and `smartcase` to perform a case insensitive search when you enter all lowercase characters and a case sensitive search when you enter one or more uppercase characters.
+  * Inside your vimrc, add: `set ignorecase smartcase`
+
+* You can use `\C` pattern anywhere in your search term to tell Vim that the subsequent search term will be case sensitive. If you do `/\Chello`, it will strictly match "hello", not "HELLO" or "Hello".
+
+## First and Last Character in a Line
+
+* You can use `^` to match the first character in a line and `$` to match the last character in a line.
+
+* You can target the first "hello" with `/^hello`.
+
+* To target the last "hello", run `/hello$`.
+
+## Repeating Search
+
+* Repeat the previous search with `//`. If you have just searched for `/hello`, running `//` is equivalent to running `/hello`.
+
+* Use `n` and `N` to repeat the last search with the same direction and opposite direction, respectively.
+
+* Quickly traverse the search history by first pressing `/`, then press `up/down` arrow keys (or `Ctrl-N`/`Ctrl-P`) until you find the search term
+
+* `:history /` : see all your search history, you can run this.
+
+* Use the `set wrapscan` option to make Vim to search back at the top of the file when you reach the end of the file. To turn this feature off, do `set nowrapscan`.
+
+## Searching for Alternative Words
+
+* `/hello\|hola` : To match both "hello" and "hola", you can do this.
+  * You have to escape (`\`) the or (`|`) operator, otherwise Vim will literally search for the string "|".
+
+* If you don't want to type `\|` every time, you can use the magic syntax (`\v`) at the start of the search: `/\vhello|hola`.
+
+* with `\v`, you don't have to escape special characters anymore.
+
+* `:h \v` : To learn more about `\v`, feel free to check out this.
+
+## Setting the Start and End of a Match
+
+* `/11\zsvim\ze22` : use `\zs` (starting match) and `\ze` (ending match) operators. Run this
+  * Vim still has to match the entire pattern "11vim22", but only highlights the pattern sandwiched between `\zs` and `\ze`.
+
+* `/foo\zebaz` : If you need to match the "foo" in "foobaz" but not in "foobar", run this
+
+## Searching Character Ranges
+
+* `/[0-9]` : use this to match for a single digit.
+
+* `/[1-5]` : if you are looking for digits between 1 to 5 instead, use this.
+
+* `/[a-z]` :  do this to search for lowercase alphas
+
+* `/[A-Z]` :  do this to search for uppercase alphas.
+
+* `/[0-9a-fA-F]` : If you need to search for digits 0-9 and both lowercase and uppercase alphas from "a" to "f" (like a hex), you can do this.
+
+* To do a negative search, you can add `^` inside the character range brackets.
+
+* `/[^0-9]` : To search for a non-digit, run this. Vim will match any character as long as it is not a digit.
+
+* `/^abc` matches the first "abc" in a line and `/[^abc]` matches any character except for an "a", "b", or "c".
+
+## Searching for Repeating Characters
+
+* Here are the four different variations of the count syntax:
+  * `{n}` is an exact match. `/[0-9]\{2\}`  matches the two digit numbers: "11" and the "11" in "111".
+  * `{n,m}` is a range match. `/[0-9]\{2,3\}` matches between 2 and 3 digit numbers: "11"  and "111".
+  * `{,m}` is an up-to match. `/[0-9]\{,3\}` matches up to 3 digit numbers: "1", "11", and "111".
+  * `{n,}` is an at-least match. `/[0-9]\{2,\}` matches at least a 2 or more digit numbers: "11" and "111".
+
+* If you do `/[0-9]*`, it is the same as `/[0-9]\{0,\}`. It searches for zero or more digits. It will match "", "1", "123". By the way, it will also match non-digits like "a", because there is technically zero digit in the letter "a".
+
+* If you do `/[0-9]\+`, it is the same as `/[0-9]\{1,\}`. It searches for one or more digits. It will match "1" and "12".
+
+## Predefined Character Ranges
+
+* Vim has predefined ranges for common characters like digits and alphas. you can find the full list inside `:h /character-classes`. Here are the useful ones:
+```shell
+\d    Digit [0-9]
+\D    Non-digit [^0-9]
+\s    Whitespace character (space and tab)
+\S    Non-whitespace character (everything except space and tab)
+\w    Word character [0-9A-Za-z_]
+\l    Lowercase alphas [a-z]
+\u    Uppercase character [A-Z]
+```
+
+* To search for any single digit, instead of using `/[0-9]`, you can use `/\d` for a more concise syntax.
+
+## Search Example: Capturing a Text Between a Pair of Similar Characters
+
+* If you want to search for a phrase surrounded by a pair of double quotes:
+```shell
+"Vim is awesome!"
+```
+
+* Run this:
+```shell
+/"[^"]\+"
+```
+* Let's break it down:
+  * `"` is a literal double quote. It matches the first double quote.
+  * `[^"]` means any character except for a double quote. It matches any alphanumeric and whitespace character as long as it is not a double quote.
+  * `\+` means one or more. Since it is preceded by `[^"]`, Vim looks for one or more character that is not a double quote.
+  * `"` is a literal double quote. It matches the closing double quote.
+
+* `/'[^']\+'` : To capture a phrase surrounded by single quotes, you can use this.
+
+* `/0[^0]\+0` : To capture a phrase surrounded by zeroes, you can use this.
+
+## Search Example: Capturing a Phone Number
+
+* If you want to match a US phone number separated by a hyphen (`-`), like `123-456-7890`, you can use:
+```shell
+/\d\{3\}-\d\{3\}-\d\{4\}
+```
+* Let's break it down:
+  * `\d\{3\}` matches a digit repeated exactly three times
+  * `-` is a literal hyphen
+
+* You can avoid typing escapes with `\v`:
+```shell
+/\v\d{3}-\d{3}-\d{4}
+```
+
+## Basic Substitution
+
+* `:s/{old-pattern}/{new-pattern}/` : Vim's substitute command is a useful command to quickly find and replace any pattern. The substitution syntax is this.
+
+## Repeating the Last Substitution
+
+* You can repeat the last substitute command with either the normal command `&` or by running `:s`. If you have just run `:s/good/awesome/`, running either `&` or `:s` will repeat it.
+
+* If `/good` was done recently and you leave the first substitute pattern argument blank, like in `:s//awesome/`, it works the same as running `:s/good/awesome/`.
+
+## Substitution Range
+
+* `:[range]s/old/new/` : Just like many Ex commands, you can pass a range argument into the substitute command. The syntax is this
+
+* `:3,5s/let/const/` : To substitute the "let" into "const" on lines three to five, you can do this
+
+* Here are some range variations you can pass:
+  * `:,3s/let/const/` - if nothing is given before the comma, it represents the current line. Substitute from current line to line 3.
+  * `:1,s/let/const/` - if nothing is given after the comma, it also represents the current line. Substitute from line 1 to current line.
+  * `:3s/let/const/` - if only one value is given as range (no comma), it does substitution on that line only.
+
+* In Vim, `%` usually means the entire file.
+
+* `:%s/let/const/` : If you run this, it will do substitution on all lines.
+
+## Pattern Matching
+
+* `:%s/\d/"\0"/` : To add a pair of double quotes around the digits
+  * Let's break down the command:
+  * `:%s` targets the entire file to perform substitution.
+  * `\d` is Vim's predefined range for digits (similar to using `[0-9]`).
+  * `"\0"` here the double quotes are literal double quotes. `\0` is a special character representing "the whole matched pattern". The matched pattern here is a single digit number, `\d`.
+
+**Given these expressions and you need to swap all the "let" with the variable names.**
+
+```shell
+one let = "1";
+two let = "2";
+```
+
+* To do that, run: `:%s/\(\w\+\) \(\w\+\)/\2 \1/`
+
+* The command above contains too many backslashes and is hard to read. In this case it is more convenient to use the `\v` operator: `:%s/\v(\w+) (\w+)/\2 \1/`
+  
+* Let's break down that command:
+  * `:%s` targets all the lines in the file to perform substitution.
+  * `(\w+) (\w+)` is a group match. `\w` is one of Vim's predefined ranges for a word character (`[0-9A-Za-z_]`). The `( )` surrounding it captures a word character match in a group. Notice the space between the two groupings. `(\w+) (\w+)` captures two groups. The first group captures "one" and the second group captures "two".
+  * `\2 \1` returns the captured group in a reversed order. `\2` contains the captured string "let" and `\1` the string "one". Having `\2 \1` returns the string "let one".
+
+**break the matched string into smaller groups**
+
+* Recall that `\0` represents the entire matched pattern. You can break the matched string into smaller groups with `( )`. Each group is represented by `\1`, `\2`, `\3`, etc.
+
+* Let's do one more example to solidify this group match concept. If you have these numbers:
+```shell
+123
+456
+789
+```
+
+* To reverse the order, run: `:%s/\v(\d)(\d)(\d)/\3\2\1/`
+
+* The result is:
+```shell
+321
+654
+987
+```
+
+* Each `(\d)` matches each digit and creates a group. On the first line, the first `(\d)` has a value of 1, the second `(\d)` has a value of 2, and the third `(\d)` has a value of 3. They are stored in the variables `\1`, `\2`, and `\3`. In the second half of your substitution, the new pattern `\3\2\1` results in the "321" value on line one.
+
+* If you had run this instead: `:%s/\v(\d\d)(\d)/\2\1/`
+
+* You would have gotten a different result:
+```shell
+312
+645
+978
+```
+
+* This is because you now only have two groups. The first group, captured by `(\d\d)`, is stored within `\1` and has the value of 12. The second group, captured by `(\d)`, is stored inside `\2` and has the value of 3. `\2\1` then, returns 312.
+
+## Substitution Flags
+
+* You can either run the substitute command twice more or you can pass it a global (`g`) flag to substitute all of the matches in a line.
+
+* You pass flags at the end of the substitute command. Here is a list of useful flags:
+```shell
+&    Reuse the flags from the previous substitute command.
+g    Replace all matches in the line.
+c    Ask for substitution confirmation.
+e    Prevent error message from displaying when substitution fails.
+i    Perform case insensitive substitution.
+I    Perform case sensitive substitution.
+```
+
+* `:h s_flags` : To read about all the flags, check out this.
+
+* By the way, the repeat-substitution commands (`&` and `:s`) do not retain the flags. Running `&` will only repeat `:s/pancake/donut/` without `g`. To quickly repeat the last substitute command with all the flags, run `:&&`.
+
+## Changing the Delimiter
+
+* If you need to replace a URL with a long path: `https://mysite.com/a/b/c/d/e`
+
+* To substitute it with the word "hello", run: `:s/https:\/\/mysite.com\/a\/b\/c\/d\/e/hello/`
+
+* However, it is hard to tell which forward slashes (`/`) are part of the substitution pattern and which ones are the delimiters. You can change the delimiter with any single-byte characters (except for alphabets, numbers, or `"`, `|`, and `\`). Let's replace them with `+`. The substitution command above then can be rewritten as:
+```shell
+:s+https:\/\/mysite.com\/a\/b\/c\/d\/e+hello+
+```
+
+## Special Replace
+
+**You can also modify the case of the text you are substituting.**
+
+* Given the following expressions and your task is to uppercase the variables "one", "two", etc.
+```shell
+let one = "1";
+let two = "2";
+```
+* Run: `:%s/\v(\w+) (\w+)/\1 \U\2/`
+
+* You will get:
+```shell
+let ONE = "1";
+let TWO = "2";
+```
+
+* The breakdown:
+  * `(\w+) (\w+)` captures the first two matched groups, such as "let" and "one".
+  * `\1` returns the value of the first group, "let".
+  * `\U\2` uppercases (`\U`) the second group (`\2`).
+
+**capitalize the first letter of each word in a line**
+
+* Let's do one more example.
+```shell
+vim is the greatest text editor in the whole galaxy
+```
+
+* You can run: `:s/\<./\U&/g`
+
+* The result:
+```shell
+Vim Is The Greatest Text Editor In The Whole Galaxy
+```
+
+* Here is the breakdowns:
+  * `:s` substitutes the current line.
+  * `\<.` is comprised of two parts: `\<` to match the start of a word and `.` to match any character. `\<` operator makes the following character to be the first character of a word. Since `.` is the next character, it will match the first character of any word.
+  * `\U&`  uppercases the subsequent symbol, `&`. Recall that `&` (or `\0`) represents the whole match. It matches the first character of any word.
+  * `g` the global flag. Without it, this command only substitutes the first match. You need to substitute every match on this line.
+
+* `:h sub-replace-special` : To learn more of substitution's special replace symbols like `\U`, check out this.
+
+## Alternative Patterns
+
+**Sometimes you need to match multiple patterns simultaneously.**
+
+* If you have the following greetings:
+```
+hello vim
+hola vim
+salve vim
+bonjour vim
+```
+
+* You need to substitute the word "vim" with "friend" but only on the lines containing the word "hello" or "hola". Recall from earlier this chapter, you can use `|` for multiple alternative patterns.
+```shell
+:%s/\v(hello|hola) vim/\1 friend/g
+```
+
+* The result:
+```shell
+hello friend
+hola friend
+salve vim
+bonjour vim
+```
+
+* Here is the breakdown:
+  * `%s` runs the substitute command on each line in a file.
+  * `(hello|hola)` matches *either* "hello" or "hola" and consider it as a group.
+  * `vim` is the literal word "vim".
+  * `\1` is the first group, which is either the text "hello" or "hola".
+  * `friend` is the literal word "friend".
+
+## Substituting the Start and the End of a Pattern
+
+* Recall that you can use `\zs` and `\ze` to define the start and the end of a match. This technique works in substitution too. If you have:
+```shell
+chocolate pancake
+strawberry sweetcake
+blueberry hotcake
+```
+
+* To substitute the "cake" in "hotcake" with "dog" to get a "hotdog":
+```shell
+:%s/hot\zscake/dog/g
+```
+
+* Result:
+```shell
+chocolate pancake
+strawberry sweetcake
+blueberry hotdog
+```
+
+## Greedy and Non-greedy
+
+* You can substitute the nth match in a line with this trick:
+```
+One Mississippi, two Mississippi, three Mississippi, four Mississippi, five Mississippi.
+```
+
+* To substitute the third "Mississippi" with "Arkansas", run:
+```
+:s/\v(.{-}\zsMississippi){3}/Arkansas/g
+```
+
+* The breakdown:
+  * `:s/` the substitute command.
+  * `\v` is the magic keyword so you don't have to escape special keywords.
+  * `.` matches any single character.
+  * `{-}` performs non-greedy match of 0 or more of the preceding atom.
+  * `\zsMississippi` makes "Mississippi" the start of the match.
+  * `(...){3}` looks for the third match.
+
+* You have seen the `{3}` syntax earlier in this chapter. In this case, `{3}` will match exactly the third match. The new trick here is `{-}`. It is a non-greedy match. It finds the shortest match of the given pattern. In this case, `(.{-}Mississippi)` matches the least amount of "Mississippi" preceded by any character. Contrast this with `(.*Mississippi)` where it finds the longest match of the given pattern.
+
+* If you use `(.{-}Mississippi)`, you get five matches: "One Mississippi", "Two Mississippi", etc. If you use `(.*Mississippi)`, you get one match: the last "Mississippi". `*` is a greedy matcher and `{-}` is a non-greedy matcher. To learn more check out `:h /\{-` and `:h non-greedy`.
+
+* Let's do a simpler example. If you have the string:
+```
+abc1de1
+```
+
+* You can match "abc1de1" (greedy) with:
+```
+/a.*1
+```
+
+* You can match "abc1" (non-greedy) with:
+```
+/a.\{-}1
+```
+
+* So if you need to uppercase the longest match (greedy), run:
+```
+:s/a.*1/\U&/g
+```
+
+* To get:
+```
+ABC1DEFG1
+```
+
+* If you need to uppercase the shortest match (non-greedy), run:
+```
+:s/a.\{-}1/\U&/g
+```
+
+* To get:
+```
+ABC1defg1
+```
+
+## Substituting Across Multiple Files
+
+* assume that you have two files: `food.txt` and `animal.txt`.
+
+* First, capture both `food.txt` and `animal.txt` inside `:args`.
+```
+:args *.txt                  captures all txt files in current location
+```
+
+* To test it, when you run `:args`, you should see:
+```
+[food.txt] animal.txt
+```
+
+* Now that all the relevant files are stored inside the argument list, you can perform a multi-file substitution with the `:argdo` command. Run:
+```
+:argdo %s/dog/chicken/
+```
+
+* This performs substitution against the all files inside the `:args` list. Finally, save the changed files with:
+```
+:argdo update
+```
+
+* `:args` and `:argdo` are  useful tools to apply command line commands across multiple files.
+
+## Substituting Across Multiple Files With Macros
+
+* Alternatively, you can also run the substitute command across multiple files with macros. Run:
+```
+:args *.txt
+qq
+:%s/dog/chicken/g
+:wnext
+q
+99@q
+```
+
+* The breakdown:
+  * `:args *.txt` adds all text files into the `:args` list.
+  * `qq` starts the macro in the "q" register.
+  * `:%s/dog/chicken/g` substitutes "dog" with "chicken" on all lines in the current file.
+  * `:wnext` saves the file then go to the next file on the `args` list.
+  * `q` stops the macro recording.
+  * `99@q` executes the macro ninety-nine times. Vim will stop the macro execution after it encounters the first error, so Vim won't actually execute the macro ninety-nine times.
+
+# the Global Command
+
+* Repeat the last change with the dot command (`.`), to replay actions with macros (`q`), and to store texts in the registers (`"`).
+
+## Global Command Overview
+
+* Vim's global command is used to run a command-line command on multiple lines simultaneously.
+
+* `:h ex-cmd-index` : For a full list of Ex commands, check out this.
+
+* `:g/pattern/command` : The global command has the following syntax
+
+* `:g/console/d` : To remove all lines containing "console", you can run this
+  * The global command executes the delete command (`d`) on all lines that match the "console" pattern.
+
+* `:g/const/d` : If you want to delete all lines containing "const" instead, run this
+
+
+## Inverse Match
+
+* `:g!/pattern/command` OR `:v/pattern/command` : To run the global command on non-matching lines, you can run this
+
+* `:v/console/d` : If you run this, it will delete all lines *not* containing "console".
+
+## Pattern
+
+* `:g/one\|two/d` : To delete the lines containing either "one" or "two", run this
+
+* `:g/[0-9]/d` OR `:g/\d/d` : To delete the lines containing any single digits, run either
+
+* `:g/0\{3,6\}/d` : To match the lines containing between three to six zeroes, run this
+
+## Passing a Range
+
+* You can pass a range before the `g` command. Here are some ways you can do it:
+  * `:1,5g/console/d`  matches the string "console" between lines 1 and 5 and deletes them.
+  * `:,5g/console/d` if there is no address before the comma, then it starts from the current line. It looks for the string "console" between the current line and line 5 and deletes them.
+  * `:3,g/console/d` if there is no address after the comma, then it ends at the current line. It looks for the string "console" between line 3 and the current line and deletes them.
+  * `:3g/console/d` if you only pass one address without a comma, it executes the command only on line 3. It looks on line 3 and deletes it if has the string "console".
+
+* In addition to numbers, you can also use these symbols as range:
+  * `.` means the current line. A range of `.,3` means between the current line and line 3.
+  * `$` means the last line in the file. `3,$` range means between line 3 and the last line.
+  * `+n` means n lines after the current line. You can use it with `.` or without. `3,+1` or `3,.+1` means between line 3 and the line after the current line.
+
+* If you don't give it any range, by default it affects the entire file. This is actually not the norm. Most of Vim's command-line commands run on only the current line if you don't pass it any range. The two notable exceptions are the global (`:g`) and the save (`:w`) commands.
+
+## Normal Command
+
+* You can run a normal command with the global command with `:normal` command-line command.
+
+* `:g/./normal A;` : To add a ";" to the end of each line, run this
+
+* Let's break it down:
+  * `:g` is the global command.
+  * `/./` is a pattern for "non-empty lines". It matches the lines with at least one character, so it matches the lines with "const" and "console" and it does not match empty lines.
+  * `normal A;` runs the `:normal` command-line command. `A;` is the normal mode command to insert a ";" at the end of the line.
+
+## Executing a Macro
+
+* A macro can be executed with the `normal` command.
+
+* `qaA;<Esc>q` : Let's create a macro to add a comma to the end of those lines in the register `a`
+
+* `:g/const/normal @a` : Now all lines with "const" will have a ";" at the end.
+
+* If you followed this step-by-step, you will have two semi-colons on the first line. To avoid that, run the global command on line two onward, `:2,$g/const/normal @a`.
+
+## Recursive Global Command
+
+* The global command itself is a type of a command-line command, so you can technically run the global command inside a global command.
+
+* `:g/console/g/two/d` : First, `g` will look for the lines containing the pattern "console" and will find 3 matches. Then the second `g` will look for the line containing the pattern "two" from those three matches. Finally, it will delete that match.
+
+* `:g/console/v/two/d` : You can also combine `g` with `v` to find positive and negative patterns. Instead of looking for the line containing the pattern "two", it will look for the lines *not* containing the pattern "two".
+
+## Changing the Delimiter
+
+* You can change the global command's delimiter like the substitute command. The rules are the same: you can use any single byte character except for alphabets, numbers, `"`, `|`, and `\`.
+
+* `:g@console@d` : To delete the lines containing "console"
+
+* `g@one@s+const+let+g` : If you are using the substitute command with the global command, you can have two different delimiters.
+  * Here the global command will look for all lines containing "one". The substitute command will substitute, from those matches, the string "const" with "let".
+
+## The Default Command
+
+* `:g/console` : The global command will use the print (`:p`) command to print the current line's text.
+  * It will print at the bottom of the screen all the lines containing "console".
+
+* `:g/re/p` : Because the default command used by the global command is `p`, this makes the `g` syntax to be:
+  * `g` = the global command
+  * `re` = the regex pattern
+  * `p` = the print command
+  * It spells *"grep"*, the same `grep` from the command line.
+
+## Reversing the Entire Buffer
+
+* `:g/^/m 0` : To reverse the entire file, run
+
+* `^` is a pattern for the beginning of a line. Use `^` to match all lines, including empty lines.
+
+* `:5,10g/^/m 0` : If you need to reverse only a few lines, pass it a range. To reverse the lines between line five to line ten, run
+
+* `:h :move` : To learn more about the move command, check out this.
+
+## Aggregating All Todos
+
+* Vim has a `:t` (copy) method to copy all matches to an address.
+ 
+* `:h :copy` : To learn more about the copy method, check out this.
+
+* `:g/TODO/t $` : To copy all TODOs to the end of the file for easier introspection, run
+
+* `:g/TODO/m $` : If instead of copying them you want to move all the TODOs to the end, use the move command, `:m`
+
+## Black Hole Delete
+
+* Whenever you run `:g/console/d`, Vim stores the deleted lines in the numbered registers. If you delete many lines, you can quickly fill up all the numbered registers. To avoid this, you can always use the black hole register (`"_`) to *not* store your deleted lines into the registers. Run:
+```
+:g/console/d_
+```
+
+* By passing `_` after `d`, Vim won't use up your scratch registers.
+
+## Reduce Multiple Empty Lines to One Empty Line
+
+* `:g/^$/,/./-1j` : You can quickly reduce the empty lines into one empty line with
+
+* Normally the global command accepts the following form: `:g/pattern/command`. However, you can also run the global command with the following form: `:g/pattern1/,/pattern2/command`. With this, Vim will apply the `command` within `pattern1` and `pattern2`.
+
+* With that in mind, let's break down the command `:g/^$/,/./-1j` according to `:g/pattern1/,/pattern2/command`:
+  * `/pattern1/` is `/^$/`. It represents an empty line (a line with zero character).
+  * `/pattern2/` is `/./` with `-1` line modifier. `/./` represents a non-empty line (a line with at least one character). The `-1` means the line above that.
+  * `command` is `j`, the join command (`:j`). In this context, this global command joins all the given lines.
+
+* `:g/^$/,/./j` : By the way, if you want to reduce multiple empty lines to no lines, run this instead
+  * `:g/^$/-j` : A simpler alternative
+
+## Advanced Sort
+
+* Vim has a `:sort` command to sort the lines within a range.
+  * If you give it a range, it will sort only the lines within that range. For example, `:3,5sort` only sorts lines three and five.
+
+* `:g/\[/+1,/\]/-1sort` : If you need to sort the elements inside the arrays, but not the arrays themselves, you can run this
+
+* This is great! But the command looks complicated. Let's break it down. This command also follows the form `:g/pattern1/,/pattern2/command`.
+
+  * `:g` is the global command pattern.
+  * `/\[/+1` is the first pattern. It matches a literal left square bracket "[". The `+1` refers to the line below it.
+  * `/\]/-1` is the second pattern. It matches a literal right square bracket "]". The `-1` refers to the line above it.
+  * `/\[/+1,/\]/-1` then refers to any lines between "[" and "]".
+  * `sort` is a command-line command to sort.
+
 # References
 
 * next-sl: {}
