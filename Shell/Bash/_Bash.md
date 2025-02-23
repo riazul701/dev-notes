@@ -1,3 +1,7 @@
+# Commands/Usage
+
+* `fd prop -x mpv &` : open result in `mpv res1; mpv res2` in background <sup>{2}</sup>
+
 # Bash.md
 
 ## Websites
@@ -22,10 +26,17 @@
 
 # References
 
-* next-sl: {}
+* next-sl: {4}
 
-* Guides
-  * [bashrc vs. bash_profile: What Is the Difference?](https://phoenixnap.com/kb/bashrc-vs-bash-profile)
+## Guides
 
-* YouTube Tutorials
-  * [Unknown Bash shell Tips and Tricks you Must know! BY Dispatch](https://www.youtube.com/watch?v=c773YRyBprw)
+* General
+  * {1} [bashrc vs. bash_profile: What Is the Difference?](https://phoenixnap.com/kb/bashrc-vs-bash-profile)
+
+* Background Process
+  * {2} [fd: find but better](https://www.reddit.com/r/commandline/comments/uibug7/fd_find_but_better/)
+
+## YouTube Tutorials
+
+* General
+  * {3} [Unknown Bash shell Tips and Tricks you Must know! BY Dispatch](https://www.youtube.com/watch?v=c773YRyBprw)

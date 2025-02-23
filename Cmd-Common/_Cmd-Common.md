@@ -2,9 +2,10 @@
 
 ## Websites
 
-* [paololazzari/play GitHub](https://github.com/paololazzari/play)
-* [learnbyexample/Command-line-text-processing GitHub](https://github.com/learnbyexample/Command-line-text-processing)
-  * [learnbyexample/TUI-apps](https://github.com/learnbyexample/TUI-apps)
+* Tutorial
+  * [paololazzari/play GitHub](https://github.com/paololazzari/play)
+  * [learnbyexample/Command-line-text-processing GitHub](https://github.com/learnbyexample/Command-line-text-processing)
+    * [learnbyexample/TUI-apps](https://github.com/learnbyexample/TUI-apps)
 
 * Command Collection
   * [toolleeo/cli-apps => The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)

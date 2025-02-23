@@ -18,6 +18,12 @@
 
 * Run Vim in Verbose/Debug mode: vim -V9vim.log
 
+## Interactive Search and Replace
+
+* [How can I search and replace recursively in a directory in Vim?](https://stackoverflow.com/questions/2113111/how-can-i-search-and-replace-recursively-in-a-directory-in-vim)
+
+* [Find and Replace Text in 1 or More Files Using Vim, fzf and ripgrep](https://nickjanetakis.com/blog/find-and-replace-text-in-1-or-more-files-using-vim-fzf-and-ripgrep)
+
 # References
 
 * next-sl: {}

@@ -2,15 +2,29 @@
 
 * `delta /somewhere/a.txt /somewhere/else/b.txt` : Delta can also be used as a shorthand for diffing two files, even if they are not in a git repo: the following two commands do the same thing:. <sup>{1}</sup>
   * `git diff /somewhere/a.txt /somewhere/else/b.txt` <sup>{1}</sup>
+
+* `delta -n a.txt b.txt` OR `delta --line-numbers a.txt b.txt` : Show line numbers in diff view
+
+* `delta -s a.txt b.txt` OR `delta --side-by-side a.txt b.txt` : Show diff side by side
+
 * `delta <(sort file1) <(sort file2)` : You can also use [process substitution](https://en.wikipedia.org/wiki/Process_substitution) shell syntax with delta, e.g. <sup>{1}</sup>
+
 * `diff -u a.txt b.txt | delta` : In addition to git output, delta handles standard unified diff format, e.g. <sup>{1}</sup>
+
 * `delta --show-themes` : To browse themes, use, or browse the list of theme <sup>{1}</sup>
+
 * `delta --diff-highlight` : Activate the [diff-highlight](https://github.com/git/git/tree/master/contrib/diff-highlight) emulation mode. <sup>{1}</sup>
+
 * `delta --diff-so-fancy` : Activate the [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) emulation mode. <sup>{1}</sup>
+
 * `delta --diff-so-fancy --show-config` : You may want to know which delta configuration values the emulation mode has selected, so that you can adjust them. To do that, use e.g. <sup>{1}</sup>
-* `delta --show-colors` : Use this  to get a demo of the available colors, as background colors to see how they look with syntax highlighting <sup>{1}</sup>
+
+* `delta --show-colors` : Use this to get a demo of the available colors, as background colors to see how they look with syntax highlighting <sup>{1}</sup>
+
 * Use the `navigate` feature to activate navigation keybindings. In this mode, pressing `n` will jump forward to the next file in the diff, and `N` will jump backwards. <sup>{1}</sup>
+
 * `delta --list-languages` AND `delta --list-syntax-themes` : To list the supported languages and color themes, use <sup>{1}</sup>
+
 * `delta --show-syntax-themes` : To see a demo of the color themes, use <sup>{1}</sup>
 
 ## Commands From
