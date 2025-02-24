@@ -42,8 +42,13 @@
 
 ## Notes
 
-* PATHs
-  * Installed softwares are located at: `/home/{{user-name}}/.nix-profile/bin` [Softwares are installed with `nix-env -iA nixpkgs.{{package-name}}` command] <sup>{1}</sup>
+## PATH
+
+**Software Installation PATH**
+
+* Installed softwares are located at: `/home/{{user-name}}/.nix-profile/bin` [Softwares are installed with `nix-env -iA nixpkgs.{{package-name}}` command] <sup>{1}</sup>
+
+**Q4OS Operating System**
 
 * In Q4OS, Nix adds software to $PATH instantly, for both graphical and command-line software. Also Nix adds software to Menu after logout/restart.
 

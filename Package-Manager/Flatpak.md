@@ -14,6 +14,10 @@
 
 ## Notes
 
+* Flatpak/Flathub includes mostly graphical apps. Terminal apps are very less. 
+
+## PATH
+
 * PATHs
   * (Default) System-wide installations are installed in the system's installation directory, which is usually `/var/lib/flatpak` <sup>{1}</sup>
   * Per-user installations are installed in the user's home directory, in `~/.local/share/flatpak` <sup>{1}</sup>

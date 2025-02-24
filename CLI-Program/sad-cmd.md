@@ -14,6 +14,10 @@
 
 ## Notes
 
+* `sad` version `v0.4.32` does not write file, when used with `fzf` window.
+  * This problem happens, when `sad` is installed using Nix package manager.
+  * Homebrew package manager works perfectly.
+
 # Error and Solution
 
 ## Fzf `enter` Does Not Execute Replace
