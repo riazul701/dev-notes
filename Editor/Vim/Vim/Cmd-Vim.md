@@ -8,6 +8,10 @@
 * "**" Topics Collected From : 
   * {1} [iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
 
+# Important
+
+* Press `Tab` to auto-complete command/file-name.
+
 # Installation
 
 * `sudo apt install vim` : In many Linux distribution, "vim-tiny" is installed by default. Which does not have `vimtutor` command and online-manual. Install full `vim` with this command.

@@ -1,5 +1,7 @@
 # Commands/Usage
 
+* Use the `navigate` feature to activate navigation keybindings. In this mode, pressing `n` will jump forward to the next file in the diff, and `N` will jump backwards. <sup>{1}</sup>
+
 * `delta /somewhere/a.txt /somewhere/else/b.txt` : Delta can also be used as a shorthand for diffing two files, even if they are not in a git repo: the following two commands do the same thing:. <sup>{1}</sup>
   * `git diff /somewhere/a.txt /somewhere/else/b.txt` <sup>{1}</sup>
 
@@ -20,8 +22,6 @@
 * `delta --diff-so-fancy --show-config` : You may want to know which delta configuration values the emulation mode has selected, so that you can adjust them. To do that, use e.g. <sup>{1}</sup>
 
 * `delta --show-colors` : Use this to get a demo of the available colors, as background colors to see how they look with syntax highlighting <sup>{1}</sup>
-
-* Use the `navigate` feature to activate navigation keybindings. In this mode, pressing `n` will jump forward to the next file in the diff, and `N` will jump backwards. <sup>{1}</sup>
 
 * `delta --list-languages` AND `delta --list-syntax-themes` : To list the supported languages and color themes, use <sup>{1}</sup>
 

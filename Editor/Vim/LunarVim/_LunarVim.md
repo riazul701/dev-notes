@@ -24,32 +24,37 @@
 * Keyboard
   * Press "TAB" key after ":" to auto-complete commands.
 
-* Paths
-
-  * Windows-OS
-    * Configuration(plugins) file: C:\Users\<user-name>\AppData\Local\lvim
-    * Installed plugins: C:\Users\<user-name>\AppData\Roaming\lunarvim
-    * LunarVim binary: C:\Users\<user-name>\.local\bin\lvim.ps1
-    * PowerShell profile: C:\Users\<user-name>\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-
-  * Linux-OS
-    * LunarVim executable file: `/home/<user-name>/.local/bin`
-      * [Using "${a:-b}" for variable assignment in scripts](https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts)
-      * [What does $@ mean in a shell script?](https://stackoverflow.com/questions/9994295/what-does-mean-in-a-shell-script)
-    * User configuration file: `/home/<user-name>/.config/lvim/config.lua` [On LunarVim dashboard, press "c" to edit this file]
-    * Installed plugins folder: `/home/<user-name>/.local/share/lunarvim/site/pack/lazy/opt/`
-    * Plugins doc files: `/home/<user-name>/.local/share/lunarvim/lazy/readme/doc/`
-    * LunarVim GitHub repository: `/home/<user-name>/.local/share/lunarvim/lvim/`
-    * Cache folder: `/home/<user-name>/.cache/lvim/`
-    * Fonts folder: `/home/<user-name>/.local/share/fonts/`
-    * "mason" language server: `/home/<user-name>/.local/share/lvim/mason/packages`
-    * Node.js packages path (using Node-Version-Manager): 
-
-* Nix-Lunarvim
-  * If Lunvarvim is installed using Nix package manager, Lunarvim github repo is stored in "/nix/store/{{get folder name from file's last line: /home/user-name/.nix-profile/bin/lvim}}" path.
-
 * Conflicts
   * (Windows-OS) Scoop installed "ruby, gem" conflicts with Git-Bash installed "ruby, gem". For this reason "tmuxinator" does not work. So intall "ruby" only inside Git-Bash. And use LunarVim inside Bash.
+
+## PATH
+
+**Paths**
+
+* Windows-OS
+  * Configuration(plugins) file: C:\Users\<user-name>\AppData\Local\lvim
+  * Installed plugins: C:\Users\<user-name>\AppData\Roaming\lunarvim
+  * LunarVim binary: C:\Users\<user-name>\.local\bin\lvim.ps1
+  * PowerShell profile: C:\Users\<user-name>\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
+* Linux-OS
+
+  * LunarVim executable file: `/home/<user-name>/.local/bin`
+    * [Using "${a:-b}" for variable assignment in scripts](https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts)
+    * [What does $@ mean in a shell script?](https://stackoverflow.com/questions/9994295/what-does-mean-in-a-shell-script)
+  
+  * User configuration file: `/home/<user-name>/.config/lvim/config.lua` [On LunarVim dashboard, press "c" to edit this file]
+  * Installed plugins folder: `/home/<user-name>/.local/share/lunarvim/site/pack/lazy/opt/`
+  * Plugins doc files: `/home/<user-name>/.local/share/lunarvim/lazy/readme/doc/`
+  * LunarVim GitHub repository: `/home/<user-name>/.local/share/lunarvim/lvim/`
+  * Cache folder: `/home/<user-name>/.cache/lvim/`
+  * Fonts folder: `/home/<user-name>/.local/share/fonts/`
+  * "mason" language server: `/home/<user-name>/.local/share/lvim/mason/packages`
+  * Node.js packages path (using Node-Version-Manager): 
+
+**Nix-Lunarvim**
+
+* If Lunvarvim is installed using Nix package manager, Lunarvim github repo is stored in "/nix/store/{{get folder name from file's last line: /home/user-name/.nix-profile/bin/lvim}}" path.
 
 # Installation
 
