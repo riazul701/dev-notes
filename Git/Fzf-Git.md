@@ -13,7 +13,7 @@
 * "Kitty" terminal works perfectly with `fzf-git` keybindings.
 * "WezTerm" terminal does not work with `fzf-git` keybindings. Conflict happens with `CTRL-G` keybindings.
 
-## Warnings
+## Warnings <sup>{1}</sup>
 
 * You may have issues with these bindings in the following cases:
   * CTRL-GCTRL-B will not work if CTRL-B is used as the tmux prefix
@@ -25,13 +25,22 @@
 
 * If zsh's KEYTIMEOUT is too small (e.g. 1), you may not be able to hit two keys in time.
 
+## CTRL-GCTRL-S will not work if flow control is enabled <sup>{1}</sup>
+
+* [Ctrl-g Ctrl-s keybinding does not work if flow control is active #4
+Closed](https://github.com/junegunn/fzf-git.sh/issues/4)
+
+* [Is there a safe way to disable Control+S in bash?](https://www.reddit.com/r/bash/comments/uz8x55/is_there_a_safe_way_to_disable_controls_in_bash/?rdt=57727)
+
 ## Error and Solution
 
-### FZF_DEFAULT_OPTS: height required
+### Error: `FZF_DEFAULT_OPTS: height required`
 
 **Error Message**
 
-> $FZF_DEFAULT_OPTS: height required: HEIGHT
+```shell
+$FZF_DEFAULT_OPTS: height required: HEIGHT
+```
 
 **Solution**
 
@@ -41,3 +50,11 @@
   * Download `fzf-{{version}}-linux_amd64.tar.gz` from Fzf GitHub release page, extract it.
   * `sudo chmod a+x fzf` : Make `fzf` executable
   * `sudo mv fzf /usr/local/bin/` : Move `fzf` to executable path
+
+# References
+
+* next-sl: {2}
+
+## Commands From
+
+* {1} [junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh)

@@ -20,6 +20,10 @@
 
 * `Shift+up` and `Shift+down` keybinding should be also added to README page of this in SCROLL preview window section. <sup>{28}</sup>
 
+**Turn On/Off Preview Window <sup>{31}</sup>**
+
+* `CTRL-/` to change preview window layout
+
 # fzf-cmd.md
 
 ## Notes
@@ -32,11 +36,22 @@
   * "Kitty" terminal works perfectly with `fzf-git` keybindings. <sup>{14}</sup>
   * "WezTerm" terminal does not work with `fzf-git` keybindings. Conflict happens with `CTRL-G` keybindings. <sup>{14}</sup>
 
-* Installation Issue
-  * If `fzf` is installed using Nix package manager, then this problem arises, which is related to environment variables.
-    * `$FZF_DEFAULT_OPTS: height required: HEIGHT`
-  * If `fzf` is installed using APT package manager, version is very old and does not support many command line attributes.
-  * Solution: Install `fzf` from GitHub release page
+### Error: `FZF_DEFAULT_OPTS: height required`
+
+**Error Message**
+
+```shell
+$FZF_DEFAULT_OPTS: height required: HEIGHT
+```
+
+**Solution**
+
+* If `fzf` is installed using Nix package manager, then this problem arises, which is related to environment variables.
+* If `fzf` is installed using APT package manager, version is very old and does not support many command line attributes.
+* Solution: Install `fzf` from GitHub release page
+  * Download `fzf-{{version}}-linux_amd64.tar.gz` from Fzf GitHub release page, extract it.
+  * `sudo chmod a+x fzf` : Make `fzf` executable
+  * `sudo mv fzf /usr/local/bin/` : Move `fzf` to executable path
 
 # Fzf Install
 
@@ -278,7 +293,7 @@ rfv() (
 
 # References
 
-* next-sl: {30}
+* next-sl: {32}
 
 ## Websites
 
@@ -315,6 +330,7 @@ rfv() (
 
 ## Commands From
 
+* {31} [junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh)
 * {28} [Keyboard bindings for scrolling preview window? #358](https://github.com/junegunn/fzf.vim/issues/358)
 * {29} [Using the finder](https://github.com/junegunn/fzf?tab=readme-ov-file#using-the-finder)
 
@@ -345,4 +361,5 @@ rfv() (
 ## YouTube Tutorials
   
 * {3} [The Amazing Interactive Command Line Fuzzy Finder (fzf) BY DistroTube](https://www.youtube.com/watch?v=Ab6cWN9ZrXo)
+* {30} [This Tool Will Change The Way You Linux ('fzf') BY DistroTube](https://www.youtube.com/watch?v=Zq3mFU2T9cw)
 * {4} [Using FZF to Preview Text Files on the Command Line and within Vim BY Nick Janetakis](https://www.youtube.com/watch?v=aLMepxvUj4s)

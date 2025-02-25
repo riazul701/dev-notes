@@ -267,20 +267,120 @@ Please consider contributing to mason.nvim:
 
 # [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 
-* About
-  * A file explorer tree for neovim written in lua
+**About**
 
-* Tutorials
-  * [Keyboard Commands - 6.1 DEFAULT MAPPINGS](https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt)
-  * [Neovim - NvimTree File Explorer Written In Lua](https://www.youtube.com/watch?v=SpexCBrZ1pQ)
+* A file explorer tree for neovim written in lua
 
-* [Creating a directory](https://github.com/nvim-tree/nvim-tree.lua/issues/3)
-  * Currently, you can create a directory by adding a / to the end of a path.
-    Also, you can create directories dynamically when creating a file (like /foo/bar/baz/file.txt).
-    I don't really like the way i do file handling, i might work on a refactoring someday to make it easier to work with. If you have any ideas for the ux feel free to submit them :)
+## Keybindings From `g?` and [GitHub](https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt)
 
-* Commands
-  * NvimTree
+* `<2-LeftMouse>` : Open
+* `<2-RightMouse>` : CD
+* `<C-]>` : CD
+* `<C-E>` : Open: In Place
+* `<C-K>` : Info
+* `<C-R>` : Rename: Omit Filename
+* `<C-T>` : Open: New Tab
+* `<C-V>` : Open: Vertical Split
+* `<C-X>` : Open: Horizontal Split
+* `<BS>` : Close Directory
+* `<CR>` : Open
+* `<Tab>` : Open Preview
+* `<` : Previous Sibling
+* `.` : Run Command
+* `-` : Up
+* `>` : Next Sibling
+* `B` : Toggle Filter: No Buffer
+* `C` : CD
+* `D` : Trash
+  * Error: `[NvimTree] trash.cmd 'gio trash' is not an executable`
+* `E` : Expand All
+* `F` : Live Filter: Clear
+* `H` : Toggle Filter: Dotfiles
+* `I` : Toggle Filter: Git Ignore
+* `J` : Last Sibling
+* `K` : First Sibling
+* `L` : Toggle Group Empty
+* `M` : Toggle Filter: No Bookmark
+* `O` : Open: No Window Picker
+* `P` : Parent Directory
+* `R` : Refresh
+* `S` : Search
+* `U` : Toggle Filter: Hidden
+* `W` : Collapse
+* `Y` : Copy Relative Path
+* `a` : Create File or Directory
+  * Currently, you can create a directory by adding a `/` to the end of a path. <sup>{1}</sup>
+* `bd` : Delete Bookmarked
+* `bmv` : Move Bookmarked
+* `bt` : Trash Bookmarked
+* `c` : Copy
+* `]c` : Next Git
+* `[c` : Prev Git
+* `d` : Delete
+* `[e` : Prev Diagnostic
+* `]e` : Next Diagnostic
+* `e` : Rename: Basename
+* `f` : Live Filter: Start [Press `<Esc>` to close]
+* `g?` : Help [Press `q` to close]
+* `ge` : Copy Basename
+* `gtf` : Telescope Find File
+* `gtg` : Telescope Live Grep
+* `gy` : Copy Absolute Path
+* `h` : Close Directory
+* `l` : Open
+* `m` : Toggle Bookmark
+* `o` : Open
+* `p` : Paste
+* `q` : Close
+* `r` : Rename
+* `s` : Run System
+* `u` : Rename: Full Path
+* `v` : Open: Vertical Split
+* `x` : Cut
+* `y` : Copy Name
+
+## [Commands From Website/GitHub](https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt)
+  
+* `:NvimTreeOpen` : Opens the tree.
+
+* `:NvimTreeClose` : Closes the tree.
+
+* `:NvimTreeToggle` : Open or close the tree.
+
+* `:NvimTreeFocus` : Open the tree if it is closed, and then focus on the tree.
+
+* `:NvimTreeRefresh` : Refresh the tree.
+
+* `:NvimTreeFindFile` : The command will change the cursor in the tree for the current bufname.
+  * It will also open the leafs of the tree leading to the file in the buffer (if you opened a file with something else than the NvimTree, like `fzf` or `:split`)
+
+* `:NvimTreeFindFileToggle` : close the tree or change the cursor in the tree for the current bufname, similar to combination of |:NvimTreeToggle| and |:NvimTreeFindFile|. Takes an optional path argument.
+
+* `:NvimTreeClipboard` : Print clipboard content for both cut and copy
+
+* `:NvimTreeResize` : Resize the NvimTree window to the given size. Example: `:NvimTreeResize 50` resizes the window to the width of 50. If the size starts with "+" or "-" it adds or removes the given value to the current window width.
+  * Example `:NvimTreeResize -20` removes the value 20 from the current width. And `:NvimTreeResize +20` adds the value 20 to the current width.
+
+* `:NvimTreeCollapse` : Collapses the nvim-tree recursively.
+
+* `:NvimTreeCollapseKeepBuffers` : Collapses the nvim-tree recursively, but keep the directories open, which are used in an open buffer.
+
+* `:NvimTreeHiTest` : Show nvim-tree highlight groups similar to `:so $VIMRUNTIME/syntax/hitest.vim`
+
+## Specific Work
+
+**[Creating a directory](https://github.com/nvim-tree/nvim-tree.lua/issues/3) <sup>{1}</sup>**
+
+* Currently, you can create a directory by adding a `/` to the end of a path.
+    
+  * Also, you can create directories dynamically when creating a file (like `/foo/bar/baz/file.txt`).
+    
+  * I don't really like the way i do file handling, i might work on a refactoring someday to make it easier to work with. If you have any ideas for the ux feel free to submit them :)
+
+## Tutorials
+  
+* [Keyboard Commands - 6.1 DEFAULT MAPPINGS](https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt)
+* [Neovim - NvimTree File Explorer Written In Lua](https://www.youtube.com/watch?v=SpexCBrZ1pQ)
 
 # [tamago324/lir.nvim](https://github.com/tamago324/lir.nvim)
 
@@ -521,3 +621,13 @@ Please consider contributing to mason.nvim:
 
 * About
   * This plugin automatically disables certain features if the opened file is big.
+
+# References
+
+* next-sl: {2}
+
+## Commands From
+
+* [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+
+  * {1} [Creating a directory](https://github.com/nvim-tree/nvim-tree.lua/issues/3)
