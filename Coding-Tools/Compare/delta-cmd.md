@@ -71,6 +71,20 @@ git config --global delta.navigate true
 git config --global merge.conflictStyle zdiff3
 ```
 
+**[Side-by-side view](https://dandavison.github.io/delta/side-by-side-view.html)**
+
+```shell
+[delta]
+    side-by-side = true
+```
+
+**[Line numbers](https://dandavison.github.io/delta/line-numbers.html)**
+
+```shell
+[delta]
+    line-numbers = true
+```
+
 ## Tmux
 
 **[Using Delta with tmux](https://dandavison.github.io/delta/tips-and-tricks/using-delta-with-tmux.html)**
