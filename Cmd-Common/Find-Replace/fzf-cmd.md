@@ -1,5 +1,13 @@
 # Commands/Usage
 
+## Commands
+
+* `CTRL-R` : Paste the selected command from history onto the command-line
+
+* `CTRL-T` : Paste the selected files and directories onto the command-line
+
+* `ALT-C` : `cd` into the selected directory
+
 ## Using the finder
 
 **Scroll Finder Window and Select Items <sup>{29}</sup>**
@@ -24,6 +32,26 @@
 
 * `CTRL-/` to change preview window layout
 
+## [Getting Started](https://junegunn.github.io/fzf/getting-started/)
+
+**Understanding fzf**
+
+* `ls | fzf | wc` : Word count of selected file
+* `find * | fzf | md5sum` : Calculate `md5sum` of selected file
+* `git ls-files | fzf | xargs git log` : Show `git log` associated with selected file
+* `ps -ef | sed 1d | fzf | awk '{print $2}' | xargs kill` : Kill selected process
+
+**Interactive git branch selector**
+
+* `git branch | fzf | cut -c 3- | xargs git checkout` : Select git branch
+* `alias gcb='git branch | fzf | cut -c 3- | xargs git checkout'` : Set alias for git branch selection
+
+**Real-time preview of the content**
+
+* `git branch | fzf --preview 'git show --color=always {-1}' | cut -c 3- | xargs git checkout` : Git branch selection with preview
+* `git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})'` : Git branch selection with preview (Making it even better)
+* `git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 40% --layout reverse` : Git branch selection with preview and height adjustment
+
 # fzf-cmd.md
 
 ## Notes
@@ -32,26 +60,10 @@
 
 ## [junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh) Issue
 
-* Keybindings Issue
-  * "Kitty" terminal works perfectly with `fzf-git` keybindings. <sup>{14}</sup>
-  * "WezTerm" terminal does not work with `fzf-git` keybindings. Conflict happens with `CTRL-G` keybindings. <sup>{14}</sup>
+**Keybindings Issue**
 
-### Error: `FZF_DEFAULT_OPTS: height required`
-
-**Error Message**
-
-```shell
-$FZF_DEFAULT_OPTS: height required: HEIGHT
-```
-
-**Solution**
-
-* If `fzf` is installed using Nix package manager, then this problem arises, which is related to environment variables.
-* If `fzf` is installed using APT package manager, version is very old and does not support many command line attributes.
-* Solution: Install `fzf` from GitHub release page
-  * Download `fzf-{{version}}-linux_amd64.tar.gz` from Fzf GitHub release page, extract it.
-  * `sudo chmod a+x fzf` : Make `fzf` executable
-  * `sudo mv fzf /usr/local/bin/` : Move `fzf` to executable path
+* "Kitty" terminal works perfectly with `fzf-git` keybindings. <sup>{14}</sup>
+* "WezTerm" terminal does not work with `fzf-git` keybindings. Conflict happens with `CTRL-G` keybindings. <sup>{14}</sup>
 
 # Fzf Install
 
@@ -105,49 +117,7 @@ $FZF_DEFAULT_OPTS: height required: HEIGHT
 * `sudo apt install zoxide` : Install `zoxide` old version
 * Add this to the end of your config file (usually ~/.bashrc): `eval "$(zoxide init bash)"` <sup>{24}</sup>
 
-## Shell Completion & Keybindings
-
-* Shell Integration Guides
-  * [CTRL+R executes reverse-i-search #1812](https://github.com/junegunn/fzf/issues/1812) <sup>{5}</sup>
-  * [fzf: ctlr-r not triggering history search on command line](https://unix.stackexchange.com/questions/665689/fzf-ctlr-r-not-triggering-history-search-on-command-line) <sup>{6}</sup>
-
-### Instructions
-
-* Instructions from <sup>{5} {6}</sup>
-* `fzf --version` : Check Fzf version
-* Go to [junegunn/fzf GitHub](https://github.com/junegunn/fzf)
-* Choose git tag according to Fzf version.
-* Download file `completion.bash` and `key-bindings.bash`. Place then inside `~/.config/fzf` directory
-  * `https://github.com/junegunn/fzf/blob/{{git-tag/fzf-version}}/shell/completion.bash`
-  * `https://github.com/junegunn/fzf/blob/{{git-tag/fzf-version}}/shell/key-bindings.bash`
-* Open `~/.bashrc` and add code
-```bash
-source /home/{{user-name}}/.config/fzf/key-bindings.bash
-source /home/{{user-name}}/.config/fzf/completion.bash
-```
-* Reload `~/.bashrc` : `source ~/.bashrc`
-
-# [junegunn.github.io/fzf](https://junegunn.github.io/fzf/)
-
-## [Getting Started](https://junegunn.github.io/fzf/getting-started/)
-
-### Understanding fzf
-
-* `ls | fzf | wc` : Word count of selected file
-* `find * | fzf | md5sum` : Calculate `md5sum` of selected file
-* `git ls-files | fzf | xargs git log` : Show `git log` associated with selected file
-* `ps -ef | sed 1d | fzf | awk '{print $2}' | xargs kill` : Kill selected process
-
-### Interactive git branch selector
-
-* `git branch | fzf | cut -c 3- | xargs git checkout` : Select git branch
-* `alias gcb='git branch | fzf | cut -c 3- | xargs git checkout'` : Set alias for git branch selection
-
-### Real-time preview of the content
-
-* `git branch | fzf --preview 'git show --color=always {-1}' | cut -c 3- | xargs git checkout` : Git branch selection with preview
-* `git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})'` : Git branch selection with preview (Making it even better)
-* `git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 40% --layout reverse` : Git branch selection with preview and height adjustment
+# Configuration
 
 ## [Shell Integration](https://junegunn.github.io/fzf/shell-integration/)
 
@@ -290,6 +260,52 @@ rfv() (
 ```
 
 * Reload `~/.bashrc` : `source ~/.bashrc`
+
+# Error and Solution
+
+## Shell Completion & Keybindings
+
+**Shell Integration Guides**
+
+* [CTRL+R executes reverse-i-search #1812](https://github.com/junegunn/fzf/issues/1812) <sup>{5}</sup>
+* [fzf: ctlr-r not triggering history search on command line](https://unix.stackexchange.com/questions/665689/fzf-ctlr-r-not-triggering-history-search-on-command-line) <sup>{6}</sup>
+
+**Instructions (Optional)**
+
+* Note: If Fzf keybindings (`CTRL-R`: shell history, `CTRL-T`: paste file/directory, `ALT-C`: cd directory) do not work, then follow these steps.
+
+* Instructions from <sup>{5} {6}</sup>
+* `fzf --version` : Check Fzf version
+* Go to [junegunn/fzf GitHub](https://github.com/junegunn/fzf)
+* Choose git tag according to Fzf version.
+* Download file `completion.bash` and `key-bindings.bash`. Place then inside `~/.config/fzf` directory
+  * `https://github.com/junegunn/fzf/blob/{{git-tag/fzf-version}}/shell/completion.bash`
+  * `https://github.com/junegunn/fzf/blob/{{git-tag/fzf-version}}/shell/key-bindings.bash`
+* Open `~/.bashrc` and add code
+```bash
+source /home/{{user-name}}/.config/fzf/key-bindings.bash
+source /home/{{user-name}}/.config/fzf/completion.bash
+```
+* Reload `~/.bashrc` : `source ~/.bashrc`
+
+## [junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh)
+
+### Error: `FZF_DEFAULT_OPTS: height required`
+
+**Error Message**
+
+```shell
+$FZF_DEFAULT_OPTS: height required: HEIGHT
+```
+
+**Solution**
+
+* If `fzf` is installed using Nix package manager, then this problem arises, which is related to environment variables.
+* If `fzf` is installed using APT package manager, version is very old and does not support many command line attributes.
+* Solution: Install `fzf` from GitHub release page
+  * Download `fzf-{{version}}-linux_amd64.tar.gz` from Fzf GitHub release page, extract it.
+  * `sudo chmod a+x fzf` : Make `fzf` executable
+  * `sudo mv fzf /usr/local/bin/` : Move `fzf` to executable path
 
 # References
 
