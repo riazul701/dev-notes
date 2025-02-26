@@ -72,6 +72,14 @@
 
 * [Vim documentation: diff](https://vimdoc.sourceforge.net/htmldoc/diff.html)
 
+* Configure Vimdiff Theme
+  * [Load different colorscheme when using vimdiff](https://stackoverflow.com/questions/2019281/load-different-colorscheme-when-using-vimdiff)
+  * [Vim Color Schemes: How to Configure](https://phoenixnap.com/kb/vim-color-schemes)
+  * [vimcolorschemes.com](https://vimcolorschemes.com/i/trending) || [vimcolorschemes/vimcolorschemes GitHub](https://github.com/vimcolorschemes/vimcolorschemes)
+
+* Vimdiff Theme Collection
+  * [morhetz/gruvbox GitHub](https://github.com/morhetz/gruvbox)
+
 # References
 
 * next-sl: {6}
