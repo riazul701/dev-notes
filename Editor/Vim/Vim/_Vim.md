@@ -19,7 +19,8 @@
 
 ## Notes
 
-* Run Vim in Verbose/Debug mode: vim -V9vim.log
+* Run Vim in Verbose/Debug mode: `vim -V9vim.log`
+* Turn off `vi` compatible mode in `vim`
 
 ## Interactive Search and Replace
 
