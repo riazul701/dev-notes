@@ -80,6 +80,14 @@
 * Vimdiff Theme Collection
   * [morhetz/gruvbox GitHub](https://github.com/morhetz/gruvbox)
 
+## Three-Way Merge
+
+**["More than two buffers in diff mode" - How do you turn off diff on the buffers?](https://stackoverflow.com/questions/13264514/more-than-two-buffers-in-diff-mode-how-do-you-turn-off-diff-on-the-buffers)**
+
+* You should switch off diff mode for the unwanted buffer with `:diffoff` before quitting it with `:q`. Depending on your settings (e.g. `:set hidden`), the buffer will persist in the buffer list (`:ls`), and Vim will consider it when doing a diff.
+
+* A `:bufdo diffoff` should turn off diff for all existing buffers, though I usually just quit Vim and relaunch it with `vimdiff ...` should such a situation arise.
+
 # References
 
 * next-sl: {6}

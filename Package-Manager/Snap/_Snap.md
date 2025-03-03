@@ -2,13 +2,26 @@
 
 * `echo 'export PATH=$PATH:/snap/bin' >> ~/.bashrc` : Add Snap $PATH to "~/.bashrc", if snap packages are not added to path automatically.
   * `source ~/.bashrc` : Reload "~/.bashrc" file
+
 * `sudo sh -c 'rm -rf /var/lib/snapd/cache/*'` : Remove snap cache files in `/var/lib/snapd/cache` without issue. Also there is no need to stop snapd before. <sup>{3}</sup>
+
 * `apt show snapd` : Shows information about "snap"/"snapd" package
+
 * `sudo apt install snapd` : Install "snap"/"snapd" package
+
 * `which snap` : Shows "snap" installation path
+
 * `snap --version` : Check "snap"(client) and "snapd"(server) version
+
 * `systemctl status snapd` : Check "snapd" status (running or not)
+
 * `snap help --all` : Shows help of "snap" command
+
+* `sudo snap install {{package-name}}` : Install snap package
+
+* `snap list` : Shows list of installed packages.
+
+* `sudo snap remove {{package-name}}` : Uninstall snap package
 
 # Snap Package Manager
 

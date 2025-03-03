@@ -2,9 +2,76 @@
 
 ## Notes
 
+* Using template `Init` function (`promptChoice`) generate dynamic data to chezmoi config file `~/.config/chezmoi/chezmoi.toml` and use this data in template files if-else code.
+
 * By default, chezmoi will use your preferred editor as defined by the `$VISUAL` or `$EDITOR` environment variables, falling back to a default editor depending on your operating system (`vi` on UNIX-like operating systems, `notepad.exe` on Windows).
 
 * `--autotemplate` option requires files with appropriate content (like `~/.bashrc`), but `--template` does not depend on content.
+
+* Muliple exclude/include separated by comma `,` : `--exclude=encrypted,files,symlinks`
+
+* `age` Encryption: SSH keys are not supported as the `age` documentation explicitly recommends not using them:
+
+## Templating
+
+**Templating From {12} {13}**
+
+**Removing whitespace**
+
+* For formatting reasons you might want to leave some whitespace after or before the template code. This whitespace will remain in the final file, which you might not want.
+
+* A solution for this is to place a minus sign and a space next to the brackets. So `{{-` for the left brackets and `-}}` for the right brackets. Here's an example:
+`HOSTNAME={{- .chezmoi.hostname -}}`
+
+* This will result in `HOSTNAME=myhostname`
+
+* Notice that this will remove any number of tabs, spaces and even newlines and carriage returns.
+
+**Init functions**
+
+* These template functions are only available when generating a config file with `chezmoi init`. For testing with `chezmoi execute-template`, pass the `--init` flag to enable them.
+
+## Template Error
+
+**Error: toml: expected newline but got U+0068 'h'**
+
+* If `{{-  -}}` syntax shows error, then try `{{  }}` syntax
+
+* Reason: When `promptChoice` Init function is used with `{{-  -}}` syntax, then this error is shown. In another code, `{{  }}` syntax is ok.
+
+* [Example Code => `promptChoice`](https://www.chezmoi.io/reference/templates/init-functions/promptChoice/):
+```shell
+{{- $choices := list "desktop" "server" -}}
+{{ $hosttype := promptChoice "What type of host are you on" $choices }}
+    hosttype = {{- $hosttype | quote -}}
+```
+
+## Global Flags: `chezmoi --help`
+
+* `--cache path` : Set cache directory (default `/home/{{user-name}}/.cache/chezmoi`)
+* `--color bool|auto` : Colorize output (default auto)
+* `-c`, `--config path` : Set config file
+* `--config-format <none>|json|toml|yaml` : Set config file format
+* `--debug` : Include debug information in output
+* `-D`, `--destination path` : Set destination directory (default `/home/{{user-name}}`)
+* `-n`, `--dry-run` : Do not make any modifications to the destination directory
+* `--force` : Make all changes without prompting
+* `--interactive` : Prompt for all changes
+* `-k`, `--keep-going` : Keep going as far as possible after an error
+* `--mode file|symlink` : Mode (default file)
+* `--no-pager` : Do not use the pager
+* `--no-tty` : Do not attempt to get a TTY for prompts
+* `-o`, `--output path` : Write output to path instead of stdout
+* `--persistent-state path` : Set persistent state file
+* `--progress bool|auto` : Display progress bars (default auto)
+* `-R`, `--refresh-externals always|auto|never[=always]` : Refresh external cache (default auto)
+* `-S`, `--source path` : Set source directory (default `/home/{{user-name}}/.local/share/chezmoi`)
+* `--source-path` : Specify targets by source path
+* `--use-builtin-age bool|auto` : Use builtin age (default auto)
+* `--use-builtin-diff` : Use builtin diff
+* `--use-builtin-git bool|auto` : Use builtin git (default auto)
+* `-v`, `--verbose` : Make output more verbose
+* `-W`, `--working-tree path` : Set working tree directory
 
 ## Commands
 
@@ -41,7 +108,7 @@
   * Common flags
     * `chezmoi add {{directory}} --exclude {{types}}` : Exclude target state entries of specific types. The default is `none`.
       * `--exclude=scripts` will cause the command to not run scripts and `--exclude=encrypted` will exclude encrypted files.
-      * `chezmoi add {{directory}} --exclude symlinks` : Exclude symlink/shortcut files.
+      * `chezmoi add {{directory}} --exclude=symlinks` : Exclude symlink/shortcut files.
     * `chezmoi add {{directory}} --force` : Add targets, even if doing so would cause a source template to be overwritten.
     * `chezmoi add {{directory}} --include {{types}}` : Include target state entries of specific types. The default is `all`.
       * `--include=files` specifies all files.
@@ -99,37 +166,51 @@
   * `chezmoi apply --source-path` : Specify targets by source path, rather than target path. This is useful for applying changes after editing.
   
   * Examples
-    * `chezmoi apply`
-    * `chezmoi apply --dry-run --verbose`
-    * `chezmoi apply ~/.bashrc`
+    * `chezmoi apply` : If no targets are specified, the state of all targets are ensured.
+    * `chezmoi apply --dry-run --verbose` : Does not change destination directory.
+    * `chezmoi apply ~/.bashrc` : Ensure that target... are in the target state, updating them if necessary.
 
 * chezmoi archive
   
-  * `chezmoi archive --format` OR `chezmoi archive -f` : Write the archive in format. If `--output` is set the format is guessed from the extension, otherwise the default is `tar`.
+  * Use command `chezmoi archive --format=tar --output=dotfiles.tar` to create archive. Without `--format=tar` option, `chezmoi import` command shows error `chezmoi: archive/tar: invalid tar header`. Same for: `tar`, `tar.gz`, `tgz`, `zip`
+
+  * Print contents on stdout. To save as archive use `--output` option OR bash pipe `| tar tvf -` OR bash redirection `> file-name.tar`.
+
+  * `chezmoi archive --format={{format}}` OR `chezmoi archive -f={{format}}` : Write the archive in format. If `--output` is set the format is guessed from the extension, otherwise the default is `tar`. Supported formats: `tar`, `tar.gz`, `tgz`, `zip`
+    * `chezmoi archive --format=tar --output=dotfiles.tar` : Create `dotfiles.tar` archive of source directory
   
   * `chezmoi archive --gzip` OR `chezmoi archive -z` : Compress the archive with gzip. This is automatically set if the format is `tar.gz` or `tgz` and is ignored if the format is `zip`.
+    * `chezmoi archive --gzip --output=dotfiles.gzip` : Create `dotfiles.gzip` archive of source directory
   
   * `chezmoi archive --exclude={{types}}` OR `chezmoi archive -x={{types}}`
+    * `chezmoi archive --exclude={{types}} --output=dotfiles.tar`: Create `--output=dotfiles.tar` archive of source directory
     * `chezmoi archive --exclude=scripts` : Will cause the command to not run scripts
     * `chezmoi archive --exclude=encrypted` : Will exclude encrypted files.
+    * `chezmoi archive --exclude=symlinks` : Exclude symlink/shortcut files.
   
   * `chezmoi archive --include={{types}}` OR `chezmoi archive -i={{types}}`
+    * `chezmoi archive --include={{types}} --output=dotfiles.tar` : Create `dotfiles.tar` archive of source directory
     * `chezmoi archive --include=files` : Specifies all files.
   
   * `chezmoi archive --init` : Regenerate and reload the config file from its template before computing the target state.
+    * `chezmoi archive --init --output=dotfiles.tar` : Create `dotfiles.tar` archive of source directory
   
   * `chezmoi archive --parent-dirs` OR `chezmoi archive -P` : Execute the command on target and all its parent directories.
+    * `chezmoi archive --parent-dirs --output=dotfiles.tar` : Create `dotfiles.tar` archive of of source directory
   
   * `chezmoi archive --recursive` OR `chezmoi archive -r` : Recurse into subdirectories. Enabled by default. Can be disabled with `--recursive=false`.
+    * `chezmoi archive --recursive --output=dotfiles.tar` : Create `dotfiles.tar` archive of of source directory
   
   * Examples
-    * `chezmoi archive | tar tvf -`
-    * `chezmoi archive --output=dotfiles.tar.gz`
-    * `chezmoi archive --output=dotfiles.zip`
+    * `chezmoi archive | tar tvf -` : Shows Error
+      * tar: Archive is compressed. Use -z option
+      * tar: Error is not recoverable: exiting now
+    * `chezmoi archive --output=dotfiles.tar.gz` : Create `dotfiles.tar.gz` archive of source directory
+    * `chezmoi archive --output=dotfiles.zip` : Create `dotfiles.zip` archive of source directory
 
 * chezmoi cat
   
-  * `chezmoi cat {{target}}` : Write the target contents of targets to stdout. targets must be files, scripts, or symlinks.
+  * `chezmoi cat {{target}}` : Write the target contents of targets to stdout (from source directory). targets must be files, scripts, or symlinks.
   
   * Examples
     * `chezmoi cat ~/.bashrc`
@@ -140,7 +221,7 @@
   
   * `chezmoi cd {{path}}` : Launch a shell in the working tree (typically the source directory).
   
-  * `cd $(chezmoi source-path)` : This does not change the current directory of the current shell. To do that, instead use
+  * `cd $(chezmoi source-path)` : This does not change the current directory of the current shell. To do that, instead use this
   
   * Examples
     * `chezmoi cd` : Go to source directory root.
@@ -154,10 +235,16 @@
   * `chezmoi chattr --recursive` OR `chezmoi chattr -r` : Recurse into subdirectories.
   
   * Examples
-    * `chezmoi chattr template ~/.bashrc` : Convert `executable_dot_bashrc` to `executable_dot_bashrc.tmpl` in source directory.
+
+    * `chezmoi chattr template ~/.bashrc` : If a file is already managed by chezmoi, but is not a template, you can make it a template by running, for example. Convert `executable_dot_bashrc` to `executable_dot_bashrc.tmpl` in source directory.
+      * `chezmoi chattr +template ~/.zshrc`
+    
     * `chezmoi chattr noempty ~/.profile` : No change in source directory.
+    
     * `chezmoi chattr private,template ~/.netrc` : Convert `executable_dot_netrc` to `private_executable_dot_netrc.tmpl` in source directory.
+    
     * `chezmoi chattr -- -x ~/.zshrc` : Convert `executable_dot_zshrc` to `dot_zshrc` in source directory.
+    
     * `chezmoi chattr +create,+private ~/.kube/config` : Convert `dot_kube/executable_dot_config` to `dot_kube/create_private_executable_dot_config` in source directory.
 
 * chezmoi completion
@@ -167,6 +254,7 @@
   * Examples
     * `chezmoi completion bash` : Print chezmoi bash completion to stdout.
     * `chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish` : Write chezmoi fish completion to `~/.config/fish/completions/chezmoi.fish` file.
+    * `chezmoi completion bash --output=~/.config/bash/completions/chezmoi.bash`
 
 * chezmoi data
   
@@ -206,7 +294,7 @@
   
   * `chezmoi diff` : If no targets are specified, print the differences for all targets. Prints all diff in stdout from source to destination directory.
   
-  * `chezmoi diff --pager {{pager}}` : Pager to use for output. Configuration: `diff.pager`
+  * `chezmoi diff --pager={{pager}}` : Pager to use for output. Configuration: `diff.pager`
     * `chezmoi diff --pager=less` : Shows all diff using "less" pager program.
     * `chezmoi diff | less` : Shows all diff using "less" pager program.
   
@@ -218,6 +306,7 @@
   * `chezmoi diff --exclude={{types}}` OR `chezmoi diff -x={{types}}` : Exclude target state entries of specific types. The default is `none`.
     * `chezmoi diff --exclude=scripts` : Will cause the command to not run scripts
     * `chezmoi diff --exclude=encrypted` : Will exclude encrypted files.
+    * `chezmoi diff --exclude=symlinks` : Exclude symlink/shortcut files.
   
   * `chezmoi diff --include={{types}}` OR `chezmoi diff -i={{types}}` : Include target state entries of specific types. The default is `all`.
     * `chezmoi diff --include=files` : Specifies all files.
@@ -241,10 +330,12 @@
 * chezmoi dump
   
   * `chezmoi dump [target...]` : Dump the target state of targets (from source directory). If no targets are specified, then the entire target state.
+    * `chezmoi dump [target...] | {{less|delta}}` : Show contents in `less` or `delta` pager
   
   * `chezmoi dump --exclude={{types}}` OR `chezmoi dump -x={{types}}` : Exclude target state entries of specific types. The default is `none`.
     * `chezmoi dump --exclude=scripts` : Will cause the command to not run scripts
     * `chezmoi dump --exclude=encrypted` : Will exclude encrypted files.
+    * `chezmoi dump --exclude=symlinks` : Exclude symlink/shortcut files.
   
   * `chezmoi dump --include={{types}}` OR `chezmoi dump -i={{types}}` : Include target state entries of specific types. The default is `all`.
     * `chezmoi dump --include=files` : Specifies all files.
@@ -260,7 +351,7 @@
   
   * `chezmoi dump --recursive` OR `chezmoi dump -r` : Recurse into subdirectories. Enabled by default. Can be disabled with `--recursive=false`.
   
-  * Examples Test
+  * Examples
     * `chezmoi dump ~/.bashrc` : Dump contents of `~/.bashrc` from source directory.
 
 * chezmoi dump-config
@@ -282,7 +373,7 @@
   * `chezmoi edit --exclude={{types}}` OR `chezmoi edit -x={{types}}` : Exclude target state entries of specific types. The default is `none`.
     * `chezmoi edit --exclude=scripts` : Will cause the command to not run scripts
     * `chezmoi edit --exclude=encrypted` : Will exclude encrypted files.
-    * `chezmoi edit --exclude symlinks` : Exclude symlink/shortcut files.
+    * `chezmoi edit --exclude=symlinks` : Exclude symlink/shortcut files.
   
   * `chezmoi edit --include={{types}}` OR `chezmoi edit -i={{types}}` : Include target state entries of specific types. The default is `all`.
     * `chezmoi edit --include=files` : Specifies all files.
@@ -315,12 +406,16 @@
 * chezmoi execute-template
   
   * `chezmoi execute-template [template...]` : Execute templates. If no templates are specified, the template is read from stdin.
+    * `chezmoi execute-template < dot_zshrc.tmpl` : Without arguments, `chezmoi execute-template` will read the template from standard input, which is useful for testing whole files
+    * `cat foo.txt | chezmoi execute-template` : If file redirection does not work (as when using PowerShell), the contents of a file can be piped into `chezmoi execute-template`
+    * `cat foo.txt | chezmoi execute-template --init` : Template Init functions are only available when generating a config file with `chezmoi init`. For testing with `chezmoi execute-template`, pass the `--init` flag to enable them.
   
   * `chezmoi execute-template [template...] --init` OR `chezmoi execute-template [template...] -i` : Include simulated functions only available during `chezmoi init`.
   
   * `chezmoi execute-template [template...] --left-delimiter={{delimiter}}` : Set the left template delimiter.
+    * `chezmoi execute-template --left-delimiter='{{' '{{ .chezmoi.sourceDir }}'`
   
-  * `chezmoi execute-template [template...] --promptBool={{pairs}}` : Simulate the `promptBool` template function with a function that returns values from pairs. pairs is a comma-separated list of `prompt=value` pairs.
+  * `chezmoi execute-template [template...] --promptBool={{pairs}}` : Simulate the `promptBool` template function with a function that returns values from pairs. pairs is a comma-separated list of `prompt=value` pairs. If `promptBool` is called with a prompt that does not match any of pairs, then it returns false.
   
   * `chezmoi execute-template [template...] --promptChoice={{pairs}}` : Simulate the promptChoice template function with a function that returns values from pairs.
   
@@ -329,6 +424,7 @@
   * `chezmoi execute-template [template...] --promptString={{pairs}}` OR `chezmoi execute-template [template...] -p={{pairs}}` : Simulate the `promptString` template function with a function that returns values from pairs.
   
   * `chezmoi execute-template [template...] --right-delimiter={{delimiter}}` : Set the right template delimiter.
+    * `chezmoi execute-template --right-delimiter='}}' '{{ .chezmoi.sourceDir }}'`
   
   * `chezmoi execute-template [template...] --stdinisatty={{bool}}` : Simulate the `stdinIsATTY` function by returning bool.
   
@@ -380,22 +476,30 @@
 
 * chezmoi import
   
+  * Use command `chezmoi archive --format=tar --output=dotfiles.tar` to create archive. Without `--format=tar` option, `chezmoi import` command shows error `chezmoi: archive/tar: invalid tar header`. Same for: `tar`, `tar.gz`, `tgz`, `zip`
+
+  * The supported archive formats are `tar`, `tar.gz`, `tgz`, `tar.bz2`, `tbz2`, `txz`, `tar.zst`, and `zip`.
+
   * `chezmoi import {{filename}}` : Import the source state from an archive file in to a directory in the source state.
   
-  * `chezmoi import {{filename}} --destination` OR `chezmoi import {{filename}} -d` : Set the destination (in the source state) where the archive will be imported.
+  * `chezmoi import {{filename}} --destination {{directory}}` OR `chezmoi import {{filename}} -d {{directory}}` : Set the destination (in the source state) where the archive will be imported. Import `directory` must be inside source directory.
   
   * `chezmoi import {{filename}} --exact` : Set the `exact` attribute on all imported directories.
   
   * `chezmoi import {{filename}} --remove-destination` OR `chezmoi import {{filename}} -r` : Remove destination (in the source state) before importing.
+    * Remove symlink/shortcut file error: `chezmoi: rename {{existing-symlink-file}} {{new-symlink-file}}: no such file or directory`
   
-  * `chezmoi import {{filename}} --strip-components={{n}}` : Strip n leading components from paths.
+  * `chezmoi import {{filename}} --strip-components={{n}}` : Strip `n` leading components from paths. Strip `n` number of directory from archive file, during extraction.
   
   * `chezmoi import {{filename}} --exclude={{types}}` OR `chezmoi import {{filename}} -x={{types}}` : Exclude target state entries of specific types. The default is `none`.
     * `chezmoi import {{filename}} --exclude=scripts` : Will cause the command to not run scripts
     * `chezmoi import {{filename}} --exclude=encrypted` : Will exclude encrypted files.
+    * `chezmoi import {{filename}} --exclude=symlinks` : Exclude symlink/shortcut files.
   
   * `chezmoi import {{filename}} --include={{types}}` OR `chezmoi import {{filename}} -i={{types}}` : Include target state entries of specific types. The default is `all`.
     * `chezmoi import {{filename}} --include=files` : Specifies all files.
+    * `chezmoi import {{filename}} --include=symlinks` : Exclude symlink/shortcut files.
+      * Shows Error: `chezmoi: {{symlink-file-path}}: parent directory not in source state` 
   
   * Examples
     * `curl -s -L -o ${TMPDIR}/oh-my-zsh-master.tar.gz https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz`
@@ -474,11 +578,12 @@
   * `chezmoi managed [path...] --exclude={{types}}` OR `chezmoi managed [path...] -x={{types}}` : Exclude target state entries of specific types. The default is `none`.
     * `chezmoi managed [path...] --exclude=scripts` : Will cause the command to not run scripts
     * `chezmoi managed [path...] --exclude=encrypted` : Will exclude encrypted files.
+    * `chezmoi managed [path...] --exclude=symlinks` : Exclude symlink/shortcut files.
   
   * `chezmoi managed [path...] --include={{types}}` OR `chezmoi managed [path...] -i={{types}}` : Include target state entries of specific types. The default is `all`.
     * `chezmoi managed [path...] --include=files` : Specifies all files.
   
-  * `chezmoi managed [path...] --path-style={{style}}` OR `chezmoi managed [path...] -p={{style}}` : Print paths in the given style. The default is `relative`.
+  * `chezmoi managed [path...] --path-style={{style}}` OR `chezmoi managed [path...] -p={{style}}` : Print paths in the given style. The default is `relative`. List of styles: `absolute`, `relative`, `source-absolute`, `source-relative`, `all`
   
   * `chezmoi managed [path...] --tree` OR `chezmoi managed [path...] -t` : Print paths as a tree instead of a list.
   
@@ -507,8 +612,11 @@
   * `chezmoi merge-all --recursive` OR `chezmoi merge-all -r` : Recurse into subdirectories. Enabled by default. Can be disabled with `--recursive=false`.
 
 * chezmoi purge
+
   * `chezmoi purge` : Remove chezmoi's configuration, state, and source directory, but leave the target state intact.
+  
   * `chezmoi purge --binary` OR `chezmoi purge -P` : Purge chezmoi binary.
+  
   * `chezmoi purge --force` : Remove without prompting.
 
 * chezmoi re-add
@@ -745,6 +853,44 @@
 | M | Modified | Entry was modified | Entry will be modified |
 | R | Run | Not applicable | Script will be run |
 
+## `chezmoi chattr` Attributes
+
+**[`chezmoi chattr modifier target...` Attributes](https://www.chezmoi.io/reference/commands/chattr/)**
+
+* Change the attributes and/or type of targets. modifier specifies what to modify.
+
+* Add attributes by specifying them or their abbreviations directly, optionally prefixed with a plus sign (`+`). Remove attributes by prefixing them or their attributes with the string `no` or a minus sign (`-`).
+
+* The available attribute modifiers and their abbreviations are:
+
+| Attribute modifier | Abbreviation |
+|--------------------|--------------|
+| `after` | `a` |
+| `before` | `b` |
+| `empty` | `e` |
+| `encrypted` | none |
+| `exact` | none |
+| `executable` | `x` |
+| `external` | none |
+| `once` | `o` |
+| `private` | `p` |
+| `readonly` | `r` |
+| `remove` | none |
+| `template` | `t` |
+
+* The type of a target can be changed using a type modifier:
+
+| Type modifier |
+|---------------|
+| `create` |
+| `modify` |
+| `script` |
+| `symlink` |
+
+* The negative form of type modifiers, e.g. `nocreate`, changes the target to be a regular file if it is of that type, otherwise the type is left unchanged.
+
+* Multiple modifications may be specified by separating them with a comma (`,`). If you use the `-`modifier form then you must put modifier after a `--` to prevent chezmoi from interpreting `-`modifier as an option.
+
 # Chezmoi.md
 
 ## Notes
@@ -763,10 +909,25 @@
 
 # Install Chezmoi
 
+## One-line binary install
+
+**[One-line binary install](https://www.chezmoi.io/install/#one-line-binary-install)**
+
+* Download Chezmoi
+  * Using "curl" : `sh -c "$(curl -fsLS get.chezmoi.io)"`
+  * Using "wget" : `sh -c "$(wget -qO- get.chezmoi.io)"`
+  * PowerShell
+    * `iex "&{$(irm 'https://get.chezmoi.io/ps1')}"`
+    * To provide the script with arguments, place them at the end of the quote: `iex "&{$(irm 'https://get.chezmoi.io/ps1')} -b '~/bin'"`
+
+* Move to $PATH
+  * `sudo mv chezmoi /usr/local/bin/`
+
 ## Install using Snap
 
-* [chezmoi BY Tom Payne (twpayne) => snapcraft.io/chezmoi](https://snapcraft.io/chezmoi)
-  * Install Chezmoi: `sudo snap install chezmoi --classic`
+**[chezmoi BY Tom Payne (twpayne) => snapcraft.io/chezmoi](https://snapcraft.io/chezmoi)**
+  
+* Install Chezmoi: `sudo snap install chezmoi --classic`
 
 ## Antix-Linux
 
@@ -775,6 +936,12 @@
   * Chezmoi is install in `~/bin/chezmoi`
   * Move to `$PATH`: `sudo mv ~/bin/chezmoi /usr/local/bin/chezmoi`
   * Check version: `chezmoi --version`
+
+## `age` Encryption
+
+**Linux**
+
+* Using APT package manager: `sudo apt install age`
 
 ## KeePassXC CLI
 
@@ -854,7 +1021,7 @@ pager = "delta"
 
 # References
 
-* next-sl: {12}
+* next-sl: {14}
 
 ## Websites
 
@@ -900,6 +1067,8 @@ pager = "delta"
 
 * {6} [Command overview](https://www.chezmoi.io/user-guide/command-overview/)
 * {7} [Chezmoi Commands Reference](https://www.chezmoi.io/reference/commands/)
+* {12} [Templating](https://www.chezmoi.io/user-guide/templating/)
+* {13} [Template Init functions](https://www.chezmoi.io/reference/templates/init-functions/)
 
 ## Tutorials
 
@@ -933,5 +1102,9 @@ pager = "delta"
   * {2} [vimdiff is not available as 'vim'](https://stackoverflow.com/questions/55418145/vimdiff-is-not-available-as-vim)
 
 ## YouTube Tutorials
-  
-* [Easily moving Linux installs BY Chris Titus Tech](https://www.youtube.com/watch?v=x6063EuxfEA)
+
+* General
+  * [Easily moving Linux installs BY Chris Titus Tech](https://www.youtube.com/watch?v=x6063EuxfEA)
+
+* `age` Encryption
+  * [Age File Encryption Tool - Installation Process on Windows, Linux - Github BY Tech Namit](https://www.youtube.com/watch?v=1s0y1p3A3XM)
