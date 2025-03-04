@@ -23,45 +23,6 @@
 
 # Contents of i3-Window-Manager
 
-## Websites
-
-* i3 Window Manager
-  * {33} [i3 Tiling Window Manager](https://i3wm.org/)
-  * {34} [i3/i3 => Tiling window manager for X11](https://github.com/i3/i3)
-  * {35} [Airblader/i3 => All i3-gaps features will become available with i3 4.22](https://github.com/Airblader/i3)
-  * {36} [i3 Reference Card](https://i3wm.org/docs/refcard.html)
-  * {37} [stav121/i3wm-themer GitHub](https://github.com/stav121/i3wm-themer)
-  * {38} [cizordj/i3-themer](https://github.com/cizordj/i3-themer)
-
-* Status Bar
-  * {44} [i3/i3status => status bar for i3bar, dzen2 or xmobar](https://github.com/i3/i3status)
-  * {45} [vivien/i3blocks => alternative to i3status, last commit 2 years ago](https://github.com/vivien/i3blocks)
-  * {46} [polybar/polybar => status bar](https://github.com/polybar/polybar)
-
-* Lock Screen
-  * {47} [i3/i3lock](https://github.com/i3/i3lock)
-  * {48} [Raymo111/i3lock-color => alternative to i3lock](https://github.com/Raymo111/i3lock-color)
-
-* Application Launcher
-  * {49} [davatorium/rofi => window switcher, application launcher and dmenu replacement](https://github.com/davatorium/rofi)
-  * {50} [Dmenu](https://tools.suckless.org/dmenu/)
-
-* Wallpaper Change
-  * {42} [feh - wallpaper change](https://github.com/derf/feh) <sup>{19}</sup>
-  * {43} [nitrogen - wallpaper change](https://github.com/l3ib/nitrogen) <sup>{19}</sup>
-
-* Screen Resolution Change
-  * {51} [Xrandr => RandR (Resize and Rotate). Already installed](https://wiki.gentoo.org/wiki/Xrandr)
-  * {52} [arandr => ARandR: Another XRandR GUI](https://christian.amsuess.com/tools/arandr/)
-
-* Others
-  * {39} [tobi-wan-kenobi/bumblebee-status](https://github.com/tobi-wan-kenobi/bumblebee-status) <sup>{19}</sup>
-  * {40} [jgmenu/jgmenu](https://github.com/jgmenu/jgmenu)
-  * {41} [Online Colorscheme Configurator for i3, i3status, dmenu](https://thomashunter.name/i3-configurator/)
-  * {53} [Software hosted on or related to freedesktop.org](https://www.freedesktop.org/wiki/Software/)
-  * {54} [D-Bus](https://www.freedesktop.org/wiki/Software/dbus/)
-  * {55} [Power Management Utilities => "pm-utils" package](https://pm-utils.freedesktop.org/wiki/)
-
 ## Notes
 
 * Use "dbus-send" to poweroff, restart, suspend, hibernate PC. <sup>{12} {13}</sup>
@@ -91,37 +52,16 @@
 * (Not-Required) Install Individual packages: <sup>{2}</sup>
   * `sudo apt install i3 i3-wm i3blocks i3lock i3status dunst suckless-tools`
 
-* `/etc/i3/config` file <sup>{{From i3-config}}</sup>
+* `/etc/i3/config` file <sup>{{From `i3-config`}}</sup>
   * automatically start `i3-config-wizard` to offer the user to create a keysym-based config which used their favorite modifier (`alt` or `windows`)
   * `i3-config-wizard` will not launch if there already is a config file in `~/.config/i3/config` (or `$XDG_CONFIG_HOME/i3/config` if set) or `~/.i3/config`.
   * Please remove the following exec line: `exec i3-config-wizard`
 
 * Reboot computer
+
 * In login screen press "F1" to change "Sessiontype" to "i3".
 * Disable popup window "Your window manager was not one of the supported window managers. This window is to provide the same function as the Other Desktops menu" <sup>{4}</sup>
   * There is a button at the bottom to disable this screen from popping up each time.
-
-### Power Management
-
-* [Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)
-
-```shellscript
-# mode for leave menu
-set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
-mode "$leave_menu" {
-    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
-    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
-    bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
-    bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym 5 exec --no-startup-id systemctl reboot, mode "default"
-    bindsym 6 exec --no-startup-id systemctl poweroff, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+e mode "$leave_menu"
-```
 
 ### Commands (Antix-OS)
 * Show details of "i3" window manager: `apt show i3` [Version: 4.19.1]
@@ -143,6 +83,28 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * By default when i3 is run for the first time a new config file is added to `~/.i3/config` and a dialog asks what the modifier key should be set to.
   * The default modifier key is `Alt` and a popular alternative is the `Super` (Windows) key (referred to as `$mod4` in `~/.i3/config`).
   * A popular starting point for writing the config file is copying the system config file `/etc/i3/config` to one of the user config locations if one is not already generated.
+
+## Power Management
+
+* [Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)
+
+```shellscript
+# mode for leave menu
+set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
+mode "$leave_menu" {
+    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
+    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
+    bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
+    bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym 5 exec --no-startup-id systemctl reboot, mode "default"
+    bindsym 6 exec --no-startup-id systemctl poweroff, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$leave_menu"
+```
 
 # Error and Solution
 
@@ -191,56 +153,57 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 * next-sl: {56}
 
-* Websites
+## Websites
 
-  * i3 Window Manager
-    * {33} [i3 Tiling Window Manager](https://i3wm.org/)
-    * {34} [i3/i3 => Tiling window manager for X11](https://github.com/i3/i3)
-    * {35} [Airblader/i3 => All i3-gaps features will become available with i3 4.22](https://github.com/Airblader/i3)
-    * {36} [i3 Reference Card](https://i3wm.org/docs/refcard.html)
-    * {37} [stav121/i3wm-themer GitHub](https://github.com/stav121/i3wm-themer)
-    * {38} [cizordj/i3-themer](https://github.com/cizordj/i3-themer)
+* i3 Window Manager
+  * {33} [i3 Tiling Window Manager](https://i3wm.org/)
+  * {34} [i3/i3 => Tiling window manager for X11](https://github.com/i3/i3)
+  * {35} [Airblader/i3 => All i3-gaps features will become available with i3 4.22](https://github.com/Airblader/i3)
+  * {36} [i3 Reference Card](https://i3wm.org/docs/refcard.html)
+  * {37} [stav121/i3wm-themer GitHub](https://github.com/stav121/i3wm-themer)
+  * {38} [cizordj/i3-themer](https://github.com/cizordj/i3-themer)
 
-  * Status Bar
-    * {44} [i3/i3status => status bar for i3bar, dzen2 or xmobar](https://github.com/i3/i3status)
-    * {45} [vivien/i3blocks => alternative to i3status, last commit 2 years ago](https://github.com/vivien/i3blocks)
-    * {46} [polybar/polybar => status bar](https://github.com/polybar/polybar)
+* Status Bar
+  * {44} [i3/i3status => status bar for i3bar, dzen2 or xmobar](https://github.com/i3/i3status)
+  * {45} [vivien/i3blocks => alternative to i3status, last commit 2 years ago](https://github.com/vivien/i3blocks)
+  * {46} [polybar/polybar => status bar](https://github.com/polybar/polybar)
 
-  * Lock Screen
-    * {47} [i3/i3lock](https://github.com/i3/i3lock)
-    * {48} [Raymo111/i3lock-color => alternative to i3lock](https://github.com/Raymo111/i3lock-color)
+* Lock Screen
+  * {47} [i3/i3lock](https://github.com/i3/i3lock)
+  * {48} [Raymo111/i3lock-color => alternative to i3lock](https://github.com/Raymo111/i3lock-color)
 
-  * Application Launcher
-    * {49} [davatorium/rofi => window switcher, application launcher and dmenu replacement](https://github.com/davatorium/rofi)
-    * {50} [Dmenu](https://tools.suckless.org/dmenu/)
+* Application Launcher
+  * {49} [davatorium/rofi => window switcher, application launcher and dmenu replacement](https://github.com/davatorium/rofi)
+  * {50} [Dmenu](https://tools.suckless.org/dmenu/)
 
-  * Wallpaper Change
-    * {42} [feh - wallpaper change](https://github.com/derf/feh) <sup>{19}</sup>
-    * {43} [nitrogen - wallpaper change](https://github.com/l3ib/nitrogen) <sup>{19}</sup>
+* Wallpaper Change
+  * {42} [feh - wallpaper change](https://github.com/derf/feh) <sup>{19}</sup>
+  * {43} [nitrogen - wallpaper change](https://github.com/l3ib/nitrogen) <sup>{19}</sup>
 
-  * Screen Resolution Change
-    * {51} [Xrandr => RandR (Resize and Rotate). Already installed](https://wiki.gentoo.org/wiki/Xrandr)
-    * {52} [arandr => ARandR: Another XRandR GUI](https://christian.amsuess.com/tools/arandr/)
+* Screen Resolution Change
+  * {51} [Xrandr => RandR (Resize and Rotate). Already installed](https://wiki.gentoo.org/wiki/Xrandr)
+  * {52} [arandr => ARandR: Another XRandR GUI](https://christian.amsuess.com/tools/arandr/)
 
-  * Others
-    * {39} [tobi-wan-kenobi/bumblebee-status](https://github.com/tobi-wan-kenobi/bumblebee-status) <sup>{19}</sup>
-    * {40} [jgmenu/jgmenu](https://github.com/jgmenu/jgmenu)
-    * {41} [Online Colorscheme Configurator for i3, i3status, dmenu](https://thomashunter.name/i3-configurator/)
-    * {53} [Software hosted on or related to freedesktop.org](https://www.freedesktop.org/wiki/Software/)
-    * {54} [D-Bus](https://www.freedesktop.org/wiki/Software/dbus/)
-    * {55} [Power Management Utilities => "pm-utils" package](https://pm-utils.freedesktop.org/wiki/)
+* Others
+  * {39} [tobi-wan-kenobi/bumblebee-status](https://github.com/tobi-wan-kenobi/bumblebee-status) <sup>{19}</sup>
+  * {40} [jgmenu/jgmenu](https://github.com/jgmenu/jgmenu)
+  * {41} [Online Colorscheme Configurator for i3, i3status, dmenu](https://thomashunter.name/i3-configurator/)
+  * {53} [Software hosted on or related to freedesktop.org](https://www.freedesktop.org/wiki/Software/)
+  * {54} [D-Bus](https://www.freedesktop.org/wiki/Software/dbus/)
+  * {55} [Power Management Utilities => "pm-utils" package](https://pm-utils.freedesktop.org/wiki/)
 
-* Tutorials
-  * {25} [i3 => is a minimalist tiling window manager](https://wiki.gentoo.org/wiki/I3)
-  * {26} [Polybar => is a fast and easy-to-use status bar](https://wiki.gentoo.org/wiki/Polybar)
-  * {27} [Desktop environment => is a complete ecosystem of software and resources](https://wiki.gentoo.org/wiki/Desktop_environment)
-  * {28} [Desktop environment Wiki](https://en.wikipedia.org/wiki/Desktop_environment)
-  * {29} [Feh => view images and setting the desktop background for tiling window managers](https://wiki.gentoo.org/wiki/Feh)
+## Tutorials
+  
+* {25} [i3 => is a minimalist tiling window manager](https://wiki.gentoo.org/wiki/I3)
+* {26} [Polybar => is a fast and easy-to-use status bar](https://wiki.gentoo.org/wiki/Polybar)
+* {27} [Desktop environment => is a complete ecosystem of software and resources](https://wiki.gentoo.org/wiki/Desktop_environment)
+* {28} [Desktop environment Wiki](https://en.wikipedia.org/wiki/Desktop_environment)
+* {29} [Feh => view images and setting the desktop background for tiling window managers](https://wiki.gentoo.org/wiki/Feh)
 
-* Guides
+## Guides
 
-  * i3wm/i3-gaps
-    * {32} [i3-gaps has been merged with i3](https://www.reddit.com/r/archlinux/comments/101iaya/i3gaps_has_been_merged_with_i3/)
+* i3wm/i3-gaps
+  * {32} [i3-gaps has been merged with i3](https://www.reddit.com/r/archlinux/comments/101iaya/i3gaps_has_been_merged_with_i3/)
 
 * i3 Installation
 
@@ -271,28 +234,28 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * {23} [New to awesome: does a window manager replaces a desktop environment?](https://www.reddit.com/r/awesomewm/comments/n1talw/new_to_awesome_does_a_window_manager_replaces_a/)
   * {24} [I compared the RAM use of 15 desktop environments on Ubuntu](https://www.reddit.com/r/xfce/comments/kb0d87/i_compared_the_ram_use_of_15_desktop_environments/)
 
-* Error and Solution
+## Error and Solution
 
-  * Usage
-    * {31} [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
+* Usage
+  * {31} [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
 
-* YouTube Tutorials
+## YouTube Tutorials
 
-  * i3, i3status, i3blocks, Dmenu, Polybar, Rofi
-    * [I3wm Config Guide BY Fawzan Fawzi](https://www.youtube.com/playlist?list=PL0rXAycsylvXxyPDT5kGQ5MiHcqrZWv69)
-    * [[8a] | i3 Installation & Navigation BY EF - Linux Made Simple](https://www.youtube.com/watch?v=sE3LHJ8lEss)
-    * [[8b] | i3 Basic Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=lvLExb1SUzM)
-    * [[8c] | i3 Step 2 Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=0MEm4pj5dpQ)
-    * [[8d] | i3 Step 3 Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=kuzTkTgAsdg)
-    * [[8e] | Polybar on i3 BY EF - Linux Made Simple](https://www.youtube.com/watch?v=cLB008-FJ5o)
+* i3, i3status, i3blocks, Dmenu, Polybar, Rofi
+  * [I3wm Config Guide BY Fawzan Fawzi](https://www.youtube.com/playlist?list=PL0rXAycsylvXxyPDT5kGQ5MiHcqrZWv69)
+  * [[8a] | i3 Installation & Navigation BY EF - Linux Made Simple](https://www.youtube.com/watch?v=sE3LHJ8lEss)
+  * [[8b] | i3 Basic Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=lvLExb1SUzM)
+  * [[8c] | i3 Step 2 Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=0MEm4pj5dpQ)
+  * [[8d] | i3 Step 3 Customization BY EF - Linux Made Simple](https://www.youtube.com/watch?v=kuzTkTgAsdg)
+  * [[8e] | Polybar on i3 BY EF - Linux Made Simple](https://www.youtube.com/watch?v=cLB008-FJ5o)
 
-  * Others
-    * {4} [Ubuntu Server is Perfect for a Minimal "Window Manager" Installation BY DistroTube](https://www.youtube.com/watch?v=AHvwxc62lDQ)
-    * {15} [Install & Customize i3wm and Polybar - Speedrun BY The Linux Cast](https://www.youtube.com/watch?v=kWRQoLFntQc)
-    * {16} [Top 5 BEST Tools for Window Manager Users! BY The Linux Cast](https://www.youtube.com/watch?v=XecZxonyjo0)
-    * {17} [Ricing i3wm with a Custom Theme BY The Linux Cast](https://www.youtube.com/watch?v=kd9g87xjx3I)
-    * {18} [Best Color Schemes for Linux BY The Linux Cast](https://www.youtube.com/watch?v=6SX3yIQuZ2k)
-    * {19} [How to Rice I3 - Customizing i3wm for Noobs BY The Linux Cast](https://www.youtube.com/watch?v=qUJf_ACn6q4)
-    * {20} [Turn Your Window Manager Into A Desktop Environment BY DistroTube](https://www.youtube.com/watch?v=FX26s8INUYo)
-    * {21} [Get Rid Of That Bloated Desktop Environment And Install Openbox BY DistroTube](https://www.youtube.com/watch?v=T-rQ7iV0agY)
-    * [5 Hidden Features of i3WM BY The Linux Cast](https://www.youtube.com/watch?v=PQCggApEl3Y)
+* Others
+  * {4} [Ubuntu Server is Perfect for a Minimal "Window Manager" Installation BY DistroTube](https://www.youtube.com/watch?v=AHvwxc62lDQ)
+  * {15} [Install & Customize i3wm and Polybar - Speedrun BY The Linux Cast](https://www.youtube.com/watch?v=kWRQoLFntQc)
+  * {16} [Top 5 BEST Tools for Window Manager Users! BY The Linux Cast](https://www.youtube.com/watch?v=XecZxonyjo0)
+  * {17} [Ricing i3wm with a Custom Theme BY The Linux Cast](https://www.youtube.com/watch?v=kd9g87xjx3I)
+  * {18} [Best Color Schemes for Linux BY The Linux Cast](https://www.youtube.com/watch?v=6SX3yIQuZ2k)
+  * {19} [How to Rice I3 - Customizing i3wm for Noobs BY The Linux Cast](https://www.youtube.com/watch?v=qUJf_ACn6q4)
+  * {20} [Turn Your Window Manager Into A Desktop Environment BY DistroTube](https://www.youtube.com/watch?v=FX26s8INUYo)
+  * {21} [Get Rid Of That Bloated Desktop Environment And Install Openbox BY DistroTube](https://www.youtube.com/watch?v=T-rQ7iV0agY)
+  * [5 Hidden Features of i3WM BY The Linux Cast](https://www.youtube.com/watch?v=PQCggApEl3Y)
