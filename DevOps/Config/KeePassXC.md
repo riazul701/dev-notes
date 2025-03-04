@@ -13,6 +13,12 @@
 * [keepassxc BY Jonathan White (keepassxreboot) => snapcraft.io/keepassxc](https://snapcraft.io/keepassxc)
   * Install KeePassXC: `sudo snap install keepassxc`
 
+## Install Using Nix
+
+* On Non NixOS, without flakes : `nix-env -iA nixpkgs.keepassxc`
+  * Check KeePassXC GUI Path : `which keepassxc`
+  * Check KeePassXC CLI Path : `which keepassxc-cli`
+
 # Error and Solution
 
 ## VCRUNTIME140_1.dll was not found

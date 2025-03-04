@@ -2,6 +2,8 @@
 
 ## Notes
 
+* Make sure `encryption` is added to the top level section at the beginning of the config, before any other sections.
+
 * Using template `Init` function (`promptChoice`) generate dynamic data to chezmoi config file `~/.config/chezmoi/chezmoi.toml` and use this data in template files if-else code.
 
 * By default, chezmoi will use your preferred editor as defined by the `$VISUAL` or `$EDITOR` environment variables, falling back to a default editor depending on your operating system (`vi` on UNIX-like operating systems, `notepad.exe` on Windows).
@@ -45,6 +47,16 @@
 {{ $hosttype := promptChoice "What type of host are you on" $choices }}
     hosttype = {{- $hosttype | quote -}}
 ```
+
+## KeePassXC <sup>{1}</sup>
+
+* Provide the path to your KeePassXC database in your configuration file: `~/.config/chezmoi/chezmoi.toml`
+```shell
+[keepassxc]
+    database = "/home/user/Passwords.kdbx"
+```
+
+* Only `{{- keepassxcAttachment "SSH Config" "config" -}}` keep this code in a template file. When execute `chezmoi apply`, actual attachment file will be placed in destination directory.
 
 ## Global Flags: `chezmoi --help`
 
@@ -122,9 +134,10 @@
 
 * Chezmoi add encryption
   
+  * Make sure `encryption` is added to the top level section at the beginning of the config, before any other sections.
   * `chezmoi add ~/.ssh/id_rsa --encrypt`
   * [age encryption](https://www.chezmoi.io/user-guide/encryption/age/)
-  * `age-keygen -o $HOME/key.txt`
+  * `age-keygen -o $HOME/key.txt` [Get `recipient` from `key.txt` file]
   * Contents of : `~/.config/chezmoi/chezmoi.toml`
   ```shell
   encryption = "age"
@@ -136,13 +149,13 @@
 
 * chezmoi age
   
-  * `age encrypt [file...]` : Encrypt file or standard input.
+  * `chezmoi age encrypt [file...]` : Encrypt file or standard input. [Shows Output: chezmoi: only passphrase encryption is supported]
   
-  * `age encrypt [file...] --passphrase` OR `age encrypt [file...] --p` : Encrypt with a passphrase.
+  * `chezmoi age encrypt [file...] --passphrase` OR `age encrypt [file...] --p` : Encrypt with a passphrase. [Shows output in stdout]
   
-  * `age decrypt [file...]` : Decrypt file or standard input.
+  * `chezmoi age decrypt [file...]` : Decrypt file or standard input.
   
-  * `age decrypt [file...] --passphrase` OR `age decrypt [file...] --p` : Decrypt with a passphrase.
+  * `chezmoi age decrypt [file...] --passphrase` OR `age decrypt [file...] --p` : Decrypt with a passphrase.
   
   * Examples
     * `chezmoi age encrypt --passphrase plaintext.txt > ciphertext.txt`
@@ -270,9 +283,9 @@
   
   * For decryption use public key from `/home/{{user-name}}/.config/chezmoi/chezmoi.toml` file and private key from `/home/{{user-name}}/key.txt` file.
   
-  * `decrypt {{file}}` : Decrypt files using chezmoi's configured encryption. If no files are given, decrypt the standard input.
+  * `chezmoi decrypt {{file}}` : Decrypt files using chezmoi's configured encryption. If no files are given, decrypt the standard input.
   
-  * `decrypt {{file}} --output={{output-file}}` : The decrypted result is written to the standard output or a file if the `--output` flag is set.
+  * `chezmoi decrypt {{file}} --output={{output-file}}` : The decrypted result is written to the standard output or a file if the `--output` flag is set.
   
   * Examples
     * `chezmoi decrypt ~/.local/share/chezmoi/encrypted_dot_config.age` : Decrypt previously encrypted file and print to stdout.
