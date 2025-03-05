@@ -44,6 +44,9 @@
 * [jluttine/rofi-power-menu](https://github.com/jluttine/rofi-power-menu)
 * [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
 
+* Collection
+  * [davidborzek/spofi](https://github.com/davidborzek/spofi)
+
 # Installation
 
 ## Antix-OS

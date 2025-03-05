@@ -14,7 +14,7 @@
 * `i3-input`
 * `i3lock`
 * `i3-migrate-config-to-v4`
-* `i3-msg`
+* `i3-msg` : Shows i3 related message
 * `i3-nagbar` : Used to show prompt with warning/message <sup>{{From i3-config}}</sup>
   * `$mod+Shift+e` : You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.
 * `i3-save-tree`
@@ -45,11 +45,68 @@
 
 ## Notes
 
-* Use "dbus-send" to poweroff, restart, suspend, hibernate PC. <sup>{12} {13}</sup>
+* `i3lock` need png image <sup>{56}</sup>
 
 ## Paths
 
-* i3 config file in `/etc` directory :  `/etc/i3/config`
+* `~/.config` directory has higher precedence than `/etc` directory
+
+* `~/.config` directory
+  * i3wm config inside `~/.config` : `~/.config/i3/config`
+  * i3status config inside `~/.config` : `~/.config/i3status/config`
+
+* `/etc` directory
+  * i3wm config inside `/etc` :  `/etc/i3/config`
+  * i3status config inside `/etc` : `/etc/i3status.conf` <sup>{57}</sup>
+
+## Power Management
+
+**[Systemctl power management](https://github.com/Justus0405/i3wm-dotfiles/blob/main/src/config/rofi/powermenu) <sup>{59}</sup>**
+
+* `systemctl suspend` : Suspend/Sleep PC
+* `systemctl hibernate` : Hibernate PC
+* `systemctl reboot` : Reboot/Restart PC
+* `systemctl poweroff` : Poweroff/Shutdown PC
+
+**dbus-send power management**
+
+* Use "dbus-send" to poweroff, restart, suspend, hibernate PC. <sup>{12} {13}</sup>
+
+**[Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)**
+
+```shellscript
+# mode for leave menu
+set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
+mode "$leave_menu" {
+    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
+    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
+    bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
+    bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym 5 exec --no-startup-id systemctl reboot, mode "default"
+    bindsym 6 exec --no-startup-id systemctl poweroff, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$leave_menu"
+```
+
+## Fonts Installation
+
+* [How to Install New Fonts in Ubuntu and Other Linux Distributions](https://itsfoss.com/install-fonts-ubuntu/)
+* [SutonnyMJ Regular](https://bengalifonts.net/fonts/sutonnymj-regular)
+
+* Step 1: Create .fonts directory in your home directory
+* Step 2: Put fonts files in the .fonts directory
+
+**Alternate Way**
+
+* [Copying Configurations => Fonts](https://github.com/addy-dclxvi/i3-starterpack?tab=readme-ov-file#copying-configurations)
+
+* Create `.local/share/fonts` directory in your home directory
+* Put fonts files in the `.local/share/fonts` directory
+* Refresh your fontconfig cache `fc-cache -fv` after You copy the font.
 
 ## Package Information
 
@@ -59,6 +116,10 @@
 
 * Package Introduction
   * Using command: `apt show {{package-name}}`
+
+## `.desktop` File
+
+* `i3-dmenu-desktop` : Which only displays applications shipping a `.desktop` file. It is a wrapper around dmenu, so you need that installed. <sup>{{From i3-config}}</sup>
 
 # Installation
 
@@ -71,8 +132,9 @@
 * Install i3 and associated packages: `sudo apt install i3`
   * `apt show i3`
   * metapackage (i3 window manager, screen locker, menu, statusbar)
-  *  This metapackage installs the i3 window manager (i3-wm), the i3lock screen locker, i3status (for system information) and suckless-tools (for dmenu).
+  *  This metapackage installs the i3 window manager (`i3-wm`), the `i3lock` screen locker, `i3status` (for system information) and suckless-tools (for `dmenu`).
   * These are all the tools you need to use the i3 window manager efficiently.
+
 * (Not-Required) Install Individual packages: <sup>{2}</sup>
   * `sudo apt install i3 i3-wm i3blocks i3lock i3status dunst suckless-tools`
 
@@ -108,28 +170,6 @@
   * By default when i3 is run for the first time a new config file is added to `~/.i3/config` and a dialog asks what the modifier key should be set to.
   * The default modifier key is `Alt` and a popular alternative is the `Super` (Windows) key (referred to as `$mod4` in `~/.i3/config`).
   * A popular starting point for writing the config file is copying the system config file `/etc/i3/config` to one of the user config locations if one is not already generated.
-
-## Power Management
-
-* [Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)
-
-```shellscript
-# mode for leave menu
-set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
-mode "$leave_menu" {
-    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
-    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
-    bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
-    bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym 5 exec --no-startup-id systemctl reboot, mode "default"
-    bindsym 6 exec --no-startup-id systemctl poweroff, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+e mode "$leave_menu"
-```
 
 # Error and Solution
 
@@ -176,7 +216,7 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 # References
 
-* next-sl: {56}
+* next-sl: {60}
 
 ## Websites
 
@@ -187,6 +227,8 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * {36} [i3 Reference Card](https://i3wm.org/docs/refcard.html)
   * {37} [stav121/i3wm-themer GitHub](https://github.com/stav121/i3wm-themer)
   * {38} [cizordj/i3-themer](https://github.com/cizordj/i3-themer)
+  * {56} [addy-dclxvi/i3-starterpack](https://github.com/addy-dclxvi/i3-starterpack)
+  * {58} [Justus0405/i3wm-dotfiles](https://github.com/Justus0405/i3wm-dotfiles)
 
 * Status Bar
   * {44} [i3/i3status => status bar for i3bar, dzen2 or xmobar](https://github.com/i3/i3status)
@@ -217,6 +259,21 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * {54} [D-Bus](https://www.freedesktop.org/wiki/Software/dbus/)
   * {55} [Power Management Utilities => "pm-utils" package](https://pm-utils.freedesktop.org/wiki/)
 
+* Collection (Important)
+  * [dikiaap/dotfiles](https://github.com/dikiaap/dotfiles)
+  * [denisse-dev/dotfiles](https://github.com/denisse-dev/dotfiles)
+  * [joshpetit/dotfiles](https://github.com/joshpetit/dotfiles)
+  
+* Collection (Less Important)
+  * [stronk-dev/Tokyo-Night-Linux](https://github.com/stronk-dev/Tokyo-Night-Linux)
+  * [Keyitdev/dotfiles](https://github.com/Keyitdev/dotfiles)
+  * [ishaan26/config_files](https://github.com/ishaan26/config_files)
+  * [sdaveas/i3-animated-background](https://github.com/sdaveas/i3-animated-background)
+  * [drewtempelmeyer/dotfiles](https://github.com/drewtempelmeyer/dotfiles)
+  * [miguelmota/dotfiles](https://github.com/miguelmota/dotfiles)
+  * [johackim/dotfiles](https://github.com/johackim/dotfiles)
+  * [pitkley/i3nator](https://github.com/pitkley/i3nator)
+
 ## Tutorials
   
 * {25} [i3 => is a minimalist tiling window manager](https://wiki.gentoo.org/wiki/I3)
@@ -241,7 +298,11 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * Ubuntu-OS
     * {2} [Install and Setup i3 Windows Manager on Ubuntu 20.04](https://kifarunix.com/install-and-setup-i3-windows-manager-on-ubuntu-20-04/)
 
+* i3status
+  * {57} [Where is the i3status config file?](https://unix.stackexchange.com/questions/622923/where-is-the-i3status-config-file)
+
 * Power Management
+  * {59} [Systemctl power management](https://github.com/Justus0405/i3wm-dotfiles/blob/main/src/config/rofi/powermenu) <sup>{58}</sup>
   * {6} [i3wm and power management](https://www.reddit.com/r/i3wm/comments/2yniv1/i3wm_and_power_management/)
   * {7} [How To Shutdown Linux Using Command Line](https://www.cyberciti.biz/faq/howto-shutdown-linux/)
   * {8} [Reboot Linux System Command](https://www.cyberciti.biz/faq/howto-reboot-linux/)
