@@ -4,6 +4,26 @@
 
 * `i3-config-wizard` : For first time run this command will copy i3 config from `/etc/i3/config` to `$XDG_CONFIG_HOME/i3/config` <sup>{{From i3-config}}</sup>
 
+## i3 executables from `/usr/bin/`
+
+* `i3`
+* `i3bar`
+* `i3-config-wizard`
+* `i3-dmenu-desktop` : Which only displays applications shipping a `.desktop` file. It is a wrapper around dmenu, so you need that installed. <sup>{{From i3-config}}</sup>
+* `i3-dump-log`
+* `i3-input`
+* `i3lock`
+* `i3-migrate-config-to-v4`
+* `i3-msg`
+* `i3-nagbar` : Used to show prompt with warning/message <sup>{{From i3-config}}</sup>
+  * `$mod+Shift+e` : You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.
+* `i3-save-tree`
+* `i3-sensible-editor`
+* `i3-sensible-pager`
+* `i3-sensible-terminal` : Start terminal with `$mod + Enter` keybinding <sup>{{From i3-config}}</sup>
+* `i3status`
+* `i3-with-shmlog`
+
 ## i3 Reference Card
 
 * [i3 Reference Card](https://i3wm.org/docs/refcard.html)
@@ -26,6 +46,10 @@
 ## Notes
 
 * Use "dbus-send" to poweroff, restart, suspend, hibernate PC. <sup>{12} {13}</sup>
+
+## Paths
+
+* i3 config file in `/etc` directory :  `/etc/i3/config`
 
 ## Package Information
 
@@ -64,6 +88,7 @@
   * There is a button at the bottom to disable this screen from popping up each time.
 
 ### Commands (Antix-OS)
+
 * Show details of "i3" window manager: `apt show i3` [Version: 4.19.1]
 * Close Conky resource monitor: `sudo killall conky`
 * Power Management

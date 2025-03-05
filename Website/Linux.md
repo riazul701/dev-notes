@@ -18,6 +18,8 @@
 
 ## Tutorials
 
+* [wiki.archlinux.org](https://wiki.archlinux.org/title/Main_page)
+
 ## Guides
 
 ## Linux Distribution
