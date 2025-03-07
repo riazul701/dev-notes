@@ -44,6 +44,7 @@ Note that it is very difficult to remove Rosetta 2 once it is installed.
 ### Instruction
 
 * `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` : Install Homebrew <sup>{1}</sup>
+  * You must install Git before installing Homebrew.
 
 ### Success Message
 

@@ -2,6 +2,8 @@
 
 ## Notes
 
+* If chezmoi's template syntax `{{ }}` conflicts with bash/other script, then put them in bash/other script's comment `#`
+
 * Make sure `encryption` is added to the top level section at the beginning of the config, before any other sections.
 
 * Using template `Init` function (`promptChoice`) generate dynamic data to chezmoi config file `~/.config/chezmoi/chezmoi.toml` and use this data in template files if-else code.

@@ -34,7 +34,8 @@
 
 # References
 
-* YouTube Tutorials
-  * [How to SAFELY store PASSWORDS & 2FA ENCRYPTED? KeePassXC + synchronizing with mobile device BY Crypton [EN]](https://www.youtube.com/watch?v=FE6rr-qxllA)
-  * [How To Sync KeePass Across Devices with Dropbox, Google Drive or Other Cloud Storage - Helpful Guide BY Valentin Kossenko](https://www.youtube.com/watch?v=mbZU_NEtXNU)
-  
+## YouTube Tutorials
+
+* [KeePassXC TOTP (2-Factor Autofill) | Complete Crash Course BY TroubleChute](https://www.youtube.com/watch?v=VEfkt29moE8)
+* [How to SAFELY store PASSWORDS & 2FA ENCRYPTED? KeePassXC + synchronizing with mobile device BY Crypton [EN]](https://www.youtube.com/watch?v=FE6rr-qxllA)
+* [How To Sync KeePass Across Devices with Dropbox, Google Drive or Other Cloud Storage - Helpful Guide BY Valentin Kossenko](https://www.youtube.com/watch?v=mbZU_NEtXNU)

@@ -5,7 +5,7 @@
 
 * SSH Server (Debian-OS with Systemd)
   * `sudo apt install ssh` : Install OpenSSH, if not present
-  * `systemctl status sshd` : Check ssh service is runnint or not
+  * `systemctl status sshd` : Check ssh service is running or not
   * `systemctl start sshd` : Start ssh service
   * `systemctl stop sshd` : Stop ssh service
   * `systemctl restart sshd` : Restart ssh service (For configuration reload)
