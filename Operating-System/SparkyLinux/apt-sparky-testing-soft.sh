@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# In Q4OS, Snap adds software to $PATH and Menu. Flatpak does not add software to $PATH, but adds to Menu. Nix adds software to $PATH (instant) and Menu (after logout/restart).
+# In SparkyLinux Testing Branch / (Semi-)Rolling
+# Snap does not add software to $PATH and Menu.
+# Add Snap to PATH: echo 'export PATH="/snap/bin:$PATH"' >> ~/.bashrc
+# Reload "~/.bashrc": source ~/.bashrc
+# Flatpak does not add software to $PATH, but adds to Menu. 
+# Nix adds software to $PATH (instant) and Menu (after logout/restart).
 # Clear Snap Cache: sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
 # Clear Flatpak Cache: flatpak remove --unused
 # Clear Nix Cache: nix-collect-garbage
@@ -15,6 +20,9 @@ declare -A flatpak_home_softwares
 declare -A nix_softwares_all
 declare -A nix_office_softwares
 declare -A nix_home_softwares
+declare -A brew_softwares_all
+declare -A brew_office_softwares
+declare -A brew_home_softwares
 declare -a apt_softwares_all
 declare -a apt_office_softwares
 declare -a apt_home_softwares
@@ -25,44 +33,161 @@ declare -a appimage_softwares_all
 declare -a tar_softwares_all
 
 snap_office_softwares=(
-    # ["code"]="code --classic"
+    ["chezmoi"]="chezmoi --classic"
+    ["sublime-text"]="sublime-text --classic"
+    ["postman"]="postman"
+    ["dbeaver-ce"]="dbeaver-ce"
+    ["firefox"]="firefox"
+    ["chromium"]="chromium"
+    ["opera"]="opera"
+    ["thunderbird"]="thunderbird"
+    ["sublime-merge"]="sublime-merge --classic"
+    ["powershell"]="powershell --classic"
+    ["dvc"]="dvc --classic"
+    ["lepton"]="lepton"
+    ["trello-desktop"]="trello-desktop"
+    ["clipboard"]="clipboard --edge"
+    ["mysql-workbench-community"]="mysql-workbench-community"
+    ["ngrok"]="ngrok"
+    # ["android-studio"]="android-studio --classic"
+    ["dive"]="dive" # Docker
 )
 
 snap_home_softwares=(
-    # ["firefox"]="firefox"
+    ["spotify"]="spotify"
+    ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
+    ["scrcpy"]="scrcpy"
+    ["guiscrcpy"]="guiscrcpy"
 )
 
 flatpak_office_softwares=(
-    # ["wezterm"]="org.wezfurlong.wezterm"
+    ["wezterm"]="org.wezfurlong.wezterm"
+    ["FreeFileSync"]="org.freefilesync.FreeFileSync"
+    ["anydesk"]="com.anydesk.Anydesk"
+    ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
+    ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
+    ["smartgit"]="com.syntevo.SmartGit"
+    ["NotepadNext"]="com.github.dail8859.NotepadNext"
 )
 
 flatpak_home_softwares=(
-    # ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
+    ["spotube"]="com.github.KRTirtho.Spotube"
 )
 
 nix_office_softwares=(
-    # ["lunarvim"]="lunarvim"
+    ["yazi"]="yazi"
+    ["unison"]="unison"
+    ["lazygit"]="lazygit"
+    ["termscp"]="termscp"
+    ["dasel"]="dasel"
+    ["gum"]="gum"
+    # ["nerdfonts"]="nerdfonts" # For Lunarvim, Yazi
+    ["lazydocker"]="lazydocker"
+    ["beebeep"]="beebeep"
+    ["rclone-browser"]="rclone-browser"
+    ["backrest"]="backrest"
+    ["frogmouth"]="frogmouth"
+    ["httpie-desktop"]="httpie-desktop"
+    ["czkawka"]="czkawka"
+    ["piknik"]="piknik"
+    ["veracrypt"]="veracrypt"
+    ["ventoy-full"]="ventoy-full"
 )
 
 nix_home_softwares=(
+    ["musikcube"]="musikcube"
+    ["sniffnet"]="sniffnet"
+)
+
+brew_office_softwares=(
+    # ["neovim"]="neovim"
+)
+
+brew_home_softwares=(
     # ["lazydocker"]="lazydocker"
 )
 
 apt_office_softwares=(
-    # ["ibus-avro"]="ibus-avro"
+    ["kitty"]="kitty"
+    ["ibus-avro"]="ibus-avro"
+    ["libreoffice"]="libreoffice"
+    ["docker"]="docker"
+    ["docker.io"]="docker.io"
+    ["docker-compose"]="docker-compose"
+    ["podman"]="podman"
+    ["git"]="git"
+    ["git-gui"]="git-gui"
+    ["git-lfs"]="git-lfs"
+    ["gh"]="gh"
+    ["vim"]="vim"
+    ["nvim"]="neovim"
+    ["code"]="code"
+    ["vifm"]="vifm"
+    ["filezilla"]="filezilla"
+    ["rsync"]="rsync"
+    ["rclone"]="rclone"
+    ["restic"]="restic"
+    ["node"]="nodejs"
+    ["syncthing"]="syncthing"
+    ["dropbox"]="dropbox"
+    ["copyq"]="copyq"
+    ["glow"]="glow"
+    ["mycli"]="mycli"
+    ["sqlitebrowser"]="sqlitebrowser"
+    ["keepassxc"]="keepassxc-full"
+    ["gimp"]="gimp"
+    ["vlc"]="vlc"
+    ["pcmanfm"]="pcmanfm"
+    ["thunar"]="thunar"
+    ["7zip"]="7zip"
+    ["htop"]="htop"
+    ["glances"]="glances"
+    ["i3"]="i3"
+    ["polybar"]="polybar"
+    ["rofi"]="rofi"
+    ["feh"]="feh"
+    ["nitrogen"]="nitrogen"
+    ["pulseaudio"]="pulseaudio"
+    ["pavucontrol"]="pavucontrol"
+    ["jq"]="jq"
+    ["distrobox"]="distrobox"
+    ["tmux"]="tmux"
+    ["xclip"]="xclip" # For Lunarvim, Yazi
+    ["lynx"]="lynx"
+    ["httpie"]="httpie"
+    ["lftp"]="lftp"
+    ["qimgv"]="qimgv"
+    ["audacity"]=["audacity"]
+    ["smplayer"]="smplayer"
+    ["mpv"]="mpv"
+    ["shotcut"]="shotcut"
+    ["handbrake"]="handbrake"
+    ["handbrake-cli"]="handbrake-cli"
+    ["flameshot"]="flameshot"
+    ["obs-studio"]="obs-studio"
+    ["stacer"]="stacer"
+    ["peazip"]="peazip"
 )
 
 apt_home_softwares=(
-    # ["lynx"]="lynx"
+    ["yt-dlp"]="yt-dlp"
+    ["youtube-dl"]="youtube-dl"
+    ["youtubedl-gui"]="youtubedl-gui"
+    ["gallery-dl"]="gallery-dl"
+    # ["linssid"]="linssid"
+    # ["wavemon"]="wavemon"
+    # ["digikam"]="digikam"
+    ["clementine"]="clementine"
 )
 
 deb_office_softwares=(
-    # ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
 )
 
 deb_home_softwares=(
-    # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
-    # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
+    ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
+    ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
 )
 	 
 appimage_office_softwares=(
@@ -74,7 +199,7 @@ appimage_home_softwares=(
 )
 
 tar_office_softwares=(
-    # "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
+    "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
 )
 
 tar_home_softwares=(
@@ -151,6 +276,9 @@ done
 for nix_cmd in "${!nix_office_softwares[@]}"; do
     nix_softwares_all[$nix_cmd]=${nix_office_softwares[$nix_cmd]}
 done
+for brew_cmd in "${!brew_office_softwares[@]}"; do
+    brew_softwares_all[$brew_cmd]=${brew_office_softwares[$brew_cmd]}
+done
 for apt_cmd in "${!apt_office_softwares[@]}"; do
     apt_softwares_all[$apt_cmd]=${apt_office_softwares[$apt_cmd]}
 done
@@ -173,6 +301,9 @@ then
     done
     for nix_cmd in "${!nix_home_softwares[@]}"; do
         nix_softwares_all[$nix_cmd]=${nix_home_softwares[$nix_cmd]}
+    done
+    for brew_cmd in "${!brew_home_softwares[@]}"; do
+        brew_softwares_all[$brew_cmd]=${brew_home_softwares[$brew_cmd]}
     done
     for apt_cmd in "${!apt_home_softwares[@]}"; do
         apt_softwares_all[$apt_cmd]=${apt_home_softwares[$apt_cmd]}
@@ -197,7 +328,7 @@ for snap_cmd in "${!snap_softwares_all[@]}"; do
    fi
 done
 
-echo -e '\033[1;32m Snap => All Software Installed. \033[0m'	
+echo -e '\033[1;32m Snap => All Softwares Installed. \033[0m'	
 #-------------------------END: Install Snap Softwares-------------------------
 
 #-------------------------START: Install Flatpak Softwares-------------------------
@@ -218,7 +349,7 @@ for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
    fi
 done
 
-echo -e '\033[1;32m Flatpak => All Software Installed. \033[0m'    
+echo -e '\033[1;32m Flatpak => All Softwares Installed. \033[0m'    
 #-------------------------END: Install Flatpak Softwares-------------------------
 
 #-------------------------START: Install Nix Softwares-------------------------
@@ -233,7 +364,7 @@ for nix_cmd in "${!nix_softwares_all[@]}"; do
    fi
 done
 
-echo -e '\033[1;32m Nix => All Software Installed. \033[0m'
+echo -e '\033[1;32m Nix => All Softwares Installed. \033[0m'
 #-------------------------END: Install Nix Softwares-------------------------
 
 #-------------------------START: Install Homebrew Softwares------------------
@@ -248,7 +379,7 @@ for brew_cmd in "${!brew_softwares_all[@]}"; do
    fi
 done
 
-echo -e '\033[1;32m Homebrew => All Software Installed. \033[0m'
+echo -e '\033[1;32m Homebrew => All Softwares Installed. \033[0m'
 #-------------------------END: Install Homebrew Softwares---------------------
 
 #-------------------------START: Install APT Softwares-------------------------
@@ -263,7 +394,7 @@ for apt_cmd in "${!apt_softwares_all[@]}"; do
    fi
 done
 
-echo -e '\033[1;32m APT => All Software Installed. \033[0m'
+echo -e '\033[1;32m APT => All Softwares Installed. \033[0m'
 #-------------------------END: Install APT Softwares-------------------------
 
 #-------------------------START: Install DEB Softwares-------------------------
@@ -287,7 +418,7 @@ for deb_cmd in "${!deb_softwares_all[@]}"; do
 	fi	
 done
 
-echo -e '\033[1;32m DEB => All Software Installed. \033[0m'
+echo -e '\033[1;32m DEB => All Softwares Installed. \033[0m'
 #-------------------------END: Install DEB Softwares-------------------------
 
 #-------------------------START: Download AppImage Softwares-----------------
@@ -305,7 +436,7 @@ do
     fi
 done
 
-echo -e '\033[1;32m AppImage => All Software Downloaded. \033[0m'
+echo -e '\033[1;32m AppImage => All Softwares Downloaded. \033[0m'
 #-------------------------END: Download AppImage Softwares--------------------
 
 #-------------------------START: Download TAR Softwares-------------------------
@@ -323,5 +454,5 @@ do
     fi
 done
 
-echo -e '\033[1;32m TAR => All Software Downloaded. \033[0m'
+echo -e '\033[1;32m TAR => All Softwares Downloaded. \033[0m'
 #-------------------------END: Download TAR Softwares-------------------------

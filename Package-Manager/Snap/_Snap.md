@@ -35,13 +35,18 @@
 
 ## Notes
 
+## PATH
+
 * PATHs
   * Snap binaries (graphical and command-line) are located at: `/snap/bin`
   * Snap ".desktop"/Menu files are located at: `/var/lib/snapd/desktop/applications`
   * Snap cache files are located at: `/var/lib/snapd/cache` <sup>{3}</sup>
 
 * In Q4OS ("Q4OS 5.6 TDE (64bit).vdi"), Snap adds software to $PATH, for both graphical and command-line software. Also Snap adds software to Menu.
+
 * In SparkyLinux ("sparkylinux-7.6-x86_64-minimalgui.iso"), Snap does not add software to $PATH, for both graphical and command-line software. Also Snap does not add software to Menu.
+  * `echo 'export PATH="/snap/bin:$PATH"' >> ~/.bashrc` : Add a directory to `PATH` permanently by editing the `.bashrc` file located in the `Home` directory. <sup>{5}</sup>
+  * `echo $PATH` : Verify the result with <sup>{5}</sup>
 
 ## App Auto Update
 
@@ -74,7 +79,11 @@
 
 # References
 
-* next-sl: {5}
+* next-sl: {6}
+
+## Tutorials
+
+* {5} [Linux: Add a Directory to PATH](https://phoenixnap.com/kb/linux-add-to-path)
 
 ## Guides
 

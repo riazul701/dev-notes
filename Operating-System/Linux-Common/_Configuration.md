@@ -2,6 +2,70 @@
 
 ## Websites
 
+# User
+
+* `sudo su` : Switch to `root` user.
+  * `exit` : Go back to `normal` user.
+
+# PATH
+
+## [Linux: Add a Directory to PATH](https://phoenixnap.com/kb/linux-add-to-path) <sup>{7}</sup>
+
+**How to View the Directories in PATH**
+
+* `echo $PATH` : To print all the configured directories in the system's `PATH` variable, run the `echo` command
+
+* `printenv PATH` : The output shows directories configured in `PATH` by default. The `printenv` command delivers the same output
+
+* `which whoami` : Furthermore, running `which` on a certain command shows where its executable is. For instance, execute `which` with `whoami`
+  * The output shows that the executable for `whoami` is located in the `/usr/bin/` directory.
+
+**How Do I Add a Directory to PATH in Linux?**
+
+**Linux: Add to PATH Temporarily**
+
+* Temporarily adding a directory to `PATH` affects the current terminal session only. Once users close the terminal, the directory is removed.
+
+* `export PATH="/Directory1:$PATH"` : To temporarily add a directory to `PATH`, use the `export PATH` command
+
+* `echo $PATH` : The command added `Directory1` from the `Home` directory to `PATH`. Verify the result with
+  * The output shows that the directory was added to the variable. This configuration lasts during the current session only.
+
+**Linux: Add to PATH Permanently**
+
+* Add a directory to `PATH` permanently by editing the `.bashrc` file located in the `Home` directory. Follow these steps:
+
+  * `vim ~/.bashrc` : Open the `.bashrc` file using a text editor. The example below uses `Vim`.
+  * Go to the end of the file.
+  * Paste the export syntax at the end of the file : `export PATH="/Directory1:$PATH"`
+  * Save and exit.
+  * Execute the script or reboot the system to make the changes live.
+  * `echo $PATH` : To verify the changes, run `echo`
+  * Editing the `.bashrc` file adds a directory for the current user only. To add the directory to the PATH for all users, edit the `.profile` file
+
+**Remove Directory from PATH in Linux**
+
+* There is no single command to remove a directory from `PATH`. Still, several options enable the process.
+
+* Method 1: Exit the Terminal
+
+  * Removing a directory from `PATH` is simple when it's added temporarily. Adding the directory in the terminal works for the current session only. Once the current session ends, the directory is removed from `PATH` automatically.
+  * To delete a temporary directory from `PATH`, exit the terminal or reboot the system.
+
+* Method 2: Edit Configuration Files
+
+  * If the directory export string was added to the `.bashrc` or `.profile` file, remove it using the same method. Open the file in a text editor, navigate to the end of the file, and remove the directory.
+
+* Method 3: Apply the String Replacement Concept
+
+  * `export PATH=${PATH/'/Directory1'/}` : To remove a directory from `PATH`, use string replacement
+  * The command only removes the string from the current session.
+
+* Method 4: Use a One-Liner
+
+  * `export PATH="$( echo $PATH| tr : '\n' |grep -v Directory1 | paste -s -d: )"` : Another option is to use the combination of `tr`, `grep` and `paste` to remove a directory from `PATH`. For instance
+  * `echo $PATH` : Verify the result with
+
 # Debian/Ubuntu
 
 ## Sound
@@ -19,6 +83,8 @@
 * Website Links
   * [Does Linux have a recycle bin?](https://ngangasn.com/linux-recycle-bin/)
   * [Antix - Trashcan Possible?](https://www.antixforum.com/forums/topic/trashcan-possible/)
+
+# Fonts
 
 ## Fonts Installation
 
@@ -43,52 +109,15 @@
 * Then bangla font will work in Firefox, Chrome browser.
 * Install Avro Keyboard "ibus-avro" [For problem use command "ibus" and "ibus-daemon"] [Run ibus daemon in background: `ibus-daemon -d`]
 
-## SSH (Secure Shell)
-
-### SSH Setup
-
-* SSH Server is built-in inside Antix-OS.
-* SSH Server Management
-  * Status: `service ssh status`
-  * Stop: `service ssh stop`
-  * Start: `service ssh start`
-  * Restart: `service ssh restart`
-
-### Guides (SSH)
-* YouTube
-  * [How to SSH Without a Password (like a boss)](https://www.youtube.com/watch?v=j2vBT3T79Pg)
-
-## SSHFS (SSH File System)
-
-### SSHFS Setup
-
-* Setup Instructions
-  * Check SSHFS is installed: `which sshfs`
-  * Create directory for mount: 
-    * `cd /mnt`
-    * `sudo mkdir <directory-name>``
-  * Mount Device via SSHFS: `sudo sshfs -p <22-OR-2222> <user-name>@101.102.103.104:/ /mnt/directory-name/`
-
-* Add Mobile Phone
-  * [SSH/SFTP Server - Terminal BY Banana Studio](https://play.google.com/store/apps/details?id=net.xnano.android.sshserver)
-    * Install this Android software from Play Store
-    * Add both Phone-Memory and SD-Card/Memory-Card
-    * Remeber Alias (from "Users" tab) for both Phone-Memory and SD-Card
-  * Open Terminal in Linux-OS
-    * Create two folder "/mnt/<phone-memory-folder>" and "/mnt/<sdcard-folder>"
-    * Mount Phone Memory: `sudo sshfs -p 2222 <user-name>@101.102.103.104:/<phone-memory-alias>/ /mnt/<phone-memory-folder>/`
-    * Mount SD-Card: `sudo sshfs -p 2222 <user-name>@101.102.103.104:/<sdcard-alias>/ /mnt/<sdcard-folder>/`
-    * Unmount Phone Memory: `sudo umount /mnt/<phone-memory-folder>`
-    * Unmount SD-Card: `sudo umount /mnt/<sdcard-folder>`
-  
-### Guides (SSHFS)
-
-* SSHFS Linux
-  * [Mounting Remote Filesystems With SSHFS](https://www.youtube.com/watch?v=-0jyrvMl0Ic)
-
 # References
 
-* Next Serial: {7}
+* Next Serial: {8}
+
+## Tutorials
+
+* {7} [Linux: Add a Directory to PATH](https://phoenixnap.com/kb/linux-add-to-path)
+
+## Guides
 
 * Websites
   * {6} [antiX also has two possible init systems: sysVinit (default option) or runit.](https://antixlinux.com/download/)

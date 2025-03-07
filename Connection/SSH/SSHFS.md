@@ -109,3 +109,10 @@
     * Mount SD-Card: `sshfs -p <port:2222> <remote-user>@<remote-ip>:/ /home/<local-user>/mount/<sdcard-folder>/`
     * Unmount Phone Memory: `umount /home/<local-user>/mount/<phone-memory-folder>`
     * Unmount SD-Card: `umount /home/<local-user>/mount/<sdcard-folder>`
+
+# References
+
+## YouTube Tutorials
+
+* [How to SSH Without a Password (like a boss)](https://www.youtube.com/watch?v=j2vBT3T79Pg)
+* [Mounting Remote Filesystems With SSHFS](https://www.youtube.com/watch?v=-0jyrvMl0Ic)
