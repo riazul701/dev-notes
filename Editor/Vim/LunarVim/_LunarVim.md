@@ -254,31 +254,37 @@
 
 ### Error and Solution
 
-**ERROR_1:** 
+**ERROR_1: This environment is externally managed** 
 
-  * Message_1:
-  > This environment is externally managed
-  > To install Python packages system-wide, try apt install
-  > python3-xyz, where xyz is the package you are trying to
-  > install.
-  >   
-  > If you wish to install a non-Debian-packaged Python package,
-  > create a virtual environment using python3 -m venv path/to/venv.
-  > Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
-  > sure you have python3-full installed.
-  >  
-  > If you wish to install a non-Debian packaged Python application,
-  > it may be easiest to use pipx install xyz, which will manage a
-  > virtual environment for you. Make sure you have pipx installed.
-  >  
-  > See /usr/share/doc/python3.12/README.venv for more information.
+* Message_1:
+> This environment is externally managed
+> To install Python packages system-wide, try apt install
+> python3-xyz, where xyz is the package you are trying to
+> install.
+>   
+> If you wish to install a non-Debian-packaged Python package,
+> create a virtual environment using python3 -m venv path/to/venv.
+> Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+> sure you have python3-full installed.
+>  
+> If you wish to install a non-Debian packaged Python application,
+> it may be easiest to use pipx install xyz, which will manage a
+> virtual environment for you. Make sure you have pipx installed.
+>  
+> See /usr/share/doc/python3.12/README.venv for more information.
 
-  * Solution_1:
-    * [pip error on Ubuntu: externally-managed-environment × This environment is externally managed](https://askubuntu.com/questions/1465218/pip-error-on-ubuntu-externally-managed-environment-%c3%97-this-environment-is-extern)
-    * [How do I solve "error: externally-managed-environment" every time I use pip 3? [closed]](https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3)
-    * This Issue started from Python-3.11+
+* Solution_1:
+  * [instalation error: externally-managed-environment PEP 668 #4050](https://github.com/LunarVim/LunarVim/issues/4050)
+    * Just install pynvim using apt `sudo apt install python3-pynvim`. No plugins from lunarvim require it.
 
-**ERROR_2**
+* Solution_2:
+  * [pip error on Ubuntu: externally-managed-environment × This environment is externally managed](https://askubuntu.com/questions/1465218/pip-error-on-ubuntu-externally-managed-environment-%c3%97-this-environment-is-extern)
+  * [How do I solve "error: externally-managed-environment" every time I use pip 3? [closed]](https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3)
+  * This Issue started from Python-3.11+
+
+* ERROR after enabling python virtual-env: `Can not perform a '--user' install. User site-packages are not visible in this virtualenv.`
+
+**ERROR_2: Waiting for cache lock**
 
   * Message_2:
   > Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 3500 (unattended-upgr)...
@@ -290,43 +296,43 @@
     * sudo kill -9 <process_id>
     * sudo killall apt apt-get
 
-**ERROR_3**
+**ERROR_3: skipping installing optional nodejs dependencies due to insufficient permissions**
 
-  * Message_3:
+* Message_3:
   > [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
 
-  * Solution_3:
-    * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
-    * Make a directory for global installations: `mkdir ~/.npm-global`
-    * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
-    * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
-    * Back on the command line, update your system variables: `source ~/.profile`
+* Solution_3:
+  * [Permission denied when installing npm modules in OSX](https://stackoverflow.com/questions/47252451/permission-denied-when-installing-npm-modules-in-osx)
+  * Make a directory for global installations: `mkdir ~/.npm-global`
+  * Configure npm to use the new directory path: `npm config set prefix '~/.npm-global'`
+  * Open or create a ~/.profile file and add this line: `export PATH=~/.npm-global/bin:$PATH`
+  * Back on the command line, update your system variables: `source ~/.profile`
   
-**ERROR_4**
+**ERROR_4: rustup could not choose a version of rustc to run**
 
-  * Message_4:
+* Message_4:
   > error: rustup could not choose a version of rustc to run, because one wasn't
   > specified explicitly, and no default is configured.
   > help: run 'rustup default stable' to download the latest stable release of 
   > Rust and set it as your default toolchain.
 
-  * Solution_4:
-    * `rustup default stable`
+* Solution_4:
+  * `rustup default stable` <sup>{19}</sup>
 
 **ERROR_5**
 
-  * Message_5: 
+* Message_5: 
   > bash ./utils/installer/install_bin.sh : invalid option nametall_bin.sh: line 2: set: pipefail
   > 
   > * Reason: this problem happens, when git line ending set to Windows-OS line endings (CR/LF).
   > * Problem Reason Git Settings: `git config --global core.autocrlf true`
 
-  * Solution_5:
-    * [Git status ignore line endings / identical files / windows & linux environment / dropbox / meld](https://stackoverflow.com/questions/20496084/git-status-ignore-line-endings-identical-files-windows-linux-environment)
-    * [Start up script fails with error "-e: invalid option", what is missing?](https://stackoverflow.com/questions/42095374/start-up-script-fails-with-error-e-invalid-option-what-is-missing)
-    * Change line ending to Unix (LF) for this file: `~/.local/share/lunarvim/lvim/utils/installer/install.sh` using Geany editor.
-    * Execute script: `bash ~/.local/share/lunarvim/lvim/utils/installer/install.sh`
-    * Another Solution: Temporarily disable Windows-OS line endings during LunarVim installation: `git config --global core.autocrlf false`
+* Solution_5:
+  * [Git status ignore line endings / identical files / windows & linux environment / dropbox / meld](https://stackoverflow.com/questions/20496084/git-status-ignore-line-endings-identical-files-windows-linux-environment)
+  * [Start up script fails with error "-e: invalid option", what is missing?](https://stackoverflow.com/questions/42095374/start-up-script-fails-with-error-e-invalid-option-what-is-missing)
+  * Change line ending to Unix (LF) for this file: `~/.local/share/lunarvim/lvim/utils/installer/install.sh` using Geany editor.
+  * Execute script: `bash ~/.local/share/lunarvim/lvim/utils/installer/install.sh`
+  * Another Solution: Temporarily disable Windows-OS line endings during LunarVim installation: `git config --global core.autocrlf false`
 
 ## Ubuntu22.04-Vagrant-Installation
 

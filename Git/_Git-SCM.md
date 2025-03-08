@@ -6,6 +6,11 @@
 * Shows version: `git-credential-manager --version`
 * Shows help: `git-credential-manager --help`
 
+## Git Dubious Ownership
+
+* ["git submodule update" failed with 'fatal: detected dubious ownership in repository at...'](https://stackoverflow.com/questions/72978485/git-submodule-update-failed-with-fatal-detected-dubious-ownership-in-reposit)
+  * `git config --global --add safe.directory '*'` : Silence all warnings related to Git's `safe.directory` system.
+
 ## Best Practices
 
 ### Tense of Git Commit Message

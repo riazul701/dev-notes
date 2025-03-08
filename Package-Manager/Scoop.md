@@ -14,14 +14,36 @@
 
 ## Notes
 
+* Do Not Install Scoop As Admin.
 
 ## $PATH
   * Global/System-wise installed apps path: `C:\ProgramData\scoop` [Before enable "show hidden items"]
   * User-wise installed apps path: `C:\Users\{{user-name}}\scoop`
 
+## `gsudo` on Windows-X-Lite Micro-10
+
+**`gsudo` prompt on `scoop`**
+
+* On Windows-X-Lite Micro-10, `gsudo` prompt for every software installation.
+* Go to "Control Panel" -> "Security and Maintenance" -> "Change User Account Control settings" -> "Choose when to be notified about changes to your computer"
+  * Change this to: `Notify me only when apps try to make changes to my computer (default)`
+* Check this by opening `Task Manger` from right clicking on `Taskbar`
+
+**Task Manager**
+
+* Right click "Taskbar" -> Task Manager; also show permission prompt
+  * Turn this off using above settings (`gsudo` prompt on `scoop`)
+
+## Git Dubious Ownership
+
+* When executing `scoop --version` command, then if `git` shows some dubious ownership error, run following command
+* `git config --global --add safe.directory '*'`
+
 # Install/Uninstall
 
 ## Scoop Install Normally
+
+**Do Not Install Scoop As Admin**
 
 * [scoop.sh](https://scoop.sh/)
 * Open a PowerShell terminal (version 5.1 or later) and from the PS C:\> prompt, run:
@@ -31,6 +53,8 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
 ## Scoop Install as Admin
+
+**Do Not Install Scoop As Admin**
 
 * On elevated/administrator powershell, scoop installation command shows error:
   * Running the installer as administrator is disabled by default, see https://github.com/ScoopInstaller/Install#for-admin for details. Abort.

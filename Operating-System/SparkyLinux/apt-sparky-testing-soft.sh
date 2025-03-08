@@ -1,16 +1,19 @@
 #!/bin/bash
 
+# Do Not Run This Script Using `sudo`
+
+# Issue: `sudo` timeout after 15 minutes. Make it longer.
+
 # In SparkyLinux Testing Branch / (Semi-)Rolling
 # Snap does not add software to $PATH and Menu.
-# Add Snap to PATH: echo 'export PATH="/snap/bin:$PATH"' >> ~/.bashrc
-# Reload "~/.bashrc": source ~/.bashrc
+# Add Snap to PATH: `echo 'export PATH="/snap/bin:$PATH"' >> ~/.bashrc` --OR-- `echo 'export PATH="/snap/bin:$PATH"' >> ~/.profile`
+# Reload "~/.bashrc" OR "~/.profile": `source ~/.bashrc` --OR-- `source ~/.profile`
 # Flatpak does not add software to $PATH, but adds to Menu. 
 # Nix adds software to $PATH (instant) and Menu (after logout/restart).
 # Clear Snap Cache: sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
 # Clear Flatpak Cache: flatpak remove --unused
 # Clear Nix Cache: nix-collect-garbage
 
-download_path="/home/$USER/Downloads/Debian_Software"
 declare -A snap_softwares_all
 declare -A snap_office_softwares
 declare -A snap_home_softwares
@@ -23,80 +26,81 @@ declare -A nix_home_softwares
 declare -A brew_softwares_all
 declare -A brew_office_softwares
 declare -A brew_home_softwares
-declare -a apt_softwares_all
-declare -a apt_office_softwares
-declare -a apt_home_softwares
+declare -A apt_softwares_all
+declare -A apt_office_softwares
+declare -A apt_home_softwares
 declare -A deb_softwares_all
 declare -A deb_office_softwares
 declare -A deb_home_softwares
 declare -a appimage_softwares_all
 declare -a tar_softwares_all
+download_path="/home/$USER/Downloads/Debian_Software"
 
 snap_office_softwares=(
     ["chezmoi"]="chezmoi --classic"
     ["sublime-text"]="sublime-text --classic"
-    ["postman"]="postman"
-    ["dbeaver-ce"]="dbeaver-ce"
+    # ["postman"]="postman"
+    # ["dbeaver-ce"]="dbeaver-ce"
     ["firefox"]="firefox"
     ["chromium"]="chromium"
-    ["opera"]="opera"
-    ["thunderbird"]="thunderbird"
-    ["sublime-merge"]="sublime-merge --classic"
-    ["powershell"]="powershell --classic"
-    ["dvc"]="dvc --classic"
-    ["lepton"]="lepton"
-    ["trello-desktop"]="trello-desktop"
-    ["clipboard"]="clipboard --edge"
-    ["mysql-workbench-community"]="mysql-workbench-community"
-    ["ngrok"]="ngrok"
+    # ["opera"]="opera"
+    # ["thunderbird"]="thunderbird"
+    # ["sublime-merge"]="sublime-merge --classic"
+    # ["powershell"]="powershell --classic"
+    # ["dvc"]="dvc --classic"
+    # ["lepton"]="lepton"
+    # ["trello-desktop"]="trello-desktop"
+    # ["clipboard"]="clipboard --edge"
+    # ["mysql-workbench-community"]="mysql-workbench-community"
+    # ["ngrok"]="ngrok"
     # ["android-studio"]="android-studio --classic"
-    ["dive"]="dive" # Docker
+    # ["dive"]="dive" # Docker
 )
 
 snap_home_softwares=(
-    ["spotify"]="spotify"
-    ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
-    ["scrcpy"]="scrcpy"
-    ["guiscrcpy"]="guiscrcpy"
+    # ["spotify"]="spotify"
+    # ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
+    # ["scrcpy"]="scrcpy"
+    # ["guiscrcpy"]="guiscrcpy"
 )
 
 flatpak_office_softwares=(
     ["wezterm"]="org.wezfurlong.wezterm"
-    ["FreeFileSync"]="org.freefilesync.FreeFileSync"
-    ["anydesk"]="com.anydesk.Anydesk"
-    ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
-    ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
-    ["smartgit"]="com.syntevo.SmartGit"
+    # ["FreeFileSync"]="org.freefilesync.FreeFileSync"
+    # ["anydesk"]="com.anydesk.Anydesk"
+    # ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
+    # ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
+    # ["smartgit"]="com.syntevo.SmartGit"
     ["NotepadNext"]="com.github.dail8859.NotepadNext"
 )
 
 flatpak_home_softwares=(
-    ["spotube"]="com.github.KRTirtho.Spotube"
+    # ["spotube"]="com.github.KRTirtho.Spotube"
 )
 
 nix_office_softwares=(
     ["yazi"]="yazi"
+    ["lazygit"]="lazygit" # For Lunarvim
     ["unison"]="unison"
-    ["lazygit"]="lazygit"
     ["termscp"]="termscp"
     ["dasel"]="dasel"
     ["gum"]="gum"
     # ["nerdfonts"]="nerdfonts" # For Lunarvim, Yazi
-    ["lazydocker"]="lazydocker"
-    ["beebeep"]="beebeep"
-    ["rclone-browser"]="rclone-browser"
-    ["backrest"]="backrest"
-    ["frogmouth"]="frogmouth"
-    ["httpie-desktop"]="httpie-desktop"
-    ["czkawka"]="czkawka"
-    ["piknik"]="piknik"
-    ["veracrypt"]="veracrypt"
-    ["ventoy-full"]="ventoy-full"
+    # ["lazydocker"]="lazydocker"
+    # ["beebeep"]="beebeep"
+    # ["backrest"]="backrest"
+    # ["frogmouth"]="frogmouth"
+    # ["httpie-desktop"]="httpie-desktop"
+    # ["czkawka"]="czkawka"
+    # ["piknik"]="piknik"
 )
 
 nix_home_softwares=(
-    ["musikcube"]="musikcube"
-    ["sniffnet"]="sniffnet"
+    # ["rclone-browser"]="rclone-browser"
+    # ["musikcube"]="musikcube"
+    # ["sniffnet"]="sniffnet"
+    # ["ventoy-full"]="ventoy-full"
+    # ["veracrypt"]="veracrypt"
 )
 
 brew_office_softwares=(
@@ -109,85 +113,96 @@ brew_home_softwares=(
 
 apt_office_softwares=(
     ["kitty"]="kitty"
-    ["ibus-avro"]="ibus-avro"
-    ["libreoffice"]="libreoffice"
-    ["docker"]="docker"
-    ["docker.io"]="docker.io"
-    ["docker-compose"]="docker-compose"
-    ["podman"]="podman"
-    ["git"]="git"
+    ["keepassxc"]="keepassxc-full"
+    # ["ibus-avro"]="ibus-avro"
+    # ["libreoffice"]="libreoffice"
+    # ["docker"]="docker"
+    # ["docker.io"]="docker.io"
+    # ["docker-compose"]="docker-compose"
+    # ["podman"]="podman"
+    ["git"]="git" # For Lunarvim
     ["git-gui"]="git-gui"
     ["git-lfs"]="git-lfs"
     ["gh"]="gh"
-    ["vim"]="vim"
-    ["nvim"]="neovim"
-    ["code"]="code"
-    ["vifm"]="vifm"
-    ["filezilla"]="filezilla"
-    ["rsync"]="rsync"
-    ["rclone"]="rclone"
-    ["restic"]="restic"
-    ["node"]="nodejs"
-    ["syncthing"]="syncthing"
-    ["dropbox"]="dropbox"
-    ["copyq"]="copyq"
-    ["glow"]="glow"
-    ["mycli"]="mycli"
-    ["sqlitebrowser"]="sqlitebrowser"
-    ["keepassxc"]="keepassxc-full"
-    ["gimp"]="gimp"
-    ["vlc"]="vlc"
-    ["pcmanfm"]="pcmanfm"
-    ["thunar"]="thunar"
-    ["7zip"]="7zip"
-    ["htop"]="htop"
-    ["glances"]="glances"
     ["i3"]="i3"
     ["polybar"]="polybar"
     ["rofi"]="rofi"
     ["feh"]="feh"
     ["nitrogen"]="nitrogen"
+    ["vim"]="vim"
+    ["nvim"]="neovim" # For Lunarvim
+    ["python3"]="python3" # For Lunarvim: `python3 --version`
+    ["pip3"]="python3-pip" # For Lunarvim: `pip --version` || `pip3 --version`
+    ["python3-pynvim"]="python3-pynvim" # For Lunarvim: [Skip python dependencies during install](https://github.com/LunarVim/LunarVim/issues/4050)
+    ["node"]="nodejs" # For Lunarvim: `node --version`
+    ["npm"]="npm" # For Lunarvim: `npm --version`
+    ["rustc"]="rustc" # For Lunarvim: `rustc --version`
+    ["cargo"]="cargo" # For Lunarvim: `cargo --version`
+    ["make"]="make" # For Lunarvim: `make --version`
+    ["gcc"]="gcc" # For Lunarvim: `gcc --version`
+    ["rg"]="ripgrep" # For Lunarvim: `rg --version`
+    ["xclip"]="xclip" # For Lunarvim, Yazi
+    ["fzf"]="fzf"
+    ["code"]="code"
+    ["vifm"]="vifm"
+    # ["filezilla"]="filezilla"
+    # ["rsync"]="rsync"
+    ["rclone"]="rclone"
+    ["restic"]="restic"
+    ["dropbox"]="dropbox"
+    # ["copyq"]="copyq"
+    # ["glow"]="glow"
+    # ["mycli"]="mycli"
+    # ["sqlitebrowser"]="sqlitebrowser"
+    # ["gimp"]="gimp"
+    # ["vlc"]="vlc"
+    ["pcmanfm"]="pcmanfm"
+    # ["thunar"]="thunar"
+    ["7zip"]="7zip"
+    ["htop"]="htop"
     ["pulseaudio"]="pulseaudio"
     ["pavucontrol"]="pavucontrol"
     ["jq"]="jq"
     ["distrobox"]="distrobox"
     ["tmux"]="tmux"
-    ["xclip"]="xclip" # For Lunarvim, Yazi
     ["lynx"]="lynx"
-    ["httpie"]="httpie"
+    # ["httpie"]="httpie"
     ["lftp"]="lftp"
     ["qimgv"]="qimgv"
-    ["audacity"]=["audacity"]
-    ["smplayer"]="smplayer"
-    ["mpv"]="mpv"
-    ["shotcut"]="shotcut"
-    ["handbrake"]="handbrake"
-    ["handbrake-cli"]="handbrake-cli"
-    ["flameshot"]="flameshot"
-    ["obs-studio"]="obs-studio"
-    ["stacer"]="stacer"
+    # ["audacity"]=["audacity"]
+    # ["smplayer"]="smplayer"
+    # ["mpv"]="mpv"
+    # ["shotcut"]="shotcut"
+    # ["handbrake"]="handbrake"
+    # ["handbrake-cli"]="handbrake-cli"
+    # ["flameshot"]="flameshot"
+    # ["obs-studio"]="obs-studio"
+    # ["stacer"]="stacer"
     ["peazip"]="peazip"
+
+    # Add: Glances
 )
 
 apt_home_softwares=(
-    ["yt-dlp"]="yt-dlp"
-    ["youtube-dl"]="youtube-dl"
-    ["youtubedl-gui"]="youtubedl-gui"
-    ["gallery-dl"]="gallery-dl"
+    # ["syncthing"]="syncthing"
+    # ["yt-dlp"]="yt-dlp"
+    # ["youtube-dl"]="youtube-dl"
+    # ["youtubedl-gui"]="youtubedl-gui"
+    # ["gallery-dl"]="gallery-dl"
     # ["linssid"]="linssid"
     # ["wavemon"]="wavemon"
     # ["digikam"]="digikam"
-    ["clementine"]="clementine"
+    # ["clementine"]="clementine"
 )
 
 deb_office_softwares=(
     ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-    ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
+    # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
 )
 
 deb_home_softwares=(
-    ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
-    ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
+    # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
+    # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
 )
 	 
 appimage_office_softwares=(
@@ -199,7 +214,7 @@ appimage_home_softwares=(
 )
 
 tar_office_softwares=(
-    "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
+    # "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
 )
 
 tar_home_softwares=(
@@ -456,3 +471,22 @@ done
 
 echo -e '\033[1;32m TAR => All Softwares Downloaded. \033[0m'
 #-------------------------END: Download TAR Softwares-------------------------
+
+# Install Lunvarvim, if not already installed
+
+if [[ "$(command -v lvim)" != '' ]]
+then
+    echo -e "\033[1;32m Lunarvim is already installed, skipping... \033[0m"
+else
+    # Nodejs/NPM Error: [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
+    mkdir ~/.npm-global
+    npm config set prefix '~/.npm-global'
+    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
+    source ~/.profile
+
+    # Python Error: This environment is externally managed
+    # [Skip python dependencies during install](https://github.com/LunarVim/LunarVim/issues/4050)
+    # Just install pynvim using apt `sudo apt install python3-pynvim`. No plugins from lunarvim require it.
+
+    LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+fi
