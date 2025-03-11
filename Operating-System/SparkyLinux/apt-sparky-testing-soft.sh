@@ -3,6 +3,7 @@
 # Do Not Run This Script Using `sudo`
 
 # Issue: `sudo` timeout after 15 minutes. Make it longer.
+# Issue: Error: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
 
 # In SparkyLinux Testing Branch / (Semi-)Rolling
 # Snap does not add software to $PATH and Menu.
@@ -41,10 +42,6 @@ snap_office_softwares=(
     ["sublime-text"]="sublime-text --classic"
     # ["postman"]="postman"
     # ["dbeaver-ce"]="dbeaver-ce"
-    ["firefox"]="firefox"
-    ["chromium"]="chromium"
-    # ["opera"]="opera"
-    # ["thunderbird"]="thunderbird"
     # ["sublime-merge"]="sublime-merge --classic"
     # ["powershell"]="powershell --classic"
     # ["dvc"]="dvc --classic"
@@ -114,6 +111,10 @@ brew_home_softwares=(
 apt_office_softwares=(
     ["kitty"]="kitty"
     ["keepassxc"]="keepassxc-full"
+    ["firefox-sparky"]="firefox-sparky"
+    # ["chromium"]="chromium"
+    # ["opera"]="opera-stable"
+    # ["thunderbird"]="thunderbird"
     # ["ibus-avro"]="ibus-avro"
     # ["libreoffice"]="libreoffice"
     # ["docker"]="docker"
@@ -121,14 +122,20 @@ apt_office_softwares=(
     # ["docker-compose"]="docker-compose"
     # ["podman"]="podman"
     ["git"]="git" # For Lunarvim
-    ["git-gui"]="git-gui"
-    ["git-lfs"]="git-lfs"
-    ["gh"]="gh"
-    ["i3"]="i3"
+    ["git-lfs"]="git-lfs" # https://github.com/git-lfs/git-lfs
+    ["git-gui"]="git-gui" # https://git-scm.com/docs/git-gui
+    ["gitk"]="gitk" # https://git-scm.com/docs/gitk
+    ["git-cola"]="git-cola"
+    ["gh"]="gh" # https://cli.github.com/
+    ["gpg"]="gpg" # For "git-credential-manager"
+    ["pass"]="pass" # For "git-credential-manager"
+    ["i3"]="i3" # Includes: `i3-wm`, `i3bar`, `i3status`, `i3lock`, `dunst`, `dmenu`
+    ["pactl"]="pulseaudio-utils" # Includes: `paplay`, `pacat`, `parec`, `pacmd`, `pactl`, `padsp`, `pax11publish`
     ["polybar"]="polybar"
     ["rofi"]="rofi"
     ["feh"]="feh"
     ["nitrogen"]="nitrogen"
+    ["conky"]="conky-all"
     ["vim"]="vim"
     ["nvim"]="neovim" # For Lunarvim
     ["python3"]="python3" # For Lunarvim: `python3 --version`
@@ -197,6 +204,7 @@ apt_home_softwares=(
 
 deb_office_softwares=(
     ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    ["git-credential-manager"]="https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.6.1/gcm-linux_amd64.2.6.1.deb"
     # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
 )
 
@@ -303,10 +311,10 @@ done
 appimage_softwares_all+=("${appimage_office_softwares[@]}")
 tar_softwares_all+=("${tar_office_softwares[@]}")
 
-echo -n "Is this a workstation for Home use [yes/no(default)]? "
+echo -n "Is this a workstation for Home use [y[es]/n[o](default)]? "
 read workstation_response
 
-if [[ "$workstation_response" == "yes" ]]
+if [[ ("$workstation_response" == "y") || ("$workstation_response" == "yes") ]]
 then
     for snap_cmd in "${!snap_home_softwares[@]}"; do
         snap_softwares_all[$snap_cmd]=${snap_home_softwares[$snap_cmd]}
@@ -419,7 +427,8 @@ for deb_cmd in "${!deb_softwares_all[@]}"; do
 	unset IFS
 	deb_file_name=${deb_url_array[-1]}
 	is_deb_soft_installed=$(echo "$apt_list_installed" | grep "$deb_cmd" | awk '{print $4}')
-	if [[ "$is_deb_soft_installed" != '' ]]
+    deb_soft_path=$(command -v "$deb_cmd")
+	if [[ ("$is_deb_soft_installed" != '') || ("$deb_soft_path" != '') ]]
 	then
 	    echo -e "\033[1;32m DEB => $deb_cmd ($deb_file_name) is already installed, skipping... \033[0m"
 	else
@@ -489,4 +498,6 @@ else
     # Just install pynvim using apt `sudo apt install python3-pynvim`. No plugins from lunarvim require it.
 
     LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+    echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc
+    source ~/.bashrc
 fi

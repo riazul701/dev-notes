@@ -13,6 +13,7 @@
   * BitBucket: If you are planning to use an App Password for basic authentication, it must at a minimum have Account Read permissions (as shown below). If your App Password does not have these permissions, you will be re-prompted for credentials on every interaction with the server.
 
 ## Multiple User Accounts
+
 * Want to use multiple user accounts like "user1@github.com", "user2@github.com", "user3@bitbucket.org"
 
 * {19} [Multiple users](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)
@@ -40,11 +41,29 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 ## Delete Cached Credential
 
 ### Windows-OS (Delete Credential)
+
+* Guides
+  * [Git Credential stores](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/credstores.md)
+
+**Credential Store: "wincredman"**
+
+* [Git Windows Credential Manager](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/credstores.md#windows-credential-manager)
+  * This is the default store on Windows.
+  * Does not work over a network/SSH session.
+
 * [Remove credentials from Git](https://stackoverflow.com/questions/15381198/remove-credentials-from-git)
   * Goto Control Panel -> User Accounts -> Credential Manager -> Manage Windows Credentials
   * Remove credential under "git:https://github.com"
 
+**Credential Store: "dpapi"**
+
+* [DPAPI protected files](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/credstores.md#dpapi-protected-files)
+  * By default files are stored in `%USERPROFILE%\.gcm\dpapi_store`.
+  * This can be configured using the environment variable `GCM_DPAPI_STORE_PATH` environment variable.
+  * If the directory doesn't exist it will be created.
+
 ### Linux-OS (Delete Credential)
+
 * GitHub Credential cache is stored in "/home/<user-name>/.password-store/git/https/github.com/<github-username>.gpg"
   * Delete "<github-username>.gpg" from this folder path.
 * BitBucket Credential cache is stored in "/home/<user-name>/.password-store/git/https/bitbucket.org/<bitbucket-username>.gpg"

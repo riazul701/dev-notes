@@ -6,6 +6,10 @@
 
 ## i3 executables from `/usr/bin/`
 
+* `i3` is a metapackage, which includes other packages.
+  * `sudo apt show i3`
+  * `sudo apt install i3`
+
 * `i3`
 * `i3bar`
 * `i3-config-wizard`
@@ -23,6 +27,8 @@
 * `i3-sensible-terminal` : Start terminal with `$mod + Enter` keybinding <sup>{{From i3-config}}</sup>
 * `i3status`
 * `i3-with-shmlog`
+* `dmenu`
+* `dunst`
 
 ## i3 Reference Card
 
@@ -47,7 +53,9 @@
 
 * `i3lock` need png image <sup>{56}</sup>
 
-## Paths
+## PATH
+
+**Config Paths**
 
 * `~/.config` directory has higher precedence than `/etc` directory
 
@@ -59,38 +67,13 @@
   * i3wm config inside `/etc` :  `/etc/i3/config`
   * i3status config inside `/etc` : `/etc/i3status.conf` <sup>{57}</sup>
 
-## Power Management
+**Config file location <sup>{33}</sup>**
 
-**[Systemctl power management](https://github.com/Justus0405/i3wm-dotfiles/blob/main/src/config/rofi/powermenu) <sup>{59}</sup>**
+* By default when i3 is run for the first time a new config file is added to `~/.i3/config` and a dialog asks what the modifier key should be set to.
 
-* `systemctl suspend` : Suspend/Sleep PC
-* `systemctl hibernate` : Hibernate PC
-* `systemctl reboot` : Reboot/Restart PC
-* `systemctl poweroff` : Poweroff/Shutdown PC
+* The default modifier key is `Alt` and a popular alternative is the `Super` (Windows) key (referred to as `$mod4` in `~/.i3/config`).
 
-**dbus-send power management**
-
-* Use "dbus-send" to poweroff, restart, suspend, hibernate PC. <sup>{12} {13}</sup>
-
-**[Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)**
-
-```shellscript
-# mode for leave menu
-set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
-mode "$leave_menu" {
-    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
-    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
-    bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
-    bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym 5 exec --no-startup-id systemctl reboot, mode "default"
-    bindsym 6 exec --no-startup-id systemctl poweroff, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+e mode "$leave_menu"
-```
+* A popular starting point for writing the config file is copying the system config file `/etc/i3/config` to one of the user config locations if one is not already generated.
 
 ## Fonts Installation
 
@@ -123,11 +106,11 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 # Installation
 
-## Antix-OS
+## Antix-OS/Debian
 
 ### Instructions (Antix-OS) 
 
-* Install i3 <sup>{1} {2} {3}</sup>
+**Install i3 <sup>{1} {2} {3}</sup>**
 
 * Install i3 and associated packages: `sudo apt install i3`
   * `apt show i3`
@@ -149,6 +132,23 @@ bindsym $mod+Shift+e mode "$leave_menu"
 * Disable popup window "Your window manager was not one of the supported window managers. This window is to provide the same function as the Other Desktops menu" <sup>{4}</sup>
   * There is a button at the bottom to disable this screen from popping up each time.
 
+**`pactl` command in `i3` config**
+
+* `bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status`
+
+
+* `apt show pulseaudio-utils`
+  * These tools provide command line access to various features of the PulseAudio sound server. Included tools are:
+  * `paplay` - Playback a WAV file via a PulseAudio sink.
+  * `pacat` - Cat raw audio data to a PulseAudio sink.
+  * `parec` - Cat raw audio data from a PulseAudio source.
+  * `pacmd` - Connect to PulseAudio's built-in command line control interface.
+  * `pactl` - Send a control command to a PulseAudio server.
+  * `padsp` - /dev/dsp wrapper to transparently support OSS applications.
+  * `pax11publish` - Store/retrieve PulseAudio default server/sink/source settings in the X11 root window.
+
+* `sudo apt install pulseaudio-utils`
+
 ### Commands (Antix-OS)
 
 * Show details of "i3" window manager: `apt show i3` [Version: 4.19.1]
@@ -162,15 +162,6 @@ bindsym $mod+Shift+e mode "$leave_menu"
   * Suspend/Sleep PC: `sudo pm-suspend` <sup>{10}</sup>
   * LogOut User(PC): `sudo pkill -u $(whoami)` <sup>{11}</sup>
 
-# Configuration
-
-## Notes
-
-* Config file location <sup>{33}</sup>
-  * By default when i3 is run for the first time a new config file is added to `~/.i3/config` and a dialog asks what the modifier key should be set to.
-  * The default modifier key is `Alt` and a popular alternative is the `Super` (Windows) key (referred to as `$mod4` in `~/.i3/config`).
-  * A popular starting point for writing the config file is copying the system config file `/etc/i3/config` to one of the user config locations if one is not already generated.
-
 # Error and Solution
 
 * next-error: {{error-4}}
@@ -179,44 +170,44 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 **{{error-1}} status_command not found**
 
-  * Message_1: 
-    * Error (shown in status bar): status_command not found or is missing a library dependency (exit 127)
+* Message_1: 
+  * Error (shown in status bar): status_command not found or is missing a library dependency (exit 127)
 
-  * Solution_1:
-    * {30} [i3 Error: Status_command not found (exit 127)](https://www.reddit.com/r/linuxmint/comments/3f9k9s/i3_error_status_command_not_found_exit_127/)
-    * Reason: `i3status` is not installed.
-    * Install `i3status`: `sudo apt install i3status`
+* Solution_1:
+  * {30} [i3 Error: Status_command not found (exit 127)](https://www.reddit.com/r/linuxmint/comments/3f9k9s/i3_error_status_command_not_found_exit_127/)
+  * Reason: `i3status` is not installed.
+  * Install `i3status`: `sudo apt install i3status`
 
 ## Usage (Antix-OS)
 
 **{{error-2}} `Alt+Shift+{{key}}` key combination does not work**
 
-  * Message_2:
-    * I3 keybindings do not recognize shift key
-    * `Alt+Shift+j`, `Alt+Shift+k`, `Alt+Shift+l`, `Alt+Shift+;`, `Alt+Shift+c`, `Alt+Shift+r`, `Alt+Shift+e` keyboard shortcuts do not work.
+* Message_2:
+  * I3 keybindings do not recognize shift key
+  * `Alt+Shift+j`, `Alt+Shift+k`, `Alt+Shift+l`, `Alt+Shift+;`, `Alt+Shift+c`, `Alt+Shift+r`, `Alt+Shift+e` keyboard shortcuts do not work.
 
-  * Solution_2:
-    * {31} [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
-      * Recently had a similar issue under X11, trying to use Alt+Shift+Arrow to navigate unread messages on different applications. In my case, the (default) X11 keybindings were using Alt+Shift to switch keyboards.
-      * If you look at your X11 Keyboard mappings with `setxkbmap -query`, you might get :
-      * `options:    grp:alt_shift_toggle,grp_led:scroll`
-      * In this case you could use `setxkbmap -option "grp_led:scroll"` to disable the default Alt+Shift behavior. You can also change your keyboard layout with `setxkbmap <layout>` (for example setxkbmap us).
-      * Hope this helps you or someone else who may be facing a similar issue.
-      * [[Works Perfectly]] This worked for me! I did have to run `setxkbmap -option` before running `setxkbmap -option "grp_led:scroll"` as the remove the `alt_shift_toggle`
+* Solution_2:
+  * {31} [I3 keybindings do not recognize shift key](https://www.reddit.com/r/i3wm/comments/fp1apq/i3_keybindings_do_not_recognize_shift_key/)
+    * Recently had a similar issue under X11, trying to use Alt+Shift+Arrow to navigate unread messages on different applications. In my case, the (default) X11 keybindings were using Alt+Shift to switch keyboards.
+    * If you look at your X11 Keyboard mappings with `setxkbmap -query`, you might get :
+    * `options:    grp:alt_shift_toggle,grp_led:scroll`
+    * In this case you could use `setxkbmap -option "grp_led:scroll"` to disable the default Alt+Shift behavior. You can also change your keyboard layout with `setxkbmap <layout>` (for example setxkbmap us).
+    * Hope this helps you or someone else who may be facing a similar issue.
+    * [[Works Perfectly]] This worked for me! I did have to run `setxkbmap -option` before running `setxkbmap -option "grp_led:scroll"` as the remove the `alt_shift_toggle`
 
-    * Antix-OS
-      * `setxkbmap` settings are defined in `/etc/default/keyboard` file
-        * Problematic line is: `XKBOPTIONS="grp:lalt_lshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"`
-        * Goto "Control Centre -> System -> Edit Config Files", to see `/etc/default/keyboard` file under `keyboard` tab.
-        * Solution
-          * Open "Control Centre -> System -> Set System Keyboard Layout -> Hotkeys"
-          * Set "Switching to another layout: Both Shift together"
+  * Antix-OS
+    * `setxkbmap` settings are defined in `/etc/default/keyboard` file
+      * Problematic line is: `XKBOPTIONS="grp:lalt_lshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"`
+      * Goto "Control Centre -> System -> Edit Config Files", to see `/etc/default/keyboard` file under `keyboard` tab.
+      * Solution
+        * Open "Control Centre -> System -> Set System Keyboard Layout -> Hotkeys"
+        * Set "Switching to another layout: Both Shift together"
 
 **{{error-3}} `Alt+Space` shows taskbar menu item**
 
 # References
 
-* next-sl: {60}
+* next-sl: {62}
 
 ## Websites
 
@@ -300,20 +291,6 @@ bindsym $mod+Shift+e mode "$leave_menu"
 
 * i3status
   * {57} [Where is the i3status config file?](https://unix.stackexchange.com/questions/622923/where-is-the-i3status-config-file)
-
-* Power Management
-  * {59} [Systemctl power management](https://github.com/Justus0405/i3wm-dotfiles/blob/main/src/config/rofi/powermenu) <sup>{58}</sup>
-  * {6} [i3wm and power management](https://www.reddit.com/r/i3wm/comments/2yniv1/i3wm_and_power_management/)
-  * {7} [How To Shutdown Linux Using Command Line](https://www.cyberciti.biz/faq/howto-shutdown-linux/)
-  * {8} [Reboot Linux System Command](https://www.cyberciti.biz/faq/howto-reboot-linux/)
-  * {9} [How to hibernate / real suspend for laptops? No battery use](https://www.antixforum.com/forums/topic/how-to-hibernate-real-suspend-for-laptops-no-battery-use/)
-  * {10} [Introduction to Power Management Utilities](https://www.linuxfromscratch.org/blfs/view/11.3/general/pm-utils.html)
-  * {11} [How to force user logout in Linux](https://www.simplified.guide/linux/user-force-logout)
-  * {12} [How do you shutdown from i3?](https://www.reddit.com/r/i3wm/comments/7ak40z/how_do_you_shutdown_from_i3/)
-  * {13} [dotfiles-i3/bin/i3-exit](https://github.com/rynnon/dotfiles-i3/blob/r-gerritpc/bin/i3-exit) <sup>{12}</sup>
-  * {14} [Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)
-
-* Configuration
 
 * Others
   * {22} [RAM Usage of small window managers - a comparison](https://www.reddit.com/r/unixporn/comments/4tfdzu/ram_usage_of_small_window_managers_a_comparison/)

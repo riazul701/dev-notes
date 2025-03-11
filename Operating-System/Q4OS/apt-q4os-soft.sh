@@ -14,9 +14,9 @@ declare -A flatpak_home_softwares
 declare -A nix_softwares_all
 declare -A nix_office_softwares
 declare -A nix_home_softwares
-declare -a apt_softwares_all
-declare -a apt_office_softwares
-declare -a apt_home_softwares
+declare -A apt_softwares_all
+declare -A apt_office_softwares
+declare -A apt_home_softwares
 declare -A deb_softwares_all
 declare -A deb_office_softwares
 declare -A deb_home_softwares

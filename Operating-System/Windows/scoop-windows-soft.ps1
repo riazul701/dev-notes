@@ -52,7 +52,6 @@ $scoop_office_softwares = @(
     "main/termscp"
     "main/charm-gum"
     "extras/dasel"
-    "TheRandomLabs_Scoop-Python/httpie-py" # github.com/httpie/cli
     "main/cwrsync"
     "main/ntop"
     #"main/jira"
@@ -124,11 +123,13 @@ $scoop_office_softwares = @(
     #"main/go" # For Lunarvim (Optional)
     #"java/openjdk" # For Lunarvim (Optional)
     #"main/julia" # For Lunarvim (Optional)
+    #"TheRandomLabs_Scoop-Python/httpie-py" # [Shows Python Error](github.com/httpie/cli)
     #--------Remove (End)----------
 
     # Add: Git GUI
     # Add: Git Cola
-    # Add: Glances
+    # Add: Glances (Python Based)
+    # Add: HTTPie (Python Based)
     # Add: VirtualBox
 )
 

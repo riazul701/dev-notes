@@ -1,4 +1,4 @@
-# VueJS.md
+# Vuejs.md
 
 ## Websites
 

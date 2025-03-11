@@ -18,6 +18,11 @@
 
 ## Templating
 
+* `chezmoi:template:line-endings=$VALUE` : Line endings can be overridden with a template directive
+  * `crlf` : Use Windows line endings (`\r\n`)
+  * `lf` : Use UNIX-style line endings (`\n`)
+  * `native` : Use platform-native line endings (`crlf` on Windows, `lf` elsewhere)
+
 **Templating From {12} {13}**
 
 **Removing whitespace**
@@ -1017,6 +1022,10 @@ pager = "delta"
 ## Variables
 
 * `chezmoi execute-template '{{ VARIABLE-NAME }}'`
+
+## Syntax
+
+* `{{ $email | quote }}` : Quote (Double/Single) value
 
 # Error and Solution
 

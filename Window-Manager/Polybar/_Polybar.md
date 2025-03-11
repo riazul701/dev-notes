@@ -1,0 +1,42 @@
+## Commands/Usage
+
+* Stop/Kill polybar: `sudo killall polybar` <sup>{9}</sup>
+* List all installed fonts: `fc-list` <sup>{8}</sup>
+* Check "awesome" font is installed: `fc-list | grep -i awesome` <sup>{8}</sup>
+
+# Polybar.md
+
+## PATH
+
+* [How to get sample config #348](https://github.com/polybar/polybar/issues/348)
+  * Polybar has a decent stock config file and it is in directory `/usr/share/doc/polybar/config`
+    * `/usr/share/doc/polybar/examples/config.ini`
+  * `mkdir -p ~/.config/polybar` : Create config directory
+  * `cp /usr/share/doc/polybar/config ~/.config/polybar/config` : Copy example config to $HOME directory
+
+# References
+
+* next-sl: {10}
+
+## Websites
+
+* {1} [Polybar GitHub](https://github.com/polybar/polybar)
+* {2} [polybar-scripts :: This is a community project. We write and collect scripts for polybar!](https://github.com/polybar/polybar-scripts)
+* {3} [Awesome-Polybar :: Curated list of Polybar](https://github.com/TiagoDanin/Awesome-Polybar)
+* {4} [adi1090x/polybar-themes GitHub](https://github.com/adi1090x/polybar-themes)
+
+## Tutorials
+
+## Configuration From
+
+## Guides
+
+* Polybar Configuration
+  * {5} [Where to start](https://github.com/polybar/polybar/wiki)
+  * {6} [How to get sample config #348](https://github.com/polybar/polybar/issues/348)
+  * {7} [Polybar: "Undefined bar"](https://www.reddit.com/r/i3wm/comments/cs86fy/polybar_undefined_bar/)
+  * {8} [Polybar Fonts](https://github.com/polybar/polybar/wiki/Fonts)
+
+* YouTube Tutorial
+  * {9} [How to Install and Customize Polybar- Ultimate Polybar Beginner's Guide](https://www.youtube.com/watch?v=tOBDUBEMAKM)
+  
