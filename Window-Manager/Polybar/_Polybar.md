@@ -1,4 +1,12 @@
-## Commands/Usage
+# Commands/Usage
+
+## Important
+
+* The config file requires a `bar section` for each bar you want to define. <sup>{11}</sup>
+
+* (Must) Each module also has its own `module section` and can be added to `modules-left`, `modules-center` or `modules-right` in the bar section to have it display on that bar. <sup>{11}</sup>
+
+## Commands
 
 * Stop/Kill polybar: `sudo killall polybar` <sup>{9}</sup>
 * List all installed fonts: `fc-list` <sup>{8}</sup>
@@ -20,7 +28,7 @@
 
 # References
 
-* next-sl: {10}
+* next-sl: {12}
 
 ## Websites
 
@@ -31,7 +39,11 @@
 
 ## Tutorials
 
-## Configuration From
+* {10} [Polybar Wiki](https://github.com/polybar/polybar/wiki)
+
+## Commands From
+
+* {11} [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
 
 ## Guides
 

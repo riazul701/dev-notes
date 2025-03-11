@@ -11,7 +11,7 @@
 
 # References
 
-* next-sl: {5}
+* next-sl: {6}
 
 * YouTube Tutorials
 
@@ -19,6 +19,7 @@
     * {1} [কোন সাইজের আইপিএস ও ব্যাটারি কিনবেন? কত টাকা খরচ হবে? IPS Inverter Battery Size and Price BY Learning Engineering Bangla](https://www.youtube.com/watch?v=NkeI6hvNifQ)
     * {2} [জেনে নিন কিভাবে IPS UPS Inverter ও Solar System এর জন্য সঠিক মানের ব্যাটারি সিলেক্ট করবেন? BY Learning Engineering Bangla](https://www.youtube.com/watch?v=gsr8t95TfpU)
     * {3} [পানি ব্যাটারি ভাল নাকি ড্রাই সেল ব্যাটারি ভাল | Lead Acid Battery Vs Dry Cell Battery | 12Volt BY E Tech Home](https://www.youtube.com/watch?v=YGkF9xd3Wis)
+    * {5} [IPS এর জন্য কোন টাইপ এর ব্যাটারি বেস্ট । rahimafrooz RTB 200 Tubular Battery overview & many more BY TechMania |BD|](https://www.youtube.com/watch?v=OGWCv7ObrnU)
 
   * Other Topic
     * {4} [পিসির জন্য সঠিক UPS এর VA/Watt কিভাবে নির্বাচন করবেন BY TechMania |BD|](https://www.youtube.com/watch?v=6d9pXlPF-qY)
