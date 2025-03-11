@@ -8,6 +8,10 @@
 
 ## PATH
 
+* [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
+  * To get started with your own customization, you need to create a configuration file in `~/.config/polybar/config.ini`.
+  * You can copy the default config from `/etc/polybar/config.ini` or start from scratch.
+
 * [How to get sample config #348](https://github.com/polybar/polybar/issues/348)
   * Polybar has a decent stock config file and it is in directory `/usr/share/doc/polybar/config`
     * `/usr/share/doc/polybar/examples/config.ini`
