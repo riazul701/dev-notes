@@ -6,6 +6,8 @@
 
 * (Must) Each module also has its own `module section` and can be added to `modules-left`, `modules-center` or `modules-right` in the bar section to have it display on that bar. <sup>{11}</sup>
 
+* Only a single instance of this (`tray`) module can be active at the same time (across all polybar instances in the same graphical session). <sup>{12}</sup>
+
 ## Commands
 
 * Stop/Kill polybar: `sudo killall polybar` <sup>{9}</sup>
@@ -42,7 +44,7 @@
 
 # References
 
-* next-sl: {12}
+* next-sl: {13}
 
 ## Websites
 
@@ -58,6 +60,7 @@
 ## Commands From
 
 * {11} [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
+* {12} [Tray Module](https://polybar.readthedocs.io/en/stable/user/modules/tray.html)
 
 ## Guides
 
