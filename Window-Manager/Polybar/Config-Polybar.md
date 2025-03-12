@@ -40,3 +40,4 @@ bar {
 * The first line executes the startup script; the second disables i3's default bar
 
 # Config-Polybar.md
+

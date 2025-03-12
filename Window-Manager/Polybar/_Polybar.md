@@ -14,6 +14,10 @@
 
 # Polybar.md
 
+## Notes
+
+* Check polybar log in `/tmp/polybar1.log` file, which defined in `$HOME/.config/polybar/launch.sh` script
+
 ## PATH
 
 * [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
@@ -25,6 +29,16 @@
     * `/usr/share/doc/polybar/examples/config.ini`
   * `mkdir -p ~/.config/polybar` : Create config directory
   * `cp /usr/share/doc/polybar/config ~/.config/polybar/config` : Copy example config to $HOME directory
+
+# Fonts
+
+* {8} [Polybar Fonts](https://github.com/polybar/polybar/wiki/Fonts)
+
+## Font-Awesome
+
+* [fontawesome.com](https://fontawesome.com/)
+
+* `apt show fonts-font-awesome`
 
 # References
 

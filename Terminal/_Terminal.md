@@ -13,6 +13,9 @@
   * [Rio](https://github.com/raphamorim/rio)
   * WezTerm
 
+* Linux Terminal
+  * [xfce4-terminal](https://github.com/xfce-mirror/xfce4-terminal)
+
 # References
 
 ## Rio Terminal
