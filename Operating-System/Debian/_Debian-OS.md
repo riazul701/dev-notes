@@ -6,6 +6,15 @@
 * [repology.org => The packaging hub](https://repology.org/)
 * [distrowatch.com](https://distrowatch.com/)
 
+* [Debian ISO Download => Live Image](https://www.debian.org/CD/)
+  * [Debian Testing Branch ISO](https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid/)
+
+## Download ISO
+
+* [What's the difference between Debian Standard and Gnome?](https://unix.stackexchange.com/questions/87182/whats-the-difference-between-debian-standard-and-gnome)
+  * `Debian Live Standard` is Debian without the Graphical User Interface.
+  * `Debian Live Gnome` is Debian Standard with Gnome.
+
 # References
 
 * next-sl: {2}
