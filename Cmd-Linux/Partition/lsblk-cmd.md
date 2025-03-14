@@ -1,4 +1,8 @@
-# Lsblk.md
+# Commands/Usage
+
+* `which lsblk` : Shows path of installed `lsblk` command
+
+# lsblk-cmd.md
 
 ## Websites
 

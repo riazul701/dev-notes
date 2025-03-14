@@ -1,2 +1,0 @@
-# EaseUS-Partition-Master.md
-

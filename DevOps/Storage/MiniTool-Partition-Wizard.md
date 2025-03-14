@@ -1,2 +1,0 @@
-# MiniTool-Partition-Wizard.md
-

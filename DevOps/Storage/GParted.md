@@ -1,1 +1,0 @@
-# GParted.md
