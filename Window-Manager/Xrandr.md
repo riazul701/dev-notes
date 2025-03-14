@@ -1,1 +1,0 @@
-# Xrandr.md

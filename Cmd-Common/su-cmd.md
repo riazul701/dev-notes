@@ -2,8 +2,6 @@
 
 * `su` : Switch to superuser (requires the root password)
 * `su {{username}}` : Switch to a given user (requires the user's password)
-* 
-
 
 # su.md
 

@@ -14,7 +14,9 @@
   * WezTerm
 
 * Linux Terminal
-  * [xfce4-terminal](https://github.com/xfce-mirror/xfce4-terminal)
+  * [xterm => standard (default, in many window managers) terminal emulator for the X Window System](https://invisible-island.net/xterm/)
+  * [LXTerminal GitHub](https://github.com/lxde/lxterminal)
+  * [xfce4-terminal GitHub](https://github.com/xfce-mirror/xfce4-terminal)
 
 # References
 

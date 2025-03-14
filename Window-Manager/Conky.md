@@ -40,6 +40,9 @@ conky -C > ~/.config/conky/conky.conf
 * {2} [Conky Site](https://conky.cc/)
 * {3} [Conky Theme](https://www.gnome-look.org/browse?cat=124&ord=latest)
 
+* Conky Configs
+  * [Conky Configs](https://github.com/brndnmtthws/conky/wiki/Configs)
+
 ## Commands From
 
 * {4} [Conky Git Wiki](https://github.com/brndnmtthws/conky/wiki)
