@@ -6,6 +6,8 @@
 
 ## Websites
 
+* [cfdisk.com](https://cfdisk.com/)
+
 ## Notes
 
 * `cfdisk` is for MBR, `cgdisk` is for GPT partition table.

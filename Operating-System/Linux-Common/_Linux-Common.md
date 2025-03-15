@@ -1,3 +1,7 @@
+# Commands/Usage
+
+* `cat /etc/os-release` : Shows details of operating system.
+
 # Linux-Common.md
 
 ## Websites

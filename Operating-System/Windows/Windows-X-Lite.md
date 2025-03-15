@@ -7,6 +7,8 @@
 
 ## Notes
 
+## Change/Choose Settings
+
 * Go to Control Panel: Windows Start Menu -> Settings -> Search for "Control Panel"
 
 * Turn On User Account Control (UAC): Windows Start Menu -> Control Panel -> Security and Maintenance -> Change User Account Control settings -> Set slider to "Notify me only when apps try to make changes to my computer (default)" -> OK
