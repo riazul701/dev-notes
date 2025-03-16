@@ -1,4 +1,4 @@
-# Repology.md
+# repology.org.md
 
 ## Websites
 

@@ -16,6 +16,22 @@
 
 * `sudo apt-get install efibootmgr` <sup>{13}</sup>
 
+## GRUB Command List
+
+* `grub-bios-setup`
+* `grub-install`
+* `grub-macbless`
+* `grub-mkconfig`
+* `grub-mkdevicemap`
+* `grub-probe`
+* `grub-reboot`
+* `grub-set-default`
+* `update-grub`
+* `update-grub2`
+* `upgrade-from-grub-legacy`
+
+* `/usr/bin/os-prober`
+
 # GRUB.md
 
 ## Notes
@@ -235,7 +251,7 @@ sudo chmod -x 20_memtest86+
 
 # References
 
-* next-sl: {18}
+* next-sl: {19}
 
 ## Websites
 
@@ -243,7 +259,7 @@ sudo chmod -x 20_memtest86+
 
 * {3} [Grub Customizer](https://launchpad.net/grub-customizer) <sup>{4}</sup>
 
-* {17} [GRUB Bootloader Themes](https://christitus.com/bootloader-themes/) <sup>{1}</sup>
+* {17} [GRUB Bootloader Themes](https://christitus.com/bootloader-themes/) <sup>{16}</sup>
 
 ## Tutorials
 
@@ -252,7 +268,7 @@ sudo chmod -x 20_memtest86+
 * Get Instructions From
   * {7} [Restoring GRUB After Installing Windows](https://www.cybrary.it/blog/restoring-grub-installing-windows)
   * {9} [How to install or update Grub after Windows installation](https://askubuntu.com/questions/1483941/how-to-install-or-update-grub-after-windows-installation)
-  * {16} [Grub Rescue | Repairing your Bootloader](https://christitus.com/grub-rescue/) <sup>{1}</sup>
+  * {2} [Grub Rescue | Repairing your Bootloader](https://christitus.com/grub-rescue/) <sup>{1}</sup>
 
 * Concept
   * {8} [GRUB bootloader - Full tutorial](https://www.dedoimedo.com/computers/grub.html)
@@ -268,8 +284,6 @@ sudo chmod -x 20_memtest86+
 
 ## Guides
 
-* {2} [Grub Rescue | Repairing your Bootloader](https://christitus.com/grub-rescue/) <sup>{1}</sup>
-
 ## YouTube Tutorials
 
 * {1} [GRUB Rescue | Repairing GRUB BY Chris Titus Tech](https://www.youtube.com/watch?v=r7meKJsjqfY)
@@ -281,3 +295,7 @@ sudo chmod -x 20_memtest86+
 * {6} [How to fix Boot issues | stuck at grub prompt | grub rescue prompt | Windows Ubuntu Linux BY Brainers Technology](https://www.youtube.com/watch?v=dB580m1USIs)
 
 * {10} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)
+
+* {16} [Bootloader Themes | Install & Configuration BY Chris Titus Tech](https://www.youtube.com/watch?v=BAyzHP1Cqb0)
+
+* {18} [GRUB Rescue and Repair on Linux | Rescue and Repair your Bootloader! (Ubuntu) BY SavvyNik](https://www.youtube.com/watch?v=LFj_yqk6AUI)
