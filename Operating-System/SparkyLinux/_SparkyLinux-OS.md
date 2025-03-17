@@ -7,6 +7,12 @@
 
 ## Notes
 
+## PATH
+
+## Wallpaper
+
+* SparkyLinux built-in wallpaper path: `/opt/artwork`
+
 # Operating System Install
 
 ## Motherboard's UEFI Boot Manager

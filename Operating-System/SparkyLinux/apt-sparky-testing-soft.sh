@@ -136,6 +136,7 @@ apt_office_softwares=(
     ["feh"]="feh"
     ["nitrogen"]="nitrogen"
     ["conky"]="conky-all"
+    ["jgmenu"]="jgmenu"
     ["vim"]="vim"
     ["nvim"]="neovim" # For Lunarvim
     ["python3"]="python3" # For Lunarvim: `python3 --version`

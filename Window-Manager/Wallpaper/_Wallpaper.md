@@ -10,6 +10,10 @@
   * [dharmx/walls GitHub](https://github.com/dharmx/walls)
   * [ItsTerm1n4l/Wallpapers GitHub](https://github.com/ItsTerm1n4l/Wallpapers)
 
+## PATH
+
+* SparkyLinux built-in wallpaper path: `/opt/artwork`
+
 ## Wallpaper Packages
 
 * `sudo apt install gnome-backgrounds mate-backgrounds plasma-workspace-wallpapers` <sup>{1}</sup>

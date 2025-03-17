@@ -22,11 +22,13 @@
 
 ## PATH
 
-* [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
+* Polybar user-level config file path : `~/.config/polybar/config.ini` <sup>{5}</sup>
+
+* [Where to start](https://github.com/polybar/polybar/wiki#where-to-start) <sup>{5}</sup>
   * To get started with your own customization, you need to create a configuration file in `~/.config/polybar/config.ini`.
   * You can copy the default config from `/etc/polybar/config.ini` or start from scratch.
 
-* [How to get sample config #348](https://github.com/polybar/polybar/issues/348)
+* [How to get sample config #348](https://github.com/polybar/polybar/issues/348) <sup>{6}</sup>
   * Polybar has a decent stock config file and it is in directory `/usr/share/doc/polybar/config`
     * `/usr/share/doc/polybar/examples/config.ini`
   * `mkdir -p ~/.config/polybar` : Create config directory
@@ -65,7 +67,7 @@
 ## Guides
 
 * Polybar Configuration
-  * {5} [Where to start](https://github.com/polybar/polybar/wiki)
+  * {5} [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
   * {6} [How to get sample config #348](https://github.com/polybar/polybar/issues/348)
   * {7} [Polybar: "Undefined bar"](https://www.reddit.com/r/i3wm/comments/cs86fy/polybar_undefined_bar/)
   * {8} [Polybar Fonts](https://github.com/polybar/polybar/wiki/Fonts)

@@ -23,7 +23,7 @@ conky -C > ~/.config/conky/conky.conf
 * [https://bbs.archlinux.org/viewtopic.php?id=220278](Flicker issues with conky and i3 window manager)
   * `exec_always --no-startup-id conky ~/.config/conky.conf`
 
-**Conky config file**
+**Conky config file - Flickering / Own Window**
 
 * You can try enabling double-buffer. Conky's double-buffer option uses the X double-buffer extension to provide a flicker-free Conky. This can be done by adding `double_buffer = true` to your conky config file.
   * If problem persists, restart PC.
@@ -31,6 +31,12 @@ conky -C > ~/.config/conky/conky.conf
 * Drawing the the root window instead of drawing to it's own window : `own_window = false` <sup>{4}</sup>
 
 # Conky.md
+
+## PATH
+
+* Conky user-level config file path : `~/.config/conky/conky.conf` <sup>{4}</sup>
+
+# References
 
 * next-sl: {}
 

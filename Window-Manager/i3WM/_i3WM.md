@@ -59,7 +59,7 @@
 
 * `~/.config` directory has higher precedence than `/etc` directory
 
-* `~/.config` directory
+* `~/.config` directory (user-level)
   * i3wm config inside `~/.config` : `~/.config/i3/config`
   * i3status config inside `~/.config` : `~/.config/i3status/config`
 
