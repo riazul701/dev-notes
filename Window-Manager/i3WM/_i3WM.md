@@ -7,7 +7,7 @@
 ## i3 executables from `/usr/bin/`
 
 * `i3` is a metapackage, which includes other packages.
-  * `sudo apt show i3`
+  * `sudo apt show i3` : Includes - `i3-wm`, `i3bar`, `i3status`, `i3lock`, `dunst`, `dmenu`
   * `sudo apt install i3`
 
 * `i3`
@@ -216,6 +216,8 @@
   * {34} [i3/i3 => Tiling window manager for X11](https://github.com/i3/i3)
   * {35} [Airblader/i3 => All i3-gaps features will become available with i3 4.22](https://github.com/Airblader/i3)
   * {36} [i3 Reference Card](https://i3wm.org/docs/refcard.html)
+
+* i3WM Config
   * {37} [stav121/i3wm-themer GitHub](https://github.com/stav121/i3wm-themer)
   * {38} [cizordj/i3-themer](https://github.com/cizordj/i3-themer)
   * {56} [addy-dclxvi/i3-starterpack](https://github.com/addy-dclxvi/i3-starterpack)
