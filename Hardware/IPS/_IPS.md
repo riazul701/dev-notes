@@ -2,6 +2,8 @@
 
 ## Websites
 
+* [aptpowers.com => IPS Price in BD](https://aptpowers.com/)
+
 ## Notes
 
 * Must Buy Pure Sine Wave IPS. Otherwise Fan Regulator, Electronic Devices May Damage. <sup>{1}</sup>

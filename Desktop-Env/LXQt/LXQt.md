@@ -1,3 +1,0 @@
-# LXQt.md
-
-## Websites

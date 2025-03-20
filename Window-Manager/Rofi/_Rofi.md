@@ -9,6 +9,16 @@ rofi -dump-config > ~/.config/rofi/config.rasi
 ```
 * This creates a file called `config.rasi` in the `~/.config/rofi/` folder. You can modify this file to set configuration settings and modify themes. `config.rasi` is the file rofi looks to by default.
 
+## Icons <sup>{5}</sup>
+
+* `sudo apt install papirus-icon-theme` : Install Papirus icon theme <sup>{12}</sup>
+
+* It is possible to use icons to display with their corresponding entries. Assuming you have `papirus-icon-theme` installed, with `-show-icons` and defining the icon theme with `-icon-theme`, you can have rofi display icons and do the following:
+
+```shell
+$ rofi -combi-modi window,drun,ssh -theme solarized -font "hack 10" -show combi -icon-theme "Papirus" -show-icons
+```
+
 ## Modes
 
 * `rofi -show window` : Show a list of all the windows and allow switching between them. <sup>{1}</sup>
@@ -62,7 +72,7 @@ rofi -dump-config > ~/.config/rofi/config.rasi
 
 # References
 
-* next-sl: {12}
+* next-sl: {13}
 
 ## Websites
 
@@ -70,12 +80,15 @@ rofi -dump-config > ~/.config/rofi/config.rasi
 * {2} [Rofi GitHub](https://github.com/davatorium/rofi)
 * {3} [adi1090x/rofi => Rofi based custom Applets, Launchers & Powermenus](https://github.com/adi1090x/rofi)
 * {4} [newmanls/rofi-themes-collection](https://github.com/newmanls/rofi-themes-collection)
-* {6} [svenstaro/rofi-calc](https://github.com/svenstaro/rofi-calc)
-* {7} [Mange/rofi-emoji](https://github.com/Mange/rofi-emoji)
-* {8} [Marco98/rofi-mpc](https://github.com/Marco98/rofi-mpc)
-* {9} [lu0/rofi-blurry-powermenu](https://github.com/lu0/rofi-blurry-powermenu)
-* {10} [jluttine/rofi-power-menu](https://github.com/jluttine/rofi-power-menu)
-* {11} [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
+* {12} [papirus-icon-theme GitHub](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+
+* Rofi Addons
+  * {6} [svenstaro/rofi-calc](https://github.com/svenstaro/rofi-calc)
+  * {7} [Mange/rofi-emoji](https://github.com/Mange/rofi-emoji)
+  * {8} [Marco98/rofi-mpc](https://github.com/Marco98/rofi-mpc)
+  * {9} [lu0/rofi-blurry-powermenu](https://github.com/lu0/rofi-blurry-powermenu)
+  * {10} [jluttine/rofi-power-menu](https://github.com/jluttine/rofi-power-menu)
+  * {11} [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
 
 * Collection
   * [davidborzek/spofi](https://github.com/davidborzek/spofi)

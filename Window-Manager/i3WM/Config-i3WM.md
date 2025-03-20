@@ -1,6 +1,6 @@
 # Configuration
 
-## `i3status` Power Management
+## `i3 mode` (`i3status` & `i3bar`, `polybar`) Power Management
 
 **Systemctl power management<sup>{59}</sup>**
 
@@ -17,12 +17,13 @@
 
 * Menu is shown in `i3status` (`i3bar`), in Polybar this menu is not shown, but keyboard shortcuts work.
 
-* For the most part I use systemctl's commands.
+* For the most part I use systemctl's commands. Optional keybinding from `bindsym 1` to `bindsym $mod+1` (`Alt+1`)
 ```shell
 # mode for leave menu
 set $leave_menu Leave Menu: (1)Lock, (2)Logout, (3)Suspend, (4)Hibernate, (5)Reboot, (6)Shutdown
 mode "$leave_menu" {
-    bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
+    #bindsym 1 exec --no-startup-id $myscripts/lock-session.sh, mode "default"
+    bindsym 1 exec --no-startup-id i3lock -c 111111, mode "default"
     bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
     bindsym 3 exec --no-startup-id systemctl suspend, mode "default"
     bindsym 4 exec --no-startup-id systemctl hibernate, mode "default"
@@ -36,7 +37,7 @@ mode "$leave_menu" {
 bindsym $mod+Shift+e mode "$leave_menu"
 ```
 
-* Here is my config. I don't use `i3exit`
+* (Just Reference, Don't Use This, Use Above Code) Here is my config. I don't use `i3exit`
 ```shell
 set $sysmenu (l)ock, (L)ogout, (P)oweroff, (R)eboot
 mode "$sysmenu" {
@@ -53,9 +54,41 @@ bindsym $mod+Shift+x mode "$sysmenu"
 ```
 * You need to install `i3lock` for lockscreen to work
 
+**Polybar config to show `i3 mode` <sup>{19}</sup>**
+
+* If you're using `xworkspaces` module in Polybar, you'll have to change that to `i3` module in order to display the mode. Here's the snippet from my configuration : `~/.config/polybar/config.ini`
+```shell
+[module/i3]
+type = internal/i3
+#pin-workspaces = true
+#strip-wsnumbers = true
+#index-sort = true
+#enable-click = true
+#enable-scroll = false
+#wrapping-scroll = false
+#reverse-scroll = false
+#fuzzy-match = false
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.alert}
+
+#label-focused = %name%
+#label-focused-background = ${colors.background}
+#label-focused-underline = ${colors.primary}
+#label-focused-padding = 2
+
+#label-unfocused = %index%: %name%
+#label-unfocused-padding = 2
+
+#label-urgent = %index%: %name%
+#label-urgent-background = ${colors.alert}
+#label-urgent-padding = 2
+```
+
 ## Polybar Power Management
 
-* Polybar power management using "Inter-Process-Messaging" and Polybar "custom/menu" actions <sup>{16} {17} {18}</sup>
+**Polybar power management using "Inter-Process-Messaging" and Polybar "custom/menu" actions <sup>{16} {17} {18}</sup>**
 
 * Polybar config
 ```shell
@@ -76,32 +109,32 @@ expand-right = true
 ;
 ; Commands will be executed using "/bin/sh -c $COMMAND"
 
-label-open = Apps
-label-close = x
+label-open = PW
+label-close = X
 
 ; Optional item separator
 ; Default: none
 label-separator = |
 
-menu-0-0 = Browsers
-menu-0-0-exec = #menu-apps.open.1
-menu-0-1 = Multimedia
-menu-0-1-exec = #menu-apps.open.2
-
-menu-1-0 = Firefox
-menu-1-0-exec = firefox-sparky
-menu-1-1 = Chromium
-menu-1-1-exec = chromium
-
-menu-2-0 = Gimp
-menu-2-0-exec = gimp
-menu-2-1 = Scrot
-menu-2-1-exec = scrot
+menu-0-0 = (1)Lock
+menu-0-0-exec = i3lock -c 111111
+menu-0-1 = (2)Logout
+menu-0-1-exec = i3-msg exit
+menu-0-2 = (3)Suspend
+menu-0-2-exec = systemctl suspend
+menu-0-3 = (4)Hibernate
+menu-0-3-exec = systemctl hibernate
+menu-0-4 = (5)Reboot
+menu-0-4-exec = systemctl reboot
+menu-0-5 = (6)Shutdown
+menu-0-5-exec = systemctl poweroff
 ```
 
 * `i3WM` config
 ```shell
-polybar-msg action menu-apps exec 1-0
+polybar-msg action menu-apps open 0 # Open "menu-0"
+polybar-msg action menu-apps close 0 # Close "menu-0"
+polybar-msg action menu-apps exec 0-1 # Execute "menu-0-1-exec" command
 ```
 
 ## Volume Management
@@ -156,15 +189,16 @@ bindsym Mod1+Tab exec "rofi -modi window,run -show window"
 * i3WM Config
   * {58} [Justus0405/i3wm-dotfiles](https://github.com/Justus0405/i3wm-dotfiles)
 
-* `i3status` Power Management
+* `i3 mode` (`i3status` & `i3bar`, `polybar`) Power Management
   * {59} [Systemctl power management](https://github.com/Justus0405/i3wm-dotfiles/blob/main/src/config/rofi/powermenu)
   * {62} [Unable to use i3 mode to shutdown, logout, etc.](https://www.reddit.com/r/i3wm/comments/12beaao/unable_to_use_i3_mode_to_shutdown_logout_etc/)
+  * {19} [Is there a way to use polybar and the mode binding together?](https://www.reddit.com/r/i3wm/comments/wrlf6g/is_there_a_way_to_use_polybar_and_the_mode/)
 
 * Polybar Power Management
   * {16} [Inter-process-messaging](https://polybar.readthedocs.io/en/stable/user/ipc.html)
   * {17} [Actions - Custom Menu](https://polybar.readthedocs.io/en/stable/user/actions.html#custom-menu)
   * {18} [Module: menu](https://github.com/polybar/polybar/wiki/Module:-menu)
-
+  
 * Multimedia/Volume Keys
   * {60} [Multimedia Keys in i3](https://bbs.archlinux.org/viewtopic.php?id=221642)
 

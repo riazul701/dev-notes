@@ -1,12 +1,72 @@
+# Fonts
+
+* [Polybar Fonts](https://github.com/polybar/polybar/wiki/Fonts) <sup>{1}</sup>
+
+## Notes
+
+* Copy font "glyphs"/"icon", do not copy font code (Font-Awesome)
+
+## Icon Fonts
+
+* Icons can be provided in the form of text characters. Popular icon fonts include:
+  * [FontAwesome](https://fontawesome.com/)
+  * [Material icons](https://material.io/icons/)
+  * [IcoMoon](https://icomoon.io/app/#/select/library)
+  * [Nerd Patched Fonts](https://github.com/ryanoasis/nerd-fonts)
+
+* Some issues around rendering issues with Nerd Fonts are described [here](https://polybar.readthedocs.io/user/fonts/nerd-fonts.html).
+  * The monospaced variants of the different Nerd Fonts (all characters have the same width) don't have this issue. However, then you often have the problem that the icons are too small and that their size cannot be set independently of the text.
+
+## Font Commands
+
+* `sudo apt install fonts-font-awesome` : Install Font Awesome for Polybar <sup>{2}</sup>
+
+* `fc-list` : List all fonts and their names installed on your system.
+  * For example one line in the output could look like this: `/usr/share/fonts/noto/NotoSansMono-Regular.ttf: Noto Sans Mono:style=Regular`
+  * If we wanted to add that font to polybar we would need to set: `font-0 = Noto Sans Mono:style=Regular`
+  * You need to make sure that you copy the exact name (everything after the file path) otherwise polybar may not be able to match it.
+
+* `fc-list | grep -i awesome` : Note: For some fonts you may need to provide multiple font names, for example the output of this command gives three FontAwesome5 fonts:
+```shell
+/usr/share/fonts/TTF/fa-brands-400.ttf: Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
+/usr/share/fonts/TTF/fa-solid-900.ttf: Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
+/usr/share/fonts/TTF/fa-regular-400.ttf: Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
+```
+  * You will likely need all of them.
+
+* `fc-match myfont:weight=bold:size=14` : Test your pattern using `fc-match`, for example
+  * If `fc-match` doesn't properly match the name, then polybar won't either, so it's often more convenient to check your font names with `fc-match` first.
+
+## Config Font
+
+* NOTE: The `-font` property is a 1-based index of available fonts (which means that `*-font = 1` will use font-0).
+```shell
+[bar/example]
+; font-N = <fontconfig pattern>;<vertical offset>
+font-0 = "Tamsyn:pixelsize=12;0"
+font-1 = "Roboto:size=11:weight=bold;2"
+font-2 = "Noto Sans:size=11;1"
+
+[module/example]
+label-active = %token%
+
+; This tells the bar to use Roboto when rendering the label
+label-active-font = 2
+
+; Using raw formatting tags, you can mix fonts.
+; %{T3} tells the bar to use Noto Sans and %{T-} resets it to default.
+label-inactive = %{T3}Inactive%{T-} %time%
+```
+
 # Configuration
 
 ## Important
 
-* The config file requires a `bar section` for each bar you want to define. <sup>{11}</sup>
+* The config file requires a `bar section` for each bar you want to define. <sup>{3}</sup>
 
-* (Must) Each module also has its own `module section` and can be added to `modules-left`, `modules-center` or `modules-right` in the bar section to have it display on that bar. <sup>{11}</sup>
+* (Must) Each module also has its own `module section` and can be added to `modules-left`, `modules-center` or `modules-right` in the bar section to have it display on that bar. <sup>{3}</sup>
 
-* Only a single instance of this (`tray`) module can be active at the same time (across all polybar instances in the same graphical session). <sup>{12}</sup>
+* Only a single instance of this (`tray`) module can be active at the same time (across all polybar instances in the same graphical session). <sup>{4}</sup>
 
 ## Integrate with `i3-wm`
 
@@ -49,7 +109,7 @@ bar {
 
 ## System Tray
 
-**Codes from <sup>{12}</sup>**
+**Codes from <sup>{4}</sup>**
 
 * Attention
 
@@ -83,7 +143,14 @@ tray-spacing = 16pt
 
 # References
 
-## Commands From
+* next-sl: {5}
 
-* {11} [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
-* {12} [Tray Module](https://polybar.readthedocs.io/en/stable/user/modules/tray.html)
+## Font From
+
+* {1} [Polybar Fonts](https://github.com/polybar/polybar/wiki/Fonts)
+* {2} [Font Awesome](http://fontawesome.io) || [fontawesome.com](https://fontawesome.com/)
+
+## Configuration From
+
+* {3} [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
+* {4} [Tray Module](https://polybar.readthedocs.io/en/stable/user/modules/tray.html)

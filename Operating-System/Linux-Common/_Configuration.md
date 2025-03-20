@@ -84,31 +84,6 @@
   * [Does Linux have a recycle bin?](https://ngangasn.com/linux-recycle-bin/)
   * [Antix - Trashcan Possible?](https://www.antixforum.com/forums/topic/trashcan-possible/)
 
-# Fonts
-
-## Fonts Installation
-
-* [How to Install New Fonts in Ubuntu and Other Linux Distributions](https://itsfoss.com/install-fonts-ubuntu/)
-* [SutonnyMJ Regular](https://bengalifonts.net/fonts/sutonnymj-regular)
-
-* Step 1: Create .fonts directory in your home directory
-* Step 2: Put fonts files in the .fonts directory
-
-**Alternate Way**
-
-* [Copying Configurations => Fonts](https://github.com/addy-dclxvi/i3-starterpack?tab=readme-ov-file#copying-configurations)
-
-* Create `.local/share/fonts` directory in your home directory
-* Put fonts files in the `.local/share/fonts` directory
-* Refresh your fontconfig cache `fc-cache -fv` after You copy the font.
-
-## Install bangla font
-
-* Open Synaptic Package Manager -> Search for "font"
-* Install "fonts-beng", "fonts-beng-extra", "fonts-lohit-beng-bengali", "fonts-lohit-beng-assamese", "fonts-indic"
-* Then bangla font will work in Firefox, Chrome browser.
-* Install Avro Keyboard "ibus-avro" [For problem use command "ibus" and "ibus-daemon"] [Run ibus daemon in background: `ibus-daemon -d`]
-
 # References
 
 * Next Serial: {8}

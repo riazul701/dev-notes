@@ -2,7 +2,8 @@
 
 ## Debian Testing Weekly-Live-Build ISO
 
-* Get Debian-Testing ISO (Weekly-Live-Build) From [Debian Testing Branch ISO](https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid/)
+* Using ISO "debian-live-testing-amd64-standard.iso"
+  * Get Debian-Testing ISO (Weekly-Live-Build) From [Debian Testing Branch ISO](https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid/)
 
 * `sudo apt install ssh` : Install openssh client and server
   * `systemctl status ssh` : Check ssh server is running or not
@@ -16,6 +17,7 @@
 * `sudo apt install awesome` : Install AwesomeWM window manager
 
 * `sudo apt install lxqt` : Install LXQt desktop environment
+  * `apt --fix-broken install` : Fix APT broken dependency
 
 * `sudo apt install firefox-esr` : Install Firefox extened-support-release version
 

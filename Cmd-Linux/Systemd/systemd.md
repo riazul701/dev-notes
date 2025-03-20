@@ -1,2 +1,0 @@
-# SystemD.md
-

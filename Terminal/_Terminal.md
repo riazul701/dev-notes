@@ -2,6 +2,7 @@
 
 ## Websites
 
+* [Nerd Fonts](https://www.nerdfonts.com/) || [Nerd Fonts GitHub](https://github.com/ryanoasis/nerd-fonts)
 * [asciinema/asciinema GitHub => Terminal session recorder](https://github.com/asciinema/asciinema)
 * [wtfutil/wtf GitHub => The personal information dashboard for your terminal](https://github.com/wtfutil/wtf)
 * [www.arewesixelyet.com](https://www.arewesixelyet.com/)
