@@ -42,7 +42,8 @@
 
 ## Notes
 
-* Don't mix `~/.fonts` and `~/.local/share/fonts` directory. Use one only.
+* Don't mix `~/.fonts` and `~/.local/share/fonts` directory. Use only one.
+* Sometimes Snap and Flatpak apps can not recognize installed fonts. Example: (Notepad Next Editor Flatpak)
 
 ## Fontconfig configuration <sup>{3}</sup>
 
@@ -186,26 +187,88 @@ $ fc-cache -vf
 
 ## [Installing a Nerd Font in Ubuntu](https://dev.to/thiagomg/installing-a-nerd-font-in-ubuntu-558l)
 
-## Fonts Installation
+**Downloading**
 
-* [How to Install New Fonts in Ubuntu and Other Linux Distributions](https://itsfoss.com/install-fonts-ubuntu/)
-* [SutonnyMJ Regular](https://bengalifonts.net/fonts/sutonnymj-regular)
+* Download the font you want from Nerd Fonts website
 
-* Step 1: Create `~/.fonts` directory in your home directory
-* Step 2: Put fonts files in the `~/.fonts` directory
+* [nerdfonts.com/font-downloads](https://www.nerdfonts.com/font-downloads)
 
-* `apt show font-manager` : Install font using graphical way
+**Unzip the file downloaded**
 
-## Install bangla font
+* Replace UbuntuMono.zip with the font you just downloaded
+```shell
+filename=UbuntuMono.zip
+extension="${filename##*.}"
+filename="${filename%.*}"
+mkdir ${filename} && pushd ${filename}
+unzip ../${filename}.${extension}
+popd
+```
+
+**Moving to the correct location and update font cache**
+
+* Now, let's create a `.fonts` directory and move the new font there
+```shell
+mkdir -p ~/.fonts
+mv ${filename} ~/.fonts/
+```
+
+* Last, but not least, we need to update Ubuntu's font cache
+```shell
+fc-cache -fv
+```
+
+* You should now be able to see have the font available.
+
+## [How to Install New Fonts in Ubuntu and Other Linux Distributions](https://itsfoss.com/install-fonts-ubuntu/)
+
+**Installing a new font in Ubuntu Linux**
+
+* The fonts usually come in True Type (TTF) or Open Type (OTF) file formats. You can use either of them in Linux.
+
+**Step 1: Get fonts**
+
+* First, download fonts of your choice. You can get some free fonts on [Google Fonts website](https://fonts.google.com/?ref=itsfoss.com).
+
+* You can also find [fonts at Lost Type](http://www.losttype.com/browse/?ref=itsfoss.com) or [Fonts Squirrel](http://www.fontsquirrel.com/?ref=itsfoss.com).
+
+**Step 2: Install the new fonts**
+
+* The downloaded fonts are usually in a zipped file. Extract the zip file in Linux by right-clicking and selecting extract.
+
+* Now go to this extracted folder and look for .ttf (TrueType Fonts) or .otf (openType Fonts) files.
+
+* Whichever it may be, just double-click on the font file. It will open it in Font Viewer application. In here, you can see the option to install the font in the top-right corner
+
+* Tip: [Ubuntu provides a package to install Microsoft TrueType fonts](https://itsfoss.com/install-microsoft-fonts-ubuntu/) all at once.
+
+**Install several fonts at once in Linux**
+
+* Step 1: Create `.fonts` directory in your home directory
+
+* Step 2: Put fonts files in the `.fonts` directory
+
+**Alternative: Use Font Manager for managing fonts in Ubuntu and other Linux**
+
+* `sudo apt install font-manager` : On Ubuntu and Debian-based distributions, you can use the apt command to install it
+
+* Open the Font Manager. You can see installed fonts and option to install new fonts, remove existing fonts etc here. It’s quite a versatile tool for managing fonts in your Linux system.
+
+* `sudo apt-get remove font-manager` : To remove Font Manager, use the command below
+
+## Install Bangla Font By Synaptic
 
 * Open Synaptic Package Manager -> Search for "font"
+
 * Install "fonts-beng", "fonts-beng-extra", "fonts-lohit-beng-bengali", "fonts-lohit-beng-assamese", "fonts-indic"
+
 * Then bangla font will work in Firefox, Chrome browser.
+
 * Install Avro Keyboard "ibus-avro" [For problem use command "ibus" and "ibus-daemon"] [Run ibus daemon in background: `ibus-daemon -d`]
 
 # References
 
-* next-sl: {17}
+* next-sl: {18}
 
 ## Commands
 
@@ -227,6 +290,7 @@ $ fc-cache -vf
 
 ## Font Collection
 
+* {17} [SutonnyMJ Regular](https://bengalifonts.net/fonts/sutonnymj-regular)
 * {6} [Localization/Bengali#Fonts => Archlinux Wiki](https://wiki.archlinux.org/title/Localization/Bengali#Fonts) <sup>{2}</sup>
 * {7} [FontAwesome](https://fontawesome.com/) <sup>From Polybar</sup>
 * {8} [Material icons](https://material.io/icons/) <sup>From Polybar</sup>

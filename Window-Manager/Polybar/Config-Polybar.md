@@ -2,11 +2,11 @@
 
 * [Polybar Fonts](https://github.com/polybar/polybar/wiki/Fonts) <sup>{1}</sup>
 
-## Notes
+## Notes <sup>{1}</sup>
 
 * Copy font "glyphs"/"icon", do not copy font code (Font-Awesome)
 
-## Icon Fonts
+## Icon Fonts <sup>{1}</sup>
 
 * Icons can be provided in the form of text characters. Popular icon fonts include:
   * [FontAwesome](https://fontawesome.com/)
@@ -17,7 +17,7 @@
 * Some issues around rendering issues with Nerd Fonts are described [here](https://polybar.readthedocs.io/user/fonts/nerd-fonts.html).
   * The monospaced variants of the different Nerd Fonts (all characters have the same width) don't have this issue. However, then you often have the problem that the icons are too small and that their size cannot be set independently of the text.
 
-## Font Commands
+## Font Commands <sup>{1}</sup>
 
 * `sudo apt install fonts-font-awesome` : Install Font Awesome for Polybar <sup>{2}</sup>
 
@@ -37,7 +37,7 @@
 * `fc-match myfont:weight=bold:size=14` : Test your pattern using `fc-match`, for example
   * If `fc-match` doesn't properly match the name, then polybar won't either, so it's often more convenient to check your font names with `fc-match` first.
 
-## Config Font
+## Config Font <sup>{1}</sup>
 
 * NOTE: The `-font` property is a 1-based index of available fonts (which means that `*-font = 1` will use font-0).
 ```shell
@@ -66,9 +66,11 @@ label-inactive = %{T3}Inactive%{T-} %time%
 
 * (Must) Each module also has its own `module section` and can be added to `modules-left`, `modules-center` or `modules-right` in the bar section to have it display on that bar. <sup>{3}</sup>
 
+* In "network" module, `label-connected` shows properties of connected network (wired ethernet / wireless wifi : anyone) <sup>{5}</sup>
+
 * Only a single instance of this (`tray`) module can be active at the same time (across all polybar instances in the same graphical session). <sup>{4}</sup>
 
-## Integrate with `i3-wm`
+## Integrate with `i3-wm` <sup>{5}</sup>
 
 * [Launching the bar in your wm's bootstrap routine](https://github.com/polybar/polybar/wiki#launching-the-bar-in-your-wms-bootstrap-routine)
 
@@ -143,7 +145,7 @@ tray-spacing = 16pt
 
 # References
 
-* next-sl: {5}
+* next-sl: {6}
 
 ## Font From
 
@@ -152,5 +154,6 @@ tray-spacing = 16pt
 
 ## Configuration From
 
+* {5} [Polybar GitHub Wiki](https://github.com/polybar/polybar/wiki)
 * {3} [Where to start](https://github.com/polybar/polybar/wiki#where-to-start)
 * {4} [Tray Module](https://polybar.readthedocs.io/en/stable/user/modules/tray.html)

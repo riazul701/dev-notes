@@ -1010,22 +1010,17 @@ pager = "delta"
 
 # Templates
 
-## Websites (Templates)
-
-* [Templating](https://www.chezmoi.io/user-guide/templating)
-* [Templates Reference](https://www.chezmoi.io/reference/templates/)
-
 ## Notes (Templates)
 
-* Removing whitespace: `{{-` for the left brackets and `-}}` for the right brackets
+* Removing whitespace: `{{-` for the left brackets and `-}}` for the right brackets <sup>{12}</sup>
 
 ## Variables
 
-* `chezmoi execute-template '{{ VARIABLE-NAME }}'`
+* `chezmoi execute-template '{{ VARIABLE-NAME }}'` <sup>{12}</sup>
 
 ## Syntax
 
-* `{{ $email | quote }}` : Quote (Double/Single) value
+* `{{ $email | quote }}` : Quote (Double/Single) value <sup>{12}</sup>
 
 # Error and Solution
 
@@ -1045,17 +1040,17 @@ pager = "delta"
 
 # References
 
-* next-sl: {14}
+* next-sl: {21}
 
 ## Websites
 
 * {1} [chezmoi.io => Chezmoi Site](https://www.chezmoi.io/)
-* [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
+* {14} [twpayne/chezmoi GitHub](https://github.com/twpayne/chezmoi)
 
 * Encryption
-  * [FiloSottile/age GitHub](https://github.com/FiloSottile/age)
-  * [gpg => GNU Privacy Guard](https://www.gnupg.org/)
-  * [str4d/rage GitHub](https://github.com/str4d/rage)
+  * {18} [FiloSottile/age GitHub](https://github.com/FiloSottile/age)
+  * {19} [gpg => GNU Privacy Guard](https://www.gnupg.org/)
+  * {20} [str4d/rage GitHub](https://github.com/str4d/rage)
 
 * Editor
   * Vi / Vim / notepad.exe (defined by `$VISUAL` or `$EDITOR` environment variables)
@@ -1092,21 +1087,19 @@ pager = "delta"
 * {6} [Command overview](https://www.chezmoi.io/user-guide/command-overview/)
 * {7} [Chezmoi Commands Reference](https://www.chezmoi.io/reference/commands/)
 * {12} [Templating](https://www.chezmoi.io/user-guide/templating/)
+* {16} [Templates Reference](https://www.chezmoi.io/reference/templates/)
 * {13} [Template Init functions](https://www.chezmoi.io/reference/templates/init-functions/)
 
 ## Tutorials
 
 * General
-  * [Chezmoi Commands Reference](https://www.chezmoi.io/reference/commands/)
+  * {17} [Chezmoi Commands Reference](https://www.chezmoi.io/reference/commands/)
 
 * Concept
   * {5} [Chezmoi Concepts](https://www.chezmoi.io/reference/concepts/)
 
 * Installation
   * {4} [Chezmoi Install](https://www.chezmoi.io/install/)
-
-* Template
-  * [Templating](https://www.chezmoi.io/user-guide/templating)
 
 ## Configuration
 

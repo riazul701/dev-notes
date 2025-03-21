@@ -2,6 +2,8 @@
 
 ## Websites
 
+* [adi1090x/dynamic-wallpaper => set wallpapers according to current time, using cron](https://github.com/adi1090x/dynamic-wallpaper)
+
 * Wallpaper Collection
   * [Derek Taylor/Wallpapers GitLab](https://gitlab.com/dwt1/wallpapers) <sup>{1}</sup>
   * [LinuxKits/Distro-wallpapers GitHub](https://github.com/LinuxKits/Distro-wallpapers)
