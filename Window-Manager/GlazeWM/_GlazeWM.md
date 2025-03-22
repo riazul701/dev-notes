@@ -1,3 +1,9 @@
+# Commands/Usage
+
+* `which glazewm`
+
+* `glazewm --version`
+
 # GlazeWM
 
 ## Websites

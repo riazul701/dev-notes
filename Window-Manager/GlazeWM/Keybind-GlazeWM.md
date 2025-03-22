@@ -2,7 +2,7 @@
 
 * On the first launch of GlazeWM, a default configuration can optionally be generated. <sup>{1}</sup>
 
-# [Default keybindin](https://github.com/glzr-io/glazewm#default-keybindings)
+# [Default keybindings](https://github.com/glzr-io/glazewm#default-keybindings)
 
 * [GlazeWM Commands Cheatsheet](https://github.com/glzr-io/glazewm/blob/main/resources/assets/cheatsheet.png)
 
@@ -90,12 +90,17 @@
 
 * `shell-exe <COMMAND...>` : Execute a shell command
 
+# Other Keybindings
+
+* `alt+shift+p` : Disables window management and all other keybindings until `alt+shift+p` is pressed again. <sup>{2}</sup>
+
 # Keybind-GlazeWM.md
 
 # References
 
-* next-sl: {2}
+* next-sl: {3}
 
 ## Commands From
 
 * {1} [glzr-io/glazewm GitHub](https://github.com/glzr-io/glazewm)
+* {2} [glzr-io/glazewm/resources/assets/sample-config.yaml => Default GlazeWM Config](https://github.com/glzr-io/glazewm/blob/main/resources/assets/sample-config.yaml)
