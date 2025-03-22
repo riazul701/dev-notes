@@ -1,3 +1,11 @@
+# Usage
+
+## Important
+
+* VirtualBox (1 Core CPU, 2GB RAM, HDD), Windows-X-Lite Micro-10 Operating System
+  * GlazeWM (`glazewm-watcher` process) uses 100% CPU (1 Core CPU)
+  * Komrebi does not have this high CPU usage (1 Core CPU)
+
 # Window-Manager.md
 
 # References
