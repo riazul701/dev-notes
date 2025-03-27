@@ -53,6 +53,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Download Manager (Selected)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
+  * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
   * [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
@@ -339,12 +340,14 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [qutebrowser => keyboard-driven, vim-like browser](https://github.com/qutebrowser/qutebrowser)
 
 * Browser Extension (List)
+
   * Google Chrome
     * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [darkreader/darkreader GitHub](https://github.com/darkreader/darkreader) || [Dark Reader Extension](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
     * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [joue-quroi/adjust-screen-brightness GitHub](https://github.com/joue-quroi/adjust-screen-brightness/) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
     * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
     * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
     * [Free Download Manager Integration](https://chromewebstore.google.com/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp)
+    * [AB Download Manager Browser Integration BY abdownloadmanager.com](https://chromewebstore.google.com/detail/ab-download-manager-brows/bbobopahenonfdgjgaleledndnnfhooj)
     * [Touch VPN => Secure and unlimited VPN proxy BY touchvpn.net](https://chromewebstore.google.com/detail/touch-vpn-secure-and-unli/bihmplhobchoageeokmgbdihknkjbknd)
     * [alyssaxuu/screenity => screen recorder](https://github.com/alyssaxuu/screenity)
 
@@ -354,6 +357,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * Download Manager (List)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
+  * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
   * [uTorrent](https://www.utorrent.com/)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)

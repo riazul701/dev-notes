@@ -309,13 +309,14 @@ $FZF_DEFAULT_OPTS: height required: HEIGHT
 
 # References
 
-* next-sl: {32}
+* next-sl: {33}
 
 ## Websites
 
 * Fzf command-line fuzzy finder
   * {7} [junegunn.github.io/fzf](https://junegunn.github.io/fzf/)
   * {8} [junegunn/fzf GitHub](https://github.com/junegunn/fzf/)
+  * {32} [kelleyma49/PSFzf => A PowerShell wrapper around the fuzzy finder fzf](https://github.com/kelleyma49/PSFzf)
 
 * Associated Packages
   * {25} [git-scm.com => Git website](https://git-scm.com/)

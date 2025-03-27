@@ -21,14 +21,14 @@
   * [vaskovsky.net/notify-send](https://vaskovsky.net/notify-send/) || [vaskovsky/notify-send GitHub](https://github.com/vaskovsky/notify-send)
 
 * Window Manager List
- 
   * [Comparison of X window managers](https://en.wikipedia.org/wiki/Comparison_of_X_window_managers)
-
   * [i3 WM Site](https://i3wm.org/) || [i3 WM GitHub](https://github.com/i3/i3)
-
   * [IceWM Site](https://ice-wm.org/) || [IceWM GitHub](https://github.com/ice-wm/icewm)
-
   * [awesome WM Site](https://awesomewm.org/) || [awesome WM GitHub](https://github.com/awesomeWM/awesome)
+
+* Status Bar List
+  * [amnweb/yasb GitHub](https://github.com/amnweb/yasb)
+    * [amnweb/yasb-themes GitHub](https://github.com/amnweb/yasb-themes)
 
 ## Guides
 

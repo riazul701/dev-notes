@@ -1,6 +1,7 @@
 # Windows OS
 
-## Website
+## Websites
+
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7) <sup>Main Code</sup>
 * [repology.org => The packaging hub](https://repology.org/)
 * [windowsxlite.com](https://windowsxlite.com/)
@@ -16,6 +17,7 @@
 * [LeDragoX/Win-Debloat-Tools GitHub](https://github.com/LeDragoX/Win-Debloat-Tools)
 
 ## Notes
+
 * Check Windows-10 version: Press "WindowsKey+R" to open "Run" window -> Enter "winver" -> Click "OK"
 * Open PowerShell and enter command "bash" to start bash-shell.
 * Open Git-Bash and enter command "pwsh.exe" to start power-shell.
@@ -27,6 +29,7 @@
   * Before reinstall Windows, remove Windows's boot manager from motherboard. Also format/delete Windows boot partitions.
 
 ## On/ShutDown/Sleep/Hibernate
+
 * [Shut down, sleep, or hibernate your PC](https://support.microsoft.com/en-gb/windows/shut-down-sleep-or-hibernate-your-pc-2941d165-7d0a-a5e8-c5ad-8c972e8e6eff)
   * Turn your PC off completely
     * To shut down, select Start -> then select Power  -> Shut down.
@@ -78,12 +81,14 @@
 # Boot Repair
 
 ## Software (Boot Repair)
+
 * [Grub2Win](https://sourceforge.net/projects/grub2win/)
 * [EasyBCD](https://neosmart.net/EasyBCD/)
 
 # Resource Management
 
 ## Notes
+
 * Primarily windows services consume lot of resources (cpu, ram, disk). Disable unnecessary windows services. To open services windows right-click on taskbar -> Task Manager -> Services -> Open Services.
 * Disable some services
   * "SysMain": In previous windows os versions it's name was "SuperFetch". It caches software for faster access and makes high disk usage.
@@ -91,8 +96,13 @@
 * Disable Disk Defragmentation: File Explorer -> Right-Click on "C" drive -> Properties -> Tools -> Optimise and defragment drive -> Optimise -> Turn Off "Scheduled optimisation"
 
 ## Guides
+
 * [[SOLVED] 100% DISK USAGE Windows 10 FIX 2021](https://www.youtube.com/watch?v=UoeG8uxPxZY&list=PLXLq3JI1WPVJsOqqRBdDefvYTMgcJDOag&index=2)
 * [100% Disk Usage in Windows 10 Tips](https://www.youtube.com/watch?v=e3kYlLbk20I&list=PLXLq3JI1WPVJsOqqRBdDefvYTMgcJDOag&index=4)
+
+# Startup Applications
+
+## [Configure Startup Applications in Windows](https://support.microsoft.com/en-us/windows/configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473)
 
 # References
 
