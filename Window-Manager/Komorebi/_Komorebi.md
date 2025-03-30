@@ -1,6 +1,6 @@
-# Komorebi.md
+# Configuration
 
-## PATH
+## Downloading example configurations
 
 * Run the following command to download example configuration files for `komorebi` and `whkd`. Pay attention to the output of the command to see where the example files have been downloaded. For most new users this will be in the `$Env:USERPROFILE` directory.
 ```
@@ -11,6 +11,20 @@ komorebic quickstart
 ```
 komorebic start --whkd --bar
 ```
+
+# Komorebi.md
+
+## PATH
+
+# Installation
+
+## `scoop` Package Manager
+
+* `scoop bucket add extras` : First add the extras bucket <sup>{1}</sup>
+
+* `scoop install komorebi whkd` : Then install the `komorebi` and `whkd` packages using `scoop install` <sup>{1}</sup>
+
+* `komorebic --version` : Check komorebi version <sup>{1}</sup>
 
 # References
 
@@ -25,3 +39,7 @@ komorebic start --whkd --bar
 
 * Tutorials
   * [QuinnCiccoretti/komorebi.ahk => i3-like configuration for the komorebi window manager](https://gist.github.com/QuinnCiccoretti/d22230303ad08f6247dfce48d46d9914)
+
+## YouTube Tutorials
+
+* 

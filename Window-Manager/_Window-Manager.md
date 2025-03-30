@@ -30,6 +30,9 @@
   * [amnweb/yasb GitHub](https://github.com/amnweb/yasb)
     * [amnweb/yasb-themes GitHub](https://github.com/amnweb/yasb-themes)
 
+* Dock Application
+  * [Winstep Nexus](https://www.winstep.net/nexus.asp)
+
 ## Guides
 
 * {1} [Windows 10/11: tiling window manager, polybar, and more!](https://www.reddit.com/r/WindowsHacking/comments/uumlu1/windows_1011_tiling_window_manager_polybar_and/)

@@ -65,6 +65,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Online Clipboard (Selected)
   * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
   * [file.io => Super simple file sharing!](https://www.file.io/)
+  * [online-clipboard.online/send-file-online](https://online-clipboard.online/send-file-online/)
 	
 * WiFi (Selected)
   * [SniffNet](https://github.com/GyulyVGC/sniffnet)
@@ -372,6 +373,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Online Clipboard (List)
   * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
   * [file.io => Super simple file sharing!](https://www.file.io/)
+  * [online-clipboard.online/send-file-online](https://online-clipboard.online/send-file-online/)
   
 * VPN (List)
   * 
