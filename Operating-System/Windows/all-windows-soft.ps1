@@ -202,7 +202,7 @@ if ( !(Get-Command -Name "scoop" -CommandType Application -ErrorAction SilentlyC
     scoop install git --global # For adding scoop bucket
 }
 
-# Install Chocolatey, if not already installed
+# Install Chocolatey, if not already installed (Restart terminal optionally)
 if (! (Get-Command -Name "choco" -CommandType Application -ErrorAction SilentlyContinue) ) {
     Write-Verbose -Message "Installing Chocolatey..."
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -252,7 +252,7 @@ function Install-WinGetApp {
         [string]$PackageID
     )
     # Write-Verbose -Message "Winget => Preparing to install $PackageID"
-    Write-Verbose -Message "Winget => Installing $Package"
+    Write-Verbose -Message "Winget => Installing $PackageID"
     winget install --silent --id "$PackageID" --accept-source-agreements --accept-package-agreements --exact --source=winget
 }
 

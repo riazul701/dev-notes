@@ -35,6 +35,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Google Chrome](https://www.google.com/chrome/)
   * [Opera Browser](https://www.opera.com/)
   * [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
+  * [Links](http://links.twibright.com/)
   * [Lynx](https://invisible-island.net/lynx/lynx.html)
 
 * Browser Extension (Selected)
@@ -337,6 +338,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Google Chrome](https://www.google.com/chrome/)
   * [Opera Browser](https://www.opera.com/)
   * [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
+  * [Links](http://links.twibright.com/)
   * [Lynx](https://invisible-island.net/lynx/lynx.html)
   * [qutebrowser => keyboard-driven, vim-like browser](https://github.com/qutebrowser/qutebrowser)
 
