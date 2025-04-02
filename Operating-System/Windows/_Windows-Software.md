@@ -52,6 +52,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Download Manager (Selected)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
   * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
+  * [Transmission => Bittorrent Client](https://transmissionbt.com/) || [transmission GitHub](https://github.com/transmission/transmission)
   * [uTorrent](https://www.utorrent.com/)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
@@ -110,7 +111,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
   * [Restic](https://restic.net/) || [Restic GitHub](https://github.com/restic/restic)
   * [Restic Browser](https://github.com/emuell/restic-browser)
-  * [Backrest => web UI for restic backup](https://github.com/garethgeorge/backrest)
+  * [Backrest => Web UI for restic backup](https://github.com/garethgeorge/backrest)
   * [Free File Sync](https://freefilesync.org/)
   * [Unison file synchronizer](https://github.com/bcpierce00/unison)
   * [Syncthing](https://syncthing.net/) || [Syncthing GitHub](https://github.com/syncthing/syncthing)
@@ -169,6 +170,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [WinSCP FTP Client](https://winscp.net/eng/index.php)
   * [PuTTY](https://www.putty.org/)
   * [MobaXterm](https://mobaxterm.mobatek.net/)
+  * [mhogomchungu/sirikali](https://github.com/mhogomchungu/sirikali)
 	* [Windows File System Proxy](https://winfsp.dev/)
     * [winfsp/sshfs-win GitHub](https://github.com/winfsp/sshfs-win)
     * [winfsp/winfsp GitHub](https://github.com/winfsp/winfsp)
@@ -187,10 +189,11 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
   * [Vagrant](https://www.vagrantup.com/)
   * [VirtualBox](https://www.virtualbox.org/)
-  * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
+  * [OSBoxes.org => VirtualBox VDI Image](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
   * [Podman Site](https://podman.io/) || [Podman GitHub](https://github.com/containers/podman)
   * [Podman Desktop GUI Site](https://podman-desktop.io/) || [Podman Desktop GUI GitHub](https://github.com/podman-desktop/podman-desktop)
+  * [BlueStacks => Android Apps on PC](https://www.bluestacks.com/)
 
 * Server Management (Selected)
   * [HestiaCP](https://hestiacp.com/) || [HestiaCP GitHub](https://github.com/hestiacp/hestiacp/)
@@ -275,6 +278,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [ShareDrop => File Share on Same Network/WiFi](https://www.sharedrop.io/) || [ShareDrop GitHub](https://github.com/szimek/sharedrop)
   * [ShareIT](https://www.ushareit.com/product/shareit/)
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
+  * [localsend/localsend => Share files to nearby devices, cross-platform](https://github.com/localsend/localsend)
 
 * Android Phone (Selected)
   * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
@@ -300,6 +304,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Flow Launcher](https://www.flowlauncher.com/) || [Flow Launcher GitHub](https://github.com/Flow-Launcher/Flow.Launcher)
 
 * Window Management (Selected)
+  * [LGUG2Z/komorebi => Tiling window manager for Windows](https://github.com/LGUG2Z/komorebi)
+  * [amnweb/yasb => Windows status bar](https://github.com/amnweb/yasb)
 
 ## Utility (Selected)
 
@@ -361,6 +367,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Free Download Manager](https://www.freedownloadmanager.org/)
   * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
   * [Internet Download Manager](https://www.internetdownloadmanager.com/)
+  * [Transmission => Bittorrent Client](https://transmissionbt.com/) || [transmission GitHub](https://github.com/transmission/transmission)
   * [uTorrent](https://www.utorrent.com/)
   * [4K Video Downloader](https://www.4kdownload.com/31)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
@@ -427,6 +434,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
   * [Restic](https://restic.net/) || [Restic GitHub](https://github.com/restic/restic)
   * [Restic Browser](https://github.com/emuell/restic-browser)
+  * [Backrest => Web UI for restic backup](https://github.com/garethgeorge/backrest)
   * [Free File Sync](https://freefilesync.org/)
   * [Unison file synchronizer](https://github.com/bcpierce00/unison)
   * [Google Drive](https://www.google.com/drive/)
@@ -434,7 +442,6 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Rsync](https://rsync.samba.org/) || [Rsync GitHub](https://github.com/WayneD/rsync/)
   * [SparkleShare](https://www.sparkleshare.org/) || [SparkleShare GitHub](https://github.com/hbons/SparkleShare)
   * [Seafile](https://www.seafile.com/en/home/) || [Seafile GitHub](https://github.com/haiwen/seafile)
-  * [Krusader](https://krusader.org/)
 
 * Editor/IDE (List)
   * [Visual Studio Code](https://code.visualstudio.com/)
@@ -496,6 +503,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [PuTTY](https://www.putty.org/)
   * [MobaXterm](https://mobaxterm.mobatek.net/)
   * [Termius](https://termius.com/)
+  * [mhogomchungu/sirikali](https://github.com/mhogomchungu/sirikali)
   * [LFTP](http://lftp.yar.ru/) || [LFTP GitHub](https://github.com/lavv17/lftp)
 	* [Windows File System Proxy](https://winfsp.dev/)
     * [winfsp/sshfs-win GitHub](https://github.com/winfsp/sshfs-win)
@@ -519,10 +527,11 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [wagoodman/dive => Exploring each layer in docker image](https://github.com/wagoodman/dive)
   * [Vagrant](https://www.vagrantup.com/)
   * [VirtualBox](https://www.virtualbox.org/)
-  * [VirtualBox VDI Image => OSBoxes.org](https://www.osboxes.org/)
+  * [OSBoxes.org => VirtualBox VDI Image](https://www.osboxes.org/)
   * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
   * [Podman Site](https://podman.io/) || [Podman GitHub](https://github.com/containers/podman)
   * [Podman Desktop GUI Site](https://podman-desktop.io/) || [Podman Desktop GUI GitHub](https://github.com/podman-desktop/podman-desktop)
+  * [BlueStacks => Android Apps on PC](https://www.bluestacks.com/)
 
 * Server Management (List)
   * [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) || [HestiaCP](https://hestiacp.com/)
@@ -673,6 +682,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [BeeBEEP Office Messenger](https://www.beebeep.net/)
   * [localsend/localsend => Share files to nearby devices, cross-platform](https://github.com/localsend/localsend)
   * [spieglt/FlyingCarpet => File transfer between Android, iOS, Linux, macOS, and Windows over ad hoc WiFi](https://github.com/spieglt/FlyingCarpet)
+  * [marchellodev/sharik => Sharing files via Wi-Fi or Mobile Hotspot](https://github.com/marchellodev/sharik)
 
 * Android Phone (List)
   * [Genymobile/scrcpy => Phone Screen on PC](https://github.com/Genymobile/scrcpy)
@@ -723,11 +733,13 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [cerebroapp/cerebro](https://github.com/cerebroapp/cerebro) || [Cerebro Site](https://www.cerebroapp.com/)
 
 * Window Management (List)
-  * [TidyTabs](https://www.nurgo-software.com/products/tidytabs)
-  * [Groupy](https://www.stardock.com/products/groupy/)
+  * [LGUG2Z/komorebi => Tiling window manager for Windows](https://github.com/LGUG2Z/komorebi)
+  * [amnweb/yasb => Windows status bar](https://github.com/amnweb/yasb)
   * [glzr-io/glazewm => Tiling window manager for Windows inspired by i3wm](https://github.com/glzr-io/glazewm)
   * [glzr-io/zebar => Cross-platform taskbars, desktop widgets, and popups](https://github.com/glzr-io/zebar)
-
+  * [TidyTabs](https://www.nurgo-software.com/products/tidytabs)
+  * [Groupy](https://www.stardock.com/products/groupy/)
+  
 ## Utility (List)
 
 * Sound Booster (List)

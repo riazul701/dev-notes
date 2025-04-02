@@ -5,6 +5,7 @@
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7) <sup>Main Code</sup>
 * [repology.org](https://repology.org/)
 * [distrowatch.com](https://distrowatch.com/)
+
 * [Scoop: A command-line installer for Windows](https://scoop.sh/)
 * [gsudo => sudo for Windows](https://gerardog.github.io/gsudo/) || [gsudo GitHub](https://github.com/gerardog/gsudo)
 * Scoop Buckets
@@ -19,6 +20,14 @@
 ## $PATH
   * Global/System-wise installed apps path: `C:\ProgramData\scoop` [Before enable "show hidden items"]
   * User-wise installed apps path: `C:\Users\{{user-name}}\scoop`
+
+## [How do I install a specific version of an app?](https://github.com/ScoopInstaller/Scoop/wiki/FAQ#how-do-i-install-a-specific-version-of-an-app)
+
+* If you need to install a specific version of an app, use `scoop install [app]@[version]`. E.g. for Git:
+
+```
+scoop install git@2.23.0.windows.1
+```
 
 ## `gsudo` on Windows-X-Lite Micro-10
 

@@ -6,6 +6,8 @@
 * [repology.org](https://repology.org/)
 * [distrowatch.com](https://distrowatch.com/)
 
+* [Chocolatey Site](https://chocolatey.org/)
+
 ## Notes
 
 * Non-Administrator mode is not recommened for Chocolatey.
