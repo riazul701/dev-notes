@@ -59,6 +59,9 @@ and make my system functional again. Thanks!
 
 ## Tutorials
 
+* General
+  * [How to Use APT Package Manager](https://phoenixnap.com/kb/apt-package-manager)
+
 * Debian APT Sources
   * {2} [DebianTesting](https://wiki.debian.org/DebianTesting)
   * {3} [SourcesList => Debian](https://wiki.debian.org/SourcesList)

@@ -14,6 +14,10 @@
 
 # References
 
+## Tutorials
+
+* [How to Install winget (Windows Package Manager)](https://phoenixnap.com/kb/install-winget)
+
 * Guides
   * [Install winget by the command line (powershell)](https://stackoverflow.com/questions/74166150/install-winget-by-the-command-line-powershell)
   * [Appx - Import-Module: Operation is not supported on this platform. (0x80131539) #13138](https://github.com/PowerShell/PowerShell/issues/13138)

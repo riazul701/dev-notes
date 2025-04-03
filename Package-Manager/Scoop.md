@@ -82,5 +82,9 @@ iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 
 * next-sl: 
 
+## Tutorials
+
+* [How to Install and Use the Scoop Windows Package Manager](https://adamtheautomator.com/scoop-windows/)
+
 * Guides
   * [Uninstalling Scoop](https://github.com/ScoopInstaller/Scoop/wiki/Uninstalling-Scoop)

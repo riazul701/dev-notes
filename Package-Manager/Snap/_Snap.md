@@ -83,6 +83,7 @@
 
 ## Tutorials
 
+* [A Comprehensive Guide to Using Snap Packages on Ubuntu](https://phoenixnap.com/kb/snap-packages)
 * {5} [Linux: Add a Directory to PATH](https://phoenixnap.com/kb/linux-add-to-path)
 
 ## Guides

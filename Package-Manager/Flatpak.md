@@ -73,6 +73,7 @@
 ## Tutorials
 
 * {5} [Ubuntu Quick Setup => Flatpak](https://flatpak.org/setup/Ubuntu)
+* [Using Flatpak on Linux [Complete Guide]](https://itsfoss.com/flatpak-guide/)
 
 ## Guides
 

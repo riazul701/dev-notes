@@ -16,8 +16,10 @@
 
 # References
 
-* Tutorials
-  * [Installing Chocolatey](https://chocolatey.org/install)
+## Tutorials
+  
+* [Installing Chocolatey](https://chocolatey.org/install)
+* [Install Chocolatey on Windows 10](https://phoenixnap.com/kb/chocolatey-windows)
 
 * Guides
   * [How to list installed Chocolatey packages?](https://superuser.com/questions/1270151/how-to-list-installed-chocolatey-packages)

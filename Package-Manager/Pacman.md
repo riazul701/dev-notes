@@ -213,7 +213,7 @@ extra/mariadb           10.1.9-4     10.1.10-1      0.26 MiB      13.80 MiB
 
 # References
 
-* next-sl: {16}
+* next-sl: {31}
 
 ## Websites
 
@@ -222,6 +222,9 @@ extra/mariadb           10.1.9-4     10.1.10-1      0.26 MiB      13.80 MiB
 * {9} [distrowatch.com](https://distrowatch.com/)
 
 * {6} [Archlinux Package Search](https://archlinux.org/packages/)
+* [AUR packages](https://aur.archlinux.org/)
+* [Jguer/yay GitHub](https://github.com/Jguer/yay)
+* [Morganamilo/paru GitHub](https://github.com/morganamilo/paru)
 
 ## Commands
 
@@ -229,22 +232,35 @@ extra/mariadb           10.1.9-4     10.1.10-1      0.26 MiB      13.80 MiB
 * {13} [pactree - package dependency tree viewer](https://man.archlinux.org/man/pactree.8) <sup>{1}</sup>
 * {14} [paccache - flexible pacman cache cleaning utility](https://man.archlinux.org/man/paccache.8) <sup>{1}</sup>
 * {15} [pacman.conf - pacman package manager configuration file](https://man.archlinux.org/man/pacman.conf.5) <sup>{1}</sup>
-* [alpm-hooks - alpm hook file format](https://man.archlinux.org/man/alpm-hooks.5) <sup>{1}</sup>
-* [arch-chroot - enhanced chroot command](https://man.archlinux.org/man/arch-chroot.8) <sup>{1}</sup>
+* {20} [alpm-hooks - alpm hook file format](https://man.archlinux.org/man/alpm-hooks.5) <sup>{1}</sup>
+* {21} [arch-chroot - enhanced chroot command](https://man.archlinux.org/man/arch-chroot.8) <sup>{1}</sup>
 
 ## Tutorials
 
-* {1} [Pacman => Archlinux Wiki](https://wiki.archlinux.org/title/Pacman)
-* {2} [Arch User Repository => Archlinux Wiki](https://wiki.archlinux.org/title/Arch_User_Repository)
-* {3} [Official repositories => Archlinux Wiki](https://wiki.archlinux.org/title/Official_repositories)
-* {4} [System maintenance => Archlinux Wiki](https://wiki.archlinux.org/title/System_maintenance)
-* {10} [Repository => Archlinux Wiki](https://wiki.archlinux.org/title/Repository)
-* {11} [Meta package and package group => Archlinux Wiki](https://wiki.archlinux.org/title/Meta_package_and_package_group)
-* [Mirrors => Archlinux Wiki](https://wiki.archlinux.org/title/Mirrors)
+* {1} [Pacman => ArchLinux Wiki](https://wiki.archlinux.org/title/Pacman)
+  * [pacman/Tips and tricks](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks)
+* {2} [Arch User Repository => ArchLinux Wiki](https://wiki.archlinux.org/title/Arch_User_Repository)
+* {3} [Official repositories => ArchLinux Wiki](https://wiki.archlinux.org/title/Official_repositories)
+* {4} [System maintenance => ArchLinux Wiki](https://wiki.archlinux.org/title/System_maintenance)
+* {10} [Repository => ArchLinux Wiki](https://wiki.archlinux.org/title/Repository)
+* {11} [Meta package and package group => ArchLinux Wiki](https://wiki.archlinux.org/title/Meta_package_and_package_group)
+* {16} [Mirrors => ArchLinux Wiki](https://wiki.archlinux.org/title/Mirrors)
+* {17} [Graphical Pacman => ArchLinux Wiki](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Graphical)
+* {18} [AUR helpers => ArchLinux Wiki](https://wiki.archlinux.org/title/AUR_helpers)
+* {19} [Install and Use Yay on Arch Linux](https://itsfoss.com/install-yay-arch-linux/)
+* {30} [Best GUI Package Managers for Arch Linux](https://www.debugpoint.com/arch-linux-gui-package-managers/) <sup>{18}</sup>
 
 ## Package List
 
 * {12} [Package Groups Overview => Archlinux Wiki](https://archlinux.org/groups/) <sup>{1}</sup>
-* [pacman-contrib => Contributed scripts and tools for pacman systems](https://archlinux.org/packages/?name=pacman-contrib) <sup>{1}</sup>
-* [pkgcacheclean => Application to clean the pacman package cache](https://aur.archlinux.org/packages/pkgcacheclean) <sup>{1}</sup>
-* [pacleaner => Script to clean up pacman cache in a more flexible way than with paccache or pacman itself. Fully configurable and flexible](https://aur.archlinux.org/packages/pacleaner) <sup>{1}</sup>
+* {22} [pacman-contrib => Contributed scripts and tools for pacman systems](https://archlinux.org/packages/?name=pacman-contrib) <sup>{1}</sup>
+* {23} [pkgcacheclean => Application to clean the pacman package cache](https://aur.archlinux.org/packages/pkgcacheclean) <sup>{1}</sup>
+* {24} [pacleaner => Script to clean up pacman cache in a more flexible way than with paccache or pacman itself. Fully configurable and flexible](https://aur.archlinux.org/packages/pacleaner) <sup>{1}</sup>
+
+## YouTube Tutorials
+
+* {25} [Linux Crash Course - The Pacman Command BY Learn Linux TV](https://www.youtube.com/watch?v=HD7jJEh4ZaM)
+* {26} [Linux Crash Course - The Arch User Repository (AUR) BY Learn Linux TV](https://www.youtube.com/watch?v=cBeSJvYkV7I)
+* {27} [Installing And Using The Yay AUR Helper BY DistroTube](https://www.youtube.com/watch?v=BbnSoY_yDr8)
+* {28} [Attention Arch Users! Replace 'Yay' With 'Paru'. BY DistroTube](https://www.youtube.com/watch?v=w3j3tivcm50)
+* {29} [How To Manually Install And Manage AUR Packages BY DistroTube](https://www.youtube.com/watch?v=tCDy54Zc2Cw)
