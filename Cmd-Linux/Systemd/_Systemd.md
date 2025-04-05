@@ -131,3 +131,7 @@
 * [Desktop entries](https://wiki.archlinux.org/title/Desktop_entries)
 * [Kernel parameters](https://wiki.archlinux.org/title/Kernel_parameters)
 * [fstab](https://wiki.archlinux.org/title/Fstab)
+
+## YouTube Tutorials
+
+* [Systemd Explained: The Ultimate Deep Dive for Linux Users BY Learn Linux TV](https://www.youtube.com/watch?v=Kzpm-rGAXos)
