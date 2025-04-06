@@ -49,7 +49,7 @@
 
 # Installation
 
-## APT Package Manager
+## Ubuntu
 
 **[Ubuntu Quick Setup => Flatpak](https://flatpak.org/setup/Ubuntu) <sup>{5}</sup>**
 
@@ -65,6 +65,12 @@
 
 * Restart
   * To complete setup, restart your system. Now all you have to do is [install apps](https://flathub.org/)!
+
+## Fedora
+
+* `sudo dnf install flatpak`
+
+**[Fedora Quick Setup => Flatpak](https://flatpak.org/setup/Fedora)**
 
 # References
 

@@ -237,18 +237,28 @@ extra/mariadb           10.1.9-4     10.1.10-1      0.26 MiB      13.80 MiB
 
 ## Tutorials
 
-* {1} [Pacman => ArchLinux Wiki](https://wiki.archlinux.org/title/Pacman)
-  * [pacman/Tips and tricks](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks)
-* {2} [Arch User Repository => ArchLinux Wiki](https://wiki.archlinux.org/title/Arch_User_Repository)
-* {3} [Official repositories => ArchLinux Wiki](https://wiki.archlinux.org/title/Official_repositories)
-* {4} [System maintenance => ArchLinux Wiki](https://wiki.archlinux.org/title/System_maintenance)
-* {10} [Repository => ArchLinux Wiki](https://wiki.archlinux.org/title/Repository)
-* {11} [Meta package and package group => ArchLinux Wiki](https://wiki.archlinux.org/title/Meta_package_and_package_group)
-* {16} [Mirrors => ArchLinux Wiki](https://wiki.archlinux.org/title/Mirrors)
-* {17} [Graphical Pacman => ArchLinux Wiki](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Graphical)
-* {18} [AUR helpers => ArchLinux Wiki](https://wiki.archlinux.org/title/AUR_helpers)
-* {19} [Install and Use Yay on Arch Linux](https://itsfoss.com/install-yay-arch-linux/)
-* {30} [Best GUI Package Managers for Arch Linux](https://www.debugpoint.com/arch-linux-gui-package-managers/) <sup>{18}</sup>
+* Comparison
+  * [pacman/Rosetta => Compare package manager : pacman, dnf, apt, zypper, emerge](https://wiki.archlinux.org/title/Pacman/Rosetta)
+
+* General
+  * {4} [System maintenance => ArchLinux Wiki](https://wiki.archlinux.org/title/System_maintenance)
+  * {11} [Meta package and package group => ArchLinux Wiki](https://wiki.archlinux.org/title/Meta_package_and_package_group)
+  
+* Pacman
+  * {1} [Pacman => ArchLinux Wiki](https://wiki.archlinux.org/title/Pacman)
+    * [pacman/Tips and tricks](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks)
+  * {17} [Graphical Pacman => ArchLinux Wiki](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Graphical)
+  * {30} [Best GUI Package Managers for Arch Linux](https://www.debugpoint.com/arch-linux-gui-package-managers/) <sup>{18}</sup>
+
+* AUR
+  * {2} [Arch User Repository => ArchLinux Wiki](https://wiki.archlinux.org/title/Arch_User_Repository)
+  * {18} [AUR helpers => ArchLinux Wiki](https://wiki.archlinux.org/title/AUR_helpers)
+  * {19} [Install and Use Yay on Arch Linux](https://itsfoss.com/install-yay-arch-linux/)
+
+* Repository
+  * {3} [Official repositories => ArchLinux Wiki](https://wiki.archlinux.org/title/Official_repositories)
+  * {10} [Repository => ArchLinux Wiki](https://wiki.archlinux.org/title/Repository)
+  * {16} [Mirrors => ArchLinux Wiki](https://wiki.archlinux.org/title/Mirrors)
 
 ## Package List
 

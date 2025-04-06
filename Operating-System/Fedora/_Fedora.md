@@ -3,6 +3,7 @@
 ## Notes
 
 * Fedora uses `Anaconda Installer` for operating system installation.
+* AUR (ArchLinux) requires users to build packages locally, while COPR (Fedora) provides pre-built packages.
 
 # System Upgrade
 
@@ -48,6 +49,7 @@
 * {1} [fedoraproject.org](https://fedoraproject.org/)
 * {2} [Fedora All Releases](https://dl.fedoraproject.org/pub/fedora/linux/releases/)
 * {3} [Fedora Old Releases](https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/)
+* [Fedora Copr](https://copr.fedorainfracloud.org/coprs/)
 
 ## Tutorials
 
@@ -68,3 +70,6 @@
 ## YouTube Tutorials
 
 * {4} [The Anaconda Installer BY EF - Linux Made Simple](https://www.youtube.com/watch?v=euzxE-7TL6A)
+
+* Fedora Copr
+  * [Fedora's AUR? - What is Fedora COPR? BY The Linux Cast](https://www.youtube.com/watch?v=UwKI6BJuIRA)

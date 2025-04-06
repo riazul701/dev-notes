@@ -12,6 +12,8 @@
 
 ## YouTube Tutorials
 
+* [Starting With Linux: What I Wish I Learned First BY Learn Linux TV](https://www.youtube.com/watch?v=HIJ6LixbcAY)
+
 * [Fedora vs Debian and Arch Linux BY Chris Titus Tech](https://www.youtube.com/watch?v=UFv_uz5Rj18)
 * [You Only NEED 3 Linux Distributions BY Titus Tech Talk](https://www.youtube.com/watch?v=t9e3NvTnCOA)
 * [Upgrading From Fedora 40 to Fedora 41 BY CodingBite](https://www.youtube.com/watch?v=bV6zI7U_MiQ)

@@ -37,16 +37,16 @@ Note that it is very difficult to remove Rosetta 2 once it is installed.
 
 * Installed softwares are located at: `/home/linuxbrew/.linuxbrew/bin` [Softwares are installed with `brew install {{package-name}}` command] <sup>{1}</sup>
 
-# Install
+# Installation
 
 ## SparkyLinux (Debian)
 
-### Instruction
+**Instruction**
 
 * `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` : Install Homebrew <sup>{1}</sup>
   * You must install Git before installing Homebrew.
 
-### Success Message
+**Success Message**
 
 ```
 

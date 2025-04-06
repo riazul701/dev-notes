@@ -12,6 +12,8 @@
 * `nix-collect-garbage` : clear old nix-store paths and references<sup>{5}</sup>
 * `nix-env --uninstall {{package_name}}` : Remove a package, using given command syntax. <sup>{6}</sup>
 
+* `systemctl status nix-daemon`
+
 # Nix.md
 
 ## Websites
@@ -66,6 +68,35 @@
 * Single-user installation / local installation
   * `$ sh <(curl -L https://nixos.org/nix/install) --no-daemon`
   * Above command will perform a single-user installation of Nix, meaning that `nix` is owned by the invoking user. You should run this under your usual user account, not as `root`. The script will invoke `sudo` to create `/nix` if it doesn’t already exist.
+
+## Fedora
+
+* `sh <(curl -L https://nixos.org/nix/install) --daemon` : Shows following error on 
+Fedora linux
+
+```
+Nix does not work with selinux enabled yet!
+see https://github.com/NixOS/nix/issues/2374
+
+We'd love to help if you need it.
+
+You can open an issue at
+https://github.com/NixOS/nix/issues/new?labels=installer&template=installer.md
+
+Or get in touch with the community: https://nixos.org/community
+```
+
+**Solution**
+
+* [Nix does not work with selinux enabled yet! #7906](https://github.com/NixOS/nix/issues/7906)
+* [an alternate set of installers using distribution native packaging formats](https://github.com/NixOS/nix/issues/2374#issuecomment-1103734992)
+* [Nix-installers for legacy (imperative) distributions](https://nix-community.github.io/nix-installers/)
+
+* `wget https://nix-community.github.io/nix-installers/nix/x86_64/nix-multi-user-2.24.10.rpm`
+* `sudo dnf localinstall nix-multi-user-2.24.10.rpm`
+* Restart Terminal/Shell
+* `which nix-env`
+* `nix-env --version`
 
 # References
 

@@ -11,13 +11,16 @@
 
 # Contents of Ubuntu Desktop
 
-## Website
+## Websites
+
 * [Easy Ubuntu Learning: সহজ উবুন্টু শিক্ষা](https://adnan.quaium.com/ubuntu)
 * [Ubuntu and Derivatives Download](https://cdimage.ubuntu.com/)
 * [repology.org => The packaging hub](https://repology.org/)
 * [distrowatch.com](https://distrowatch.com/)
 * [OSBoxes => VirtualBox Image Download](https://www.osboxes.org/)
 * [LinuxVMImages => VirtualBox Image Download](https://www.linuxvmimages.com/)
+
+* [Personal Package Archives for Ubuntu](https://launchpad.net/ubuntu/+ppas)
 
 ## Motherboard's UEFI Boot Manager
 
@@ -182,6 +185,10 @@ https://stackoverflow.com/questions/52698909/mysql-docker-container-exited-with-
 * Tutorial Article
   * {101} [Systemd Units Explained with Types and States](https://www.computernetworkingnotes.com/linux-tutorials/systemd-units-explained-with-types-and-states.html)
 
-* YouTube Tutorial
+## YouTube Tutorial
+  
+* General
   * {151} [Systemd Deep-Dive: A Complete, Easy to Understand Guide for Everyone](https://www.youtube.com/watch?v=Kzpm-rGAXos)
   * {152} [Learn CentOS 21 - journalctl](https://www.youtube.com/watch?v=j-nINFGrA_Q)
+
+* PPA (Personal Package Archive)

@@ -59,6 +59,9 @@ and make my system functional again. Thanks!
 
 ## Tutorials
 
+* Comparison
+  * [pacman/Rosetta => Compare package manager : pacman, dnf, apt, zypper, emerge](https://wiki.archlinux.org/title/Pacman/Rosetta)
+
 * General
   * [How to Use APT Package Manager](https://phoenixnap.com/kb/apt-package-manager)
 
