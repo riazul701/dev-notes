@@ -56,12 +56,6 @@
 * Legacy (old) GRUB
   * `/boot/grub/menu.lst` : Legacy GRUB menu is located on the root partition under this. <sup>{8}</sup>
 
-# GRUB Customizer
-
-* [Grub Customizer](https://launchpad.net/grub-customizer) <sup>{3} {4}</sup>
-
-* `apt show grub-customizer` <sup>{3}</sup>
-
 # OS Prober
 
 * `apt show os-prober` <sup>{4}</sup>
@@ -80,7 +74,7 @@
 
 # GRUB Repair
 
-## [Grub Rescue | Repairing your Bootloader](https://christitus.com/grub-rescue/) <sup>{1} {16}</sup>
+## [Grub Rescue | Repairing your Bootloader => Legacy BIOS](https://christitus.com/grub-rescue/) <sup>{1} {16}</sup>
 
 * Lets go over Grub Rescue and repairing your bootloader. This is a very misunderstood topic and by learn basic syntax you will be able to repair your GRUB very easily. Here are 4 methods of doing a GRUB Rescue.
 
@@ -256,14 +250,17 @@ sudo chmod -x 20_memtest86+
 ## Websites
 
 * {12} [supergrubdisk.org](https://www.supergrubdisk.org/) <sup>{1}</sup>
-
 * {3} [Grub Customizer](https://launchpad.net/grub-customizer) <sup>{4}</sup>
-
 * {17} [GRUB Bootloader Themes](https://christitus.com/bootloader-themes/) <sup>{16}</sup>
 
 ## Tutorials
 
 * General
+  * [GrubEFIReinstall](https://wiki.debian.org/GrubEFIReinstall)
+  * [Troubleshoot boot problems by reinstalling GRUB on Linux](https://www.fosslinux.com/115031/troubleshoot-boot-problems-by-reinstalling-grub-on-linux.htm)
+  * [Grub2](https://help.ubuntu.com/community/Grub2)
+  * [Grub2/Installing](https://help.ubuntu.com/community/Grub2/Installing)
+  * [Boot-Repair](https://help.ubuntu.com/community/Boot-Repair)
 
 * Get Instructions From
   * {7} [Restoring GRUB After Installing Windows](https://www.cybrary.it/blog/restoring-grub-installing-windows)

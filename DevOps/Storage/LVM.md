@@ -1,1 +1,1 @@
-# Logical Volume Manager
+# Logical Volume Manager (LVM)
