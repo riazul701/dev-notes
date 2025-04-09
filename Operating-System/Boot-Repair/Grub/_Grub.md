@@ -36,6 +36,12 @@
 
 ## Notes
 
+* The most frequent reason for GRUB not booting into the operating system involves another OS's bootloader overwriting GRUB boot configuration. Another cause may be an accidental removal of GRUB configuration files. <sup>{1} {26}</sup>
+
+* Make grub config file <sup>{1} {2}</sup>
+  * Fedora and other OS use command: `grub2-mkconfig -o /boot/grub2/grub.cfg` <sup>{1} {2}</sup>
+  * Debian/Ubuntu use command: `update-grub` <sup>{1} {2}</sup>
+
 * On Windows-OS: Right click on "Start Menu" -> "Disk Management" -> Right click on "Disk 0 (Whole HDD)" -> "Properties" -> "Volumes" -> Check "Partition style"
   * Master Boot Record (MBR) == Legacy BIOS
   * GUID Partition Table (GPT) == UEFI
@@ -48,11 +54,6 @@
 * Is Windows fast startup or hibernation off? Otherwise grub's os-prober cannot see the Windows install. If new Windows is bitlocker off? <sup>{9}</sup>
 
 * Remember that you should always install Windows first, on the first hard disk, on the first partition (the rule of three first). <sup>{8}</sup>
-  * Nevertheless, even if you have Windows installed on a separate disk, you can solve the problem by swapping. You need to perform a virtual swap between hard disks. Like this:
-  ```
-  map (hd0) (hd1)
-  map (hd1) (hd0)
-  ```
 
 ## PATH
 
@@ -81,7 +82,7 @@
 
 # References
 
-* next-sl: {25}
+* next-sl: {27}
 
 ## Websites
 
@@ -120,9 +121,8 @@
   * [Dual boot with Windows](https://wiki.archlinux.org/title/Dual_boot_with_Windows)
 
 * GRUB Rescue
-  * [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
-  * [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
-  * [BootUsbWithGrubRescue](https://wiki.debian.org/BootUsbWithGrubRescue)
+  * {25} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
+  * {26} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
 ## Guides
 

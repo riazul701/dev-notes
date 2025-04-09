@@ -1,6 +1,6 @@
-# Fedora-GRUB.md
+# Fedora-Grub.md
 
-# Fedora & Windows Dual Boot
+# Fedora & Windows Dual Boot : Grub Reinstall
 
 ## Windows Install Error : Multiple `EFI` Partition (Dual Boot)
 
@@ -61,8 +61,8 @@ Do you want to proceed with installation?
 * Follow the BTRFS steps (used by default in Fedora 33 or newer).
   * Mount the `/root` partition.
     * For LUKS. : `# mount /dev/mapper/myvolume /mnt -o subvol=root`
-    * For non-LUKS. : `# mount /dev/sda3 /mnt -o subvol=root` [For LVM]
-      * `# mount /dev/sda3 /mnt` [For Non LVM]
+    * For non-LUKS. : `# mount /dev/sda3 /mnt -o subvol=root` [For Legacy-BIOS, Otherwise contents will be mounted inside `root` subdirectory and `/dev`, `/proc`, `/sys`, `/run` mount will not work]
+      * `# mount /dev/sda3 /mnt` [For UEFI]
 
 * Follow the LVM steps (used by default before Fedora 33).
   * Scan the LVM volumes for the volume group corresponding to the `/root` partition. : `# vgscan`

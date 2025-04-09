@@ -48,7 +48,7 @@ Notice: Some sources can be modernized. Run 'apt modernize-sources' to do so.
 
 * Live Build ISO has this "Install packages from cdrom://" issue. Net ISO does not have this issue.
 
-**Solution**
+**Solution <sup>{3}</sup>**
 
 * `sudo apt edit-sources` : Edit the main Apt sources configuration file is at `/etc/apt/sources.list`. <sup>{3}</sup>
 
