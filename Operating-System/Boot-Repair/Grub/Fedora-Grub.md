@@ -25,6 +25,10 @@ Do you want to proceed with installation?
   * Please enable a repository containing the [grub-efi] packages in the software sources of Fedora Linux 41 (Forty One) (/dev/sda6). Then try again
     * `sudo dnf install grub2-efi`
 
+## [Creating an EFI System Partition](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#create-an-esp)
+
+* Use GParted to create `fat32` partition with size "600 MiB"
+
 ## [Restoring the bootloader using the Live disk](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_restoring_the_bootloader_using_the_live_disk)
 
 * `sudo su` : Switch to `root` user
@@ -94,6 +98,8 @@ Do you want to proceed with installation?
 * Sync and exit the chroot. : `# sync && exit`
 
 * Reboot the system.
+
+## [Solving problems with UEFI bootloader](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#solving-problems-with-uefi-bootloader)
 
 ## `chroot` bash path issue (sometimes)
 
