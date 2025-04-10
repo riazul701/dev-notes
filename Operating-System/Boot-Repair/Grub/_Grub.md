@@ -36,6 +36,10 @@
 
 ## Notes
 
+* LINUX BOOT PARTITIONS
+  * On Legacy-BIOS: Separate `/boot` partition is must for GRUB repair/reinstall
+  * On UEFI: Separate `/boot` and `/boot/efi` partitions are must for GRUB repair/reinstall
+
 * The most frequent reason for GRUB not booting into the operating system involves another OS's bootloader overwriting GRUB boot configuration. Another cause may be an accidental removal of GRUB configuration files. <sup>{1} {26}</sup>
 
 * Make grub config file <sup>{1} {2}</sup>
@@ -46,7 +50,7 @@
   * Master Boot Record (MBR) == Legacy BIOS
   * GUID Partition Table (GPT) == UEFI
 
-* You can verify that the system has booted using UEFI by checking for the existence of the directory `/sys/firmware/efi` or by running `efibootmgr`. <sup>{19}</sup>
+* On Linux-OS: You can verify that the system has booted using UEFI by checking for the existence of the directory `/sys/firmware/efi` or by running `efibootmgr`. <sup>{19}</sup>
 
 * On MBR, GRUB should be installed on device, not partition <sup>{1}</sup>
   * On GPT, GRUB should be installed on ESP partition.
