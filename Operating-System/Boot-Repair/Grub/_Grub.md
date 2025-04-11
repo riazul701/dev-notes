@@ -41,6 +41,8 @@
   * On UEFI: Separate `/boot` and `/boot/efi` partitions are must for GRUB repair/reinstall
 
 * The most frequent reason for GRUB not booting into the operating system involves another OS's bootloader overwriting GRUB boot configuration. Another cause may be an accidental removal of GRUB configuration files. <sup>{1} {26}</sup>
+  * Removal of GRUB config file `/boot/grub/grub.cfg`, shows `grub>` prompt <sup>{1}</sup>
+  * Removal of GRUB config folder `/boot/grub`, shows `grub rescue>` prompt <sup>{1}</sup>
 
 * Make grub config file <sup>{1} {2}</sup>
   * Fedora and other OS use command: `grub2-mkconfig -o /boot/grub2/grub.cfg` <sup>{1} {2}</sup>

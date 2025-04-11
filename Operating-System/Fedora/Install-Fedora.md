@@ -72,7 +72,13 @@ Checkbox "Delete all file systems which are only used by Unknown"
 
 **Create Manual Partition**
 
-* `swap` (fedora-swap) : 8 GiB [Optional, Better for Low-RAM PC]
+* `/boot/efi` (sda1) : 600 MiB [Must] [Only on UEFI, Not Legacy BIOS] [Must for GRUB repair/reinstall]
+  * Mount Point: /boot/efi; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 600 MiB; Device Type: Standard Partition; Unchecked "Encrypt"; File System: EFI System Partition; Unchecked "Reformat"; Label: <empty>; Name: sda1; [Flags: boot, esp]
+
+* `/boot` (sda2) : 1024 MiB [Must] [Must for GRUB repair/reinstall]
+  * Mount Point: /boot; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 1024 MiB; Device Type: Standard Partition; Unchecked "Encrypt"; File System: ext4; Checked "Reformat"; Label: <empty>; Name: sda2; [Flags: bls_boot]
+
+* `swap` (fedora-swap) : 8 GiB [Must, Better for Low-RAM PC]
   * Mount Point: ; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 8 GiB; Device Type: LVM (Default) (Option: Standard Partition); Unchecked "Encrypt"; Volume Group: fedora; File System: swap; Checked "Reformat"; Label: <empty>; Name: swap; [Flags: swap]
 
 * `/` (fedora-root) : Leave empty to get all remaining space (OR enter larger value than available space) [Must]
@@ -108,16 +114,25 @@ Checkbox "Delete all file systems which are only used by Unknown"
   * `/` (root) : All remaining space (GiB) [Must]
     * Mount Point: /; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: All Remaining Space (GiB); Device Type: Btrfs; Unchecked "Encrypt"; Volume: fedora; File System: btrfs; Checked "Reformat"; Label: <empty>; Name: root; [Flags: <empty>]
 
-  * `/boot` (sda2) : 1024 MiB [Must] [Must for GRUB repair/reinstall]
+  * `/boot` (sda2) : 1024 MiB [Must, Primary Partition] [Must for GRUB repair/reinstall]
     * Mount Point: /boot; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 1024 MiB; Device Type: Standard Partition; Unchecked "Encrypt"; File System: ext4; Checked "Reformat"; Label: <empty>; Name: sda2; [Flags: <empty>]
 
   * `BIOS Boot` (sda1) : 1024 KiB [Optional, Not Required]
     * Mount Point: <empty>; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 1024 KiB; Device Type: Standard Partition; Unchecked "Encrypt"; File System: BIOS Boot; Checked "Reformat"; Label: <empty>; Name: sda1
 
-**Create Manual Partition**
+**Create Manual Partition** 
 
-* `swap` (fedora-swap) : 8 GiB [Optional, Better for Low-RAM PC]
-  * Mount Point: ; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 8 GiB; Device Type: LVM (Default) (Option: Standard Partition); Unchecked "Encrypt"; Volume Group: fedora; File System: swap; Checked "Reformat"; Label: <empty>; Name: swap; [Flags: swap]
+* Create `/boot` as Primary partition. Also create `swap` and `/` as Logical(Extended) partitions. Fedora's Anaconda installer creates Logical(Extended) partitions automatically. Debian installer can not (Use GParted for Debian).
+  * Using GParted, move/resize space inside Extended partition.
+
+* `/boot` (sda2) : 1024 MiB [Must, Primary Partition] [Must for GRUB repair/reinstall]
+  * Mount Point: /boot; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 1024 MiB; Device Type: Standard Partition; Unchecked "Encrypt"; File System: ext4; Checked "Reformat"; Label: <empty>; Name: sda2; [Flags: <empty>]
+
+* `swap` (fedora-swap) : 8 GiB [Must, Better for Low-RAM PC]
+  * Mount Point: ; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: 8 GiB; Device Type: LVM (Default) (Change To: Standard Partition); Unchecked "Encrypt"; Volume Group: fedora; File System: swap; Checked "Reformat"; Label: <empty>; Name: swap; [Flags: swap]
+
+* `/` (root) : All remaining space (GiB) [Must]
+  * Mount Point: /; Device(s): ATA VBOX HARDDISK (sda); Desired Capacity: All Remaining Space (GiB); Device Type: Btrfs; Unchecked "Encrypt"; Volume: fedora; File System: btrfs; Checked "Reformat"; Label: <empty>; Name: root; [Flags: <empty>]
 
 # References
 

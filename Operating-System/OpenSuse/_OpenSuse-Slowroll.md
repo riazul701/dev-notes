@@ -1,4 +1,4 @@
-# OpenSuse-Tumbleweed.md
+# OpenSuse-Slowroll.md
 
 ## Websites
 
