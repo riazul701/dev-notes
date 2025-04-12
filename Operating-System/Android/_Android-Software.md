@@ -6,6 +6,10 @@
 
 * [নামাজের সময়সূচী ও রমজান ২০২৩ BY CrossAppers™](https://play.google.com/store/apps/details?id=com.crossappers.prayerapp)
 
+## App Management (Selected)
+
+* [HideU: Calculator Lock BY Smart Utils Dev Team](https://play.google.com/store/apps/details?id=com.calculator.hideu)
+
 ## Password Manager (Selected)
 
 * [Kunzisoft/KeePassDX => Password Manager
@@ -73,6 +77,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * [WPS Office-PDF,Word,Excel,PPT BY WPS SOFTWARE PTE. LTD.](https://play.google.com/store/apps/details?id=cn.wps.moffice_eng)
 * [CamScanner => PDF Scanner App BY CamSoft Information](https://play.google.com/store/apps/details?id=com.intsig.camscanner)
+* [Image to PDF - PDF Maker BY Simple Design Ltd.](https://play.google.com/store/apps/details?id=imagetopdf.pdfconverter.jpgtopdf.pdfeditor)
 
 ## Meeting & Remote-Control (Selected)
 

@@ -298,8 +298,6 @@ ping: google.com Temporary failure in name resolution
 
 * Learn more about diagnosing DNS-related problems by reading our article on [how to use Linux dig command](https://phoenixnap.com/kb/linux-dig-command-examples).
 
-
-
 ## Fedora Emergency Mode
 
 **Error Details**
@@ -322,19 +320,23 @@ Press Enter to continue.
   * or press `c` for a command-line (GRUB)
 
 * Original boot commands (press `e`), Fedora-LXQt-41
+
 ```
 load_video
 set gfxpayload=keep
 insmod gzio
-linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=187264ed-7fd2-4a40-bb25-cf5a3ba2705e ro resume=UUID=7qd84204-4w93-5ys2-hh85-73es85tvd95e rhgb quiet
+linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4150716c7c24 ro resume=UUID=7bb18127-2f16-4ea4-aa91-73ad74efc97c rhgb quiet
 initrd ($root)/initramfs-6.11.4-301.fc41.x86_64.img
 ```
 
 * Change boot commands (press `e`), Fedora-LXQt-41
+
 ```
-linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=187264ed-7fd2-4a40-bb25-cf5a3ba2705e rw resume=UUID=7qd84204-4w93-5ys2-hh85-73es85tvd95e rhgb quiet init=/bin/bash
+linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4150716c7c24 rw resume=UUID=7bb18127-2f16-4ea4-aa91-73ad74efc97c rhgb quiet init=/bin/bash
 ```
+
   * Changed `ro` (read-only) to `rw` (read-write), otherwise `/etc/fstab` file will not be writeable <sup>{3}</sup>
+  
   * Add `init=/bin/bash` to start bash shell
 
 **[How To Use UUID To Mount Partitions / Volumes Under Ubuntu Linux](https://www.cyberciti.biz/faq/linux-finding-using-uuids-to-update-fstab/) <sup>{12}</sup>**
