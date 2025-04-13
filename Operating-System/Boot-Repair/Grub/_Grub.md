@@ -36,6 +36,8 @@
 
 ## Notes
 
+* UEFI boot menu entry is stored in Motherboard's NVRAM. GRUB makes boot entry in NVRAM, managed by `efibootmgr` command.<sup>{19}</sup>
+
 * LINUX BOOT PARTITIONS
   * On Legacy-BIOS: Separate `/boot` partition is must for GRUB repair/reinstall
   * On UEFI: Separate `/boot` and `/boot/efi` partitions are must for GRUB repair/reinstall
@@ -88,10 +90,11 @@
 
 # References
 
-* next-sl: {27}
+* next-sl: {28}
 
 ## Websites
 
+* {27} [GNU GRUB Manual 2.12 => Official](https://www.gnu.org/software/grub/manual/grub/grub.html)
 * {12} [supergrubdisk.org](https://www.supergrubdisk.org/) <sup>{1}</sup>
 * {3} [Grub Customizer](https://launchpad.net/grub-customizer) <sup>{4}</sup>
 
@@ -132,6 +135,9 @@
 
 ## Guides
 
+* Knowledge
+  * [Any mainstream distro that doesn't use Grub by default?](https://www.reddit.com/r/linuxquestions/comments/1ixfakd/any_mainstream_distro_that_doesnt_use_grub_by/)
+
 ## YouTube Tutorials
 
 * General
@@ -145,3 +151,6 @@
 * GRUB Theme
   * {16} [Bootloader Themes | Install & Configuration BY Chris Titus Tech](https://www.youtube.com/watch?v=BAyzHP1Cqb0)
   * {24} [AWESOME Boot Loader Themes for GRUB on Linux!! Learn How To Install Custom Themes on Linux (GRUB). BY SavvyNik](https://www.youtube.com/watch?v=nZu0rEgJcXA)
+
+* `/etc/fstab` file
+  * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)

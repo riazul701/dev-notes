@@ -6,9 +6,13 @@
 
 ## Notes
 
-* "GRUB" is most common boot loader system. "Systemd-boot" is default boot loader of Arch Linux.
-
 * "Boot-Repair-Disk" is better than "Super-Grub2-Disk". "Super-Grub2-Disk" sometimes does not work.
+
+## Boot-Manager and Boot-Loader
+
+* "GRUB" is most common boot loader system. "Systemd-boot" is default boot loader of Arch Linux. Others - "rEFInd", "SysLinux", "LILO (Linux Loader)", "EFISTUB"
+
+* The distinction is that rEFInd is just a boot manager, whereas Grub is both a boot manager and a bootloader. <sup>{12}</sup>
 
 ## Motherboard's UEFI Boot Manager
 
@@ -74,7 +78,7 @@
 
 # References
 
-* next-sl: {12}
+* next-sl: {13}
 
 ## Websites
 
@@ -96,9 +100,15 @@
   
 * [This boot repair iso that I found on Sourceforge saved me](https://www.reddit.com/r/linuxmint/comments/193egjj/this_boot_repair_iso_that_i_found_on_sourceforge/?rdt=48191)
 
+* Knowledge
+  * {12} [Grub2 vs systemd-boot vs Refind: Pros & cons and benchmarks?](https://www.reddit.com/r/linuxquestions/comments/tjui2x/grub2_vs_systemdboot_vs_refind_pros_cons_and/)
+
 ## YouTube Tutorials
 
 * {1} [How to Dual-Boot Linux Mint 22 and Windows 11: Step-by-Step Guide BY Learn Linux TV](https://www.youtube.com/watch?v=Nn7CPlUpflk)
 * {2} [How to Fix Dual Boot Problems BY Chris Titus Tech](https://www.youtube.com/watch?v=gEB6JEYZekE)
 * {10} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)
 * {11} [Fixing Linux with Rescatux BY Switched to Linux](https://www.youtube.com/watch?v=vqlgAVyRaqs)
+
+* `/etc/fstab` file
+  * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)

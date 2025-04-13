@@ -473,3 +473,6 @@ linux /vmlinuz-6.1.0-29-amd64 root=UUID=fa1b69f2-07df-4acf-a142-d5a1bd4a7d43 rw 
 
 * Repair GRUB
   * {11} [How to get your Linux system out of emergency mode BY Mike's Tech Tips](https://www.youtube.com/watch?v=-2wca_0CpXY)
+
+* `/etc/fstab` file
+  * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)

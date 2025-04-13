@@ -129,6 +129,9 @@
 * ANTIX-LINUX IS NON-SYSTEMD BASED DEBIAN-STABLE. Init systems: sysVinit (default option) or runit. <sup>{6}</sup>
 * Antix-23 is Debian bookworm / Debian 12.
 * Snap runs on Ubuntu, but not in Antix because Antix does not have Systemd, it has SysVinit.
+
+## Mount Partitions
+
 * When mount /c, /d, /e, /f drives then Antix flux, icewm, jwm menu entry hangs (takes 5 minutes to complete). Restart PC/Unmount drives to solve this problem.
 * Fix Windows-OS "C" drive mounting hibernation error on Linux
   * [How to Delete Hibernation File on Windows 10](https://www.diskpart.com/free-up-space/how-to-delete-hibernation-file-windows-10-3690.html)

@@ -392,3 +392,6 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 
 * Repair GRUB
   * {11} [How to get your Linux system out of emergency mode BY Mike's Tech Tips](https://www.youtube.com/watch?v=-2wca_0CpXY)
+
+* `/etc/fstab` file
+  * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)
