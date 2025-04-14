@@ -128,6 +128,15 @@ exit
 
 # References
 
-* YouTube Tutorials
-  * [Best Docker Container Monitoring Tools - Free and open source BY VirtualizationHowto](https://www.youtube.com/watch?v=zxAmqY63eJE)
+## Tutorials
+
+* Docker Tutorial Series
+  * [Install Docker and Learn Basic Container Manipulation in CentOS and RHEL 8/7 – Part 1](https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/)
+  * [How to Install, Run and Delete Applications Inside Docker Containers – Part 2](https://www.tecmint.com/install-run-and-delete-applications-inside-docker-containers/)
+  * [How to Automatically Build and Configure Custom Docker Images with Dockerfile – Part 3](https://www.tecmint.com/build-and-configure-docker-container-images-with-dockerfile/)
+  * [ctop – Top-like Interface for Monitoring Docker Containers](https://www.tecmint.com/ctop-monitor-docker-containers/)
+
+## YouTube Tutorials
+
+* [Best Docker Container Monitoring Tools - Free and open source BY VirtualizationHowto](https://www.youtube.com/watch?v=zxAmqY63eJE)
   

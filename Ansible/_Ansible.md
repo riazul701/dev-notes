@@ -76,6 +76,22 @@
 
 # References
 
+## Tutorials
+
+* Ansible Tutorial Series
+  * [Understand Core Components of Ansible – Part 1](https://www.tecmint.com/understand-core-components-of-ansible/)
+  * [How to Install and Configure an Ansible Control Node – Part 2](https://www.tecmint.com/install-and-configure-an-ansible-control-node/)
+  * [How to Configure Ansible Managed Nodes and Run ad-hoc Commands – Part 3](https://www.tecmint.com/configure-ansible-managed-nodes-and-run-ad-hoc-commands/)
+  * [How to Use Static and Dynamic Inventories in Ansible – Part 4](https://www.tecmint.com/use-static-and-dynamic-inventory-in-ansible/)
+  * [How to Create Ansible Plays and Playbooks – Part 5](https://www.tecmint.com/create-ansible-plays-and-playbooks/)
+  * [How to Use Ansible Modules for System Administration Tasks – Part 6](https://www.tecmint.com/linux-system-administration-tasks-with-ansible/)
+  * [How to Create Templates in Ansible to Create Configurations On Managed Nodes – Part 7](https://www.tecmint.com/create-ansible-templates-to-create-configuration-for-nodes/)
+  * [How to Work with Ansible Variables and Facts – Part 8](https://www.tecmint.com/ansible-variables-and-facts/)
+  * [How to Create and Download Roles on Ansible Galaxy and Use Them – Part 9](https://www.tecmint.com/create-and-download-roles-on-ansible-galaxy/)
+  * [How to Use Ansible Vault in Playbooks to Protect Sensitive Data – Part 10](https://www.tecmint.com/use-ansible-vault-in-playbooks-to-protect-sensitive-data/)
+
+## Guides
+
 * Installation
   * {1} [How to Set Up SSH Keys on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)
   * {2} [SSH Essentials: Working with SSH Servers, Clients, and Keys](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)

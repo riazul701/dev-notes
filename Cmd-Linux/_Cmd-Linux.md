@@ -16,3 +16,8 @@
 * [List of POSIX commands](https://en.wikipedia.org/wiki/List_of_POSIX_commands)
 * [Ebook: The Linux Command Line by William Shotts](https://linuxcommand.org/tlcl.php)
 * [YouTube => Linux Crash Course BY Learn Linux TV](https://www.youtube.com/playlist?list=PLT98CRl2KxKHKd_tH3ssq0HPrThx2hESW)
+
+## Tutorials
+
+* [A – Z Linux Commands – Overview with Examples](https://www.tecmint.com/linux-commands-cheat-sheet/)
+* [100+ Essential Linux Commands for Every Linux User](https://www.tecmint.com/essential-linux-commands/)

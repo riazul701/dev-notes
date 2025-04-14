@@ -1,3 +1,0 @@
-# mount-cmd.md
-
-## Websites

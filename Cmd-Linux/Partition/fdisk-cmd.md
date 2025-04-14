@@ -8,6 +8,7 @@
 
 * [fdisk(8) — Linux manual page](https://man7.org/linux/man-pages/man8/fdisk.8.html)
 * [Fdisk WikiPedia](https://en.wikipedia.org/wiki/Fdisk)
+* [util-linux/util-linux GitHub](https://github.com/util-linux/util-linux)
 
 ## Notes
 
@@ -16,6 +17,10 @@
 # References
 
 * next-sl: 
+
+## Tutorials
+
+* [10 fdisk Commands to Manage Linux Disk Partitions](https://www.tecmint.com/fdisk-commands-to-manage-linux-disk-partitions/)
 
 ## YouTube Tutorials
 

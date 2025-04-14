@@ -90,7 +90,7 @@
 
 # References
 
-* next-sl: {28}
+* next-sl: {29}
 
 ## Websites
 
@@ -130,6 +130,7 @@
   * [Dual boot with Windows](https://wiki.archlinux.org/title/Dual_boot_with_Windows)
 
 * GRUB Rescue
+  * {28} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
   * {25} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
   * {26} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 

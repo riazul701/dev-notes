@@ -27,6 +27,7 @@
 ## YouTube Tutorials
 
 * {7} [How to Install Fedora 41 with Snapshot and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LwM3wUXJyU8)
+* [A First Look At Fedora 36 i3 Spin (If I Get It Installed) BY DistroTube](https://www.youtube.com/watch?v=ZdbgDCwCs_w)
 
 * Fedora Copr
   * {5} [Fedora's AUR? - What is Fedora COPR? BY The Linux Cast](https://www.youtube.com/watch?v=UwKI6BJuIRA)

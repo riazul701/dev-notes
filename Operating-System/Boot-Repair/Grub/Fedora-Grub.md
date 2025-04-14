@@ -353,9 +353,13 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 
 * Reboot PC
 
+# GRUB Rescue
+
+* {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
+
 # References
 
-* next-sl: {13}
+* next-sl: {16}
 
 ## Tutorials
 
@@ -377,6 +381,11 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 
 * Internet
   * {9} [How to Resolve the "Temporary failure in name resolution" Error](https://phoenixnap.com/kb/temporary-failure-in-name-resolution)
+
+* GRUB Rescue
+  * {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
+  * {14} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
+  * {15} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
 ## Guides
 

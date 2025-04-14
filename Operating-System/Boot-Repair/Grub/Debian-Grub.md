@@ -433,9 +433,15 @@ linux /vmlinuz-6.1.0-29-amd64 root=UUID=fa1b69f2-07df-4acf-a142-d5a1bd4a7d43 rw 
 
 * Reboot PC
 
+# GRUB Rescue
+
+* {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
+  
+* {16} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
+
 # References
 
-* next-sl: {14}
+* next-sl: {17}
 
 ## Tutorials
 
@@ -458,6 +464,11 @@ linux /vmlinuz-6.1.0-29-amd64 root=UUID=fa1b69f2-07df-4acf-a142-d5a1bd4a7d43 rw 
 
 * Internet
   * {9} [How to Resolve the "Temporary failure in name resolution" Error](https://phoenixnap.com/kb/temporary-failure-in-name-resolution)
+
+* GRUB Rescue
+  * {14} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
+  * {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
+  * {16} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
 ## Guides
 
