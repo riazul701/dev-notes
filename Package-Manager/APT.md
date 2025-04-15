@@ -4,6 +4,12 @@
 
 # APT.md
 
+## PATH
+
+* The main Apt sources configuration file is at `/etc/apt/sources.list` <sup>{3}</sup>
+
+* To add custom sources, creating separate files under `/etc/apt/sources.list.d/` in DEB822 source format is preferred. See the [deb822 manual page](https://manpages.debian.org/man/deb822.5) for more info. <sup>{3}</sup>
+
 # Error & Solution
 
 ## `papirus-icon-theme` freezes system
