@@ -4,6 +4,9 @@
 
 ## Tutorials
 
+* General
+  * [RAID => ArchLinux Wiki](https://wiki.archlinux.org/title/RAID)
+
 * RAID Tutorial Series
   * [Introduction to RAID, Concepts of RAID and RAID Levels – Part 1](https://www.tecmint.com/understanding-raid-setup-in-linux/)
   * [Creating Software RAID0 (Stripe) on ‘Two Devices’ Using ‘mdadm’ Tool in Linux – Part 2](https://www.tecmint.com/create-raid0-in-linux/)
