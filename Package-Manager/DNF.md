@@ -11,7 +11,11 @@
 ## Websites
 
 * {1} [manatools/dnfdragora GitHub](https://github.com/manatools/dnfdragora)
-* {4} [Fedora Copr](https://copr.fedorainfracloud.org/coprs/)
+
+* Repository
+  * {4} [Fedora Copr => Official](https://copr.fedorainfracloud.org/coprs/)
+  * [RPM Fusion](https://rpmfusion.org/)
+  * [Terra Repository](https://terra.fyralabs.com/)
 
 ## Tutorials
 

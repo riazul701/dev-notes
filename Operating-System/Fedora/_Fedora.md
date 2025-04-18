@@ -15,7 +15,11 @@
 * {1} [fedoraproject.org](https://fedoraproject.org/)
 * {2} [Fedora All Releases](https://dl.fedoraproject.org/pub/fedora/linux/releases/)
 * {3} [Fedora Old Releases](https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/)
-* {4} [Fedora Copr](https://copr.fedorainfracloud.org/coprs/)
+
+* Repository
+  * {4} [Fedora Copr => Official](https://copr.fedorainfracloud.org/coprs/)
+  * [RPM Fusion](https://rpmfusion.org/)
+  * [Terra Repository](https://terra.fyralabs.com/)
 
 ## Tutorials
 

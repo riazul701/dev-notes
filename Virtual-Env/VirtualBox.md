@@ -8,6 +8,8 @@
 
 * In machine settings, use "Bridge" adapter to get IP from WiFi router. This is dynamic IP.
 
+* Sometimes, turn on and off `Scaled Mode`, by pressing `Host+C`, makes guest operating system to full screen. `Host` key is `Right-Ctrl` on keyboard.
+
 # UEFI Boot
 
 ## UEFI Boot Menu
