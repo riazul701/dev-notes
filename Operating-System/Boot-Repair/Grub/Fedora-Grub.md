@@ -30,6 +30,18 @@ HD(6,GPT,50A4B8CF-DE1A-4BC7-B883-B46C3FF51376,0x2AB98000,0x12C000)/\EFI\fodora\s
 
 **Error Message 1**
 
+* Again, during windows install, multiple `efi` partition shows another error:
+```
+We couldn't create a new partition or locate an existing one. For more information, see the Setup log files.
+```
+
+* Error Reason
+  * Format Previous Bootloader "Windows EFI System Partition (100 MB)"
+  * Format "C:\ Drive"
+  * There are two EFI partitions - "Windows EFI System Partition (100 MB)" and "Fedora EFI System Partition (600 MiB)". Windows can not decide which one to use.
+
+**Error Message 2**
+
 * During windows install, multiple `efi` partition shows error:
 ```
 Windows Setup
@@ -44,18 +56,7 @@ Do you want to proceed with installation?
   * There is "Fedora EFI System Partition (600 MiB)" below, for Fedora-OS. For this reason, Windows does not create any "Windows EFI System Partition (100 MB)" partition.
   * Windows is trying to use "Fedora EFI System Partition (600 MiB)", which is below, but windows expects it at first position.
 
-**Error Message 2**
-
-* Again, during windows install, multiple `efi` partition shows another error:
-```
-We couldn't create a new partition or locate an existing one. For more information, see the Setup log files.
-```
-* Error Reason
-  * Format Previous Bootloader "Windows EFI System Partition (100 MB)"
-  * Format "C:\ Drive"
-  * There are two EFI partitions - "Windows EFI System Partition (100 MB)" and "Fedora EFI System Partition (600 MiB)". Windows can not decide which one to use.
-
-**Solution 1**
+**(Recommended) Solution 1 (Works With Btrfs Setup <sup>{18}</sup>)**
 
 * [How to select which efi partition to use during installation?](https://www.reddit.com/r/linuxquestions/comments/1hpqyva/how_to_select_which_efi_partition_to_use_during/)
 
@@ -445,6 +446,15 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 
 * {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
 
+**Delete folder `/boot/grub2`**
+
+* `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` command shows error
+```
+/usr/bin/grub2-editenv: error: cannot open '/boot/grub2/grubenv.new': No such file or directory.
+/usr/sbin/grub2-mkconfig: line 280: /boot/grub2/grub.cfg.new: No such file or directory
+```
+* `sudo dnf reinstall shim-\* grub2-efi-\* grub2-common` : Generate `/boot/grub2` folder
+* `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` : Generate grub config file `/boot/grub2/grub.cfg`
 
 # References
 

@@ -1,8 +1,20 @@
 # Debian-GRUB.md
 
-## Websites
+## PATH
 
-* [Grub2/Installing](https://help.ubuntu.com/community/Grub2/Installing)
+**In VirtualBox, use the `ESC` key for the (U)EFI BIOS.<sup>{17}</sup>**
+
+* Windows-OS, (U)EFI menu entry created during installation
+```
+Device Path : 
+HD(1,GPT,19C47327-AFDC-4192-B5FC-1B8F74B75E54,0x800,0x32000)/\EFI\Microsoft\Boot\bootmgfw.efi
+```
+
+* Debian-12.9.0-LXQt, (U)EFI menu entry created during installation
+```
+Device Path : 
+HD(6,GPT,7A8C4B8C-1343-3C4D-A995-AF53A1CFA9EE,0x222E0000,0x12C000)/\EFI\Debian\shimx64.efi
+```
 
 # Debian & Windows Dual Boot : Grub Rapair/Reinstall
 
@@ -16,7 +28,19 @@
 
 ## Windows Install Error : Multiple `EFI` Partition (Dual Boot)
 
-**Error Message**
+**Error Message 1**
+
+* Again, during windows install, multiple `efi` partition shows another error:
+```
+We couldn't create a new partition or locate an existing one. For more information, see the Setup log files.
+```
+
+* Error Reason
+  * Format Previous Bootloader "Windows EFI System Partition (100 MB)"
+  * Format "C:\ Drive"
+  * There are two EFI partitions - "Windows EFI System Partition (100 MB)" and "Fedora EFI System Partition (600 MiB)". Windows can not decide which one to use.
+
+**Error Message 2**
 
 * During windows install, multiple `efi` partition shows error:
 ```
@@ -27,7 +51,48 @@ The partitions on the disk selected for installation are not in the recommended 
 Do you want to proceed with installation?
 ```
 
-**Solution**
+* Error Reason
+  * Deleted "Windows EFI System Partition (100 MB)", "Microsoft Reserved Partition (16 MB)", "C:\ Drive"
+  * There is "Fedora EFI System Partition (600 MiB)" below, for Fedora-OS. For this reason, Windows does not create any "Windows EFI System Partition (100 MB)" partition.
+  * Windows is trying to use "Fedora EFI System Partition (600 MiB)", which is below, but windows expects it at first position.
+
+**(Recommended) Solution 1 (Works With Btrfs Setup <sup>{19} {20}</sup>)**
+
+* [How to select which efi partition to use during installation?](https://www.reddit.com/r/linuxquestions/comments/1hpqyva/how_to_select_which_efi_partition_to_use_during/)
+
+  * Get instruction from: "rbmorse"
+
+  * There are two relatively easy things you can do.
+
+  * (Not Recommended) Disconnect or remove all the storage devices in the machine _except_ the one to which you want to commit an installation. This will force the installer to create the ESP on the only storage device available. When the installation is complete, reconnect/reinstall the other storage devices.
+
+  * ---------------- OR -----------------
+
+  * Boot a distro or live desktop that has the gparted utility (or install it from repo if it isn't part of the disto default fileset). Select each ESP partition that you do not want the installer to use and remove the "boot" and "ESP" flags from that partition. Conversely, make sure the "boot" and "ESP" flags are set on the ESP you want the installer to use.
+    * `sudo dnf install gparted`
+    * Right click on ESP partition -> "Manage Flags"
+    * Removing "boot" and "ESP" flags, automatically set "msftdata" flag.
+
+  * If it's a new or freshly formatted device with no partitions, manually create an ESP partition (256 Mb/FAT32, usually the first partition, but it doesn't have to be) on that device and make sure the "boot" and "esp" flags are set there and unset for all others. The installer should find the new ESP and use that, ignoring the other ESP partitions that may be on the machine.
+
+  * Once the installation is complete, make sure you reset the "boot" and "ESP" flags on the other ESP partitions.
+
+  * With either method, with all devices reinstalled or all flags reset, boot into the latest distro and run update-grub to add the other O/S installations to the GRUB boot menu. That's the one the system EFI will use to boot unless you change the EFI boot settings.
+
+  * If your distro uses systemd-boot you'll have to update that by whatever means it uses
+
+  * Get instructins from "doc_willis"
+
+  * Removing the flags will make the UEFI not see them as EFI partitions, it should not affect the files on them.
+
+* This procedure set "Windows Bootloader" as default in Motherboard. Go to "Change Boot Order" settings and set "Fedora" as default bootloader.
+
+**(Not Recommended) Solution 2 (Does Not Work With Btrfs Setup <sup>{19} {20}</sup>)**
+
+* GRUB can not be reinstalled/repaired in windows-dual-boot, without separate `/boot` partition. Tested on Fedora-41 Btrfs setup. <sup>{19}</sup>
+
+* In Debian, separate `/boot` (Size: 1024 MiB, File System: ext4) partition is must, for this procedure to work.
+  * If `/boot` is inside `/` (root) partition, not separate, then this procedure will not work. 
 
 * In dual boot (debian & windows), this happens because there are two `ESP` (EFI System Partition) partitions, with "File System"=`fat32`, Flags=`boot, esp`
 
@@ -437,12 +502,25 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 # GRUB Rescue
 
 * {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
-  
+
+**Delete folder `/boot/grub`**
+
+* `sudo update-grub` command shows error:
+```
+/usr/sbin/grub-mkconfig: 270: cannot create /boot/grub/grub.cfg.new: Directory nonexistent
+```
+* `sudo grub-install` : Generate `/boot/grub` folder
+* `sudo update-grub` : Generate grub config file `/boot/grub/grub.cfg`
+
 * {16} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
 # References
 
-* next-sl: {17}
+* next-sl: {22}
+
+## Websites
+
+* [Grub2/Installing](https://help.ubuntu.com/community/Grub2/Installing)
 
 ## Tutorials
 
@@ -471,6 +549,12 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
   * {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
   * {16} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
+* Debian: Install/Snapshot
+  * {20} [Installing Debian with BTRFS, Snapper backups and GRUB-BTRFS](https://medium.com/@inatagan/installing-debian-with-btrfs-snapper-backups-and-grub-btrfs-27212644175f)
+
+* Fedora: Install/Snapshot
+  * {19} [How to Install Fedora 41 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-41-with-snapshot-and-rollback-support) <sup>{18}</sup>
+
 ## Guides
 
 * Repair GRUB
@@ -481,6 +565,9 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 * Internet
   * {10} [No internet connection in chroot environment (customizing iso)](https://unix.stackexchange.com/questions/481860/no-internet-connection-in-chroot-environment-customizing-iso)
 
+* VirtualBox
+  * {17} [F12 boot device selection does not work after manually selecting boot order in EFI](https://forums.virtualbox.org/viewtopic.php?t=103602)
+
 ## YouTube Tutorials
 
 * Repair GRUB
@@ -488,3 +575,9 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 
 * `/etc/fstab` file
   * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)
+
+* Debian: Install/Snapshot
+  * {21} [Debian Testing + BTRFS + Timeshift + Cinnamon BY JustAGuy Linux](https://www.youtube.com/watch?v=IdqkjpsyUNg)
+
+* Fedora: Install/Snapshot
+  * {18} [How to Install Fedora 41 with Snapshot and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LwM3wUXJyU8)

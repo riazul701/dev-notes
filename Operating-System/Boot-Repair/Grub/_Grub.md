@@ -45,12 +45,12 @@
   * On UEFI: Separate `/boot` and `/boot/efi` partitions are must for GRUB repair/reinstall
 
 * The most frequent reason for GRUB not booting into the operating system involves another OS's bootloader overwriting GRUB boot configuration. Another cause may be an accidental removal of GRUB configuration files. <sup>{1} {26}</sup>
-  * Removal of GRUB config file `/boot/grub/grub.cfg`, shows `grub>` prompt <sup>{1}</sup>
-  * Removal of GRUB config folder `/boot/grub`, shows `grub rescue>` prompt <sup>{1}</sup>
+  * Removal of GRUB config file `/boot/grub2/grub.cfg` (Fedora) OR `/boot/grub/grub.cfg` (Debian), shows `grub>` prompt <sup>{1}</sup>
+  * Removal of GRUB config folder `/boot/grub2` (Fedora) OR `/boot/grub` (Debian), shows `grub rescue>` prompt <sup>{1}</sup>
 
 * Make grub config file <sup>{1} {2}</sup>
-  * Fedora and other OS use command: `grub2-mkconfig -o /boot/grub2/grub.cfg` <sup>{1} {2}</sup>
-  * Debian/Ubuntu use command: `update-grub` <sup>{1} {2}</sup>
+  * Fedora and other OS use command: `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` <sup>{1} {2}</sup>
+  * Debian/Ubuntu use command: `sudo update-grub` <sup>{1} {2}</sup>
 
 * On Windows-OS: Right click on "Start Menu" -> "Disk Management" -> Right click on "Disk 0 (Whole HDD)" -> "Properties" -> "Volumes" -> Check "Partition style"
   * Master Boot Record (MBR) == Legacy BIOS
@@ -69,7 +69,7 @@
 
 * `/etc/default/grub` - the file containing GRUB 2 menu settings. <sup>{11}</sup>
 * `/etc/grub.d/` - the directory containing GRUB 2 menu creating scripts. <sup>{11}</sup>
-* `/boot/grub/grub.cfg` - the GRUB 2 configuration file, not editable. <sup>{11}</sup>
+* `/boot/grub2/grub.cfg` (Fedora) OR `/boot/grub/grub.cfg` (Debian) - the GRUB 2 configuration file, not editable. <sup>{11}</sup>
 
 * Legacy (old) GRUB
   * `/boot/grub/menu.lst` : Legacy GRUB menu is located on the root partition under this. <sup>{8}</sup>
