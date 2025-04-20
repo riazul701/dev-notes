@@ -1,5 +1,21 @@
 # Fedora-Grub.md
 
+## PATH
+
+**In VirtualBox, use the `ESC` key for the (U)EFI BIOS.<sup>{24}</sup>**
+
+* Windows-OS, (U)EFI menu entry created during installation
+```
+Device Path : 
+HD(1,GPT,19C47327-AFDC-4192-B5FC-1B8F74B75E54,0x800,0x32000)/\EFI\Microsoft\Boot\bootmgfw.efi
+```
+
+* Fedora-LXQt-41, (U)EFI menu entry created during installation
+```
+Device Path : 
+HD(6,GPT,50A4B8CF-DE1A-4BC7-B883-B46C3FF51376,0x2AB98000,0x12C000)/\EFI\fodora\shimx64.efi
+```
+
 # Fedora & Windows Dual Boot : Grub Rapair/Reinstall
 
 ## Notes
@@ -12,7 +28,7 @@
 
 ## Windows Install Error : Multiple `EFI` Partition (Dual Boot)
 
-**Error Message**
+**Error Message 1**
 
 * During windows install, multiple `efi` partition shows error:
 ```
@@ -23,7 +39,59 @@ The partitions on the disk selected for installation are not in the recommended 
 Do you want to proceed with installation?
 ```
 
-**Solution**
+* Error Reason
+  * Deleted "Windows EFI System Partition (100 MB)", "Microsoft Reserved Partition (16 MB)", "C:\ Drive"
+  * There is "Fedora EFI System Partition (600 MiB)" below, for Fedora-OS. For this reason, Windows does not create any "Windows EFI System Partition (100 MB)" partition.
+  * Windows is trying to use "Fedora EFI System Partition (600 MiB)", which is below, but windows expects it at first position.
+
+**Error Message 2**
+
+* Again, during windows install, multiple `efi` partition shows another error:
+```
+We couldn't create a new partition or locate an existing one. For more information, see the Setup log files.
+```
+* Error Reason
+  * Format Previous Bootloader "Windows EFI System Partition (100 MB)"
+  * Format "C:\ Drive"
+  * There are two EFI partitions - "Windows EFI System Partition (100 MB)" and "Fedora EFI System Partition (600 MiB)". Windows can not decide which one to use.
+
+**Solution 1**
+
+* [How to select which efi partition to use during installation?](https://www.reddit.com/r/linuxquestions/comments/1hpqyva/how_to_select_which_efi_partition_to_use_during/)
+
+  * Get instruction from: "rbmorse"
+
+  * There are two relatively easy things you can do.
+
+  * (Not Recommended) Disconnect or remove all the storage devices in the machine _except_ the one to which you want to commit an installation. This will force the installer to create the ESP on the only storage device available. When the installation is complete, reconnect/reinstall the other storage devices.
+
+  * ---------------- OR -----------------
+
+  * Boot a distro or live desktop that has the gparted utility (or install it from repo if it isn't part of the disto default fileset). Select each ESP partition that you do not want the installer to use and remove the "boot" and "ESP" flags from that partition. Conversely, make sure the "boot" and "ESP" flags are set on the ESP you want the installer to use.
+    * `sudo dnf install gparted`
+    * Right click on ESP partition -> "Manage Flags"
+    * Removing "boot" and "ESP" flags, automatically set "msftdata" flag.
+
+  * If it's a new or freshly formatted device with no partitions, manually create an ESP partition (256 Mb/FAT32, usually the first partition, but it doesn't have to be) on that device and make sure the "boot" and "esp" flags are set there and unset for all others. The installer should find the new ESP and use that, ignoring the other ESP partitions that may be on the machine.
+
+  * Once the installation is complete, make sure you reset the "boot" and "ESP" flags on the other ESP partitions.
+
+  * With either method, with all devices reinstalled or all flags reset, boot into the latest distro and run update-grub to add the other O/S installations to the GRUB boot menu. That's the one the system EFI will use to boot unless you change the EFI boot settings.
+
+  * If your distro uses systemd-boot you'll have to update that by whatever means it uses
+
+  * Get instructins from "doc_willis"
+
+  * Removing the flags will make the UEFI not see them as EFI partitions, it should not affect the files on them.
+
+* This procedure set "Windows Bootloader" as default in Motherboard. Go to "Change Boot Order" settings and set "Fedora" as default bootloader.
+
+**(Not Recommended) Solution 2 (Does Not Work With Btrfs Setup <sup>{18}</sup>)**
+
+* GRUB can not be reinstalled/repaired in windows-dual-boot, without separate `/boot` partition. Tested on Fedora-41 Btrfs setup. <sup>{18}</sup>
+
+* In Fedora, separate `/boot` (Size: 1024 MiB, File System: ext4) partition is must, for this procedure to work.
+  * If `/boot` is inside `/` (root) partition, not separate, then this procedure will not work. 
 
 * In dual boot (fedora & windows), this happens because there are two `ESP` (EFI System Partition) partitions, with "File System"=`fat32`, Flags=`boot, esp`
 
@@ -37,11 +105,11 @@ Do you want to proceed with installation?
 
 * Partition List
 
-  * Windows EFI Partition (100 MB) : "File System"=`fat32`, Flags=`boot, esp, no_automount`
+  * Windows EFI System Partition (100 MB) : "File System"=`fat32`, Flags=`boot, esp, no_automount`
 
-  * Microsoft reserved partition (16 MB) : "File System"=`unknown`, Flags=`msftres, no_automount`
+  * Microsoft Reserved Partition (16 MB) : "File System"=`unknown`, Flags=`msftres, no_automount`
 
-  * Fedora EFI Partition (600 MiB) : "File System"=`fat32`, Flags=`boot, esp`
+  * Fedora EFI System Partition (600 MiB) : "File System"=`fat32`, Flags=`boot, esp`
 
 **Information**
 
@@ -55,7 +123,14 @@ Please enable a repository containing the [grub-efi] packages in the software so
 
 ## [Creating an EFI System Partition](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#create-an-esp) <sup>{6}</sup>
 
-* Alternatively, Use GParted to create `fat32` partition with size "600 MiB"
+* Alternatively, Use GParted to create `fat32` partition with size "600 MiB".
+  * `sudo dnf install gparted` : Install GParted on LiveCD.
+
+* Alternatively, use `cgdisk` Terminal-User-Interface.
+  * `cgdisk` for GPT partition table.
+  * `cfdisk` for MBR partition table.
+
+* `sudo fdisk -l` : Shows HDD partitions with size.
 
 **Creating an EFI System Partition**
 
@@ -120,6 +195,7 @@ Please enable a repository containing the [grub-efi] packages in the software so
   * `# mount /dev/mapper/fedora-root /mnt` : Mount the logical volume (e.g. `/dev/mapper/fedora-root`) corresponding to the `/root` partition.
 
 * `# mount /dev/sda2 /mnt/boot` : Mount the `/boot` partition (e.g. `/dev/sda2`).
+  * On Btrfs, there is not separate `/boot` partition, it is inside `/` (root) partition for snapshot rollback purpose. See Btrfs Setup <sup>{18}</sup>
 
 * Mount system processes and devices into the `/root` filesystem.
 ```
@@ -138,8 +214,12 @@ Please enable a repository containing the [grub-efi] packages in the software so
 * `# chroot /mnt` : Change your filesystem to the one mounted under `/mnt`.
 
 * Re-install `GRUB2`.
+  
   * `# dnf reinstall shim-\* grub2-efi-\* grub2-common` : On UEFI systems, several packages are required.
-  * `# grub2-install /dev/sda` : On BIOS systems, specify the disk (e.g. `/dev/sda`) where `GRUB2` should be installed.
+    * On Btrfs, shows error: "Cannot open log file: (13) - Permission denied [/var/log/dnf5.log]". See Btrfs Setup <sup>{18}</sup>
+      * Solution: `# mount -o bind /var /mnt/var`
+  
+  * `# grub2-install /dev/sda` : On BIOS systems, specify the disk (e.g. `/dev/sda`) where `GRUB2` should be installed. [For Legacy-BIOS]
 
 * `# grub2-mkconfig -o /boot/grub2/grub.cfg` : Re-generate the `GRUB2` configuration file.
 
@@ -316,11 +396,16 @@ Press Enter to continue.
 
 **[How to get your Linux system out of emergency mode BY Mike's Tech Tips](https://www.youtube.com/watch?v=-2wca_0CpXY) <sup>{11}</sup>**
 
+* GRUB menu message shown at bottom
+```
+Use the <up-arrow> and <down-arrow> keys to select which entry is highlighted.
+Press enter to boot the selected OS, `e` to edit the commands before booting or `c` for a command-line. ESC to return previous menu.
+```
+
 * When GRUB menu is shown, then press `e` to edit the commands before booting
   * or press `c` for a command-line (GRUB)
 
 * Original boot commands (press `e`), Fedora-LXQt-41
-
 ```
 load_video
 set gfxpayload=keep
@@ -330,14 +415,17 @@ initrd ($root)/initramfs-6.11.4-301.fc41.x86_64.img
 ```
 
 * Change boot commands (press `e`), Fedora-LXQt-41
-
 ```
 linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4150716c7c24 rw resume=UUID=7bb18127-2f16-4ea4-aa91-73ad74efc97c rhgb quiet init=/bin/bash
 ```
 
   * Changed `ro` (read-only) to `rw` (read-write), otherwise `/etc/fstab` file will not be writeable <sup>{3}</sup>
-  
   * Add `init=/bin/bash` to start bash shell
+
+* Message shown at bottom
+```
+Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctrl-x or F10 to boot, Ctrl-c or F2 for a command-line or ESC to discard edits and return to the GRUB menu.
+```
 
 **[How To Use UUID To Mount Partitions / Volumes Under Ubuntu Linux](https://www.cyberciti.biz/faq/linux-finding-using-uuids-to-update-fstab/) <sup>{12}</sup>**
 
@@ -345,7 +433,7 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 
 * `lsblk` : See partition name/number. Get information about block device.
 
-* `sudo blkid /dev/sdb2` : Shows UUID of `/dev/sdb2`
+* `sudo blkid /dev/sdb2` : Shows UUID of `/dev/sdb2` (root partition: `/`)
 
 * `sudo cp /etc/fstab /etc/fstab.backup` : At first, make backup of `/etc/fstab` file using `cp` command
 
@@ -357,9 +445,10 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 
 * {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
 
+
 # References
 
-* next-sl: {16}
+* next-sl: {25}
 
 ## Tutorials
 
@@ -387,6 +476,12 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
   * {14} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
   * {15} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
+* Fedora: Install/Snapshot
+  * {18} [How to Install Fedora 41 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-41-with-snapshot-and-rollback-support) <sup>{16}</sup>
+  * {19} [How to Install Fedora 41 with Full Disk Encryption, Snapshot, and Rollback Support](https://sysguides.com/install-fedora-41-with-full-disk-encryption-snapshot-and-rollback-support) <sup>{17}</sup>
+  * {20} [How to Install Fedora 40 with Snapshot and Rollback Support => Similarity with {8}, plus Snapper test](https://sysguides.com/install-fedora-with-snapshot-and-rollback-support) <sup>{18} {22}</sup>
+  * {21} [How to Install Fedora 40 with LUKS Full Disk Encryption, Snapshot, and Rollback Support => Similarity with {10}, plus Snapper test](https://sysguides.com/install-fedora-with-luks-fde-snapshot-rollback-support) <sup>{19} {22}</sup>
+
 ## Guides
 
 * Repair GRUB
@@ -397,6 +492,9 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 * Internet
   * {10} [No internet connection in chroot environment (customizing iso)](https://unix.stackexchange.com/questions/481860/no-internet-connection-in-chroot-environment-customizing-iso)
 
+* VirtualBox
+  * {24} [F12 boot device selection does not work after manually selecting boot order in EFI](https://forums.virtualbox.org/viewtopic.php?t=103602)
+
 ## YouTube Tutorials
 
 * Repair GRUB
@@ -404,3 +502,9 @@ linux ($root)/vmlinuz-6.11.4-301.fc41.x86_64 root=UUID=817fec6d-76d5-4938-a468-4
 
 * `/etc/fstab` file
   * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)
+
+* Fedora: Install/Snapshot
+  * {16} [How to Install Fedora 41 with Snapshot and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LwM3wUXJyU8)
+  * {17} [How to Install Fedora 41 with Full Disk Encryption, Snapshot, and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LT8gDWEaG4o)
+  * {22} [Fedora Snapper Tests: Create, Delete, Compare, Revert, and Rollback Snapshots BY SysGuides](https://www.youtube.com/watch?v=hlAgYA4mVvs)
+  * {23} [Installing Fedora with Timeshift compatible encrypted BTRFS Snapshots - Easy GUI Method! BY FOSS World](https://www.youtube.com/watch?v=bN8gGoBaZ5M)

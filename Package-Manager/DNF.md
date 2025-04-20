@@ -4,6 +4,8 @@
 
 * AUR (ArchLinux) requires users to build packages locally, while COPR (Fedora) provides pre-built packages. <sup>{6}</sup>
 
+* `dnf check-update` (For APT: `apt update`) This command is rarely needed, as dnf updates its package cache automatically when it is stale. A cache update can be forced by appending `--refresh` to other commands, e.g. `dnf upgrade --refresh`. <sup>{3}</sup>
+
 # References
 
 * next-sl: {13}

@@ -17,9 +17,28 @@
   * `Debian Live Standard` is Debian without the Graphical User Interface.
   * `Debian Live Gnome` is Debian Standard with Gnome.
 
+## [Debian Releases](https://www.debian.org/releases/) <sup>{3}</sup>
+
+* Debian always has at least three releases in active maintenance: "stable", "testing" and "unstable".
+
+* stable
+  * The "stable" distribution contains the latest officially released distribution of Debian.
+  * This is the production release of Debian, the one which we primarily recommend using.
+
+* testing
+  * The "testing" distribution contains packages that haven't been accepted into a "stable" release yet, but they are in the queue for that. The main advantage of using this distribution is that it has more recent versions of software.
+
+* unstable
+  * The "unstable" distribution is where active development of Debian occurs. Generally, this distribution is run by developers and those who like to live on the edge. It is recommended that users running unstable should subscribe to the debian-devel-announce mailing list to receive notifications of major changes, for example upgrades that may break.
+  * The "unstable" distribution is always called `sid`.
+
 # References
 
-* next-sl: 
+* next-sl: {4}
+
+## Tutorials
+
+* {3} [Debian Releases](https://www.debian.org/releases/)
 
 ## YouTube Tutorials
   

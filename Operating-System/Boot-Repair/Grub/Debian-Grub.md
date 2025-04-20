@@ -89,7 +89,6 @@ Do you want to proceed with installation?
 * Mount the broken system somewhere into the running filesystem. The exact details of how to do this depend on the particulars of your installation. The [RescueLive](https://wiki.debian.org/RescueLive) page describes quite similar procedure in a bit different words (mounting `/sys/firmware/efi/efivars` is omitted there, but it adds `/etc/resolv.conf` for updating packages from a network mirror).
 
 * For example, for a system with an EFI partition on `/dev/sdb1`, an unencrypted /boot partition on `/dev/sdb2`, and an unencrypted `/` partition on `/dev/sdb3`, do:
-
 ```
 # mount /dev/sdb3 /mnt
 # mount /dev/sdb2 /mnt/boot
@@ -97,7 +96,6 @@ Do you want to proceed with installation?
 ```
 
 * Another example - for a system with an EFI partition on `/dev/sdb1` and `/` partition on `/dev/sdb2`, do:
-
 ```
 # mount /dev/sdb2 /mnt/
 # mount /dev/sdb1 /mnt/boot/efi
@@ -106,7 +104,6 @@ Do you want to proceed with installation?
 * In case of a LUKS-encrypted / partition, please follow this guide: [GrubEFIReinstallOnLUKS](https://wiki.debian.org/GrubEFIReinstallOnLUKS).
 
 * Bind mount various virtual filesystems:
-
 ```
 # for i in /dev /dev/pts /proc /sys /sys/firmware/efi/efivars /run; do mount -B $i /mnt/$i; done
 ```
@@ -135,7 +132,6 @@ Do you want to proceed with installation?
 **Reinstalling grub-efi on your hard drive**
 
 * Check that the computer booted in computer in EFI mode:
-
 ```
 [ -d /sys/firmware/efi ] && echo "EFI boot on HDD" || echo "Legacy boot on HDD"
 should return "EFI boot on HDD".
@@ -152,7 +148,6 @@ should return "EFI boot on HDD".
 * You should check afterwards that:
 
 * Check 1. the bootloader is existing in `/boot/efi/EFI/debian/grubx64.efi`
-
 ```
 file /boot/efi/EFI/debian/grubx64.efi
 
@@ -160,7 +155,6 @@ file /boot/efi/EFI/debian/grubx64.efi
 ```
 
 * Check 2. the NVRAM entry was properly created.
-
 ```
 efibootmgr --verbose | grep debian
 ```
@@ -176,7 +170,6 @@ efibootmgr --verbose | grep debian
 * The UEFI firmware refuses to boot the debian/grubx64.efi bootloader, and so we have to hijack the UEFI fallback boot loader. See http://mjg59.livejournal.com/138188.html for details.
 
 * Using Debian installer in rescue mode, `/dev/sdb1` being the FAT32 ESP partition, `/dev/sdb2` the root partition
-
 ```
 mkdir /target
 mount /dev/sdb2 /target
@@ -196,7 +189,6 @@ umount /target
 ```
 
 * Once booted into your normal Debian, tell grub to ensure the fallback boot loader up to date. To do that, run the following:
-
 ```
 echo "grub-efi-amd64 grub2/force_efi_extra_removable boolean true" | sudo debconf-set-selections
 ```
@@ -385,6 +377,12 @@ Debian OS is stucked during boot
 
 **[How to get your Linux system out of emergency mode BY Mike's Tech Tips](https://www.youtube.com/watch?v=-2wca_0CpXY) <sup>{11}</sup>**
 
+* GRUB menu message shown at bottom
+```
+Use the <up-arrow> and <down-arrow> keys to select which entry is highlighted.
+Press enter to boot the selected OS, `e` to edit the commands before booting or `c` for a command-line. ESC to return previous menu.
+```
+
 * When GRUB menu is shown, then press `e` to edit the commands before booting
   * or press `c` for a command-line (GRUB)
 
@@ -410,14 +408,17 @@ setparams 'Debian GNU/Linux'
 ```
 
 * Original boot commands (press `e`), Debian-LXQt-12.9.0
-
 ```
 linux /vmlinuz-6.1.0-29-amd64 root=UUID=fa1b69f2-07df-4acf-a142-d5a1bd4a7d43 rw quiet splash resume=UUID=b0666a79-ebc5-48bf-876d-e7c58124e378 init=/bin/bash
 ```
 
   * Changed `ro` (read-only) to `rw` (read-write), otherwise `/etc/fstab` file will not be writeable <sup>{3}</sup>
-  
   * Add `init=/bin/bash` to start bash shell
+
+* Message shown at bottom
+```
+Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctrl-x or F10 to boot, Ctrl-c or F2 for a command-line or ESC to discard edits and return to the GRUB menu.
+```
 
 **[How To Use UUID To Mount Partitions / Volumes Under Ubuntu Linux](https://www.cyberciti.biz/faq/linux-finding-using-uuids-to-update-fstab/) <sup>{12}</sup>**
 
@@ -425,7 +426,7 @@ linux /vmlinuz-6.1.0-29-amd64 root=UUID=fa1b69f2-07df-4acf-a142-d5a1bd4a7d43 rw 
 
 * `lsblk` : See partition name/number. Get information about block device.
 
-* `sudo blkid /dev/sdb2` : Shows UUID of `/dev/sdb2`
+* `sudo blkid /dev/sdb2` : Shows UUID of `/dev/sdb2` (root partition: `/`)
 
 * `sudo cp /etc/fstab /etc/fstab.backup` : At first, make backup of `/etc/fstab` file using `cp` command
 

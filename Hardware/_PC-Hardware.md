@@ -30,9 +30,9 @@
 
 * PC Buy
   * {{Low Price 1}} [ultratech.com.bd](https://www.ultratech.com.bd/)
+  * [selltech.com.bd => Old and New PC](https://selltech.com.bd/)
   * [ryans.com](https://www.ryans.com/)
   * [startech.com.bd](https://www.startech.com.bd/)
-  * [selltech.com.bd](https://selltech.com.bd/)
   * [techlandbd.com](https://www.techlandbd.com/)
 
 * Tutorials

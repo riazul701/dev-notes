@@ -36,7 +36,9 @@
 
 ## Notes
 
-* UEFI boot menu entry is stored in Motherboard's NVRAM. GRUB makes boot entry in NVRAM, managed by `efibootmgr` command.<sup>{19}</sup>
+* GRUB can not be reinstalled/repaired in windows-dual-boot, without separate `/boot` partition. Tested on Fedora-41 Btrfs setup. <sup>{30}</sup>
+
+* UEFI boot menu entry is stored in Motherboard's NVRAM. GRUB makes boot entry in NVRAM, managed by `efibootmgr` command. <sup>{19}</sup>
 
 * LINUX BOOT PARTITIONS
   * On Legacy-BIOS: Separate `/boot` partition is must for GRUB repair/reinstall
@@ -90,7 +92,7 @@
 
 # References
 
-* next-sl: {29}
+* next-sl: {31}
 
 ## Websites
 
@@ -134,6 +136,9 @@
   * {25} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
   * {26} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
+* Fedora: Install/Snapshot
+  * {30} [How to Install Fedora 41 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-41-with-snapshot-and-rollback-support) <sup>{29}</sup>
+
 ## Guides
 
 * Knowledge
@@ -155,3 +160,6 @@
 
 * `/etc/fstab` file
   * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)
+
+* Fedora: Install/Snapshot
+  * {29} [How to Install Fedora 41 with Snapshot and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LwM3wUXJyU8)

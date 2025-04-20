@@ -1,6 +1,85 @@
+# Commands/Usage
+
+## Snapper
+
+* `sudo dnf install ps_mem` : Install the `ps_mem` package. It displays the core memory used per program (not per process). <sup>{38}</sup>
+  * `sudo ps_mem` : Run the `ps_mem` program to see if it was installed successfully. <sup>{38}</sup>
+
+* `snapper ls` : List the snapshots for `/` volume. For the root, you may use `snapper -c root ls` or simply `snapper ls`. Both provide the same output. <sup>{38}</sup>
+
+* `snapper -c home ls` : List the snapshots for `/home` volume. <sup>{38}</sup>
+
+* `snapper status 2..3` : shows which files have to add/change to migrate from snapshot `2` to `3`. <sup>{38}</sup>
+  * Inversely, `snapper status 3..2` shows which files have to remove/change to migrate from snapshot `3` to `2`. <sup>{38}</sup>
+  * Installing package `sudo dnf install ps_mem`. <sup>{38}</sup>
+
+* `sudo snapper undochange 2..3` : Undo changes from snapshot id `2` to `3`. Remove `ps_mem` package. <sup>{38}</sup>
+  * Uninstalled package `ps_mem`. <sup>{38}</sup>
+
+* `sudo snapper undochange 3..2` : Undo (Redo) changes from snapshot id `3` to `2`. <sup>{38}</sup>
+  * Installed package `ps_mem`. <sup>{38}</sup>
+
+* `snapper diff 3..0 /etc/hosts` : Using the snapper tool, compare the `/etc/hosts` file with the one in snapshot #3. In `3..0`, `0` means current file state. <sup>{38}</sup>
+  * `sudo sed -i '$d' /etc/hosts` : Remove the last line from `/etc/hosts` file. <sup>{38}</sup>
+
+* `sudo snapper undochange 3..0 /etc/hosts` : To replace the `/etc/hosts` file with the one in snapshot #3, use the following command. <sup>{38}</sup>
+
+* Create a manual 'pre' snapshot for both the `/` and `/home` directories. <sup>{38}</sup>
+```
+$ snapper -c root create -t pre -c number -d 'Pre Color Picker'
+$ snapper -c home create -t pre -c number -d 'Pre Color Picker'
+```
+
+* Install Color Picker package
+  * Install the pre-requisite packages before compiling the source file.
+  ```
+  $ sudo dnf install meson gcc-c++ libhandy-devel libportal-devel \
+    libportal-gtk3-devel
+  ```
+  * Compile the source.
+  ```
+  $ git clone https://github.com/Hjdskes/gcolor3.git
+  $ cd gcolor3
+  $ meson setup build
+  $ ninja-build -C build
+  $ sudo ninja-build -C build install
+  ```
+
+* Create 'post' snapshots for the `/` and `/home` directories. <sup>{38}</sup>
+```
+$ snapper -c root create -t post --pre-number 4 -c number -d 'Post Color Picker'
+$ snapper -c home create -t post --pre-number 1 -c number -d 'Post Color Picker'
+```
+
+* Review the changes made to the system between the pre and post snapshots. <sup>{38}</sup>
+```
+$ snapper -c root status 4..7
+$ snapper -c home status 1..2
+```
+
+* This is the total number of files added, removed, or modified. <sup>{38}</sup>
+```
+$ snapper -c root status 4..7 | wc -l
+$ snapper -c home status 1..2 | wc -l
+```
+
+* Undo the changes in the `/` and `/home` directories. <sup>{38}</sup>
+```
+$ sudo snapper -c root undochange 4..7
+$ sudo snapper -c home undochange 1..2
+```
+
+* Since you removed the Color Picker package, there is no reason to keep its pre-post snapshots if you do not intend to use it again. So you can delete those snapshots. <sup>{38}</sup>
+```
+$ snapper -c root delete 4-7
+$ snapper -c home delete 1-2
+```
+
 # Btrfs.md
 
 ## Notes
+
+* GRUB btrfs.mod driver, unlike ext4, is read-only. <sup>{8}</sup>
 
 * Btrfs does all works inside subvolume <sup>{1} {2}</sup>
 
@@ -14,21 +93,23 @@
 
 * If you find it confusing to tell which directories are plain directories and which are subvolumes, you can feel free to adopt a special naming convention for your subvolumes. For example, you could prefix your subvolume names with an “@” to make them easily distinguishable. <sup>{35}</sup>
 
-## Guides
+## PATH
 
-* [Pros and Cons of Using Btrfs Filesystem in Linux](https://itsfoss.com/btrfs/)
+**Snapper**
+
+* Snapper configurations are saved under the `/etc/snapper/configs` directory. <sup>{71}</sup>
 
 ## Advantage and Disadvantage
 
 * Advantage
-  * Built-in snapshot capability, without much storage.
+  * Built-in snapshot capability, without much storage. <sup>{72}</sup>
 
 * Disadvantage
-  * Fragmentation. "ext4" file system does not have this issue.
+  * Fragmentation. "ext4" file system does not have this issue. <sup>{72}</sup>
 
 # References
 
-* next-sl: {71}
+* next-sl: {73}
 
 ## Websites
 
@@ -88,6 +169,7 @@
   * {41} [Snapper and grub-btrfs in Arch Linux](https://www.lorenzobettini.it/2023/03/snapper-and-grub-btrfs-in-arch-linux/)
 
 * Snapper
+  * {71} [How to manage snapshots with Snapper on Linux](https://linuxconfig.org/how-to-manage-snapshots-with-snapper-on-linux)
   * {42} [Snapper => ArchLinux Wiki](https://wiki.archlinux.org/title/Snapper)
 
 * Others
@@ -123,6 +205,9 @@
   * {67} [BTRFS Balance Bug in Kernel 5.14.x](https://linuxhint.com/btrfs-balance-bug-kernel-5-14/)
 
 ## Guides
+
+* Btrfs
+  * {72} [Pros and Cons of Using Btrfs Filesystem in Linux](https://itsfoss.com/btrfs/)
 
 * Comparison
   
