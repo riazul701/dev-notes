@@ -19,6 +19,11 @@
 * [Ventoy => ArchLinux Wiki](https://wiki.archlinux.org/title/Ventoy)
 * [Moving an existing install into (or out of) a virtual machine](https://wiki.archlinux.org/title/Moving_an_existing_install_into_(or_out_of)_a_virtual_machine)
 
+## Guides
+
+* Comparison
+  * [Manjaro vs Arch Linux: What's the Difference? Which one is Better?](https://itsfoss.com/manjaro-vs-arch-linux/)
+
 ## YouTube Tutorials
 
 * [The AUR Removed My Packages, So I Created My Own Repo BY DistroTube](https://www.youtube.com/watch?v=CYqd2AHXosk)

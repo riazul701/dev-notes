@@ -29,6 +29,7 @@
 * Get Debian-Testing ISO (Weekly-Live-Build) From [Debian Testing Branch ISO](https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid/)
 
 **Error Message From `sudo apt update`**
+
 ```
 Ign:1 cdrom://[Auto-generated Debian GNU/Linux Live testing standard 2025-03-10T02:22:58Z] trixie InRelease
 Err:2 cdrom://[Auto-generated Debian GNU/Linux Live testing standard 2025-03-10T02:22:58Z] trixie Release
