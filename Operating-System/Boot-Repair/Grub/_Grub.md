@@ -100,11 +100,6 @@
 * {12} [supergrubdisk.org](https://www.supergrubdisk.org/) <sup>{1}</sup>
 * {3} [Grub Customizer](https://launchpad.net/grub-customizer) <sup>{4}</sup>
 
-* GRUB Theme
-  * {17} [GRUB Bootloader Themes](https://christitus.com/bootloader-themes/) <sup>{16}</sup>
-  * [vinceliuice/grub2-themes GitHub](https://github.com/vinceliuice/grub2-themes) <sup>{24}</sup>
-  * [gnome-look.org => GRUB Themes](https://www.gnome-look.org/browse?cat=109&ord=latest) <sup>{24}</sup>
-
 ## Tutorials
 
 * General
@@ -153,10 +148,6 @@
   * {6} [How to fix Boot issues | stuck at grub prompt | grub rescue prompt | Windows Ubuntu Linux BY Brainers Technology](https://www.youtube.com/watch?v=dB580m1USIs)
   * {10} [How to Dual Boot Sparky Linux and Windows 10/11 BY Sandip Sky](https://www.youtube.com/watch?v=HYEU2KB5sTE)
   * {18} [GRUB Rescue and Repair on Linux | Rescue and Repair your Bootloader! (Ubuntu) BY SavvyNik](https://www.youtube.com/watch?v=LFj_yqk6AUI)
-
-* GRUB Theme
-  * {16} [Bootloader Themes | Install & Configuration BY Chris Titus Tech](https://www.youtube.com/watch?v=BAyzHP1Cqb0)
-  * {24} [AWESOME Boot Loader Themes for GRUB on Linux!! Learn How To Install Custom Themes on Linux (GRUB). BY SavvyNik](https://www.youtube.com/watch?v=nZu0rEgJcXA)
 
 * `/etc/fstab` file
   * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)

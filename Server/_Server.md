@@ -2,13 +2,10 @@
 
 ## Websites
 
-### Server Control Panel
-
-* [HestiaCP Site](https://hestiacp.com/) || [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp)
-* [CyberPanel Site](https://cyberpanel.net/) || [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
-* [CloudPanel Site](https://www.cloudpanel.io/) || [cloudpanel-io/cloudpanel-ce](https://github.com/cloudpanel-io/cloudpanel-ce)
-
-### Software/Tools
+* Server Control Panel
+  * [HestiaCP Site](https://hestiacp.com/) || [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp)
+  * [CyberPanel Site](https://cyberpanel.net/) || [usmannasir/cyberpanel](https://github.com/usmannasir/cyberpanel)
+  * [CloudPanel Site](https://www.cloudpanel.io/) || [cloudpanel-io/cloudpanel-ce](https://github.com/cloudpanel-io/cloudpanel-ce)
 
 * VNC
   * [Remmina](https://remmina.org/) <sup>{151}</sup>
@@ -22,7 +19,7 @@
   * [JoeDog/siege](https://github.com/JoeDog/siege/)
   * [locust.io](https://locust.io/) || [locustio/locust](https://github.com/locustio/locust)
 
-* Security
+* Security/SSL
   * [Cloudflare](https://www.cloudflare.com/)
   * [Let's Encrypt](https://letsencrypt.org/)
 
