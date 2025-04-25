@@ -444,9 +444,12 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 
 # GRUB Rescue
 
-* {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
+## [GRUB Rescue | Repairing GRUB BY Chris Titus Tech](https://www.youtube.com/watch?v=r7meKJsjqfY) <sup>{25}</sup>
 
-**Delete folder `/boot/grub2`**
+* Get GRUB Repair prompt by deleting file `/boot/grub2/grub.cfg`
+* Get GRUB Rescue prompt by deleting folder `/boot/grub2`
+
+**Delete folder `/boot/grub2` <sup>{25}</sup>**
 
 * `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` command shows error
 ```
@@ -456,9 +459,13 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 * `sudo dnf reinstall shim-\* grub2-efi-\* grub2-common` : Generate `/boot/grub2` folder
 * `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` : Generate grub config file `/boot/grub2/grub.cfg`
 
+
+* {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
+
+
 # References
 
-* next-sl: {25}
+* next-sl: {27}
 
 ## Tutorials
 
@@ -485,6 +492,7 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
   * {13} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
   * {14} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
   * {15} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
+  * {26} [Grub Rescue | Repairing your Bootloader](https://christitus.com/grub-rescue/) <sup>{25}</sup>
 
 * Fedora: Install/Snapshot
   * {18} [How to Install Fedora 41 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-41-with-snapshot-and-rollback-support) <sup>{16}</sup>
@@ -509,6 +517,9 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 
 * Repair GRUB
   * {11} [How to get your Linux system out of emergency mode BY Mike's Tech Tips](https://www.youtube.com/watch?v=-2wca_0CpXY)
+
+* GRUB Rescue
+  * {25} [GRUB Rescue | Repairing GRUB BY Chris Titus Tech](https://www.youtube.com/watch?v=r7meKJsjqfY)
 
 * `/etc/fstab` file
   * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)

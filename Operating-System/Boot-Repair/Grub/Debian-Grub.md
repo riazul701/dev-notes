@@ -501,9 +501,12 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 
 # GRUB Rescue
 
-* {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
+## [GRUB Rescue | Repairing GRUB BY Chris Titus Tech](https://www.youtube.com/watch?v=r7meKJsjqfY) <sup>{22}</sup>
 
-**Delete folder `/boot/grub`**
+* Get GRUB Repair prompt by deleting file `/boot/grub/grub.cfg`
+* Get GRUB Rescue prompt by deleting folder `/boot/grub`
+
+**Delete folder `/boot/grub` <sup>{22}</sup>**
 
 * `sudo update-grub` command shows error:
 ```
@@ -512,11 +515,15 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 * `sudo grub-install` : Generate `/boot/grub` folder
 * `sudo update-grub` : Generate grub config file `/boot/grub/grub.cfg`
 
+
+* {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
+
+
 * {16} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
 
 # References
 
-* next-sl: {22}
+* next-sl: {24}
 
 ## Websites
 
@@ -548,6 +555,7 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
   * {14} [Using the GRUB2 boot prompt](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#_using_the_grub2_boot_prompt)
   * {15} [How to Use GRUB Rescue to Fix Linux](https://www.howtogeek.com/887757/how-to-use-grub-rescue-to-fix-linux/)
   * {16} [How to Use GRUB Rescue to Fix Linux Boot Failure](https://phoenixnap.com/kb/grub-rescue)
+  * {23} [Grub Rescue | Repairing your Bootloader](https://christitus.com/grub-rescue/) <sup>{22}</sup>
 
 * Debian: Install/Snapshot
   * {20} [Installing Debian with BTRFS, Snapper backups and GRUB-BTRFS](https://medium.com/@inatagan/installing-debian-with-btrfs-snapper-backups-and-grub-btrfs-27212644175f)
@@ -572,6 +580,9 @@ Minimum Emacs-like screen editing is supported. TAB lists completions. Press Ctr
 
 * Repair GRUB
   * {11} [How to get your Linux system out of emergency mode BY Mike's Tech Tips](https://www.youtube.com/watch?v=-2wca_0CpXY)
+
+* GRUB Rescue
+  * {22} [GRUB Rescue | Repairing GRUB BY Chris Titus Tech](https://www.youtube.com/watch?v=r7meKJsjqfY)
 
 * `/etc/fstab` file
   * [Linux Crash Course - The /etc/fstab file BY Learn Linux TV](https://www.youtube.com/watch?v=A7xH74o6kY0)
