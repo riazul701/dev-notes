@@ -65,6 +65,15 @@
 
 * Remember that you should always install Windows first, on the first hard disk, on the first partition (the rule of three first). <sup>{8}</sup>
 
+## Grub Message
+
+* In Grub OS selection screen/menu, message shown at bottom
+```
+Press enter to boot the selected OS. `e` to edit the commands before booting or `c` for a command-line.
+```
+
+* Press `Esc` to return to Grub OS selection screen/menu
+
 ## PATH
 
 * `/etc/default/grub` - the file containing GRUB 2 menu settings. <sup>{11}</sup>

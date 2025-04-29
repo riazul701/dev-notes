@@ -268,8 +268,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
 
 * Backup and Archive Manager (Selected)
-  * [7-Zip](https://www.7-zip.org/)
   * [peazip/PeaZip](https://github.com/peazip/PeaZip)
+  * [7-Zip](https://www.7-zip.org/)
 
 ## Data Transfer (Selected)
 
@@ -288,6 +288,11 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * USB Bootable (Selected)
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
   * [PendriveLinux](https://www.pendrivelinux.com/)
+
+* Partition Manager and Hard Disk Clone (Selected)
+  * [GParted => GNOME Partition Editor](https://gparted.org/)
+  * [Clonezilla](https://clonezilla.org/)
+  * [Rescuezilla](https://rescuezilla.com/)
 
 ## System Management (Selected)
 
@@ -685,8 +690,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
 
 * Backup and Archive Manager (List)
-  * [7-Zip](https://www.7-zip.org/)
   * [peazip/PeaZip](https://github.com/peazip/PeaZip)
+  * [7-Zip](https://www.7-zip.org/)
   * [WinRAR](https://www.win-rar.com/start.html?&L=0)
 
 ## Data Transfer (List)
@@ -705,14 +710,14 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## HDD/SSD/USB (List)
 
-* Hard Disk and Partition Manager (List)
-  * [Clonezilla](https://clonezilla.org/)
-  * [Rescuezilla](https://rescuezilla.com/)
-  * [GParted => GNOME Partition Editor](https://gparted.org/)
-
 * USB Bootable (List)
   * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
   * [PendriveLinux](https://www.pendrivelinux.com/)
+
+* Partition Manager and Hard Disk Clone (List)
+  * [GParted => GNOME Partition Editor](https://gparted.org/)
+  * [Clonezilla](https://clonezilla.org/)
+  * [Rescuezilla](https://rescuezilla.com/)
 
 * HDD/SSD (List)
   * [Hard Disk Sentinel](https://www.hdsentinel.com/)

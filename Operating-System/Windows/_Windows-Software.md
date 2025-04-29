@@ -268,6 +268,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [veracrypt/VeraCrypt](https://github.com/veracrypt/VeraCrypt)
 
 * Backup and Archive Manager (Selected)
+  * [peazip/PeaZip](https://github.com/peazip/PeaZip)
   * [7-Zip](https://www.7-zip.org/)
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
@@ -287,9 +288,14 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## HDD/SSD/USB (Selected)
 
 * USB Bootable (Selected)
+  * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
   * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
   * [Windows ISO File => Windowstan.com](https://windowstan.com/)
-  * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
+
+* Partition Manager and Hard Disk Clone (Selected)
+  * [EaseUS Partition Master](https://www.easeus.com/partition-manager/)
+  * [Clonezilla](https://clonezilla.org/)
+  * [Rescuezilla](https://rescuezilla.com/)
 
 * HDD/SSD (Selected)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
@@ -668,8 +674,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [BitLocker]()
 
 * Backup and Archive Manager (List)
-  * [7-Zip](https://www.7-zip.org/)
   * [peazip/PeaZip](https://github.com/peazip/PeaZip)
+  * [7-Zip](https://www.7-zip.org/)
   * [WinRAR](https://www.win-rar.com/start.html?&L=0)
   * [EaseUS ToDo Backup](https://www.easeus.com/backup-software/tb-free.html)
 
@@ -690,17 +696,17 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## HDD/SSD/USB (List)
 
-* Hard Disk and Partition Manager (List)
-  * [Clonezilla](https://clonezilla.org/)
-  * [Rescuezilla](https://rescuezilla.com/)
+* USB Bootable (List)
+  * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
+  * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
+  * [Windows ISO File => Windowstan.com](https://windowstan.com/)
+
+* Partition Manager and Hard Disk Clone (List)
   * [EaseUS Partition Master](https://www.easeus.com/partition-manager/)
   * [MiniTool Partition Wizard](https://www.partitionwizard.com/free-partition-manager.html)
   * [GParted => GNOME Partition Editor](https://gparted.org/)
-
-* USB Bootable (List)
-  * [Rufus => Make USB Bootable](https://rufus.ie/en/) || [Rufus GitHub](https://github.com/pbatard/rufus)
-  * [Windows ISO File => Windowstan.com](https://windowstan.com/)
-  * [Ventoy => Bootable USB Solution](https://www.ventoy.net/en/index.html) || [Ventoy GitHub](https://github.com/ventoy/Ventoy)
+  * [Clonezilla](https://clonezilla.org/)
+  * [Rescuezilla](https://rescuezilla.com/)
 
 * HDD/SSD (List)
   * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)

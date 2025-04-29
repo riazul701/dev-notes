@@ -2,6 +2,15 @@
 
 ## Websites
 
+## GUI Software Doesn't Launch
+
+* If any GUI software failed to start, when launching from OS menu. Then try to launch it from terminal, see if there any dependency error.
+
+* For Example (PeaZip Archiver): `peazip` command in Debian-LXQt-OS (Testing branch) terminal shows error:
+```
+peazip: error while loading shared libraries: libQt6PrintSupport.so.6: cannot open shared object file: No such file or directory
+```
+
 # Debian/Ubuntu
 
 ## Install Backports/Updated Software

@@ -19,7 +19,7 @@
   * [JoeDog/siege](https://github.com/JoeDog/siege/)
   * [locust.io](https://locust.io/) || [locustio/locust](https://github.com/locustio/locust)
 
-* Security/SSL
+* SSL/Security
   * [Cloudflare](https://www.cloudflare.com/)
   * [Let's Encrypt](https://letsencrypt.org/)
 
