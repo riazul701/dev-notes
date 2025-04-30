@@ -2,6 +2,10 @@
 
 # References
 
+## Tutorials
+
+## Guides
+
 ## YouTube Tutorials
 
 * Port Forwarding
@@ -17,8 +21,3 @@
 
 * Host Website Locally
   * [Port Forwarding Explained & Router Configuration In Bangla? Access My Private Network From Anywhere! BY Mehedi Shakeel](https://www.youtube.com/watch?v=D4Z1cNebevI)
-  * [Host Website at Home & Expose Online with SECURE TUNNEL (No Need Public IP ) BY Mehedi Shakeel](https://www.youtube.com/watch?v=txIT8npiWXI)
-  * [How to Expose Local Host using Cloudflare Tunnels? BY Piyush Garg](https://www.youtube.com/watch?v=BnWfbv7Fy-k)
-
-* SSH Tunnel
-  * [How to Set Up SSH via Cloudflare Tunnel | Secure Browser-Based SSH Access BY Techdox](https://www.youtube.com/watch?v=lnw616HiINY)
