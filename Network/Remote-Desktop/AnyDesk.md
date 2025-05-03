@@ -1,4 +1,4 @@
-# Anydesk.md
+# AnyDesk.md
 
 ## Notes
 

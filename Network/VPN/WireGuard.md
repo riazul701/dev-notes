@@ -9,5 +9,7 @@
 
 # References
 
-* YouTube Tutorials
-  * [WireGuard : A Free & Open Source VPN Client BY kilObit](https://www.youtube.com/watch?v=685rOzG2Bus)
+## YouTube Tutorials
+  
+* [WireGuard : A Free & Open Source VPN Client BY kilObit](https://www.youtube.com/watch?v=685rOzG2Bus)
+* [Create a FREE, PRIVATE, VPN with WireGuard - How To BY Jim's Garage](https://www.youtube.com/watch?v=C59dOinNurk)

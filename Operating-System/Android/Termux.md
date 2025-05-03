@@ -1,3 +1,7 @@
+# Commands/Usage
+
+* `apt install openssh-client` : Install the openssh-client package using the command. 
+
 # Termux.md
 
 ## Websites

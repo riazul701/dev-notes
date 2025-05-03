@@ -8,20 +8,46 @@
 
 * {1} [anderspitman/awesome-tunneling GitHub](https://github.com/anderspitman/awesome-tunneling)
 * {2} [fatedier/frp GitHub](https://github.com/fatedier/frp)
-* {3} [localtunnel/localtunnel GitHub](https://github.com/localtunnel/localtunnel)
-* {4} [exposedev/expose GitHub](https://github.com/exposedev/expose)
 
-* [cloudflare/cloudflared GitHub](https://github.com/cloudflare/cloudflared)
+* [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup)
+  * [cloudflare/cloudflared GitHub](https://github.com/cloudflare/cloudflared)
   * [Cloudflared Downloads](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)
   * [pkg.cloudflare.com](https://pkg.cloudflare.com/index.html)
 
-* [opentunnel.net](https://opentunnel.net/)
+* [Microsoft Dev Tunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview)
+  * [microsoft/dev-tunnels-ssh GitHub](https://github.com/microsoft/dev-tunnels-ssh)
+
+* Free Tunnel
+  * [serveo.net => SSH Jump](https://serveo.net/)
+  * [localhost.run => SSH Jump](https://localhost.run/)
+  * [ssh-j.com => SSH Jump, Only SSH](https://ssh-j.com/)
+  * [docs.srv.us => SSH Jump](https://docs.srv.us/)
+  * [telebit.cloud](https://telebit.cloud/)
+  * [loophole.cloud](https://loophole.cloud/)
+  * [opentunnel.net](https://opentunnel.net/)
+  * [tunnel.staqlab.com](https://tunnel.staqlab.com/)
+  * {3} [localtunnel/localtunnel GitHub](https://github.com/localtunnel/localtunnel)
+  * [cmars/onionpipe GitHub](https://github.com/cmars/onionpipe)
+
+* Tunnel Collection (Paid, Limited Free Package)
+  * [tailscale.com](https://tailscale.com/)
+  * [hrzn.run](https://hrzn.run/)
+  * [zerotier.com](https://www.zerotier.com/)
+  * [ngrok.com](https://ngrok.com/)
+  * [firezone.dev](https://www.firezone.dev/)
+  
+  * {4} [exposedev/expose GitHub](https://github.com/exposedev/expose)
+  * [zrok.io](https://zrok.io/)
+  * [mycoria.org](https://mycoria.org/)
 
 ## Tutorials
 
 * Cloudflare Tunnel
   * [Cloudflare Tunnel Document](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
   * [Cloudflare SSH Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/)
+
+* Tor SSH
+  * [How to SSH over Tor Onion Service](https://medium.com/@tzhenghao/how-to-ssh-over-tor-onion-service-c6d06194147)
 
 ## Guides
 

@@ -1,4 +1,9 @@
-# Android-OS/Android-Software.md
+# Android-Software.md
+
+## App Store
+
+* [Google Play Store](https://play.google.com/store/apps)
+* [F-Droid](https://f-droid.org/en/)
 
 # Selected Software
 
