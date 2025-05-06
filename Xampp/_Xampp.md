@@ -1,8 +1,5 @@
 # Xampp
 
-## Websites
-* [Xampp Official Site](https://www.apachefriends.org/)
-
 ## Notes
 
 ## Guides
@@ -26,6 +23,27 @@
 * Install different version xampp-linux (5.6.0, 7.2.0, 8.2.0) and rename folders to - lampp_5.6.0, lampp_7.2.0, lampp_8.2.0
 * 
 
+# Xampp Local Network Access
+
+## Fedora-OS
+
+**[How to set up a firewall using FirewallD on RHEL 8](https://www.cyberciti.biz/faq/configure-set-up-a-firewall-using-firewalld-on-rhel-8/) <sup>{3}</sup>**
+
+* Open firewall port (http, https) to access xampp from local network or Tailscale.
+
+* Let us add rule (HTTP/80) and (HTTPS/443) permanently and reload firewalld:
+```
+$ sudo firewall-cmd --zone=public --add-service=http --permanent
+$ sudo firewall-cmd --zone=public --add-service=https --permanent
+$ sudo firewall-cmd --reload
+```
+
+* Verify it:
+```
+$ sudo firewall-cmd --list-services
+$ sudo firewall-cmd --list-services --permanent
+```
+
 # Error and Solution
 
 ## Extension Error
@@ -45,3 +63,41 @@
     * `scoop install extras/vcredist2008`
   * Restart PC
   
+## Apache Not Starting On Fedora LXDE 42
+
+**Error-Message-1**
+
+```
+/opt/lampp/bin/httpd: error while loading shared libraries: libcrypt.so.1: cannot open shared object file: No such file or directory
+```
+
+**Solution-1**
+
+* [Missing libcrypt.so in Fedora](https://stackoverflow.com/questions/78465523/missing-libcrypt-so-in-fedora)
+  * In fedora 40, it was necessary the installation of the following package, to place the library libcrypt.so into the system : `sudo dnf install libxcrypt-compat`
+
+**Error-Message-2**
+
+```
+httpd: Syntax error on line 522 of /opt/lampp/etc/httpd.conf: Syntax error on line 6 of /opt/lampp/etc/extra/httpd-xampp.conf: Cannot load modules/mod_perl.so into server: libnsl.so.1: cannot open shared object file: No such file or directory
+```
+
+**Solution-2**
+
+* [How can I solve this problem of installation xampp on fedora?](https://stackoverflow.com/questions/55867534/how-can-i-solve-this-problem-of-installation-xampp-on-fedora)
+  * It seems you're missing libnsl. install it through this command: `sudo dnf install libnsl`
+
+
+# References
+
+* next-sl: {4}
+
+## Websites
+
+* {1} [Xampp Official Site](https://www.apachefriends.org/)
+
+## Tutorials
+
+* FirewallD(Fedora)
+  * {2} [How to enable firewalld logging for denied packets on Linux](https://www.cyberciti.biz/faq/enable-firewalld-logging-for-denied-packets-on-linux/)
+  * {3} [How to set up a firewall using FirewallD on RHEL 8](https://www.cyberciti.biz/faq/configure-set-up-a-firewall-using-firewalld-on-rhel-8/)

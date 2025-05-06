@@ -2,10 +2,15 @@
 
 ## Websites
 
-* [WireGuard Site](https://www.wireguard.com/)
-* [WireGuard/wireguard-linux](https://github.com/WireGuard/wireguard-linux)
-* [WireGuard/wireguard-windows](https://github.com/WireGuard/wireguard-windows)
-* [VPN Jantit => Provide free WireGuard](https://www.vpnjantit.com/free-wireguard)
+* [wireguard.com => WireGuard Site](https://www.wireguard.com/)
+* [wg-easy/wg-easy GitHub => Manage WireGuard](https://github.com/wg-easy/wg-easy)
+
+* WireGuard Client
+  * [WireGuard/wireguard-linux](https://github.com/WireGuard/wireguard-linux)
+  * [WireGuard/wireguard-windows](https://github.com/WireGuard/wireguard-windows)
+
+* VPN Provider
+  * [VPN Jantit => Provide free WireGuard](https://www.vpnjantit.com/free-wireguard)
 
 # References
 

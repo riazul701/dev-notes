@@ -65,6 +65,7 @@
 
 ## YouTube Tutorials
 
+* [Dunst Adds Desktop Notifications To Your Window Manager BY DistroTube](https://www.youtube.com/watch?v=uf4YcYTnfNE)
 * {10} [How To Receive Desktop Notifications With A Window Manager BY Brodie Robertson](https://www.youtube.com/watch?v=NPhELbgYwV8)
 * {14} [Dunst: How To Make Your Notifications Actually Look Good BY Brodie Robertson](https://www.youtube.com/watch?v=-Ky9YgvUa40)
 * {12} [How to Set Up and Configure Notifications on Arch Linux (with dunst) BY Eric Murphy](https://www.youtube.com/watch?v=XWlbaERuDP4)
