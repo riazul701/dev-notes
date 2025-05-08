@@ -226,3 +226,7 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 
 * {8} [How to Use Tailscale: Step-by-Step Setup Guide for Beginners BY Learn Linux TV](https://www.youtube.com/watch?v=tW50igaFZTQ)
 * {17} [Tailscale Exit Node - Setup and Configuration BY Mike Faucher](https://www.youtube.com/watch?v=HFTqo_ts0iw)
+
+* ZeroTier
+  * [Networking with ZeroTier: Creating software-defined networks with Ease BY Learn Linux TV](https://www.youtube.com/watch?v=9GTXN0opsdw)
+  * [Use ZeroTier with Blue Iris - view your cameras remotely and securely! BY Learn Blue Iris](https://www.youtube.com/watch?v=w9rC8HN2Umc)

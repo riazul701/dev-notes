@@ -10,7 +10,7 @@
 
 ## Tutorials
 
-* {1} [[Motherboard]BIOS item-Restore AC Power Loss function => ASUS](https://www.asus.com/support/faq/1049855/)
+* {1} [[Motherboard]BIOS item-Restore AC Power Loss function => ASUS Desktop and Laptop](https://www.asus.com/support/faq/1049855/)
 
 ## YouTube Tutorials
 

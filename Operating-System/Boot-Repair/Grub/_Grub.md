@@ -78,7 +78,7 @@ Press enter to boot the selected OS. `e` to edit the commands before booting or 
 
 * `/etc/default/grub` - the file containing GRUB 2 menu settings. <sup>{11}</sup>
 * `/etc/grub.d/` - the directory containing GRUB 2 menu creating scripts. <sup>{11}</sup>
-* `/boot/grub2/grub.cfg` (Fedora) OR `/boot/grub/grub.cfg` (Debian) - the GRUB 2 configuration file, not editable. <sup>{11}</sup>
+* `/boot/grub2/grub.cfg` (Fedora) OR `/boot/grub/grub.cfg` (Debian/Ubuntu) - the GRUB 2 configuration file, not editable. <sup>{11}</sup>
 
 * Legacy (old) GRUB
   * `/boot/grub/menu.lst` : Legacy GRUB menu is located on the root partition under this. <sup>{8}</sup>
