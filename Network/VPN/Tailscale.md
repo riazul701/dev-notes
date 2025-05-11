@@ -1,3 +1,9 @@
+# Commands/Usage
+
+* `systemctl status tailscaled`
+
+* `tailscale --help`
+
 # Tailscale.md
 
 ## Notes
@@ -5,6 +11,20 @@
 * In Tailscale, computer (Fedora-OS) becomes available without login and SSH works perfectly. SFTP and RustDesk work after login.
 * Tailscale is Mesh VPN / Overlay VPN.
 * "exit node" option may solve internet connectivity problems. <sup>{6}</sup>
+
+# Installation
+
+## Fedora-OS
+
+**[Tailscale Download](https://tailscale.com/download)**
+
+* `curl -fsSL https://tailscale.com/install.sh | sh` : Install Tailscale for Linux
+
+* `sudo tailscale up` : Connect your machine to your Tailscale network and authenticate in your browser
+
+* `tailscale ip -4` : You can find your Tailscale IPv4 address by running
+
+* `ifconfig` : Check tailscale IPv4 address.
 
 # Xampp Local Network Access
 
@@ -68,7 +88,7 @@ Tailscale uses MagicDNS to resolve hostnames to IP addresses within the tailnet.
 Static IP Addresses and DNS:
 While Tailscale often uses dynamic IP addresses, you can also configure static IP addresses for devices, which can then be used in conjunction with DNS for resolving hostnames. 
 
-# IP Conflict
+# IP Conflict Info
 
 ## Netbird and Tailscale
 
@@ -187,12 +207,11 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 * Tailscale Sharing
   * [Share your machines with other users](https://tailscale.com/kb/1084/sharing)
 
-* Tailscale Serve
+* Tailscale Serve & Funnel
   * [Tailscale Serve](https://tailscale.com/kb/1312/serve)
-
-* Tailscale Funnel
   * [Tailscale Funnel](https://tailscale.com/kb/1223/funnel)
   * [tailscale funnel command](https://tailscale.com/kb/1311/tailscale-funnel)
+  * [Reintroducing Serve and Funnel: even simpler sharing with your tailnet (or the world!)](https://tailscale.com/blog/reintroducing-serve-funnel)
 
 * Tailscale Taildrop
   * [Taildrop](https://tailscale.com/kb/1106/taildrop)
@@ -219,8 +238,13 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 * Tailscale Bandwidth Limit
   * [does Tailscale have a data transfer limit? thx](https://www.reddit.com/r/Tailscale/comments/qa693j/does_tailscale_have_a_data_transfer_limit_thx/)
 
-* TailScale & Netbird
+* Tailscale & Other VPN Conflict
   * [How to avoid IP conflict with tailscale? #544](https://github.com/netbirdio/netbird/issues/544)
+  * [Running tailscale and many other vpns together conflict #8401](https://github.com/tailscale/tailscale/issues/8401)
+  * [Can I use Tailscale alongside other VPNs?](https://tailscale.com/kb/1105/other-vpns)
+
+* Tailscale Custom IP
+  * [Choose your own IP](https://tailscale.com/blog/choose-your-ip)
 
 ## YouTube Tutorials
 

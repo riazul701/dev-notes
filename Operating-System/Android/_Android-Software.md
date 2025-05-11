@@ -67,9 +67,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Programming (Selected)
 
+* [termux.dev](https://termux.dev/en/) || [Termux BY Fredrik Fornwall](https://play.google.com/store/apps/details?id=com.termux)
 * [Termius => SSH and SFTP client BY Termius Corporation](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client)
 * [SSH/SFTP Server => Terminal BY Banana Studio](https://play.google.com/store/apps/details?id=net.xnano.android.sshserver)
-* [Termux BY Fredrik Fornwall](https://play.google.com/store/apps/details?id=com.termux)
 * [QuickEdit Text Editor BY Rhythm Software](https://play.google.com/store/apps/details?id=com.rhmsoft.edit)
 * [Online Compiler => Code on Mobi BY Coding and Programming](https://play.google.com/store/apps/details?id=app.compiler)
 * [GitHub BY GitHub](https://play.google.com/store/apps/details?id=com.github.android)
@@ -133,3 +133,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * [Screen Off and Lock BY Katecca](https://play.google.com/store/apps/details?id=com.katecca.screenofflock)
 * [Assistant for Android BY AA Mobile](https://play.google.com/store/apps/details?id=com.androidassistant.free)
+
+## Benchmark/Device-Info (Selected)
+
+* [DevCheck Device & System Info BY flar2](https://play.google.com/store/apps/details?id=flar2.devcheck)
+* [antutu.com](https://www.antutu.com/en/index.htm)

@@ -170,6 +170,8 @@ If you've modified GRUB and automatic updates are interfering:
 
 **Google Search "change grubenv file location" => AI Overview**
 
+**Comment: Does not work, only read from `/boot/grub2/grubenv` file**
+
 To change the location of the `grubenv` file, you need to modify the `00_header` script in `/etc/grub.d`. Specifically, you'll adjust the `GRUBENV` variable and the `load_env` and `save_env` commands within that script. After making these changes, you'll need to update GRUB's configuration.
 
 Here's a step-by-step guide:
