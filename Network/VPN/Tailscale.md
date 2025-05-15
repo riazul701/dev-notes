@@ -8,9 +8,40 @@
 
 ## Notes
 
+* Tailscale and NetBird VPN does not work simultaneously, both are WireGuard based.
+
+* Tailscale is Mesh / Overlay VPN and WireGuard based.
+
 * In Tailscale, computer (Fedora-OS) becomes available without login and SSH works perfectly. SFTP and RustDesk work after login.
-* Tailscale is Mesh VPN / Overlay VPN.
+
+## OpenVPN and Tailscale
+
+* When openvpn is connected, then tailscale connection is lost.
+
+* When openvpn is disconnected, then tailscale connection is restored after some time.
+
+## Tailscale Exit Node
+
+* Only device to device (inside tailscale network - tailnet) traffic uses tailscale server. Internet traffic does not use tailscale server. If "exit node" is configured, then internet traffic goes through that device.
+
+* Exit nodes are when you want to force ALL traffic through tailscale <sup>{20}</sup>
+
 * "exit node" option may solve internet connectivity problems. <sup>{6}</sup>
+
+## Enable Ping On Windows-OS
+
+**[Create a Network](https://docs.zerotier.com/start/) <sup>{18}</sup>**
+
+* Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. You can enable ping.
+
+* How to enable ping on Windows
+  * Search for Windows Firewall in the Start Menu, and click to open it.
+  * Click Advanced Settings on the left.
+  * From the left pane of the resulting window, click Inbound Rules.
+  * In the right pane, find the rules titled File and Printer Sharing (Echo Request - ICMPv4-In).
+  * Right-click each rule and choose Enable Rule.
+
+* Here is a [tutorial by Microsoft](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-an-inbound-icmp-rule)
 
 # Installation
 
@@ -21,10 +52,15 @@
 * `curl -fsSL https://tailscale.com/install.sh | sh` : Install Tailscale for Linux
 
 * `sudo tailscale up` : Connect your machine to your Tailscale network and authenticate in your browser
+  * Open printed URL in web browser (In Any Machine)
 
-* `tailscale ip -4` : You can find your Tailscale IPv4 address by running
+* `tailscale ip -4` : You can find your Tailscale IPv4 address by running this
 
 * `ifconfig` : Check tailscale IPv4 address.
+
+* `ping {{another-tailscale-machine-ip-address}}` : Test connection
+
+* `tailscale --version` : Check tailscale version
 
 # Xampp Local Network Access
 
@@ -183,7 +219,7 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 
 # References
 
-* next-sl: {18}
+* next-sl: {21}
 
 ## Websites
 
@@ -191,9 +227,11 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 * {2} [tailscale/tailscale GitHub](https://github.com/tailscale/tailscale)
 
 * Tailscale Alternative
+  * {19} [headscale.net => Self-hosted](https://headscale.net/stable/) || [juanfont/headscale GitHub](https://github.com/juanfont/headscale)
   * {9} [netbird.io](https://netbird.io/) || [netbirdio/netbird GitHub](https://github.com/netbirdio/netbird)
   * {11} [zerotier.com](https://www.zerotier.com/) || [zerotier/ZeroTierOne GitHub](https://github.com/zerotier/ZeroTierOne)
   * {10} [netmaker.io => Only Self-hosted is Free](https://www.netmaker.io/) || [gravitl/netmaker GitHub](https://github.com/gravitl/netmaker)
+  * [twingate.com => Closed Source](https://www.twingate.com/)
 
 ## Tutorials
 
@@ -202,7 +240,13 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 
 * Tailscale General
   * {3} [How Tailscale works](https://tailscale.com/blog/how-tailscale-works)
+  
+* Tailscale Custom IP
   * [IP pool](https://tailscale.com/kb/1304/ip-pool)
+  * [Choose your own IP](https://tailscale.com/blog/choose-your-ip)
+
+* Tailscale Exit Node
+  * {20} [What is an exit node and do I need one?](https://www.reddit.com/r/Tailscale/comments/1bszpqg/what_is_an_exit_node_and_do_i_need_one/)
 
 * Tailscale Sharing
   * [Share your machines with other users](https://tailscale.com/kb/1084/sharing)
@@ -226,6 +270,9 @@ By carefully configuring both services to use non-conflicting IP address ranges,
   * {15} [How to enable firewalld logging for denied packets on Linux](https://www.cyberciti.biz/faq/enable-firewalld-logging-for-denied-packets-on-linux/)
   * {16} [How to set up a firewall using FirewallD on RHEL 8](https://www.cyberciti.biz/faq/configure-set-up-a-firewall-using-firewalld-on-rhel-8/)
 
+* Windows-OS
+  * {18} [Create a Network](https://docs.zerotier.com/start/)
+
 * Camera
   * [Building a Remote CCTV System with TailScale](https://medium.com/@sampsa.riikonen/building-a-remote-cctv-system-with-tailscale-7532e8744e3f)
 
@@ -243,14 +290,10 @@ By carefully configuring both services to use non-conflicting IP address ranges,
   * [Running tailscale and many other vpns together conflict #8401](https://github.com/tailscale/tailscale/issues/8401)
   * [Can I use Tailscale alongside other VPNs?](https://tailscale.com/kb/1105/other-vpns)
 
-* Tailscale Custom IP
-  * [Choose your own IP](https://tailscale.com/blog/choose-your-ip)
-
 ## YouTube Tutorials
 
 * {8} [How to Use Tailscale: Step-by-Step Setup Guide for Beginners BY Learn Linux TV](https://www.youtube.com/watch?v=tW50igaFZTQ)
 * {17} [Tailscale Exit Node - Setup and Configuration BY Mike Faucher](https://www.youtube.com/watch?v=HFTqo_ts0iw)
 
-* ZeroTier
-  * [Networking with ZeroTier: Creating software-defined networks with Ease BY Learn Linux TV](https://www.youtube.com/watch?v=9GTXN0opsdw)
-  * [Use ZeroTier with Blue Iris - view your cameras remotely and securely! BY Learn Blue Iris](https://www.youtube.com/watch?v=w9rC8HN2Umc)
+* Twingate
+  * [DITCH your VPN! - How I Access my Home Server from ANYWHERE BY TechHut](https://www.youtube.com/watch?v=yaw2A3DG664)

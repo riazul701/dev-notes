@@ -8,7 +8,24 @@
 
 ## Notes
 
-* NetBird is Mesh VPN / Overlay VPN.
+* Tailscale and NetBird VPN does not work simultaneously, both are WireGuard based.
+
+* NetBird is Mesh / Overlay VPN and WireGuard Based.
+
+## Enable Ping On Windows-OS
+
+**[Create a Network](https://docs.zerotier.com/start/) <sup>{4}</sup>**
+
+* Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. You can enable ping.
+
+* How to enable ping on Windows
+  * Search for Windows Firewall in the Start Menu, and click to open it.
+  * Click Advanced Settings on the left.
+  * From the left pane of the resulting window, click Inbound Rules.
+  * In the right pane, find the rules titled File and Printer Sharing (Echo Request - ICMPv4-In).
+  * Right-click each rule and choose Enable Rule.
+
+* Here is a [tutorial by Microsoft](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-an-inbound-icmp-rule)
 
 # Installation
 
@@ -16,7 +33,8 @@
 
 **[NetBird Installation](https://docs.netbird.io/how-to/installation) <sup>{3}</sup>**
 
-* `curl -fsSL https://pkgs.netbird.io/install.sh | sh` command does not install `netbird` command in fedora-42, it just add netbird repository to fedora-42. After it, execute `sudo dnf install netbird` command. <sup>{3}</sup>
+* `curl -fsSL https://pkgs.netbird.io/install.sh | sh` : This command does not install `netbird` command in fedora-42, it just add netbird repository to fedora-42. <sup>{3}</sup>
+  * `sudo dnf install netbird` : After adding repository, install netbird. <sup>{3}</sup>
 
 * If `netbird up` command shows error "Unable to Connect https://localhost:53000", then try `netbird login` command.
   * Keep `netbird up` command running in one terminal window/tab and also web-browser window.
@@ -24,6 +42,10 @@
   * Then execute command `netbird up`. This will connect current machine/node to server.
 
 * `ifconfig` : Check netbird IPv4 address.
+
+* `ping {{another-netbird-machine-ip-address}}` : Test connection
+
+* `netbird version` : Check netbird version
 
 # Information
 
@@ -55,7 +77,7 @@ You can manage access to resources within your network by creating access contro
 
 # References
 
-* next-sl: {4}
+* next-sl: {5}
 
 ## Websites
 
@@ -66,6 +88,10 @@ You can manage access to resources within your network by creating access contro
 
 * Installation
   * {3} [Netbird Installation](https://docs.netbird.io/how-to/installation)
+  * [Quickstart Guide](https://docs.netbird.io/how-to/getting-started)
+
+* Windows-OS
+  * {4} [Create a Network](https://docs.zerotier.com/start/)
 
 ## Guides
 
