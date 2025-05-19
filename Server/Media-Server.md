@@ -1,24 +1,5 @@
 # Server/Media-Server.md
 
-## Guides
-
-* [Duck DNS](https://www.duckdns.org/)
-* [NoIP Free](https://www.noip.com/free)
-* [ProFTPD WikiPedia](https://en.wikipedia.org/wiki/ProFTPD)
-* [Cannot install gproftpd - Ubuntu Forum](https://ubuntuforums.org/showthread.php?t=1416567)
-* [How to Setup vsftpd FTP Server on Debian 10?](https://linuxhint.com/setup-vsftpd-ftp-server-on-debian10/)
-* [GproFTPd](https://directory.fsf.org/wiki/GproFTPd)
-* [Everything You Need to Troubleshoot, Diagnose, and Fix Port Forwarding Issues.](https://portforward.com/)
-* YouTube
-  * [Connect to your PC using dynamic IP ! Free, Anywhere](https://www.youtube.com/watch?v=3GxBkegfofI)
-  * [Access Your Computer's Files From Anywhere In The World](https://www.youtube.com/watch?v=SnLkrwMMxGA)
-  * [Port Forwarding Kya Hota Hai ? | What is Port Forwarding & Use Of NoIP](https://www.youtube.com/watch?v=cU7tiU77Xrk)
-  * [Noip Website ko kaise use kare | How to use noip website | Dynamic DNS Practical](https://www.youtube.com/watch?v=qU8K8bzVgOM)
-  * [Port Forwarding ! How to Access Your PC Files From Anywhere In The World ? FTP Server Windows 10](https://www.youtube.com/watch?v=Mv15PBZgIcY)
-  * [How to Download and Configure the No-IP Dynamic Update Client on Linux](https://www.youtube.com/watch?v=8xp4kkbsZi0)
-  * [How to Setup an FTP Server on Windows 10](https://www.youtube.com/watch?v=ke3tnd73aUI)
-  * [Filezilla FTP Server Setup for Windows](https://www.youtube.com/watch?v=HKJVWWFkZ_0)
-
 # Antix-OS Setup
 
 * FileZilla Server
@@ -98,4 +79,53 @@
   * [Ping Test](https://ping.eu/)
   * [PortCheckTool.com - Port Check and IP detection Tool](https://www.portchecktool.com/)
   * [CanYouSeeMe.org](https://canyouseeme.org/)
-  * 
+
+# References
+
+## Websites
+
+* [homarr.dev => Dashboard for your server](https://homarr.dev/) || [homarr-labs/homarr GitHub](https://github.com/homarr-labs/homarr)
+* [Ravencentric/awesome-arr GitHub](https://github.com/Ravencentric/awesome-arr)
+
+* Media Downloader
+  * [wiki.servarr.com => Consolidated wiki for Lidarr, Prowlarr, Radarr, Readarr, and Sonarr](https://wiki.servarr.com/)
+  * [lidarr.audio => Music collection manager](https://lidarr.audio/) || [Lidarr/Lidarr](https://github.com/Lidarr/Lidarr)
+  * [radarr.video => Movie collection manager](https://radarr.video/) || [Radarr/Radarr GitHub](https://github.com/Radarr/Radarr)
+  * [readarr.com => Ebook collection manager](https://readarr.com/) || [Readarr/Readarr GitHub](https://github.com/Readarr/Readarr)
+  * [sonarr.tv => Smart PVR for newsgroup and bittorrent users](https://sonarr.tv/) || [Sonarr/Sonarr GitHub](https://github.com/Sonarr/Sonarr)
+  * [prowlarr.com => Indexer manager/proxy built on the popular arr](https://prowlarr.com/) || [Prowlarr/Prowlarr GitHub](https://github.com/Prowlarr/Prowlarr)
+  * [home.tdarr.io](https://home.tdarr.io/)
+  * [lunasea.app => Self-hosted software controller](https://www.lunasea.app/) || [jagandeepbrar/lunasea GitHub](https://github.com/JagandeepBrar/LunaSea)
+
+## Guides
+
+* Others
+  * [Duck DNS](https://www.duckdns.org/)
+  * [NoIP Free](https://www.noip.com/free)
+  * [ProFTPD WikiPedia](https://en.wikipedia.org/wiki/ProFTPD)
+  * [Cannot install gproftpd - Ubuntu Forum](https://ubuntuforums.org/showthread.php?t=1416567)
+  * [How to Setup vsftpd FTP Server on Debian 10?](https://linuxhint.com/setup-vsftpd-ftp-server-on-debian10/)
+  * [GproFTPd](https://directory.fsf.org/wiki/GproFTPd)
+  * [Everything You Need to Troubleshoot, Diagnose, and Fix Port Forwarding Issues.](https://portforward.com/)
+
+## YouTube Tutorials
+
+* General
+  * [What's on my Home Server?? MUST HAVE Services! BY TechHut](https://www.youtube.com/watch?v=yUyxJr2xboI)
+
+* FTP Server
+  * [How to Setup an FTP Server on Windows 10 BY ProgrammingKnowledge](https://www.youtube.com/watch?v=ke3tnd73aUI)
+  * [Filezilla FTP Server Setup for Windows BY Codingram](https://www.youtube.com/watch?v=HKJVWWFkZ_0)
+
+* Media Download
+  * [Setup Guide The Arrs Apps Prowlarr Sonarr Radarr Lidarr Readarr On Windows On Dockge On Docker BY KL Tech Videos](https://www.youtube.com/watch?v=3k_MwE0Z3CE)
+  * [Prowlarr Media Search BY LoRes DIY](https://www.youtube.com/watch?v=kolBmw6X_xM)
+  * [Find that music with Lidarr BY LoRes DIY](https://www.youtube.com/watch?v=azCIZzUriEU)
+
+* Port Forwarding
+  * [Connect to your PC using dynamic IP ! Free, Anywhere BY NETVN82](https://www.youtube.com/watch?v=3GxBkegfofI)
+  * [Access Your Computer's Files From Anywhere In The World BY TechWiser](https://www.youtube.com/watch?v=SnLkrwMMxGA)
+  * [Port Forwarding Kya Hota Hai ? | What is Port Forwarding & Use Of NoIP BY Technical Sagar](https://www.youtube.com/watch?v=cU7tiU77Xrk)
+  * [Noip Website ko kaise use kare | How to use noip website | Dynamic DNS Practical BY Technical Sagar](https://www.youtube.com/watch?v=qU8K8bzVgOM)
+  * [Port Forwarding ! How to Access Your PC Files From Anywhere In The World ? FTP Server Windows 10 BY Sarcastic Sindhi](https://www.youtube.com/watch?v=Mv15PBZgIcY)
+  * [How to Download and Configure the No-IP Dynamic Update Client on Linux BY No-IP](https://www.youtube.com/watch?v=8xp4kkbsZi0)

@@ -52,18 +52,6 @@ exit
 
 # Docker/Docker.md
 
-## Websites
-
-* [labs.play-with-docker.com](https://labs.play-with-docker.com/)
-* [Docker Samples => Official Docker Samples](https://github.com/dockersamples)
-* [dockersamples/example-voting-app](https://github.com/dockersamples/example-voting-app)
-* [Docker Samples => Docker Hub](https://hub.docker.com/u/dockersamples)
-* [dockersamples/docker-swarm-visualizer](https://github.com/dockersamples/docker-swarm-visualizer)
-
-* [Docker Kubernetes MasterClass: DevOps from Scratch - 2024](https://www.udemy.com/course/kubernetes-online-training/?couponCode=ST15MT100124B)
-  * [anshulc55/Kubernetes_Devops](https://github.com/anshulc55/Kubernetes_Devops)
-  * [anshuldevops => Docker Hub](https://hub.docker.com/u/anshuldevops)
-
 ## Notes
 
 * Switch to "root" user inside container: `su -`
@@ -127,6 +115,24 @@ exit
 * [Docker on WSL2 very slow](https://stackoverflow.com/questions/62154016/docker-on-wsl2-very-slow)
 
 # References
+
+## Websites
+
+* [docker.com](https://www.docker.com/)
+* [hub.docker.com](https://hub.docker.com/)
+
+* [labs.play-with-docker.com](https://labs.play-with-docker.com/)
+* [Docker Samples => Official Docker Samples](https://github.com/dockersamples)
+* [dockersamples/example-voting-app](https://github.com/dockersamples/example-voting-app)
+* [Docker Samples => Docker Hub](https://hub.docker.com/u/dockersamples)
+* [dockersamples/docker-swarm-visualizer](https://github.com/dockersamples/docker-swarm-visualizer)
+
+* [Docker Kubernetes MasterClass: DevOps from Scratch - 2024](https://www.udemy.com/course/kubernetes-online-training/?couponCode=ST15MT100124B)
+  * [anshulc55/Kubernetes_Devops](https://github.com/anshulc55/Kubernetes_Devops)
+  * [anshuldevops => Docker Hub](https://hub.docker.com/u/anshuldevops)
+
+* Docker Clients
+  * [dockge.kuma.pet](https://dockge.kuma.pet/) || [louislam/dockge GitHub](https://github.com/louislam/dockge)
 
 ## Tutorials
 

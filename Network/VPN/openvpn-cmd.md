@@ -26,7 +26,7 @@
 * {2} [OpenVPN/openvpn](https://github.com/OpenVPN/openvpn)
 
 * OperVPN Servers
-  * [vpnbook.com](https://www.vpnbook.com/)
+  * [vpnbook.com => Works perfectly without opening account](https://www.vpnbook.com/)
   * [protonvpn.com](https://protonvpn.com/)
   * [VPN Jantit](https://www.vpnjantit.com/free-openvpn)
   * [ipspeed.info/freevpn_openvpn](https://ipspeed.info/freevpn_openvpn.php?language=en)

@@ -4,6 +4,12 @@
 
 * `tailscale --help`
 
+* `ip a` OR `ifconfig` : Check IP address in Linux-OS
+
+* `ipconfig` : Check IP address in Windows-OS PowerShell
+
+* `tailscale logout` : Disconnect tailscale from current account
+
 # Tailscale.md
 
 ## Notes

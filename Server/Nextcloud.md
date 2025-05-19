@@ -1,9 +1,4 @@
-# Server/Nextcloud.md
-
-## Tutorials
-* [Build an Awesome Nextcloud Server (Updated for Ubuntu 22.04!) BY Learn Linux TV](https://www.youtube.com/watch?v=5IUKE3oA7AY)
-* [WebDAV - Rclone Nextcloud](https://rclone.org/webdav/)
-* [Let's use Rclone to connect to your Nextcloud to serve as a Backup option](https://www.youtube.com/watch?v=RIWF3WK4dD8)
+# Nextcloud.md
 
 # Installation
 
@@ -106,3 +101,22 @@
   * Port: 80 [http]
   * Username: <Nextcloud login username>
   * Password: <Nextcloud login password>
+
+# References
+
+## Websites
+
+* [nextcloud-snap/nextcloud-snap GitHub](https://github.com/nextcloud-snap/nextcloud-snap)
+* [nextcloud/all-in-one GitHub](https://github.com/nextcloud/all-in-one)
+  * [How to Install the Nextcloud All-in-One on Linux](https://nextcloud.com/blog/how-to-install-the-nextcloud-all-in-one-on-linux/)
+* [nextcloud/vm](https://github.com/nextcloud/vm)
+
+## Tutorials
+
+* [WebDAV - Rclone Nextcloud](https://rclone.org/webdav/)
+
+## YouTube Tutorials
+
+* [How to Set Up Nextcloud on Ubuntu 24.04 LTS BY Learn Linux TV](https://www.youtube.com/watch?v=fpr37FJSgrw)
+* [Let's use Rclone to connect to your Nextcloud to serve as a Backup option](https://www.youtube.com/watch?v=RIWF3WK4dD8)
+* [16 of the BEST NextCloud apps to replace Google and Apple services BY The Linux Experiment](https://www.youtube.com/watch?v=MlLrcpXBB_A)
