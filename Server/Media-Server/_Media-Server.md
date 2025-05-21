@@ -84,6 +84,10 @@
 
 ## Websites
 
+* [linuxserver.io](https://www.linuxserver.io/)
+  * [linuxserver.io Docker Hub](https://hub.docker.com/u/linuxserver)
+* [qbittorrent.org](https://www.qbittorrent.org/)
+
 * [homarr.dev => Dashboard for your server](https://homarr.dev/) || [homarr-labs/homarr GitHub](https://github.com/homarr-labs/homarr)
 * [Ravencentric/awesome-arr GitHub](https://github.com/Ravencentric/awesome-arr)
 
@@ -96,6 +100,11 @@
   * [prowlarr.com => Indexer manager/proxy built on the popular arr](https://prowlarr.com/) || [Prowlarr/Prowlarr GitHub](https://github.com/Prowlarr/Prowlarr)
   * [home.tdarr.io](https://home.tdarr.io/)
   * [lunasea.app => Self-hosted software controller](https://www.lunasea.app/) || [jagandeepbrar/lunasea GitHub](https://github.com/JagandeepBrar/LunaSea)
+
+## Tutorials
+
+* Media Downloader
+  * [Sonarr, Radares, Lidarr, Prowlarr](https://www.reddit.com/r/Fedora/comments/rm0rcp/sonarr_radares_lidarr_prowlarr/)
 
 ## Guides
 
