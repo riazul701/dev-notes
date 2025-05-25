@@ -84,22 +84,28 @@
 
 ## Websites
 
+* Media Server
+  * [jellyfin.org](https://jellyfin.org/) || [jellyfin/jellyfin GitHub](https://github.com/jellyfin/jellyfin)
+  * [plex.tv](https://www.plex.tv/)
+  * [emby.media](https://emby.media/)
+
 * [linuxserver.io](https://www.linuxserver.io/)
   * [linuxserver.io Docker Hub](https://hub.docker.com/u/linuxserver)
 * [qbittorrent.org](https://www.qbittorrent.org/)
 
-* [homarr.dev => Dashboard for your server](https://homarr.dev/) || [homarr-labs/homarr GitHub](https://github.com/homarr-labs/homarr)
 * [Ravencentric/awesome-arr GitHub](https://github.com/Ravencentric/awesome-arr)
+* [homarr.dev => Dashboard for your server](https://homarr.dev/) || [homarr-labs/homarr GitHub](https://github.com/homarr-labs/homarr)
 
 * Media Downloader
   * [wiki.servarr.com => Consolidated wiki for Lidarr, Prowlarr, Radarr, Readarr, and Sonarr](https://wiki.servarr.com/)
+  * [prowlarr.com => Indexer manager/proxy built on the popular arr](https://prowlarr.com/) || [Prowlarr/Prowlarr GitHub](https://github.com/Prowlarr/Prowlarr)
+    * [flaresolverr.com](https://flaresolverr.com/) || [FlareSolverr/FlareSolverr GitHub](https://github.com/FlareSolverr/FlareSolverr)
   * [lidarr.audio => Music collection manager](https://lidarr.audio/) || [Lidarr/Lidarr](https://github.com/Lidarr/Lidarr)
   * [radarr.video => Movie collection manager](https://radarr.video/) || [Radarr/Radarr GitHub](https://github.com/Radarr/Radarr)
   * [readarr.com => Ebook collection manager](https://readarr.com/) || [Readarr/Readarr GitHub](https://github.com/Readarr/Readarr)
   * [sonarr.tv => Smart PVR for newsgroup and bittorrent users](https://sonarr.tv/) || [Sonarr/Sonarr GitHub](https://github.com/Sonarr/Sonarr)
-  * [prowlarr.com => Indexer manager/proxy built on the popular arr](https://prowlarr.com/) || [Prowlarr/Prowlarr GitHub](https://github.com/Prowlarr/Prowlarr)
-  * [home.tdarr.io](https://home.tdarr.io/)
   * [lunasea.app => Self-hosted software controller](https://www.lunasea.app/) || [jagandeepbrar/lunasea GitHub](https://github.com/JagandeepBrar/LunaSea)
+  * [home.tdarr.io](https://home.tdarr.io/)
 
 ## Tutorials
 

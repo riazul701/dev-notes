@@ -1,10 +1,14 @@
 # Commands/Usage
 
-## Linux Commands
+* `sudo su`
 
-* sudo su
-* sudo service docker start
-* sudo service docker stop
+* `systemctl status docker` : Check `docker` service is running or not
+
+* `sudo systemctl enable docker` : Auto-Start `docker` service, during computer starts
+
+* `sudo service docker start` : On Antix linux
+
+* `sudo service docker stop` : On Antix linux
 
 ## General Commands
 
