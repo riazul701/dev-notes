@@ -14,6 +14,9 @@
 
 * For LXQt desktop environment, display manager is `/var/lib/sddm` <sup>{8} {20}</sup>
 
+* For LXDE desktop environment, display manager is `/var/lib/lxdm` <sup>{75} {76}</sup>
+  * Autologin : To log in to one account automatically on startup, without providing a password, find the line in `/etc/lxdm/lxdm.conf` that looks like this: `#autologin=dgod`. Uncomment it, substituting the target user instead of `dgod`. <sup>{76}</sup>
+
 * The filesystem root always has the subvolume name / and the subvolume ID 5. That is right, even the root of a Btrfs filesystem is technically a subvolume. This is just implicitly known, hence it doesn’t show up in the output of btrfs subvolume list. If you mount a Btrfs filesystem without the subvol or subvolid argument, the root subvolume with subvolid=5 is assumed as default. <sup>{35}</sup>
 
 * If you find it confusing to tell which directories are plain directories and which are subvolumes, you can feel free to adopt a special naming convention for your subvolumes. For example, you could prefix your subvolume names with an “@” to make them easily distinguishable. <sup>{35}</sup>
@@ -34,7 +37,7 @@
 
 # References
 
-* next-sl: {73}
+* next-sl: {77}
 
 ## Websites
 
@@ -81,6 +84,7 @@
   * {3} [How to create snapshots on Linux => Btrfs vs LVM with commands](https://linuxconfig.org/how-to-create-snapshots-on-linux)
 
 * Fedora: Install/Snapshot
+  * {74} [How to Install Fedora 42 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-42-with-snapshot-and-rollback-support) <sup>{73}</sup>
   * {8} [How to Install Fedora 41 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-41-with-snapshot-and-rollback-support) <sup>{7}</sup>
   * {10} [How to Install Fedora 41 with Full Disk Encryption, Snapshot, and Rollback Support](https://sysguides.com/install-fedora-41-with-full-disk-encryption-snapshot-and-rollback-support) <sup>{9}</sup>
   * {38} [How to Install Fedora 40 with Snapshot and Rollback Support => Similarity with {8}, plus Snapper test](https://sysguides.com/install-fedora-with-snapshot-and-rollback-support) <sup>{8} {16}</sup>
@@ -100,6 +104,8 @@
 * Others
   * {43} [Desktop environment => ArchLinux Wiki](https://wiki.archlinux.org/title/Desktop_environment) <sup>{8}</sup>
   * {20} [LXQt => ArchLinux Wiki](https://wiki.archlinux.org/title/LXQt)
+  * {75} [LXDE => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDE)
+  * {76} [LXDM => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDM)
 
 * Resize Btrfs Filesystem
   * {44} [How add more space in a Btrfs Filesystem, How add a new partition, How add a new disk, Linux](https://discussion.fedoraproject.org/t/how-add-more-space-in-a-btrfs-filesystem-how-add-a-new-partition-how-add-a-new-disk-linux/67595)
@@ -152,6 +158,7 @@
   * {69} [Mastering BTRFS: Install, Setup, Subvolumes, Snapshots, Replication and more BY DJ Ware](https://www.youtube.com/watch?v=71AnM15TDYw)
 
 * Fedora: Install/Snapshot
+  * {73} [How to Install Fedora 42 with Btrfs Snapshots and Rollback Support (Step-by-Step Guide) BY SysGuides](https://www.youtube.com/watch?v=iSyDgIuBDWU)
   * {7} [How to Install Fedora 41 with Snapshot and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LwM3wUXJyU8)
   * {9} [How to Install Fedora 41 with Full Disk Encryption, Snapshot, and Rollback Support BY SysGuides](https://www.youtube.com/watch?v=LT8gDWEaG4o)
   * {16} [Fedora Snapper Tests: Create, Delete, Compare, Revert, and Rollback Snapshots BY SysGuides](https://www.youtube.com/watch?v=hlAgYA4mVvs)

@@ -4,13 +4,24 @@
 
 * Use Motherboard BIOS Restore AC Power Loss function and Sonoff Wifi Smart Plug to remotely turn on PC. <sup>{1} {2} {3}</sup>
 
+# Auto Login OS
+
+## Linux
+
+* For LXDE desktop environment, display manager is `/var/lib/lxdm` <sup>{4} {5}</sup>
+  * Autologin : To log in to one account automatically on startup, without providing a password, find the line in `/etc/lxdm/lxdm.conf` that looks like this: `#autologin=dgod`. Uncomment it, substituting the target user instead of `dgod`. <sup>{5}</sup>
+
 # References
 
-* next-sl: {4}
+* next-sl: {6}
 
 ## Tutorials
 
 * {1} [[Motherboard]BIOS item-Restore AC Power Loss function => ASUS Desktop and Laptop](https://www.asus.com/support/faq/1049855/)
+
+* Linux Desktop Environment
+  * {4} [LXDE => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDE)
+  * {5} [LXDM => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDM)
 
 ## YouTube Tutorials
 
