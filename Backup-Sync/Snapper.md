@@ -108,6 +108,9 @@ $ snapper -c home delete 1-2
 * SystemD Timer
   * [How to schedule tasks with systemd timers in Linux](https://linuxconfig.org/how-to-schedule-tasks-with-systemd-timers-in-linux)
 
+* Comparison
+  * [Btrfs-Assistant & Snapper vs Timeshift](https://forum.endeavouros.com/t/btrfs-assistant-snapper-vs-timeshift/40207)
+
 ## YouTube Tutorials
 
 * Fedora: Install/Snapshot

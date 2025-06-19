@@ -128,12 +128,12 @@
 * Instructions
   * `xgamma` does not work well for artificial brightness control
   * `xrandr` : Use this command to get "display" name
-  * `xrandr --output {{display-name}} --brightness {{value}}` : Use this command to set brightness. "value" can be: ".1" to ".9" and "1" means normal hardware brightness.
-  * Add `alias` to `~/.bashrc` file for keyboad shortcuts
-    * `alias b7='xrandr --output {{display-name}} --brightness .7'` [Make 9 copies of this command from value ".1" to ".9" and named "b1" to "b9"]
-    * `alias bn='xrandr --output {{display-name}} --brightness 1'`
+  * `xrandr --output {{display-name}} --brightness {{value}}` : Use this command to set brightness. "value" can be: ".1" to ".9" and "1" means maximum/normal hardware brightness and "0" means complete dark.
+  * Add `alias` to `~/.bashrc` file to execute as command
+    * `alias b7='xrandr --output {{display-name}} --brightness .7'` : Make 7 copies of this command from value ".3" to ".9" and named "b3" to "b9". ".1" and ".2" values are too low brightness.
+    * `alias bn='xrandr --output {{display-name}} --brightness 1'` : Maximum/normal brightness
     * `source ~/.bashrc` : Reload "~/.bashrc" file
-  * `b7` : Open terminal and enter this command to change brightness.
+  * `b7` : Open terminal and enter this command to change brightness. Also "b3" to "b9".
 
 * Note: After computer restart, brightness is resetted to normal hardware brightness. To change normal hardware brightness, use DDC/CI (Display Data Channel / Command Interface) based command/software.
 

@@ -9,6 +9,8 @@
 
 * {38} [How to Install Fedora 40 with Snapshot and Rollback Support => Similarity with {8}, plus Snapper test](https://sysguides.com/install-fedora-with-snapshot-and-rollback-support) <sup>{8} {16}</sup>
 
+* {8} [How to Install Fedora 41 with Snapshot and Rollback Support](https://sysguides.com/install-fedora-41-with-snapshot-and-rollback-support) <sup>{7}</sup>
+
 # References
 
 ## Tutorials
@@ -19,6 +21,9 @@
   * {10} [How to Install Fedora 41 with Full Disk Encryption, Snapshot, and Rollback Support](https://sysguides.com/install-fedora-41-with-full-disk-encryption-snapshot-and-rollback-support) <sup>{9}</sup>
   * {38} [How to Install Fedora 40 with Snapshot and Rollback Support => Similarity with {8}, plus Snapper test](https://sysguides.com/install-fedora-with-snapshot-and-rollback-support) <sup>{8} {16}</sup>
   * {39} [How to Install Fedora 40 with LUKS Full Disk Encryption, Snapshot, and Rollback Support => Similarity with {10}, plus Snapper test](https://sysguides.com/install-fedora-with-luks-fde-snapshot-rollback-support) <sup>{10} {16}</sup>
+
+* Comparison
+  * [Btrfs-Assistant & Snapper vs Timeshift](https://forum.endeavouros.com/t/btrfs-assistant-snapper-vs-timeshift/40207)
 
 * Others
   * {43} [Desktop environment => ArchLinux Wiki](https://wiki.archlinux.org/title/Desktop_environment) <sup>{8}</sup>

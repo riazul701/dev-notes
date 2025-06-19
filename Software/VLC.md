@@ -24,6 +24,10 @@
   * Long backwards jump => Ctrl+Alt+Left
   * Long forward jump => Ctrl+Alt+Right
 
+## Advance Buffering/Caching
+
+* [Video player that lets you set buffer size ?](https://xdaforums.com/t/video-player-that-lets-you-set-buffer-size.4567139/)
+
 # Contents of VLC.md
 
 ## Websites
