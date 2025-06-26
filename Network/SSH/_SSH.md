@@ -5,10 +5,16 @@
 
 * SSH Server (Debian-OS with Systemd)
   * `sudo apt install ssh` : Install OpenSSH, if not present
-  * `systemctl status sshd` : Check ssh service is running or not
-  * `systemctl start sshd` : Start ssh service
-  * `systemctl stop sshd` : Stop ssh service
-  * `systemctl restart sshd` : Restart ssh service (For configuration reload)
+  * `systemctl status sshd` : Check ssh service is running or not <sup>{45}</sup>
+  * `sudo systemctl start sshd` : Start ssh service <sup>{45}</sup>
+  * `sudo systemctl stop sshd` : Stop ssh service <sup>{45}</sup>
+  * `sudo systemctl restart sshd` : Restart ssh service (For configuration reload) <sup>{45}</sup>
+  * `sudo systemctl reload sshd` (as root) : Reload sshd and its configuration <sup>{45}</sup>
+  * `systemctl is-enabled sshd` : Check whether ssh is enabled <sup>{45}</sup>
+  * `sudo systemctl enable sshd` (as root) : Enable ssh to start automatically at boot <sup>{45}</sup>
+  * `sudo systemctl enable --now sshd` (as root) : Enable ssh to start automatically at boot and start it immediately <sup>{45}</sup>
+  * `sudo systemctl disable sshd` (as root) : Disable ssh to no longer start at boot <sup>{45}</sup>
+  * `sudo systemctl reenable sshd` (as root) : Reenable sshd (i.e. disable and enable anew) <sup>{45}</sup>
 
 * SSH Server (Antix-OS without Systemd)
   * `ssh localhost` : Check if sshd(openssh) is running
@@ -376,7 +382,7 @@ LogLevel Debug3
 
 # References
 
-* next-sl: {45}
+* next-sl: {46}
 
 ## Tutorials
 
@@ -435,6 +441,9 @@ LogLevel Debug3
   * {40} [How do I specify SSH options for SSHFS?](https://askubuntu.com/questions/975818/how-do-i-specify-ssh-options-for-sshfs)
   * {41} [SSHFS-Win · SSHFS for Windows](https://github.com/winfsp/sshfs-win/blob/master/README.md)
   * {38} [System error 67 when attempting to mount #155](https://github.com/winfsp/sshfs-win/issues/155)
+
+* SystemD
+  * {45} [systemd => Archlinux Wiki](https://wiki.archlinux.org/title/Systemd)
 
 ## Guides
 

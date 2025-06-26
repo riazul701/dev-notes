@@ -172,6 +172,19 @@
 
 # Error and Solution
 
+## "--classic" Package Install Error
+
+**Error_Message_1:**
+
+```
+error: cannot install "chezmoi": classic confinement requires snaps under /snap or symlink from /snap to /var/lib/snapd/snap
+```
+
+**Solution_1:**
+
+* [cannot install "code": classic confinement requires snaps under /snap or symlink from /snap to /var/lib/snapd/snap](https://stackoverflow.com/questions/68565756/cannot-install-code-classic-confinement-requires-snaps-under-snap-or-symlink)
+  * `sudo ln -s /var/lib/snapd/snap /snap` : You must make a symbolic link to get it to work
+
 ## Snap Package Download/Verify Error
 
 * Error_1

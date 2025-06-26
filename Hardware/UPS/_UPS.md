@@ -11,12 +11,15 @@
 
 * next-sl: {5}
 
-* YouTube Tutorials
+## YouTube Tutorials
 
-  * Concept
-    * {1} [ইউপিএস কেনার আগে বিস্তারিত জেনে নিন! UPS Explained in Bangla I UPS Buying Guide 2023 I TechTalk BY Tech Talk](https://www.youtube.com/watch?v=alnfiMjzjqI)
-    * {2} [পিসির জন্য সঠিক UPS এর VA/Watt কিভাবে নির্বাচন করবেন BY TechMania |BD|](https://www.youtube.com/watch?v=6d9pXlPF-qY)
-    * {3} [How to choose BEST Power Supply for PC in 2024. PSU SMPS Buyer's Guide. BY INDIAN GAMER](https://www.youtube.com/watch?v=MaXbA2-EekE)
+* Concept
+  * {1} [ইউপিএস কেনার আগে বিস্তারিত জেনে নিন! UPS Explained in Bangla I UPS Buying Guide 2023 I TechTalk BY Tech Talk](https://www.youtube.com/watch?v=alnfiMjzjqI)
+  * {2} [পিসির জন্য সঠিক UPS এর VA/Watt কিভাবে নির্বাচন করবেন BY TechMania |BD|](https://www.youtube.com/watch?v=6d9pXlPF-qY)
+  * {3} [How to choose BEST Power Supply for PC in 2024. PSU SMPS Buyer's Guide. BY INDIAN GAMER](https://www.youtube.com/watch?v=MaXbA2-EekE)
 
-  * Other Topic
-    * {4} [কোন সাইজের আইপিএস ও ব্যাটারি কিনবেন? কত টাকা খরচ হবে? IPS Inverter Battery Size and Price BY Learning Engineering Bangla](https://www.youtube.com/watch?v=NkeI6hvNifQ)
+* Protection
+  * [How To Protect Your Gaming PC from Voltage Fluctuations & Power Surge? BY GuyThatDoesEverything](https://www.youtube.com/watch?v=qgY6J610Nmw)
+
+* Other Topic
+  * {4} [কোন সাইজের আইপিএস ও ব্যাটারি কিনবেন? কত টাকা খরচ হবে? IPS Inverter Battery Size and Price BY Learning Engineering Bangla](https://www.youtube.com/watch?v=NkeI6hvNifQ)

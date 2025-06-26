@@ -41,14 +41,16 @@
 
 * next-sl: {8}
 
-* YouTube Tutorials
+## YouTube Tutorials
 
-  * Concept
-    * {1} [কম্পিউটার কেনার আগে পাওয়ার সাপ্লাই সম্পর্ক জেনে নিন I Power Supply Buying Guide 2022 BY Tech Talk](https://www.youtube.com/watch?v=_vGRsoGh0m8)
-    * {2} [How to verify that your PSU 80+ is real? | Gold vs Bronze PSU BY The Urbans](https://www.youtube.com/watch?v=pqZ7xDR37ps)
-    * {3} [Power Supply Unit (PSU) কিভাবে Select করবেন BY The SIM Play](https://www.youtube.com/watch?v=Z1nQ1qBzCgc)
-    * {4} [Explaining PC Power Supplies BY ExplainingComputers](https://www.youtube.com/watch?v=NQoLFIuJBGQ)
-    * {5} [Power Supplies Explained BY PowerCert Animated Videos](https://www.youtube.com/watch?v=ZW1wcoERoDU)
-    * {6} [How to choose BEST Power Supply for PC in 2024. PSU SMPS Buyer's Guide. BY INDIAN GAMER](https://www.youtube.com/watch?v=MaXbA2-EekE)
-    * {7} [PSU SCAM INDIA BY INDIAN GAMER](https://www.youtube.com/watch?v=dXlShxSRGPo)
-    
+* Concept
+  * {1} [কম্পিউটার কেনার আগে পাওয়ার সাপ্লাই সম্পর্ক জেনে নিন I Power Supply Buying Guide 2022 BY Tech Talk](https://www.youtube.com/watch?v=_vGRsoGh0m8)
+  * {2} [How to verify that your PSU 80+ is real? | Gold vs Bronze PSU BY The Urbans](https://www.youtube.com/watch?v=pqZ7xDR37ps)
+  * {3} [Power Supply Unit (PSU) কিভাবে Select করবেন BY The SIM Play](https://www.youtube.com/watch?v=Z1nQ1qBzCgc)
+  * {4} [Explaining PC Power Supplies BY ExplainingComputers](https://www.youtube.com/watch?v=NQoLFIuJBGQ)
+  * {5} [Power Supplies Explained BY PowerCert Animated Videos](https://www.youtube.com/watch?v=ZW1wcoERoDU)
+  * {6} [How to choose BEST Power Supply for PC in 2024. PSU SMPS Buyer's Guide. BY INDIAN GAMER](https://www.youtube.com/watch?v=MaXbA2-EekE)
+  * {7} [PSU SCAM INDIA BY INDIAN GAMER](https://www.youtube.com/watch?v=dXlShxSRGPo)
+
+* Protection
+  * [How To Protect Your Gaming PC from Voltage Fluctuations & Power Surge? BY GuyThatDoesEverything](https://www.youtube.com/watch?v=qgY6J610Nmw)

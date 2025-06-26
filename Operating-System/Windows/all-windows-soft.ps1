@@ -17,6 +17,8 @@
 $VerbosePreference = "Continue"
 
 $scoop_office_softwares = @(
+    # main/winget
+
     #-------Font (Start)---------
     "nerd-fonts/Hack-NF" # For Lunarvim, Yazi
     "nerd-fonts/JetBrains-Mono" # For Yasb

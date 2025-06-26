@@ -37,6 +37,9 @@
 * Fedoara Copr
   * {6} [Copr security](https://discussion.fedoraproject.org/t/copr-security/85931)
 
+* Check Package Installed
+  * [How to Check a Particular Package is Installed on Linux](https://www.tecmint.com/check-package-installed-linux/)
+
 ## YouTube Tutorials
 
 * DNF

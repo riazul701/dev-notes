@@ -4,6 +4,8 @@
 
 * Use Motherboard BIOS Restore AC Power Loss function and Sonoff Wifi Smart Plug to remotely turn on PC. <sup>{1} {2} {3}</sup>
 
+* Use Digital Timer Switch/Socket to timely on/off Wifi Router. <sup>{6}</sup>
+
 # Auto Login OS
 
 ## Linux
@@ -13,7 +15,7 @@
 
 # References
 
-* next-sl: {6}
+* next-sl: {7}
 
 ## Tutorials
 
@@ -27,3 +29,4 @@
 
 * {2} [Remotely TURN ON and Connect To Your Computer EASIEST METHOD BY GPUSpecs](https://www.youtube.com/watch?v=-eqr4jkpI3I)
 * {3} [এটা দিয়ে সবই হবে স্মার্ট ডিভাইস! // Sonoff Wifi Smart Plug Review & Setup BY Gadget Insider Bangla](https://www.youtube.com/watch?v=kw82UXblSIo)
+* {6} [ডিজিটাল টাইমার সুইচ! // Digital Timer Switch | Automatic Switching Device! BY Gadget Insider Bangla](https://www.youtube.com/watch?v=EhNJbwZ-NqU)

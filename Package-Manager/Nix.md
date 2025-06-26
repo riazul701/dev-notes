@@ -86,7 +86,15 @@ https://github.com/NixOS/nix/issues/new?labels=installer&template=installer.md
 Or get in touch with the community: https://nixos.org/community
 ```
 
-**Solution**
+**Solution-1: Permanently Disable SELinux**
+
+* [How to Disable SELinux Temporarily or Permanently](https://www.tecmint.com/disable-selinux-in-centos-rhel-fedora/)
+  * Disable SELinux Permanently
+  * To permanently disable SELinux, use your favorite text editor to open the file `/etc/sysconfig/selinux` as follows: `# vi /etc/sysconfig/selinux`
+  * Then change the directive `SELinux=enforcing` to `SELinux=disabled` as shown in the below image. `SELINUX=disabled`
+  * Then, save and exit the file, for the changes to take effect, you need to reboot your system and then check the status of SELinux using sestatus command as shown: `sestatus`
+
+**Solution-2**
 
 * [Nix does not work with selinux enabled yet! #7906](https://github.com/NixOS/nix/issues/7906)
 * [an alternate set of installers using distribution native packaging formats](https://github.com/NixOS/nix/issues/2374#issuecomment-1103734992)

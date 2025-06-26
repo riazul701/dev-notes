@@ -16,27 +16,27 @@
 
 * `systemctl is-enabled unit` : Check whether a unit is enabled <sup>{1}</sup>
 
-* `systemctl start unit` (as root) : Start a unit immediately <sup>{1}</sup>
+* `sudo systemctl start unit` (as root) : Start a unit immediately <sup>{1}</sup>
 
-* `systemctl stop unit` (as root) : Stop a unit immediately <sup>{1}</sup>
+* `sudo systemctl stop unit` (as root) : Stop a unit immediately <sup>{1}</sup>
 
-* `systemctl restart unit` (as root) : Restart a unit <sup>{1}</sup>
+* `sudo systemctl restart unit` (as root) : Restart a unit <sup>{1}</sup>
 
-* `systemctl reload unit` (as root) : Reload a unit and its configuration <sup>{1}</sup>
+* `sudo systemctl reload unit` (as root) : Reload a unit and its configuration <sup>{1}</sup>
 
-* `systemctl daemon-reload` (as root) : Reload systemd manager configuration (scan for new or changed units) <sup>{1}</sup>
+* `sudo systemctl daemon-reload` (as root) : Reload systemd manager configuration (scan for new or changed units) <sup>{1}</sup>
 
-* `systemctl enable unit` (as root) : Enable a unit to start automatically at boot <sup>{1}</sup>
+* `sudo systemctl enable unit` (as root) : Enable a unit to start automatically at boot <sup>{1}</sup>
 
-* `systemctl enable --now unit` (as root) : Enable a unit to start automatically at boot and start it immediately <sup>{1}</sup>
+* `sudo systemctl enable --now unit` (as root) : Enable a unit to start automatically at boot and start it immediately <sup>{1}</sup>
 
-* `systemctl disable unit` (as root) : Disable a unit to no longer start at boot <sup>{1}</sup>
+* `sudo systemctl disable unit` (as root) : Disable a unit to no longer start at boot <sup>{1}</sup>
 
-* `systemctl reenable unit` (as root) : Reenable a unit (i.e. disable and enable anew) <sup>{1}</sup>
+* `sudo systemctl reenable unit` (as root) : Reenable a unit (i.e. disable and enable anew) <sup>{1}</sup>
 
-* `systemctl mask unit` (as root) : Mask a unit to make it impossible to start <sup>{1}</sup>
+* `sudo systemctl mask unit` (as root) : Mask a unit to make it impossible to start <sup>{1}</sup>
 
-* `systemctl unmask unit` (as root) : Unmask a unit <sup>{1}</sup>
+* `sudo systemctl unmask unit` (as root) : Unmask a unit <sup>{1}</sup>
 
 * `systemctl list-unit-files --state=masked` : Both manually and as a dependency, which makes masking dangerous. Check for existing masked units with <sup>{1}</sup>
 
