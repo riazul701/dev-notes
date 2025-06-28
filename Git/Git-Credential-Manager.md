@@ -136,7 +136,17 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Installation configure: `git-credential-manager configure`
   * Uninstallation configure: `git-credential-manager unconfigure`
   * Uninstall: `sudo dpkg -r gcm`
-  
+
+* Fodora: Install from source helper script
+  * Ensure `curl` is installed: `curl --version`
+  * If `curl` is not installed, please use your distribution's package manager to install it.
+  * Download and run the script:
+  ```
+  curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+  git-credential-manager configure
+  ```
+  * Note: You will be prompted to enter your credentials so that the script can download GCM's dependencies using your distribution's package manager.
+
 * If there are errors duing DEB file installation, then try TAR file
   * Error Reason: {15} [zst compression not supported by apt/dpkg](https://unix.stackexchange.com/questions/669004/zst-compression-not-supported-by-apt-dpkg)
   * Debian’s dpkg package didn’t support zstd compression prior to version 1.21.18. Support was added just in time for Debian 12.
@@ -171,9 +181,10 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * When `gpg --gen-key` command asks for password, then do not enter any password and press "OK" button.
   * Now, during use of `git push` command, no password will be asked.
 * Check GitCredentialManager is working or not: `git push`
+
 * [[NOT APPLICABLE]] Settings for "credentialStore: cache"
-  * Set credential backing store: `git config --global credential.credentialStore cache`
-  * By default, git credential-cache stores credentials for 900 seconds.
+  * [[NOT APPLICABLE]] Set credential backing store: `git config --global credential.credentialStore cache`
+  * [[NOT APPLICABLE]] By default, git credential-cache stores credentials for 900 seconds.
 
 * Check Configuration
   * Check credential helper: `git config --global credential.helper` [Shows: `/usr/local/bin/git-credential-manager`]

@@ -1,5 +1,13 @@
 # SFTP.md
 
+## Notes
+
+* In FileZilla, use this format for SFTP connection
+  * Host: `sftp://{{ip-address}}`
+  * Username: SSH User Name
+  * Password: SSH Password
+  * Port: SSH Port (22)
+
 # References
 
 ## Tutorials

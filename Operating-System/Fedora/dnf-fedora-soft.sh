@@ -41,11 +41,12 @@ declare -a tar_softwares_all
 download_path="/home/$USER/Downloads/Fedora_Software"
 
 snap_office_softwares=(
+    ["opera"]="opera"
     ["chezmoi"]="chezmoi --classic"
     ["sublime-text"]="sublime-text --classic"
-    # ["postman"]="postman"
-    # ["dbeaver-ce"]="dbeaver-ce"
-    # ["sublime-merge"]="sublime-merge --classic"
+    ["postman"]="postman"
+    ["dbeaver-ce"]="dbeaver-ce"
+    ["sublime-merge"]="sublime-merge --classic"
     # ["powershell"]="powershell --classic"
     # ["dvc"]="dvc --classic"
     # ["lepton"]="lepton"
@@ -104,48 +105,47 @@ nix_home_softwares=(
 )
 
 brew_office_softwares=(
-    ["neovim"]="neovim"
+    # ["command"]="software-name"
 )
 
 brew_home_softwares=(
-    ["lazydocker"]="lazydocker"
+    # ["lazydocker"]="lazydocker"
 )
 
 dnf_office_softwares=(
     ["kitty"]="kitty"
-    #["keepassxc"]="keepassxc-full"
-    #["firefox-sparky"]="firefox-sparky"
-    # ["chromium"]="chromium"
-    # ["opera"]="opera-stable"
-    # ["thunderbird"]="thunderbird"
+    ["keepassxc"]="keepassxc"
+    ["firefox"]="firefox"
+    ["chromium"]="chromium"
+    ["thunderbird"]="thunderbird"
     # ["ibus-avro"]="ibus-avro"
-    # ["libreoffice"]="libreoffice"
+    ["libreoffice"]="libreoffice"
     # ["docker"]="docker"
     # ["docker.io"]="docker.io"
     # ["docker-compose"]="docker-compose"
-    # ["podman"]="podman"
-    #["git"]="git" # For Lunarvim
-    #["git-lfs"]="git-lfs" # https://github.com/git-lfs/git-lfs
-    #["git-gui"]="git-gui" # https://git-scm.com/docs/git-gui
-    #["gitk"]="gitk" # https://git-scm.com/docs/gitk
-    #["git-cola"]="git-cola"
-    #["gh"]="gh" # https://cli.github.com/
-    #["gpg"]="gpg" # For "git-credential-manager"
-    #["pass"]="pass" # For "git-credential-manager"
-    #["i3"]="i3" # Includes: `i3-wm`, `i3bar`, `i3status`, `i3lock`, `dunst`, `dmenu`
-    #["pactl"]="pulseaudio-utils" # Includes: `paplay`, `pacat`, `parec`, `pacmd`, `pactl`, `padsp`, `pax11publish`
-    #["polybar"]="polybar"
+    ["podman"]="podman"
+    ["git"]="git" # For Lunarvim
+    ["git-lfs"]="git-lfs" # https://github.com/git-lfs/git-lfs
+    ["git-gui"]="git-gui" # https://git-scm.com/docs/git-gui
+    ["gitk"]="gitk" # https://git-scm.com/docs/gitk
+    ["git-cola"]="git-cola"
+    ["gh"]="gh" # https://cli.github.com/
+    ["gnupg2"]="gnupg2" # `gpg` command, For "git-credential-manager"
+    ["pass"]="pass" # For "git-credential-manager"
+    ["i3"]="i3" # Includes: `i3-wm`, `i3bar`, `i3status`, `i3lock`, `dunst`, `dmenu`
+    ["pulseaudio-utils"]="pulseaudio-utils" # `pactl` command, Includes: `paplay`, `pacat`, `parec`, `pacmd`, `pactl`, `padsp`, `pax11publish`
+    ["polybar"]="polybar"
     #["fonts-font-awesome"]="fonts-font-awesome" # Icon for "polybar"
-    #["rofi"]="rofi"
+    ["rofi"]="rofi"
     #Freeze during install: ["papirus-icon-theme"]="papirus-icon-theme" # Icon theme for "rofi"
-    #["feh"]="feh"
-    #["nitrogen"]="nitrogen"
-    #["conky"]="conky-all"
-    #["jgmenu"]="jgmenu"
-    #["vim"]="vim"
-    #["nvim"]="neovim" # For Lunarvim
-    #["python3"]="python3" # For Lunarvim: `python3 --version`
-    #["pip3"]="python3-pip" # For Lunarvim: `pip --version` || `pip3 --version`
+    ["feh"]="feh"
+    ["nitrogen"]="nitrogen"
+    ["conky"]="conky"
+    ["jgmenu"]="jgmenu"
+    ["vim-enhanced"]="vim-enhanced" # `vim` editor
+    ["neovim"]="neovim" # `nvim` command, For Lunarvim
+    ["python3"]="python3" # For Lunarvim: `python3 --version`
+    ["python3-pip"]="python3-pip" # `pip3` command, For Lunarvim: `pip --version` || `pip3 --version`
     #["python3-pynvim"]="python3-pynvim" # For Lunarvim: [Skip python dependencies during install](https://github.com/LunarVim/LunarVim/issues/4050)
     #["node"]="nodejs" # For Lunarvim: `node --version`
     #["npm"]="npm" # For Lunarvim: `npm --version`
@@ -252,8 +252,8 @@ pkg_managers_all=("snapd" "flatpak" "git" "aria2")
 for ((i = 0; i < ${#pkg_managers_all[@]}; i++))
 do
     pkg_manager="${pkg_managers_all[$i]}"
-    is_pkg_manager_exist=$(echo "$dnf_list_installed" | grep "${pkg_manager}.x86_64" | awk '{print $1}')
-    if [[ "$is_pkg_manager_exist" != "${pkg_manager}.x86_64" ]]
+    is_pkg_manager_exist_x86_64=$(echo "$dnf_list_installed" | grep "^${pkg_manager}.x86_64" | awk '{print $1}')
+    if [[ "$is_pkg_manager_exist_x86_64" != "${pkg_manager}.x86_64" ]]
     then
         sudo dnf --assumeyes install $pkg_manager
         if [[ "$pkg_manager" == 'snapd' ]]
@@ -419,8 +419,9 @@ echo -e '\033[1;32m Homebrew => All Softwares Installed. \033[0m'
 #-------------------------START: Install DNF Softwares-------------------------
 for dnf_cmd in "${!dnf_softwares_all[@]}"; do
     dnf_software="${dnf_softwares_all[$dnf_cmd]}"
-    is_dnf_soft_installed=$(echo "$dnf_list_installed" | grep "${dnf_cmd}.x86_64" | awk '{print $1}')
-    if [[ "$is_dnf_soft_installed" == "${dnf_cmd}.x86_64" ]]
+    is_dnf_soft_installed_x86_64=$(echo "$dnf_list_installed" | grep "^${dnf_cmd}.x86_64" | awk '{print $1}')
+    is_dnf_soft_installed_noarch=$(echo "$dnf_list_installed" | grep "^${dnf_cmd}.noarch" | awk '{print $1}')
+    if [[ ("$is_dnf_soft_installed_x86_64" == "${dnf_cmd}.x86_64") || ("$is_dnf_soft_installed_noarch" == "${dnf_cmd}.noarch") ]]
     then
         echo -e "\033[1;32m DNF => $dnf_software is already installed, skipping... \033[0m"
     else
