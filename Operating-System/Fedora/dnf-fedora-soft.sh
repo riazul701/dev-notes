@@ -40,6 +40,10 @@ declare -a appimage_softwares_all
 declare -a tar_softwares_all
 download_path="/home/$USER/Downloads/Fedora_Software"
 
+export NIXPKGS_ALLOW_UNFREE=1 # To temporarily allow unfree packages, use environment variable
+export NIXPKGS_ALLOW_INSECURE=1 # To temporarily allow all insecure packages, use environment variable
+# Note (Nix): When using `nix shell`, `nix build`, `nix develop`, etc with a flake, then pass `--impure` in order to allow use of environment variables.
+
 snap_office_softwares=(
     ["opera"]="opera"
     ["chezmoi"]="chezmoi --classic"
@@ -47,61 +51,61 @@ snap_office_softwares=(
     ["postman"]="postman"
     ["dbeaver-ce"]="dbeaver-ce"
     ["sublime-merge"]="sublime-merge --classic"
-    # ["powershell"]="powershell --classic"
-    # ["dvc"]="dvc --classic"
-    # ["lepton"]="lepton"
-    # ["trello-desktop"]="trello-desktop"
-    # ["clipboard"]="clipboard --edge"
-    # ["mysql-workbench-community"]="mysql-workbench-community"
-    # ["ngrok"]="ngrok"
-    # ["android-studio"]="android-studio --classic"
-    # ["dive"]="dive" # Docker
+    ["powershell"]="powershell --classic"
+    ["dvc"]="dvc --classic"
+    ["lepton"]="lepton"
+    ["trello-desktop"]="trello-desktop"
+    ["clipboard"]="clipboard --edge"
+    ["mysql-workbench-community"]="mysql-workbench-community"
+    ["ngrok"]="ngrok"
+    ["android-studio"]="android-studio --classic"
+    ["dive"]="dive" # Docker
 )
 
 snap_home_softwares=(
-    # ["spotify"]="spotify"
-    # ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
-    # ["scrcpy"]="scrcpy"
-    # ["guiscrcpy"]="guiscrcpy"
+    ["spotify"]="spotify"
+    ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
+    ["scrcpy"]="scrcpy"
+    ["guiscrcpy"]="guiscrcpy"
 )
 
 flatpak_office_softwares=(
     ["wezterm"]="org.wezfurlong.wezterm"
-    # ["FreeFileSync"]="org.freefilesync.FreeFileSync"
-    # ["anydesk"]="com.anydesk.Anydesk"
-    # ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
-    # ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
-    # ["smartgit"]="com.syntevo.SmartGit"
+    ["FreeFileSync"]="org.freefilesync.FreeFileSync"
+    ["anydesk"]="com.anydesk.Anydesk"
+    ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
+    ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
+    ["smartgit"]="com.syntevo.SmartGit"
     ["NotepadNext"]="com.github.dail8859.NotepadNext"
 )
 
 flatpak_home_softwares=(
-    # ["spotube"]="com.github.KRTirtho.Spotube"
+    ["spotube"]="com.github.KRTirtho.Spotube"
 )
 
 nix_office_softwares=(
     ["yazi"]="yazi"
-    #["lazygit"]="lazygit" # For Lunarvim
-    #["unison"]="unison"
-    #["termscp"]="termscp"
-    #["dasel"]="dasel"
-    #["gum"]="gum"
-    # ["nerdfonts"]="nerdfonts" # For Lunarvim, Yazi
-    # ["lazydocker"]="lazydocker"
-    # ["beebeep"]="beebeep"
-    # ["backrest"]="backrest"
-    # ["frogmouth"]="frogmouth"
-    # ["httpie-desktop"]="httpie-desktop"
-    # ["czkawka"]="czkawka"
-    # ["piknik"]="piknik"
+    ["lazygit"]="lazygit" # For Lunarvim
+    ["unison"]="unison"
+    ["termscp"]="termscp"
+    ["dasel"]="dasel"
+    ["gum"]="gum"
+    ["nerdfetch"]="nerdfetch" # `nerdfonts`, For Lunarvim, Yazi
+    ["lazydocker"]="lazydocker"
+    ["beebeep"]="beebeep"
+    ["backrest"]="backrest"
+    ["frogmouth"]="frogmouth"
+    ["httpie-desktop"]="httpie-desktop"
+    ["czkawka"]="czkawka"
+    ["piknik"]="piknik"
 )
 
 nix_home_softwares=(
-    # ["rclone-browser"]="rclone-browser"
-    # ["musikcube"]="musikcube"
-    # ["sniffnet"]="sniffnet"
-    # ["ventoy-full"]="ventoy-full"
-    # ["veracrypt"]="veracrypt"
+    ["rclone-browser"]="rclone-browser"
+    ["musikcube"]="musikcube"
+    ["sniffnet"]="sniffnet"
+    ["ventoy-gtk"]="ventoy-full-gtk" # Alternative: `ventoy-full-qt`
+    ["veracrypt"]="veracrypt"
 )
 
 brew_office_softwares=(
@@ -109,7 +113,7 @@ brew_office_softwares=(
 )
 
 brew_home_softwares=(
-    # ["lazydocker"]="lazydocker"
+    ["lazydocker"]="lazydocker"
 )
 
 dnf_office_softwares=(
@@ -137,7 +141,7 @@ dnf_office_softwares=(
     ["polybar"]="polybar"
     #["fonts-font-awesome"]="fonts-font-awesome" # Icon for "polybar"
     ["rofi"]="rofi"
-    #Freeze during install: ["papirus-icon-theme"]="papirus-icon-theme" # Icon theme for "rofi"
+    ["papirus-icon-theme"]="papirus-icon-theme" # Icon theme for "rofi" (Freezes during install on Debian/Sparky-Testing OS)
     ["feh"]="feh"
     ["nitrogen"]="nitrogen"
     ["conky"]="conky"
@@ -147,8 +151,8 @@ dnf_office_softwares=(
     ["python3"]="python3" # For Lunarvim: `python3 --version`
     ["python3-pip"]="python3-pip" # `pip3` command, For Lunarvim: `pip --version` || `pip3 --version`
     #["python3-pynvim"]="python3-pynvim" # For Lunarvim: [Skip python dependencies during install](https://github.com/LunarVim/LunarVim/issues/4050)
-    #["node"]="nodejs" # For Lunarvim: `node --version`
-    #["npm"]="npm" # For Lunarvim: `npm --version`
+    ["node"]="nodejs" # For Lunarvim: `node --version`
+    ["npm"]="nodejs-npm" # For Lunarvim: `npm --version`
     #["rustc"]="rustc" # For Lunarvim: `rustc --version`
     #["cargo"]="cargo" # For Lunarvim: `cargo --version`
     #["make"]="make" # For Lunarvim: `make --version`
