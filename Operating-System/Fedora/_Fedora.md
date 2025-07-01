@@ -17,6 +17,8 @@
 * {3} [Fedora Old Releases](https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/)
 
 * Repository
+  * [apps.fedoraproject.org](https://apps.fedoraproject.org/)
+  * [packages.fedoraproject.org](https://packages.fedoraproject.org/)
   * {4} [Fedora Copr => Official](https://copr.fedorainfracloud.org/coprs/)
   * [RPM Fusion](https://rpmfusion.org/)
   * [Terra Repository](https://terra.fyralabs.com/)
