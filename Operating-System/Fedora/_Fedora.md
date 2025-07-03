@@ -2,8 +2,8 @@
 
 ## Notes
 
+* Every time `dnf upgrade` command creates a GRUB menu entry for new kernel.
 * Fedora uses `Anaconda Installer` for operating system installation. <sup>{8}</sup>
-
 * AUR (ArchLinux) requires users to build packages locally, while COPR (Fedora) provides pre-built packages. <sup>{6}</sup>
 
 # References

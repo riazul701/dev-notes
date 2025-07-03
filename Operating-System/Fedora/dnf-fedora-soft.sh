@@ -47,6 +47,7 @@ export NIXPKGS_ALLOW_INSECURE=1 # To temporarily allow all insecure packages, us
 snap_office_softwares=(
     ["opera"]="opera"
     ["chezmoi"]="chezmoi --classic"
+    ["code"]="code --classic" # Visual Studio Code
     ["sublime-text"]="sublime-text --classic"
     ["postman"]="postman"
     ["dbeaver-ce"]="dbeaver-ce"
@@ -109,11 +110,11 @@ nix_home_softwares=(
 )
 
 brew_office_softwares=(
-    # ["command"]="software-name"
+    ["lazydocker"]="lazydocker"   
 )
 
 brew_home_softwares=(
-    ["lazydocker"]="lazydocker"
+    # ["command"]="software-name"
 )
 
 dnf_office_softwares=(
@@ -121,6 +122,7 @@ dnf_office_softwares=(
     ["keepassxc"]="keepassxc"
     ["firefox"]="firefox"
     ["chromium"]="chromium"
+    ["liberation-fonts-all"]="liberation-fonts-all" # Dependency of Google-Chrome
     ["thunderbird"]="thunderbird"
     # ["ibus-avro"]="ibus-avro"
     ["libreoffice"]="libreoffice"
@@ -157,39 +159,38 @@ dnf_office_softwares=(
     ["cargo"]="cargo" # For Lunarvim: `cargo --version`
     ["make"]="make" # For Lunarvim: `make --version`
     ["gcc"]="gcc" # For Lunarvim: `gcc --version`
-    #["rg"]="ripgrep" # For Lunarvim: `rg --version`
-    #["xclip"]="xclip" # For Lunarvim, Yazi
-    #["fzf"]="fzf"
-    #["code"]="code"
-    #["vifm"]="vifm"
-    # ["filezilla"]="filezilla"
-    # ["rsync"]="rsync"
-    #["rclone"]="rclone"
-    #["restic"]="restic"
+    ["ripgrep"]="ripgrep" # `rg` command, For Lunarvim: `rg --version`
+    ["xclip"]="xclip" # For Lunarvim, Yazi
+    ["fzf"]="fzf"
+    ["vifm"]="vifm"
+    ["filezilla"]="filezilla"
+    ["rsync"]="rsync"
+    ["rclone"]="rclone"
+    ["restic"]="restic"
     #["dropbox"]="dropbox"
     # ["copyq"]="copyq"
     # ["glow"]="glow"
     # ["mycli"]="mycli"
     # ["sqlitebrowser"]="sqlitebrowser"
-    # ["gimp"]="gimp"
+    ["gimp"]="gimp"
+    ["pcmanfm"]="pcmanfm"
+    ["Thunar"]="thunar" # `thunar` command
+    ["p7zip"]="p7zip" # `7za` command, "7zip" package
+    ["htop"]="htop"
+    ["pipewire-pulseaudio"]="pipewire-pulseaudio" # Built-in inside Fedora-42-LXDE, originally "pulseaudio"
+    ["pavucontrol"]="pavucontrol" # "pulseaudio" volume control
+    ["jq"]="jq"
+    ["distrobox"]="distrobox"
+    ["tmux"]="tmux"
+    ["lynx"]="lynx"
+    ["httpie"]="httpie"
+    ["lftp"]="lftp"
+    ["qimgv"]="qimgv"
+    ["audacity"]="audacity"
     ["vlc"]="vlc"
-    #["pcmanfm"]="pcmanfm"
-    # ["thunar"]="thunar"
-    #["7zip"]="7zip"
-    #["htop"]="htop"
-    #["pulseaudio"]="pulseaudio"
-    #["pavucontrol"]="pavucontrol"
-    #["jq"]="jq"
-    #["distrobox"]="distrobox"
-    #["tmux"]="tmux"
-    #["lynx"]="lynx"
-    # ["httpie"]="httpie"
-    #["lftp"]="lftp"
-    #["qimgv"]="qimgv"
-    # ["audacity"]=["audacity"]
-    # ["smplayer"]="smplayer"
-    # ["mpv"]="mpv"
-    # ["shotcut"]="shotcut"
+    ["smplayer"]="smplayer"
+    ["mpv"]="mpv"
+    ["shotcut"]="shotcut"
     # ["handbrake"]="handbrake"
     # ["handbrake-cli"]="handbrake-cli"
     # ["flameshot"]="flameshot"
@@ -198,6 +199,9 @@ dnf_office_softwares=(
     #["peazip"]="peazip"
 
     # Add: Glances
+    # Add: Jellyfin
+    # Add: Tailscale
+    # Add: RustDesk
 )
 
 dnf_home_softwares=(
