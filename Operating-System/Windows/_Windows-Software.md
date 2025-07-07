@@ -59,6 +59,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
   * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [aandrew-me/ytDownloader GitHub](https://github.com/aandrew-me/ytDownloader)
   * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
 
 * Online Clipboard (Selected)
@@ -385,6 +386,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
   * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [aandrew-me/ytDownloader GitHub](https://github.com/aandrew-me/ytDownloader)
   * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
   
 * Online Clipboard (List)

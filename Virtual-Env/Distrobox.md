@@ -19,6 +19,7 @@
 * [89luca89/distrobox](https://github.com/89luca89/distrobox)
 * [phanirithvij/distrobox-tui => A TUI for DistroBox](https://github.com/phanirithvij/distrobox-tui)
 * [Dvlv/BoxBuddyRS](https://github.com/Dvlv/BoxBuddyRS)
+* [ranfdev/DistroShelf GitHub => GUI for Distrobox Containers](https://github.com/ranfdev/DistroShelf)
 * [containers/toolbox](https://github.com/containers/toolbox)
 * [toolbx-images/images](https://github.com/toolbx-images/images)
 * [DavHau/nix-portable](https://github.com/DavHau/nix-portable)

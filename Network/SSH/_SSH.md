@@ -10,10 +10,10 @@
   * `sudo systemctl stop sshd` : Stop ssh service <sup>{45}</sup>
   * `sudo systemctl restart sshd` : Restart ssh service (For configuration reload) <sup>{45}</sup>
   * `sudo systemctl reload sshd` (as root) : Reload sshd and its configuration <sup>{45}</sup>
-  * `systemctl is-enabled sshd` : Check whether ssh is enabled <sup>{45}</sup>
-  * `sudo systemctl enable sshd` (as root) : Enable ssh to start automatically at boot <sup>{45}</sup>
-  * `sudo systemctl enable --now sshd` (as root) : Enable ssh to start automatically at boot and start it immediately <sup>{45}</sup>
-  * `sudo systemctl disable sshd` (as root) : Disable ssh to no longer start at boot <sup>{45}</sup>
+  * `systemctl is-enabled sshd` : Check whether sshd is enabled <sup>{45}</sup>
+  * `sudo systemctl enable sshd` (as root) : Enable sshd to start automatically at boot <sup>{45}</sup>
+  * `sudo systemctl enable --now sshd` (as root) : Enable sshd to start automatically at boot and start it immediately <sup>{45}</sup>
+  * `sudo systemctl disable sshd` (as root) : Disable sshd to no longer start at boot <sup>{45}</sup>
   * `sudo systemctl reenable sshd` (as root) : Reenable sshd (i.e. disable and enable anew) <sup>{45}</sup>
 
 * SSH Server (Antix-OS without Systemd)

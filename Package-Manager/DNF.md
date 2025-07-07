@@ -6,9 +6,20 @@
 
 * `dnf check-update` (For APT: `apt update`) This command is rarely needed, as dnf updates its package cache automatically when it is stale. A cache update can be forced by appending `--refresh` to other commands, e.g. `dnf upgrade --refresh`. <sup>{3}</sup>
 
+# Error & Solution
+
+## Repository Package's Dependency Version Conflict
+
+**[How to solve dnf update conflicts?](https://www.reddit.com/r/Fedora/comments/l3msbj/how_to_solve_dnf_update_conflicts/) <sup>{13}</sup>**
+
+* `sudo dnf update --best --allowerasing` : Solved it today with the recommended command
+
+* `sudo dnf install jellyfin` : Installing `jellyfin` package from RPM Fusion repository causes dependency version conflicts like `ffmpeg`
+  * `sudo dnf install jellyfin --allowerasing` : Prefer RPM-Fusion over Fedora repository, because dependency version is conflicted, like `ffmpeg`
+
 # References
 
-* next-sl: {13}
+* next-sl: {14}
 
 ## Websites
 
@@ -31,6 +42,9 @@
   * {9} [Using the DNF software package manager](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
   * {10} [DNF Command Reference](https://dnf.readthedocs.io/en/latest/command_ref.html)
   * {11} [Package management system](https://docs.fedoraproject.org/en-US/quick-docs/package-management/)
+
+* Repository
+  * {13} [How to solve dnf update conflicts?](https://www.reddit.com/r/Fedora/comments/l3msbj/how_to_solve_dnf_update_conflicts/)
 
 ## Guides
 

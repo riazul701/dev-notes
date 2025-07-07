@@ -18,6 +18,8 @@
   * [HWMonitor for Windows](https://www.cpuid.com/softwares/hwmonitor.html)
   * [hwinfo.com](https://www.hwinfo.com/)
   * [kamgurgul/cpu-info](https://github.com/kamgurgul/cpu-info)
+  * [CPU-Z for Windows® x86/x64](https://www.cpuid.com/softwares/cpu-z.html)
+  * [TheTumultuousUnicornOfDarkness/CPU-X GitHub](https://github.com/TheTumultuousUnicornOfDarkness/CPU-X)
   * [openSUSE/hwinfo](https://github.com/openSUSE/hwinfo)
   * [Open Hardware Monitor](https://openhardwaremonitor.org/) <sup>{19}</sup>
   * [LibreHardwareMonitor/LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor) <sup>{19}</sup>

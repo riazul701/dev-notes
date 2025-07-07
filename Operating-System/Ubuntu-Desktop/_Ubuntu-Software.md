@@ -63,6 +63,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
   * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [aandrew-me/ytDownloader GitHub](https://github.com/aandrew-me/ytDownloader)
   * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
 
 * Online Clipboard (Selected)
@@ -110,6 +111,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * File Incremental Backup & Sync (Selected)
   * [Rclone](https://rclone.org/) || [Rclone GitHub](https://github.com/rclone/rclone)
   * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
+  * [pieterdd/RcloneShuttle](https://github.com/pieterdd/RcloneShuttle)
   * [Restic](https://restic.net/) || [Restic GitHub](https://github.com/restic/restic)
   * [Restic Browser](https://github.com/emuell/restic-browser)
   * [Backrest => Web UI for restic backup](https://github.com/garethgeorge/backrest)
@@ -383,6 +385,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
   * [ytdl-org/youtube-dl => Command-line to download videos from YouTube.com and other video sites](https://github.com/ytdl-org/youtube-dl)
   * [youtube-dl-gui](https://github.com/jely2002/youtube-dl-gui)
+  * [aandrew-me/ytDownloader GitHub](https://github.com/aandrew-me/ytDownloader)
   * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
 
 * Online Clipboard (List)
@@ -448,6 +451,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * File Incremental Backup & Sync (List)
   * [Rclone](https://rclone.org/) || [Rclone GitHub](https://github.com/rclone/rclone)
   * [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser)
+  * [pieterdd/RcloneShuttle](https://github.com/pieterdd/RcloneShuttle)
   * [Restic](https://restic.net/) || [Restic GitHub](https://github.com/restic/restic)
   * [Restic Browser](https://github.com/emuell/restic-browser)
   * [Backrest => Web UI for restic backup](https://github.com/garethgeorge/backrest)

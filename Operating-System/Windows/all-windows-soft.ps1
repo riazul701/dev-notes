@@ -2,7 +2,7 @@
 .SYNOPSIS
     Script to Initialize custom powershell setup.
 .DESCRIPTION
-    Script uses scoop
+    Script uses scoop, chocolatey, winget
 .NOTES
     **NOTE** Will configure the Execution Policy for the "CurrentUser" to Unrestricted.
     Author: Mike Pruett
@@ -11,8 +11,10 @@
 # [Original-Script => Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
 
 # Download powershell and install from this url: https://github.com/PowerShell/PowerShell
-# Start powershell in admin mode -> right click -> "Run as administrator"
+# Start powershell in admin mode -> Right click -> "Run as administrator"
 # Execute this script using command: .\all-windows-soft.ps1
+# If PowerShell prevents from executing script, then execute (from https://scoop.sh/):
+# `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
 $VerbosePreference = "Continue"
 

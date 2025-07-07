@@ -20,6 +20,7 @@
 * Performance/Testing
   * [Intel® Processor Diagnostic Tool](https://www.intel.com/content/www/us/en/download/15951/intel-processor-diagnostic-tool.html)
   * [CPU-Z for Windows® x86/x64](https://www.cpuid.com/softwares/cpu-z.html)
+  * [TheTumultuousUnicornOfDarkness/CPU-X GitHub](https://github.com/TheTumultuousUnicornOfDarkness/CPU-X)
   * [Cinebench](https://www.maxon.net/en/cinebench)
   * [Prime95 CPU Stress Test](https://www.mersenne.org/download/) <sup>{18}</sup>
 

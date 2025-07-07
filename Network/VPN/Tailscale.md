@@ -4,6 +4,19 @@
 
 * `tailscale --help`
 
+* Tailscale Server (Fedora-OS with Systemd)
+  * `sudo dnf install tailscale` : Install tailscale, if not present
+  * `systemctl status tailscaled` : Check tailscale service is running or not <sup>{21}</sup>
+  * `sudo systemctl start tailscaled` : Start tailscale service <sup>{21}</sup>
+  * `sudo systemctl stop tailscaled` : Stop tailscale service <sup>{21}</sup>
+  * `sudo systemctl restart tailscaled` : Restart tailscale service (For configuration reload) <sup>{21}</sup>
+  * `sudo systemctl reload tailscaled` (as root) : Reload tailscaled and its configuration <sup>{21}</sup>
+  * `systemctl is-enabled tailscaled` : Check whether tailscaled is enabled <sup>{21}</sup>
+  * `sudo systemctl enable tailscaled` (as root) : Enable tailscaled to start automatically at boot <sup>{21}</sup>
+  * `sudo systemctl enable --now tailscaled` (as root) : Enable tailscaled to start automatically at boot and start it immediately <sup>{21}</sup>
+  * `sudo systemctl disable tailscaled` (as root) : Disable tailscaled to no longer start at boot <sup>{21}</sup>
+  * `sudo systemctl reenable tailscaled` (as root) : Reenable tailscaled (i.e. disable and enable anew) <sup>{21}</sup>
+
 * `ip a` OR `ifconfig` : Check IP address in Linux-OS
 
 * `ipconfig` : Check IP address in Windows-OS PowerShell
@@ -225,12 +238,16 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 
 # References
 
-* next-sl: {21}
+* next-sl: {22}
 
 ## Websites
 
 * {1} [tailscale.com](https://tailscale.com/)
 * {2} [tailscale/tailscale GitHub](https://github.com/tailscale/tailscale)
+
+* Tailscale GUI
+  * [f-koehler/KTailctl GitHub](https://github.com/f-koehler/KTailctl)
+  * [DeedleFake/trayscale GitHub](https://github.com/DeedleFake/trayscale)
 
 * Tailscale Alternative
   * {19} [headscale.net => Self-hosted](https://headscale.net/stable/) || [juanfont/headscale GitHub](https://github.com/juanfont/headscale)
@@ -278,6 +295,9 @@ By carefully configuring both services to use non-conflicting IP address ranges,
 
 * Windows-OS
   * {18} [Create a Network](https://docs.zerotier.com/start/)
+
+* SystemD
+  * {21} [systemd => Archlinux Wiki](https://wiki.archlinux.org/title/Systemd)
 
 * Camera
   * [Building a Remote CCTV System with TailScale](https://medium.com/@sampsa.riikonen/building-a-remote-cctv-system-with-tailscale-7532e8744e3f)

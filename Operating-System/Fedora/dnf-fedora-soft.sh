@@ -1,21 +1,37 @@
 #!/bin/bash
 
-#--------------------------Start: General-Information----------------------
+#--------------------------Start: General-Information---------------------------
 # Fedora-42-LXDE
 # https://packages.fedoraproject.org/
 # https://repology.org/repository/fedora_42
-#---------------------------End: General-Information------------------------
-#--------------------------Start: Nix-Package-Manger------------------------
-# Nix does not work with selinux enabled yet!
+#---------------------------End: General-Information----------------------------
+
+#--------------------------Start: Snap-Package-Manger---------------------------
+# https://snapcraft.io/
+# ERROR: "Fetch and check assertions for snap "rclone" (525) (cannot verify snap "rclone", no matching signatures found)" [This happens after pc sleep, restart solves it.]
+# **[How to remove uninstalled snaps from cache?](https://askubuntu.com/questions/1075050/how-to-remove-uninstalled-snaps-from-cache)**
+# * You can remove the files in `/var/lib/snapd/cache` without issue. Also there is no need to stop snapd before.
+# * Here the command to do that: `sudo sh -c 'rm -rf /var/lib/snapd/cache/*'`
+#--------------------------End: Snap-Package-Manger-----------------------------
+
+#--------------------------Start: Flatpak-Package-Manger------------------------
+# https://flathub.org/
+#--------------------------End: Flatpak-Package-Manger--------------------------
+
+#--------------------------Start: Nix-Package-Manger----------------------------
+# https://search.nixos.org/packages
+# ERROR: "Nix does not work with selinux enabled yet!"
 # see https://github.com/NixOS/nix/issues/2374
-# [How to Disable SELinux Temporarily or Permanently](https://www.tecmint.com/disable-selinux-in-centos-rhel-fedora/)
+# **[How to Disable SELinux Temporarily or Permanently](https://www.tecmint.com/disable-selinux-in-centos-rhel-fedora/)**
 #  * Disable SELinux Permanently
 #  * To permanently disable SELinux, use your favorite text editor to open the file `/etc/sysconfig/selinux` as follows: `# vi /etc/sysconfig/selinux`
 #  * Then change the directive `SELinux=enforcing` to `SELinux=disabled` as shown in the below image. `SELINUX=disabled`
 #  * Then, save and exit the file, for the changes to take effect, you need to reboot your system and then check the status of SELinux using sestatus command as shown: `sestatus`
-#---------------------------End: Nix-Package-Manger--------------------------
+#---------------------------End: Nix-Package-Manger-------------------------------
+
 #---------------------------End: Homebrew-Package-Manger--------------------------
-# Homebrew works for Terminal software
+# https://brew.sh/
+# Homebrew works for Terminal software. Graphical software has some issues.
 #---------------------------End: Homebrew-Package-Manger--------------------------
 
 declare -A snap_softwares_all
@@ -42,9 +58,10 @@ download_path="/home/$USER/Downloads/Fedora_Software"
 
 export NIXPKGS_ALLOW_UNFREE=1 # To temporarily allow unfree packages, use environment variable
 export NIXPKGS_ALLOW_INSECURE=1 # To temporarily allow all insecure packages, use environment variable
-# Note (Nix): When using `nix shell`, `nix build`, `nix develop`, etc with a flake, then pass `--impure` in order to allow use of environment variables.
+# Note (Nix-Package): When using `nix shell`, `nix build`, `nix develop`, etc with a flake, then pass `--impure` in order to allow use of environment variables.
 
 snap_office_softwares=(
+    # ["Name"]="Snap Identifier" # `snap list`
     ["opera"]="opera"
     ["chezmoi"]="chezmoi --classic"
     ["code"]="code --classic" # Visual Studio Code
@@ -61,30 +78,45 @@ snap_office_softwares=(
     ["ngrok"]="ngrok"
     ["android-studio"]="android-studio --classic"
     ["dive"]="dive" # Docker
+    ["notepadnext"]="notepadnext --classic"
+    ["sqlitebrowser"]="sqlitebrowser"
 )
 
 snap_home_softwares=(
+    # ["Name"]="Snap Identifier" # `snap list`
     ["spotify"]="spotify"
     ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
     ["scrcpy"]="scrcpy"
     ["guiscrcpy"]="guiscrcpy"
+    ["ytdownloader"]="ytdownloader"
 )
 
 flatpak_office_softwares=(
+    # ["Bash Alias Command"]="Application" # `flatpak list --columns=name,application`
+    ["flatseal"]="com.github.tchx84.Flatseal" # Manage Flatpak Permissions Graphically
     ["wezterm"]="org.wezfurlong.wezterm"
-    ["FreeFileSync"]="org.freefilesync.FreeFileSync"
+    ["free-file-sync"]="org.freefilesync.FreeFileSync"
     ["anydesk"]="com.anydesk.Anydesk"
-    ["podman_desktop"]="io.podman_desktop.PodmanDesktop"
-    ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs"
+    ["podman-desktop"]="io.podman_desktop.PodmanDesktop"
+    ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs" # Graphical Distrobox Manager
     ["smartgit"]="com.syntevo.SmartGit"
-    ["NotepadNext"]="com.github.dail8859.NotepadNext"
+    ["handbrake"]="fr.handbrake.ghb"
+    ["fdm"]="org.freedownloadmanager.Manager"
+    ["peazip"]="io.github.peazip.PeaZip"
+    ["cpu-x"]="io.github.thetumultuousunicornofdarkness.cpu-x"
 )
 
 flatpak_home_softwares=(
+    # ["Bash Alias Command"]="Application" # `flatpak list --columns=name,application`
+    ["dropbox"]="com.dropbox.Client"
+    ["rclone-shuttle"]="io.github.pieterdd.RcloneShuttle"
+    ["jellyfin-player"]="com.github.iwalton3.jellyfin-media-player"
     ["spotube"]="com.github.KRTirtho.Spotube"
+    ["ytdl-gui"]="io.github.JaGoLi.ytdl_gui"
 )
 
 nix_office_softwares=(
+    # ["Command"]="Command" # `nix-env --query`
     ["yazi"]="yazi"
     ["lazygit"]="lazygit" # For Lunarvim
     ["unison"]="unison"
@@ -94,7 +126,7 @@ nix_office_softwares=(
     ["nerdfetch"]="nerdfetch" # `nerdfonts`, For Lunarvim, Yazi
     ["lazydocker"]="lazydocker"
     ["beebeep"]="beebeep"
-    ["backrest"]="backrest"
+    ["backrest"]="backrest" # Restic GUI
     ["frogmouth"]="frogmouth"
     ["httpie-desktop"]="httpie-desktop"
     ["czkawka"]="czkawka"
@@ -102,6 +134,7 @@ nix_office_softwares=(
 )
 
 nix_home_softwares=(
+    # ["Command"]="Command" # `nix-env --query`
     ["rclone-browser"]="rclone-browser"
     ["musikcube"]="musikcube"
     ["sniffnet"]="sniffnet"
@@ -110,14 +143,18 @@ nix_home_softwares=(
 )
 
 brew_office_softwares=(
+    # ["Command"]="Command" # `brew list`
     ["lazydocker"]="lazydocker"   
 )
 
 brew_home_softwares=(
-    # ["command"]="software-name"
+    # ["Command"]="Command" # `brew list`
+    ["micro"]="micro" # Editor
 )
 
 dnf_office_softwares=(
+    # ["Command"]="Package-Name" # `dnf list --installed`
+    ["tailscale"]="tailscale"
     ["kitty"]="kitty"
     ["keepassxc"]="keepassxc"
     ["firefox"]="firefox"
@@ -167,11 +204,9 @@ dnf_office_softwares=(
     ["rsync"]="rsync"
     ["rclone"]="rclone"
     ["restic"]="restic"
-    #["dropbox"]="dropbox"
-    # ["copyq"]="copyq"
-    # ["glow"]="glow"
-    # ["mycli"]="mycli"
-    # ["sqlitebrowser"]="sqlitebrowser"
+    ["copyq"]="copyq"
+    ["glow"]="glow"
+    ["mycli"]="mycli"
     ["gimp"]="gimp"
     ["pcmanfm"]="pcmanfm"
     ["Thunar"]="thunar" # `thunar` command
@@ -191,24 +226,21 @@ dnf_office_softwares=(
     ["smplayer"]="smplayer"
     ["mpv"]="mpv"
     ["shotcut"]="shotcut"
-    # ["handbrake"]="handbrake"
-    # ["handbrake-cli"]="handbrake-cli"
-    # ["flameshot"]="flameshot"
-    # ["obs-studio"]="obs-studio"
-    # ["stacer"]="stacer"
-    #["peazip"]="peazip"
+    ["flameshot"]="flameshot"
+    ["obs-studio"]="obs-studio"
+    ["stacer"]="stacer"
+    ["glances"]="glances"
 
-    # Add: Glances
-    # Add: Jellyfin
-    # Add: Tailscale
-    # Add: RustDesk
+    # Add: AB Download Manager
 )
 
 dnf_home_softwares=(
-    # ["syncthing"]="syncthing"
-    # ["yt-dlp"]="yt-dlp"
-    # ["youtube-dl"]="youtube-dl"
-    # ["youtubedl-gui"]="youtubedl-gui"
+    # ["Command"]="Package-Name" # `dnf list --installed`
+    ["trayscale"]="trayscale" # Tailscale GUI
+    ["jellyfin"]="jellyfin --allowerasing" # Prefer RPM-Fusion over Fedora repository, because dependency version is conflicted, like `ffmpeg`
+    ["syncthing"]="syncthing"
+    ["yt-dlp"]="yt-dlp"
+    ["youtube-dl"]="youtube-dl"
     # ["gallery-dl"]="gallery-dl"
     # ["linssid"]="linssid"
     # ["wavemon"]="wavemon"
@@ -217,30 +249,36 @@ dnf_home_softwares=(
 )
 
 rpm_office_softwares=(
+    # ["Command"]="URL Address"
+    ["rustdesk"]="https://github.com/rustdesk/rustdesk/releases/download/1.4.0/rustdesk-1.4.0-0.x86_64.rpm"
     ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
     #["git-credential-manager"]="https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.6.1/gcm-linux_amd64.2.6.1.deb"
-    # ["fdm"]="https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
 )
 
 rpm_home_softwares=(
+    # ["Command"]="URL Address"
     # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
     # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
 )
 
 appimage_office_softwares=(
+    # "URL Address"
     # "https://github.com/pbek/QOwnNotes/releases/download/v23.3.7/QOwnNotes-x86_64.AppImage"
 )
 
 appimage_home_softwares=(
+    # "URL Address"
     # "https://github.com/mhoeher/opentodolist/releases/download/3.42.0/OpenTodoList-3.42.0-x86_64.AppImage"
 )
 
 tar_office_softwares=(
+    # "URL Address"
     # "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
     # https://github.com/amir1376/ab-download-manager/releases/download/v1.6.4/ABDownloadManager_1.6.4_linux_x64.tar.gz
 )
 
 tar_home_softwares=(
+    # "URL Address"
     # "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
 )
 
@@ -308,7 +346,7 @@ then
 fi
 #--------------------END: Install Package Managers & Directories----------------
 
-#--------------------START: Collect Packages To Install----------------
+#--------------------START: Collect Packages To Install-------------------
 for snap_cmd in "${!snap_office_softwares[@]}"; do
     snap_softwares_all[$snap_cmd]=${snap_office_softwares[$snap_cmd]}
 done
@@ -356,7 +394,18 @@ then
     appimage_softwares_all+=("${appimage_home_softwares[@]}")
     tar_softwares_all+=("${tar_home_softwares[@]}")	
 fi
-#--------------------START: Collect Packages To Install----------------
+#--------------------END: Collect Packages To Install------------------
+
+#-------------------------START: Add RPM Repository-------------------------
+is_rpmfusion_repo_exist=$(dnf repo list | awk '{print $1}' | grep "rpmfusion-free")
+if [[ "$is_rpmfusion_repo_exist" != '' ]]
+    then
+        echo -e "\033[1;32m Repo => RPM Fusion repo is already added, skipping... \033[0m"
+    else
+        sudo dnf --assumeyes install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+        sudo dnf --assumeyes config-manager setopt fedora-cisco-openh264.enabled=1
+fi
+#-------------------------END: Add RPM Repository-------------------------
 
 #-------------------------START: Install Snap Softwares-------------------------
 for snap_cmd in "${!snap_softwares_all[@]}"; do
@@ -500,3 +549,7 @@ done
 
 echo -e '\033[1;32m TAR => All Softwares Downloaded. \033[0m'
 #-------------------------END: Download TAR Softwares-------------------------
+
+#-------------------------START: Install Other Softwares-------------------------
+
+#-------------------------END: Install Other Softwares-------------------------
