@@ -4,6 +4,10 @@
 # Fedora-42-LXDE
 # https://packages.fedoraproject.org/
 # https://repology.org/repository/fedora_42
+# **[How to Keep ‘sudo’ Password Timeout Session Longer in Linux](https://www.tecmint.com/set-sudo-password-timeout-session-longer-linux/)**
+# * `sudo visudo` : Open the `/etc/sudoers` file with super user privileges
+# * "Defaults        env_reset,timestamp_timeout=20" [time out after 20 minutes]
+# * Also set time to `0` if you want a password prompt for every sudo command you execute, or disable password prompt forever by setting the value `-1`.
 #---------------------------End: General-Information----------------------------
 
 #--------------------------Start: Snap-Package-Manger---------------------------
@@ -178,7 +182,7 @@ dnf_office_softwares=(
     ["i3"]="i3" # Includes: `i3-wm`, `i3bar`, `i3status`, `i3lock`, `dunst`, `dmenu`
     ["pulseaudio-utils"]="pulseaudio-utils" # `pactl` command, Includes: `paplay`, `pacat`, `parec`, `pacmd`, `pactl`, `padsp`, `pax11publish`
     ["polybar"]="polybar"
-    #["fonts-font-awesome"]="fonts-font-awesome" # Icon for "polybar"
+    ["fontawesome-fonts-all"]="fontawesome-fonts-all" # Icon for "polybar"
     ["rofi"]="rofi"
     ["papirus-icon-theme"]="papirus-icon-theme" # Icon theme for "rofi" (Freezes during install on Debian/Sparky-Testing OS)
     ["feh"]="feh"
@@ -298,7 +302,7 @@ pkg_managers_all=("snapd" "flatpak" "git" "aria2")
 for ((i = 0; i < ${#pkg_managers_all[@]}; i++))
 do
     pkg_manager="${pkg_managers_all[$i]}"
-    is_pkg_manager_exist_x86_64=$(echo "$dnf_list_installed" | grep "^${pkg_manager}.x86_64" | awk '{print $1}')
+    is_pkg_manager_exist_x86_64=$(echo "$dnf_list_installed" | awk '{print $1}' | grep "^${pkg_manager}.x86_64\$")
     if [[ "$is_pkg_manager_exist_x86_64" != "${pkg_manager}.x86_64" ]]
     then
         sudo dnf --assumeyes install $pkg_manager
@@ -410,7 +414,7 @@ fi
 #-------------------------START: Install Snap Softwares-------------------------
 for snap_cmd in "${!snap_softwares_all[@]}"; do
     snap_software="${snap_softwares_all[$snap_cmd]}"
-    is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "$snap_cmd")
+    is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "^${snap_cmd}\$")
     if [[ "$is_snap_soft_installed" != '' ]]
     then
         echo -e "\033[1;32m Snap => $snap_software is already installed, skipping... \033[0m"
@@ -425,13 +429,13 @@ echo -e '\033[1;32m Snap => All Softwares Installed. \033[0m'
 #-------------------------START: Install Flatpak Softwares-------------------------
 for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
     flatpak_software="${flatpak_softwares_all[$flatpak_cmd]}"
-    is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_software")
+    is_flatpak_soft_installed=$(flatpak list --columns=application | grep "^${flatpak_software}\$")
     if [[ "$flatpak_software" == "$is_flatpak_soft_installed" ]]
     then
         echo -e "\033[1;32m Flatpak => $flatpak_software is already installed, skipping... \033[0m"
     else
         flatpak install --assumeyes flathub $flatpak_software
-        is_flatpak_soft_installed=$(flatpak list --columns=application | grep "$flatpak_software")
+        is_flatpak_soft_installed=$(flatpak list --columns=application | grep "^${flatpak_software}\$")
         if [[ "$is_flatpak_soft_installed" != '' ]]
         then
             echo "alias $flatpak_cmd=\"flatpak run $flatpak_software\"" >> ~/.bashrc
@@ -446,7 +450,7 @@ echo -e '\033[1;32m Flatpak => All Softwares Installed. \033[0m'
 #-------------------------START: Install Nix Softwares-------------------------
 for nix_cmd in "${!nix_softwares_all[@]}"; do
     nix_software="${nix_softwares_all[$nix_cmd]}"
-    is_nix_soft_installed=$(nix-env --query | grep "$nix_cmd")
+    is_nix_soft_installed=$(nix-env --query | grep "${nix_cmd}") # Do not use `^` and `\$` because there is package version at end
     if [[ "$is_nix_soft_installed" != '' ]]
     then
         echo -e "\033[1;32m Nix => $nix_software is already installed, skipping... \033[0m"
@@ -461,7 +465,7 @@ echo -e '\033[1;32m Nix => All Softwares Installed. \033[0m'
 #-------------------------START: Install Homebrew Softwares------------------
 for brew_cmd in "${!brew_softwares_all[@]}"; do
     brew_software="${brew_softwares_all[$brew_cmd]}"
-    is_brew_soft_installed=$(brew list | grep "$brew_cmd")
+    is_brew_soft_installed=$(brew list | grep "^${brew_cmd}\$")
     if [[ "$is_brew_soft_installed" != '' ]]
     then
         echo -e "\033[1;32m Homebrew => $brew_software is already installed, skipping... \033[0m"
@@ -476,8 +480,8 @@ echo -e '\033[1;32m Homebrew => All Softwares Installed. \033[0m'
 #-------------------------START: Install DNF Softwares-------------------------
 for dnf_cmd in "${!dnf_softwares_all[@]}"; do
     dnf_software="${dnf_softwares_all[$dnf_cmd]}"
-    is_dnf_soft_installed_x86_64=$(echo "$dnf_list_installed" | grep "^${dnf_cmd}.x86_64" | awk '{print $1}')
-    is_dnf_soft_installed_noarch=$(echo "$dnf_list_installed" | grep "^${dnf_cmd}.noarch" | awk '{print $1}')
+    is_dnf_soft_installed_x86_64=$(echo "$dnf_list_installed" | awk '{print $1}' | grep "^${dnf_cmd}.x86_64\$")
+    is_dnf_soft_installed_noarch=$(echo "$dnf_list_installed" | awk '{print $1}' | grep "^${dnf_cmd}.noarch\$")
     if [[ ("$is_dnf_soft_installed_x86_64" == "${dnf_cmd}.x86_64") || ("$is_dnf_soft_installed_noarch" == "${dnf_cmd}.noarch") ]]
     then
         echo -e "\033[1;32m DNF => $dnf_software is already installed, skipping... \033[0m"
@@ -495,7 +499,7 @@ for rpm_cmd in "${!rpm_softwares_all[@]}"; do
     IFS='/' read -r -a rpm_url_array <<< "$rpm_url_string"
     unset IFS
     rpm_file_name=${rpm_url_array[-1]}
-    is_rpm_soft_installed=$(echo "$dnf_list_installed" | grep "$rpm_cmd")
+    is_rpm_soft_installed=$(echo "$dnf_list_installed" | grep "^${rpm_cmd}\$")
     rpm_soft_path=$(command -v "$rpm_cmd")
     if [[ ("$is_rpm_soft_installed" != '') || ("$rpm_soft_path" != '') ]]
     then

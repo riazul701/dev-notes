@@ -4,4 +4,4 @@
 
 ## Tutorials
 
-* [How to Change Sudo Timeout Period on Linux](https://www.omglinux.com/change-sudo-timeout-linux/)
+* [How to Keep ‘sudo’ Password Timeout Session Longer in Linux](https://www.tecmint.com/set-sudo-password-timeout-session-longer-linux/)
