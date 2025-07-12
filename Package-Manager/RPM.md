@@ -1,7 +1,8 @@
 # Commands/Usage
 
-* `sudo rpm -ivh {{package-name.rpm}}` : To install .rpm packages with the rpm command, use the syntax <sup>{2}</sup>
+* `sudo rpm -ivh {{package-name.rpm}}` : To install local `.rpm` packages with the `rpm` command, use the syntax <sup>{2}</sup>
   * `-i` - Installs packages. `-v` - Shows verbose output. `-h` - Prints hash marks, which are visual indicators that show the installation process progress. <sup>{2}</sup>
+  * In general it would be preferred to use `"dnf install *.rpm"` since it checks for dependencies and requirements while using `rpm` would just install the packages. <sup>{5}</sup>
 
 # RPM.md
 
@@ -95,7 +96,7 @@ sudo /usr/bin/crb enable"
 
 # References
 
-* next-sl: {5}
+* next-sl: {6}
 
 ## Websites
 
@@ -115,3 +116,8 @@ sudo /usr/bin/crb enable"
 
 * Add RPM Repository
   * {4} [Configure the RPMFusion repository](https://rpmfusion.org/Configuration)
+
+## Guides
+
+* Install Package
+  * {5} [installing local pacakges with either dnf or rpm](https://forums.fedoraforum.org/showthread.php?327037-installing-local-pacakges-with-either-dnf-or-rpm)

@@ -128,7 +128,6 @@ $scoop_office_softwares = @(
 $scoop_home_softwares = @(
     #-------CLI (Start)---------
     "main/yt-dlp"
-    "main/youtube-dl"
     "main/gallery-dl"
     "extras/musikcube"
     "main/spotify-tui"
@@ -139,7 +138,7 @@ $scoop_home_softwares = @(
     #-------CLI (End)---------
 
     #-------GUI (Start)-------
-    "extras/youtube-dl-gui" # GUI for youtube-dl
+    "extras/youtubedownloader"
     "extras/rclone-browser"
     "main/syncthing"
     "extras/sirikali"
@@ -190,6 +189,7 @@ $winget_home_softwares = @(
     "IDRIX.VeraCrypt"
     "CrystalDewWorld.CrystalDiskInfo"
     "CrystalDewWorld.CrystalDiskMark"
+    "GiantPinkRobots.Varia"
     #"BlueStack.BlueStacks"
 )
 

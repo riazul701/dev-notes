@@ -58,6 +58,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 ## Internet (Selected)
 
 * [Carnival Selfcare BY Softics PLC](https://play.google.com/store/apps/details?id=com.carnival.smartnetuser)
+* [WiFi Analyzer BY olgor.com](https://play.google.com/store/apps/details?id=abdelrahman.wifianalyzerpro)
 * [Firefox Fast & Private Browser BY Mozilla](https://play.google.com/store/apps/details?id=org.mozilla.firefox)
 * [Opera Browser => Fast & Private BY Opera](https://play.google.com/store/apps/details?id=com.opera.browser)
 * [Advanced Download Manager BY admtorrent](https://play.google.com/store/apps/details?id=com.dv.adm)

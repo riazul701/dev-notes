@@ -1,7 +1,8 @@
 #!/bin/bash
 
+# Tested On OS: Fedora-42-LXDE
+
 #--------------------------Start: General-Information---------------------------
-# Fedora-42-LXDE
 # https://packages.fedoraproject.org/
 # https://repology.org/repository/fedora_42
 # **[How to Keep ‘sudo’ Password Timeout Session Longer in Linux](https://www.tecmint.com/set-sudo-password-timeout-session-longer-linux/)**
@@ -89,10 +90,20 @@ snap_office_softwares=(
 snap_home_softwares=(
     # ["Name"]="Snap Identifier" # `snap list`
     ["spotify"]="spotify"
-    ["spt"]="spt --edge" # Spotify TUI: https://github.com/Rigellute/spotify-tui
+    ["spt"]="spt --edge" # [Spotify TUI](https://github.com/Rigellute/spotify-tui)
     ["scrcpy"]="scrcpy"
     ["guiscrcpy"]="guiscrcpy"
-    ["ytdownloader"]="ytdownloader"
+    ["gallery-dl"]="gallery-dl"
+    ["audiotube"]="audiotube"
+    ["varia"]="varia"
+    ["qbittorrent-desktop-tak"]="qbittorrent-desktop-tak" # Media Server
+    ["qbittorrent-tak"]="qbittorrent-tak" # Media Server
+    ["prowlarr-tak"]="prowlarr-tak" # Media Server
+    ["lidarr-tak"]="lidarr-tak" # Media Server
+    ["radarr-tak"]="radarr-tak" # Media Server
+    ["sonarr-tak"]="sonarr-tak" # Media Server
+    ["readarr-tak"]="readarr-tak" # Media Server
+    ["bazarr-tak"]="bazarr-tak" # Media Server
 )
 
 flatpak_office_softwares=(
@@ -115,8 +126,6 @@ flatpak_home_softwares=(
     ["dropbox"]="com.dropbox.Client"
     ["rclone-shuttle"]="io.github.pieterdd.RcloneShuttle"
     ["jellyfin-player"]="com.github.iwalton3.jellyfin-media-player"
-    ["spotube"]="com.github.KRTirtho.Spotube"
-    ["ytdl-gui"]="io.github.JaGoLi.ytdl_gui"
 )
 
 nix_office_softwares=(
@@ -141,9 +150,11 @@ nix_home_softwares=(
     # ["Command"]="Command" # `nix-env --query`
     ["rclone-browser"]="rclone-browser"
     ["musikcube"]="musikcube"
+    ["ytfzf"]="ytfzf"
     ["sniffnet"]="sniffnet"
     ["ventoy-gtk"]="ventoy-full-gtk" # Alternative: `ventoy-full-qt`
     ["veracrypt"]="veracrypt"
+    ["linssid"]="linssid"
 )
 
 brew_office_softwares=(
@@ -167,16 +178,14 @@ dnf_office_softwares=(
     ["thunderbird"]="thunderbird"
     # ["ibus-avro"]="ibus-avro"
     ["libreoffice"]="libreoffice"
-    # ["docker"]="docker"
-    # ["docker.io"]="docker.io"
-    # ["docker-compose"]="docker-compose"
+    ["docker-ce"]="docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin" # [Install Docker Engine on Fedora](https://docs.docker.com/engine/install/fedora/)
     ["podman"]="podman"
     ["git"]="git" # For Lunarvim
-    ["git-lfs"]="git-lfs" # https://github.com/git-lfs/git-lfs
-    ["git-gui"]="git-gui" # https://git-scm.com/docs/git-gui
-    ["gitk"]="gitk" # https://git-scm.com/docs/gitk
+    ["git-lfs"]="git-lfs" # (https://github.com/git-lfs/git-lfs)
+    ["git-gui"]="git-gui" # (https://git-scm.com/docs/git-gui)
+    ["gitk"]="gitk" # (https://git-scm.com/docs/gitk)
     ["git-cola"]="git-cola"
-    ["gh"]="gh" # https://cli.github.com/
+    ["gh"]="gh" # (https://cli.github.com/)
     ["gnupg2"]="gnupg2" # `gpg` command, For "git-credential-manager"
     ["pass"]="pass" # For "git-credential-manager"
     ["i3"]="i3" # Includes: `i3-wm`, `i3bar`, `i3status`, `i3lock`, `dunst`, `dmenu`
@@ -236,6 +245,9 @@ dnf_office_softwares=(
     ["glances"]="glances"
 
     # Add: AB Download Manager
+    # Add: Backup-N-Sync Project Dependencies
+    # Add: yt-x (youtube terminal)
+    # Add: Git Credential Manager
 )
 
 dnf_home_softwares=(
@@ -244,12 +256,11 @@ dnf_home_softwares=(
     ["jellyfin"]="jellyfin --allowerasing" # Prefer RPM-Fusion over Fedora repository, because dependency version is conflicted, like `ffmpeg`
     ["syncthing"]="syncthing"
     ["yt-dlp"]="yt-dlp"
-    ["youtube-dl"]="youtube-dl"
-    # ["gallery-dl"]="gallery-dl"
-    # ["linssid"]="linssid"
-    # ["wavemon"]="wavemon"
-    # ["digikam"]="digikam"
-    # ["clementine"]="clementine"
+    ["wavemon"]="wavemon"
+    ["digikam"]="digikam"
+    ["clementine"]="clementine"
+    ["waydroid"]="waydroid" # Android App
+    ["weston"]="weston" # Android App, Wayland inside X11
 )
 
 rpm_office_softwares=(
@@ -261,6 +272,7 @@ rpm_office_softwares=(
 
 rpm_home_softwares=(
     # ["Command"]="URL Address"
+    ["musikcube"]="https://github.com/clangen/musikcube/releases/download/3.0.4/musikcube_3.0.4_linux_x86_64.rpm"
     # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
     # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
 )
@@ -278,12 +290,13 @@ appimage_home_softwares=(
 tar_office_softwares=(
     # "URL Address"
     # "https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.5.0727.x64.run.tar.gz"
-    # https://github.com/amir1376/ab-download-manager/releases/download/v1.6.4/ABDownloadManager_1.6.4_linux_x64.tar.gz
+    # "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
 )
 
 tar_home_softwares=(
     # "URL Address"
-    # "https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip"
+    # https://github.com/amir1376/ab-download-manager/releases/download/v1.6.4/ABDownloadManager_1.6.4_linux_x64.tar.gz
+    https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.15/YoutubeDownloader.linux-x64.zip
 )
 
 if [[ "$USER" == "root" ]]
@@ -403,11 +416,19 @@ fi
 #-------------------------START: Add RPM Repository-------------------------
 is_rpmfusion_repo_exist=$(dnf repo list | awk '{print $1}' | grep "rpmfusion-free")
 if [[ "$is_rpmfusion_repo_exist" != '' ]]
-    then
-        echo -e "\033[1;32m Repo => RPM Fusion repo is already added, skipping... \033[0m"
-    else
-        sudo dnf --assumeyes install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-        sudo dnf --assumeyes config-manager setopt fedora-cisco-openh264.enabled=1
+then
+    echo -e "\033[1;32m Repo => RPM Fusion repo is already added, skipping... \033[0m"
+else
+    sudo dnf --assumeyes install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    sudo dnf --assumeyes config-manager setopt fedora-cisco-openh264.enabled=1
+fi
+is_docker_repo_exist=$(dnf repo list | awk '{print $1}' | grep "docker-ce-stable")
+if [[ "$is_docker_repo_exist" != '' ]]
+then
+    echo -e "\033[1;32m Repo => Docker repo is already added, skipping... \033[0m"
+else
+    sudo dnf -y install dnf-plugins-core
+    sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 fi
 #-------------------------END: Add RPM Repository-------------------------
 
@@ -507,10 +528,10 @@ for rpm_cmd in "${!rpm_softwares_all[@]}"; do
     else
         if [[ -f "$download_path/rpm/$rpm_file_name" ]]
         then
-            sudo rpm -ivh "$download_path/rpm/$rpm_file_name"
+            sudo dnf --assumeyes install "$download_path/rpm/$rpm_file_name"
         else
             aria2c --dir="$download_path/rpm" "$rpm_url_string"
-            sudo rpm -ivh "$download_path/rpm/$rpm_file_name"
+            sudo dnf --assumeyes install "$download_path/rpm/$rpm_file_name"
         fi    
     fi  
 done

@@ -46,5 +46,8 @@
   * [Fedora Snapper Tests: Create, Delete, Compare, Revert, and Rollback Snapshots BY SysGuides](https://www.youtube.com/watch?v=hlAgYA4mVvs)
   * [Installing Fedora with Timeshift compatible encrypted BTRFS Snapshots - Easy GUI Method! BY FOSS World](https://www.youtube.com/watch?v=bN8gGoBaZ5M)
 
+* Fedora Dual Boot
+  * [Dual Boot Windows 11 and Fedora 42 - Complete Tutorial BY Learn Linux TV](https://www.youtube.com/watch?v=z5xHkNPjPv8)
+
 * Fedora Copr
   * {5} [Fedora's AUR? - What is Fedora COPR? BY The Linux Cast](https://www.youtube.com/watch?v=UwKI6BJuIRA)

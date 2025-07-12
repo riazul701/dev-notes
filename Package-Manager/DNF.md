@@ -1,3 +1,8 @@
+# Commands/Usage
+
+* `sudo dnf install {{package-name.rpm}}` : To install local `.rpm` packages with the `dnf` command <sup>{14}</sup>
+  * In general it would be preferred to use `"dnf install *.rpm"` since it checks for dependencies and requirements while using `rpm` would just install the packages. <sup>{14}</sup>
+
 # DNF.md
 
 ## Notes
@@ -19,7 +24,7 @@
 
 # References
 
-* next-sl: {14}
+* next-sl: {15}
 
 ## Websites
 
@@ -50,6 +55,9 @@
 
 * Fedoara Copr
   * {6} [Copr security](https://discussion.fedoraproject.org/t/copr-security/85931)
+
+* Install Package
+  * {14} [installing local pacakges with either dnf or rpm](https://forums.fedoraforum.org/showthread.php?327037-installing-local-pacakges-with-either-dnf-or-rpm)
 
 * Check Package Installed
   * [How to Check a Particular Package is Installed on Linux](https://www.tecmint.com/check-package-installed-linux/)
