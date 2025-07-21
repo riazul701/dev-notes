@@ -2,9 +2,32 @@
 
 ## Notes
 
-* Use Motherboard BIOS Restore AC Power Loss function and Sonoff Wifi Smart Plug to remotely turn on PC. <sup>{1} {2} {3}</sup>
+* Laptops don’t power on automatically when AC power is restored, unlike desktop PCs.
+
+* Check Wifi Socket Before Buying => Connect wifi smart socket to broadband internet and connect android phone to sim internet. Then try to remotely on/off wifi smart socket. Also check wifi socket has physical button, that works without internet like normal switch.
+
+* Check Timer Switch/Socket Before Buying => Check timer switch/socket has physical bypass button, so that wifi router can be turned on manually outside of timing. Check battery is replaceable. Also check it supplies power to wifi router, when there is no battery or battery is down.
+
+* Use Motherboard BIOS/UEFI "Restore AC Power Loss" function and Sonoff Wifi Smart Plug (Switch/Socket) to remotely turn on PC. <sup>{1} {2} {3}</sup>
+
+* Motherboard BIOS/UEFI power management functions (turn on computer)
+  * Press "F2/Del/Esc" during computer starting to enter BIOS/UEFI settings -> Advanced -> APM (Advanced Power Management) --OR-- ACPI (Advanced Configuration and Power Interface)
+  * "Restore AC Power Loss"
+  * "Power On by PCI-E"
+  * "Power On by RTC (Real-Time Clock)"
 
 * Use Digital Timer Switch/Socket to timely on/off Wifi Router. <sup>{6}</sup>
+  * SONOFF S26 R2 WiFi Smart Plug => Set scheduled/countdown/loop timers to turn on/off your devices at a specified  time. <sup>{7}</sup>
+
+* Remote USB Insert/Attach
+  * Wi-Fi USB switch/relay is for remotely turn on/off portable hard disk. Must check "data support".
+  * USB-over-IP hub or USB device server
+  * [SONOFF Micro Zigbee USB Smart Adaptor](https://sonoff.tech/products/sonoff-micro-zigbee-usb-smart-adaptor)
+
+* Laptop
+  * No "Restore AC Power Loss" function
+  * Smart Button Presser(Pusher)/SwitchBot, check internet (another wifi/sim) controlled not bluetooth - Alternative, physically press power button
+    * [SwitchBot Bot](https://www.switch-bot.com/products/switchbot-bot)
 
 # Auto Login OS
 
@@ -15,7 +38,7 @@
 
 # References
 
-* next-sl: {7}
+* next-sl: {8}
 
 ## Tutorials
 
@@ -24,6 +47,10 @@
 * Linux Desktop Environment
   * {4} [LXDE => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDE)
   * {5} [LXDM => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDM)
+
+## Products
+
+* {7} [SONOFF S26 R2 WiFi Smart Plug Wireless Wifi Outlet Socket Remote Control Wall Plug Alexa Google](https://www.daraz.com.bd/products/sonoff-r2-wifi-wifi-i274335274-s1249615976.html)
 
 ## YouTube Tutorials
 

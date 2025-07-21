@@ -1,10 +1,12 @@
 # Commands/Usage
 
-* `apt show os-prober`
+* `apt show os-prober` : `os-prober` command finds other OS like Windows OS and used by `grub`.
 
 # Boot-Repair.md
 
 ## Notes
+
+* IN UEFI BIOS, AFTER RE-INSTALLATION OF WINDOWS-OS, NO NEED TO USE "Boot-Repair-Disk" FOR GRUB RE-INSTALLATION. OPEN MOTHERBOARD BOOT MENU AND MAKE/ADD/EDIT LINUX-OS BOOTLOADER TO DEFAULT. THEN UPDATE GRUB FROM LINUX-OS TO DETECT WINDOWS-OS.
 
 * "Boot-Repair-Disk" is better than "Super-Grub2-Disk". "Super-Grub2-Disk" sometimes does not work.
 

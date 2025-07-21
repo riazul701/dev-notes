@@ -25,15 +25,19 @@
   * [Prime95 CPU Stress Test](https://www.mersenne.org/download/) <sup>{18}</sup>
 
 * Processor List
-  * [List of AMD Ryzen processors](https://en.wikipedia.org/wiki/List_of_AMD_Ryzen_processors)
   * [Windows Processor Requirements](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements)
-  
+  * [Windows 11 supported Intel processors](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/supported/windows-11-supported-intel-processors)
+  * [Windows 11 supported AMD processors](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/supported/windows-11-supported-amd-processors)
+  * [List of AMD Ryzen processors](https://en.wikipedia.org/wiki/List_of_AMD_Ryzen_processors)
+
 ## Notes
 
 * Windows 11: You need a processor that must be in the 8th generation. <sup>{2}</sup>
   * [Windows Processor Requirements](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/windows-processor-requirements)
-  * Windows 11 requires TPM (Trusted Platform Module) 2.0 in Processor/Motherboard. Check it, before buying.
-  
+    * Windows 11 requires TPM (Trusted Platform Module) 2.0 in Processor/Motherboard. Check it, before buying.
+  * [Windows 11 supported Intel processors](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/supported/windows-11-supported-intel-processors)
+  * [Windows 11 supported AMD processors](https://learn.microsoft.com/en-us/windows-hardware/design/minimum/supported/windows-11-supported-amd-processors)
+
 * Integrated Graphics <sup>{20}</sup>
   * AMD processor name ends with letter "G" means, it has integrated graphics and this processor is called APU (Accelarated Processing Unit). All other AMD processors except this naming do not have graphics inbuilt and require external graphics card to get monitor output.
   * Intel processor name ends with letter "F" means, it does not have integrated graphics and require external graphics card to get monitor output. All other Intel processors (has letter "G" in name) except this have integrated graphics.
