@@ -1,6 +1,18 @@
 # Mini-Package.md
 
+## Notes
+
+* Check UPS battery charger has auto charging cut feature and full charge indicator.
+
 # References
+
+## Websites
+
+* [safebdes.com](https://safebdes.com/)
+
+## Products
+
+* [Vision DC Table Fan -12" (Use With Only Battery 12Volt)](https://othoba.com/vision-dc-table-fan-12-use-with-onlybattery12volt-268277)
 
 ## YouTube Tutorials
 

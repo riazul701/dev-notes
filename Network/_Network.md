@@ -2,6 +2,10 @@
 
 # References
 
+## Websites
+
+* [ipv6-test.com](https://ipv6-test.com/)
+
 ## Tutorials
 
 ## Guides

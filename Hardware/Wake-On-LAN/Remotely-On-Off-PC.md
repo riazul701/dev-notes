@@ -4,7 +4,7 @@
 
 * Laptops don’t power on automatically when AC power is restored, unlike desktop PCs.
 
-* Check Wifi Plug/Socket Before Buying => Connect wifi smart socket to broadband internet and connect android phone to sim internet. Then try to remotely on/off wifi smart socket. Also check wifi plug/socket has physical button, that works without internet like normal switch.
+* Check Wifi Plug/Socket Before Buying => Connect wifi smart socket to broadband internet and connect android phone (plug/socket control app) to sim internet. Then try to remotely on/off wifi smart socket. Also check wifi plug/socket has physical button, that works without internet like normal switch. Check wifi plug/socket has power usage monitoring feature through android app.
 
 * Check Some Wifi Plug/Socket Works As Timer Switch/Socket
 
@@ -31,6 +31,61 @@
   * Smart Button Presser(Pusher)/SwitchBot, check internet (another wifi/sim) controlled not bluetooth - Alternative, physically press power button
     * [SwitchBot Bot](https://www.switch-bot.com/products/switchbot-bot)
 
+## UPS (Uninterruptible Power Supply) Alarm Sound
+
+* Turn UPS alarm sound permanently off. Wifi smart plug/socket is inserted to backside of UPS to remotely turn on/off computer. UPS power button will be turned on all time. When no electricity and computer is also off, then UPS makes alarm sound.
+
+# Auto Login OS
+
+## Linux
+
+* For LXDE desktop environment, display manager is `/var/lib/lxdm` <sup>{4} {5}</sup>
+  * Autologin : To log in to one account automatically on startup, without providing a password, find the line in `/etc/lxdm/lxdm.conf` that looks like this: `#autologin=dgod`. Uncomment it, substituting the target user instead of `dgod`. <sup>{5}</sup>
+
+# Arduino
+
+## Arduino/ESP32/ESP8266 Works
+
+* Attach/Detach Portable Hard Disk Into Desktop Computer
+  * Buy usb-hub with power buttons and external power adapter.
+    * External power adapter supplies additional power for portable hard disk. 
+    * Buy round press only button model, one press turns on usb, another press turns off usb. Do not buy traditional electrical switch like button.
+    * For arduino/esp32/servo-motor, press only button is required.
+  * Buy ESP32 with wifi and bluetooth enabled
+    * Using wifi and servo motor, remotely press usb-hub's power button to turn on usb. Again press to turn off usb.
+    * Use medium/api/chat to transfer wifi signal from android phone to ESP32: MQTT with Cloud Broker (e.g., Adafruit IO, HiveMQ, Mosquitto), Blynk IoT Platform, Telegram Bot API, Firebase Realtime Database, Ngrok Tunnel (for development).
+
+* Laptop's Power Button Presser(Pusher)
+  * When wifi smart plug/socket is turned on, then after 5 seconds press latptop's power button using arduino and servo motor.
+  * Laptop has battery, for this reason it can not be turned off like desktop when hangs. Use wifi enabled ESP32 to remotely press power button for 5 seconds to forcefully turn off laptop when hangs.
+
+* If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi
+  * In every 5 minutes, check broadband wifi has internet access or not. If broadband wifi does not have internet, then turn on sim wifi router by pressing multiplug's power button.
+  * On computer, if connected to sim wifi, then block heavy internet usage websites in chrome like youtube, tiktok. Also block internet for download manager. Do this using chrome extension and firewall rule.
+  * On mobile, if connected to sim wifi, then block heavy internet usage apps like youtube, tiktok. Do this using android app.
+  * Restrict SIM Wifi Usage
+    * On Computer: Create a bash script that detects wifi ssid/name. Based on ssid create firewall rules to block website, application. Run this script every minute using cron/windows-task-scheduler.
+    * On Android: Install `Tasker` and `NetGuard` paid/premium application. Detect wifi ssid/name changes using `Tasker` and restrict application using `NetGuard`. `NetGuard` has `Tasker` integration plugin. No "root" required.
+      * Tasker
+      * MacroDroid
+      * [NetGuard - no-root firewall BY Marcel Bokhorst, FairCode BV](https://play.google.com/store/apps/details?id=eu.faircode.netguard)
+
+* Timely On/Off Broadband Wifi Router
+  * Arduino RTC (Real Time Clock) module is required.
+  * In every 10 minutes, check broadband wifi has signal, internet access is not required.
+  * If broadband usage allowed time and no wifi signal, then press electric switch on side. If wifi signal already present, then do nothing.
+  * If broadband usage blocked time and has wifi signal, then press electric switch off side. If wifi signal already absent, then do nothing. Do this checking and work at specific time/moment, do not do this repeatedly, because anyone can use broadband in blocked time.
+
+* No Electricity Notification
+  * Using Arduino (ESP32/ESP8266) make a system to notify computer using wifi (optional alarm sound), when no electricity. So that, computer can be turned off quickly after saving works because UPS backup time is very limited.
+    * When using computer remotely, then send no electricity notification to both desktop-environment/window-manager (connected via rustdesk) and terminal tmux (connected via ssh).
+    * Also send no electricity notification to android mobile using internet. Wifi router is powered by router-ups.
+
+* Timely Provide Water In Garden
+  * Arduino RTC (Real Time Clock) module is required.
+  * At specific time turn on the 12V DC water motor and after several minutes turn it off.
+  * Drop water to ground/soil with making noise (like main AC water motor and tank), so that anyone can observe that dc motor is running.
+
 ## DIY Smart Button Presser(Pusher) <sup>ChatGPT</sup>
 
 * When wifi smart plug/socket is turned on, then wait 5 seconds before pressing laptop's power button. Because laptop's charger should provide electricity before pressing power button.
@@ -46,7 +101,7 @@
 * Servo Motor Information
   * Power servo motor from Arduino
   * Power a small servo motor with a mobile charger
-  * [SG90 Micro Servo Motor 180 Degree => Contains arduino and servo motor short video overview](https://bigyanproject.com/en/servo/sg90-micro-servo-motor)
+  * [SG90 Micro Servo Motor 180 Degree => Most used servo motor. Contains arduino and servo motor short video overview](https://bigyanproject.com/en/servo/sg90-micro-servo-motor)
   * [MG995 360 Degree Metal Gear Servo Motor – High Torque => Not needed for button presser/pusher](https://bigyanproject.com/en/servo/mg995-servo-motor-360-metal)
 
 **ChatGPT Question: "diy servo motor button presser"**
@@ -123,7 +178,7 @@ void loop() {
 
 * Would you like a diagram, 3D print model, or wiring schematic? I can generate or help you build one based on your exact button style or space constraints.
 
-## WiFi Switch If No Internet <sup>ChatGPT</sup>
+## Switch Wifi If No Internet <sup>ChatGPT</sup>
 
 **ChatGPT Question: "ESP32 checks if one wifi does not have internet then start another"**
 
@@ -229,6 +284,375 @@ void loop() {
 
 * Would you like me to modify this code to automatically switch back to WiFi1 if it becomes available again later?
 
+## Remotely Control Arduino (ESP32/ESP8266) Using Internet <sup>ChatGPT</sup>
+
+**ChatGPT Question: "arduino remote wifi control without public ip"**
+
+* If you want to control an Arduino over Wi-Fi without using a public IP, there are several reliable approaches that work well for local or remote access while avoiding the need to expose your device to the open internet.
+
+* Key Methods to Control Arduino Remotely (No Public IP Required)
+
+* 1. Using MQTT with Cloud Broker (e.g., Adafruit IO, HiveMQ, Mosquitto)
+  * Arduino (ESP8266/ESP32) connects to Wi-Fi and communicates with a cloud MQTT broker.
+  * Control commands are published to a topic from a smartphone or PC app.
+  * No port forwarding or public IP needed.
+  * Pros:
+    * Secure, lightweight protocol
+    * Real-time communication
+    * Free brokers available
+  * Libraries:
+```cpp
+#include <WiFi.h>
+#include <PubSubClient.h>
+```
+
+* 2. Blynk IoT Platform
+  * Blynk offers a mobile app and cloud service.
+  * You upload a sketch to your Arduino with a Blynk library and auth token.
+  * Control widgets on your phone (buttons, sliders, etc.) control the device remotely.
+  * Pros:
+    * Easiest GUI-based remote control
+    * Secure cloud connection
+    * Works behind NAT (no public IP needed)
+  * Libraries:
+```cpp
+#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+```
+    * Note: Use the new Blynk 2.0 platform (https://blynk.io/).
+
+* 3. Telegram Bot API
+  * Your Arduino uses the Telegram API to check for messages sent to your bot.
+  * Commands are parsed and executed accordingly.
+  * Pros:
+    * Easy to set up
+    * Works without public IP
+    * Free and secure
+  * Libraries:
+```cpp
+#include <UniversalTelegramBot.h>
+```
+
+* 4. Firebase Realtime Database
+  * Arduino (ESP8266/ESP32) reads and writes control values to/from Firebase.
+  * Your mobile app or web dashboard updates Firebase remotely.
+  * Pros:
+    * Google-hosted, reliable
+    * Good for structured control/data logging
+  * Libraries:
+    * `Firebase_ESP_Client` (by Mobizt)
+
+* 5. Ngrok Tunnel (for development)
+  * Use Ngrok to create a secure tunnel to your local Arduino server (e.g., ESP32 running web server).
+  * This temporarily exposes your local device to the internet through a secure URL.
+  * Pros:
+    * Easy remote access during development
+    * No router config needed
+  * Cons:
+    * Not ideal for permanent deployment
+
+* Which Board Works Best?
+  * Use an `ESP32` or `ESP8266`:
+    * Built-in Wi-Fi
+    * Compatible with all methods above
+    * Arduino IDE support
+
+* Example: Blynk + ESP32 Setup
+```cpp
+#define BLYNK_TEMPLATE_ID "YourTemplateID"
+#define BLYNK_DEVICE_NAME "YourDevice"
+#define BLYNK_AUTH_TOKEN "YourAuthToken"
+
+#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+
+char ssid[] = "YourSSID";
+char pass[] = "YourPassword";
+
+void setup() {
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+}
+
+void loop() {
+  Blynk.run();
+}
+```
+
+* Would you like help setting up one of these methods (e.g., Blynk, MQTT, or Telegram)? I can guide you step-by-step.
+
+## No Electricity Notification <sup>ChatGPT</sup>
+
+**ChatGPT Question: "arduino notify computer with wifi about no electricity"**
+
+* You can make an Arduino (ESP8266 or ESP32) notify your computer over Wi-Fi when electricity goes off (i.e., power outage detection). This can be done using a web server, HTTP request, or MQTT.
+
+* How It Works (Concept)
+  * 1. A power supply (like a 5V adapter) plugged into the AC line indicates that mains power is available.
+  * 2. When mains power is lost, the adapter turns off → Arduino detects it (via a digital pin).
+  * 3. Arduino (ESP8266/ESP32) sends a Wi-Fi notification to your computer via:
+    * Local HTTP server (on your PC)
+    * MQTT broker (like Mosquitto)
+    * Web dashboard or email (via IFTTT, etc.)
+
+* Hardware Needed
+  * Component => Purpose
+  * ESP8266 (NodeMCU) or ESP32 => Wi-Fi-enabled Arduino
+  * USB phone charger (5V) => Detect AC power presence
+  * Diode (e.g. 1N4007) + Voltage divider => Safe voltage input
+  * Resistors => For voltage sensing or pull-down
+  * Computer on same Wi-Fi => To receive notification
+
+* Wiring (Safe Method)
+  * Use a 5V adapter plugged into AC. Connect its 5V output to a digital input pin via a resistor voltage divider (optional protection).
+  * ESP Pin => Connected To [Table Heading]
+    * D1 (GPIO5) => From 5V adapter output (via divider)
+    * GND => GND of adapter and board
+  * ESP is powered separately via USB or a battery pack.
+
+* Code Example (ESP8266 HTTP Notification)
+  * This code sends a simple HTTP request to your computer when power is lost.
+  * Arduino Sketch (ESP8266)
+```cpp
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+const char* serverIP = "192.168.1.100";  // Your computer's IP address
+const int powerSensePin = D1;  // Connected to 5V adapter output
+
+bool powerPreviouslyOn = true;
+
+void setup() {
+  pinMode(powerSensePin, INPUT);
+  Serial.begin(115200);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected");
+}
+
+void loop() {
+  int powerStatus = digitalRead(powerSensePin);
+
+  if (powerStatus == LOW && powerPreviouslyOn) {
+    // Power has just gone OFF
+    sendPowerOffNotification();
+    powerPreviouslyOn = false;
+  } else if (powerStatus == HIGH && !powerPreviouslyOn) {
+    // Power restored
+    sendPowerOnNotification();
+    powerPreviouslyOn = true;
+  }
+
+  delay(500);  // Adjust as needed
+}
+
+void sendPowerOffNotification() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    String url = "http://" + String(serverIP) + ":5000/poweroff";
+    http.begin(url);
+    int httpCode = http.GET();
+    http.end();
+    Serial.println("Power OFF notification sent.");
+  }
+}
+
+void sendPowerOnNotification() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    String url = "http://" + String(serverIP) + ":5000/poweron";
+    http.begin(url);
+    int httpCode = http.GET();
+    http.end();
+    Serial.println("Power ON notification sent.");
+  }
+}
+```
+
+* How to Receive Notification on Your PC
+  
+  * Option 1: Python HTTP Server on Your Computer
+    * Run this Python script on your PC:
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/poweroff')
+def power_off():
+    print("⚠️ Power OFF detected!")
+    return "OK"
+
+@app.route('/poweron')
+def power_on():
+    print("✅ Power RESTORED!")
+    return "OK"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+  * Install dependencies:
+```bash
+pip install flask
+```
+  * Run:
+```python
+python power_notify.py
+```
+
+* What Happens
+  * When AC power cuts off, the 5V adapter stops supplying power → ESP detects LOW → sends `http://your-ip:5000/poweroff`
+  * Your PC’s Python script prints the warning.
+  * When power is restored, another message is sent.
+
+* Notes
+  * Make sure your computer IP is static (or use mDNS).
+  * Both PC and ESP must be on the same network.
+  * Use a voltage divider or opto-isolator to protect the ESP pin from over-voltage.
+  * Add email or desktop popup alerts using your Python script (can integrate with Notify, Slack, or Telegram).
+
+* Would you like help extending this to send email, desktop notifications, or Telegram alerts too?
+
+## Wifi Controlled USB Switch For Portable HDD <sup>ChatGPT</sup>
+
+**ChatGTP Question: "arduino wifi controlled usb switch for portable hard disk"**
+
+* To build an Arduino Wi-Fi controlled USB switch to remotely control the power to a portable hard disk, you'll essentially need to cut or enable power to the USB line. Here's how to approach this:
+
+* Goal:
+  * Turn USB power on/off via Wi-Fi, so that a portable hard drive can be remotely powered on/off using an Arduino.
+
+* Parts Needed:
+  * 1. Arduino with Wi-Fi
+    * ESP8266 (e.g., NodeMCU or Wemos D1 mini) or
+    * ESP32
+  * 2. USB Power Control Switch (Options below)
+  * 3. Relay module or MOSFET (for switching power)
+  * 4. Micro USB breakout board or USB extension cable (cuttable)
+  * 5. External 5V power supply (optional but recommended for stable power)
+  * 6. Jumper wires, soldering tools, case/enclosure
+
+* Design Overview:
+  * The ESP8266/ESP32 acts as a Wi-Fi web server. You connect to it via your phone or PC and toggle the USB power. The microcontroller switches a relay or MOSFET that cuts or enables 5V power to the USB port that powers your hard disk.
+
+* USB Power Switching Methods:
+  * Option 1: Use a Relay
+    * Use a 5V relay module to cut the 5V line going to the USB device.
+    * Safe for low-speed control and electrically isolated.
+  * Option 2: Use a P-Channel MOSFET
+    * More compact, silent, and power-efficient than a relay.
+    * Use a P-Channel MOSFET like IRF9540 with pull-down resistor and gate control.
+
+* Wiring Diagram (Relay Example):
+```rust
+USB Cable (from power source) --> Relay --> USB Cable (to HDD)
+
+NodeMCU:
+  D1 (GPIO5) --> Relay IN
+  GND       --> Relay GND
+  5V        --> Relay VCC
+```
+
+* ESP8266 Code Example (Basic Web Server):
+```cpp
+#include <ESP8266WiFi.h>
+
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+
+int relayPin = D1;
+
+WiFiServer server(80);
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW); // Start with power OFF
+
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) delay(1000);
+
+  server.begin();
+  Serial.print("Connected IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  WiFiClient client = server.available();
+  if (!client) return;
+
+  while (!client.available()) delay(1);
+
+  String request = client.readStringUntil('\r');
+  client.flush();
+
+  if (request.indexOf("/on") != -1) digitalWrite(relayPin, HIGH);
+  if (request.indexOf("/off") != -1) digitalWrite(relayPin, LOW);
+
+  client.println("HTTP/1.1 200 OK");
+  client.println("Content-Type: text/html");
+  client.println();
+  client.println("<html><body>");
+  client.println("<h1>USB Power Control</h1>");
+  client.println("<a href=\"/on\">Turn ON</a><br>");
+  client.println("<a href=\"/off\">Turn OFF</a><br>");
+  client.println("</body></html>");
+}
+```
+
+* Important Notes:
+  * Only switch the 5V line, never the data lines (D+/D−) unless you know what you're doing.
+  * Some hard drives draw more current than the relay/MOSFET can safely handle – always check specs.
+  * USB power from your Arduino is not enough for an HDD; use external power routed through the relay/MOSFET.
+
+* Optional: Add Status LED or OTA Updates
+  * Let me know if you'd like a version using:
+    * Blynk / MQTT / Home Assistant integration
+    * PCB design
+    * 3D-printable enclosure
+    * ESP32 instead of ESP8266
+
+* Would you like help choosing the exact parts or a schematic?
+
+**ChatGPT Question: "power required for portable hard disk"**
+
+* The power required for a portable hard disk depends on its type and size, but here's a practical breakdown:
+
+* Typical Power Requirements:
+  * Type of Drive => Power Required
+  * 2.5" Portable HDD (USB) => 0.5–1.0A @ 5V (2.5–5W)
+  * 3.5" Desktop HDD => 12V @ 0.5–2A + 5V @ 0.5–1A
+  * SSD (2.5" USB) => 0.2–0.5A @ 5V (1–2.5W)
+
+* USB Power Limits:
+  * USB Type => Max Current => Power
+  * USB 2.0 => 500 mA => 2.5 W
+  * USB 3.0/3.1 => 900 mA – 1.5A => 4.5–7.5 W
+  * Most 2.5" portable USB drives are designed to run off USB 3.0 ports, which can provide up to 5V @ 900mA–1500mA.
+
+* Example Devices:
+  * Device Example => Peak Power (Startup) => Sustained
+  * WD My Passport 1TB (USB 3.0) => ~1.0A @ 5V (5W) => ~0.6A @ 5V (3W)
+  * Seagate Backup Plus 2TB => ~0.8–1.0A @ 5V => ~0.5A
+  * Samsung T5 SSD => ~0.4A @ 5V => ~0.2A
+
+* Startup Surge:
+  * Portable HDDs often draw more power at startup (up to 1.0–1.2A for a second or two) due to motor spin-up.
+  * Some Arduinos or cheap USB relays can't handle this surge — use external 5V power if switching USB power.
+
+* Recommended Power Supply (for switching via Arduino):
+  * 5V @ 2A USB adapter — safe for most 2.5" drives
+  * Relay/MOSFET should handle at least 2A continuous
+  * Use a USB current meter (inline tester) to measure actual draw
+
+* Would you like help picking a specific relay/MOSFET or designing a power switch that handles this safely?
+
 ## Timely Provide Water In Garden <sup>ChatGPT</sup>
 
 **ChatGPT Question: "use arduino to timely provide water in garden"**
@@ -308,16 +732,14 @@ void loop() {
 
 * Would you like a full wiring diagram, RTC-based version, or an ESP32 Wi-Fi controlled version? Just let me know!
 
-# Auto Login OS
-
-## Linux
-
-* For LXDE desktop environment, display manager is `/var/lib/lxdm` <sup>{4} {5}</sup>
-  * Autologin : To log in to one account automatically on startup, without providing a password, find the line in `/etc/lxdm/lxdm.conf` that looks like this: `#autologin=dgod`. Uncomment it, substituting the target user instead of `dgod`. <sup>{5}</sup>
-
 # References
 
-* next-sl: {9}
+* next-sl: {11}
+
+## Websites
+
+* [nabatechshop.com => Arduino related products](https://nabatechshop.com/)
+* [bigyanproject.com => Arduino related products](https://bigyanproject.com/en/)
 
 ## Tutorials
 
@@ -331,6 +753,11 @@ void loop() {
 
 * {7} [SONOFF S26 R2 WiFi Smart Plug Wireless Wifi Outlet Socket Remote Control Wall Plug Alexa Google](https://www.daraz.com.bd/products/sonoff-r2-wifi-wifi-i274335274-s1249615976.html)
 
+* Other Products
+  * [Smart Motion Sensor Light Holder for Indoor/Outdoor – E27](https://nabatechshop.com/product/smart-motion-sensor-light-holder-e27-bangladesh/)
+  * [Automatic Street Light Controller AC 220V 10A – Photocell Day Night Light Sensor Switch](https://nabatechshop.com/product/automatic-street-light-controller-photocell-day-night-light-sensor-switch/)
+  * [HTC-2 Digital Temperature & Humidity Meter with Clock](https://nabatechshop.com/product/htc-2-digital-temperature-humidity-meter-with-clock/)
+
 ## YouTube Tutorials
 
 * General
@@ -338,5 +765,10 @@ void loop() {
   * {3} [এটা দিয়ে সবই হবে স্মার্ট ডিভাইস! // Sonoff Wifi Smart Plug Review & Setup BY Gadget Insider Bangla](https://www.youtube.com/watch?v=kw82UXblSIo)
   * {6} [ডিজিটাল টাইমার সুইচ! // Digital Timer Switch | Automatic Switching Device! BY Gadget Insider Bangla](https://www.youtube.com/watch?v=EhNJbwZ-NqU)
 
-* Arduino, Servo-Motor
+* Arduino, Servo-Motor, Proteus
+  * {10} [Arduino Bangla Tutorial Part - 24: What is Servo Motor? How to use Servo Motor with Arduino BY Naba Tech World](https://www.youtube.com/watch?v=TaFBqZFUTLE&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=25)
   * {8} [Arduino Bangla Tutorial BY Naba Tech World => PlayList](https://www.youtube.com/playlist?list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa)
+  * {9} [Proteus Tutorial BY EEE Campus => PlayList](https://www.youtube.com/playlist?list=PL2bh00zqE3V8rHQWhbj5-geDcD4Xxcjeg)
+
+* USB Switch
+  * [USB 3.0 On / Off Switch Button: Type A Cable Teardown in 3 Minutes BY Luke Builds Stuff](https://www.youtube.com/watch?v=ob-IkjLMZfw)
