@@ -14,13 +14,21 @@
 
 ## Working Way
 
-* esp32 to esp32 data transfer => "ESP-NOW" etc.
+* esp32 to esp32 data transfer => "ESP-NOW", Wifi, Bluetooth etc.
 * esp32 to computer data transfer
-* esp32 ESP-NOW distance
+* esp32 "ESP-NOW" data transfer distance
+* [ESP32-CAM External Antenna](https://store.roboticsbd.com/internet-of-things-iot/1852-esp32-cam-external-antenna-robotics-bangladesh.html)
+* [100x60x25mm Black Plastic Project Box Small Junction Box ABS Waterproof Project Enclosure Box for Electronics](https://www.electronics.com.bd/rc-hobby-components/black-plastic-project-box-100x60x25mm)
 
 ## Arduino/ESP32/ESP8266 Works
 
 **Arduino And Other Products Power Backup**
+
+* Use Lithium Ion Battery For Arduino
+  * [18650 Lithium Battery Holder (1 Slot)](https://nabatechshop.com/product/18650-lithium-battery-holder-1-slot/)
+  * [18650 Lithium Battery Holder (2 Slot)](https://nabatechshop.com/product/18650-lithium-battery-holder-2-slot/)
+  * [3.7V 18650 Lithium Ion Battery (Normal Quality)](https://nabatechshop.com/product/3-7v-18650-lithium-ion-battery-normal-quality/)
+  * [3.7V 18650 Lithium Ion Battery (High Quality)](https://nabatechshop.com/product/3-7v-18650-rechargeable-lithium-ion-battery/)
 
 * User router ups like "wgp", "pcpower", "olax", "ske" etc.
 
@@ -105,24 +113,37 @@
 
 * Needs float switch in main water tank. If there is no water in main water tank, then turning on 12V DC motor is meaningless.
   * 220V AC float switch has fatal electric shock risk, if electrical wire is leaked into water.
-  * Using arduino and ultrasonic sensor, water level can be detected.
+  * Using arduino and ultrasonic sensor, water level can be detected. Using water level data, main water pump/motor can be turned on/off using wifi smart plug/socket.
 
 * Directly connect DC motor to arduino without resistor, can damage it.
 * Arduino RTC (Real Time Clock) module is required.
-* At specific time turn on the 12V DC water motor and after several minutes turn it off.
+* At specific time, turn on the 12V DC water motor and after several minutes turn it off.
+* Water motor speed can be controlled using speed-switch.
 * Drop water to ground/soil with making noise (like main AC water motor and tank), so that anyone can observe that dc motor is running.
 * This project can be remote controlled.
 
-**Make Water Level Indicator in Water Tank**
+* Products
+  * [PWM Motor Speed Switch Controller 1203BK DC 6V 12V 24V 28V 3A](https://nabatechshop.com/product/pwm-motor-speed-switch-controller-1203bk-dc-6v-12v-24v-28v-3a/)
+
+**Make Water Level Indicator And Switch In Water Tank**
 
 * Using arduino and ultrasonic sensor, water level can be detected.
 * Show output in LCD display like volume up/down style.
 * Use ESP32 to remotely show output in LCD display.
 * Test this project in 1 bucket of water.
+* Can use wifi smart plug/socket to turn on/off 1HP water pump/motor. There should be bypass manual switch/socket instead of wifi smart plug/socket.
 
 * Products
   * [Ultrasonic Transducer Waterproof Distance Measuring Sensor Module](https://store.roboticsbd.com/sensors/396-ultrasonic-transducer-waterproof-distance-measuring-sensor-module-robotics-bangladesh.html)
   * [XKC-Y25-V Intelligent Non-Contact Liquid Water Level Sensor with 1m Wire](https://store.roboticsbd.com/sensors/2778-xkc-y25-v-intelligent-non-contact-liquid-water-level-sensor-robotics-bangladesh.html)
+
+**Arduino Based CCTV Camera**
+
+* ChatGPT Question: "cctv camera setup using arduino, camera module, android mobile and store to google drive"
+
+* Products
+  * [ESP32-CAM Wireless Development Board With OV2640 Camera Module](https://nabatechshop.com/product/esp32-cam-wireless-development-board/)
+  * [ESP32-CAM USB Programmer with FT232RL Adapter (Type-C)](https://nabatechshop.com/product/esp32-cam-usb-programmer-with-ft232rl-adapter/)
 
 # Project Details
 
@@ -823,6 +844,108 @@ void loop() {
 
 * Would you like a full wiring diagram, RTC-based version, or an ESP32 Wi-Fi controlled version? Just let me know!
 
+## Arduino Based CCTV Camera <sup>ChatGPT</sup>
+
+**ChatGPT Question: "cctv camera setup using arduino, camera module, android mobile and store to google drive"**
+
+* Setting up a CCTV-like surveillance system using an Arduino, camera module, Android mobile, and Google Drive is a creative project—but it’s important to know the limitations and best practices for each component. Here's a step-by-step guide:
+
+* Overview
+  * You want to:
+    * 1. Use a camera module with Arduino (e.g. OV7670 or ESP32-CAM),
+    * 2. Capture images or video,
+    * 3. Send the data to an Android mobile, and
+    * 4. Automatically upload it to Google Drive for storage.
+
+* Recommended Hardware Setup
+
+  * Option 1: Use ESP32-CAM
+    * Rather than a regular Arduino (like Uno), use ESP32-CAM:
+      * It has Wi-Fi, microcontroller, and a camera built-in.
+      * Much more capable for image/video transmission than Uno/Nano + OV7670.
+
+  * Components Needed:
+    * ESP32-CAM board with OV2640 camera
+    * FTDI USB-to-Serial adapter (for programming ESP32-CAM)
+    * MicroSD card (optional for local backup)
+    * Android phone (with internet connection & automation app like Tasker or Termux)
+    * Google account with Google Drive access
+
+* Software & Communication Flow
+  * 1. ESP32-CAM captures an image or video frame.
+  * 2. Sends it over Wi-Fi to an Android device (e.g., via HTTP server or direct connection).
+  * 3. Android app (like Tasker, Termux, or a custom app) receives the file.
+  * 4. The Android device uploads it to Google Drive using Google Drive API or a sync folder.
+
+* Step-by-Step Guide
+
+  * 1. Set Up ESP32-CAM
+    * Install Arduino IDE
+    * Add ESP32 Board Manager (from Espressif)
+    * Use example code: `CameraWebServer` (in Arduino IDE under File > Examples > ESP32)
+    * Modify Wi-Fi credentials in code:
+```cpp
+const char* ssid = "your_wifi_ssid";
+const char* password = "your_wifi_password";
+```
+    * Upload code using FTDI module (connect GPIO 0 to GND during upload).
+
+  * 2. Capture & Send Image
+    * Use ESP32-CAM to host a web server that:
+    * Takes a photo when accessed (`/capture`)
+    * Sends image as HTTP response
+  * Example image capture URL:
+```arduino
+http://192.168.x.x/capture
+```
+
+  * 3. Connect Android & Automate
+    * Option A: Use Tasker + AutoTools plugin
+      * Periodically make HTTP request to ESP32-CAM `/capture`
+      * Save image to Android storage
+      * Use AutoTools or Tasker action to upload to Google Drive via sync folder (like using FolderSync or Google Drive app)
+    * Option B: Use Termux (Advanced)
+      * Install Termux and packages:
+```bash
+pkg install curl
+pkg install termux-api
+```
+    * Script to:
+      * Call ESP32-CAM `/capture` URL via `curl`
+      * Save image to local storage
+      * Upload to Google Drive using rclone or REST API (or sync via shared folder)
+
+  * 4. Upload to Google Drive
+    * Option A: Use Google Drive App + Sync Folder
+      * Save captured images to a folder synced with Google Drive.
+      * Google Drive app automatically uploads.
+    * Option B: Use rclone (via Termux)
+      * Set up `rclone` in Termux to link with Google Drive
+```bash
+rclone config
+rclone copy image.jpg remote:ESP32_Cam
+```
+
+* Limitations to Consider
+  * Limitation => Notes
+  * Arduino Uno/Nano => Not fast or powerful enough for image processing
+  * ESP32-CAM => No battery; needs 5V stable power supply
+  * Android phone => Needs automation setup or custom app
+  * Google Drive API => Has quotas & requires login/consent flow
+
+* Best Setup (Recommended)
+  * Heading: Component => Choice/Tool
+  * Camera module => ESP32-CAM (OV2640)
+  * Communication => Wi-Fi + HTTP GET
+  * Android app => Tasker, Termux, or custom
+  * Upload method => Google Drive App or rclone
+  * Storage sync => Google Drive sync folder
+
+* Want a Simpler Version?
+  * Use an Android-only CCTV setup using the free app AlfredCamera or IP Webcam, and skip Arduino altogether.
+
+* Would you like a complete Arduino sketch + Android script example for this setup?
+
 # References
 
 * next-sl: {7}
@@ -831,6 +954,8 @@ void loop() {
 
 * {1} [nabatechshop.com => Arduino related products](https://nabatechshop.com/)
 * {2} [bigyanproject.com => Arduino related products](https://bigyanproject.com/en/)
+* [techshopbd.com => Arduino related products, Motijheel, Dhaka](https://techshopbd.com/)
+* [store.roboticsbd.com => Arduino related products](https://store.roboticsbd.com/)
 
 ## YouTube Tutorials
 
