@@ -1,10 +1,22 @@
 # Arduino
 
 ## Softwares Required
-  
-* [Arduino IDE](https://www.arduino.cc/en/software/#ide)
-* [Proteus Design Suite => Arduino Simulation](https://www.labcenter.com/)
-* [ArduinoDroid - Arduino/ESP8266 BY Anton Smirnov](https://play.google.com/store/apps/details?id=name.antonsmirnov.android.arduinodroid2)
+
+* IDE (Integrated Development Environment)
+  * [Arduino IDE](https://www.arduino.cc/en/software/#ide)
+  * [ArduinoDroid - Arduino/ESP8266 BY Anton Smirnov => Android App](https://play.google.com/store/apps/details?id=name.antonsmirnov.android.arduinodroid2)
+
+* Simulation
+  * [Proteus Design Suite => Arduino Simulation, Windows Only](https://www.labcenter.com/)
+  * [tinkercad.com => AutoDesk Tinkercad, Arduino Simulation, Online](https://www.tinkercad.com/)
+  * [wokwi.com => ESP32 Simulation](https://wokwi.com/)
+  * [fritzing.org => Arduino Simulation, Windows, Linux](https://fritzing.org/) || [fritzing/fritzing-app GitHub](https://github.com/fritzing/fritzing-app)
+
+## Working Way
+
+* esp32 to esp32 data transfer => "ESP-NOW" etc.
+* esp32 to computer data transfer
+* esp32 ESP-NOW distance
 
 ## Arduino/ESP32/ESP8266 Works
 
@@ -14,11 +26,19 @@
 
 **Automatically Switch Wifi/Sim Network On Devices**
 
+* Keep network/wifi/sim based internet usage logs on each device.
+
 * On Android Mobile
   * Generally always connected to wifi and turned off sim internet.
   * If goes out of wifi coverage or no internet in wifi, then automatically turn on sim internet. Using Tasker/MacroDroid, NetGuard application restrict heavy usage internet application like youtube, facebook, linkedin, tiktok etc.
   * If goes into wifi coverage or wifi internet is restored, then automatically turn off sim internet. Using Tasker/MacroDroid, NetGuard application allow all applications to use unrestricted internet.
   * Manually temporarily disable previous sim internet rules, so that sim internet can not be turned on automatically. Do this during heavy internet usage applications like youtube, facebook, linkedin, tiktok etc.
+
+* On Computer
+  * Attach two internet device - broadband wifi + modem.
+  * By default use internet from broadband wifi.
+  * If internet is not available in broadband wifi, then use internet from modem.
+  * Inefficient Method: If using internet from modem, then how to know/get-back to broadband wifi when internet is restored on it.
 
 **Risky/Damange HDD (Don't Do This): Attach/Detach Regular/Desktop Hard Disk Into Desktop Computer**
 
@@ -30,8 +50,8 @@
 
 **Attach/Detach Portable Hard Disk Into Desktop Computer --OR-- SIM Wifi Router**
 
-* Relay (Electrical) Way => use `ESP32` and `Relay` to turn on/off portable hard disk --OR-- sim wifi router. Get an extra usb extension cable, cut red wire (power supply wire) and attach two pieces to `Relay`.
-  * For portable hard disk turning on/off, first check with a cheap pendrive for safety purpose.
+* Relay (Electrical) Way => use `ESP32` and `Relay` to turn on/off portable hard disk --OR-- sim wifi router. Get an extra usb extension cable, cut red wire (power supply wire) and attach two pieces to `Relay`. For safety purpose, cut all wire (red, black etc.) and use separate `Relay` for each wire. Buy multil `Relay` combo pack.
+  * For portable hard disk turning on/off, first check with usb light and then cheap pendrive for safety purpose.
   * Safer way for sim wifi router: Get/create an extra multiplug and control multiplug's power through `ESP32` and `Relay`. Cheap multiplug with one socket/port is enough, because sim wifi router has only 5-10 watt load. Buy one plug, one mk-box, one socket, some wire and build it yourself.
 
 * Button Press (Physical) Way => Buy usb-hub with power buttons and external power adapter.
@@ -50,13 +70,15 @@
 
 **If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi**
 
+* Keep network/wifi/sim based internet usage logs on each device.
+
 * In every 5 minutes, check broadband wifi has internet access or not. If broadband wifi does not have internet, then turn on sim wifi router by pressing multiplug's power button.
-* On computer, if connected to sim wifi, then block heavy internet usage websites in chrome like youtube, tiktok. Also block internet for download manager. Do this using chrome extension and firewall rule.
+* On computer, if connected to sim wifi, then block heavy internet usage websites in chrome like youtube, tiktok. Also block internet for download manager. Do this using chrome extension and firewall rule. Show notification/color-changes/text using i3, polybar, komorebi, glazewm, yasb.
 * On mobile, if connected to sim wifi, then block heavy internet usage apps like youtube, tiktok. Do this using android app.
 * Restrict SIM Wifi Usage
   * On Computer: Create a bash script that detects wifi ssid/name. Based on ssid create firewall rules to block website, application. Run this script every minute using cron/windows-task-scheduler.
   * On Android: Install `Tasker` and `NetGuard` paid/premium application. Detect wifi ssid/name changes using `Tasker` and restrict application using `NetGuard`. `NetGuard` has `Tasker` integration plugin. No "root" required.
-    * Tasker
+    * Tasker, AutoInput
     * MacroDroid
     * [NetGuard - no-root firewall BY Marcel Bokhorst, FairCode BV](https://play.google.com/store/apps/details?id=eu.faircode.netguard)
 
@@ -69,9 +91,10 @@
 
 **No Electricity Notification**
 
-* Using Arduino (ESP32/ESP8266) make a system to notify computer using wifi (optional alarm sound), when no electricity. So that, computer can be turned off quickly after saving works because UPS backup time is very limited.
-  * When using computer remotely, then send no electricity notification to both desktop-environment/window-manager (connected via rustdesk) and terminal tmux (connected via ssh).
-  * Also send no electricity notification to android mobile using internet. Wifi router is powered by router-ups.
+* Using Arduino (ESP32/ESP8266) make a system to notify computer using wifi (optional alarm sound), when no electricity and show notification/color-changes/text using i3, polybar, komorebi, glazewm, yasb. So that, computer can be turned off quickly after saving works because UPS backup time is very limited.
+* When using computer remotely, then show no electricity notification/color-changes/text to both desktop-environment/window-manager using i3, polybar, komorebi, glazewm, yasb (connected via rustdesk) and terminal tmux (connected via ssh).
+* Also send no electricity notification to android mobile using internet.
+* Broadband/SIM wifi router is powered by router-ups.
 
 **DIY Wifi Smart Plug/Socket**
 
@@ -80,9 +103,26 @@
 
 **Timely Provide Water In Garden**
 
+* Needs float switch in main water tank. If there is no water in main water tank, then turning on 12V DC motor is meaningless.
+  * 220V AC float switch has fatal electric shock risk, if electrical wire is leaked into water.
+  * Using arduino and ultrasonic sensor, water level can be detected.
+
+* Directly connect DC motor to arduino without resistor, can damage it.
 * Arduino RTC (Real Time Clock) module is required.
 * At specific time turn on the 12V DC water motor and after several minutes turn it off.
 * Drop water to ground/soil with making noise (like main AC water motor and tank), so that anyone can observe that dc motor is running.
+* This project can be remote controlled.
+
+**Make Water Level Indicator in Water Tank**
+
+* Using arduino and ultrasonic sensor, water level can be detected.
+* Show output in LCD display like volume up/down style.
+* Use ESP32 to remotely show output in LCD display.
+* Test this project in 1 bucket of water.
+
+* Products
+  * [Ultrasonic Transducer Waterproof Distance Measuring Sensor Module](https://store.roboticsbd.com/sensors/396-ultrasonic-transducer-waterproof-distance-measuring-sensor-module-robotics-bangladesh.html)
+  * [XKC-Y25-V Intelligent Non-Contact Liquid Water Level Sensor with 1m Wire](https://store.roboticsbd.com/sensors/2778-xkc-y25-v-intelligent-non-contact-liquid-water-level-sensor-robotics-bangladesh.html)
 
 # Project Details
 
@@ -785,16 +825,28 @@ void loop() {
 
 # References
 
-* next-sl: {11}
+* next-sl: {7}
 
 ## Websites
 
-* [nabatechshop.com => Arduino related products](https://nabatechshop.com/)
-* [bigyanproject.com => Arduino related products](https://bigyanproject.com/en/)
+* {1} [nabatechshop.com => Arduino related products](https://nabatechshop.com/)
+* {2} [bigyanproject.com => Arduino related products](https://bigyanproject.com/en/)
 
 ## YouTube Tutorials
 
-* Arduino, Servo-Motor, Proteus
-  * {10} [Arduino Bangla Tutorial Part - 24: What is Servo Motor? How to use Servo Motor with Arduino BY Naba Tech World](https://www.youtube.com/watch?v=TaFBqZFUTLE&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=25)
-  * {8} [Arduino Bangla Tutorial BY Naba Tech World => PlayList](https://www.youtube.com/playlist?list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa)
-  * {9} [Proteus Tutorial BY EEE Campus => PlayList](https://www.youtube.com/playlist?list=PL2bh00zqE3V8rHQWhbj5-geDcD4Xxcjeg)
+* Arduino, Relay, Servo-Motor
+  * {5} [Arduino Bangla Tutorial BY Naba Tech World => PlayList](https://www.youtube.com/playlist?list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa)
+  * [Arduino Bangla Tutorial Part - 32: A Complete Introduction to Arduino Board | Arduino Hardware BY Naba Tech World](https://www.youtube.com/watch?v=A9nT71p27Tc&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=33)
+  * [Arduino is easy, actually BY Robonyx](https://www.youtube.com/watch?v=tiGw9PQbvrg)
+  
+* ESP32
+  * [Arduino To ESP32: How to Get Started! BY Robonyx](https://www.youtube.com/watch?v=RiYnucfy_rs)
+
+* Sumilation, Proteus
+  * [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
+  * {6} [Proteus Tutorial BY EEE Campus => PlayList](https://www.youtube.com/playlist?list=PL2bh00zqE3V8rHQWhbj5-geDcD4Xxcjeg)
+  * [10 Best Circuit Simulators for 2025! BY ToP Projects Compilation](https://www.youtube.com/watch?v=fLzmRKxGGtI)
+
+* Arduino Components (Relay, Serve-Motor)
+  * {3} [Arduino Bangla Tutorial Part - 20: What is Relay? How to control AC load using Relay with Arduino? BY Naba Tech World](https://www.youtube.com/watch?v=q8tqDCRmIhg&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=21)
+  * {4} [Arduino Bangla Tutorial Part - 24: What is Servo Motor? How to use Servo Motor with Arduino BY Naba Tech World](https://www.youtube.com/watch?v=TaFBqZFUTLE&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=25)

@@ -44,7 +44,7 @@
 
 # References
 
-* next-sl: {11}
+* next-sl: {8}
 
 ## Websites
 
@@ -73,6 +73,7 @@
 * General
   * {2} [Remotely TURN ON and Connect To Your Computer EASIEST METHOD BY GPUSpecs](https://www.youtube.com/watch?v=-eqr4jkpI3I)
   * {3} [এটা দিয়ে সবই হবে স্মার্ট ডিভাইস! // Sonoff Wifi Smart Plug Review & Setup BY Gadget Insider Bangla](https://www.youtube.com/watch?v=kw82UXblSIo)
+  * [Control your world with a tap; Best Budget Friendly IoT Smart Plugs in Bangladesh | TSP BY TSP | Total Solution Plus](https://www.youtube.com/watch?v=re7eCmzfWL0)
   * {6} [ডিজিটাল টাইমার সুইচ! // Digital Timer Switch | Automatic Switching Device! BY Gadget Insider Bangla](https://www.youtube.com/watch?v=EhNJbwZ-NqU)
 
 * USB Switch

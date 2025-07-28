@@ -2,13 +2,15 @@
 
 ## Notes
 
+* Create emergency light with router UPS: Router UPS is connected to a IPS backup enabled socket. Light is attached to router UPS. When IPS backup is finished, then attached light in router UPS will be turned on automatically.
+
 * Check UPS battery charger has auto charging cut feature and full charge indicator.
 
 # References
 
 ## Websites
 
-* [safebdes.com](https://safebdes.com/)
+* [safebdes.com => DC current Fan, Light](https://safebdes.com/)
 
 ## Products
 
