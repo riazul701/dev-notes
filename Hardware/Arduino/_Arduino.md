@@ -1,5 +1,20 @@
 # Arduino
 
+## Hardwares Required
+
+* Arduino UNO
+
+**ESP32 Board Selection**
+
+* [ESP32 Development Board CP2102 Chip 38 Pin](https://techshopbd.com/product/esp32-development-board-cp2102-chip-38-pin)
+* [ESP32 Development Board DEVKIT V1](https://techshopbd.com/product/esp32-development-board-devkit-v1)
+
+* ChatGPT Question: "ESP32 Development Board CP2102 Chip 38 Pin VS ESP32 Development Board DEVKIT V1"
+  * CP2102 is a USB-to-Serial (UART) bridge chip. It’s reliable and well-supported across Windows, macOS, and Linux.
+  * Some DevKit V1 versions come with CH340, which may require special drivers or have compatibility quirks.
+  * So, if you want plug-and-play reliability, the CP2102 version is often more convenient, especially for Windows users.
+  * If you want more GPIOs, no USB driver hassle, and more flexibility, go for the ESP32 38-pin with CP2102.
+
 ## Softwares Required
 
 * IDE (Integrated Development Environment)
@@ -125,17 +140,24 @@
 * Products
   * [PWM Motor Speed Switch Controller 1203BK DC 6V 12V 24V 28V 3A](https://nabatechshop.com/product/pwm-motor-speed-switch-controller-1203bk-dc-6v-12v-24v-28v-3a/)
 
-**Make Water Level Indicator And Switch In Water Tank**
+**Make Water Level Indicator And Switch For Water Tank**
 
 * Using arduino and ultrasonic sensor, water level can be detected.
 * Show output in LCD display like volume up/down style.
 * Use ESP32 to remotely show output in LCD display.
 * Test this project in 1 bucket of water.
-* Can use wifi smart plug/socket to turn on/off 1HP water pump/motor. There should be bypass manual switch/socket instead of wifi smart plug/socket.
+* Can use wifi smart plug/socket to turn on/off 1HP water pump/motor. There should be bypass/additional manual switch/socket instead of wifi smart plug/socket.
+* Controlling a smart Wi-Fi plug using an ESP32 is possible, but the approach depends on the plug model and whether it allows local control (LAN access) or only through the cloud. [ChatGPT Question: "control smart wifi plug using esp32"]
+  * LAN Control: Turn on/off the device even when WiFi has no Internet access
+
+* Projects
+  * [How to Make IOT Based Smart Water Tank Controller | Full Tutorial with Code, Diagram and Blynk App BY Naba Tech World](https://www.youtube.com/watch?v=DUGFp8SYNz8&list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC&index=7) <sup>{7}</sup>
 
 * Products
   * [Ultrasonic Transducer Waterproof Distance Measuring Sensor Module](https://store.roboticsbd.com/sensors/396-ultrasonic-transducer-waterproof-distance-measuring-sensor-module-robotics-bangladesh.html)
   * [XKC-Y25-V Intelligent Non-Contact Liquid Water Level Sensor with 1m Wire](https://store.roboticsbd.com/sensors/2778-xkc-y25-v-intelligent-non-contact-liquid-water-level-sensor-robotics-bangladesh.html)
+  * [Sonoff S26 WiFi Smart Socket](https://store.roboticsbd.com/home-automation-robotics-bangladesh/1176-sonoff-s26-wifi-smart-socket-robotics-bangladesh.html)
+    * LAN Control: Turn on/off the device even when WiFi has no Internet access
 
 **Arduino Based CCTV Camera**
 
@@ -844,6 +866,89 @@ void loop() {
 
 * Would you like a full wiring diagram, RTC-based version, or an ESP32 Wi-Fi controlled version? Just let me know!
 
+## Make Water Level Indicator And Switch For Water Tank <sup>ChatGPT</sup>
+
+**ChatGPT Question: "control smart wifi plug using esp32"**
+
+* Controlling a smart Wi-Fi plug using an ESP32 is possible, but the approach depends on the plug model and whether it allows local control (LAN access) or only through the cloud.
+
+* Ways to Control a Smart Plug Using ESP32
+
+  * 1. Use a Plug with Local API (Tuya, Tasmota, Shelly, etc.)
+    * Heading: Plug Type => Control Method
+    * Tasmota-flashed smart plug => Control via HTTP/MQTT
+    * Tuya (local mode) => Use `Tuya-Convert`, or control via local API with `libretuya`
+    * Shelly plug => HTTP REST or MQTT over local network
+    * Best Option: Reflash with Tasmota or buy plugs that support local REST or MQTT control
+
+  * 2. Control via HTTP (e.g., Tasmota or Shelly)
+    * Assuming your smart plug has a local web API, your ESP32 can send HTTP requests over Wi-Fi.
+    * ESP32 Arduino Example (Tasmota/Shelly):
+```cpp
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+const char* plug_ip = "192.168.1.50";  // IP of your smart plug
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("Connected to WiFi");
+
+  // Send command to turn plug ON
+  HTTPClient http;
+  String url = String("http://") + plug_ip + "/cm?cmnd=Power%20On";  // for Tasmota
+  http.begin(url);
+  int httpCode = http.GET();
+
+  if (httpCode > 0) {
+    Serial.printf("Plug Response: %s\n", http.getString().c_str());
+  } else {
+    Serial.println("Failed to send request");
+  }
+
+  http.end();
+}
+
+void loop() {
+  // Nothing for now
+}
+```
+    * Tasmota Commands:
+      * Turn ON: `http://<plug_ip>/cm?cmnd=Power%20On`
+      * Turn OFF: `http://<plug_ip>/cm?cmnd=Power%20Off`
+
+  * 3. Control via MQTT
+    * If your plug uses MQTT (e.g., Tasmota, Shelly in MQTT mode), you can use the `PubSubClient` library on the ESP32.
+```cpp
+client.publish("tasmota/plug/cmnd/Power", "ON");
+```
+
+  * 4. What if the Plug Only Works With an App (Cloud-only)?
+    * Cloud-only plugs (e.g., most TP-Link, Meross, etc.) need workarounds:
+      * Heading: Option => Description
+      * Flash firmware => Use `Tuya-Convert` or open-source tools to reflash with Tasmota/ESPHome
+      * Reverse engineer API => Some like TP-Link Kasa can be controlled via local API (search for libraries like `tplink-smarthome`)
+      * Use Home Assistant as bridge => ESP32 → MQTT → Home Assistant → Smart Plug via its integration
+    * Many new plugs block local access, making ESP32 control hard or impossible without reflashing or reverse engineering.
+
+* Summary
+  * Heading: Scenario => ESP32 Control Method
+  * Tasmota / Shelly plug => HTTP or MQTT
+  * Tuya (w/ local mode) => HTTP or `libretuya`
+  * Cloud-only plug => Use Home Assistant or flash custom firmware
+  * Building your own smart plug => Control relay directly via GPIO
+
+* If you tell me the brand/model of your smart plug, I can give you exact instructions on how to control it using your ESP32.
+
 ## Arduino Based CCTV Camera <sup>ChatGPT</sup>
 
 **ChatGPT Question: "cctv camera setup using arduino, camera module, android mobile and store to google drive"**
@@ -948,29 +1053,48 @@ rclone copy image.jpg remote:ESP32_Cam
 
 # References
 
-* next-sl: {7}
+* next-sl: {8}
 
 ## Websites
 
-* {1} [nabatechshop.com => Arduino related products](https://nabatechshop.com/)
-* {2} [bigyanproject.com => Arduino related products](https://bigyanproject.com/en/)
-* [techshopbd.com => Arduino related products, Motijheel, Dhaka](https://techshopbd.com/)
-* [store.roboticsbd.com => Arduino related products](https://store.roboticsbd.com/)
+* Shop
+  * [techshopbd.com => Arduino, ESP32, Motijheel, Dhaka](https://techshopbd.com/)
+  * {1} [nabatechshop.com => Arduino, ESP32](https://nabatechshop.com/)
+  * {2} [bigyanproject.com => Arduino, ESP32, Farmgate, Dhaka](https://bigyanproject.com/en/)
+  * [electronics.com.bd => Arduino, ESP32, Farmgate, Dhaka](https://www.electronics.com.bd/)
+  * [bdtronics.com => Arduino, ESP32, Fakirapool, Motijheel, Dhaka](https://www.bdtronics.com/)
+  * [citytechbd.com => Arduino, ESP32, Nawabpur, Dhaka](https://www.citytechbd.com/)
+  * [store.roboticsbd.com => Arduino, ESP32](https://store.roboticsbd.com/)
+  * [robohub.com.bd => Arduino, ESP32, Khilkhet, Dhaka](https://robohub.com.bd/)
+
+## Tutorials
+
+* ESP32
+  * [ESP32 => Wikipedia](https://en.wikipedia.org/wiki/ESP32)
 
 ## YouTube Tutorials
 
 * Arduino, Relay, Servo-Motor
-  * {5} [Arduino Bangla Tutorial BY Naba Tech World => PlayList](https://www.youtube.com/playlist?list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa)
+  * {5} [Arduino Bangla Tutorial BY Naba Tech World => PlayList-Selected](https://www.youtube.com/playlist?list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa)
+  * [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList-Selected, Arduino, tinkercad.com Simulation](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
   * [Arduino Bangla Tutorial Part - 32: A Complete Introduction to Arduino Board | Arduino Hardware BY Naba Tech World](https://www.youtube.com/watch?v=A9nT71p27Tc&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=33)
   * [Arduino is easy, actually BY Robonyx](https://www.youtube.com/watch?v=tiGw9PQbvrg)
-  
+
 * ESP32
+  * [ESP32 Programming Full Course in Hindi | Zero to Hero BY Arduino Titan => PlayList-Selected, ESP32, wokwi.com Simulation](https://www.youtube.com/playlist?list=PLG9nLVRjxsskY_qyEeWY6OTjesJQEz0b_)
+  * [Wokwi Simulator Tutorials – Arduino + ESP32 Projects BY Arduino Titan => PlayList](https://www.youtube.com/playlist?list=PLG9nLVRjxssk-NKTi5_Kv7DO7jX-yOIkH)
+  * [ESP32 learn basic tutorial Bangla BY Science Research & Engineering experiment => PlayList](https://www.youtube.com/playlist?list=PL_YKIKJeS4qMy1yHfk2fZs_-zj8qNDe7a)
+  * [IOT Bangla Tutorial BY Naba Tech World => PlayList](https://www.youtube.com/playlist?list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC)
   * [Arduino To ESP32: How to Get Started! BY Robonyx](https://www.youtube.com/watch?v=RiYnucfy_rs)
+  * [ESP32 বোর্ডকে আরডুইনোর মতো ব্যবহার করুন | ESP32 Expansion Board BY Naba Tech World](https://www.youtube.com/watch?v=08cGLrtxiQ4)
 
 * Sumilation, Proteus
-  * [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
   * {6} [Proteus Tutorial BY EEE Campus => PlayList](https://www.youtube.com/playlist?list=PL2bh00zqE3V8rHQWhbj5-geDcD4Xxcjeg)
   * [10 Best Circuit Simulators for 2025! BY ToP Projects Compilation](https://www.youtube.com/watch?v=fLzmRKxGGtI)
+
+* Projects
+  * {7} [How to Make IOT Based Smart Water Tank Controller | Full Tutorial with Code, Diagram and Blynk App BY Naba Tech World](https://www.youtube.com/watch?v=DUGFp8SYNz8&list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC&index=7)
+  * [মিনি ওয়াইফাই ক্যামেরা তৈরী করুন খুব সহজেই | ESP32 Camera Module ব্যবহার করার পদ্ধতি BY Naba Tech World](https://www.youtube.com/watch?v=y2WL2cClBaI&list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC&index=16)
 
 * Arduino Components (Relay, Serve-Motor)
   * {3} [Arduino Bangla Tutorial Part - 20: What is Relay? How to control AC load using Relay with Arduino? BY Naba Tech World](https://www.youtube.com/watch?v=q8tqDCRmIhg&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=21)
