@@ -26,8 +26,9 @@
   * UVP - Under Voltage Protection
   * SCP - Short Circuit Protection
   * Also Check Continuous Power Delivery, Not Peak.
+  * Surge (Thunder) Protection
 
-* If Power-Supply-Unit is placed at bottom of pc-casing, it has better airflow. In that case, pc-casing must have front-side and back-side cooling fan. <sup>{4}</sup>
+* If Power-Supply-Unit is placed at bottom of pc-casing, it has better airflow (for CPU). In that case, pc-casing must have front-side and back-side cooling fan. <sup>{4}</sup>
 
 * Power Supply Cables <sup>{4}</sup>
   * 2 Cables go to motherboard

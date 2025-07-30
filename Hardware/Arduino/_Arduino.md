@@ -1,5 +1,30 @@
 # Arduino
 
+## Important
+
+**ESP32 logic level shifting: 5V → 3.3V (Step-Down) --and-- 3.3V → 5V (Step-Up)**
+
+* Directly connecting a 5V signal to an ESP32 GPIO can damage the pin, especially if it's a digital input.
+  * Don’t connect MQ sensors directly to ESP32’s GPIOs without logic level shifting if running at 3.3V.
+
+* [I2C Logic Level Shifter Bi-Directional Four-way two-way logic level transformation module](https://www.electronics.com.bd/modules-shields/i2c-logic-level-shifter)
+
+## Notes
+
+* Wifi Smart Plug/Socket LAN Control: Turn on/off the device even when WiFi has no Internet access.
+
+* In arduino/esp32, always check/test output with a LED light.
+
+* In arduino/esp32, EEPROM is used for storing configs/settings but have limited write cycles. Alternatives are SPIFFS, LittleFS, SD Card. <sup>ChatGPT</sup>
+  * Use arduino/esp32 and blynk.io virtual pins to store configs/settings like auto/manual mode. Use this combo: Blynk for remote control and EEPROM or Preferences (NVS) on ESP32 to store last-known settings locally
+
+* Use ultrasonic sensor once per minute for durability at longer period.
+
+* "Relay" does not always work with 5Volt, because 1Volt/0.5Volt is cached/consumed by "relay" coil sometimes and "relay" does not switch. Threfore, supply 6Volt for "relay" and transistor, resistor required.<sup>{7}</sup>
+
+* If LCD display does not show output properly, then reconnect/restart it. <sup>{5}</sup>
+  * Normal LCD has 16 connection, I2C-LCD has only 4 connection. Choose I2C-LCD for use. <sup>{8}</sup>
+
 ## Hardwares Required
 
 * Arduino UNO
@@ -17,22 +42,49 @@
 
 ## Softwares Required
 
-* IDE (Integrated Development Environment)
+* IDE (Integrated Development Environment)/Software
   * [Arduino IDE](https://www.arduino.cc/en/software/#ide)
-  * [ArduinoDroid - Arduino/ESP8266 BY Anton Smirnov => Android App](https://play.google.com/store/apps/details?id=name.antonsmirnov.android.arduinodroid2)
+  * [PlatformIO Site => Use with Visual Studio Code](https://platformio.org/) || [PlatformIO GitHub](https://github.com/platformio/platformio-core) && [Visual Studio Code](https://code.visualstudio.com/) <sup>{10} {14}</sup>
+  * [espressif/esp-idf GitHub](https://github.com/espressif/esp-idf)
+  * [appinventor.mit.edu => Create android app graphically](https://appinventor.mit.edu/) <sup>{15}</sup>
+  * [ArduinoDroid - Arduino/ESP8266 BY Anton Smirnov => Android App IDE](https://play.google.com/store/apps/details?id=name.antonsmirnov.android.arduinodroid2)
+  * [Serial Bluetooth Terminal BY Kai Morich => Android App](https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal)
 
 * Simulation
   * [Proteus Design Suite => Arduino Simulation, Windows Only](https://www.labcenter.com/)
   * [tinkercad.com => AutoDesk Tinkercad, Arduino Simulation, Online](https://www.tinkercad.com/)
   * [wokwi.com => ESP32 Simulation](https://wokwi.com/)
+    * [Wokwi Megasearch](https://wokwi.com/experimental/megasearch)
+    * [Wokwi Simulator BY Wokwi](https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode) && [Visual Studio Code](https://code.visualstudio.com/) <sup>{14}</sup>
+    * Wokwi supports internet via the default "Wokwi-GUEST" Wi-Fi. ssid = "Wokwi-GUEST"; password = ""; <sup>ChatGPT</sup>
   * [fritzing.org => Arduino Simulation, Windows, Linux](https://fritzing.org/) || [fritzing/fritzing-app GitHub](https://github.com/fritzing/fritzing-app)
 
-## Working Way
+* Remote Control Using Internet, Localhost, Notification, Database, Logs, MQTT
+  * [blynk.io => Web, Android App](https://blynk.io/) <sup>{7}</sup>
+    * [Blynk IoT BY Blynk Technologies Inc. => Android App](https://play.google.com/store/apps/details?id=cloud.blynk) <sup>{7}</sup>
+  * [ifttt.com => Web, Android App](https://ifttt.com/) <sup>{9}</sup>
+    * [IFTTT - Automate work and home BY IFTTT, Inc => Android App](https://play.google.com/store/apps/details?id=com.ifttt.ifttt) <sup>{9}</sup>
+  * [thingspeak.mathworks.com](https://thingspeak.mathworks.com/) <sup>{12}</sup>
+    * [ThingView - ThingSpeak viewer BY cinetica-tech => Android App, Not Official](https://play.google.com/store/apps/details?id=com.cinetica_tech.thingview)
+  * [io.adafruit.com => Adafruit IO](https://io.adafruit.com/) <sup>{16}</sup>
+  * [firebase.google.com](https://firebase.google.com/) <sup>{13}</sup>
+  * [remotexy.com](https://remotexy.com/) <sup>{11}</sup>
+    * [RemoteXY: Arduino control BY EV CODE LABS, LLC => Android App](https://play.google.com/store/apps/details?id=com.shevauto.remotexy.free) <sup>{11}</sup>
+
+## Working Way/Tools
+
+**ESP32 Data Transfer <sup>ChatGPT</sup>**
 
 * esp32 to esp32 data transfer => "ESP-NOW", Wifi, Bluetooth etc.
 * esp32 to computer data transfer
 * esp32 "ESP-NOW" data transfer distance
+  * External antennas on some ESP32 boards (e.g. ESP32-WROVER or ESP32-WROOM-32U) can double range.
+  * All ESP-NOW peers must be on the same Wi-Fi channel to communicate reliably.
+  * Use repeaters/relay nodes (ESP-NOW mesh style)
 * [ESP32-CAM External Antenna](https://store.roboticsbd.com/internet-of-things-iot/1852-esp32-cam-external-antenna-robotics-bangladesh.html)
+
+**Waterproof-Casing/Others**
+
 * [100x60x25mm Black Plastic Project Box Small Junction Box ABS Waterproof Project Enclosure Box for Electronics](https://www.electronics.com.bd/rc-hobby-components/black-plastic-project-box-100x60x25mm)
 
 ## Arduino/ESP32/ESP8266 Works
@@ -131,22 +183,31 @@
   * Using arduino and ultrasonic sensor, water level can be detected. Using water level data, main water pump/motor can be turned on/off using wifi smart plug/socket.
 
 * Directly connect DC motor to arduino without resistor, can damage it.
-* Arduino RTC (Real Time Clock) module is required.
+* Arduino RTC (Real Time Clock) module is required. Alternatively use ESP32 and NTP Server to get date and time.
 * At specific time, turn on the 12V DC water motor and after several minutes turn it off.
 * Water motor speed can be controlled using speed-switch.
 * Drop water to ground/soil with making noise (like main AC water motor and tank), so that anyone can observe that dc motor is running.
 * This project can be remote controlled.
 
+* Use PVC/Coil pipe for garden watering system
+  * Last terminal of PVC pipe goes to plant-tub, seal this terminal with borne plug. Make several tiny holes in PVC pipe according to plant size, which is on top of plant-tub. Or can use water bottle with tiny holes at pipe's terminal.
+
 * Products
   * [PWM Motor Speed Switch Controller 1203BK DC 6V 12V 24V 28V 3A](https://nabatechshop.com/product/pwm-motor-speed-switch-controller-1203bk-dc-6v-12v-24v-28v-3a/)
 
+**Log Rain Sensor Data To Firebase To Use During Garden Watering**
+
+* Keep common bucket filled with soil in rooftop, measure soil moisture with soil sensor in it and use this data during gardent watering. 
+
 **Make Water Level Indicator And Switch For Water Tank**
 
-* Using arduino and ultrasonic sensor, water level can be detected.
+* Using arduino/esp32 and ultrasonic sensor, water level can be detected.
 * Show output in LCD display like volume up/down style.
 * Use ESP32 to remotely show output in LCD display.
 * Test this project in 1 bucket of water.
 * Can use wifi smart plug/socket to turn on/off 1HP water pump/motor. There should be bypass/additional manual switch/socket instead of wifi smart plug/socket.
+  * Also there should be two manual buttons on arduino/esp32. When pressing this button, then water pump/motor will be started. And another button to turn off water pump/motor. This button will commuticate with wifi smart plug/socket via local network, internet not required.
+  * Use esp32's access point mode as network connection with wifi smart plug/socket. Do not use broadband wifi router.
 * Controlling a smart Wi-Fi plug using an ESP32 is possible, but the approach depends on the plug model and whether it allows local control (LAN access) or only through the cloud. [ChatGPT Question: "control smart wifi plug using esp32"]
   * LAN Control: Turn on/off the device even when WiFi has no Internet access
 
@@ -159,7 +220,13 @@
   * [Sonoff S26 WiFi Smart Socket](https://store.roboticsbd.com/home-automation-robotics-bangladesh/1176-sonoff-s26-wifi-smart-socket-robotics-bangladesh.html)
     * LAN Control: Turn on/off the device even when WiFi has no Internet access
 
-**Arduino Based CCTV Camera**
+**Arduino/ESP32 Based Gas Leakage Detector**
+
+* Detect gas leakage in kitchen using arduino/esp32 and gas sensor.
+* Alarm sound using arduino/esp32 and buzzer sensor.
+* Show notification in mobile using [blynk.io](https://blynk.io/) application.
+
+**Arduino/ESP32 Based CCTV Camera**
 
 * ChatGPT Question: "cctv camera setup using arduino, camera module, android mobile and store to google drive"
 
@@ -949,7 +1016,73 @@ client.publish("tasmota/plug/cmnd/Power", "ON");
 
 * If you tell me the brand/model of your smart plug, I can give you exact instructions on how to control it using your ESP32.
 
-## Arduino Based CCTV Camera <sup>ChatGPT</sup>
+## Arduino/ESP32 Based Gas Leakage Detector
+
+**ChatGPT Question: "what is arduino gas sensor"**
+
+* An Arduino gas sensor is a sensor module used with Arduino microcontrollers (like the ESP32 or Arduino Uno) to detect the presence and concentration of various gases in the air. These sensors are used in air quality monitoring, safety systems, and environmental projects.
+
+* Common Arduino-Compatible Gas Sensors
+  * Most Arduino gas sensors are based on the MQ series or digital air-quality sensors.
+
+  * MQ Series Sensors (Analog + Digital Output)
+    * Heading: Sensor => Detects => Applications
+    * MQ-2 => LPG, methane, smoke, hydrogen => Smoke/gas alarms
+    * MQ-3 => Alcohol, ethanol => Breathalyzer, alcohol detection
+    * MQ-4 => Methane, natural gas => Gas leak detection
+    * MQ-5 => LPG, natural gas, coal gas => Gas leakage sensors
+    * MQ-6 => LPG, isobutane, propane => Kitchen safety
+    * MQ-7 => Carbon monoxide (CO) => CO detection in homes/cars
+    * MQ-9 => CO and methane => Industrial safety
+    * MQ-135 => CO₂, NH₃, benzene, smoke => Air quality monitor
+    * These modules usually have:
+      * Analog output (A0): proportional to gas concentration
+      * Digital output (D0): high or low based on threshold (set by onboard potentiometer)
+
+  * Digital Air Quality Sensors (I²C/SPI)
+    * Heading: Sensor => Detects => Notes
+    * CCS811 => eCO₂, TVOC => I²C sensor, very compact
+    * SGP30 => eCO₂, TVOC => Stable long-term performance
+    * BME680 => Temp, humidity, pressure, gas (IAQ) => Combines sensors, used for indoor air quality
+    * MH-Z19 => CO₂ (NDIR) => Accurate CO₂ sensor (UART)
+
+* Example: Using MQ-2 with Arduino/ESP32
+```cpp
+int gasPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int gasValue = analogRead(gasPin);
+  Serial.print("Gas Level: ");
+  Serial.println(gasValue);
+  delay(1000);
+}
+```
+
+* Power Requirements
+  * MQ sensors typically require 5V, and their heating elements draw ~150-200 mA continuously.
+  * Some sensors (like BME680, CCS811) work on 3.3V or 5V and use I²C communication.
+
+* NOTE: Don’t connect MQ sensors directly to ESP32’s GPIOs without logic level shifting if running at 3.3V.
+
+* Notes and Tips
+  * Preheat time: MQ sensors need 1–2 minutes (sometimes up to 24h for stable readings).
+  * Calibration: For accurate results, calibration against known gas concentrations is recommended.
+  * Environmental effects: Humidity and temperature affect readings.
+
+* Summary
+  * Heading: Feature => Detail
+  * Types => MQ-series (analog/digital), CCS811, SGP30, BME680, etc.
+  * Gases Detected => CO, CO₂, methane, alcohol, smoke, VOCs
+  * Interface => Analog, Digital, I²C, UART
+  * Use Cases => Air quality monitoring, safety alarms, smart home, industrial IoT
+
+* If you have a specific sensor module in mind (e.g., MQ-135 or CCS811), I can help with wiring diagrams and example code for ESP32 or Arduino.
+
+## Arduino/ESP32 Based CCTV Camera <sup>ChatGPT</sup>
 
 **ChatGPT Question: "cctv camera setup using arduino, camera module, android mobile and store to google drive"**
 
@@ -1053,9 +1186,12 @@ rclone copy image.jpg remote:ESP32_Cam
 
 # References
 
-* next-sl: {8}
+* next-sl: {17}
 
 ## Websites
+
+* [agucova/awesome-esp GitHub](https://github.com/agucova/awesome-esp)
+* [Edzelf/ESP32Radio-V2 GitHub](https://github.com/Edzelf/ESP32Radio-V2)
 
 * Shop
   * [techshopbd.com => Arduino, ESP32, Motijheel, Dhaka](https://techshopbd.com/)
@@ -1069,32 +1205,57 @@ rclone copy image.jpg remote:ESP32_Cam
 
 ## Tutorials
 
+* Arduino
+  * [Arduino Tutorial](https://www.tutorialspoint.com/arduino/index.htm)
+  * [eazytronic.com](https://eazytronic.com/) <sup>{8}</sup>
+
 * ESP32
+  * [ESP32 for IoT Tutorial](https://www.tutorialspoint.com/esp32_for_iot/index.htm)
   * [ESP32 => Wikipedia](https://en.wikipedia.org/wiki/ESP32)
+
+## Projects
+
+* ESP32
+  * [250+ ESP32 Projects, Tutorials and Guides with Arduino IDE](https://randomnerdtutorials.com/projects-esp32/)
 
 ## YouTube Tutorials
 
 * Arduino, Relay, Servo-Motor
   * {5} [Arduino Bangla Tutorial BY Naba Tech World => PlayList-Selected](https://www.youtube.com/playlist?list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa)
-  * [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList-Selected, Arduino, tinkercad.com Simulation](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
+  * {8} [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList-Selected, Arduino, tinkercad.com Simulation](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
   * [Arduino Bangla Tutorial Part - 32: A Complete Introduction to Arduino Board | Arduino Hardware BY Naba Tech World](https://www.youtube.com/watch?v=A9nT71p27Tc&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=33)
   * [Arduino is easy, actually BY Robonyx](https://www.youtube.com/watch?v=tiGw9PQbvrg)
 
 * ESP32
   * [ESP32 Programming Full Course in Hindi | Zero to Hero BY Arduino Titan => PlayList-Selected, ESP32, wokwi.com Simulation](https://www.youtube.com/playlist?list=PLG9nLVRjxsskY_qyEeWY6OTjesJQEz0b_)
   * [Wokwi Simulator Tutorials – Arduino + ESP32 Projects BY Arduino Titan => PlayList](https://www.youtube.com/playlist?list=PLG9nLVRjxssk-NKTi5_Kv7DO7jX-yOIkH)
-  * [ESP32 learn basic tutorial Bangla BY Science Research & Engineering experiment => PlayList](https://www.youtube.com/playlist?list=PL_YKIKJeS4qMy1yHfk2fZs_-zj8qNDe7a)
+  * {9} [ESP32 learn basic tutorial Bangla BY Science Research & Engineering experiment => PlayList](https://www.youtube.com/playlist?list=PL_YKIKJeS4qMy1yHfk2fZs_-zj8qNDe7a)
   * [IOT Bangla Tutorial BY Naba Tech World => PlayList](https://www.youtube.com/playlist?list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC)
+  * [ESP32 For Beginners BY DIY TechRush => PlayList](https://www.youtube.com/playlist?list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd)
+  * [ESPNOW using ESP32 BY techiesms => PlayList](https://www.youtube.com/playlist?list=PLruzZCuhcsGOt7oAw01aM4fiHPyfv7Fx3)
   * [Arduino To ESP32: How to Get Started! BY Robonyx](https://www.youtube.com/watch?v=RiYnucfy_rs)
   * [ESP32 বোর্ডকে আরডুইনোর মতো ব্যবহার করুন | ESP32 Expansion Board BY Naba Tech World](https://www.youtube.com/watch?v=08cGLrtxiQ4)
 
-* Sumilation, Proteus
+* Remote Control Using Internet, Localhost, Notification, Database, Logs, MQTT
+  * [IoT Projects using Blynk BY techiesms => PlayList](https://www.youtube.com/playlist?list=PLruzZCuhcsGPG4nVhEQPDj-I_VpzO7AkI)
+  * [IFTTT projects BY techiesms => PlayList](https://www.youtube.com/playlist?list=PLruzZCuhcsGO57UMuq_F27J59snz0B7QM)
+  * {13} [Control Devices Anywhere 🌍 with Google Firebase & ESP32 ✅ BY DIY TechRush](https://www.youtube.com/watch?v=wrIs2m7Q8Ic&list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd&index=24)
+  * {12} [Connect to ThingSpeak with ESP32 ✅ (Keep Track of EVERYTHING🌍) BY DIY TechRush](https://www.youtube.com/watch?v=FV8sHH_hneA&list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd&index=27)
+  * {15} [Bluetooth LED Control App with MIT App Inventor - STEP By STEP BY DIY TechRush](https://www.youtube.com/watch?v=w5LgLsCumFI&list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd&index=15)
+  * {11} [Mastering IoT: Build Your Own Controller App with RemoteXY BY DIY TechRush](https://www.youtube.com/watch?v=F3T0NSiQITM&list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd&index=22)
+  * [ESP32 Home Automation Using Blynk 2.0 With Online Simulator ||Wokwi BY Technical Shubham](https://www.youtube.com/watch?v=_96Kfo2_pOk)
+  * {16} [ARDUINO IDE + ESP32 + Adafruit IO | Monitoring and Controlling the ESP32 with Adafruit IO BY Uteh Str](https://www.youtube.com/watch?v=H1ATqf4gBAU)
+
+* IDE, Sumilation, Proteus, Wokwi, Tinkercad
+  * {14} [ESP32 Simulator for IoT Projects in VS Code Using Wokwi BY StechiezDIY](https://www.youtube.com/watch?v=3WVz2XdadD0)
+  * {10} [Perfect Combo for ESP32: VS Code & PlatformIO Guide ✅ BY DIY TechRush](https://www.youtube.com/watch?v=WxELHnnlBmU&list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd&index=25)
   * {6} [Proteus Tutorial BY EEE Campus => PlayList](https://www.youtube.com/playlist?list=PL2bh00zqE3V8rHQWhbj5-geDcD4Xxcjeg)
   * [10 Best Circuit Simulators for 2025! BY ToP Projects Compilation](https://www.youtube.com/watch?v=fLzmRKxGGtI)
 
 * Projects
   * {7} [How to Make IOT Based Smart Water Tank Controller | Full Tutorial with Code, Diagram and Blynk App BY Naba Tech World](https://www.youtube.com/watch?v=DUGFp8SYNz8&list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC&index=7)
   * [মিনি ওয়াইফাই ক্যামেরা তৈরী করুন খুব সহজেই | ESP32 Camera Module ব্যবহার করার পদ্ধতি BY Naba Tech World](https://www.youtube.com/watch?v=y2WL2cClBaI&list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC&index=16)
+  * [ESP32 CAM Send Captured Image to Google Drive BY How To Electronics](https://www.youtube.com/watch?v=1Lu8FwC2CWQ)
 
 * Arduino Components (Relay, Serve-Motor)
   * {3} [Arduino Bangla Tutorial Part - 20: What is Relay? How to control AC load using Relay with Arduino? BY Naba Tech World](https://www.youtube.com/watch?v=q8tqDCRmIhg&list=PL7euiE97qGc0QbibUmHn5MBrF2V7w3NDa&index=21)

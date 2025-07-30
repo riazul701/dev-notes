@@ -5,6 +5,8 @@
 * Laptops don’t power on automatically when AC power is restored, unlike desktop PCs.
 
 * Check Wifi Plug/Socket Before Buying => Connect wifi smart socket to broadband internet and connect android phone (plug/socket control app) to sim internet. Then try to remotely on/off wifi smart socket. Also check wifi plug/socket has physical button, that works without internet like normal switch. Check wifi plug/socket has power usage monitoring feature through android app.
+  * [Sonoff S26 WiFi Smart Socket](https://store.roboticsbd.com/home-automation-robotics-bangladesh/1176-sonoff-s26-wifi-smart-socket-robotics-bangladesh.html)
+    * LAN Control: Turn on/off the device even when WiFi has no Internet access
 
 * Check Some Wifi Plug/Socket Works As Timer Switch/Socket
 
