@@ -56,15 +56,16 @@
 * When wifi smart plug/socket is turned on, then after 5 seconds press latptop's power button using arduino and servo motor.
 * Laptop has battery, for this reason it can not be turned off like desktop when hangs. Use wifi enabled ESP32 to remotely press power button for 5 seconds to forcefully turn off laptop when hangs.
 
-**If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi**
+**If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi Dongle Router**
 
 * Keep network/wifi/sim based internet usage logs on each device.
+* Transfter data from ESP32 to computer/mobile and computer/mobile to ESP32 using serial communication and telnet protocol.
 
-* In every 5 minutes, check broadband wifi has internet access or not. If broadband wifi does not have internet, then turn on sim wifi router by pressing multiplug's power button.
-* On computer, if connected to sim wifi, then block heavy internet usage websites in chrome like youtube, tiktok. Also block internet for download manager. Do this using chrome extension and firewall rule. Show notification/color-changes/text using i3, polybar, komorebi, glazewm, yasb.
-* On mobile, if connected to sim wifi, then block heavy internet usage apps like youtube, tiktok. Do this using android app.
+* In every 1 minute, check broadband wifi has internet access or not, by using GET/POST/PING request to a server. If broadband wifi does not have internet, then turn on sim wifi dongle router by pressing multiplug's power button. This can be done in two ways using arduino relay - one is turning on/off AC current and another is inserting usb extension cable between mobile charger and sim wifi dongle router, then turning on/off usb extension cable connection.
+* On computer, if connected to sim wifi, then block heavy internet usage websites in chrome like youtube, facebook. Also block internet for download manager. Do this using chrome extension and firewall rule. Show notification/color-changes/text using i3, polybar, komorebi, glazewm, yasb. Optionally/manually can allow blocked websites usage.
+* On mobile, if connected to sim wifi, then block heavy internet usage apps like youtube, facebook, tiktok. Do this using android app.
 * Restrict SIM Wifi Usage
-  * On Computer: Create a bash script that detects wifi ssid/name. Based on ssid create firewall rules to block website, application. Run this script every minute using cron/windows-task-scheduler.
+  * On Computer: Create a bash script that detects wifi ssid/name. Based on ssid, create firewall rules to block websites, applications. Run this script every minute using cron/windows-task-scheduler.
   * On Android: Install `Tasker` and `NetGuard` paid/premium application. Detect wifi ssid/name changes using `Tasker` and restrict application using `NetGuard`. `NetGuard` has `Tasker` integration plugin. No "root" required.
     * Tasker, AutoInput
     * MacroDroid
@@ -79,6 +80,7 @@
 
 **No Electricity Notification**
 
+* Transfter data from ESP32 to computer/mobile and computer/mobile to ESP32 using serial-data and telnet protocol.
 * Using Arduino (ESP32/ESP8266) make a system to notify computer using wifi (optional alarm sound), when no electricity and show notification/color-changes/text using i3, polybar, komorebi, glazewm, yasb. So that, computer can be turned off quickly after saving works because UPS backup time is very limited.
 * When using computer remotely, then show no electricity notification/color-changes/text to both desktop-environment/window-manager using i3, polybar, komorebi, glazewm, yasb (connected via rustdesk) and terminal tmux (connected via ssh).
 * Also send no electricity notification to android mobile using internet.
@@ -91,12 +93,14 @@
 
 **Timely Provide Water In Garden**
 
+* Transfer data from ESP32 to ESP32 using ESP-NOW protocol.
+
 * Needs float switch in main water tank. If there is no water in main water tank, then turning on 12V DC motor is meaningless.
   * 220V AC float switch has fatal electric shock risk, if electrical wire is leaked into water.
   * Using arduino and ultrasonic sensor, water level can be detected. Using water level data, main water pump/motor can be turned on/off using wifi smart plug/socket.
 
 * Directly connect DC motor to arduino without resistor, can damage it.
-* Arduino RTC (Real Time Clock) module is required. Alternatively use ESP32 and NTP Server to get date and time.
+* Arduino RTC (Real Time Clock) module is required. Alternatively use ESP32 and NTP Server to get date and time. <sup>{18}: ESP32 NTP Server - Real Time Clock (NO RTC Module)</sup>
 * At specific time, turn on the 12V DC water motor and after several minutes turn it off.
 * Water motor speed can be controlled using speed-switch.
 * Drop water to ground/soil with making noise (like main AC water motor and tank), so that anyone can observe that dc motor is running.
@@ -114,6 +118,7 @@
 
 **Make Water Level Indicator And Switch For Water Tank**
 
+* Transfer data from ESP32 to ESP32 using ESP-NOW protocol.
 * Using arduino/esp32 and ultrasonic sensor, water level can be detected.
 * Show output in LCD display like volume up/down style.
 * Use ESP32 to remotely show output in LCD display.
@@ -1103,8 +1108,11 @@ rclone copy image.jpg remote:ESP32_Cam
 
 ## YouTube Tutorials
 
-* Arduino, Relay, Servo-Motor
-  * {8} [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList-Selected, Arduino, tinkercad.com Simulation](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
+* ESP32
+  * {18} [ESP32 For Beginners BY DIY TechRush => PlayList](https://www.youtube.com/playlist?list=PLlLe2PpVuiVJ7bdUtQHkXIlMzqxeOtrqd)
 
 * Projects
   * {7} [How to Make IOT Based Smart Water Tank Controller | Full Tutorial with Code, Diagram and Blynk App BY Naba Tech World](https://www.youtube.com/watch?v=DUGFp8SYNz8&list=PL7euiE97qGc2lQlH8QvDU-eoqhHIwd4dC&index=7)
+
+* Arduino Components, Sensors => Relay, Serve-Motor
+  * {8} [TinkerCad Tutorial in Hindi For Circuit Design BY EAZYTRONIC => PlayList-Selected, Arduino, tinkercad.com Simulation](https://www.youtube.com/playlist?list=PL4an6ELdlijducM1Y3oltzyFagC6Hx23Z)
