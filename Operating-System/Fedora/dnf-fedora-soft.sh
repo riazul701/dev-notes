@@ -251,6 +251,7 @@ dnf_office_softwares=(
     # Add: Backup-N-Sync Project Dependencies
     # Add: yt-x (youtube terminal)
     # Add: Git Credential Manager
+    # Add: HTTrack Website Copier
 )
 
 dnf_home_softwares=(

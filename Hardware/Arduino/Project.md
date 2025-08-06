@@ -58,6 +58,7 @@
 
 **If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi Dongle Router**
 
+* Security Measure: Do no repeatedly turn on/off sim wifi dongle router. Al least turn it on for 3 minutes and at least turn it off for 3 minutes, when no broadband wifi internet.
 * Keep network/wifi/sim based internet usage logs on each device.
 * Transfter data from ESP32 to computer/mobile and computer/mobile to ESP32 using serial communication and telnet protocol.
 
@@ -347,6 +348,58 @@ void loop() {
   * Save preferred network => Use `Preferences` library or `EEPROM`
 
 * Would you like me to modify this code to automatically switch back to WiFi1 if it becomes available again later?
+
+**ChatGPT Question: "what happens when making get request all time to a server to check internet connectivity test"**
+
+* When you send frequent GET requests to a server (like for checking internet connectivity), several things can happen depending on the frequency, target server, and implementation. Here's what you should know:
+
+* 🔁 What You're Doing:
+  * Sending repeated GET requests like:
+```http
+GET / HTTP/1.1
+Host: example.com
+```
+  * to check: “Am I online?”
+
+* 🧠 What Happens Behind the Scenes:
+
+  * ✅ If Done Occasionally (e.g. every few seconds/minutes)
+    * The server just replies with a 200 OK (or whatever it normally does).
+    * No harm, normal use case (e.g. apps, IoT devices).
+
+  * ⚠️ If Done Too Frequently (e.g. multiple times per second)
+    * The server might rate-limit or block your IP.
+    * Some servers will respond with `429 Too Many Requests` or drop packets.
+    * You could generate unnecessary load on the server.
+    * Could be seen as a DoS (Denial of Service) behavior if it’s persistent and aggressive.
+
+* 🧪 Testing Internet Connectivity Best Practices
+
+  * ✅ Good Methods:
+    * 1. Ping a lightweight, reliable host:
+      * e.g., `8.8.8.8` (Google DNS), or a cloud IP.
+      * Use ICMP (ping), not HTTP, if possible.
+    * 2. Use a lightweight HTTP endpoint:
+      * Example: Google's connectivity check:
+        * `http://clients3.google.com/generate_204`
+        * It returns HTTP 204 (no content), minimal bandwidth.
+    * 3. Throttle the frequency:
+      * Every 10–60 seconds is usually sufficient.
+      * Use exponential backoff if you’re retrying after failure.
+
+* ❌ Bad Practices:
+  * Constant polling (e.g., 5–10 requests per second).
+  * Requesting large pages or APIs just to test connectivity.
+  * Hitting someone else's public server without consent or usage limits.
+
+* 🛠️ ESP32/IoT-Specific Tip:
+  * If you're doing this from a device like an ESP32, use:
+```cpp
+WiFi.status() == WL_CONNECTED
+```
+  * before even making a request. This avoids unnecessary network traffic when the device is obviously offline.
+
+* Would you like help implementing a lightweight and polite internet-checking routine in code (e.g., Arduino or Python)?
 
 ## Remotely Control Arduino (ESP32/ESP8266) Using Internet <sup>ChatGPT</sup>
 
