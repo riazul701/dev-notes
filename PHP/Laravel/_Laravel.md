@@ -1,8 +1,15 @@
 # Laravel.md
 
+## Notes
+
+* Use `tinker` command and [fakerphp.org](https://fakerphp.org/) php library to create demo database records.
+
+# References
+
 ## Websites
 
 * [Laravel Official Tutorial](https://laravel.com/docs/12.x)
+* [livewire.laravel.com](https://livewire.laravel.com/) || [livewire/livewire GitHub](https://github.com/livewire/livewire)
 * [Laravel 12 Tutorial List](https://www.itsolutionstuff.com/laravel-tutorial)
   * [Hardik Savani GitHub](https://github.com/savanihd)
   * [Hardik Savani(ItSolutionStuff) => itsolutionstuff.com](https://www.youtube.com/@savanihd/playlists)
@@ -11,6 +18,7 @@
   * [adminlte.io](https://adminlte.io/) || [ColorlibHQ/AdminLTE GitHub](https://github.com/ColorlibHQ/AdminLTE)
 
 * Laravel Libraries
+  * [fakerphp.org](https://fakerphp.org/) || [FakerPHP/Faker GitHub](https://github.com/FakerPHP/Faker)
   * [laravel/ui GitHub](https://github.com/laravel/ui)
   * [jeroennoten/Laravel-AdminLTE GitHub](https://github.com/jeroennoten/Laravel-AdminLTE)
   * [barryvdh/laravel-debugbar GitHub](https://github.com/barryvdh/laravel-debugbar)
@@ -24,6 +32,14 @@
   * [stechstudio/laravel-zipstream GitHub](https://github.com/stechstudio/laravel-zipstream)
   * [SimpleSoftwareIO/simple-qrcode GitHub](https://github.com/SimpleSoftwareIO/simple-qrcode)
   * [image.intervention.io](https://image.intervention.io/v3) || [Intervention/image-laravel GitHub](https://github.com/Intervention/image-laravel)
+  * [openai-php/laravel GitHub](https://github.com/openai-php/laravel)
+  * [PHP-Open-Source-Saver/jwt-auth GitHub](https://github.com/PHP-Open-Source-Saver/jwt-auth)
+
+* PHP Libraries
+  * [AuthorizeNet/sdk-php GitHub](https://github.com/AuthorizeNet/sdk-php)
+  * [twilio/twilio-php GitHub](https://github.com/twilio/twilio-php)
+  * [stripe/stripe-php GitHub](https://github.com/stripe/stripe-php)
+  * [stevebauman/location GitHub](https://github.com/stevebauman/location)
 
 * JavaScript Libraries
   * [datatables.net](https://datatables.net/) || [DataTables/DataTables GitHub](https://github.com/DataTables/DataTables)
@@ -31,6 +47,9 @@
   * [sweetalert2.github.io](https://sweetalert2.github.io/) || [sweetalert2/sweetalert2 GitHub](https://github.com/sweetalert2/sweetalert2)
   * [chartjs.org](https://www.chartjs.org/) || [chartjs/Chart.js GitHub](https://github.com/chartjs/Chart.js)
   * [CodeSeven/toastr GitHub](https://github.com/CodeSeven/toastr)
+  * [trix-editor.org](https://trix-editor.org/) || [basecamp/trix GitHub](https://github.com/basecamp/trix)
+  * [summernote.org](https://summernote.org/) || [summernote/summernote GitHub](https://github.com/summernote/summernote)
+  * [Google Charts](https://developers.google.com/chart)
 
 * Template
   * [adminlte.io](https://adminlte.io/) || [ColorlibHQ/AdminLTE GitHub](https://github.com/ColorlibHQ/AdminLTE)
