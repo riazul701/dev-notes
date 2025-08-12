@@ -2,6 +2,8 @@
 
 ## Important
 
+* If monitor does not have "AMD FreeSync" feature and used with AMD processor/graphics-card, then shows no picture and "Out Of Range" Error. <sup>{34}</sup>
+
 * NEVER BUY GLOSSY MONITOR, ALWAYS BUY MATTE/ANTI-GLARE MONITOR.
 
 * Above 100 PPI Is Good For Reading Text And Programming. Do Not Go Beyond 24 Inch For Full HD.<sup>{19} {20} {21}</sup>
@@ -163,7 +165,7 @@
 
 # References
 
-* next-sl: {34}
+* next-sl: {35}
 
 ## Websites
 
@@ -287,6 +289,7 @@
   * {24} [IPS vs VA vs TN vs QD-OLED vs WOLED - Which Display Tech is Best? BY Monitors Unboxed](https://www.youtube.com/watch?v=NFPcLmIVIbY)
   * {25} [Watch This BEFORE You Buy a Monitor! BY The Mysterious Tech](https://www.youtube.com/watch?v=nEAyY9dzAZ0)
   * [Why Monitor Brands Are Lying to You? BY The Mysterious Tech](https://www.youtube.com/watch?v=iI1eBfMA7WU)
+  * {34} [মাত্র ১৫০০ টাকায় মনিটর!🔥 Cheapest Desktop Monitor Price 2025 in Bangladesh | Best Budget Monitor BD BY Mehedi 360](https://www.youtube.com/watch?v=KxjiwfzVBOA)
 
 * PPI (Pixels Per Inch) YouTube
   * {13} [Best Monitor Size For 1080p, 1440p, 4K & Ultrawide Monitors: Pixel Density Explained! BY TotallydubbedHD](https://www.youtube.com/watch?v=o6kWpXFDpco)

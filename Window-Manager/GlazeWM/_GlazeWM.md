@@ -6,6 +6,10 @@
 
 # GlazeWM
 
+## Notes
+
+* GlazeWM is resource (processor) hungry, use Komorebi window manager instead.
+
 ## Websites
 
 * [glzr-io/glazewm GitHub](https://github.com/glzr-io/glazewm)

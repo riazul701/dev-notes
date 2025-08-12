@@ -62,9 +62,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * [Firefox Fast & Private Browser BY Mozilla](https://play.google.com/store/apps/details?id=org.mozilla.firefox)
 * [Opera Browser => Fast & Private BY Opera](https://play.google.com/store/apps/details?id=com.opera.browser)
 * [Advanced Download Manager BY admtorrent](https://play.google.com/store/apps/details?id=com.dv.adm)
-* [SoundCloud => Play Music & Songs BY SoundCloud](https://play.google.com/store/apps/details?id=com.soundcloud.android)
 * [4K Video Downloader for Android](https://www.4kdownload.com/products/videodownloaderandroid-41)
 * [Seal => Video/Audio downloader](https://f-droid.org/en/packages/com.junkfood.seal/) || [JunkFood02/Seal](https://github.com/JunkFood02/Seal)
+* [Internet Speed Meter BY Zanoj Mobi Apps](https://play.google.com/store/apps/details?id=com.zanojmobiapps.internetspeedmeter)
 
 ## Programming (Selected)
 
@@ -117,10 +117,12 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 * [VLC for Android BY Videolabs](https://play.google.com/store/apps/details?id=org.videolan.vlc)
 * [Teleprompter with Video Audio BY Pode Groups](https://play.google.com/store/apps/details?id=com.corepix.videorecording)
+* [SoundCloud => Play Music & Songs BY SoundCloud](https://play.google.com/store/apps/details?id=com.soundcloud.android)
 * [KRTirtho/spotube => Spotify client for both desktop & mobile](https://github.com/KRTirtho/spotube) || [Spotube BY Kingkor Roy Tirtho](https://play.google.com/store/apps/details?id=oss.krtirtho.spotube)
 
 ## VPN (Selected)
 
+* [Tailscale BY Tailscale Inc. => Mesh VPN, provides public IP to mobile](https://play.google.com/store/apps/details?id=com.tailscale.ipn)
 * [SuperVPN Fast VPN Client BY SuperSoftTech](https://play.google.com/store/apps/details?id=com.jrzheng.supervpnfree)
 * [Secure VPN => Safer Internet BY Signal Lab](https://play.google.com/store/apps/details?id=com.fast.free.unblock.secure.vpn)
 * [Urban VPN proxy Unblocker BY Urban VPN](https://play.google.com/store/apps/details?id=com.urbanvpn.android)
@@ -137,6 +139,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Benchmark/Device-Info (Selected)
 
+* [CPU X - Device & System info BY Absut => Shows RAM and ROM type](https://play.google.com/store/apps/details?id=com.abs.cpu_z_advance)
+* [Device Info: System & CPU Info BY Yasiru Nayanajith](https://play.google.com/store/apps/details?id=com.ytheekshana.deviceinfo)
 * [DevCheck Device & System Info BY flar2](https://play.google.com/store/apps/details?id=flar2.devcheck)
 * [antutu.com](https://www.antutu.com/en/index.htm)
 

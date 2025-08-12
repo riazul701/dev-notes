@@ -34,6 +34,7 @@
   * [image.intervention.io](https://image.intervention.io/v3) || [Intervention/image-laravel GitHub](https://github.com/Intervention/image-laravel)
   * [openai-php/laravel GitHub](https://github.com/openai-php/laravel)
   * [PHP-Open-Source-Saver/jwt-auth GitHub](https://github.com/PHP-Open-Source-Saver/jwt-auth)
+  * [mongodb/laravel-mongodb GitHub](https://github.com/mongodb/laravel-mongodb)
 
 * PHP Libraries
   * [AuthorizeNet/sdk-php GitHub](https://github.com/AuthorizeNet/sdk-php)

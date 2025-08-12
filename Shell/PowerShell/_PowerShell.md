@@ -3,6 +3,7 @@
 ## Websites
 
 * [Powershell GitHub](https://github.com/PowerShell/PowerShell)
+* [PowerShell Gallery](https://www.powershellgallery.com/)
 * [PowerShell Documentation](https://learn.microsoft.com/en-us/powershell/)
 * [gsudo => sudo for Windows](https://gerardog.github.io/gsudo/) || [gsudo GitHub](https://github.com/gerardog/gsudo)
 
