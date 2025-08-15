@@ -1,3 +1,8 @@
+# Important
+
+* `Ctrl + Alt + Left/Up/Right/Down-Arrow` changes display orientation/direction.
+  * To turn it off goto Desktop -> Right Click -> Graphics Options -> Hot Keys -> Disable
+
 # [Default Keybindings](https://lgug2z.github.io/komorebi/example-configurations.html#whkdrc)
 
 * `.shell powershell`
@@ -61,11 +66,6 @@
 * `alt + shift + r` : komorebic retile
 * `alt + p` : komorebic toggle-pause
 
-## Layouts
-
-* `alt + x` : komorebic flip-layout horizontal
-* `alt + y` : komorebic flip-layout vertical
-
 ## Workspaces
 
 * `alt + 1` : komorebic focus-workspace 0
@@ -87,6 +87,61 @@
 * `alt + shift + 6` : komorebic move-to-workspace 5
 * `alt + shift + 7` : komorebic move-to-workspace 6
 * `alt + shift + 8` : komorebic move-to-workspace 7
+
+## Layouts
+
+* `alt + x` : komorebic flip-layout horizontal
+* `alt + y` : komorebic flip-layout vertical
+
+### Change Layouts
+
+**[change-layout](https://lgug2z.github.io/komorebi/cli/change-layout.html)**
+
+```
+Set the layout on the focused workspace
+
+Usage: komorebic.exe change-layout <DEFAULT_LAYOUT>
+
+Arguments:
+  <DEFAULT_LAYOUT>
+          [possible values: bsp, columns, rows, vertical-stack, horizontal-stack, ultrawide-vertical-stack, grid, right-main-vertical-stack]
+
+Options:
+  -h, --help
+          Print help
+```
+
+**[cycle-layout](https://lgug2z.github.io/komorebi/cli/cycle-layout.html)**
+
+```
+Cycle between available layouts
+
+Usage: komorebic.exe cycle-layout <CYCLE_DIRECTION>
+
+Arguments:
+  <CYCLE_DIRECTION>
+          [possible values: previous, next]
+
+Options:
+  -h, --help
+          Print help
+```
+
+**[flip-layout](https://lgug2z.github.io/komorebi/cli/flip-layout.html)**
+
+```
+Flip the layout on the focused workspace
+
+Usage: komorebic.exe flip-layout <AXIS>
+
+Arguments:
+  <AXIS>
+          [possible values: horizontal, vertical, horizontal-and-vertical]
+
+Options:
+  -h, --help
+          Print help
+```
 
 # Set Keybindings
 

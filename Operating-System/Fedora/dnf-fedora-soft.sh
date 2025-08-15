@@ -196,6 +196,8 @@ dnf_office_softwares=(
     ["nitrogen"]="nitrogen"
     ["conky"]="conky"
     ["jgmenu"]="jgmenu"
+    ["flameshot"]="flameshot"
+    ["obs-studio"]="obs-studio"
     ["vim-enhanced"]="vim-enhanced" # `vim` editor
     ["neovim"]="neovim" # `nvim` command, For Lunarvim
     ["python3"]="python3" # For Lunarvim: `python3 --version`
@@ -238,8 +240,6 @@ dnf_office_softwares=(
     ["smplayer"]="smplayer"
     ["mpv"]="mpv"
     ["shotcut"]="shotcut"
-    ["flameshot"]="flameshot"
-    ["obs-studio"]="obs-studio"
     ["stacer"]="stacer"
     ["glances"]="glances"
     ["gum"]="gum" # For: backup-n-sync
@@ -271,14 +271,14 @@ rpm_office_softwares=(
     # ["Command"]="URL Address"
     ["rustdesk"]="https://github.com/rustdesk/rustdesk/releases/download/1.4.0/rustdesk-1.4.0-0.x86_64.rpm"
     ["google-chrome"]="https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
-    #["git-credential-manager"]="https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.6.1/gcm-linux_amd64.2.6.1.deb"
+    # git-credential-manager
 )
 
 rpm_home_softwares=(
     # ["Command"]="URL Address"
     ["musikcube"]="https://github.com/clangen/musikcube/releases/download/3.0.4/musikcube_3.0.4_linux_x86_64.rpm"
-    # ["4kvideodownloader"]="https://dl.4kdownload.com/app/4kvideodownloaderplus_1.10.4-1_amd64.deb"
-    # ["mindforger"]="https://github.com/dvorka/mindforger/releases/download/2.0.0/debian-12-bookworm--mindforger_2.0.0-1_amd64.deb"
+    # "4kvideodownloader"
+    # "mindforger"
 )
 
 appimage_office_softwares=(

@@ -10,6 +10,8 @@
 
 ## Notes
 
+* If windows OS is used in dual boot system and shutdown/hibernate from windows OS, then failed to mount hard disk partitions in linux OS. To solve this issue, restart from windows OS. If problem persists, from windows OS enable "fast-startup" and shutdown, then start pc and disable "fast-startup" and shutdown, then start pc and restart to linux OS.
+
 * Keep in mind that if you track trixie (future Debian 13), it will become Debian stable after it's release. If you track testing, it will continue as Debian testing after release of Debian 13. <sup>{7}</sup>
 
 * Avoid using stable in your sources.list as that results in nasty surprises and broken systems when the next release is made; upgrading to a new release should be a deliberate, careful action and editing a file once every two years is not a burden. <sup>{3}</sup>

@@ -22,6 +22,10 @@
 
 * [Personal Package Archives for Ubuntu](https://launchpad.net/ubuntu/+ppas)
 
+## Notes
+
+* If windows OS is used in dual boot system and shutdown/hibernate from windows OS, then failed to mount hard disk partitions in linux OS. To solve this issue, restart from windows OS. If problem persists, from windows OS enable "fast-startup" and shutdown, then start pc and disable "fast-startup" and shutdown, then start pc and restart to linux OS.
+
 ## Motherboard's UEFI Boot Manager
 
 * In dual boot system, there are two boot managers in motherboard's UEFI. One for Linux and other for Windows.

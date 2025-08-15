@@ -1,3 +1,7 @@
+# Important
+
+* Enable Autostart: Start Flow Launcher App -> Tray Icon -> Right Click -> Settings -> General -> Turn On "Start Flow Launcher on system startup"
+
 # Configuration
 
 **`Alt+d` : Open Flow-Launcher**

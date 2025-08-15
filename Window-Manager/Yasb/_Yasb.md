@@ -1,13 +1,28 @@
+## Important
+
+* Enable Autostart: Start Yasb App -> Tray Icon -> Right Click -> Enable Autostart
+
+* Configuration Reload: Start Yasb App -> Tray Icon -> Right Click -> Reload YASB
+
+* Get Configuration: Start Yasb App -> Tray Icon -> Right Click -> Get Themes
+
 # Yasb.md
-
-## Websites
-
-* [amnweb/yasb GitHub](https://github.com/amnweb/yasb)
-* [amnweb/yasb-themes GitHub](https://github.com/amnweb/yasb-themes)
 
 ## PATH
 
 * Yasb log file path : `~/.config/yasb/yasb.log`
+
+# Installation
+
+## `scoop` Package Manager
+
+* [https://scoop.sh/#/apps?q=yasb](https://scoop.sh/#/apps?q=yasb)
+
+* `scoop bucket add LucasOe_scoop-lucasoe https://github.com/LucasOe/scoop-lucasoe`
+
+* `scoop install LucasOe_scoop-lucasoe/yasb`
+  * Installation Message:
+  * Create the directory C:/Users/{usrename}/.config/yasb/ and copy styles.css and config.yaml into folder. When you update files, always check styles.css and config.yaml for new features and changes; otherwise, your config can be broken.
 
 # Configuration
 
@@ -73,14 +88,35 @@
 
 * If you want to remove applications from the startup folder, delete the links from the second window.
 
-# Installation
+# Error and Solution
 
-## `scoop` Package Manager
+## Fonts Missing Error
 
-* [https://scoop.sh/#/apps?q=yasb](https://scoop.sh/#/apps?q=yasb)
+**Error_Message_1:**
 
-* `scoop bucket add LucasOe_scoop-lucasoe https://github.com/LucasOe/scoop-lucasoe`
+* Some fonts specified in your stylesheet are not installed on your system, some icons or symbols may not be visible or may not display correctly.
 
-* `scoop install LucasOe_scoop-lucasoe/yasb`
-  * Installation Message:
-  * Create the directory C:/Users/{usrename}/.config/yasb/ and copy styles.css and config.yaml into folder. When you update files, always check styles.css and config.yaml for new features and changes; otherwise, your config can be broken.
+* Please install the missing fonts.
+
+* [JetBrainsMono NFP](https://www.nerdfonts.com/font-downloads)
+* Segoe Fluent Icons
+* Geneva
+
+**Solution_1:**
+
+* Download [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip)
+  * Extract zip file
+
+* Right-click on Start  and select Run
+
+* In the Run dialog box, type `fonts` and select Enter
+  * This will open location `C:\Windows\Fonts`
+
+* Paste downloaded fonts
+
+# References
+
+## Websites
+
+* [amnweb/yasb GitHub](https://github.com/amnweb/yasb)
+* [amnweb/yasb-themes GitHub](https://github.com/amnweb/yasb-themes)

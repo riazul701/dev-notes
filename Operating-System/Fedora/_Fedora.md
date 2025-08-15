@@ -2,6 +2,7 @@
 
 ## Notes
 
+* If windows OS is used in dual boot system and shutdown/hibernate from windows OS, then failed to mount hard disk partitions in linux OS. To solve this issue, restart from windows OS. If problem persists, from windows OS enable "fast-startup" and shutdown, then start pc and disable "fast-startup" and shutdown, then start pc and restart to linux OS.
 * Every time `dnf upgrade` command creates a GRUB menu entry for new kernel.
 * Fedora uses `Anaconda Installer` for operating system installation. <sup>{8}</sup>
 * AUR (ArchLinux) requires users to build packages locally, while COPR (Fedora) provides pre-built packages. <sup>{6}</sup>
