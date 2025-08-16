@@ -72,9 +72,9 @@ snap_office_softwares=(
     ["chezmoi"]="chezmoi --classic"
     ["code"]="code --classic" # Visual Studio Code
     ["sublime-text"]="sublime-text --classic"
+    ["sublime-merge"]="sublime-merge --classic"
     ["postman"]="postman"
     ["dbeaver-ce"]="dbeaver-ce"
-    ["sublime-merge"]="sublime-merge --classic"
     ["powershell"]="powershell --classic"
     ["dvc"]="dvc --classic"
     ["lepton"]="lepton"
@@ -91,7 +91,6 @@ snap_office_softwares=(
 snap_home_softwares=(
     # ["Name"]="Snap Identifier" # `snap list`
     ["spotify"]="spotify"
-    ["spt"]="spt --edge" # [Spotify TUI](https://github.com/Rigellute/spotify-tui)
     ["scrcpy"]="scrcpy"
     ["guiscrcpy"]="guiscrcpy"
     ["gallery-dl"]="gallery-dl"
@@ -115,11 +114,12 @@ flatpak_office_softwares=(
     ["anydesk"]="com.anydesk.Anydesk"
     ["podman-desktop"]="io.podman_desktop.PodmanDesktop"
     ["boxbuddyrs"]="io.github.dvlv.boxbuddyrs" # Graphical Distrobox Manager
-    ["smartgit"]="com.syntevo.SmartGit"
     ["handbrake"]="fr.handbrake.ghb"
     ["fdm"]="org.freedownloadmanager.Manager"
     ["peazip"]="io.github.peazip.PeaZip"
     ["cpu-x"]="io.github.thetumultuousunicornofdarkness.cpu-x"
+    ["xnviewmp"]="com.xnview.XnViewMP"
+    ["xnconvert"]="com.xnview.XnConvert"
 )
 
 flatpak_home_softwares=(
@@ -133,7 +133,7 @@ nix_office_softwares=(
     # ["Command"]="Command" # `nix-env --query`
     ["lazygit"]="lazygit" # For Lunarvim
     ["termscp"]="termscp"
-    ["dasel"]="dasel"
+    ["dasel"]="dasel" # For: backup-n-sync
     ["nerdfetch"]="nerdfetch" # `nerdfonts`, For Lunarvim, Yazi
     ["lazydocker"]="lazydocker"
     ["beebeep"]="beebeep"
@@ -169,15 +169,17 @@ dnf_office_softwares=(
     # ["Command"]="Package-Name" # `dnf list --installed`
     ["tailscale"]="tailscale"
     ["kitty"]="kitty"
+    ["tmux"]="tmux"
     ["keepassxc"]="keepassxc"
     ["firefox"]="firefox"
-    ["chromium"]="chromium"
+    ["lynx"]="lynx"
     ["liberation-fonts-all"]="liberation-fonts-all" # Dependency of Google-Chrome
     ["thunderbird"]="thunderbird"
     # ["ibus-avro"]="ibus-avro"
     ["libreoffice"]="libreoffice"
     ["docker-ce"]="docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin" # [Install Docker Engine on Fedora](https://docs.docker.com/engine/install/fedora/)
     ["podman"]="podman"
+    ["distrobox"]="distrobox"
     ["git"]="git" # For Lunarvim
     ["git-lfs"]="git-lfs" # (https://github.com/git-lfs/git-lfs)
     ["git-gui"]="git-gui" # (https://git-scm.com/docs/git-gui)
@@ -198,6 +200,15 @@ dnf_office_softwares=(
     ["jgmenu"]="jgmenu"
     ["flameshot"]="flameshot"
     ["obs-studio"]="obs-studio"
+    ["pipewire-pulseaudio"]="pipewire-pulseaudio" # Built-in inside Fedora-42-LXDE, originally "pulseaudio"
+    ["pavucontrol"]="pavucontrol" # "pulseaudio" volume control
+    ["vifm"]="vifm"
+    ["pcmanfm"]="pcmanfm" # Alternative: `pcmanfm-qt`
+    ["Thunar"]="thunar" # `thunar` command
+    ["doublecmd-gtk"]="doublecmd-gtk" # Alternative: `doublecmd-qt`, `doublecmd-qt6`
+    ["htop"]="htop"
+    ["glances"]="glances"
+    ["stacer"]="stacer"
     ["vim-enhanced"]="vim-enhanced" # `vim` editor
     ["neovim"]="neovim" # `nvim` command, For Lunarvim
     ["python3"]="python3" # For Lunarvim: `python3 --version`
@@ -209,44 +220,37 @@ dnf_office_softwares=(
     ["cargo"]="cargo" # For Lunarvim: `cargo --version`
     ["make"]="make" # For Lunarvim: `make --version`
     ["gcc"]="gcc" # For Lunarvim: `gcc --version`
-    ["ripgrep"]="ripgrep" # `rg` command, For Lunarvim: `rg --version`
-    ["xclip"]="xclip" # For Lunarvim, Yazi
-    ["fzf"]="fzf"
-    ["vifm"]="vifm"
-    ["filezilla"]="filezilla"
+    ["ripgrep"]="ripgrep" # `rg` command, For Lunarvim, Yazi: `rg --version`
+    ["xclip"]="xclip" # For Lunarvim, Yazi: `which xclip`
+    ["fzf"]="fzf" # For Lunarvim, Yazi
+    ["ffmpeg"]="ffmpeg" # For Yazi
+    ["jq"]="jq" # For: Yazi, backup-n-sync
+    ["zip"]="7zip" # For: Yazi
+    ["poppler"]="poppler" # For: Yazi
+    ["fd-find"]="fd-find" # For: Yazi
+    ["zoxide"]="zoxide" # For: Yazi
+    ["ImageMagick"]="ImageMagick" # For: Yazi
     ["rsync"]="rsync" # For: backup-n-sync
     ["rclone"]="rclone" # For: backup-n-sync
     ["restic"]="restic" # For: backup-n-sync
-    ["copyq"]="copyq"
-    ["glow"]="glow"
-    ["mycli"]="mycli"
-    ["gimp"]="gimp"
-    ["pcmanfm"]="pcmanfm" # Alternative: `pcmanfm-qt`
-    ["Thunar"]="thunar" # `thunar` command
-    ["doublecmd-gtk"]="doublecmd-gtk" # Alternative: `doublecmd-qt`, `doublecmd-qt6`
-    ["p7zip"]="p7zip" # `7za` command, "7zip" package
-    ["htop"]="htop"
-    ["pipewire-pulseaudio"]="pipewire-pulseaudio" # Built-in inside Fedora-42-LXDE, originally "pulseaudio"
-    ["pavucontrol"]="pavucontrol" # "pulseaudio" volume control
-    ["jq"]="jq" # For: backup-n-sync
-    ["distrobox"]="distrobox"
-    ["tmux"]="tmux"
-    ["lynx"]="lynx"
-    ["httpie"]="httpie"
-    ["lftp"]="lftp"
-    ["qimgv"]="qimgv"
-    ["audacity"]="audacity"
-    ["vlc"]="vlc"
-    ["smplayer"]="smplayer"
-    ["mpv"]="mpv"
-    ["shotcut"]="shotcut"
-    ["stacer"]="stacer"
-    ["glances"]="glances"
     ["gum"]="gum" # For: backup-n-sync
     ["unison"]="unison" # For: backup-n-sync
     ["unison-gtk"]="unison-gtk" # For: backup-n-sync
     ["progress"]="progress" # For: backup-n-sync
-
+    ["filezilla"]="filezilla"
+    ["copyq"]="copyq"
+    ["glow"]="glow"
+    ["mycli"]="mycli"
+    ["gimp"]="gimp"
+    ["httpie"]="httpie"
+    ["lftp"]="lftp"
+    ["qimgv"]="qimgv"
+    ["shotcut"]="shotcut"
+    ["audacity"]="audacity"
+    ["vlc"]="vlc"
+    ["smplayer"]="smplayer"
+    ["mpv"]="mpv"
+    
     # Add: AB Download Manager
     # Add: Backup-N-Sync Project Dependencies
     # Add: yt-x (youtube terminal)
@@ -261,10 +265,9 @@ dnf_home_softwares=(
     ["syncthing"]="syncthing"
     ["yt-dlp"]="yt-dlp"
     ["wavemon"]="wavemon"
-    ["digikam"]="digikam"
     ["clementine"]="clementine"
-    ["waydroid"]="waydroid" # Android App
-    ["weston"]="weston" # Android App, Wayland inside X11
+    # ["waydroid"]="waydroid" # Android App
+    # ["weston"]="weston" # Android App, Wayland (waydroid) inside X11
 )
 
 rpm_office_softwares=(
@@ -580,5 +583,26 @@ echo -e '\033[1;32m TAR => All Softwares Downloaded. \033[0m'
 #-------------------------END: Download TAR Softwares-------------------------
 
 #-------------------------START: Install Other Softwares-------------------------
+
+# Install Lunvarvim, if not already installed
+
+if [[ "$(command -v lvim)" != '' ]]
+then
+    echo -e "\033[1;32m Lunarvim is already installed, skipping... \033[0m"
+else
+    # Nodejs/NPM Error: [WARN]: skipping installing optional nodejs dependencies due to insufficient permissions.
+    mkdir ~/.npm-global
+    npm config set prefix '~/.npm-global'
+    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
+    source ~/.profile
+
+    # Python Error: This environment is externally managed
+    # [Skip python dependencies during install](https://github.com/LunarVim/LunarVim/issues/4050)
+    # Just install pynvim using apt `sudo apt install python3-pynvim`. No plugins from lunarvim require it.
+
+    LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+    echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc
+    source ~/.bashrc
+fi
 
 #-------------------------END: Install Other Softwares-------------------------

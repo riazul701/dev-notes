@@ -222,12 +222,14 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [easymodo/qimgv](https://github.com/easymodo/qimgv)
 
 * Image Organizer (Selected)
+  * [XnView: Professional Image Viewer, Photo Management, Image Resizer & Batch Converter](https://www.xnview.com/en/xnview/)
   * [digiKam => Professional Photo Management](https://www.digikam.org/)
 
 * Image Editor (Selected)
   * [GIMP Image Editor](https://www.gimp.org/)
 
 * Image Tools (Selected)
+  * [XnConvert: The Best Bulk Image Converter](https://www.xnview.com/en/xnconvert/)
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (Selected)
@@ -616,14 +618,15 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
     * [torum/Image-viewer](https://github.com/torum/Image-viewer)
 
 * Image Organizer (List)
+  * [XnView: Professional Image Viewer, Photo Management, Image Resizer & Batch Converter](https://www.xnview.com/en/xnview/)
   * [digiKam => Professional Photo Management](https://www.digikam.org/)
-  * [XnView MP/Classic](https://www.xnview.com/en/)
 
 * Image Editor (List)
   * [Adobe Photoshop](https://www.adobe.com/products/photoshop.html)
   * [GIMP Image Editor](https://www.gimp.org/)
 
 * Image Tools (List)
+  * [XnConvert: The Best Bulk Image Converter](https://www.xnview.com/en/xnconvert/)
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (List)

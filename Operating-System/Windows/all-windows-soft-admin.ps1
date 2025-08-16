@@ -115,6 +115,8 @@ $scoop_office_softwares = @(
     "extras/localsend"
     "extras/beebeep"
     #"extras/android-studio"
+    "extras/xnviewmp"
+    "extras/xnconvert"
     #-------GUI (End)-------
     
     #-------Optional (Start)---------
