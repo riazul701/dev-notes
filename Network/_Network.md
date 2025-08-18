@@ -1,5 +1,9 @@
 # Network.md
 
+## Notes
+
+* `NetworkManager`, `ConnMan (Connection Manager)`, `iwd (iNet wireless daemon)` : Three popular Linux network management solutions
+
 # References
 
 ## Websites

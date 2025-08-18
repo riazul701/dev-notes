@@ -106,9 +106,56 @@ Or get in touch with the community: https://nixos.org/community
 * `which nix-env`
 * `nix-env --version`
 
+# Uninstall Nix In Linux
+
+* [Uninstalling Nix](https://nix.dev/manual/nix/2.21/installation/uninstall) <sup>{8}</sup>
+
+**Single User**
+
+* If you have a [single-user installation](https://nix.dev/manual/nix/2.21/installation/installing-binary#single-user-installation) of Nix, uninstall it by running:
+```bash
+$ rm -rf /nix
+```
+
+**Multi User**
+
+* Removing a [multi-user installation](https://nix.dev/manual/nix/2.21/installation/installing-binary#multi-user-installation) of Nix is more involved, and depends on the operating system.
+
+**Linux**
+
+* If you are on Linux with systemd:
+
+  * 1. Remove the Nix daemon service:
+```bash
+sudo systemctl stop nix-daemon.service
+sudo systemctl disable nix-daemon.socket nix-daemon.service
+sudo systemctl daemon-reload
+```
+
+* Remove files created by Nix:
+```bash
+sudo rm -rf /etc/nix /etc/profile.d/nix.sh /etc/tmpfiles.d/nix-daemon.conf /nix ~root/.nix-channels ~root/.nix-defexpr ~root/.nix-profile
+```
+
+* Remove build users and their group:
+```bash
+for i in $(seq 1 32); do
+  sudo userdel nixbld$i
+done
+sudo groupdel nixbld
+```
+
+* There may also be references to Nix in
+  * `/etc/bash.bashrc`
+  * `/etc/bashrc`
+  * `/etc/profile`
+  * `/etc/zsh/zshrc`
+  * `/etc/zshrc`
+* which you may remove. Just remove Nix related lines enclosed with `# Nix` comment block. Do not remove whole file.
+
 # References
 
-* next-sl: {8}
+* next-sl: {9}
 
 ## Guides
 
@@ -119,6 +166,7 @@ Or get in touch with the community: https://nixos.org/community
   * {2} [NixOS Basics](https://itsfoss.com/tag/nix-os/)
   * {3} [Install and Use Nix Package Manager on non-Nix OS like Ubuntu](https://itsfoss.com/ubuntu-install-nix-package-manager/)
   * {7} [Nix : the package manager](https://nixos.org/download/)
+  * {8} [Uninstalling Nix](https://nix.dev/manual/nix/2.21/installation/uninstall)
 
 * Package Install/Uninstall/List
   * {4} [Why doesn't `nix-env -q` find my installed packages? (NixOS channels, profiles and packages)](https://stackoverflow.com/questions/47953868/why-doesnt-nix-env-q-find-my-installed-packages-nixos-channels-profiles-a)

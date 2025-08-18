@@ -3,6 +3,7 @@
 # Tested On OS: Fedora-42-LXDE
 
 #--------------------------Start: General-Information---------------------------
+# Storage Space Used (Approximately): 28 GB
 # https://packages.fedoraproject.org/
 # https://repology.org/repository/fedora_42
 # **[How to Keep ‘sudo’ Password Timeout Session Longer in Linux](https://www.tecmint.com/set-sudo-password-timeout-session-longer-linux/)**
@@ -167,6 +168,8 @@ brew_home_softwares=(
 
 dnf_office_softwares=(
     # ["Command"]="Package-Name" # `dnf list --installed`
+    ["qt5ct"]="qt5ct" # Control Qt5/Qt6 appearance independently of the desktop environment
+    ["NetworkManager-tui"]="NetworkManager-tui" # WiFi network manager
     ["tailscale"]="tailscale"
     ["kitty"]="kitty"
     ["tmux"]="tmux"
@@ -205,7 +208,7 @@ dnf_office_softwares=(
     ["vifm"]="vifm"
     ["pcmanfm"]="pcmanfm" # Alternative: `pcmanfm-qt`
     ["Thunar"]="thunar" # `thunar` command
-    ["doublecmd-gtk"]="doublecmd-gtk" # Alternative: `doublecmd-qt`, `doublecmd-qt6`
+    ["doublecmd-qt"]="doublecmd-qt" # `doublecmd-gtk` freezes on Fedora-42-LXDE. Alternative: `doublecmd-qt`, `doublecmd-qt6`
     ["htop"]="htop"
     ["glances"]="glances"
     ["stacer"]="stacer"
