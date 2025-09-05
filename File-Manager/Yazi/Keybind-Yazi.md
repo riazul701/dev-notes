@@ -17,8 +17,8 @@
 * `j` OR `↓` : Move the cursor down
 * `l` OR `→` : Enter hovered directory
 * `h` OR `←` : Leave the current directory and into its parent
-* `K` : Seek up 5 units in the preview
-* `J` : Seek down 5 units in the preview
+* `K` : Seek up 5 units in the preview [Also backward video frame]
+* `J` : Seek down 5 units in the preview [Also forward video frame]
 * `g ⇒ g` : Move cursor to the top
 * `g ⇒ h` : Go home
 * `g ⇒ c` : Goto ~/.config
@@ -46,7 +46,7 @@
 * `Tab` : Show the file information
 * `y` : Yank selected files (copy)
 * `x` : Yank selected files (cut)
-* `p` : Paste yanked files
+* `p` : Paste yanked files [`p` option add file, with number added in name]
 * `P` : Paste yanked files (overwrite if the destination exists)
 * `Y` OR `X` : Cancel the yank status
 * `d` : Trash selected files
@@ -205,7 +205,7 @@
 * `gc` => `cd ~/.config` : Go ~/.config
 * `gd` => `cd ~/Downloads` : Go ~/Downloads
 * `g<Space>` => `cd --interactive` : Jump interactively
-* `gf` => `follow` : Follow hovered symlink
+* `gf` => `follow` : Follow hovered symlink [Press `TAB` key for auto-completion]
 * `t` => `tab_create --current` : Create a new tab with CWD
 * `1` => `tab_switch 0` : Switch to first tab
 * `2` => `tab_switch 1` : Switch to second tab
@@ -220,15 +220,24 @@
 * `]` => `tab_switch --relative 1` : Switch to next tab
 * `{` => `tab_swap -1` : Swap current tab with previous tab
 * `}` => `tab_swap 1` : Swap current tab with next tab
+
 * `w` => `show` : Show task manager
+  * If you realize that you've used `unzip` on the wrong files, and you need to cancel it, you can easily do that by pressing `x` in Yazi's task manager.
+
 * `~` => `help` : Open help
 * `<F1>` => `help` : Open help
 
-# Commands From
-
-* [Yazi Quick Start](https://yazi-rs.github.io/docs/quick-start) <sup>{1}</sup>
-
 # Keybind-Yazi.md
+
+## ChatGPT: "linux terminal resume suspended process"
+
+* To resume a suspended process in a Linux terminal, you can use the `fg` or `bg` command, depending on how you want to resume it.
+
+* To resume the process in the foreground, use the `fg` command followed by the job number. If you don't specify a job number, it will resume the most recent suspended process.
+
+* To resume the process in the background, use the `bg` command followed by the job number.
+
+* If you have a suspended job, first check it using the `jobs` command. This will list all jobs with their job numbers (e.g., `[1]+ 1234`).
 
 ## Websites
 

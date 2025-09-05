@@ -6,6 +6,50 @@
 * {2} [yazi-rs/plugins GitHub => Official Plugins](https://github.com/yazi-rs/plugins)
 * {3} [AnirudhG07/awesome-yazi](https://github.com/AnirudhG07/awesome-yazi)
 
+# [Previewers Plugin](https://yazi-rs.github.io/docs/resources#previewers)
+
+## [piper.yazi](https://github.com/yazi-rs/plugins/tree/main/piper.yazi)
+
+* Pipe any shell command as a previewer.
+
+* `which tar` : Check [tar](https://man7.org/linux/man-pages/man1/tar.1.html) command
+
+* `sudo dnf install bat` : Install [bat](https://github.com/sharkdp/bat) command. Alternative of `cat` command
+
+* `sudo dnf install glow` : Install [glow](https://github.com/charmbracelet/glow) command. Terminal markdown viewer.
+
+* [eza](https://github.com/eza-community/eza) command, A modern alternative to `ls`
+```bash
+sudo dnf copr enable alternateved/eza
+sudo dnf install eza
+```
+
+* `sudo dnf install hexyl` : Install [hexyl](https://github.com/sharkdp/hexyl) command, A command-line hex viewer. Alternative of `file` command.
+
+## [exifaudio.yazi](https://github.com/Sonico98/exifaudio.yazi)
+
+* `sudo dnf install perl-Image-ExifTool` : Install [exiftool](https://exiftool.org/) command.
+
+* `sudo dnf install mediainfo` : Install [mediainfo](https://mediaarea.net/en/MediaInfo) command
+
+## [mediainfo.yazi](https://github.com/boydaihungst/mediainfo.yazi)
+
+* `sudo dnf install mediainfo` : Install [mediainfo](https://mediaarea.net/en/MediaInfo) command
+  * `mediainfo --version` : Run this command in terminal to check if it's installed correctly
+
+* `sudo dnf install ImageMagick` : Install [ImageMagick](https://imagemagick.org/script/download.php) packages
+
+## [ouch.yazi](https://github.com/ndtoan96/ouch.yazi)
+
+* [ouch-org/ouch => Compression and decompression in the terminal](https://github.com/ouch-org/ouch)
+
+* `nix-env -iA nixpkgs.ouch` : Install [ouch](https://github.com/ouch-org/ouch) command
+  * `ouch --version` : Check `ouch` version
+
+## [zless-preview.yazi](https://github.com/vmikk/zless-preview.yazi)
+
+* `which zless` : Check `zless` command is installed or not
+
 # Plugin List
 
 ## [Yazi Resources](https://yazi-rs.github.io/docs/resources/) <sup>{1}</sup>
