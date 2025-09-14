@@ -34,6 +34,8 @@
 
 * Tutorials
 
-* YouTube Tutorials
-  * [Vim Beginners Guide BY Learn Linux TV => PlayList](https://www.youtube.com/playlist?list=PLT98CRl2KxKHy4A5N70jMRYAROzzC2a6x)
-  * [Vimium Is Vim For Your Browser BY NeuralNine](https://www.youtube.com/watch?v=yuUHMekx_zQ)
+## YouTube Tutorials
+  
+* [Vim Beginners Guide BY Learn Linux TV => PlayList](https://www.youtube.com/playlist?list=PLT98CRl2KxKHy4A5N70jMRYAROzzC2a6x)
+* [Vim in 100 Seconds BY Fireship](https://www.youtube.com/watch?v=-txKSRn0qeA)
+* [Vimium Is Vim For Your Browser BY NeuralNine](https://www.youtube.com/watch?v=yuUHMekx_zQ)

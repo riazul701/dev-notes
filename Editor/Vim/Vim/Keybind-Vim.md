@@ -245,7 +245,7 @@
 ## Search in multiple files
 
 * `:vim[grep] /pattern/ {`{file}`}` - search for pattern in multiple files
-e.g. `:vim[grep] /foo/ **/*`
+e.g. `:vim[grep] /foo/ **/*` [Press `<Tab>` to auto-complete, `<Down-Arrow>` to accept]
 * `:cn[ext]` - jump to the next match
 * `:cp[revious]` - jump to the previous match
 * `:cope[n]` - open a window containing the list of matches
@@ -253,7 +253,7 @@ e.g. `:vim[grep] /foo/ **/*`
 
 ## Tabs
 
-* `:tabnew` or `:tabnew {page.words.file}` - open a file in a new tab
+* `:tabnew` or `:tabnew {page.words.file}` - open a file in a new tab [Press `<Tab>` to auto-complete, `<Down-Arrow>` to accept]
 * `Ctrl + wT` - move the current split window into its own tab
 * `gt` or `:tabn[ext]` - move to the next tab
 * `gT` or `:tabp[revious]` - move to the previous tab
@@ -265,7 +265,7 @@ e.g. `:vim[grep] /foo/ **/*`
 
 ## Working with multiple files
 
-* `:e[dit] file` - edit a file in a new buffer
+* `:e[dit] file` - edit a file in a new buffer [Press `<Tab>` to auto-complete, `<Down-Arrow>` to accept]
 * `:bn[ext]` - go to the next buffer
 * `:bp[revious]` - go to the previous buffer
 * `:bd[elete]` - delete a buffer (close a file)
