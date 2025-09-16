@@ -2,13 +2,38 @@
 
 * [Core Plugins List](https://www.lunarvim.org/docs/features/core-plugins-list)
 
+## General Keybinding
+
+**General/Global**
+
+* `<Esc>` or `<Ctrl + c>` : Exit insert mode / various window.
+* `<q>` : Exit various window.
+* `:close` : This command closes tab. Alternatively use, `<Space + b + e>` -> press character shown in tab header.
+
+**Telescope Preview Window**
+
+* `<C-d>` : Scroll down preview.
+* `<C-u>` : Scroll up preview.
+
+## Concept
+
+* LSP (Language Server Protocol) on activates during `insert` mode.
+
 # [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 
 **About**
 
 * A modern plugin manager for Neovim
 
+## PATH
+
+* lazy.nvim Lockfile path: `/home/{{user-name}}/.config/lvim/lazy-lock.json`
+
+* Installed plugins folder: `/home/{{user-name}}/.local/share/lunarvim/site/pack/lazy/opt/`
+
 ## General Commands
+
+* Enter `:Lazy` command to launch lazy.nvim window.
 
 * Enter `:Lazy ` command and press `<Tab>` key for auto-completion.
 
@@ -106,6 +131,18 @@
 
 * Easily install and manage LSP servers, DAP servers, linters, and formatters
 
+## PATH
+
+* "mason" language server: `/home/<user-name>/.local/share/lvim/mason/packages`
+
+* Node.js packages path (using Node-Version-Manager): `/home/<user-name>/.npm-global/lib/node_modules/neovim/`
+
+## LSP Completion (Language Server Protocol)
+
+* `<C-Space>` : Launch auto-completion window, during `insert` mode.
+* `<C-f>` : Scroll down inside auto-completion window.
+* `<C-d>` : Scroll up inside auto-completion window.
+
 ## Keybindings
 
 * (1) All
@@ -118,7 +155,7 @@
 
 * `:checkhealth mason` : For a full list of dependency.
 
-* `:mason` : Launch `mason` window. Press `<Tab>` key for auto-completion.
+* `:Mason` : Launch `mason` window. Press `<Tab>` key for auto-completion.
 
 ## Commands From `g?` Keybinding
 
@@ -138,7 +175,7 @@
 * `<CR>` : Toggle package info
 * `<CR>` : Toggle package installation log
 * `<C-f>` : Apply language filter
-* `i` : Install packge
+* `i` : Install package
 * `X` : Uninstall package
 * `u` : Update package
 * `U` : Update all outdated packages
@@ -277,7 +314,7 @@ Please consider contributing to mason.nvim:
 * `<2-RightMouse>` : CD
 * `<C-]>` : CD
 * `<C-E>` : Open: In Place
-* `<C-K>` : Info
+* `<C-K>` : Info [Press again to close window]
 * `<C-R>` : Rename: Omit Filename
 * `<C-T>` : Open: New Tab
 * `<C-V>` : Open: Vertical Split
@@ -289,12 +326,12 @@ Please consider contributing to mason.nvim:
 * `.` : Run Command
 * `-` : Up
 * `>` : Next Sibling
-* `B` : Toggle Filter: No Buffer
+* `B` : Toggle Filter: No Buffer [Only show opened files]
 * `C` : CD
-* `D` : Trash
+* `D` : Trash [Trash path: `/home/{{user-name}}/.local/share/Trash/files`]
   * Error: `[NvimTree] trash.cmd 'gio trash' is not an executable`
 * `E` : Expand All
-* `F` : Live Filter: Clear
+* `F` : Live Filter: Clear [`f` letter, `<Esc>` to quit]
 * `H` : Toggle Filter: Dotfiles
 * `I` : Toggle Filter: Git Ignore
 * `J` : Last Sibling
@@ -321,7 +358,7 @@ Please consider contributing to mason.nvim:
 * `]e` : Next Diagnostic
 * `e` : Rename: Basename
 * `f` : Live Filter: Start [Press `<Esc>` to close]
-* `g?` : Help [Press `q` to close]
+* `g?` : Help [Press `q` to close, `s` to sort]
 * `ge` : Copy Basename
 * `gtf` : Telescope Find File
 * `gtg` : Telescope Live Grep
@@ -335,7 +372,7 @@ Please consider contributing to mason.nvim:
 * `r` : Rename
 * `s` : Run System
 * `u` : Rename: Full Path
-* `v` : Open: Vertical Split
+* `v` : Open: Vertical Split [`Ctrl + wq` to quit a window]
 * `x` : Cut
 * `y` : Copy Name
 
@@ -458,14 +495,14 @@ Please consider contributing to mason.nvim:
   * `b` : Checkout branch
   * `C` : Checkout commit(for current file)
   * `c` : Checkout commit
-  * `d` : Git Diff
+  * `d` : Git Diff [Exit to opened file: Press `<Ctrl + wh>` to move left, `<Ctrl + wl>` to move right, select `HEAD` window, enter `:close` command to close git diff tab]
   * `g` : Lazygit
   * `j` : Next Hunk
   * `k` : Prev Hunk
-  * `L` : Blame Line (full)
+  * `L` : Blame Line (full) [Press `<Ctrl + ww>` to switch windows between file and pop-up. Press `<q>` to close pop-up]
   * `l` : Blame
   * `o` : Open changed file
-  * `p` : Previous Hunk
+  * `p` : Previous Hunk [Enter `:close` command to close preview window]
   * `R` : Reset Buffer
   * `r` : Reset Hunk
   * `s` : Stage Hunk
@@ -502,7 +539,7 @@ Please consider contributing to mason.nvim:
   * `j` : Next Diagnostic
   * `k` : Prev Diagnostic
   * `l` : CodeLens Action
-  * `q` : Quickfix
+  * `q` : Quickfix [Press `<q>` to close quickfix window]
   * `r` : Rename
   * `S` : Workspace Symbols
   * `s` : Document Symbols
@@ -552,6 +589,20 @@ Please consider contributing to mason.nvim:
 
 * About
   * The superior project management solution for neovim
+
+## Add Project
+
+**[How do you get Projects to work?](https://www.reddit.com/r/lunarvim/comments/14ecrxs/how_do_you_get_projects_to_work/)**
+
+* Is your working directory a git repository? It should work out of the box, with default settings, but it only counts it as a project if it’s a git repository.
+
+* Yes, I eventually figured it out when I found these lines in the core `project.lua` file:
+```shell
+detection_methods = { "pattern" },
+patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml" },
+```
+
+* `project.lua` file path: `/home/{{user-name}}/.local/share/lunarvim/lvim/lua/lvim/core/project.lua`
 
 # [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 
