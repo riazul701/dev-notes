@@ -2,13 +2,28 @@
 
 * [Core Plugins List](https://www.lunarvim.org/docs/features/core-plugins-list)
 
+## Notes
+
+* If opened file title is in italic font, means file is opened in preview mode like visual-studio-code, where file is replaced/closed, when another file is opened in preview mode.
+
+* Vim `Tab` keybindings do not work in LunarVim. Use LunarVim's `Space -> b (Buffers)` keybindings.
+  * `:tabdo command` command works.
+
 ## General Keybinding
 
 **General/Global**
 
+* `:checkhealth` : To see the dependency status or to troubleshoot.
 * `<Esc>` or `<Ctrl + c>` : Exit insert mode / various window.
 * `<q>` : Exit various window.
 * `:close` : This command closes tab. Alternatively use, `<Space + b + e>` -> press character shown in tab header.
+
+**Auto-Completion**
+
+* Press `<Tab>` to auto-complete, press `<Tab>` again to move down in scrollable list. Press `<Shift+Tab>` to move up in list.
+* Press `<Left-Arrow>` to move up in list and `<Right-Arrow>` to move down in list.
+* Press `<Up-Arrow>` to go to parent directory.
+* Press `<Down-Arrow>` to accept.
 
 **Telescope Preview Window**
 
@@ -107,8 +122,12 @@
 * About
   * Quickstart configurations for the Nvim LSP client
 
-* Commands
-  * Run `:checkhealth` lsp to see the status or to troubleshoot.
+**Commands**
+
+* `:checkhealth` : For lsp to see the status or to troubleshoot.
+* `:checkhealth vim.lsp` : Run this to see the status or to troubleshoot.
+* `:help lsp-quickstart` : See help summary.
+* `:help lspconfig-all` : See all help.
 
 # [tamago324/nlsp-settings.nvim](https://github.com/tamago324/nlsp-settings.nvim)
 

@@ -462,6 +462,15 @@
   * {5} [GitHub - chris@machine](https://github.com/ChristianChiarulli)
   * {6} [TwitchTV - chris@machine](https://www.twitch.tv/chrisatmachine)
 
+* Debug
+  * [Understanding Debug Adapters: Bridging IDEs and Debuggers](https://medium.com/@chrisatmachine/understanding-debug-adapters-bridging-ides-and-debuggers-c31a3b02b30a)
+  * [LunarVim as a Python IDE](https://medium.com/better-programming/lunarvim-as-a-python-ide-ca8f57ca9f3a)
+  * [LunarVim Debugging & Testing Python Code](https://medium.com/better-programming/lunarvim-debugging-testing-python-code-fa84f804c469)
+  * [LunarVim as a Java IDE](https://medium.com/@chrisatmachine/lunarvim-as-a-java-ide-da65c4a77fb4)
+
+* Markdown
+  * [LunarVim: Improve Markdown Editing with Marksman](https://medium.com/@chrisatmachine/lunarvim-improve-markdown-editing-with-marksman-739d06c73a26)
+
 ## Guides
 
 * Configuration
@@ -484,6 +493,9 @@
   * {51} [wincent/clipper GitHub](https://github.com/wincent/clipper)
 
 ## Installation
+
+* LunarVim
+  * [How to Install and Use LunarVim on Linux (Complete Guide)](https://linuxtldr.com/installing-lunarvim/)
 
 * General/Common
   * {7} [Resolve EACCES permissions when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
@@ -532,3 +544,12 @@
 * Debug
   * {52} [LunarVim/Neovim - Debugging Demo | Java, Python, Rust, Go, Javascript BY chris@machine](https://www.youtube.com/watch?v=5KQK2id3JtI)
   * {53} [LunarVim | Debugging & Testing Python Setup BY chris@machine](https://www.youtube.com/watch?v=onu_upaLKo4)
+  * [neovim dap debug php with xdebug BY 梦回故里（梦回故里）](https://www.youtube.com/watch?v=e9XgNTWwfXU)
+    * [dreamfly2012/nvim GitHub](https://github.com/dreamfly2012/nvim/tree/main)
+  * [How to configure Debuggers in Neovim | FREE COURSE // EP 6 BY typecraft](https://www.youtube.com/watch?v=oYzZxi3SSnM)
+
+* FZF
+  * [FZF will change your workflow completely BY chris@machine](https://www.youtube.com/watch?v=on1AzaZzQ7k)
+
+* Dev Containers
+  * [How to set up docker compose for local development in a container (using Neovim) BY DevOps Toolbox](https://www.youtube.com/watch?v=irr51xtvHcY)
