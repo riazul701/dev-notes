@@ -32,7 +32,10 @@
 
 * next-sl: {}
 
-* Tutorials
+## Documentation
+
+* [Neovim Documentation](https://neovim.io/doc/user/)
+* [vimhelp.org => Vim help files](https://vimhelp.org/)
 
 ## YouTube Tutorials
   

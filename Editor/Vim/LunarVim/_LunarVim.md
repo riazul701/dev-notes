@@ -452,6 +452,11 @@
 
 * next-sl: {54}
 
+## Documentation
+
+* [Neovim Documentation](https://neovim.io/doc/user/)
+* [vimhelp.org => Vim help files](https://vimhelp.org/)
+
 ## Tutorials
   
 * chris@machine - LunarVim Maintainer

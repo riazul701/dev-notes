@@ -265,7 +265,7 @@ e.g. `:vim[grep] /foo/ **/*` [Press `<Tab>` to auto-complete, `<Down-Arrow>` to 
 
 ## Working with multiple files
 
-* `:e[dit] file` - edit a file in a new buffer [Press `<Tab>` to auto-complete, `<Down-Arrow>` to accept]
+* `:e[dit] file` - edit a file in a new buffer [Press `<Tab>` to auto-complete, `<Down-Arrow>` to accept, `<Left-Arrow>/<Shift+Tab>` to move up, `<Right-Arrow>/<Tab>` to move down in list]
 * `:bn[ext]` - go to the next buffer
 * `:bp[revious]` - go to the previous buffer
 * `:bd[elete]` - delete a buffer (close a file)

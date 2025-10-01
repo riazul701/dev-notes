@@ -459,7 +459,6 @@ Please consider contributing to mason.nvim:
 * Press `<space>` to launch `which-key.nvim` window
 
 * Common
-
   * `<bs>` : go up one level
   * `<esc>` : close
 

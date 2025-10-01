@@ -55,7 +55,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Download Manager (Selected)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
   * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
-  * [uget GitHub => Download Manager](https://github.com/ugetdm/uget)
+  * [uGet Site => Download Manager](https://ugetdm.com/) || [uget GitHub](https://github.com/ugetdm/uget)
   * [qBittorrent Site](https://www.qbittorrent.org/) || [qBittorrent GitHub](https://github.com/qbittorrent/qBittorrent)
   * [Transmission => Bittorrent Client](https://transmissionbt.com/) || [transmission GitHub](https://github.com/transmission/transmission)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
@@ -380,13 +380,12 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Download Manager (List)
   * [Free Download Manager](https://www.freedownloadmanager.org/)
   * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
-  * [uget GitHub => Download Manager](https://github.com/ugetdm/uget)
+  * [uGet](https://ugetdm.com/) || [uget GitHub => Download Manager](https://github.com/ugetdm/uget)
   * [qBittorrent Site](https://www.qbittorrent.org/) || [qBittorrent GitHub](https://github.com/qbittorrent/qBittorrent)
   * [Transmission => Bittorrent Client](https://transmissionbt.com/) || [transmission GitHub](https://github.com/transmission/transmission)
   * [uTorrent](https://www.utorrent.com/)
   * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
   * [persepolisdm/persepolis => GUI for aria2](https://github.com/persepolisdm/persepolis) [YouTube Download]
-  * [uGet](https://ugetdm.com/)
   * [Xtreme Download Manager](https://xtremedownloadmanager.com/) || [Xtreme Download Manager GitHub](https://github.com/subhra74/xdm)
   * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
   * YouTube
