@@ -26,6 +26,7 @@
   * [Btrfs-Assistant & Snapper vs Timeshift](https://forum.endeavouros.com/t/btrfs-assistant-snapper-vs-timeshift/40207)
 
 * Others
+  * [Btrfs => ArchLinux Wiki](https://wiki.archlinux.org/title/Btrfs)
   * {43} [Desktop environment => ArchLinux Wiki](https://wiki.archlinux.org/title/Desktop_environment) <sup>{8}</sup>
   * {20} [LXQt => ArchLinux Wiki](https://wiki.archlinux.org/title/LXQt)
   * {75} [LXDE => ArchLinux Wiki](https://wiki.archlinux.org/title/LXDE)

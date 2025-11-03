@@ -2,7 +2,22 @@
 
 ## Notes
 
+## PATH
+
+* Default Settings File: `/home/{{user-name}}/.config/sublime-text/Packages/Default/Preferences.sublime-settings` [Menu -> Preferences -> Settings]
+
+* User Settings File: `/home/{{user-name}}/.config/sublime-text/Packages/User/Preferences.sublime-settings` [Menu -> Preferences -> Settings]
+
+* Default Key Bindings File: `/home/{{user-name}}/.config/sublime-text/Packages/Default/Default (Linux).sublime-keymap` [Menu -> Preferences -> Key Bindings]
+
+* User Key Bindings File: `/home/{{user-name}}/.config/sublime-text/Packages/User/Default (Linux).sublime-keymap` [Menu -> Preferences -> Key Bindings]
+
+* Default Mouse Bindings File: `/home/{{user-name}}/.config/sublime-text/Packages/Default/Default (Linux).sublime-mousemap`
+
+* User Mouse Bindings File: `/home/{{user-name}}/.config/sublime-text/Packages/User/Default (Linux).sublime-mousemap`
+
 ## Keyboard Shortcuts
+
 * Anix Operating System  
   * "Ctrl+space" -> Open App Selector
   * Free "Ctrl+spce" keyboard shortcut, because it is used for IDE/Editor auto-completion.
@@ -26,6 +41,15 @@
 * [NeoVintageous => Vim Emulator for Sublime Text](https://neovintageous.github.io/)
 * [NeoVintageous/NeoVintageous GitHub](https://github.com/NeoVintageous/NeoVintageous)
 * [SublimeText/Origami GitHub => Some window commands, such as `CTRL-w s`, `CTRL-w v`, `CTRL-w ]`, require it](https://github.com/SublimeText/Origami)
+
+## Vim Setup Instructions
+
+* [Installation](https://packagecontrol.io/installation)
+  * Extension Repository: [packagecontrol.io](https://packagecontrol.io/)
+  * Extension installer: Tools -> Install Package Control
+  * Install Extension: Preferences -> Package Control -> "Package Control: Install Package"
+  * Install [NeoVintageous](https://neovintageous.github.io/) and [SublimeText/Origami](https://github.com/SublimeText/Origami)
+  
 
 # LunarVim Like Keybindings
 

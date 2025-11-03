@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Tested On OS: Fedora-42-LXDE
+# Tested On OS: Fedora-42-LXQt
 
 #--------------------------Start: General-Information---------------------------
-# Storage Space Used (Approximately): 28 GB
+# Storage Space Used (Approximately): 27 GB
+# Time Required (Approximately) -> 2 Core Processor + 8GB RAM + HDD + 20Mbps Internet: 4 Hours
 # https://packages.fedoraproject.org/
 # https://repology.org/repository/fedora_42
 # **[How to Keep ‘sudo’ Password Timeout Session Longer in Linux](https://www.tecmint.com/set-sudo-password-timeout-session-longer-linux/)**
@@ -29,10 +30,10 @@
 # ERROR: "Nix does not work with selinux enabled yet!"
 # see https://github.com/NixOS/nix/issues/2374
 # **[How to Disable SELinux Temporarily or Permanently](https://www.tecmint.com/disable-selinux-in-centos-rhel-fedora/)**
-#  * Disable SELinux Permanently
-#  * To permanently disable SELinux, use your favorite text editor to open the file `/etc/sysconfig/selinux` as follows: `# vi /etc/sysconfig/selinux`
-#  * Then change the directive `SELinux=enforcing` to `SELinux=disabled` as shown in the below image. `SELINUX=disabled`
-#  * Then, save and exit the file, for the changes to take effect, you need to reboot your system and then check the status of SELinux using sestatus command as shown: `sestatus`
+# * Disable SELinux Permanently
+# * To permanently disable SELinux, use your favorite text editor to open the file `/etc/sysconfig/selinux` as follows: `# vi /etc/sysconfig/selinux`
+# * Then change the directive `SELinux=enforcing` to `SELinux=disabled` as shown in the below image. `SELINUX=disabled`
+# * Then, save and exit the file, for the changes to take effect, you need to reboot your system and then check the status of SELinux using sestatus command as shown: `sestatus`
 #---------------------------End: Nix-Package-Manger-------------------------------
 
 #---------------------------End: Homebrew-Package-Manger--------------------------
@@ -177,6 +178,7 @@ dnf_office_softwares=(
     ["firefox"]="firefox"
     ["lynx"]="lynx"
     ["liberation-fonts-all"]="liberation-fonts-all" # Dependency of Google-Chrome
+    ["lohit-bengali-fonts"]="lohit-bengali-fonts" # For Google-Chrome
     ["thunderbird"]="thunderbird"
     # ["ibus-avro"]="ibus-avro"
     ["libreoffice"]="libreoffice"
@@ -203,16 +205,16 @@ dnf_office_softwares=(
     ["jgmenu"]="jgmenu"
     ["flameshot"]="flameshot"
     ["obs-studio"]="obs-studio"
-    ["pipewire-pulseaudio"]="pipewire-pulseaudio" # Built-in inside Fedora-42-LXDE, originally "pulseaudio"
+    ["pipewire-pulseaudio"]="pipewire-pulseaudio" # Built-in inside Fedora-42-LXQt, originally "pulseaudio"
     ["pavucontrol"]="pavucontrol" # "pulseaudio" volume control
     ["vifm"]="vifm"
-    ["pcmanfm"]="pcmanfm" # Alternative: `pcmanfm-qt`
+    ["pcmanfm-qt"]="pcmanfm-qt" # Alternative: `pcmanfm` (for Fedora-42-LXDE)
     ["Thunar"]="thunar" # `thunar` command
     ["doublecmd-qt"]="doublecmd-qt" # `doublecmd-gtk` freezes on Fedora-42-LXDE. Alternative: `doublecmd-qt`, `doublecmd-qt6`
     ["htop"]="htop"
     ["glances"]="glances"
     ["stacer"]="stacer"
-    ["vim-enhanced"]="vim-enhanced" # `vim` editor
+    ["vim-enhanced"]="vim-enhanced" # `vim` editor (full, not tiny version)
     ["neovim"]="neovim" # `nvim` command, For Lunarvim
     ["python3"]="python3" # For Lunarvim: `python3 --version`
     ["python3-pip"]="python3-pip" # `pip3` command, For Lunarvim: `pip --version` || `pip3 --version`
@@ -253,18 +255,20 @@ dnf_office_softwares=(
     ["vlc"]="vlc"
     ["smplayer"]="smplayer"
     ["mpv"]="mpv"
-    
+
     # Add: AB Download Manager
     # Add: Backup-N-Sync Project Dependencies
     # Add: yt-x (youtube terminal)
     # Add: Git Credential Manager
     # Add: HTTrack Website Copier
+    # Add: Calculator
 )
 
 dnf_home_softwares=(
     # ["Command"]="Package-Name" # `dnf list --installed`
     ["trayscale"]="trayscale" # Tailscale GUI
     ["jellyfin"]="jellyfin --allowerasing" # Prefer RPM-Fusion over Fedora repository, because dependency version is conflicted, like `ffmpeg`
+    ["VirtualBox"]="virtualbox" # RPM-Fusion
     ["syncthing"]="syncthing"
     ["transmission"]="transmission"
     ["yt-dlp"]="yt-dlp"
@@ -443,21 +447,6 @@ else
 fi
 #-------------------------END: Add RPM Repository-------------------------
 
-#-------------------------START: Install Snap Softwares-------------------------
-for snap_cmd in "${!snap_softwares_all[@]}"; do
-    snap_software="${snap_softwares_all[$snap_cmd]}"
-    is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "^${snap_cmd}\$")
-    if [[ "$is_snap_soft_installed" != '' ]]
-    then
-        echo -e "\033[1;32m Snap => $snap_software is already installed, skipping... \033[0m"
-    else
-        sudo snap install $snap_software
-   fi
-done
-
-echo -e '\033[1;32m Snap => All Softwares Installed. \033[0m'   
-#-------------------------END: Install Snap Softwares-------------------------
-
 #-------------------------START: Install Flatpak Softwares-------------------------
 for flatpak_cmd in "${!flatpak_softwares_all[@]}"; do
     flatpak_software="${flatpak_softwares_all[$flatpak_cmd]}"
@@ -508,6 +497,22 @@ done
 
 echo -e '\033[1;32m Homebrew => All Softwares Installed. \033[0m'
 #-------------------------END: Install Homebrew Softwares---------------------
+
+#-------------------------START: Install Snap Softwares-------------------------
+# Snap needs some time to be ready before software installation
+for snap_cmd in "${!snap_softwares_all[@]}"; do
+    snap_software="${snap_softwares_all[$snap_cmd]}"
+    is_snap_soft_installed=$(snap list | awk '{print $1}' | grep "^${snap_cmd}\$")
+    if [[ "$is_snap_soft_installed" != '' ]]
+    then
+        echo -e "\033[1;32m Snap => $snap_software is already installed, skipping... \033[0m"
+    else
+        sudo snap install $snap_software
+   fi
+done
+
+echo -e '\033[1;32m Snap => All Softwares Installed. \033[0m'   
+#-------------------------END: Install Snap Softwares-------------------------
 
 #-------------------------START: Install DNF Softwares-------------------------
 for dnf_cmd in "${!dnf_softwares_all[@]}"; do

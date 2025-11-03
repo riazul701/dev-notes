@@ -1,15 +1,26 @@
 # Fedora.md
 
+## Important
+
+* [Area of VM VirtualBox is cut off](https://forums.linuxmint.com/viewtopic.php?t=306291)
+  * Did you try holding down the `Alt` key while dragging the dialogue box? That's what's supposed to do what you're trying to do.
+  * Press and hold `Alt` key while moving/dragging windows, to move it inside/outside of display. This is applicable for all software window.
+
 ## Notes
 
+* If you added a root password in the installer, your user will not be able to use `sudo` by default. Or creating "Administrative" user. <sup>{11}</sup>
+
 * If windows OS is used in dual boot system and shutdown/hibernate from windows OS, then failed to mount hard disk partitions in linux OS. To solve this issue, restart from windows OS. If problem persists, from windows OS enable "fast-startup" and shutdown, then start pc and disable "fast-startup" and shutdown, then start pc and restart to linux OS.
-* Every time `dnf upgrade` command creates a GRUB menu entry for new kernel.
+
+* Every time `sudo dnf update` and `sudo dnf upgrade` command creates a GRUB menu entry for new kernel.
+
 * Fedora uses `Anaconda Installer` for operating system installation. <sup>{8}</sup>
+
 * AUR (ArchLinux) requires users to build packages locally, while COPR (Fedora) provides pre-built packages. <sup>{6}</sup>
 
 # References
 
-* next-sl: {11}
+* next-sl: {12}
 
 ## Websites
 
@@ -31,6 +42,9 @@
   * {10} [How to Install Fedora 41 with Full Disk Encryption, Snapshot, and Rollback Support](https://sysguides.com/install-fedora-41-with-full-disk-encryption-snapshot-and-rollback-support) <sup>{9}</sup>
 
 * [Changes/SwapOnZRAM](https://fedoraproject.org/wiki/Changes/SwapOnZRAM) <sup>{7}</sup>
+
+* Btrfs
+  * {11} [david-cortes/snapper-in-debian-guide GitHub](https://github.com/david-cortes/snapper-in-debian-guide)
 
 ## Guides
 

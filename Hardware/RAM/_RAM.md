@@ -32,9 +32,11 @@
 
 * Two RAM 8GB+8GB has better performance than one 16GB RAM. If there is 4 RAM port, then should be inserted in Number-2 and Number-4 port OR Number-1 and Number-3 port. For multiple RAM, buy same brand, same model, same speed and same size. <sup>{7} {8}</sup>
 
+# RAM Selection
+
 ## Dual RAM/Single RAM
 
-**ChatGPT Question: "single channel vs dual channel ram performance"**
+### ChatGPT : "single channel vs dual channel ram performance"
 
 * Here’s a straightforward breakdown of single-channel vs dual-channel RAM performance:
 
@@ -75,7 +77,7 @@
 
 ## RAM Kit
 
-**ChatGPT Question: "ram kit vs two different ram"**
+### ChatGPT: "ram kit vs two different ram"
 
 * When choosing RAM for a PC build or upgrade, there are important differences between buying a RAM kit (e.g., a 2x8GB kit) versus installing two separate RAM sticks (e.g., two different 8GB sticks bought individually). Here’s a direct comparison to help you understand the pros and cons of each:
 
@@ -114,7 +116,66 @@
 
 * Would you like help checking compatibility between specific RAM sticks or planning an upgrade?
 
-**ChatGPT Question: "Things to consider when buying two different ram instead of ram kit"**
+### ChatGPT: "how to check to identical ram stick"
+
+* Good question — checking whether two RAM sticks are identical is important for performance and stability, especially for dual-channel operation.
+
+* Here’s how you can check step-by-step 👇
+
+* 🧠 1. Check Physically (on the RAM labels)
+  * Take out or look at the RAM modules and check the labels printed on each stick.
+Look for:
+    * Brand & Model number (e.g. Corsair Vengeance LPX CMK16GX4M2B3200C16)
+    * Speed (e.g. DDR4-3200)
+    * Capacity (e.g. 8GB, 16GB)
+    * CAS Latency / Timings (e.g. CL16-18-18-36)
+    * Voltage (e.g. 1.35V)
+  * ✅ If all these match, the sticks are effectively identical.
+
+* 🧩 2. Check in BIOS / UEFI
+  * Restart your PC → enter the BIOS/UEFI (usually by pressing `Del` or `F2` during boot).
+    * Go to the Memory Information or SPD Information tab.
+    * Compare details of Slot A1 vs Slot B1 (or similar).
+  * You should see:
+    * Module size
+    * Frequency
+    * Manufacturer
+    * Part number
+    * Timings
+  * If the part numbers and timings match → the sticks are identical.
+
+* 🪟 3. Check in Windows with CPU-Z (Free tool)
+  * 1. Download CPU-Z → https://www.cpuid.com/softwares/cpu-z.html
+  * 2. Open it → go to the “SPD” tab.
+  * Use the dropdown (top left) to switch between Slot #1, Slot #2, etc.
+  * Compare:
+    * Part Number
+    * Manufacturer
+    * Serial Number
+    * Timings Table
+  * ✅ If everything matches → identical RAM.
+  * ⚠️ If the Part Number or Timings Table differ → the modules are not identical (even if both are 8GB DDR4-3200, for example).
+
+* 🧮 4. Check via Command Line (optional)
+  * You can also run this in Windows PowerShell:
+  ```powershell
+  Get-WmiObject Win32_PhysicalMemory | Format-Table Manufacturer, PartNumber, Speed, Capacity
+  ```
+  * This will list the part numbers and speeds of installed sticks.
+
+* 🔍 Summary
+  * Title: What to Match => Example
+  * Brand => Corsair
+  * Model / Part Number => CMK16GX4M2B3200C16
+  * Capacity => 8GB each
+  * Speed => DDR4-3200
+  * Timings => CL16-18-18-36
+  * Voltage => 1.35V
+  * If all those match → ✅ identical RAM sticks.
+
+* Would you like to tell me your RAM brand and motherboard model? I can help you verify if they’ll run in dual-channel properly.
+
+### ChatGPT: "Things to consider when buying two different ram instead of ram kit"
 
 * Buying two different RAM sticks instead of a matched RAM kit can work — but it's riskier. Here are the key things to consider to maximize compatibility and stability when mixing RAM:
 

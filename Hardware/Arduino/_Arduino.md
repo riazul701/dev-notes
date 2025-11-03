@@ -15,6 +15,20 @@
 
 ## Notes
 
+* [Bouncing](https://docs.wokwi.com/parts/wokwi-pushbutton#bouncing) : When you press physical pushbutton, the circuit opens and closes tens or hundreds of times. This phenomenon is called Bouncing.
+
+* Many devices can only connect to 2.4Ghz networks. Double-check specs of your hardware to make sure you will be connecting to the correct network. <sup>{19}</sup>
+
+* [How to trigger multiple actions (e.g. turn 4 relays on/off) with a single button in the app?](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices#how-to-trigger-multiple-actions-e.g.-turn-4-relays-on-off-with-a-single-button-in-the-app)
+
+* On [wokwi.com](https://wokwi.com/), use `mouse-scroll` to zoom-in (or `+` key) and zoom-out (or `-` key) the diagram, inside simulator.
+
+* On ESP32 board, can make menu/settings system using push button and display.
+  * [board-ssd1306 Reference](https://docs.wokwi.com/parts/board-ssd1306)
+    * [U8g2 Menu](https://wokwi.com/projects/291572875238834696)
+
+* Backup power for ESP32 board, using battery.
+
 * On some ESP32 board, press (maybe press and hold) physical button ("boot" button) on board during upload program from arduino-ide or platformio. <sup>{18}: Introduction to ESP32 Board - Getting Started ( Step by Step)</sup>
 
 * Wifi Smart Plug/Socket LAN Control: Turn on/off the device even when WiFi has no Internet access.
@@ -584,12 +598,29 @@ float readDHTHumidity() {
 
 # References
 
-* next-sl: {19}
+* next-sl: {20}
 
 ## Websites
 
 * [agucova/awesome-esp GitHub](https://github.com/agucova/awesome-esp)
 * [Edzelf/ESP32Radio-V2 GitHub](https://github.com/Edzelf/ESP32Radio-V2)
+* [espressif/vscode-esp-idf-extension GitHub](https://github.com/espressif/vscode-esp-idf-extension)
+* [microsoft/vscode-serial-monitor GitHub](https://github.com/microsoft/vscode-serial-monitor)
+
+* Simulation
+  * [wokwi.com](https://wokwi.com/)
+  * [tinkercad.com](https://www.tinkercad.com/)
+
+* Android App
+  * [blynk.io](https://www.blynk.io/)
+    * [examples.blynk.cc](https://examples.blynk.cc/)
+  * [appinventor.mit.edu](https://appinventor.mit.edu/)
+    * [MIT App Inventor Emulator](https://appinventor.mit.edu/explore/ai2/setup)
+  * [reactnative.dev](https://reactnative.dev/)
+
+* Database
+  * [firebase.google.com](https://firebase.google.com/)
+  * [thingspeak.mathworks.com](https://thingspeak.mathworks.com/)
 
 * Shop
   * [techshopbd.com => Arduino, ESP32, Motijheel, Dhaka](https://techshopbd.com/)
@@ -600,6 +631,19 @@ float readDHTHumidity() {
   * [citytechbd.com => Arduino, ESP32, Nawabpur, Dhaka](https://www.citytechbd.com/)
   * [store.roboticsbd.com => Arduino, ESP32](https://store.roboticsbd.com/)
   * [robohub.com.bd => Arduino, ESP32, Khilkhet, Dhaka](https://robohub.com.bd/)
+
+## Libraries
+
+* Firebase
+  * [mobizt/FirebaseClient GitHub](https://github.com/mobizt/FirebaseClient)
+  * [mobizt/FirebaseJson GitHub](https://github.com/mobizt/FirebaseJson)
+
+* Blynk
+  * [blynkkk/blynk-library GitHub](https://github.com/blynkkk/blynk-library)
+  * [examples.blynk.cc](https://examples.blynk.cc/)
+
+* ThingSpeak
+  * [mathworks/thingspeak-arduino GitHub](https://github.com/mathworks/thingspeak-arduino)
 
 ## Tutorials
 
@@ -615,6 +659,12 @@ float readDHTHumidity() {
   * [docs.wokwi.com](https://docs.wokwi.com/)
   * [atomicparade/wokwi-simulator-vs-code.md => GitHub Gist](https://gist.github.com/atomicparade/d0f93b84d00b6fedfc58df4f78957071)
   * [Getting Started with PlatformIO](https://dronebotworkshop.com/platformio/) <sup>{17}</sup>
+  * [Getting Started with VS Code and PlatformIO IDE for ESP32 and ESP8266 (Windows, Mac OS X, Linux Ubuntu)](https://randomnerdtutorials.com/vs-code-platformio-ide-esp32-esp8266-arduino/)
+
+## Guides
+
+* Blynk
+  * {19} [Quickstart Device: Code Overview](https://docs.blynk.io/en/getting-started/what-do-i-need-to-blynk/quickstart-device-code-overview)
 
 ## Projects
 

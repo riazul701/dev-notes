@@ -1,5 +1,9 @@
 # Btrfs-Assistant.md
 
+## Notes
+
+* Btrfs-Assistant is Snapper command's graphical user interface.
+
 # References
 
 ## Websites

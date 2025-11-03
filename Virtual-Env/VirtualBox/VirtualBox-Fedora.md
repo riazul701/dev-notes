@@ -1,3 +1,30 @@
+# [VirtualBox RPM-Fusion](https://rpmfusion.org/Howto/VirtualBox) <sup>{4}</sup>
+
+## Quick install
+
+* Since F22+ we don't have pre-built kmods we need use akmods.
+
+* Please do as root:
+```shell
+dnf install VirtualBox
+akmods
+systemctl restart vboxdrv
+lsmod  | grep -i vbox
+```
+
+* result:
+```shell
+vboxnetadp             28672  0
+vboxnetflt             32768  0
+vboxdrv               557056  2 vboxnetadp,vboxnetflt
+```
+
+## [Area of VM VirtualBox is cut off](https://forums.linuxmint.com/viewtopic.php?t=306291)
+
+* Did you try holding down the `Alt` key while dragging the dialogue box? That's what's supposed to do what you're trying to do.
+
+* Press and hold `Alt` key while moving/dragging windows, to move it inside/outside of display. This is applicable for all software window.
+
 # (Recommended) VirtualBox Fedora Installation
 
 **[VirtualBox 7.1 on Fedora 41/40/39: A Full Installation Guide](https://linuxiac.com/how-to-install-virtualbox-on-fedora-linux/)**
@@ -97,6 +124,11 @@ Here's a breakdown of the steps:
 
 # References
 
+* next-sl: {5}
+
+## Tutorials
+
+* {4} [VirtualBox RPM-Fusion](https://rpmfusion.org/Howto/VirtualBox)
 * {1} [Virtualbox Ubuntu Add User to vboxusers | How-to](https://bobcares.com/blog/virtualbox-ubuntu-add-user-to-vboxusers/)
 * {2} [How to add users to vboxusers to enable USB usage](https://askubuntu.com/questions/377778/how-to-add-users-to-vboxusers-to-enable-usb-usage)
 * {3} [virtualbox please install the Linux kernel "header" files matching the current kernel => AI Overview](https://www.google.com/search?q=virtualbox+please+install+the+Linux+kernel+%22header%22+files+matching+the+current+kernel%0D%0Afor+adding+new+hardware+support+to+the+system)

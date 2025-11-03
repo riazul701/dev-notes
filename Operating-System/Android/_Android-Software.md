@@ -134,11 +134,12 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Utility (Selected)
 
-* [Screen Off and Lock BY Katecca](https://play.google.com/store/apps/details?id=com.katecca.screenofflock)
+* [Lock Screen BY olalab](https://play.google.com/store/apps/details?id=com.olalab.lockscreen)
 * [Assistant for Android BY AA Mobile](https://play.google.com/store/apps/details?id=com.androidassistant.free)
 
 ## Benchmark/Device-Info (Selected)
 
+* USB OTG Checker [USB drive may need to be `FAT32` or `exFAT` formatted]
 * [CPU X - Device & System info BY Absut => Shows RAM and ROM type](https://play.google.com/store/apps/details?id=com.abs.cpu_z_advance)
 * [Device Info: System & CPU Info BY Yasiru Nayanajith](https://play.google.com/store/apps/details?id=com.ytheekshana.deviceinfo)
 * [DevCheck Device & System Info BY flar2](https://play.google.com/store/apps/details?id=flar2.devcheck)

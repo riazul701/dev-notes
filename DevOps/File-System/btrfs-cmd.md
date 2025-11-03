@@ -1,8 +1,62 @@
 # Commands/Usage
 
+## Manual/Help
+
+* `man 8 btrfs` : Shows `btrfs(8)` manual page
+
+* `man 5 btrfs` : Shows `btrfs(5)` manual page
+
+* `man 8 btrfs-balance` : Shows `btrfs-balance(8)` manual page
+
+* `man 8 btrfs-check` : Shows `btrfs-check(8)` manual page
+
+* `man 8 btrfs-convert` : Shows `btrfs-convert(8)` manual page
+
+* `man 8 btrfs-device` : Shows `btrfs-device(8)` manual page
+
+* `man 8 btrfs-filesystem` : To find out how the 'Total' and 'Set shared' values are calculated, see the man page <sup>{38}</sup>
+
+* `man 8 btrfs-inspect-internal` : Shows `btrfs-inspect-internal(8)` manual page
+
+* `man 8 btrfs-property` : Shows `btrfs-property(8)` manual page
+
+* `man 8 btrfs-qgroup` : Shows `btrfs-qgroup(8)` manual page
+
+* `man 8 btrfs-quota` : Shows `btrfs-quota(8)` manual page
+
+* `man 8 btrfs-receive` : Shows `btrfs-receive(8)` manual page
+
+* `man 8 btrfs-replace` : Shows `btrfs-replace(8)` manual page
+
+* `man 8 btrfs-rescue` : Shows `btrfs-rescue(8)` manual page
+
+* `man 8 btrfs-restore` : Shows `btrfs-restore(8)` manual page
+
+* `man 8 btrfs-scrub` : Shows `btrfs-scrub(8)` manual page
+
+* `man 8 btrfs-send` : Shows `btrfs-send(8)` manual page
+
+* `man 8 btrfs-subvolume` : Shows `btrfs-subvolume(8)` manual page
+
+* `man 8 btrfstune` : Shows `btrfstune(8)` manual page
+
+* `man 8 mkfs.btrfs` : Shows `mkfs.btrfs(8)` manual page
+
+* `btrfs --help` : Shows `btrfs` help text
+
 # Btrfs.md
 
 ## Notes
+
+* `btrfs` is part of `btrfs-progs`. Please refer to the documentation at ‐ https://btrfs.readthedocs.io. <sup>`man 8 btrfs`</sup>
+
+* BTRFS  filesystem  can  be  created on top of single or multiple block devices.  Devices can be then added, removed or replaced on demand. <sup>`man 8 btrfs-device`</sup>
+
+* What should be mentioned early is that a snapshotting is not recursive, so a subvolume or a snapshot is effectively a barrier and no files in the nested subvolumes appear in the snapshot. <sup>`man 8 btrfs-subvolume`<sup>
+  * Here we could utilize the snapshotting barrier mentioned above, making each directory that stores data to be preserved across rollbacks its own subvolume. <sup>`man 8 btrfs-subvolume`<sup>
+  * File modifications in a snapshot do not affect the files in the original subvolume. <sup>`man 8 btrfs-subvolume`<sup>
+
+* A freshly created filesystem is also a subvolume, called top-level, internally has an id 5. <sup>`man 8 btrfs-subvolume`</sup>
 
 * GRUB btrfs.mod driver, unlike ext4, is read-only. <sup>{8}</sup>
 
@@ -48,6 +102,7 @@
   * {23} [ricardomv/snapper-gui GitHub](https://github.com/ricardomv/snapper-gui)
   * {24} [Btrfs Assistant/Btrfs Assistant GitLab](https://gitlab.com/btrfs-assistant/btrfs-assistant)
   * {25} [Garuda Linux/Applications/Snapper Tools GitLab](https://gitlab.com/garuda-linux/applications/snapper-tools)
+  * [digint/btrbk GitHub](https://github.com/digint/btrbk)
 
 * Windows-OS Btrfs
   * {26} [maharmstone/btrfs GitHub](https://github.com/maharmstone/btrfs)

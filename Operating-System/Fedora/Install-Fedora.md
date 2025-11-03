@@ -2,6 +2,8 @@
 
 ## Notes
 
+* If you added a root password in the installer, your user will not be able to use `sudo` by default. Or creating "Administrative" user. <sup>{10}</sup>
+
 * Fedora uses `Anaconda Installer` for operating system installation.
 
 # User
@@ -136,7 +138,7 @@ Checkbox "Delete all file systems which are only used by Unknown"
 
 # References
 
-* next-sl: {10}
+* next-sl: {11}
 
 ## Websites
 
@@ -152,6 +154,9 @@ Checkbox "Delete all file systems which are only used by Unknown"
 
 * Installation
   * {5} [Learning about Partitions and How to Create Them for Fedora](https://fedoramagazine.org/learning-about-partitions-and-how-to-create-them-for-fedora/) <sup>{4}</sup>
+
+* Btrfs
+  * {10} [david-cortes/snapper-in-debian-guide GitHub](https://github.com/david-cortes/snapper-in-debian-guide)
 
 ## YouTube Tutorials
 

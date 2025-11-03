@@ -1,5 +1,9 @@
 # Install-Debian-Desktop.md
 
+## Notes
+
+* If you added a root password in the installer, your user will not be able to use `sudo` by default. Or creating "Administrative" user. <sup>{1}</sup>
+
 # Partition
 
 ## UEFI Custom Partition
@@ -38,3 +42,12 @@ To configure a GPT partition table on BIOS, (if not done so already) go back and
 
 An unformatted 8 MB partition is necessary to start Debian on a BIOS system with GPT.
 ```
+
+# References
+
+* next-sl: {2}
+
+## Tutorials
+
+* Btrfs
+  * {1} [david-cortes/snapper-in-debian-guide GitHub](https://github.com/david-cortes/snapper-in-debian-guide)

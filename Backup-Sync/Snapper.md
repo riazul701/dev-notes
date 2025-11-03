@@ -1,6 +1,16 @@
 # Commands/Usage
 
-## Snapper
+## Manual/Help
+
+* `man 8 snapper` : Shows `snapper(8)` manual page
+
+* `man 5 snapper-configs` : Shows `snapper-configs(5)` manual page
+
+* `man 8 snapperd` : Shows snapper daemon `snapperd(8)` manual page
+
+* `snapper --help` : Shows `snapper` help text
+
+## Snapper Work
 
 * `sudo dnf install ps_mem` : Install the `ps_mem` package. It displays the core memory used per program (not per process). <sup>{13}</sup>
   * `sudo ps_mem` : Run the `ps_mem` program to see if it was installed successfully. <sup>{13}</sup>
@@ -80,6 +90,19 @@ $ snapper -c home delete 1-2
 ## PATH
 
 * Snapper configurations are saved under the `/etc/snapper/configs` directory. <sup>{5}</sup>
+
+* `snapper` FILES <sup>`man 8 snapper`</sup>
+  * `/etc/sysconfig/snapper` : Global configuration file.
+  * `/etc/snapper/configs` : Directory containing configuration files.
+  * `/etc/snapper/config-templates` : Directory containing configuration templates.
+  * `/usr/share/snapper/config-templates` : Fallback directory containing configuration templates.
+  * `/etc/snapper/filters/*.txt` : Filter files.
+  * `/usr/share/snapper/filters/*.txt` : Fallback filter files.
+  * `/var/log/snapper.log` : Logfile. Please include this file in bug reports.
+
+## Notes
+
+* `list (ls) [options]`, For btrfs the number can be followed by a sign. A "-" indicates that the snapshot is the currently mounted snapshot and a "+" indicates that the snapshot will be mounted next time (It is the btrfs default subvolume). If both conditions apply a `"*"` is displayed. <sup>`man snapper`</sup>
 
 # References
 

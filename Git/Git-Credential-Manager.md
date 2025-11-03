@@ -137,7 +137,13 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Uninstallation configure: `git-credential-manager unconfigure`
   * Uninstall: `sudo dpkg -r gcm`
 
-* Fodora: Install from source helper script
+* Fodora-OS: Install from source helper script
+  * NOTE: DO NOT FOLLOW THESE STEPS, BECAUSE
+  ```
+  Total size of inbound packages is 2 GiB. Need to download 2 GiB.
+  After this operation, 467 MiB extra will be used (install 4 GiB, remove 4 GiB).
+  ```
+  * NOTE: FOLLOW "Install Using TAR file", WHICH IS LOCATED BELOW
   * Ensure `curl` is installed: `curl --version`
   * If `curl` is not installed, please use your distribution's package manager to install it.
   * Download and run the script:
@@ -171,9 +177,9 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 * Check "git-credential-manager" path: `which git-credential-manager`
 * Configure "git config --global credential.helper" (Attach GCM with Git): `git-credential-manager configure` [Shows help: `git-credential-manager --help`]
 * Settings for "credentialStore: gpg"
-  * Install "gpg" command if not exists: `sudo apt install gpg`
-  * Install "pass" command if not exists: `sudo apt install pass`
-  * Generates "gpg-id": `gpg --gen-key` [Here provide Name and Email]
+  * Install "gpg" command if not exists: `sudo apt install gpg` [For Fedora, `sudo dnf install gpg`]
+  * Install "pass" command if not exists: `sudo apt install pass` [For Fedora, `sudo dnf install pass`]
+  * Generates "gpg-id": `gpg --gen-key` [Here provide Name and Email. Keep UserName and Password fields blank, which will be shown two times.]
   * Generates pass file: `pass init <gpg-id>` [<gpg-id> is long hash which is under "pub" tag from `gpg --gen-key` command] [Here a password is optional, which will be required during GitHub/BitBucket authentication. Do not enter any password for "LazyGit" software.]
   * Set credential backing store: `git config --global credential.credentialStore gpg`
 * Configuration for [LazyGit](https://github.com/jesseduffield/lazygit)

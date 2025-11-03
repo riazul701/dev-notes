@@ -13,6 +13,8 @@
 
 ## Notes
 
+* If you added a root password in the installer, your user will not be able to use `sudo` by default. Or creating "Administrative" user. <sup>{4}</sup>
+
 * If windows OS is used in dual boot system and shutdown/hibernate from windows OS, then failed to mount hard disk partitions in linux OS. To solve this issue, restart from windows OS. If problem persists, from windows OS enable "fast-startup" and shutdown, then start pc and disable "fast-startup" and shutdown, then start pc and restart to linux OS.
 
 ## Download ISO
@@ -38,11 +40,14 @@
 
 # References
 
-* next-sl: {4}
+* next-sl: {5}
 
 ## Tutorials
 
 * {3} [Debian Releases](https://www.debian.org/releases/)
+
+* Btrfs
+  * {4} [david-cortes/snapper-in-debian-guide GitHub](https://github.com/david-cortes/snapper-in-debian-guide)
 
 ## YouTube Tutorials
   
