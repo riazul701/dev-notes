@@ -1,3 +1,8 @@
+# Important
+
+* TO SOLVE REMOTE SOUND ISSUE LIKE ANDROID MOBILE'S SPEAKER AND HEADPHONE, REPEATEDLY TURN ON/OFF "REMOTE CONNECTION -> MUTE" OPTION.
+  * MUTE OPERATING SYSTEM'S MAIN SOUND.
+
 # Commands/Usage
 
 * `systemctl status rustdesk` : Check `rustdesk` service status

@@ -326,6 +326,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Sound Booster (Selected)
   * [FxSound](https://www.fxsound.com/)
 
+* Virtual Desktop
+  * [Dexpot](https://www.dexpot.de/)
+
 * Antivirus (Selected)
   * [Avast Antivirus](https://www.avast.com/index#pc)
 
@@ -770,6 +773,9 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 * Sound Booster (List)
   * [FxSound](https://www.fxsound.com/)
   * [LetaSoft Sound Booster](https://www.letasoft.com/)
+
+* Virtual Desktop
+  * [Dexpot](https://www.dexpot.de/)
 
 * Antivirus (List)
   * [Avast Antivirus](https://www.avast.com/index#pc)

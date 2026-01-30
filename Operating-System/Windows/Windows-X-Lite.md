@@ -1,5 +1,12 @@
 # Windows-X-Lite.md
 
+## Important
+
+* Windows-X-Lite PowerOff
+  * On Login (Logout) Screen -> Shutdown works perfectly
+  * Windows Button -> Left Click -> Shutdown works perfectly
+  * Windows Button -> Right Click -> Shutdown does not work
+
 ## Websites
 
 * [windowsxlite.com](https://windowsxlite.com/)

@@ -12,7 +12,7 @@
 
 * User router ups like "wgp", "pcpower", "olax", "ske" etc.
 
-**Automatically Switch Wifi/Sim Network On Devices**
+## Automatically Switch Wifi/Sim Network On Devices
 
 * Keep network/wifi/sim based internet usage logs on each device.
 
@@ -28,7 +28,7 @@
   * If internet is not available in broadband wifi, then use internet from modem.
   * Inefficient Method: If using internet from modem, then how to know/get-back to broadband wifi when internet is restored on it.
 
-**Risky/Damange HDD (Don't Do This): Attach/Detach Regular/Desktop Hard Disk Into Desktop Computer**
+## Risky/Damange HDD (Don't Do This): Attach/Detach Regular/Desktop Hard Disk Into Desktop Computer
 
 * Risky/Damange HDD (Don't Do This): Get/create an extra multiplug and control multiplug's power through `ESP32` and `Relay`. Buy one plug, one mk-box, one socket, some wire and build it yourself.
   * Risky/Damange HDD (Don't Do This): For regular/desktop hard disk turning on/off, first check with a cheap 160 GB old/refurbished hard disk.
@@ -36,7 +36,7 @@
 * (Don't Do This) Use hard disk box: [Ugreen 50422 3.5 Inch USB 3.0 Hard disk Box (50422)](https://www.ryans.com/ugreen-35-inch-usb-30-hard-disk-box-50422)
 * (Don't Do This) [Ugreen CM198 (50857) 2.5/3.5 inch USB 3.0 2 Bay Black External HDD/SSD Dock #50857](https://www.ryans.com/ugreen-cm198-2.5-3.5-inch-usb-3.0-2-bay-black-external-hdd-ssd-dock)
 
-**Attach/Detach Portable Hard Disk Into Desktop Computer --OR-- SIM Wifi Router**
+## Attach/Detach Portable Hard Disk Into Desktop Computer --OR-- SIM Wifi Router
 
 * Relay (Electrical) Way => use `ESP32` and `Relay` to turn on/off portable hard disk --OR-- sim wifi router. Get an extra usb extension cable, cut red wire (power supply wire) and attach two pieces to `Relay`. For safety purpose, cut all wire (red, black etc.) and use separate `Relay` for each wire. Buy multil `Relay` combo pack.
   * For portable hard disk turning on/off, first check with usb light and then cheap pendrive for safety purpose.
@@ -51,12 +51,12 @@
   * Using wifi and servo motor, remotely press usb-hub's power button to turn on usb. Again press to turn off usb.
   * Use medium/api/chat to transfer wifi signal from android phone to ESP32: MQTT with Cloud Broker (e.g., Adafruit IO, HiveMQ, Mosquitto), Blynk IoT Platform, Telegram Bot API, Firebase Realtime Database, Ngrok Tunnel (for development).
 
-**Laptop's Power Button Presser(Pusher)**
+## Laptop's Power Button Presser(Pusher)
   
 * When wifi smart plug/socket is turned on, then after 5 seconds press latptop's power button using arduino and servo motor.
 * Laptop has battery, for this reason it can not be turned off like desktop when hangs. Use wifi enabled ESP32 to remotely press power button for 5 seconds to forcefully turn off laptop when hangs.
 
-**If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi Dongle Router**
+## If Broadband Wifi Does Not Have Internet, Then Turn ON SIM Wifi Dongle Router
 
 * Security Measure: Do no repeatedly turn on/off sim wifi dongle router. Al least turn it on for 3 minutes and at least turn it off for 3 minutes, when no broadband wifi internet.
 * Keep network/wifi/sim based internet usage logs on each device.
@@ -72,14 +72,14 @@
     * MacroDroid
     * [NetGuard - no-root firewall BY Marcel Bokhorst, FairCode BV](https://play.google.com/store/apps/details?id=eu.faircode.netguard)
 
-**Timely On/Off Broadband Wifi Router**
+## Timely On/Off Broadband Wifi Router
 
 * Arduino RTC (Real Time Clock) module is required.
 * In every 10 minutes, check broadband wifi has signal, internet access is not required.
 * If broadband usage allowed time and no wifi signal, then press electric switch on side. If wifi signal already present, then do nothing.
 * If broadband usage blocked time and has wifi signal, then press electric switch off side. If wifi signal already absent, then do nothing. Do this checking and work at specific time/moment, do not do this repeatedly, because anyone can use broadband in blocked time.
 
-**No Electricity Notification**
+## No Electricity Notification
 
 * Transfter data from ESP32 to computer/mobile and computer/mobile to ESP32 using serial-data and telnet protocol.
 * Using Arduino (ESP32/ESP8266) make a system to notify computer using wifi (optional alarm sound), when no electricity and show notification/color-changes/text using i3, polybar, komorebi, glazewm, yasb. So that, computer can be turned off quickly after saving works because UPS backup time is very limited.
@@ -87,12 +87,15 @@
 * Also send no electricity notification to android mobile using internet.
 * Broadband/SIM wifi router is powered by router-ups.
 
-**DIY Wifi Smart Plug/Socket**
+## DIY Wifi Smart Plug/Socket
 
 * Buy "SONOFF" or "LDNIO" wifi smart plug/socket. It's better than DIY.
 * Get/create an extra multiplug and control multiplug's power through `ESP32` and `Relay` using internet. Buy two plug, two mk-box, two socket, some wire and build it yourself - one is for computer's CPU/system-unit and another is for monitor.
 
-**Timely Provide Water In Garden**
+## Timely Provide Water In Garden
+
+* Safety
+  * Three types of working: "auto/schedule", "manual", and "off". In "auto/schedule" mode, timely turn on/off garden water pump. In "manual" mode, turn on garden water pump from android mobile for a time duration like 30 seconds. In "off" mode, turn on garden water pump by physical switch only. 
 
 * Transfer data from ESP32 to ESP32 using ESP-NOW protocol.
 
@@ -113,11 +116,16 @@
 * Products
   * [PWM Motor Speed Switch Controller 1203BK DC 6V 12V 24V 28V 3A](https://nabatechshop.com/product/pwm-motor-speed-switch-controller-1203bk-dc-6v-12v-24v-28v-3a/)
 
-**Log Rain Sensor Data To Firebase To Use During Garden Watering**
+## Log Rain Sensor Data To Firebase To Use During Garden Watering
 
 * Keep common bucket filled with soil in rooftop, measure soil moisture with soil sensor in it and use this data during gardent watering. 
 
-**Make Water Level Indicator And Switch For Water Tank**
+## Make Water Level Indicator And Switch For Water Tank
+
+* Safety
+  * Two types of working: "auto" and "manual". In "auto" mode, ESP32 will turn on water pump. In "manual" mode, ESP32 will never turn on water pump.
+  * Log water pump working duration. If water pump is running more than one hour, then switch to "manual" mode and show alert system malfunction.
+  * Alternatively use "rain" sensor. Place "rain" sensor at end point of water tank's overflow pipe. If "rain" sensor detects any water overflow, then switch to "manual" mode and alert system malfunction. Cover "rain" sensor with lid, so that actual/environmental rain does not interfere with "rain" sensor.
 
 * Transfer data from ESP32 to ESP32 using ESP-NOW protocol.
 * Using arduino/esp32 and ultrasonic sensor, water level can be detected.
@@ -139,13 +147,13 @@
   * [Sonoff S26 WiFi Smart Socket](https://store.roboticsbd.com/home-automation-robotics-bangladesh/1176-sonoff-s26-wifi-smart-socket-robotics-bangladesh.html)
     * LAN Control: Turn on/off the device even when WiFi has no Internet access
 
-**Arduino/ESP32 Based Gas Leakage Detector**
+## Arduino/ESP32 Based Gas Leakage Detector
 
 * Detect gas leakage in kitchen using arduino/esp32 and gas sensor.
 * Alarm sound using arduino/esp32 and buzzer sensor.
 * Show notification in mobile using [blynk.io](https://blynk.io/) application.
 
-**Arduino/ESP32 Based CCTV Camera**
+## Arduino/ESP32 Based CCTV Camera
 
 * ChatGPT Question: "cctv camera setup using arduino, camera module, android mobile and store to google drive"
 

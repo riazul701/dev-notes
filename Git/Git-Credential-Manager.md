@@ -74,6 +74,7 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 ## Windows-OS Installation
 
 ### Instructions (Windows-OS)
+
 * Git-Credential-Manger is built-in inside Git-Bash.
 * Install using [Scoop](https://scoop.sh/)
   * Open PowerShell in Administrator mode.
@@ -86,6 +87,7 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
 * Check Git-Credential-Manager Version: `git-credential-manager --version`
 
 ### Git-Bash Configuraion (Windows-OS)
+
 * [Install instructions](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md)
 * Install GCM using Scoop: `scoop install extras/git-credential-manager`
   * Add Scoop bucket: `scoop bucket add extras`
@@ -138,12 +140,12 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Uninstall: `sudo dpkg -r gcm`
 
 * Fodora-OS: Install from source helper script
-  * NOTE: DO NOT FOLLOW THESE STEPS, BECAUSE
+  * NOTE: Do Not Follow These Steps, Because
   ```
   Total size of inbound packages is 2 GiB. Need to download 2 GiB.
   After this operation, 467 MiB extra will be used (install 4 GiB, remove 4 GiB).
   ```
-  * NOTE: FOLLOW "Install Using TAR file", WHICH IS LOCATED BELOW
+  * NOTE: Follow "Install Using TAR file", Which Is Located Below.
   * Ensure `curl` is installed: `curl --version`
   * If `curl` is not installed, please use your distribution's package manager to install it.
   * Download and run the script:
@@ -158,7 +160,8 @@ git remote set-url origin https://employee9999@example.com/big-company/secret-re
   * Debian’s dpkg package didn’t support zstd compression prior to version 1.21.18. Support was added just in time for Debian 12.
 
 * Install Using TAR file
-  * In Antix-OS-22-amd64 Full version, dpkg version is 1.20.12 (amd64). So use TAR instruction set.
+  * NOTE: In this way `git-credential-manager` can not open web browser, instead use github/bitbucket `classic` authentication `token`.
+  * In Antix-OS-22-amd64 Full version, dpkg version is 1.20.12 (amd64) which shows "zst compression not supported by apt/dpkg" error. So use TAR instruction set.
   * Download TAR file from [GitCredentialManager TAR File](https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.886/gcm-linux_amd64.2.0.886.tar.gz)
   * Use "wget" to download: `wget <URL>`
   * Install: `sudo tar -xvf <path-to-tarball> -C /usr/local/bin` [For permission error use `sudo` command]

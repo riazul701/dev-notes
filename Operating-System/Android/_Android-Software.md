@@ -115,6 +115,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
 
 ## Media Player & Converter (Selected)
 
+* [OxygenCobalt/Auxio GitHub](https://github.com/OxygenCobalt/Auxio)
 * [VLC for Android BY Videolabs](https://play.google.com/store/apps/details?id=org.videolan.vlc)
 * [Teleprompter with Video Audio BY Pode Groups](https://play.google.com/store/apps/details?id=com.corepix.videorecording)
 * [SoundCloud => Play Music & Songs BY SoundCloud](https://play.google.com/store/apps/details?id=com.soundcloud.android)
