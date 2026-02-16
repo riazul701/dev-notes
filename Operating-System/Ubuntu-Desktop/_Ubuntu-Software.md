@@ -3,12 +3,19 @@
 ## Websites
 
 * [Packages to install via scoop, winget, choco, and other tools...](https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7)
+
 * [repology.org => The packaging hub](https://repology.org/)
+
 * [XTRADEB](https://xtradeb.net/)
+
 * [toolleeo/cli-apps => The largest Awesome List of CLI/TUI programs](https://github.com/toolleeo/cli-apps)
+
 * [rothgar/awesome-tuis => List of projects that provide terminal user interfaces](https://github.com/rothgar/awesome-tuis)
+
 * [CLI tools you won't be able to live without](https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6)
+
 * [100 Great and Must-Have CLI Linux Applications](https://www.linuxlinks.com/100-great-must-have-cli-linux-applications/)
+
 * [terminaltrove.com => List of Terminal Tools (A-Z)](https://terminaltrove.com/list/)
 
 # Software Selected - Ubuntu OS
@@ -16,82 +23,126 @@
 ## Package Manager & Installer (Selected)
 
 * [Snap Package Manager => Snapcraft](https://snapcraft.io/)
+
 * [Flatpak Package Manager => flathub.org](https://flathub.org/)
+
 * [Nix Package Manager](https://search.nixos.org/packages)
+
 * [AppImage => AppImageHub](https://www.appimagehub.com/)
+
 * [APT](https://wiki.debian.org/Apt)
+
 * [Gdebi](https://launchpad.net/gdebi)
+
 * [KDE Apps](https://apps.kde.org/)
 
 ## Password Manager (Selected)
 
 * [Bitwarden](https://bitwarden.com/)
+
 * [keepassxreboot/keepassxc => Cross-platform Password Manager](https://github.com/keepassxreboot/keepassxc) || [KeePassXC Site](https://keepassxc.org/)
+
 * [KeePass](https://keepass.info/download.html)
+
 * [Kunzisoft/KeePassDX => Password Manager
 for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https://www.keepassdx.com/)
+
 * [firecat53/keepmenu => Dmenu/Rofi frontend for Keepass databases](https://github.com/firecat53/keepmenu)
 
 ## Internet Software (Selected)
 
-* Web Browser (Selected)
-  * [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
-  * [Google Chrome](https://www.google.com/chrome/)
-  * [Opera Browser](https://www.opera.com/)
-  * [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
-  * [Links](http://links.twibright.com/)
-  * [Lynx](https://invisible-island.net/lynx/lynx.html)
+**Web Browser (Selected)**
 
-* Browser Extension (Selected)
-  * Google Chrome
-    * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [darkreader/darkreader GitHub](https://github.com/darkreader/darkreader) || [Dark Reader Extension](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
-    * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [joue-quroi/adjust-screen-brightness GitHub](https://github.com/joue-quroi/adjust-screen-brightness/) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
-    * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
-    * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+* [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
 
-* Email (Selected)
-  * [Thunderbird](https://www.thunderbird.net/en-GB/)
+* [Google Chrome](https://www.google.com/chrome/)
 
-* Download Manager (Selected)
-  * [Free Download Manager](https://www.freedownloadmanager.org/)
-  * [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
-  * [uGet Site => Download Manager](https://ugetdm.com/) || [uget GitHub](https://github.com/ugetdm/uget)
-  * [qBittorrent Site](https://www.qbittorrent.org/) || [qBittorrent GitHub](https://github.com/qbittorrent/qBittorrent)
-  * [Transmission => Bittorrent Client](https://transmissionbt.com/) || [transmission GitHub](https://github.com/transmission/transmission)
-  * [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
-  * [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
-  * [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
-  * YouTube
-    * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
-    * [NickvisionApps/Parabolic GitHub => basic yt-dlp frontend](https://github.com/NickvisionApps/Parabolic)
-    * [giantpinkrobots/varia GitHub => anything supported by yt-dlp](https://github.com/giantpinkrobots/varia)
-    * [Tyrrrz/YoutubeDownloader GitHub](https://github.com/Tyrrrz/YoutubeDownloader)
+* [Opera Browser](https://www.opera.com/)
 
-* Online Clipboard (Selected)
-  * [cl1p.net => The Internet Clipboard](https://cl1p.net/)
-  * [file.io => Super simple file sharing!](https://www.file.io/)
-  * [online-clipboard.online/send-file-online](https://online-clipboard.online/send-file-online/)
+* [Microsoft Edge](https://www.microsoft.com/en-us/edge?form=MA13FJ)
+
+* [Links](http://links.twibright.com/)
+
+* [Lynx](https://invisible-island.net/lynx/lynx.html)
+
+**Browser Extension (Selected)**
+
+* Google Chrome
+
+  * {Careful-PDF Downloaded in Black Background} [darkreader.org](https://darkreader.org/) || [darkreader/darkreader GitHub](https://github.com/darkreader/darkreader) || [Dark Reader Extension](https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh)
+
+  * [Adjust Screen/Page Brightness Site](https://webextension.org/listing/screen-brightness.html) || [joue-quroi/adjust-screen-brightness GitHub](https://github.com/joue-quroi/adjust-screen-brightness/) || [Adjust Page Brightness Extension](https://chromewebstore.google.com/detail/adjust-page-brightness/bcjiagkgnilmcngacjlfhmpdmbhbjcah)
+
+  * [simov/markdown-viewer](https://github.com/simov/markdown-viewer) || [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk)
+
+  * [philc/vimium](https://github.com/philc/vimium) || [Vimium => Vim Keybindings](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+
+**Email (Selected)**
+
+* [Thunderbird](https://www.thunderbird.net/en-GB/)
+
+**Download Manager (Selected)**
+
+* [Free Download Manager](https://www.freedownloadmanager.org/)
+
+* [AB Download Manager](https://abdownloadmanager.com/) || [ab-download-manager GitHub](https://github.com/amir1376/ab-download-manager)
+
+* [uGet Site => Download Manager](https://ugetdm.com/) || [uget GitHub](https://github.com/ugetdm/uget)
+
+* [qBittorrent Site](https://www.qbittorrent.org/) || [qBittorrent GitHub](https://github.com/qbittorrent/qBittorrent)
+
+* [Transmission => Bittorrent Client](https://transmissionbt.com/) || [transmission GitHub](https://github.com/transmission/transmission)
+
+* [aria2](https://aria2.github.io/) || [aria2 GitHub](https://github.com/aria2/aria2)
+
+* [pawamoy/aria2p](https://github.com/pawamoy/aria2p)
+
+* [mikf/gallery-dl => Download image galleries](https://github.com/mikf/gallery-dl)
+
+* YouTube
+  * [yt-dlp/yt-dlp => Command-line audio/video downloader](https://github.com/yt-dlp/yt-dlp)
+  * [NickvisionApps/Parabolic GitHub => basic yt-dlp frontend](https://github.com/NickvisionApps/Parabolic)
+  * [giantpinkrobots/varia GitHub => anything supported by yt-dlp](https://github.com/giantpinkrobots/varia)
+  * [Tyrrrz/YoutubeDownloader GitHub](https://github.com/Tyrrrz/YoutubeDownloader)
+
+**Online Clipboard (Selected)**
+
+* [cl1p.net => The Internet Clipboard](https://cl1p.net/)
+
+* [file.io => Super simple file sharing!](https://www.file.io/)
+
+* [online-clipboard.online/send-file-online](https://online-clipboard.online/send-file-online/)
 	
-* WiFi (Selected)
-  * [SniffNet](https://github.com/GyulyVGC/sniffnet)
-  * [LinSSID](https://sourceforge.net/projects/linssid/)
-  * [Wavemon](https://github.com/uoaerg/wavemon)
-  
-* VPN (Selected)
-  * 
-  
-* Social/Communication (Selected)
-  * [Skype](https://www.skype.com/en/)
-  * [WhatsApp](https://www.whatsapp.com/) || [web.whatsapp.com](https://web.whatsapp.com/)
-    * [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
-  * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
+**WiFi (Selected)**
 
-* Online Tools (Selected)
-  * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
-    * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
-  * YouTube
-    * [yt1z.net => YouTube Video Downloader](https://yt1z.net/)
-    * [yt5s.biz => YouTube Video Downloader](https://yt5s.biz/enxj100/)
+* [SniffNet](https://github.com/GyulyVGC/sniffnet)
+
+* [LinSSID](https://sourceforge.net/projects/linssid/)
+
+* [Wavemon](https://github.com/uoaerg/wavemon)
+  
+**VPN (Selected)**
+  
+**Social/Communication (Selected)**
+
+* [Skype](https://www.skype.com/en/)
+
+* [WhatsApp](https://www.whatsapp.com/) || [web.whatsapp.com](https://web.whatsapp.com/)
+  * [WhatsApp SnapCraft](https://snapcraft.io/whatsapp-for-linux) || [WhatsApp GitHub](https://github.com/eneshecan/whatsapp-for-linux)
+
+* [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
+
+**Online Tools (Selected)**
+
+* Markdown
+  * [gdoc2md.com](https://gdoc2md.com/) || [Mr0grog/google-docs-to-markdown GitHub](https://github.com/mr0grog/google-docs-to-markdown)
+
+* [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
+  * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
+
+* YouTube
+  * [yt1z.net => YouTube Video Downloader](https://yt1z.net/)
+  * [yt5s.biz => YouTube Video Downloader](https://yt5s.biz/enxj100/)
 
 ## Programming (Selected)
 
@@ -230,6 +281,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (Selected)
+  * [Strawberry => Fork of Clementine. Follows OS dark theme. Install from Chocolatey because Windows version is paid](https://www.strawberrymusicplayer.org/) || [Strawberry GitHub](https://github.com/strawberrymusicplayer/strawberry)
   * [Clementine => Modern music player and library organizer](https://www.clementine-player.org/) || [Clementine GitHub](https://github.com/clementine-player/Clementine)
   * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
 
@@ -414,6 +466,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Singlebox](https://singlebox.app/) || [Singlebox SnapCraft](https://snapcraft.io/singlebox)
 
 * Online Tools (List)
+  * Markdown
+    * [gdoc2md.com](https://gdoc2md.com/) || [Mr0grog/google-docs-to-markdown GitHub](https://github.com/mr0grog/google-docs-to-markdown)
   * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
     * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
   * [CollaboraOnline/online => LibreOffice technology](https://github.com/CollaboraOnline/online)
@@ -636,10 +690,11 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [OptiImage => Image compressor](https://apps.kde.org/optiimage/)
 
 * Audio Player (List)
-  * [Amarok](https://amarok.kde.org/)
+  * [Strawberry => Fork of Clementine. Follows OS dark theme. Install from Chocolatey because Windows version is paid](https://www.strawberrymusicplayer.org/) || [Strawberry GitHub](https://github.com/strawberrymusicplayer/strawberry)
   * [Clementine => modern music player and library organizer](https://www.clementine-player.org/) || [Clementine GitHub](https://github.com/clementine-player/Clementine)
-  * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
   * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
+  * [Amarok](https://amarok.kde.org/)
+  * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
   * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)

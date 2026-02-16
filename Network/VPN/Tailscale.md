@@ -25,7 +25,11 @@
 
 # Tailscale.md
 
+## Taildrop
+
 ## Notes
+
+* Important: Turn On "Unattended Mode".
 
 * Tailscale and NetBird VPN does not work simultaneously, both are WireGuard based.
 

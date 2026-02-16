@@ -4,6 +4,10 @@
 
 * Do not install Rainmeter using `scoop` package manager, it shows permission denied error when adding new skin. Rainmeter.ini is not writable inside skin file. <sup>{5}</sup>
 
+## RSS Reader Skin
+
+* Show news on desktop using RSS reader skin.
+
 # Error and Solution
 
 * [SOLVED: Rainmeter.ini is not writable.](https://forum.rainmeter.net/viewtopic.php?t=28011) <sup>{5}</sup>

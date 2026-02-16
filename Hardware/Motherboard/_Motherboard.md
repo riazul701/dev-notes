@@ -4,6 +4,10 @@
 
 ## Notes
 
+* ASUS Motherboard Is Best For Dual Mismatched RAM Stick.
+
+* ASUS Motherboard Has Best Linux Support. Gigabyte And MSI Has LOW Support. Check Specific Model Before Buying.
+
 * During Motherboard BIOS upgrade, if electricity loss occurs, then motherboard may be dead. <sup>{15}</sup>
 
 # References

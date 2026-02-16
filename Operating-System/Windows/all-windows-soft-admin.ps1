@@ -18,6 +18,8 @@
 
 $VerbosePreference = "Continue"
 
+# https://scoop.sh/
+
 $scoop_office_softwares = @(
     # main/winget
 
@@ -78,6 +80,7 @@ $scoop_office_softwares = @(
     #-------CLI (End)---------
 
     #-------GUI (Start)-------
+	"extras/git-cola"
     "extras/twinkle-tray"
     "extras/komorebi"
     "extras/whkd" # Keybindings for Komorebi
@@ -163,16 +166,22 @@ $scoop_home_softwares = @(
     # Add: Piknik
 )
 
+# https://chocolatey.org/
+
 $chocolatey_office_softwares = @(
-    "git-cola"
     "files"
 )
 
 $chocolatey_home_softwares = @(
     "fxsound"
+    "strawberrymusicplayer"
 )
 
+# https://winstall.app/
+
 $winget_office_softwares = @(
+    "Tailscale.Tailscale"
+    "RustDesk.RustDesk"
     "OmicronLab.Avro"
     "Google.Chrome"
     "Mozilla.Firefox"
@@ -188,6 +197,7 @@ $winget_office_softwares = @(
 )
 
 $winget_home_softwares = @(
+    "Navidrome.Navidrome"
     "IDRIX.VeraCrypt"
     "CrystalDewWorld.CrystalDiskInfo"
     "CrystalDewWorld.CrystalDiskMark"
@@ -223,13 +233,18 @@ function Install-ScoopApp {
 
 function Enable-Bucket {
     param (
-        [string]$Bucket
+        [string]$Bucket,
+        [string]$URL
     )
     if (!($(scoop bucket list).Name -eq "$Bucket")) {
         Write-Verbose -Message "Adding Bucket $Bucket to scoop..."
-        scoop bucket add $Bucket
+        if ($PSBoundParameters.ContainsKey('URL')) {
+            scoop bucket add $Bucket $URL
+        } else {
+            scoop bucket add $Bucket
+        }
     } else {
-        Write-Verbose -Message "Bucket $Bucket already added! Skipping..."
+        Write-Verbose -Message "Scoop Bucket $Bucket already added! Skipping..."
     }
 }
 
@@ -252,8 +267,12 @@ function Install-WinGetApp {
         [string]$PackageID
     )
     # Write-Verbose -Message "Winget => Preparing to install $PackageID"
-    Write-Verbose -Message "Winget => Installing $PackageID"
-    winget install --silent --id "$PackageID" --accept-source-agreements --accept-package-agreements --exact --source=winget
+    if ($(winget list --id $PackageID) -eq "No installed package found matching input criteria.") {
+		Write-Verbose -Message "Winget => Installing $PackageID"
+        winget install --silent --id "$PackageID" --accept-source-agreements --accept-package-agreements --exact --silent --source=winget
+    } else {
+		Write-Verbose -Message "Winget => Package $PackageID already installed! Skipping..."
+    }
 }
 
 # Check if Home Workstation
@@ -268,18 +287,10 @@ Enable-Bucket -Bucket "main"
 Enable-Bucket -Bucket "extras"
 Enable-Bucket -Bucket "java"
 Enable-Bucket -Bucket "nerd-fonts"
-scoop bucket add LucasOe_scoop-lucasoe https://github.com/LucasOe/scoop-lucasoe
+Enable-Bucket -Bucket "LucasOe_scoop-lucasoe" -URL "https://github.com/LucasOe/scoop-lucasoe" 
 
 foreach ($software_name in $scoop_office_softwares) {
     Install-ScoopApp -Package "$software_name"
-}
-
-foreach ($software_name in $chocolatey_office_softwares) {
-    Install-ChocoApp -Package "$software_name"
-}
-
-foreach ($software_name in $winget_office_softwares) {
-    Install-WinGetApp -PackageID "$software_name"
 }
 
 # Install Scoop Packages, if Home Workstation
@@ -287,11 +298,25 @@ if ($HomeWorkstation) {
     foreach ($software_name in $scoop_home_softwares) {
         Install-ScoopApp -Package "$software_name"
     }
+}
 
+foreach ($software_name in $chocolatey_office_softwares) {
+    Install-ChocoApp -Package "$software_name"
+}
+
+# Install Chocolatey Packages, if Home Workstation
+if ($HomeWorkstation) {
     foreach ($software_name in $chocolatey_home_softwares) {
         Install-ChocoApp -Package "$software_name"
     }
+}
 
+foreach ($software_name in $winget_office_softwares) {
+    Install-WinGetApp -PackageID "$software_name"
+}
+
+# Install Winget Packages, if Home Workstation
+if ($HomeWorkstation) {
     foreach ($software_name in $winget_home_softwares) {
         Install-WinGetApp -PackageID "$software_name"
     }

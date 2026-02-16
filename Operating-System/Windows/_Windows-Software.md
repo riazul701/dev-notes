@@ -79,6 +79,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (Selected)
+  * Markdown
+    * [gdoc2md.com](https://gdoc2md.com/) || [Mr0grog/google-docs-to-markdown GitHub](https://github.com/mr0grog/google-docs-to-markdown)
   * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
     * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
   * YouTube
@@ -233,6 +235,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (Selected)
+  * [Strawberry => Fork of Clementine. Follows OS dark theme. Install from Chocolatey because Windows version is paid](https://www.strawberrymusicplayer.org/) || [Strawberry GitHub](https://github.com/strawberrymusicplayer/strawberry)
   * [Clementine => Modern music player and library organizer](https://www.clementine-player.org/) || [Clementine GitHub](https://github.com/clementine-player/Clementine)
   * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
 
@@ -416,6 +419,8 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [Singlebox](https://singlebox.app/)
 
 * Online Tools (List)
+  * Markdown
+    * [gdoc2md.com](https://gdoc2md.com/) || [Mr0grog/google-docs-to-markdown GitHub](https://github.com/mr0grog/google-docs-to-markdown)
   * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
     * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
   * [CollaboraOnline/online => LibreOffice technology](https://github.com/CollaboraOnline/online)
@@ -633,10 +638,11 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
   * [qarmin/czkawka => Find duplicates, empty folders, similar images](https://github.com/qarmin/czkawka)
 
 * Audio Player (List)
-  * [Amarok](https://amarok.kde.org/)
+  * [Strawberry => Fork of Clementine. Follows OS dark theme. Install from Chocolatey because Windows version is paid](https://www.strawberrymusicplayer.org/) || [Strawberry GitHub](https://github.com/strawberrymusicplayer/strawberry)
   * [clementine-player/Clementine => Music Player](https://github.com/clementine-player/Clementine)
-  * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
   * [musikcube => Terminal-based music player, library, and streaming audio server](https://musikcube.com/) || [musikcube GitHub](https://github.com/clangen/musikcube)
+  * [Amarok](https://amarok.kde.org/)
+  * [audacious-media-player/audacious => A lightweight and versatile audio player](https://github.com/audacious-media-player/audacious)
   * [DeaDBeeF-Player/deadbeef => Cross-platform audio player](https://github.com/DeaDBeeF-Player/deadbeef)
 
 * Audio Editor (List)
