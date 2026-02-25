@@ -18,7 +18,7 @@
 
 $VerbosePreference = "Continue"
 
-# https://scoop.sh/
+# https://scoop.sh/ => Portable Applications
 
 $scoop_office_softwares = @(
     # main/winget
@@ -72,7 +72,7 @@ $scoop_office_softwares = @(
     "main/ntop"
     "main/glow"
     "main/ngrok"
-    "main/lynx"
+    # "main/lynx" # Download failed! (Error 3) Resource was not found
     "main/lftp"
     "main/wget"
     "main/aria2"
@@ -84,7 +84,8 @@ $scoop_office_softwares = @(
     "extras/twinkle-tray"
     "extras/komorebi"
     "extras/whkd" # Keybindings for Komorebi
-    "LucasOe_scoop-lucasoe/yasb"
+    "extras/yasb"
+    "nerd-fonts/JetBrainsMono-NF-Propo" # Icon font for "YASB"
     "extras/flow-launcher"
     "extras/vscode"
     "extras/sublime-text"
@@ -102,7 +103,6 @@ $scoop_office_softwares = @(
     "extras/vlc"
     "extras/foxit-reader"
     "extras/lepton"
-    "main/mysql-workbench"
     "extras/sqlitebrowser"
     "extras/restic-browser"
     "extras/backrest"
@@ -158,7 +158,6 @@ $scoop_home_softwares = @(
     "extras/guiscrcpy" # GUI for "main/scrcpy"
     "extras/ventoy"
     "extras/rufus"
-    "extras/format-factory"
     #-------GUI (End)-------
         
     # Add: "kkzzhizhou_scoop-apps/4kvideodownloader"
@@ -166,7 +165,7 @@ $scoop_home_softwares = @(
     # Add: Piknik
 )
 
-# https://chocolatey.org/
+# https://chocolatey.org/ => Non-Portable Applications
 
 $chocolatey_office_softwares = @(
     "files"
@@ -175,13 +174,15 @@ $chocolatey_office_softwares = @(
 $chocolatey_home_softwares = @(
     "fxsound"
     "strawberrymusicplayer"
+    "formatfactory"
 )
 
-# https://winstall.app/
+# https://winstall.app/ => Non-Portable Applications
 
 $winget_office_softwares = @(
     "Tailscale.Tailscale"
     "RustDesk.RustDesk"
+    "9WZDNCRDXF41" # Character Map UWP for "YASB" from "https://github.com/character-map-uwp/Character-Map-UWP"
     "OmicronLab.Avro"
     "Google.Chrome"
     "Mozilla.Firefox"
@@ -189,6 +190,7 @@ $winget_office_softwares = @(
     "Mozilla.Thunderbird"
     "wez.wezterm"
     "Microsoft.WindowsTerminal"
+    "Oracle.MySQLWorkbench"
     "Oracle.VirtualBox"
     "Hashicorp.Vagrant"
     "HTTPie.HTTPie"
@@ -269,7 +271,11 @@ function Install-WinGetApp {
     # Write-Verbose -Message "Winget => Preparing to install $PackageID"
     if ($(winget list --id $PackageID) -eq "No installed package found matching input criteria.") {
 		Write-Verbose -Message "Winget => Installing $PackageID"
-        winget install --silent --id "$PackageID" --accept-source-agreements --accept-package-agreements --exact --silent --source=winget
+        winget install --silent --id "$PackageID" --accept-source-agreements --accept-package-agreements --exact --silent
+
+        # "--source=winget" argument does not work when installing from GitHub like "https://github.com/character-map-uwp/Character-Map-UWP". Installation command is "winget.exe install --id 9WZDNCRDXF41". There are two "--source", one is "winget" (default/community store) and another is "msstore" (UWP {Universal Windows Platform} apps). Check it via "winget list" command's source column.
+
+        # winget install --silent --id "$PackageID" --accept-source-agreements --accept-package-agreements --exact --silent --source=winget
     } else {
 		Write-Verbose -Message "Winget => Package $PackageID already installed! Skipping..."
     }
@@ -285,9 +291,7 @@ if ($(Read-Host -Prompt "Is this a workstation for Home use (y/n)?") -eq "y") {
 # Add Scoop Buckets
 Enable-Bucket -Bucket "main"
 Enable-Bucket -Bucket "extras"
-Enable-Bucket -Bucket "java"
 Enable-Bucket -Bucket "nerd-fonts"
-Enable-Bucket -Bucket "LucasOe_scoop-lucasoe" -URL "https://github.com/LucasOe/scoop-lucasoe" 
 
 foreach ($software_name in $scoop_office_softwares) {
     Install-ScoopApp -Package "$software_name"

@@ -12,6 +12,29 @@
 
 * Yasb log file path : `~/.config/yasb/yasb.log`
 
+## Always On Top
+
+* Windows task bar's "show desktop" button hides YASB status bar.
+
+## Icon
+
+**[Applications Widget Options](https://docs.yasb.dev/latest/widgets/applications)**
+
+* icon: The icon for the application. This can be a Unicode character (e.g., \uf0a2), an image path (e.g., C:\\path\\to\\icon.png), or an icon name that can be resolved by the system.
+
+**[Style file](https://docs.yasb.dev/latest/styling)**
+
+* Icons can be styled with the following: `.icon`
+
+* .icon class above will affect all icons inside the span tag in configuration file. `label: "<span>\uf4bc</span> {virtual_mem_free}"` You can specify different icon class in the configuration file as shown below.
+```css
+label: "<span class=\"icon-1"\">\uf4bc</span> {virtual_mem_free}"
+```
+
+* Note: To avoid some icons being cut off on the sides, it's recommended to use the proportional version of your Nerd Font (e.g. `JetBrainsMono Nerd Font Propo`),
+
+* There is a nice app at [Character Map UWP](https://github.com/character-map-uwp/Character-Map-UWP) where you can select a font, click on icons, and copy the UTF-16 value. Alternatively, you can visit the Nerd Fonts site and do the same under the icons section.
+
 # Installation
 
 ## `scoop` Package Manager
@@ -114,9 +137,37 @@
 
 * Paste downloaded fonts
 
+## Taskbar Widget CutOff Half On Right Side
+
+**Error_1: On default `styles.css` file, this config causing the issue:**
+
+```css
+.taskbar-widget .app-icon {
+    padding: 0 6px;
+    border: none;
+    margin: 0;
+}
+```
+
+**Solution_1:**
+
+```css
+.taskbar-widget .app-icon {
+    padding: 0 0px;
+    border: none;
+    margin: 0 0px;
+}
+.taskbar-widget .app-container {
+    margin: 4px 2px;
+    border-radius: 4px;
+    padding: 0 4px;
+}
+```
+
 # References
 
 ## Websites
 
+* [yasb.dev](https://yasb.dev/)
 * [amnweb/yasb GitHub](https://github.com/amnweb/yasb)
 * [amnweb/yasb-themes GitHub](https://github.com/amnweb/yasb-themes)

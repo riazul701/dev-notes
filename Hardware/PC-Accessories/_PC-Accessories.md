@@ -1,5 +1,9 @@
 # PC-Accessories.md
 
+## Briefcase For Carrying Desktop Monitor
+
+## Slim Desktop PC Case For Easy Carrying
+
 ## TO-DO
 
 * Add "REPEAT-BUTTON" to CPU, Monitor, Table Carrying Bag "HANDLE" (2 Piece For Each Of 4 Sides) From Shoemaker.

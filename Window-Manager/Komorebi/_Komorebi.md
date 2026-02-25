@@ -7,6 +7,10 @@
 
 # Komorebi.md
 
+## Notes
+
+* GlazeWM is resource (processor) hungry, use Komorebi window manager instead.
+
 ## PATH
 
 # Installation
