@@ -1,9 +1,56 @@
-# Important
+# Commands/Usage
+
+# Start/Stop Komorebi
 
 * Start Komorebi From Yasb: Start Yasb App -> Tray Icon -> Right Click -> Komorebi -> Start Komorebi / Stop Komorebi / Reload Komorebi
 
 * `Ctrl + Alt + Left/Up/Right/Down-Arrow` changes display orientation/direction.
   * To turn it off goto Desktop -> Right Click -> Graphics Options -> Hot Keys -> Disable
+
+## Autostart Enable/Disable
+
+**[Enable Autostart](https://lgug2z.github.io/komorebi/common-workflows/autostart.html)**
+
+* If you would like to autostart `komorebi`, you can use the `komorebic enable-autostart` command to generate a shortcut in the `shell:startup` folder.
+
+```shell
+Generates the komorebi.lnk shortcut in shell:startup to autostart komorebi
+
+Usage: komorebic.exe enable-autostart [OPTIONS]
+
+Options:
+  -c, --config <CONFIG>
+          Path to a static configuration JSON file
+
+  -f, --ffm
+          Enable komorebi's custom focus-follows-mouse implementation
+
+      --whkd
+          Enable autostart of whkd
+
+      --ahk
+          Enable autostart of ahk
+
+      --bar
+          Enable autostart of komorebi-bar
+
+  -h, --help
+          Print help
+```
+
+**[Disable Autostart](https://lgug2z.github.io/komorebi/cli/disable-autostart.html)**
+
+* disable-autostart
+
+```shell
+Deletes the komorebi.lnk shortcut in shell:startup to disable autostart
+
+Usage: komorebic.exe disable-autostart
+
+Options:
+  -h, --help
+          Print help
+```
 
 # Komorebi.md
 

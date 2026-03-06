@@ -1,4 +1,14 @@
-## Important
+# Commands/Usage
+
+## PATH
+
+* Default Config File: `https://github.com/amnweb/yasb/blob/main/src/config.yaml`
+
+* Default Style File: `https://github.com/amnweb/yasb/blob/main/src/styles.css`
+
+* Yasb log file path : `~/.config/yasb/yasb.log`
+
+## Autostart and Config
 
 * Enable Autostart: Start Yasb App -> Tray Icon -> Right Click -> Enable Autostart
 
@@ -8,9 +18,15 @@
 
 # Yasb.md
 
-## PATH
+## Notes
 
-* Yasb log file path : `~/.config/yasb/yasb.log`
+* Hotkey Not Working => Check the logs: Enable debug logging to see if the hotkey was registered successfully.
+
+## Environment Variables
+
+* YASB supports loading environment variables from a `.env` file.
+
+* The `.env` file should be placed in your config directory: `C:/Users/{username}/.config/yasb/.env` or in the directory specified by the `YASB_CONFIG_HOME` environment variable.
 
 ## Always On Top
 
@@ -32,8 +48,15 @@ label: "<span class=\"icon-1"\">\uf4bc</span> {virtual_mem_free}"
 ```
 
 * Note: To avoid some icons being cut off on the sides, it's recommended to use the proportional version of your Nerd Font (e.g. `JetBrainsMono Nerd Font Propo`),
+  * `scoop bucket add nerd-fonts` : Add scoop bucket
+  * `scoop install nerd-fonts/JetBrainsMono-NF-Propo` : Install `JetBrainsMono Nerd Font Propo` using scoop package manager.
 
 * There is a nice app at [Character Map UWP](https://github.com/character-map-uwp/Character-Map-UWP) where you can select a font, click on icons, and copy the UTF-16 value. Alternatively, you can visit the Nerd Fonts site and do the same under the icons section.
+  * `winget.exe install --id 9WZDNCRDXF41` : Install UWP (Universal Windows Platform) using winget package manager.
+
+## Wallpaper
+
+* You can use [pywal](https://github.com/eylles/pywal16) to change the colors of YASB by generating them from your wallpaper. You can also switch wallpapers directly with pywal.
 
 # Installation
 

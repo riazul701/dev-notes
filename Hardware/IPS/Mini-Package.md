@@ -1,5 +1,27 @@
 # Mini-Package.md
 
+## Safety
+
+**12 Volt UPS Battery**
+
+* 12 Volt Battery Charger With Full-Charge Auto Cut System.
+
+**Voltage Regulation & Protection**
+
+* Even if the battery is “nominal 12 V” the real voltage may be:
+  * ~11 V when discharging
+  * ~13.5 V when charging
+
+* So it’s best to use:
+  * A DC-DC converter / voltage regulator (set at 12 V)
+  * A fuse for safety
+
+* For example:
+  * A 12 V 5 A DC-DC converter
+  * A 5–10 A inline fuse and holder
+
+* Always install a fuse near the battery
+
 ## Notes
 
 * Router UPS does not need DC to AC current conversion. Computer UPS needs DC to AC current conversion. Because of this reason, router UPS has better efficiency and no power loss during DC to AC conversion and low price than computer UPS. 
