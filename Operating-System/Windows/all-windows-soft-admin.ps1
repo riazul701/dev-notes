@@ -18,7 +18,7 @@
 
 $VerbosePreference = "Continue"
 
-# https://scoop.sh/ => Portable Applications
+# https://scoop.sh/ => Portable Applications. Does not provide mouse right click context menu. Works on all systems like Official-Windows-7, 8, 8.1, 10, 11 or Windows-X-Lite without any dependency or issue.
 
 $scoop_office_softwares = @(
     # main/winget
@@ -194,7 +194,7 @@ $winget_office_softwares = @(
     "Oracle.VirtualBox"
     "Hashicorp.Vagrant"
     "HTTPie.HTTPie"
-    "TwibrightLabs.Links"
+    "TwibrightLabs.Links" # Links WWW Browser
     "Dropbox.Dropbox" 
 )
 
