@@ -1,3 +1,9 @@
+# Usage/Commands
+
+## Important
+
+* Scoop app stores log, cache, database data into `C:\ProgramData\scoop\apps\{{app-name}}\current\portable_data` directory, but WinGet, Chocolatey and regular `.exe` app stores log, cache, database data into `C:\Users\{{user-name}}\AppData\Roaming\{{app-name}}` directory.
+
 # Chocolatey.md
 
 ## Websites

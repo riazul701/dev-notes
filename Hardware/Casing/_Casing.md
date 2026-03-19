@@ -37,23 +37,37 @@
 
 * next-sl: {7}
 
-* Guides
-  * {1} [Is there a way to turn off the rgb on my fans so I can sleep with my pc on overnight?](https://www.reddit.com/r/computers/comments/125if7t/is_there_a_way_to_turn_off_the_rgb_on_my_fans_so/?rdt=63322)
+## Products
 
-* YouTube Tutorials
+**Casing Glass**
 
-  * Product
-    * {2} [Revenger X8 PC Casing Bangla Review | গেমিং কম্পিউটার কেসিং BY Hardware Advised](https://www.youtube.com/watch?v=ydifMg9YBq4)
-    * {6} [পাইকারি দামে RGB গেমিং কেসিং কিনুন 🔥 RGB Gaming Casing Price In Bangladesh 2024 | Robin Vlogs !! BY Robin Vlogs](https://www.youtube.com/watch?v=5cmQ6gQkVwQ)
-    * [একটি ছোট কম্পিউটার কেস | Value Top V100 Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=IvSc-dBZAPs)
+* [Transparent 4mm Acrylic Sheet 12x12 Inch Clear Plexiglass Sheet](https://www.electronicspartsbd.com/product/transparent-4mm-acrylic-sheet-12x12-inch-clear-plexiglass-sheet-59)
 
-  * Concept
-    * {3} [RGB & ARGB Lighting Explained in Bangla I RGB কোনটা কিনবেন? কোন RGB গুলো ভালো? BY Tech Talk](https://www.youtube.com/watch?v=05axPpuBsq4)
-    * {4} [Casing নিয়ে যত Confusion সব আজকে Clear করবো BY The SIM Play](https://www.youtube.com/watch?v=3s-JhpFEb1c)
-    * {5} [Computer Case Fans! Waste Of Money? (Hindi) BY GEEKY SOUMYA](https://www.youtube.com/watch?v=zX9kCrMTsjw)
-    * [PC Case AIRFLOW; A Visual Guide for Optimal Cooling. BY Mr Matt Lee](https://www.youtube.com/watch?v=YNcd-IGMj2c)
-    * [Mini Tower VS MID Tower VS Full Tower Cabinet |Which One Is Better?Cabinet Buying Guide 2020 [HINDI] BY Miner TechTips](https://www.youtube.com/watch?v=GZNEox7m9nY)
+## Guides
 
-  * Casing Fan
-    * [কম টাকায় বেস্ট কেসিং ফ্যান । Budget case fan BY TechMania |BD|](https://www.youtube.com/watch?v=rTeqDMDWW4s)
-    * [Deepcool CF-120 Plus case fan quite durable & aesthetics BY TechMania |BD|](https://www.youtube.com/watch?v=viQL4JRxQfs)
+* {1} [Is there a way to turn off the rgb on my fans so I can sleep with my pc on overnight?](https://www.reddit.com/r/computers/comments/125if7t/is_there_a_way_to_turn_off_the_rgb_on_my_fans_so/?rdt=63322)
+
+## YouTube Tutorials
+
+**Casing Glass**
+
+* [পিসি কেসিং নতুন গ্লাস দাম এবং কোথায় পাবেন | Where to replace broken PC case glass in Bangladesh BY TechMania |BD|](https://www.youtube.com/watch?v=WtqKL5Dr3cA)
+
+**Products**
+  
+* {2} [Revenger X8 PC Casing Bangla Review | গেমিং কম্পিউটার কেসিং BY Hardware Advised](https://www.youtube.com/watch?v=ydifMg9YBq4)
+* {6} [পাইকারি দামে RGB গেমিং কেসিং কিনুন 🔥 RGB Gaming Casing Price In Bangladesh 2024 | Robin Vlogs !! BY Robin Vlogs](https://www.youtube.com/watch?v=5cmQ6gQkVwQ)
+* [একটি ছোট কম্পিউটার কেস | Value Top V100 Review BY PC Builder Bangladesh](https://www.youtube.com/watch?v=IvSc-dBZAPs)
+
+**Concept**
+  
+* {3} [RGB & ARGB Lighting Explained in Bangla I RGB কোনটা কিনবেন? কোন RGB গুলো ভালো? BY Tech Talk](https://www.youtube.com/watch?v=05axPpuBsq4)
+* {4} [Casing নিয়ে যত Confusion সব আজকে Clear করবো BY The SIM Play](https://www.youtube.com/watch?v=3s-JhpFEb1c)
+* {5} [Computer Case Fans! Waste Of Money? (Hindi) BY GEEKY SOUMYA](https://www.youtube.com/watch?v=zX9kCrMTsjw)
+* [PC Case AIRFLOW; A Visual Guide for Optimal Cooling. BY Mr Matt Lee](https://www.youtube.com/watch?v=YNcd-IGMj2c)
+* [Mini Tower VS MID Tower VS Full Tower Cabinet |Which One Is Better?Cabinet Buying Guide 2020 [HINDI] BY Miner TechTips](https://www.youtube.com/watch?v=GZNEox7m9nY)
+
+**Casing Fan**
+  
+* [কম টাকায় বেস্ট কেসিং ফ্যান । Budget case fan BY TechMania |BD|](https://www.youtube.com/watch?v=rTeqDMDWW4s)
+* [Deepcool CF-120 Plus case fan quite durable & aesthetics BY TechMania |BD|](https://www.youtube.com/watch?v=viQL4JRxQfs)

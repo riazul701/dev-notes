@@ -113,7 +113,7 @@ If you're using **YASB**, you don’t have to use `powershell -command`. There a
 
 ---
 
-# 1️⃣ Use `pwsh` (recommended replacement)
+***# 1️⃣ Use `pwsh` (recommended replacement)***
 
 If you have **PowerShell 7**, you can use `pwsh`.
 
@@ -128,7 +128,7 @@ Advantages:
 
 ---
 
-# 2️⃣ Use `cmd /c`
+***# 2️⃣ Use `cmd /c`***
 
 If the command works in **Windows CMD**:
 
@@ -146,7 +146,7 @@ This starts faster than PowerShell.
 
 ---
 
-# 3️⃣ Run a script file (best for complex commands)
+***# 3️⃣ Run a script file (best for complex commands)***
 
 Create a script:
 
@@ -173,7 +173,7 @@ Benefits:
 
 ---
 
-# 4️⃣ Use a `.bat` file (fastest startup)
+***# 4️⃣ Use a `.bat` file (fastest startup)***
 
 Example `gpu.bat`:
 
@@ -190,7 +190,7 @@ command: "C:\\scripts\\gpu.bat"
 
 ---
 
-# 5️⃣ Use compiled tools (fastest overall)
+***# 5️⃣ Use compiled tools (fastest overall)***
 
 Some status bars use small executables instead of PowerShell.
 
@@ -201,7 +201,7 @@ Example tools:
 
 ---
 
-# ⚡ Best practical option for YASB
+***# ⚡ Best practical option for YASB***
 
 Most stable setup:
 
@@ -232,7 +232,7 @@ For status bars like **YASB**, the fastest approach is to **avoid `Get-Counter` 
 
 ---
 
-# ⚡ Much Faster Command (WMI GPU counters)
+***# ⚡ Much Faster Command (WMI GPU counters)***
 
 Use the GPU performance class instead:
 
@@ -244,7 +244,7 @@ This is typically **3–10× faster** than `Get-Counter`.
 
 ---
 
-# ⚡ Even Faster (minimal pipeline)
+***# ⚡ Even Faster (minimal pipeline)***
 
 ```powershell
 powershell -command "$g=Get-CimInstance Win32_PerfFormattedData_GPUPerformanceCounters_GPUEngine;$s=0;$g|?{$_.Name -like '*engtype_3D*'}|%{$s+=$_.UtilizationPercentage};'{0:N2} %%' -f $s"
@@ -252,7 +252,7 @@ powershell -command "$g=Get-CimInstance Win32_PerfFormattedData_GPUPerformanceCo
 
 ---
 
-# 🚀 Fastest Practical Method (recommended for YASB)
+***# 🚀 Fastest Practical Method (recommended for YASB)***
 
 Move the logic into a **persistent script** so PowerShell doesn't start every refresh.
 
@@ -275,7 +275,7 @@ Using **PowerShell 7 (`pwsh`)** starts faster than Windows PowerShell.
 
 ---
 
-# 🧠 Fastest Architecture (used by advanced bars)
+***# 🧠 Fastest Architecture (used by advanced bars)***
 
 Instead of querying GPU each refresh:
 
@@ -322,7 +322,7 @@ A small **C program (~20–30 KB)** will run **~100× faster than `powershell -c
 
 ---
 
-# 1️⃣ C program (prints GPU usage %)
+***# 1️⃣ C program (prints GPU usage %)***
 
 ```c
 #include <windows.h>
@@ -360,7 +360,7 @@ int main() {
 
 ---
 
-# 2️⃣ Compile it
+***# 2️⃣ Compile it***
 
 Using **GCC** (MinGW):
 
@@ -384,7 +384,7 @@ Size typically **20–40 KB**.
 
 ---
 
-# 3️⃣ Test in command line
+***# 3️⃣ Test in command line***
 
 ```cmd
 gpu.exe
@@ -410,7 +410,7 @@ PowerShell equivalent:
 
 ---
 
-# 4️⃣ Use in YASB config
+***# 4️⃣ Use in YASB config***
 
 ```yaml
 modules:
@@ -429,7 +429,7 @@ GPU 5.87 %
 
 ---
 
-# ⚡ Why this is fastest
+***# ⚡ Why this is fastest***
 
 No:
 
@@ -471,7 +471,7 @@ Below is a **correct version**.
 
 ---
 
-# Correct C Program (sum all GPU engines)
+***# Correct C Program (sum all GPU engines)***
 
 ```c
 #include <windows.h>
@@ -524,7 +524,7 @@ int main() {
             total += items[i].FmtValue.doubleValue;
         }
 
-        printf("%.2f %%\n", total);
+        printf("%.0f%%\n", total);
     }
 
     free(items);
@@ -534,7 +534,7 @@ int main() {
 
 ---
 
-# Compile
+***# Compile***
 
 Using **GCC**:
 
@@ -550,7 +550,7 @@ cl gpu.c pdh.lib
 
 ---
 
-# Run
+***# Run***
 
 ```cmd
 gpu.exe
@@ -564,7 +564,7 @@ Example:
 
 ---
 
-# Why this works
+***# Why this works***
 
 Windows exposes GPU usage per engine like:
 
@@ -590,7 +590,82 @@ Same method used internally by **Windows Task Manager**.
 * supports **Intel / AMD / NVIDIA**
 * avoids **>100% spikes** that naive summing causes.
 
-## YASB Status Bar GPU
+## ChatGPT: `translate this to yasb config folder path
+"D:\\scripts\\gpu.exe"`
+
+If you want to place `gpu.exe` inside your **YASB** config folder and reference it from the config, convert the path to the typical YASB config directory on Windows.
+
+***### Default YASB config path (Windows)***
+
+```
+C:\Users\<username>\.config\yasb\
+```
+
+***### Example folder structure***
+
+```
+C:\Users\<username>\.config\yasb\
+ ├─ config.yaml
+ └─ scripts\
+     └─ gpu.exe
+```
+
+***### YASB config example***
+
+```yaml
+widgets:
+  gpu:
+    type: custom
+    run_cmd: C:\Users\<username>\.config\yasb\scripts\gpu.exe
+```
+
+***### Or using environment variable (cleaner)***
+
+```yaml
+widgets:
+  gpu:
+    type: custom
+    run_cmd: "%USERPROFILE%\\.config\\yasb\\scripts\\gpu.exe"
+```
+
+***### If you want it __relative to the config folder__***
+
+YASB itself doesn’t automatically resolve relative paths, so you usually call it through `cmd`:
+
+```yaml
+widgets:
+  gpu:
+    type: custom
+    run_cmd: cmd /c "%USERPROFILE%\\.config\\yasb\\scripts\\gpu.exe"
+```
+
+---
+
+✅ **Simplest recommendation**
+
+Move the file:
+
+```
+D:\scripts\gpu.exe
+```
+
+to
+
+```
+C:\Users\<username>\.config\yasb\scripts\gpu.exe
+```
+
+and use:
+
+```yaml
+run_cmd: "%USERPROFILE%\\.config\\yasb\\scripts\\gpu.exe"
+```
+
+---
+
+If you want, I can also show a **clean GPU custom widget config for YASB** (with refresh interval and formatted output).
+
+## YASB Status Bar For GPU
 
 ```yaml
   gpu:
@@ -600,7 +675,8 @@ Same method used internally by **Windows Task Manager**.
       label_alt: "{data}"
       class_name: "system-widget"
       exec_options:
-        run_cmd: "C:\\tools\\gpu.exe"
+        #run_cmd: "C:\\tools\\gpu.exe"
+        run_cmd: "%USERPROFILE%\\.config\\yasb\\gpu.exe"
         run_interval: 1000 # run every 1 sec
         return_format: "string"
         hide_empty: false
@@ -618,7 +694,7 @@ The good news: you can reduce the wait to **~50 ms**, which is still very fast.
 
 ---
 
-# Correct fast version (single run, per-disk)
+***# Correct fast version (single run, per-disk)***
 
 ```c
 #include <windows.h>
@@ -714,6 +790,8 @@ int main() {
         for (int i = 0; i < diskCount; i++) {
             printf("D%d %.0f%% ", disks[i].disk, disks[i].value);
         }
+        printf("\n");
+        fflush(stdout);
     }
 
     free(items);
@@ -725,7 +803,7 @@ int main() {
 
 ---
 
-# Example Output
+***# Example Output***
 
 ```
 D0 3% D1 17% D2 0%
@@ -753,3 +831,20 @@ Execution time ≈ **50–60 ms**, which is still **10× faster than PowerShell 
 ---
 
 If you want, I can also show a **much more accurate Task-Manager-style implementation (~150 lines)** that uses the **`Avg. Disk Queue Length` + disk service time** counters to reproduce **Windows' exact disk activity algorithm**.
+
+## YASB Status Bar For Hard Disk Drive
+
+```yaml
+  hddisk:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "{data}"
+      label_alt: "{data}"
+      class_name: "system-widget"
+      exec_options:
+        #run_cmd: "C:\\tools\\disk.exe"
+        run_cmd: "%USERPROFILE%\\.config\\yasb\\disk.exe"
+        run_interval: 1000 # run every 1 sec
+        return_format: "string"
+        hide_empty: false
+```

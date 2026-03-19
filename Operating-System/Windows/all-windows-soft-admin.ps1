@@ -20,6 +20,8 @@ $VerbosePreference = "Continue"
 
 # https://scoop.sh/ => Portable Applications. Does not provide mouse right click context menu. Works on all systems like Official-Windows-7, 8, 8.1, 10, 11 or Windows-X-Lite without any dependency or issue.
 
+# Scoop app stores log, cache, database data into `C:\ProgramData\scoop\apps\{{app-name}}\current\portable_data` directory, but WinGet, Chocolatey and regular `.exe` app stores log, cache, database data into `C:\Users\{{user-name}}\AppData\Roaming\{{app-name}}` directory.
+
 $scoop_office_softwares = @(
     # main/winget
 
@@ -158,8 +160,10 @@ $scoop_home_softwares = @(
     "extras/guiscrcpy" # GUI for "main/scrcpy"
     "extras/ventoy"
     "extras/rufus"
+    "extras/kodi"
+    "extras/mediaelch"
     #-------GUI (End)-------
-        
+
     # Add: "kkzzhizhou_scoop-apps/4kvideodownloader"
     # Add: "kkzzhizhou_scoop-apps/open-video-downloader" # youtubedl-gui
     # Add: Piknik

@@ -16,6 +16,116 @@
 
 * Get Configuration: Start Yasb App -> Tray Icon -> Right Click -> Get Themes
 
+## YASB And Chezmoi
+
+### ChatGPT: "chezmoi dotfile manager track .exe file"
+
+Yes, **chezmoi** can track **`.exe` files**, but there are a few things to know.
+
+***## 1️⃣ Basic: Add the `.exe` normally***
+
+Chezmoi treats `.exe` like any other file.
+
+Example:
+
+```bash
+chezmoi add ~/.config/yasb/scripts/gpu.exe
+```
+
+This will store it in the chezmoi source directory, usually:
+
+```text
+~/.local/share/chezmoi/dot_config/yasb/scripts/gpu.exe
+```
+
+When you run:
+
+```bash
+chezmoi apply
+```
+
+it will recreate the file in:
+
+```text
+~/.config/yasb/scripts/gpu.exe
+```
+
+---
+
+***## 2️⃣ If the file is binary (recommended option)***
+
+Because `.exe` is a **binary**, you should store it as a **binary file without templating**.
+
+Add it like:
+
+```bash
+chezmoi add --binary ~/.config/yasb/scripts/gpu.exe
+```
+
+This prevents chezmoi from trying to treat it as a template.
+
+---
+
+***## 3️⃣ Check what chezmoi stored***
+
+Run:
+
+```bash
+chezmoi source-path ~/.config/yasb/scripts/gpu.exe
+```
+
+---
+
+***## 4️⃣ Git considerations***
+
+If your chezmoi repo is in **Git**, `.exe` files are fine but may increase repo size.
+Sometimes people instead:
+
+* download binaries during `chezmoi apply`
+* or store them in **GitHub releases**
+
+Example script:
+
+```bash
+chezmoi run_once_install_gpu_tool.sh
+```
+
+---
+
+***## 5️⃣ Typical YASB + chezmoi structure***
+
+For **YASB**:
+
+```
+~/.local/share/chezmoi/
+ └─ dot_config/
+     └─ yasb/
+         ├─ config.yaml
+         └─ scripts/
+             └─ gpu.exe
+```
+
+After `chezmoi apply`:
+
+```
+~/.config/yasb/
+ ├─ config.yaml
+ └─ scripts/
+     └─ gpu.exe
+```
+
+---
+
+✅ **Recommended command**
+
+```bash
+chezmoi add --binary ~/.config/yasb/scripts/gpu.exe
+```
+
+---
+
+If you want, I can also show a **very clean chezmoi layout for Windows + YASB + scripts**, which avoids path problems and keeps binaries organized.
+
 # Yasb.md
 
 ## Notes

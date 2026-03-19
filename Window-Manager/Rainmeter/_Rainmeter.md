@@ -159,10 +159,15 @@ This keeps the skins in the correct "Z order" when the Windows "Show Desktop" bu
 
 * {1}: [rainmeter.net](https://www.rainmeter.net/)
 * {2}: [rainmeter/rainmeter GitHub](https://github.com/rainmeter/rainmeter)
+
+**Rainmeter Skins**
+
+* [DeviantArt Rainmeter Skins](https://www.deviantart.com/rainmeter)
 * {3}: [visualskins.com => Rainmeter Skins](https://visualskins.com/)
 
-* Collection
-  * {4}: [asrma7/GlazeWMWorkspacesPlugin](https://github.com/asrma7/GlazeWMWorkspacesPlugin)
+**Collection**
+
+* {4}: [asrma7/GlazeWMWorkspacesPlugin](https://github.com/asrma7/GlazeWMWorkspacesPlugin)
 
 ## Error and Solution
 

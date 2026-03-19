@@ -1,9 +1,180 @@
+# Usage/Commands
+
+## Important
+
+* Kodi does not work properly (library update/scan), without `.nfo` files.
+
+* Kodi caches `.nfo` files and does not reflect changes. To solve this issue, go to `Settings -> Media -> Library -> Videos`, right click and remove items. Then add them again.
+
 # Kodi.md
 
 ## Notes
 
 * "Emby for Android TV" requires premium subscription for watching videos, "Emby for Kodi" addon bypasses this restriction.
 * When adding Emby media server address, check `http://` protocol.
+
+# `.nfo` Files
+
+## ChatGPT: "Kodi caches nfo files, how to clear them?"
+
+Yes ✅ — **Kodi DOES cache NFO data**, posters, fanart, and metadata in its database.
+Simply editing an `.nfo` file won’t update the library unless you clear or refresh the cache. 📚🧹
+
+Here are the correct ways (from safest → most aggressive):
+
+---
+
+***## 🟢 METHOD 1 — Refresh item (recommended)***
+
+For a single movie / music video:
+
+👉 Highlight item → Press **Info** → **Refresh**
+
+Kodi will:
+
+* Re-read the `.nfo`
+* Update artwork
+* Update metadata
+
+✅ Works if local NFO is enabled
+
+---
+
+***## 🟡 METHOD 2 — Remove from library + Clean***
+
+1. Delete or move the video file temporarily
+2. In Kodi:
+
+**Settings → Media → Library → Clean library**
+
+3. Put file back
+4. Scan again
+
+This forces Kodi to forget the old metadata. 🔄
+
+---
+
+***## 🟠 METHOD 3 — Force rescan ignoring cache***
+
+If using local NFOs:
+
+👉 Disable internet scraper temporarily
+
+For your source:
+
+**Change content → Information provider → Local information only**
+
+Then rescan. Kodi will use only your `.nfo`. 📄
+
+---
+
+***## 🔴 METHOD 4 — Delete Kodi texture cache (artwork cache)***
+
+Kodi stores thumbnails here:
+
+***### 🪟 Windows location***
+
+```
+C:\Users\<username>\AppData\Roaming\Kodi\userdata\Thumbnails
+```
+
+Database:
+
+```
+C:\Users\<username>\AppData\Roaming\Kodi\userdata\Database\Textures13.db
+```
+
+***### 🧹 How to clear***
+
+1. Exit Kodi completely ❌
+2. Delete:
+
+```
+Thumbnails folder
+Textures13.db
+```
+
+3. Start Kodi again
+
+Kodi will rebuild artwork cache automatically.
+
+---
+
+***## 🔥 METHOD 5 — Delete library database (FULL RESET)***
+
+⚠️ Only if metadata is completely wrong
+
+Delete video/music databases:
+
+```
+userdata\Database\
+MyVideosXXX.db
+MyMusicXXX.db
+```
+
+Restart Kodi → Rescan library
+
+---
+
+***## 🧠 IMPORTANT for Music Videos***
+
+Kodi Music Video library is extra picky:
+
+✔ NFO must match filename
+✔ Artwork naming must be correct
+✔ Artist folder structure matters
+
+Example:
+
+```
+Artist\
+   Song Title.mkv
+   Song Title.nfo
+   Song Title-thumb.jpg
+   fanart.jpg
+```
+
+---
+
+***## 🏆 BEST TOOL (Automatic cache cleaner)***
+
+Use the Kodi addon:
+
+👉 Texture Cache Maintenance Utility
+
+It can:
+
+✅ Remove old artwork
+✅ Re-cache images
+✅ Fix broken thumbnails
+✅ Clean database safely
+
+---
+
+***## 🚀 QUICK FIX (most effective combo)***
+
+If NFO edits aren’t updating:
+
+1️⃣ Remove item from library
+2️⃣ Clean library
+3️⃣ Delete Thumbnails + Textures DB
+4️⃣ Rescan source
+
+✔ Guaranteed fresh metadata
+
+---
+
+If you want, I can give you a **perfect Kodi setup for Movie Music Videos** 🎬 (you mentioned this earlier):
+
+✅ Correct folder structure
+✅ Perfect NFO template
+✅ Artwork naming that Kodi ALWAYS recognizes
+✅ yt-dlp command tailored for Kodi
+✅ No scraping errors
+
+Just say:
+
+👉 **“Kodi music video perfect structure”** 😎
 
 # Emby For Kodi
 
