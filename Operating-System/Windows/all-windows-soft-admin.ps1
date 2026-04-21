@@ -115,7 +115,6 @@ $scoop_office_softwares = @(
     "extras/freedownloadmanager"
     "extras/transmission"
     "extras/persepolis" # GUI for aria2
-    "extras/obs-studio"
     "extras/doublecmd"
     "extras/localsend"
     "extras/beebeep"
@@ -162,6 +161,9 @@ $scoop_home_softwares = @(
     "extras/rufus"
     "extras/kodi"
     "extras/mediaelch"
+    "extras/crystaldiskinfo"
+    "extras/crystaldiskmark"
+    "extras/varia"
     #-------GUI (End)-------
 
     # Add: "kkzzhizhou_scoop-apps/4kvideodownloader"
@@ -169,23 +171,26 @@ $scoop_home_softwares = @(
     # Add: Piknik
 )
 
-# https://chocolatey.org/ => Non-Portable Applications
+# https://chocolatey.org/ => Non-Portable Applications. Provides mouse right click context menu. Works on all systems like Official-Windows-7, 8, 8.1, 10, 11 or Windows-X-Lite without any dependency or issue.
 
 $chocolatey_office_softwares = @(
+    "rainmeter" # Right click plugin install and administrator privileges
     "files"
+    "mysql.workbench"
+    "obs-studio" # On scoop, does not auto install virtual camera module
 )
 
 $chocolatey_home_softwares = @(
     "fxsound"
     "strawberrymusicplayer"
-    "formatfactory"
+    #"formatfactory"
 )
 
-# https://winstall.app/ => Non-Portable Applications
+# https://winstall.app/ => Non-Portable Applications. Provides mouse right click context menu. Works on Windows-10, 11. Applications from official publishers.
 
 $winget_office_softwares = @(
-    "Tailscale.Tailscale"
-    "RustDesk.RustDesk"
+    "Tailscale.Tailscale" # Server based app
+    "RustDesk.RustDesk" # Server based app
     "9WZDNCRDXF41" # Character Map UWP for "YASB" from "https://github.com/character-map-uwp/Character-Map-UWP"
     "OmicronLab.Avro"
     "Google.Chrome"
@@ -194,7 +199,6 @@ $winget_office_softwares = @(
     "Mozilla.Thunderbird"
     "wez.wezterm"
     "Microsoft.WindowsTerminal"
-    "Oracle.MySQLWorkbench"
     "Oracle.VirtualBox"
     "Hashicorp.Vagrant"
     "HTTPie.HTTPie"
@@ -203,11 +207,8 @@ $winget_office_softwares = @(
 )
 
 $winget_home_softwares = @(
-    "Navidrome.Navidrome"
+    "Navidrome.Navidrome" # Server based app
     "IDRIX.VeraCrypt"
-    "CrystalDewWorld.CrystalDiskInfo"
-    "CrystalDewWorld.CrystalDiskMark"
-    "GiantPinkRobots.Varia"
     #"BlueStack.BlueStacks"
 )
 

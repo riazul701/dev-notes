@@ -2,9 +2,17 @@
 
 ## Important
 
+**`.nfo` files**
+
 * Kodi does not work properly (library update/scan), without `.nfo` files.
 
 * Kodi caches `.nfo` files and does not reflect changes. To solve this issue, go to `Settings -> Media -> Library -> Videos`, right click and remove items. Then add them again.
+
+**Unsupported Video**
+
+* Kodi does not play all video files, because it depends on hardware's built-in codec support. Use VLC instead, it plays all video files.
+
+* Use VLC as external player (Advanced Manual Setup). 
 
 # Kodi.md
 

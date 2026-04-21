@@ -2,7 +2,7 @@
 
 ## PATH
 
-* Navidrome Config Location: `C:\Program Files\Navidrome`
+* Navidrome config location, when installed via winget, chocolatey: `C:\Program Files\Navidrome`
 
 ## Notes
 

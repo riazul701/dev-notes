@@ -359,6 +359,8 @@
 
 ## Monitor's Rotating Base Plate
 
+* IMPORTANT: MIDDLE SCREW BOLT OF THREE MUST BE TIGHTLY FIXED, FOR TWO SIDE SCREWS PROPERLY ATTACHING TO BOLT.
+
 * Place one 4 inch bearing between two circular shaped iron plates. Attach/weild thin square bar with bearing and plates to support the structure.
 
 * ROTATION GUARD: On lower plate create guards after 2/3/4 inches. On upper plate make a hole and insert a screw. When upper plate rotates more than 4 inches, then it will stop/stuck at guard.

@@ -83,6 +83,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
     * [gdoc2md.com](https://gdoc2md.com/) || [Mr0grog/google-docs-to-markdown GitHub](https://github.com/mr0grog/google-docs-to-markdown)
   * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
     * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
+  * [ilovepdf.com => Split, merge, compress, convert pdf file](https://www.ilovepdf.com/)
   * YouTube
     * [yt1z.net => YouTube Video Downloader](https://yt1z.net/)
     * [yt5s.biz => YouTube Video Downloader](https://yt5s.biz/enxj100/)
@@ -423,6 +424,7 @@ for Android](https://github.com/Kunzisoft/KeePassDX) || [KeePassDX Site](https:/
     * [gdoc2md.com](https://gdoc2md.com/) || [Mr0grog/google-docs-to-markdown GitHub](https://github.com/mr0grog/google-docs-to-markdown)
   * [pdf2go.com => Read PDF with Unicode/Bengali](https://www.pdf2go.com/)
     * [pdf2go.com/pdf-to-text](https://www.pdf2go.com/pdf-to-text)
+  * [ilovepdf.com => Split, merge, compress, convert pdf file](https://www.ilovepdf.com/)
   * [CollaboraOnline/online => LibreOffice technology](https://github.com/CollaboraOnline/online)
   * [photopea/photopea => Online image editor](https://github.com/photopea/photopea)
   * YouTube

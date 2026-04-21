@@ -1,5 +1,35 @@
 # Important
 
+## `Alt` Key Conflicts With Program's Menu
+
+**ChatGPT: "komorebi+whkd's alt shortcut conflict with program's menu"**
+
+* This is a pretty common friction point when using komorebi with whkd—especially around Alt-based shortcuts.
+
+* Why the conflict happens
+  * Many Windows apps use Alt to activate menu accelerators (e.g., Alt+F, Alt+E).
+  * `whkd` captures keybindings globally.
+  * If you bind something like `alt + h/j/k/l` or `alt + enter`, it can override or block app menu behavior.
+
+* Ways to fix or avoid Alt conflicts
+
+* Switch to a different modifier (recommended)
+
+* Instead of `Alt`, use:
+  * `super` (Windows key)
+  * `ctrl + alt`
+  * `alt + shift`
+
+* 👉 Example:
+```shell
+super + h : komorebic focus left
+super + l : komorebic focus right
+```
+
+* This avoids interfering with app menus entirely.
+
+## Graphics
+
 * `Ctrl + Alt + Left/Up/Right/Down-Arrow` changes display orientation/direction.
   * To turn it off goto Desktop -> Right Click -> Graphics Options -> Hot Keys -> Disable
 
