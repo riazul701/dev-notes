@@ -1,6 +1,14 @@
 # Mini-Package.md
 
-## Safety
+# Features
+
+## Like IPS, Auto On When Electricity Off, Auto Off When Electricity On
+
+* Relay-based automatic switching (very reliable)
+
+# Safety
+
+## General
 
 **12 Volt UPS Battery**
 
@@ -20,7 +28,44 @@
   * A 12 V 5 A DC-DC converter
   * A 5–10 A inline fuse and holder
 
-* Always install a fuse near the battery
+* **Always install a fuse near the battery**
+
+* **Use thick wires**
+
+## Charger Capacity Of Battery (12 Volt)
+
+* If load is connected directly while charging:
+  * Some chargers cannot supply load + charge simultaneously
+  * Voltage may fluctuate
+
+## Battery (12 Volt) Needs Ventilation
+
+* Battery needs ventilation—don’t keep it in a sealed box.
+
+## Battery (12 Volt) Protection (Over-Charge) (Built-In Inside Charger)
+
+* Choose correct "Ampere" charger, so that it can charge battery and run fan, light at the same time.
+
+* Protection: Overload, Short-Circuit, Overheat, Reverse Polarity
+
+* Float charger keeps safe voltage. Increases battery life.
+
+* “smart charger” actually uses stage charging.
+
+* Both charger will work, but 6 A charger is safer and healthier for 12 V 9 Ah sealed/dry lead-acid battery than 10 A charger.
+
+* Avoid:
+  * Cheap “Auto-cut only” chargers without float
+  * Very thin wires
+  * Running battery to full drain daily
+
+* [12V 6A Smart Battery Charger with Digital Display | Auto-Cut HW631 Module for Dry, Lithium & Lead Acid Batteries](https://dipalok.com/product/12v-6a-smart-battery-charger-with-digital-display-auto-cut-hw631-module-for-dry-lithium-lead-acid-batteries/)
+
+* [12V 6A Digital Fast Battery Charger with LCD Display | Wet & Dry Lead Acid Battery](https://www.electronics.com.bd/12v-6a-digital-fast-battery-charger-with-lcd-display-wet-dry-lead-acid-battery)
+
+## Battery (12 Volt) Over-Discharge Protection
+
+* [XH-M609 DC 12V-36V Charger Module Voltage OverDischarge Battery Protection Precise Undervoltage Board M209](https://www.daraz.com.bd/products/xh-m609-dc-12v-36v-m209-i551066371.html)
 
 ## Notes
 
@@ -44,6 +89,15 @@
 
 ## Products
 
+**Mini IPS - 12 Volt DC**
+
+* Beware that, this mini IPS are using 2nd hand battery, which only lasts about 2 months.
+
+* [Modhumoti Mini DC Output IPS](https://bdpromart.com/product-show/181)
+
+**Fan**
+
+* [Walton Car Fan](https://waltonbd.com/fan/car-fan/wcrf08a)
 * [NOHA 12 Inch 5W 12V Solar DC Table Fan At Best Price In Bangladesh](https://www.techxzon.com/product/noha-12-inch-5w-12v-solar-dc-table-fan-at-best-price-in-bangladesh/)
 * [NOHA 16 Inch 7W 12V Solar DC Table Fan At Best Price In Bangladesh](https://www.techxzon.com/product/noha-16-inch-7w-12v-solar-dc-table-fan-at-best-price-in-bangladesh/)
 * [Vision DC Table Fan -12" (Use With Only Battery 12Volt)](https://othoba.com/vision-dc-table-fan-12-use-with-onlybattery12volt-268277)

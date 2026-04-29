@@ -72,10 +72,124 @@ $ sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/
 
 ## Windows-OS WSL
 
-### Guides
-* [How to use Docker on Windows 10 (without Docker Desktop) - Worked](https://medium.com/@pawelmarcinkiewicz/how-to-use-docker-on-windows-10-without-docker-desktop-548b39738268)
-* [Install Docker in WSL 2 without Docker Desktop](https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop)
-* [How To Live Without Docker Desktop — A Developer’s Perspective](https://www.objectivity.co.uk/blog/how-to-live-without-docker-desktop-developers-perspective/)
+> Install Instruction: 
+> 
+> [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+* Set up Docker's apt repository.
+```shell
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+* Install the Docker packages. To install the latest version, run:
+```shell
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+* Note
+  * After installation, verify that Docker is running: `sudo systemctl status docker` || `sudo service docker status`
+  * If Docker is not running, start it manually: `sudo systemctl start docker` || `sudo service docker start`
+
+* Verify that the installation is successful by running the hello-world image: `sudo docker run hello-world`
+
+> ChatGPT Question:
+> 
+> Docker is only compatible with iptables-nft and iptables-legacy.
+> Firewall rules created with nft are not supported on a system with Docker installed.
+> Make sure that any firewall rulesets you use are created with iptables or ip6tables, 
+> and that you add them to the DOCKER-USER chain, see Packet filtering and firewalls.
+> 
+> What is solution for Ubunut-24.04 WSL. Keep it short and workable.
+
+On **Ubuntu 24.04 in WSL**, your issue is coming from the **nftables backend being active**, which breaks Docker networking.
+
+You need to force **iptables-legacy** (not nft).
+
+---
+
+***# ✅ Working fix (short & reliable)***
+
+***## 1. Switch iptables to legacy***
+
+```bash
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+```
+
+---
+
+***## 2. Verify (must NOT show nft)***
+
+```bash
+iptables --version
+```
+
+✔ Should show: `legacy`
+❌ If it shows `nf_tables`, Docker will break
+
+---
+
+***## 3. Restart WSL completely (important)***
+
+From Windows PowerShell:
+
+```powershell
+wsl --shutdown
+```
+
+Reopen Ubuntu.
+
+---
+
+***## 4. Start Docker again***
+
+```bash
+sudo dockerd
+```
+
+---
+
+***# 🚀 If still broken (fast fallback)***
+
+Use Docker Desktop (recommended for WSL):
+
+Docker Desktop
+Enable:
+
+* Settings → WSL Integration → Ubuntu 24.04
+
+Then just run:
+
+```bash
+docker ps
+```
+
+---
+
+***# 🧠 One-line root cause***
+
+Ubuntu 24.04 uses **nftables by default**, but Docker in WSL requires **legacy iptables**.
+
+---
+
+If you want, I can give you a **one-command permanent fix script** that locks this setting forever in WSL.
 
 # Configuration
 
@@ -139,11 +253,20 @@ $ sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/
 
 ## Tutorials
 
-* Docker Tutorial Series
-  * [Install Docker and Learn Basic Container Manipulation in CentOS and RHEL 8/7 – Part 1](https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/)
-  * [How to Install, Run and Delete Applications Inside Docker Containers – Part 2](https://www.tecmint.com/install-run-and-delete-applications-inside-docker-containers/)
-  * [How to Automatically Build and Configure Custom Docker Images with Dockerfile – Part 3](https://www.tecmint.com/build-and-configure-docker-container-images-with-dockerfile/)
-  * [ctop – Top-like Interface for Monitoring Docker Containers](https://www.tecmint.com/ctop-monitor-docker-containers/)
+**Docker Tutorial Series**
+
+* [Install Docker and Learn Basic Container Manipulation in CentOS and RHEL 8/7 – Part 1](https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/)
+* [How to Install, Run and Delete Applications Inside Docker Containers – Part 2](https://www.tecmint.com/install-run-and-delete-applications-inside-docker-containers/)
+* [How to Automatically Build and Configure Custom Docker Images with Dockerfile – Part 3](https://www.tecmint.com/build-and-configure-docker-container-images-with-dockerfile/)
+* [ctop – Top-like Interface for Monitoring Docker Containers](https://www.tecmint.com/ctop-monitor-docker-containers/)
+
+## Guides
+
+**Install Docker On Windows-WSL**
+
+* [How to use Docker on Windows 10 (without Docker Desktop)](https://medium.com/@pawelmarcinkiewicz/how-to-use-docker-on-windows-10-without-docker-desktop-548b39738268)
+* [Install Docker in WSL 2 without Docker Desktop](https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop)
+* [How To Live Without Docker Desktop — A Developer’s Perspective](https://www.objectivity.co.uk/blog/how-to-live-without-docker-desktop-developers-perspective/)
 
 ## YouTube Tutorials
 
