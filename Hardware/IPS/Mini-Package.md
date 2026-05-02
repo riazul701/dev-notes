@@ -45,10 +45,11 @@
 ## Battery (12 Volt) Protection (Over-Charge) (Built-In Inside Charger)
 
 * Choose correct "Ampere" charger, so that it can charge battery and run fan, light at the same time.
+  * 12 volt 7.5 AH dry lead acid battery needs 2 Ampere charger.
 
 * Protection: Overload, Short-Circuit, Overheat, Reverse Polarity
 
-* Float charger keeps safe voltage. Increases battery life.
+* Float (battery maintenance mode) charger keeps safe voltage. Increases battery life.
 
 * “smart charger” actually uses stage charging.
 
@@ -86,8 +87,13 @@
 
 * [ssgeshop.com => DC current Fan, Light](https://ssgeshop.com/)
 * [safebdes.com => DC current Fan, Light](https://safebdes.com/)
+* [aniktelecom.com](https://aniktelecom.com/)
 
 ## Products
+
+**Charger**
+
+* [12V 6A Smart Battery Charger with Digital Display | Auto-Cut HW631 Module for Dry, Lithium & Lead Acid Batteries](https://dipalok.com/product/12v-6a-smart-battery-charger-with-digital-display-auto-cut-hw631-module-for-dry-lithium-lead-acid-batteries/)
 
 **Mini IPS - 12 Volt DC**
 
@@ -97,6 +103,9 @@
 
 **Fan**
 
+* [LAVA 8 Inch DC Solar Table Fan | Table Stand + Clip 2-in-1 | 12V Portable Fan for Home & Outdoor => Run silently without noise](https://biswasent.com/product/lava-8-inch-dc-solar-table-fan/)
+* [Anik Table Fan, Desktop Fan, 12 Volt DC Battery Operated Fan, Model Dabai](https://www.daraz.com.bd/products/12-dc-i311620622-s1398874878.html)
+  * [Anik 220 Volt Ac Fan, Fan, Table Fan, Desktop Fan, Home Appliance, Summer Cooling Fan - Table Fan](https://www.daraz.com.bd/products/220-i416498822-s2047491739.html)
 * [Walton Car Fan](https://waltonbd.com/fan/car-fan/wcrf08a)
 * [NOHA 12 Inch 5W 12V Solar DC Table Fan At Best Price In Bangladesh](https://www.techxzon.com/product/noha-12-inch-5w-12v-solar-dc-table-fan-at-best-price-in-bangladesh/)
 * [NOHA 16 Inch 7W 12V Solar DC Table Fan At Best Price In Bangladesh](https://www.techxzon.com/product/noha-16-inch-7w-12v-solar-dc-table-fan-at-best-price-in-bangladesh/)
@@ -107,3 +116,12 @@
 * UPS Battery + Charger + DC Fan/Light
   * [ব্যাটারি দিয়ে ফ্যান বানান ব্যাকআপ পাবেন ২৪ ঘণ্টা | How to make Solar/charger FAN at Home BY Signal Mastar Diy](https://www.youtube.com/watch?v=8rYsVnm228k)
   * [ব্যাটারি দিয়ে ফ্যান বানান ব্যাটারি ব্যাকআপ পাবেন ৮/১০ ঘন্টা | Home Made Charger Fan | Solar BY E Tech Home](https://www.youtube.com/watch?v=Am8_a8nlBp4)
+
+**DIY Mini DC IPS**
+
+* [আইপিএস মাত্র ৩৯৯০টাকায় DC 12v IPS Set with Light Fan onu-Router Cable only 3990tk BY Sheetal Room](https://www.youtube.com/watch?v=MYACfMASd6c)
+* [How to make 12.Volt DC mini ips at home কিভাবে একটি মিনি আইপিএস বানাবেন। Ips Price In Bangladesh BY Power Solution](https://www.youtube.com/watch?v=Ekq26Eh3s5E)
+
+**DIY Charger Fan**
+
+* [How to make 9 inchi High speed rechargeable fan | নিজেই তৈরি করুন হাই স্পিড রিচার্জেবল ফ্যান। BY Signal Mastar Diy](https://www.youtube.com/watch?v=fZQpYB956zE)
