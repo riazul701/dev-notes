@@ -1,5 +1,11 @@
 # Remotely-On-Off-PC.md
 
+## Safety
+
+* UPS Power Button Fluctuate
+  * Do Not Use Computer's Motherboard's "Restore AC Power Loss" Function With UPS.
+  * Instead Use WiFi Switch.
+
 ## Notes
 
 * Laptops don’t power on automatically when AC power is restored, unlike desktop PCs.

@@ -3,6 +3,7 @@
 ## Websites
 
 * [aptpowers.com => IPS Price in BD](https://aptpowers.com/)
+* [tahaeshop.com](https://www.tahaeshop.com/public/index.php)
 
 ## Notes
 

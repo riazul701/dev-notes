@@ -1,5 +1,13 @@
 # Carry_Monitor_MiniPC_Laptop_In_Briefcase.md
 
+## Monitor Stand Tilt Solution
+
+* Distance From Wall To Monitor Is About 4 Inches. Plus Vertical Stand 1 or 0.5 Inch.
+
+* Tilt Supported Wall Mount Products
+  * [Zeno S510 10-32 Inch LCD/LED/PLASMA TV Wall Mount Bracket](https://www.ryans.com/zeno-s510-10-32-inch-tv-wall-mount-bracket)
+  * [LED/LCD TV Monitor Wall Mount 14”-24”](https://www.daraz.com.bd/products/ledlcd-tv-monitor-wall-mount-14-24-i130790624.html)
+
 ## Carry And Use Mini-PC And Monitor Like Laptop In Briefcase
 
 * Generally Use This Mini-PC As Media Server, When Not Travelling.

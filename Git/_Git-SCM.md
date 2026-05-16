@@ -1,5 +1,34 @@
 # Commands/Usage
 
+## PATH
+
+### In Git-Bash Windows, Add Bash To PATH 
+
+**ChatGPT: "git found on PATH, but bash not found."**
+
+* Git-Bash is installed via `scoop` package manager.
+
+* `git` command is added to PATH, but `bash` is not added intentionally.
+  * Important note (why this happens)
+  * Scoop mainly exposes:
+    * `git.exe` via shims (good for CLI usage)
+    * but does NOT always shim `bash.exe`, because it’s considered an internal tool of Git for Windows
+    * So `git` works, but `bash` is not automatically global.
+
+* `scoop prefix git` (Inside PowerShell) : First confirm where Git Bash actually is. Then check inside that folder.
+  * Typical path: `C:\Users\<you>\scoop\apps\git\current\usr\bin\bash.exe`
+  * `dir "$(scoop prefix git)\usr\bin\bash.exe"` (Inside PowerShell) : Now verify. If that file exists → Bash is installed, just not in PATH.
+
+* `& "$(scoop prefix git)\usr\bin\bash.exe"` (Inside PowerShell) : Use full path once. You can launch it directly. If this works, your issue is 100% PATH exposure, not missing install.
+
+* `$env:Path += ";$(scoop prefix git)\usr\bin"` (Inside PowerShell) : Temporary (current session only).
+  * `bash --version` (Inside PowerShell) : Now test
+
+* `setx PATH "$env:PATH;$(scoop prefix git)\usr\bin"` (Inside PowerShell) : Permanent fix (recommended). Then restart terminal.
+  * `bash --version` (Inside PowerShell) : Verify after terminal restart.
+
+* `bash` (Inside PowerShell) : Enter into `bash` shell.
+
 ## Git-Credential-Manager (GCM)
 
 * Shows installation path: `which git-credential-manager`

@@ -1,4 +1,22 @@
+# Commands/Usage
+
+## SMB Mount On Linux
+
+* Command Format: `sudo mount -t cifs //WINDOWS_IP/ShareName /mnt/smb -o username=winuser,password=winpass,uid=1000,gid=1000,iocharset=utf8,file_mode=0777,dir_mode=0777`
+
+* Example: `sudo mount -t cifs //WINDOWS_IP/ShareName /mnt/smb -o username=winuser,password=winpass,uid=1000,gid=1000,iocharset=utf8,file_mode=0777,dir_mode=0777`
+
 # Docker-Inside-VirtualBox.md
+
+# SMB Access
+
+## Double-Commander
+
+* On drive selection click `\\` icon -> on main window enter to `Network`.
+
+## MuCommander File Manager SMB
+
+* Go to address bar and type: `smb://{{computer-name}}` . Get `computer-name` by opening "This PC" -> Right Click -> "Computer name"
 
 # VirtualBox Docker Windows
 
