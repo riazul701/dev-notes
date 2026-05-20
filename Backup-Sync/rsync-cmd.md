@@ -9,8 +9,14 @@
 # Contents of Rsync.md
 
 ## Websites
+
 * [Rsync Site](https://rsync.samba.org/)
+* [RsyncProject/rsync GitHub](https://github.com/RsyncProject/rsync)
 * [Grsync](http://www.opbyte.it/grsync/)
+* [rsync Git-Bash or MSYS2 package for Windows-OS](https://packages.msys2.org/packages/rsync)
+  * Install with `pacman -S rsync` command
+* [itefixnet/cwrsync-client GitHub for Window-OS inside Cygwin](https://github.com/itefixnet/cwrsync-client)
+  * Git-Bash or MSYS2 is better than Cygwin
 
 # Installation
 

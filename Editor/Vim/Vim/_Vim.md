@@ -1,6 +1,12 @@
-# Commands
+# Commands/Usage
+
+## Important
+
+* Turn off `vi` compatible mode in `vim`. Because in `vi` compatible mode, many `vim` features do not work.
 
 * `sudo apt install vim` : In many Linux distribution, "vim-tiny" is installed by default. Which does not have `vimtutor` command and online-manual. Install full `vim` with this command.
+
+* Run Vim in Verbose/Debug mode: `vim -V9vim.log`
 
 # Vim.md
 
@@ -18,9 +24,6 @@
   * [vim-adventures.com](https://vim-adventures.com/)
 
 ## Notes
-
-* Run Vim in Verbose/Debug mode: `vim -V9vim.log`
-* Turn off `vi` compatible mode in `vim`
 
 ## Interactive Search and Replace
 

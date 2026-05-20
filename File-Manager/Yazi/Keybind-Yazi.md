@@ -24,9 +24,11 @@
 * `g ⇒ c` : Goto ~/.config
 * `g ⇒ d` : Goto ~/Downloads
 * `g ⇒ <Space>` : Jump interactively [Press `<Tab>` key to fill from auto-completion]
+  * On Windows-OS, go to another drive: `c:/`, `d:/`
 * `G` : Move cursor to the bottom
-* `z` : Jump to a directory using zoxide
-* `Z` : Jump to a directory or reveal a file using fzf
+* `Z` : Jump to a directory using zoxide
+* `z` : Jump to a directory or reveal a file using fzf
+  * Press `<Esc>` to back to Yazi
 
 ## Selection
 
@@ -173,12 +175,12 @@
 * `<C-s>` => `escape --search` : Cancel the ongoing search
 * `z` => `plugin fzf` : Jump to file/directory via fzf
 * `Z` => `plugin zoxide` : Jump to a directory via zoxide
-* `ms` => `linemode size` : Linemode: size
-* `mp` => `linemode permissions` : Linemode: permissions
-* `mb` => `linemode btime` : Linemode: btime
-* `mm` => `linemode mtime` : Linemode: mtime
-* `mo` => `linemode owner` : Linemode: owner
-* `mn` => `linemode none` : Linemode: none
+* (+) `ms` => `linemode size` : Linemode: size
+* (+) `mp` => `linemode permissions` : Linemode: permissions
+* (+) `mb` => `linemode btime` : Linemode: btime
+* (+) `mm` => `linemode mtime` : Linemode: mtime
+* (+) `mo` => `linemode owner` : Linemode: owner
+* (+) `mn` => `linemode none` : Linemode: none
 * `cc` => `copy path` : Copy the file path
 * `cd` => `copy dirname` : Copy the directory path
 * `cf` => `copy filename` : Copy the filename

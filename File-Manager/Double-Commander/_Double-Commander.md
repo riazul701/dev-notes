@@ -1,5 +1,11 @@
 # Double-Commander.md
 
+## PATH
+
+* Keyboard Shortcut File PATH: `C:\ProgramData\scoop\apps\doublecmd\current\settings\shortcuts.scf`
+  * First, make a backup of this file.
+  * Change this file to make `vifm` or `vim` like keyboard shortcuts.
+
 ## Notes
 
 * If `doublecmd-gtk` freezes on Fedora-42-LXDE, install `doublecmd-qt`
@@ -175,6 +181,11 @@ QT_SCALE_FACTOR=1.5 doublecmd-qt
 * {4} [Plugins](https://github.com/doublecmd/doublecmd/wiki/Plugins)
 * {5} [j2969719/doublecmd-plugins GitHub](https://github.com/j2969719/doublecmd-plugins)
 * {6} [ivanenko/cloud_storage GitHub](https://github.com/ivanenko/cloud_storage)
+
+* Key-Remap For Double-Commander
+  * Because double-commander does not support hotkey like `gg`, which is used in vifm/yazi/vim. Choose application specific key-remapper.
+  * [AutoHotkey/AutoHotkey GitHub => Only Windows-OS, app specific](https://github.com/autohotkey/autohotkey)
+  * [xremap/xremap GitHub => Only Linux-OS, app specific](https://github.com/xremap/xremap)
 
 ## Tutorials
 

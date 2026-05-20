@@ -36,8 +36,8 @@
 
 **Understanding fzf**
 
-* `ls | fzf | wc` : Word count of selected file
-* `find * | fzf | md5sum` : Calculate `md5sum` of selected file
+* `ls | fzf | xargs wc` : Word count of selected file
+* `find * | fzf | xargs md5sum` : Calculate `md5sum` of selected file
 * `git ls-files | fzf | xargs git log` : Show `git log` associated with selected file
 * `ps -ef | sed 1d | fzf | awk '{print $2}' | xargs kill` : Kill selected process
 
@@ -316,6 +316,7 @@ $FZF_DEFAULT_OPTS: height required: HEIGHT
 * Fzf command-line fuzzy finder
   * {7} [junegunn.github.io/fzf](https://junegunn.github.io/fzf/)
   * {8} [junegunn/fzf GitHub](https://github.com/junegunn/fzf/)
+  * [junegunn/everything.fzf GitHub](https://github.com/junegunn/everything.fzf)
   * {32} [kelleyma49/PSFzf => A PowerShell wrapper around the fuzzy finder fzf](https://github.com/kelleyma49/PSFzf)
 
 * Associated Packages
@@ -325,6 +326,8 @@ $FZF_DEFAULT_OPTS: height required: HEIGHT
   * {27} [phiresky/ripgrep-all GitHub => rga: ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.](https://github.com/phiresky/ripgrep-all)
   * {23} [dandavison/delta GitHub => A syntax-highlighting pager for git, diff, grep, and blame output](https://github.com/dandavison/delta)
   * {24} [ajeetdsouza/zoxide GitHub => A smarter cd command](https://github.com/ajeetdsouza/zoxide)
+  * [rupa/z GitHub](https://github.com/rupa/z)
+  * [wting/autojump GitHub](https://github.com/wting/autojump)
 
 * Shell
   * {9} [lincheney/fzf-tab-completion GitHub => Tab completion using fzf](https://github.com/lincheney/fzf-tab-completion)
@@ -339,6 +342,7 @@ $FZF_DEFAULT_OPTS: height required: HEIGHT
   * {14} [junegunn/fzf-git.sh GitHub => bash and zsh key bindings for Git objects, powered by fzf](https://github.com/junegunn/fzf-git.sh)
 
 * Vim/VSCode
+  * [junegunn/vim-plug GitHub](https://github.com/junegunn/vim-plug)
   * {15} [junegunn/fzf.vim GitHub](https://github.com/junegunn/fzf.vim)
   * {16} [tomrijndorp/vscode-finditfaster GitHub => Find it, but faster! Fast file search for VS Code](https://github.com/tomrijndorp/vscode-finditfaster)
 

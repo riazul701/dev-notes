@@ -49,7 +49,7 @@ $scoop_office_softwares = @(
     "main/nodejs" # For Lunarvim
     "main/rust" # For Lunarvim
     "main/gcc" # For Lunarvim
-    "main/ripgrep" # For Lunarvim
+    "main/ripgrep" # For Lunarvim, Yazi
     "main/php" # For Lunarvim
     "main/composer" # For Lunarvim (Optional)
     "main/lua" # For Lunarvim (Optional)
@@ -60,6 +60,7 @@ $scoop_office_softwares = @(
     "main/poppler" # For Yazi
     "main/fzf" # For Yazi
     "main/zoxide" # For Yazi
+    "main/resvg" # For Yazi
     "main/imagemagick" # For Yazi
     "main/yazi"
     "main/vim"

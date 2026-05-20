@@ -2,6 +2,9 @@
 
 ## Websites
 
+* General
+  * [terminaldock.com => The terminal ecosystem, curated](https://terminaldock.com/)
+
 * Tutorial
   * [paololazzari/play GitHub](https://github.com/paololazzari/play)
   * [learnbyexample/Command-line-text-processing GitHub](https://github.com/learnbyexample/Command-line-text-processing)

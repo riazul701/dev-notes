@@ -3,6 +3,8 @@
 ## Notes & Paths
 
 * Notes
+  * Press `<Esc>` or `q` to escape from various situation.
+  * Press `<Tab>` for command (`:` mode) auto-completion.
   * Image/Video preview cache is stored in `/home/{{user-name}}/.cache/vifm` path.
   * Trash directory path: `/home/{{user-name}}/.local/share/vifm/Trash`
   * `:view` : Enter/Exit into view mode.
@@ -16,6 +18,17 @@
 * {20} [Tutorial Manual](https://wiki.vifm.info/index.php/Manual)
 * {21} [Manual](https://vifm.info/manual.shtml)
 * {22} [Vifm Doc](https://vifm.info/vimdoc.shtml)
+
+* Vifm: 3 View Types
+  * Default dual-pane view
+    * `:view` : Return to normal view
+  * lsview like `ls -l` command
+    * `:set lsview` : Turn ON `lsview`
+    * `:set nolsview` : Turn OFF `lsview`
+    * `:set invlsview` : Toggle `lsview`
+  * Tree view
+    * `:tree` : Turn ON tree view
+    * `:tree!` : Turn OFF tree view
 
 * TODO Later
   * Commands

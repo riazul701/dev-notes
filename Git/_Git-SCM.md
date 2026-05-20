@@ -1,5 +1,22 @@
 # Commands/Usage
 
+## Pager, Difftool, Mergetool
+
+* Use `delta` as pager
+```gitconfig
+[core]
+    pager = delta
+```
+
+* Use `vimdiff` as difftool/mergetool
+```gitconfig
+[diff]
+    tool = vimdiff
+
+[merge]
+    tool = vimdiff
+```
+
 ## PATH
 
 ### In Git-Bash Windows, Add Bash To PATH 
