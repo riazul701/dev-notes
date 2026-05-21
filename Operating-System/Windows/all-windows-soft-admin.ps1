@@ -203,6 +203,7 @@ $winget_office_softwares = @(
     "Oracle.VirtualBox"
     "Hashicorp.Vagrant"
     "HTTPie.HTTPie"
+    "AutoHotkey.AutoHotkey" # For Double-Commander
     "TwibrightLabs.Links" # Links WWW Browser
     "Dropbox.Dropbox" 
 )
