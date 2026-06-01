@@ -25,9 +25,9 @@
 * Workarounds for Android TV Playback
   * Kodi + Subsonic Addon: Install Kodi on Android TV and then the Subsonic plugin to stream from your Navidrome server. This gives a more TV-friendly UI and remote navigation.
 
-## Local Audio Players
+# Local Audio Players
 
-**Strawberry (Windows, Linux - Local) {Selected}**
+## Strawberry (Windows, Linux - Local) {Selected}
 
 * [strawberrymusicplayer.org](https://www.strawberrymusicplayer.org/)
 * [strawberrymusicplayer/strawberry GitHub](https://github.com/strawberrymusicplayer/strawberry)
@@ -36,30 +36,35 @@
 * Get dark/light theme from operating system's installed theme. Windows and Linux OS works.
 * Windows version is paid. Install from chocolatey package manager.
 
-**Clementine (Computer - Local)**
+## Clementine (Computer - Local)
 
 * [clementine-player.org](https://www.clementine-player.org/)
 * [clementine-player/Clementine GitHub](https://github.com/clementine-player/Clementine)
 
-**AIMP (Android - Local/SMB) {Selected}**
+## AIMP (Android - Local/SMB) {Selected}
 
 * [aimp.ru](https://aimp.ru/)
 * [AIMP BY Artem Izmaylov](https://play.google.com/store/apps/details?id=com.aimp.player)
 
 * Android ".apk" size 6.6 MB
 
-**Samba Network Music Player (Android - SMB)**
+## Samba Network Music Player (Android - SMB)
 
 * [Samba Network Music Player BY 3Cats Software](https://play.google.com/store/apps/details?id=com.threecats.sambaplayer)
 * [reddit.com/r/SambaPlayer](https://www.reddit.com/r/SambaPlayer/)
 
-## Navidrome Clients
+# Navidrome Clients
 
-**Supersonic (Windows, Linux - Navidrome) {Selected}**
+## Supersonic (Windows, Linux - GUI) {Selected}
 
-* [dweymouth/supersonic GitHub => Windows, Linux](https://github.com/dweymouth/supersonic)
+* [dweymouth/supersonic GitHub => Windows, Linux GUI](https://github.com/dweymouth/supersonic)
 
-**Tempus (Android Mobile - Navidrome) {Selected}**
+## CLIAMP (Windows, Linux - TUI) {Selected}
+
+* [cliamp.stream => Windows, Linux TUI](https://www.cliamp.stream/)
+* [bjarneo/cliamp GitHub](https://github.com/bjarneo/cliamp)
+
+## Tempus (Android Mobile) {Selected}
 
 * [eddyizm/tempus GitHub](https://github.com/eddyizm/tempus)
   * Fork of [CappielloAntonio/tempo GitHub](https://github.com/CappielloAntonio/tempo)
@@ -69,7 +74,7 @@
 * Supports internet radio
 * Lightweight android ".apk", size 7.61 MB
 
-**Chora (Android TV - Navidrome) {Selected}**
+## Chora (Android TV) {Selected}
 
 * [CraftWorksMC/Chora GitHub](https://github.com/CraftWorksMC/Chora)
 * [Chora BY CraftWorks => Google Play Store](https://play.google.com/store/apps/details?id=com.craftworks.music)
@@ -77,7 +82,7 @@
 * Can add multiple Navidrome sources - LAN and Tailscale
 * Lightweight android ".apk", 4.05 MB
 
-**Musly (Windows, Linux, Android Mobile - Navidrome)**
+## Musly (Windows, Linux, Android Mobile)
 
 * [musly.devid.ink](https://musly.devid.ink/) || [dddevid/Musly GitHub](https://github.com/dddevid/Musly)
 
@@ -91,7 +96,7 @@
 
 * Android ".apk" size 56.1 MB
 
-**Amcfy (Android Mobile - Navidrome)**
+## Amcfy (Android Mobile)
 
 * [amcfy.com](https://www.amcfy.com/)
 * [amcfy-music/amcfy-music GitHub](https://github.com/amcfy-music/amcfy-music)
@@ -100,14 +105,14 @@
 * Can add multiple Navidrome sources - LAN and Tailscale
 * Android ".apk" size 16 MB
 
-**DSub2000 (Android Mobile - Navidrome)**
+## DSub2000 (Android Mobile)
 
 * [paroj/DSub2000 GitHub](<https://github.com/paroj/DSub2000>)
 
 * Can add multiple Navidrome sources - LAN and Tailscale
 * If domain is “http\://”, then enable/check “Allow insecure connections \[Allow http traffic and ignore warnings and errors with https connections (not recommended)]”
 
-**Ultrasonic (Android Mobile - Navidrome)**
+## Ultrasonic (Android Mobile)
 
 * \[Ultrasonic/Ultrasonic GitLab]\(<https://gitlab.com/ultrasonic/ultrasonic>) 
 * \[Ultrasonic BY Moire]\(<https://play.google.com/store/apps/details?id=org.moire.ultrasonic>) 
@@ -116,14 +121,14 @@
 * Does not support internet radio.
 * Android ".apk" size 4.7 MB
 
-**SubStreamer (Android Mobile - Navidrome)**
+## SubStreamer (Android Mobile)
 
 * [substreamerapp.com](<https://substreamerapp.com/>)
 * [substreamer - Subsonic Client BY Gaven Henry](<https://play.google.com/store/apps/details?id=com.ghenry22.substream2>)
 
 * Can add a single Navidrome source.
 
-**Navic (Android Mobile - Navidrome)**
+## Navic (Android Mobile)
 
 * [paigely/Navic GitHub](https://github.com/paigely/Navic)
 

@@ -48,13 +48,13 @@ inoremap <expr> <c-k> ("\<C-p>")
 }
 ```
 
-# VIM Extension
+# VSCode Extension
 
 ## [vscode-neovim/vscode-neovim](https://github.com/vscode-neovim/vscode-neovim) 
 
 * [VSCode Neovim BY Alexey Svetliakov](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
 
-## Notes
+### Notes
 
 * Vim's folding keybindings do not work in VSCode.
 
@@ -122,6 +122,11 @@ inoremap <expr> <c-k> ("\<C-p>")
 | `C-f` | `editor.action.pageDownHover`    |
 | `C-b` | `editor.action.pageUpHover`      |
 
+## [guilhermec-costa/code-telescope](https://github.com/guilhermec-costa/code-telescope)
+
+* [guilhermec-costa.github.io/code-telescope](https://guilhermec-costa.github.io/code-telescope/)
+* [Code Telescope BY guichina](https://marketplace.visualstudio.com/items?itemName=guichina.code-telescope)
+
 # References
 
 * next-sl: {17}
@@ -165,6 +170,8 @@ inoremap <expr> <c-k> ("\<C-p>")
   * {3} [vscode-neovim/vscode-neovim GitHub](https://github.com/vscode-neovim/vscode-neovim) || [VSCode Neovim BY Alexey Svetliakov](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
 
   * {4} [VSpaceCode/vscode-which-key GitHub](https://github.com/VSpaceCode/vscode-which-key) || [Which Key BY VSpaceCode](https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey)
+
+  * [guilhermec-costa/code-telescope GitHub](https://github.com/guilhermec-costa/code-telescope) || [guilhermec-costa.github.io/code-telescope](https://guilhermec-costa.github.io/code-telescope/) || [Code Telescope BY guichina](https://marketplace.visualstudio.com/items?itemName=guichina.code-telescope)
 
 * Other Extensions
 

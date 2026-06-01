@@ -41,8 +41,10 @@ $scoop_office_softwares = @(
     "main/dvc"
     "extras/lazygit" # For Lunarvim
     "main/delta"
+    "main/less" # For `main/bat`
+    "main/bat" # For `main/fzf`
     "main/difftastic"
-    "extras/vcredist2022" # For "main/neovim"
+    "extras/vcredist2022" # For `main/neovim`
     "main/neovim" # For Lunarvim
     "main/make" # For Lunarvim
     "main/python" # For Lunarvim
@@ -80,6 +82,8 @@ $scoop_office_softwares = @(
     "main/wget"
     "main/aria2"
     "main/clipboard"
+    "main/btop"
+    "main/bottom"
     #-------CLI (End)---------
 
     #-------GUI (Start)-------
@@ -142,6 +146,8 @@ $scoop_home_softwares = @(
     "main/handbrake-cli"
     "main/scrcpy"
     "extras/sniffnet"
+    "main/cliamp"
+    "extras/musikcube"
     #-------CLI (End)---------
 
     #-------GUI (Start)-------

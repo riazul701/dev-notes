@@ -1,6 +1,6 @@
-# Summary.md
+# App-Selection.md
 
-# Selected Programs
+# Selected Applications
 
 ## Documentation
 
@@ -35,6 +35,13 @@
   * df/duf
   * pwd/zoxide-query
   * ln/symlinks
+
+## Container
+
+* GUI
+
+* TUI
+  * Lazydocker
 
 ## Editor
 
@@ -115,6 +122,7 @@
 
 * TUI
   * Surge
+  * Superseedr (Torrent)
 
 * Command
   * wget
@@ -150,9 +158,12 @@
 
 * GUI
   * Windows Task Manager
+  * System Informer (Windows)
   * Stacer (Linux)
 
 * TUI
+  * bottom
+  * btop/btop4win
   * Glances
   * Htop
 
@@ -208,13 +219,41 @@
   * Komorebi (Not GlazeWM, It Is Resource Hungry)
   * YASB
   * Flow Launcher
+  * Rainmeter
 
 * Linux-OS
   * i3
   * Polybar
   * Rofi
+  * Conky
 
 ## Web Browser
 
 * Vimium
 * Lynx
+
+## Music Player
+
+* GUI
+  * Navidrome
+  * Strawberry
+  * Clementine
+
+* TUI
+  * [bjarneo/cliamp](https://github.com/bjarneo/cliamp)
+  * Musikcube
+
+* Command
+
+## YouTube
+
+* GUI
+
+* TUI
+  * [mps-youtube/yewtube](https://github.com/mps-youtube/yewtube)
+  * [pystardust/ytfzf](https://github.com/pystardust/ytfzf)
+
+* Command
+  * Yewtube
+  * yt-dlp + mpv
+  * ytfzf

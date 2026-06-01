@@ -32,6 +32,10 @@
 
 * `CTRL-/` to change preview window layout
 
+**Others**
+
+* `ALT-/` to word wrap / line wrap.
+
 ## [Getting Started](https://junegunn.github.io/fzf/getting-started/)
 
 **Understanding fzf**
@@ -116,6 +120,14 @@
 
 * `sudo apt install zoxide` : Install `zoxide` old version
 * Add this to the end of your config file (usually ~/.bashrc): `eval "$(zoxide init bash)"` <sup>{24}</sup>
+
+## Windows-OS
+
+* Using Package Manager
+  * Chocolatey : `choco install fzf`
+  * Scoop : `scoop install fzf`
+  * Winget : `winget install fzf`
+  * MSYS2 (pacman) : `pacman -S $MINGW_PACKAGE_PREFIX-fzf`
 
 # Configuration
 
@@ -260,6 +272,131 @@ rfv() (
 ```
 
 * Reload `~/.bashrc` : `source ~/.bashrc`
+
+### Error (Windows-OS): $FZF_SELECT_COUNT was unexpected at this time
+
+> Solution from below concept
+
+* Open `~/.bashrc` file : `nvim ~/.bashrc`
+
+* At the top of `~/.bashrc` file, add this code:
+```bash
+export SHELL="$(command -v bash)"
+```
+
+> ChatGPT Question:
+> 
+> fzf is installed via scoop package manager
+
+That explains it.
+
+When installed via **Scoop**, you're almost certainly using the **native Windows build** of `fzf.exe`. Even if you launch it from Git Bash, many `execute:`, `reload:`, and `become:` actions are run through **`cmd.exe`**, not Bash. That's why CMD is complaining about:
+
+```bash
+$FZF_SELECT_COUNT
+```
+
+and producing:
+
+```text
+$FZF_SELECT_COUNT was unexpected at this time.
+```
+
+***### Confirm***
+
+In Git Bash:
+
+```bash
+which fzf
+```
+
+You'll likely see something like:
+
+```text
+/c/Users/<user>/scoop/shims/fzf
+```
+
+or
+
+```text
+/c/Users/<user>/scoop/apps/fzf/current/fzf.exe
+```
+
+***### Fix Option 1 (recommended): Use the MSYS2/Git-Bash build***
+
+Install the Unix build of fzf instead of the native Windows executable.
+
+For example, in Git Bash:
+
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
+Then ensure:
+
+```bash
+which fzf
+```
+
+returns something under your home directory or `/usr/bin`, not the Scoop path.
+
+***### Fix Option 2: Rewrite actions for CMD***
+
+This is painful because your function uses Bash features:
+
+```bash
+[[ ... ]]
+$FZF_SELECT_COUNT
+```
+
+and multiline shell scripts. You'd have to rewrite everything in CMD syntax, which defeats the purpose of using Git Bash.
+
+***### Fix Option 3: Force fzf to use Bash for all actions***
+
+Try setting:
+
+```bash
+export SHELL="$(command -v bash)"
+```
+
+before running `fzf`.
+
+Or:
+
+```bash
+SHELL=$(command -v bash) fzf ...
+```
+
+Some versions of fzf honor `$SHELL` when spawning commands.
+
+You can test quickly:
+
+```bash
+export SHELL=/usr/bin/bash
+
+printf 'a\n' | fzf --bind 'enter:execute:echo $0 > /tmp/test'
+```
+
+If the error persists, your Windows build is ignoring `$SHELL`.
+
+***### Quick diagnostic***
+
+Run:
+
+```bash
+printf 'a\n' | fzf --bind 'enter:execute:echo $FZF_SELECT_COUNT'
+```
+
+If you still get:
+
+```text
+$FZF_SELECT_COUNT was unexpected at this time.
+```
+
+then the binding is unquestionably being executed by CMD, and the cleanest solution is to use a Bash-native/MSYS2 build of `fzf` rather than the Scoop Windows executable.
+
+### Error (Windows-OS): Multiple File Selection Does Not Work
 
 # Error and Solution
 

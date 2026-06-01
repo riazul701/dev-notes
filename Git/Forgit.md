@@ -76,6 +76,16 @@ The following commands are supported:
 
 # Forgit.md
 
+
+# Installation
+
+**[wfxr/forgit GitHub](https://github.com/wfxr/forgit)**
+
+* Clone the repository and source it in your shell's rc file or put bin/git-forgit into your $PATH
+
+
+# References
+
 ## Websites
 
 * [wfxr/forgit => A utility tool powered by fzf for using git interactively](https://github.com/wfxr/forgit)
