@@ -217,7 +217,22 @@ Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
 ## Termux (Android)
 
-* Install Termux Android App from [F-Droid](https://f-droid.org/en/). In Google Play Store, Termux softwrae is old and does not work properly.
+* Install Termux Android App from [F-Droid](https://f-droid.org/en/). In Google Play Store, Termux software is old and does not work properly.
+
+* Enable installation from unknown apps:
+  * Settings → Apps → Special app access → Install unknown apps.
+  * Select the app you're using to open the APK (Chrome, Files, etc.) and enable: Allow from this source.
+
+* Temporarily disable Play Protect
+  * Open: Google Play Store → Profile → Play Protect → Settings
+  * Turn off: Scan apps with Play Protect
+
+* Grant Termux access to shared storage (phone-memory and memory-card): `termux-setup-storage`
+  * Can write file to phone-memory without any issue. Path is `/storage/emulated/0/`.
+  * Can not write to memory-card's root-path, because of permission issue. But `/storage/{{memory-card-id}}/Android/data/com.termux/files/` folder is writable using SAF (Storage Access Framework).
+
+* On FileZilla
+  * Host: sftp://{{android-phone IP}}
 
 **[Termux SSH : Use Termux in Windows Using SSH Server](https://www.learntermux.tech/2020/10/Termux-SSH-Use-Termux-Windows.html) <sup>{26}</sup>**
   

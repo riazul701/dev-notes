@@ -2,12 +2,32 @@
 
 # Selected Applications
 
+## Control Remote-PC
+
+* Mesh-VPN Notes
+  * Can not use multiple mesh-vpn at the same time, they conflicts with each other.
+  * Transfer large files from pc to pc using rclone and google-drive. 
+  * Use one mesh-vpn on host-pc and another inside virtualbox. Transfer large files using virtualbox.
+
+* System Level (Mesh-VPN)
+  * Tailscale / Headscale (Self-Hosted)
+  * NetBird
+  * Netmaker
+  * ZeroTier
+
+* GUI
+  * RustDesk (/unison/rsync/free-file-sync/filezilla/termscp) + Tailscale (Fixed IP)
+  * Anydesk
+  * Teamviewer
+
 ## Documentation
 
 * navi
 * tldr
 
 ## File Manager
+
+* Mount FTP/FTPS/SFTP/Google-Drive Using Rclone
 
 * GUI
   * Double Commander
@@ -118,11 +138,11 @@
 ## Download Manager
 
 * GUI
-  * Free Download Manager
+  * Free Download Manager (http + torrent)
 
 * TUI
-  * Surge
-  * Superseedr (Torrent)
+  * Surge (http)
+  * Superseedr (torrent)
 
 * Command
   * wget
@@ -139,6 +159,7 @@
 * Command
   * rclone
   * rsync
+  * lsyncd
   * unison
 
 ## Partition Manager
@@ -257,3 +278,44 @@
   * Yewtube
   * yt-dlp + mpv
   * ytfzf
+
+## Comparison/Diff
+
+* GUI
+  * Kdiff3
+  * Meld
+
+* TUI
+  * delta
+  * vifm (:difft) + vimdiff - folder comparison
+
+* Command
+  * difftastic
+  * diff-so-fancy
+  * diff
+  * diff3
+  * diffnav
+
+## Disk Space Usage Analyzer
+
+* GUI
+  * [Filelight](https://apps.kde.org/filelight/)
+
+* TUI
+  * [Byron/dua-cli](https://github.com/Byron/dua-cli)
+  * [dundee/gdu](https://github.com/dundee/gdu)
+
+* Command
+  * df
+  * dfc
+  * du
+  * duf
+  * dust
+
+## Log Viewer
+
+* GUI
+
+* TUI
+  * [Lnav](https://lnav.org/)
+  * [bensadeh/tailspin](https://github.com/bensadeh/tailspin)

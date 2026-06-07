@@ -119,6 +119,7 @@ $scoop_office_softwares = @(
     "extras/flameshot"
     "extras/freedownloadmanager"
     "extras/transmission"
+    "main/surge"
     "extras/persepolis" # GUI for aria2
     "extras/doublecmd"
     "extras/localsend"
@@ -126,6 +127,7 @@ $scoop_office_softwares = @(
     #"extras/android-studio"
     "extras/xnviewmp"
     "extras/xnconvert"
+    "extras/sirikali"
     #-------GUI (End)-------
     
     #-------Optional (Start)---------
@@ -140,7 +142,6 @@ $scoop_home_softwares = @(
     #-------CLI (Start)---------
     "main/yt-dlp"
     "main/gallery-dl"
-    "extras/musikcube"
     "main/spotify-tui"
     "extras/mpv"
     "main/handbrake-cli"
@@ -209,9 +210,11 @@ $winget_office_softwares = @(
     "Oracle.VirtualBox"
     "Hashicorp.Vagrant"
     "HTTPie.HTTPie"
-    "AutoHotkey.AutoHotkey" # For Double-Commander
+    "AutoHotkey.AutoHotkey" # For Double-Commander: `extras/doublecmd` (scoop)
     "TwibrightLabs.Links" # Links WWW Browser
-    "Dropbox.Dropbox" 
+    "Dropbox.Dropbox"
+    "WinFsp.WinFsp" # For Rclone: `main/rclone` (scoop)
+    "SSHFS-Win.SSHFS-Win" # For SiriKali: `extras/sirikali` (scoop)
 )
 
 $winget_home_softwares = @(
