@@ -22,8 +22,13 @@
 
 ## Documentation
 
-* navi
-* tldr
+* TUI
+  * navi
+  * tldr
+
+* Command
+  * man
+  * apropos
 
 ## File Manager
 
@@ -31,30 +36,76 @@
 
 * GUI
   * Double Commander
+  * PeaZip/7-Zip
 
 * TUI
   * Yazi
   * Vifm
 
 * Command
-  * ls/eza/exa
-  * cd/zoxide
-  * cp
-  * mv
+  * czkawka-cli
   * progress
-  * mkdir
   * touch
-  * rm
-  * rmdir
-  * chmod
-  * chown
-  * tree/erdtree
-  * find/fd
-  * locate/plocate
-  * du/ncdu/dust/gdu
-  * df/duf
-  * pwd/zoxide-query
-  * ln/symlinks
+  * rm/rmdir/trash-cli/rip
+  * ln/symlinks/link/readlink/realpath/stow
+  * File/Directory
+    * ls/lsd/colorls/eza/exa/vdir
+    * cp
+    * mv
+    * mkdir
+    * cd/zoxide
+    * pwd/zoxide-query
+    * mkfile
+    * mktemp
+    * open
+    * mmv
+    * autojump/bashmarks
+    * detox
+    * dircolors
+    * dirname
+    * dirs
+    * fdupes/jdupes/repren
+    * file
+    * split
+    * tre/tree/erdtree
+  * Search
+    * find/fd/sd/rdfind
+    * locate/plocate
+    * fselect
+  * Permission
+    * chgrp
+    * chmod
+    * chown
+  * Compression/Archive
+    * ouch
+    * unar
+    * 7z
+    * 7za
+    * 7zr
+    * cpio
+    * funzip
+    * gunzip
+    * gzip
+    * p7zip
+    * zip/unzip/zipgrep/zipinfo/zipnote
+    * rar/unrar
+    * tar
+  * Encryption
+    * age
+  * Image
+    * pngcheck
+    * catimg
+    * chafa
+    * feh
+    * imgcat
+    * viu
+    * convert/magick/jpegoptim/mogrify/pngcrush/pngquant
+  * PDF
+    * cpdf
+    * img2pdf
+  * Clipboard
+    * cb
+    * copyq
 
 ## Container
 
@@ -73,18 +124,28 @@
   * Vim/NeoVim
 
 * Command
-  * cat/bat
-  * less/more/moar
-  * tail/lnav
-  * head
-  * diff/delta/difftastic
   * sed/sd
-  * awk/xsv/miller
-  * grep/ripgrep(rg)/ag
-  * sort/fq/jq
-  * jq/jid/fx
-  * xargs
-  * fzf
+  * fzf/sk (skim)
+  * codespell
+  * comby
+  * comm
+  * Viewer
+    * cat/bat/highlight/tac
+    * less/more/most/moar
+    * head/tail
+    * carbon-now
+    * wc
+  * Search/Replace Tools
+    * grep/ripgrep(rg)/ag/rgrep/vgrep
+    * ack
+    * fastmod
+  * Coding Tools
+    * sed
+    * awk/xsv/miller
+    * sort/fq/yq
+    * jq/jid/fx
+    * expand
+
 
 ## Git
 
@@ -99,6 +160,9 @@
 * Command
   * Fzf-Git
   * FotGit-Fzf
+  * dvc
+  * gh/gist (GitHub)
+  * gibo
 
 ## REST API
 
@@ -109,7 +173,7 @@
   * Posting
 
 * Command
-  * HTTPie
+  * HTTPie (http)
 
 ## Database
 
@@ -122,6 +186,9 @@
   * Vim-Dadbod
 
 * Command
+  * dolt
+  * mycli
+  * mysql/mysqlbinlog/mysqlcheck/mysqld/mysqldump/mytop/mysqlsh
 
 ## File Transfer
 
@@ -133,21 +200,72 @@
 
 * Command
   * Lftp
-  * scp
+  * ftp
+  * scp/sftp
+  * Share
+    * airshare
+  * SSH
+    * autossh
+    * ssh-add
+    * ssh-agent
+    * ssh-copy-id
+    * ssh-keygen
+    * ssh-keyscan
+    * ssh
+    * sshd
+    * sshfs
+    * sshpass
 
 ## Download Manager
 
 * GUI
   * Free Download Manager (http + torrent)
+  * transmission (torrent)
 
 * TUI
   * Surge (http)
   * Superseedr (torrent)
 
 * Command
+  * transmission-cli (torrent)
   * wget
   * curl
-  * aria2
+  * aria2/aria2c
+  * axel
+  * deluge
+  * gallery-dl
+  * Checksum
+    * md5sum
+    * sha1sum/sha224sum/sha256sum/sha384sum/sha512sum
+
+## Network
+
+* GUI
+  * Load Testing
+    * jmeter/loadtest/locust
+
+* TUI
+  * bandwhich
+
+* Command
+  * ping
+  * traceroute
+  * nmblookup
+  * k6
+  * ifconfig/ip/ipconfig
+  * croc
+  * ffsend
+  * fast/speedtest-cli
+  * fping
+  * ioping
+  * iperf
+  * is-up
+  * Scanner
+    * nmap
+    * masscan
+    * netstat
+  * Local Server Share
+    * ngrok
 
 ## Backup & Sync
 
@@ -161,6 +279,7 @@
   * rsync
   * lsyncd
   * unison
+  * syncthing
 
 ## Partition Manager
 
@@ -172,10 +291,10 @@
 
 * Command
   * fdisk/cfdisk
-  * du/ncdu
-  * mount
+  * mount/umount
+  * mmls
 
-## System Monitor
+## System Monitor & Work
 
 * GUI
   * Windows Task Manager
@@ -189,18 +308,34 @@
   * Htop
 
 * Command
+  * lsof
+  * iotop
   * procs
-  * ps
-  * bg
-  * fg
-  * kill
-  * killall
-  * nice
-  * renice
-  * xkill
+  * ps/psgrep
+  * fg/bg
+  * kill/killall/xkill/fkill/pkill
+  * nice/renice
   * top
   * iftop
   * watch
+  * Information
+    * stat
+    * uptime
+    * quota/ulimit
+    * id
+    * uname
+    * neofetch/fastfetch/pfetch/rfetch/macchina
+    * arch
+    * date
+    * hostname
+    * last
+    * logname
+    * users/w/who/whoami
+  * Work-Procedure
+    * watch
+    * passwd
+    * cron/crontab
+    * chroot
 
 ## Operating System Snapshot
 
@@ -221,6 +356,7 @@
 
 * Command
   * Chezmoi
+  * keepassxc-cli
 
 ## Terminal
 
@@ -229,10 +365,17 @@
   * Windows Terminal
   * WezTerm
   * Kitty
+  * Alacritty
 
 * Terminal Multiplexer
   * Tmux
   * WezTerm Like Tmux On Window-OS
+
+* Command
+  * atuin/history/fuck/mcfly
+  * clear
+  * exit
+  * where/whereis/which
 
 ## Window Manager
 
@@ -250,8 +393,14 @@
 
 ## Web Browser
 
-* Vimium
-* Lynx
+* GUI
+  * Vimium
+
+* TUI
+  * Lynx
+
+* Command
+  * buku
 
 ## Music Player
 
@@ -265,6 +414,7 @@
   * Musikcube
 
 * Command
+  * mpc/mpd
 
 ## YouTube
 
@@ -277,6 +427,7 @@
 * Command
   * Yewtube
   * yt-dlp + mpv
+  * yt-dlp/youtube-dl/youtube-viewer
   * ytfzf
 
 ## Comparison/Diff
@@ -292,9 +443,16 @@
 * Command
   * difftastic
   * diff-so-fancy
-  * diff
+  * diff/patch
   * diff3
+  * diffoscope
+  * sdiff
   * diffnav
+  * colordiff
+  * diffstat
+  * csv-diff
+  * diff-pdf
+  * xzdiff
 
 ## Disk Space Usage Analyzer
 
@@ -306,11 +464,12 @@
   * [dundee/gdu](https://github.com/dundee/gdu)
 
 * Command
-  * df
+  * df/duf
   * dfc
-  * du
+  * du/ncdu/dust
   * duf
   * dust
+  * diskonaut
 
 ## Log Viewer
 
@@ -319,3 +478,89 @@
 * TUI
   * [Lnav](https://lnav.org/)
   * [bensadeh/tailspin](https://github.com/bensadeh/tailspin)
+
+* Command
+  * logger
+
+## Shell
+
+* Shell
+  * Bash
+  * PowerShell-7 (pwsh)
+  * PowerShell-5 (powershell)
+
+* Shell Prompt
+  * starship
+
+* Command
+  * su/sudo
+  * gum
+  * fc
+  * env/printenv
+  * doas
+  * xargs
+  * alias/unalias
+  * export
+  * chsh
+  * compgen
+  * complete
+  * direnv
+
+## PDF
+
+* GUI
+  * mupdf
+
+* Command
+  * qpdf
+  * ocrmypdf
+  * pdf-parser
+  * pdffonts
+  * pdfgrep
+  * pdfimages
+  * pdfinfo
+  * pdfseparate
+  * pdftk
+  * pdftocairo
+  * pdftotext
+  * pdfunite
+
+## Other Commands
+
+* dict
+* espeak
+* calc/gcal/gcalcli
+* calendar/khal
+* gpg/gpg-tui/pass
+* Coding/Programming
+  * prettier
+  * license
+  * lighthouse
+  * linkchecker
+  * loc
+* Markdown
+  * mkdocs
+  * glow
+  * grip
+* Regular-Expression
+  * grex
+* Metadata
+  * exiftool
+  * exiv2
+  * id3tag
+  * mid3v2
+  * mp3info
+  * mediainfo
+* Font
+  * fc-list
+  * fc-match
+  * fc-pattern
+* Audio/Video
+  * obs
+  * mplayer
+  * mpv
+  * ffmpeg
+  * ffplay
+  * handbrakecli
+* Benchmark/Performance
+  * hyperfine
