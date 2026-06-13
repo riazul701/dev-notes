@@ -525,6 +525,26 @@
   * pdftotext
   * pdfunite
 
+## Virtual-Env
+
+* GUI
+  * VirtualBox
+
+* Command
+  * VBoxManage
+
+## ToDo & Issue-Tracker
+
+* GUI
+  * Trello
+  * Jira
+  * Mantis-BT
+  * BugZilla
+
+* TUI
+  * Taskwarrior
+  * Timewarrior
+
 ## Other Commands
 
 * dict

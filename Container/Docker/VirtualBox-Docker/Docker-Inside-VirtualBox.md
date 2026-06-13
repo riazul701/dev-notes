@@ -1,10 +1,81 @@
 # Commands/Usage
 
+## Performance
+
+* Docker Or Docker-Desktop (which uses WSL2), Inside Windows-Subsystem-For-Linux-2 (WSL2) Is Extremely Slow, Specially When Creating Containers From Images On Hard-Disk-Drive.
+  * Instead Use Docker Inside VirtualBox Debian-Server (Debian Standard Edition) VM, Which Is Much Faster.
+
 ## SMB Mount On Linux
 
-* Command Format: `sudo mount -t cifs //WINDOWS_IP/ShareName /mnt/smb -o username=winuser,password=winpass,uid=1000,gid=1000,iocharset=utf8,file_mode=0777,dir_mode=0777`
+* Command Format: `sudo mount -t cifs //WINDOWS_IP/ShareName /mnt/smb/ -o username=winuser,password=winpass,uid=1000,gid=1000,iocharset=utf8,file_mode=0777,dir_mode=0777`
 
-* Example: `sudo mount -t cifs //WINDOWS_IP/ShareName /mnt/smb -o username=winuser,password=winpass,uid=1000,gid=1000,iocharset=utf8,file_mode=0777,dir_mode=0777`
+* Example: `sudo mount -t cifs //192.168.0.101/xampp /e/xampp/ -o username=winuser,password=winpass,uid=1000,gid=1000,iocharset=utf8,file_mode=0777,dir_mode=0777`
+
+* On linux user home directory create file `smb-mount.sh`, and write previous command.
+  * Create directory `/e/xampp`
+  * Execute script: `sudo ./smb-mount.sh`
+
+* On VirtualBox Settings -> Network
+
+  * Adapter 1
+    * Tick "Enable Network Adapter"
+    * Attached To: NAT
+    * Name (Not Editable): <empty>
+    * Adapter Type: Intel PRO/1000 MT Desktop (<some-random-number>)
+    * Promiscuous Mode (Not Editable): Deny
+    * MAC Address: <some-random-number>
+    * Tick "Virtual Cable Connected"
+      * Port Forwarding
+        * Name: SSH
+        * Protocol: TCP
+        * Host IP: <empty>
+        * Host Port: 2222
+        * Guest IP: <empty>
+        * Guest Port: 22
+      * Port Forwarding
+        * Name: Docker
+        * Protocol: TCP
+        * Host IP: <empty>
+        * Host Port: 2375
+        * Guest IP: <empty>
+        * Guest Port: 2375
+      * Port Forwarding
+        * Name: Apache
+        * Protocol: TCP
+        * Host IP: <empty>
+        * Host Port: 80
+        * Guest IP: <empty>
+        * Guest Port: 80
+      * Port Forwarding
+        * Name: MySQL
+        * Protocol: TCP
+        * Host IP: <empty>
+        * Host Port: 3306
+        * Guest IP: <empty>
+        * Guest Port: 3306
+      * Port Forwarding
+        * Name: phpMyAdmin
+        * Protocol: TCP
+        * Host IP: <empty>
+        * Host Port: 8081
+        * Guest IP: <empty>
+        * Guest Port: 8081
+
+  * Adapter 2
+    * Tick "Enable Network Adapter"
+    * Attached To: Host-only Adapter
+    * Name: VirtualBox Host-Only Ethernet Adapter
+    * Adapter Type: Intel PRO/1000 MT Desktop (<some-random-number>)
+    * Promiscuous Mode: Deny
+    * MAC Address: <some-random-number>
+    * Tick "Virtual Cable Connected"
+
+## FileZilla Connection To Linux-VM
+
+* Host: `sftp://localhost`
+* Username: <linux-user-name>
+* Password: <linux-password>
+* Port: 2222 (host-port according to virtualbox network port-forwarding)
 
 # Docker-Inside-VirtualBox.md
 
@@ -20,7 +91,7 @@
 
 # VirtualBox Docker Windows
 
-# SMB Mount Windows Host To Linux VM (VirtualBox)
+# Concept: SMB Mount Windows Host To Linux VM (VirtualBox)
 
 ChatGPT Question: "windows host to linux virtualbox guest SMB share and mounting full guide"
 

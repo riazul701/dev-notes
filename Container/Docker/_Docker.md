@@ -1,5 +1,10 @@
 # Docker/Docker.md
 
+## Performance
+
+* Docker Or Docker-Desktop (which uses WSL2), Inside Windows-Subsystem-For-Linux-2 (WSL2) Is Extremely Slow, Specially When Creating Containers From Images On Hard-Disk-Drive.
+  * Instead Use Docker Inside VirtualBox Debian-Server (Debian Standard Edition) VM, Which Is Much Faster.
+
 ## Notes
 
 * Switch to "root" user inside container: `su -`
@@ -21,6 +26,71 @@
 * Add your user to the docker group by using a terminal to run: `sudo usermod -aG docker $USER` Sign out and back in again so this setting takes effect.
 
 # Installation
+
+## Debian
+
+### [Docker From Official Repository](https://docs.docker.com/engine/install/debian/)
+
+### Unofficial (From Debian Repo) On Debian (Like Anix-OS)
+
+* `sudo apt update`
+
+* `sudo apt install docker.io docker-compose`
+
+**Concept**
+
+> ChatGPT Question:
+> 
+> install docker, docker-compose from debian repo, not from docker official repo
+
+If you want to install Docker **from Debian's repositories** (not Docker's official repository), use:
+
+```bash
+sudo apt update
+sudo apt install -y docker.io docker-compose
+```
+
+Or, on newer Debian releases where the Compose plugin is available:
+
+```bash
+sudo apt update
+sudo apt install -y docker.io docker-compose-plugin
+```
+
+Start and enable Docker:
+
+```bash
+sudo systemctl enable --now docker
+```
+
+Add your user to the Docker group (optional):
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+Verify:
+
+```bash
+docker --version
+docker compose version    # for compose plugin
+```
+
+or
+
+```bash
+docker-compose --version  # for standalone docker-compose package
+```
+
+Check which packages are available in your Debian version:
+
+```bash
+apt search docker-compose
+apt policy docker.io docker-compose docker-compose-plugin
+```
+
+The Debian-packaged `docker.io` is usually older than Docker's official packages but is integrated with Debian's package management and security updates.
 
 ## Fedora
 

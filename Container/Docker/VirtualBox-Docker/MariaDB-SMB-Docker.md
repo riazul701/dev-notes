@@ -1,13 +1,20 @@
-# MariaDB SMB Docker Error / Container Exit 1
+# Commands/Usage
 
-ChatGPT Question: "docker mariadb error/exit 1 reason, InnoDB: Plugin initialization aborted with error I/O error"
+## Performance
+
+* Docker Or Docker-Desktop (which uses WSL2), Inside Windows-Subsystem-For-Linux-2 (WSL2) Is Extremely Slow, Specially When Creating Containers From Images On Hard-Disk-Drive.
+  * Instead Use Docker Inside VirtualBox Debian-Server (Debian Standard Edition) VM, Which Is Much Faster.
+
+# Concept: MariaDB SMB Docker Error / Container Exit 1
+
+> ChatGPT Question: 
+> 
+> "docker mariadb error/exit 1 reason, InnoDB: Plugin initialization aborted with 
+> error I/O error"
 
 Oof, yeah — that **MariaDB + Docker + “InnoDB: Plugin initialization aborted with error I/O error”** combo is almost always a **storage / filesystem problem**, not a MariaDB config typo. Let’s break it down calmly and get you back up.
 
-***
-
-
-## **What that error actually means**
+***## What that error actually means***
 
 MariaDB tried to initialize **InnoDB**, but the **filesystem returned an I/O error**. In Docker setups, this usually points to:
 
@@ -24,16 +31,16 @@ That’s why the container exits with **code 1**.
 ***
 
 
-## **The top causes (in order of likelihood)**
+***## The top causes (in order of likelihood)***
 
-### **1️⃣ Wrong permissions on the data volume (MOST COMMON)**
+***### 1️⃣ Wrong permissions on the data volume (MOST COMMON)***
 
 MariaDB runs as user `mysql` (UID usually **999** inside the container).
 
 If your mounted volume is owned by `root` or another UID → InnoDB dies.
 
 
-#### **Check:**
+***#### Check:***
 
     docker logs mariadb_container
 
@@ -43,7 +50,7 @@ Look for:
     Operating system error number 13
 
 
-#### **Fix:**
+***#### Fix:***
 
 On the **host**:
 
@@ -58,7 +65,7 @@ Or temporarily test:
 ***
 
 
-### **2️⃣ Filesystem doesn’t support InnoDB features**
+***### 2️⃣ Filesystem doesn’t support InnoDB features***
 
 InnoDB **requires**:
 
@@ -104,7 +111,7 @@ Then in `docker-compose.yml`:
 ***
 
 
-### **3️⃣ Corrupted InnoDB files**
+***### 3️⃣ Corrupted InnoDB files***
 
 If the container crashed or disk filled up, InnoDB may be toast.
 
@@ -115,7 +122,7 @@ Files to watch:
     ib_logfile1
 
 
-#### **Quick test (non-production):**
+***#### Quick test (non-production):***
 
     mv ibdata1 ibdata1.bak
     mv ib_logfile* /tmp/
@@ -125,7 +132,7 @@ Files to watch:
 ***
 
 
-### **4️⃣ Disk full or read-only**
+***### 4️⃣ Disk full or read-only***
 
 Check on the host:
 
@@ -140,7 +147,7 @@ If filesystem is mounted **ro**, MariaDB will fail instantly.
 ***
 
 
-### **5️⃣ SELinux (on Fedora / RHEL / CentOS)**
+***### 5️⃣ SELinux (on Fedora / RHEL / CentOS)***
 
 SELinux can block writes silently.
 
@@ -156,10 +163,8 @@ Or use:
 
     - /path/to/mariadb-data:/var/lib/mysql:Z
 
-***
 
-
-## **Fastest way to confirm the root cause**
+***## Fastest way to confirm the root cause***
 
 Answer these (copy/paste is fine):
 
@@ -171,19 +176,19 @@ Answer these (copy/paste is fine):
 
 4. Exact log lines **above** the I/O error
 
-***
 
-
-## **TL;DR (most likely fix)**
+***## TL;DR (most likely fix)***
 
 ❌ MariaDB data directory is on SMB / vboxsf / network FS\
 &#x20;✅ Move it to a **local Docker volume or ext4 disk**
 
 If you want, paste your `docker-compose.yml` and I’ll mark _exactly_ what to change.
 
-\===================================================================================
+==================================================================================
 
-ChatGPT Question: "MariaDB data directory is on SMB"
+> ChatGPT Question: 
+> 
+> "MariaDB data directory is on SMB"
 
 Yep — that’s **100% the root cause**.\
 &#x20;MariaDB **cannot run InnoDB on SMB/CIFS** reliably. When it does, you get exactly what you’re seeing:
@@ -193,10 +198,8 @@ Yep — that’s **100% the root cause**.\
 
 This isn’t a misconfig — it’s a **hard limitation**.
 
-***
 
-
-## **Why MariaDB + SMB breaks (short & honest)**
+***## Why MariaDB + SMB breaks (short & honest)***
 
 InnoDB requires:
 
@@ -223,9 +226,9 @@ Result: InnoDB refuses to start (correctly).
 ***
 
 
-## **What WILL work (pick one)**
+***## What WILL work (pick one)***
 
-### **✅ Option 1 — Docker named volume (BEST)**
+***### ✅ Option 1 — Docker named volume (BEST)***
 
 Keeps data on a local Linux filesystem.
 
@@ -249,7 +252,7 @@ Keeps data on a local Linux filesystem.
 ***
 
 
-### **✅ Option 2 — Local host directory (ext4/xfs)**
+***### ✅ Option 2 — Local host directory (ext4/xfs)***
 
 If you need to see files on the host:
 
@@ -263,7 +266,7 @@ Make sure:
 ***
 
 
-### **⚠️ Option 3 — SMB for BACKUPS ONLY**
+***### ⚠️ Option 3 — SMB for BACKUPS ONLY***
 
 This is the **correct** way to use SMB.
 
@@ -273,10 +276,8 @@ Example:
 
 Or automated backups to SMB.
 
-***
 
-
-## **❌ What NOT to do (even if it “seems to work”)**
+***## ❌ What NOT to do (even if it “seems to work”)***
 
 - `innodb_flush_method=nosync
 
@@ -294,20 +295,16 @@ Or automated backups to SMB.
 
 These lead to **silent corruption**.
 
-***
 
-
-## **If you’re on Windows / VirtualBox / WSL**
+***## If you’re on Windows / VirtualBox / WSL***
 
 Best practice:
 
     MariaDB data → Docker volume (Linux filesystem)
     Backups → SMB share
 
-***
 
-
-## **Bottom line**
+***## Bottom line***
 
 **SMB is not a database filesystem.** MariaDB is protecting your data by refusing to start.
 
@@ -319,10 +316,8 @@ ChatGPT Question: "use watch and mysqldump command on linux guest VM where docke
 
 Got it — you want to **continuously take backups from a Docker MariaDB/MySQL running on a Linux VM** and push them to a **Windows host via SMB**, using `watch` + `mysqldump`. Let’s break it down **step by step**, then discuss **pros and cons**.
 
-***
 
-
-## **1️⃣ How it works**
+***## 1️⃣ How it works***
 
 You can use `watch` to run `mysqldump` at intervals:
 
@@ -332,7 +327,7 @@ You can use `watch` to run `mysqldump` at intervals:
       > /mnt/smb/mariadb_backup_$(date +%F_%H%M%S).sql'
 
 
-### **Explanation:**
+***### Explanation:***
 
 - `watch -n 3600` → runs every 3600 seconds (1 hour)
 
@@ -349,7 +344,7 @@ You can use `watch` to run `mysqldump` at intervals:
 ***
 
 
-## **2️⃣ Setting up SMB mount on Linux VM**
+***## 2️⃣ Setting up SMB mount on Linux VM***
 
     sudo mount -t cifs //WINDOWS_HOST/BackupFolder /mnt/smb \
       -o username=winuser,password=winpass,vers=3.0,iocharset=utf8
@@ -364,10 +359,8 @@ You can use `watch` to run `mysqldump` at intervals:
 
 Now your `mysqldump` output will land on Windows safely.
 
-***
 
-
-## **3️⃣ Pros of this method**
+***## 3️⃣ Pros of this method***
 
 |                           |                                                                        |
 | :-----------------------: | :--------------------------------------------------------------------: |
@@ -381,7 +374,7 @@ Now your `mysqldump` output will land on Windows safely.
 ***
 
 
-## **4️⃣ Cons / Limitations**
+***## 4️⃣ Cons / Limitations***
 
 |                                        |                                                                                                               |
 | :------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
@@ -396,7 +389,7 @@ Now your `mysqldump` output will land on Windows safely.
 ***
 
 
-## **5️⃣ Recommended improvements**
+***## 5️⃣ Recommended improvements***
 
 1. **Local temp dump first**
 
@@ -425,10 +418,8 @@ Now your `mysqldump` output will land on Windows safely.
 
     find /mnt/smb/ -name "*.sql.gz" -type f -mtime +7 -delete
 
-***
 
-
-### **✅ TL;DR**
+***### ✅ TL;DR***
 
 - **Safe:** This method is **safe for live Docker MariaDB**, because you never copy raw data files.
 
@@ -438,7 +429,6 @@ Now your `mysqldump` output will land on Windows safely.
 
 **Downside:** Not real-time, uses more disk/CPU, requires rotation and error handling.
 
-***
 
 If you want, I can write a **ready-to-use** `watch`**/cron script** that:
 
@@ -454,7 +444,7 @@ It would be fully automated for production use.
 
 Do you want me to do that?
 
-\==================================================================================
+=================================================================================
 
 ChatGPT Question: "Do it and also show how to restore from windows host to linux guest docker database via SMB."
 
@@ -462,12 +452,10 @@ Perfect! Let’s create a **complete automated backup + restore workflow** for D
 
 This will be **safe, repeatable, and avoids raw file corruption**.
 
-***
 
+***## Part 1: Automatic Backup from Docker MariaDB to Windows SMB***
 
-## **Part 1: Automatic Backup from Docker MariaDB to Windows SMB**
-
-### **1️⃣ Mount the Windows SMB share in Linux VM**
+***### 1️⃣ Mount the Windows SMB share in Linux VM***
 
     sudo mkdir -p /mnt/smb_backups
     sudo mount -t cifs //WINDOWS_HOST/BackupFolder /mnt/smb_backups \
@@ -481,10 +469,8 @@ This will be **safe, repeatable, and avoids raw file corruption**.
 
   `
 
-***
 
-
-### **2️⃣ Create backup script**
+***### 2️⃣ Create backup script***
 
 Create a script `/usr/local/bin/mariadb_smb_backup.sh`:
 
@@ -522,10 +508,8 @@ Make it executable:
 
     sudo chmod +x /usr/local/bin/mariadb_smb_backup.sh
 
-***
 
-
-### **3️⃣ Schedule automatic backups**
+***### 3️⃣ Schedule automatic backups***
 
 Use **cron** instead of `watch` for production reliability.
 
@@ -537,20 +521,16 @@ Example: every hour
 
 ✅ Now your backups will appear on Windows every hour as compressed SQL files.
 
-***
 
+***## Part 2: Restore backup from Windows SMB to Docker MariaDB***
 
-## **Part 2: Restore backup from Windows SMB to Docker MariaDB**
-
-### **1️⃣ Make sure SMB share is mounted in Linux VM**
+***### 1️⃣ Make sure SMB share is mounted in Linux VM***
 
     sudo mount -t cifs //WINDOWS_HOST/BackupFolder /mnt/smb_backups \
       -o username=winuser,password=winpass,vers=3.0,iocharset=utf8
 
-***
 
-
-### **2️⃣ Restore command**
+***### 2️⃣ Restore command***
 
 Assuming the backup you want is `/mnt/smb_backups/mariadb_backup_2026-02-05_120000.sql.gz`:
 
@@ -570,7 +550,7 @@ Explanation:
 ***
 
 
-### **3️⃣ Optional: Restore a single database**
+***### 3️⃣ Optional: Restore a single database***
 
     gzip -dc /mnt/smb_backups/mariadb_backup_2026-02-05_120000.sql.gz | \
     docker exec -i mariadb_container mysql -u root -p"$MYSQL_ROOT_PASSWORD" your_database_name
@@ -584,7 +564,7 @@ Explanation:
 ***
 
 
-## **✅ Pros of this method**
+***## ✅ Pros of this method***
 
 - Fully **safe for running Docker MariaDB**
 
@@ -596,10 +576,8 @@ Explanation:
 
 - **Restoration works safely** back into Linux VM Docker container
 
-***
 
-
-## **⚠️ Cons / Limitations**
+***## ⚠️ Cons / Limitations***
 
 - Not real-time replication — backups are interval-based
 
@@ -609,10 +587,8 @@ Explanation:
 
 - Must handle credentials securely (`MYSQL_ROOT_PASSWORD` should be in a safe env variable or Docker secret)
 
-***
 
-
-## **TL;DR workflow**
+***## TL;DR workflow***
 
     Docker MariaDB (Linux VM) --> mysqldump --> gzip --> /mnt/smb_backups
     Windows SMB sees backup.sql.gz files
@@ -624,22 +600,22 @@ Explanation:
 
 - **Automated**, with cron
 
-***
 
 If you want, I can also write a **fully ready** `docker-compose.yml` **+ backup script combo** that you can drop in and run immediately — it will handle SMB mount, backup, rotation, and restore automatically.
 
 Do you want me to do that?
 
-\====================================================================================
+===================================================================================
 
-ChatGPT Question: "docker run database backup script when docker container stops to backup from linux guest VM to windows host via SMB."
+> ChatGPT Question: 
+> 
+> "docker run database backup script when docker container stops to backup from 
+> linux guest VM to windows host via SMB."
 
 Ah! Now you want **automatic backup triggered when the Docker MariaDB container stops**, instead of using `watch` or cron. Perfect — this is safer than copying raw files and avoids downtime. Let me show a full setup for Linux VM → Windows SMB backup on container stop.
 
-***
 
-
-## **1️⃣ Overview**
+***## 1️⃣ Overview***
 
 We’ll use **Docker container stop hooks**:
 
@@ -666,7 +642,7 @@ Flow:
 ***
 
 
-## **2️⃣ Mount Windows SMB on Linux VM**
+***## 2️⃣ Mount Windows SMB on Linux VM***
 
     sudo mkdir -p /mnt/smb_backups
     sudo mount -t cifs //WINDOWS_HOST/BackupFolder /mnt/smb_backups \
@@ -677,10 +653,8 @@ Optional for automatic mount in `/etc/fstab`:
     # Windows SMB backup mount
     //WINDOWS_HOST/BackupFolder /mnt/smb_backups cifs username=winuser,password=winpass,vers=3.0,iocharset=utf8 0 0
 
-***
 
-
-## **3️⃣ Backup script (**`/usr/local/bin/mariadb_smb_backup_on_stop.sh`**)**
+***## 3️⃣ Backup script (`/usr/local/bin/mariadb_smb_backup_on_stop.sh`)***
 
     #!/bin/bash
 
@@ -717,10 +691,8 @@ Make it executable:
 
     sudo chmod +x /usr/local/bin/mariadb_smb_backup_on_stop.sh
 
-***
 
-
-## **4️⃣ Listen for Docker container stop events**
+***## 4️⃣ Listen for Docker container stop events***
 
 Create a small service script `/usr/local/bin/docker_mariadb_event_listener.sh`:
 
@@ -739,10 +711,8 @@ Make it executable:
 
     sudo chmod +x /usr/local/bin/docker_mariadb_event_listener.sh
 
-***
 
-
-## **5️⃣ Run listener in background**
+***## 5️⃣ Run listener in background***
 
     nohup /usr/local/bin/docker_mariadb_event_listener.sh > /var/log/mariadb_backup_listener.log 2>&1 &
 
@@ -750,10 +720,8 @@ Make it executable:
 
 - Output goes to `/mnt/smb_backups` on Windows
 
-***
 
-
-## **6️⃣ Restore from Windows SMB**
+***## 6️⃣ Restore from Windows SMB***
 
 Assuming the backup is:
 
@@ -773,10 +741,8 @@ Run:
     gzip -dc /mnt/smb_backups/mariadb_backup_2026-02-05_120000.sql.gz | \
     docker exec -i mariadb_container mysql -u root -p"$MYSQL_ROOT_PASSWORD" your_database_name
 
-***
 
-
-## **✅ Pros of this approach**
+***## ✅ Pros of this approach***
 
 - Backup is **triggered only on stop**, no constant polling or watch loops
 
@@ -788,10 +754,8 @@ Run:
 
 - Works for **both planned stops and container crashes** (if you handle Docker events for `die` as well)
 
-***
 
-
-## **⚠️ Considerations**
+***## ⚠️ Considerations***
 
 - If the container is killed forcefully (`docker kill`) instead of `docker stop`, the event may be missed — can add `die` event filter
 
@@ -801,22 +765,21 @@ Run:
 
 - Large databases can take several seconds or minutes to dump
 
-***
-
-✅ **Summary workflow**
+***✅ Summary workflow***
 
     [Docker MariaDB] stops → Docker event triggers → Linux VM backup script → SMB → Windows backup folder
     Restore: gzip -dc backup.sql.gz | docker exec -i mariadb_container mysql
 
-***
 
 I can also **enhance this to capture** `docker kill` **events**, compress backups in place, and log errors automatically, so it becomes a fully production-ready backup-on-stop system.
 
 Do you want me to do that?
 
-\=====================================================================================
+=================================================================================
 
-ChatGPT Question: "do it"
+> ChatGPT Question: 
+> 
+> "do it"
 
 Perfect! Let’s create a **fully production-ready “backup-on-stop” system** for Docker MariaDB/MySQL running in a Linux VM with backups going to a **Windows SMB share**. This will:
 
@@ -828,10 +791,8 @@ Perfect! Let’s create a **fully production-ready “backup-on-stop” system**
 
 - Log successes/failures
 
-***
 
-
-## **1️⃣ Mount Windows SMB on Linux VM**
+***## 1️⃣ Mount Windows SMB on Linux VM***
 
     sudo mkdir -p /mnt/smb_backups
     sudo mount -t cifs //WINDOWS_HOST/BackupFolder /mnt/smb_backups \
@@ -842,10 +803,8 @@ Optional for auto-mount on boot in `/etc/fstab`:
     # Windows SMB backup mount
     //WINDOWS_HOST/BackupFolder /mnt/smb_backups cifs username=winuser,password=winpass,vers=3.0,iocharset=utf8 0 0
 
-***
 
-
-## **2️⃣ Backup script (**`/usr/local/bin/mariadb_backup_on_stop.sh`**)**
+***## 2️⃣ Backup script (`/usr/local/bin/mariadb_backup_on_stop.sh`)***
 
     #!/bin/bash
     # ====================================================
@@ -895,10 +854,8 @@ Make it executable:
 
     sudo chmod +x /usr/local/bin/mariadb_backup_on_stop.sh
 
-***
 
-
-## **3️⃣ Event listener script (**`/usr/local/bin/docker_mariadb_event_listener.sh`**)**
+***## 3️⃣ Event listener script (`/usr/local/bin/docker_mariadb_event_listener.sh`)***
 
     #!/bin/bash
     # ====================================================
@@ -926,10 +883,8 @@ Make it executable:
 
     sudo chmod +x /usr/local/bin/docker_mariadb_event_listener.sh
 
-***
 
-
-## **4️⃣ Run listener in background**
+***## 4️⃣ Run listener in background***
 
     nohup /usr/local/bin/docker_mariadb_event_listener.sh > /var/log/mariadb_backup_listener.log 2>&1 &
 
@@ -939,10 +894,8 @@ Make it executable:
 
 You can also make it a **systemd service** for persistence across VM reboots.
 
-***
 
-
-## **5️⃣ Restore backups from Windows SMB**
+***## 5️⃣ Restore backups from Windows SMB***
 
 Assuming the backup file is:
 
@@ -959,10 +912,8 @@ Restore to running Docker container:
 
   `
 
-***
 
-
-## **✅ Advantages of this setup**
+***## ✅ Advantages of this setup***
 
 - Backup **only runs on stop or crash** → efficient, no constant polling
 
@@ -979,7 +930,7 @@ Restore to running Docker container:
 ***
 
 
-## **⚠️ Considerations**
+***## ⚠️ Considerations***
 
 - SMB write speed can affect backup time for large DBs
 
@@ -995,9 +946,13 @@ If you want, I can also **provide a ready-to-use systemd unit** that keeps this 
 
 Do you want me to do that next?
 
-\=====================================================================================
+==================================================================================
 
-ChatGPT Question: "alongside of previous sync / make full copy of raw mariadb data to windows host from linux guest VM via SMB when docker database container stops normally or crashes."
+> ChatGPT Question: 
+> 
+> "alongside of previous sync / make full copy of raw mariadb data to windows host 
+> from linux guest VM via SMB when docker database container stops normally or 
+> crashes."
 
 Perfect! Let’s combine everything into a **single production-ready setup** that does **both**:
 
@@ -1009,10 +964,8 @@ And it will **trigger automatically** when the Docker MariaDB container **stops 
 
 We’ll also handle **Windows SMB** and **rotation**, and log everything.
 
-***
 
-
-# **1️⃣ Mount Windows SMB on Linux VM**
+***# 1️⃣ Mount Windows SMB on Linux VM***
 
     sudo mkdir -p /mnt/smb_backups/sql_backups
     sudo mkdir -p /mnt/smb_backups/raw_data_snapshots
@@ -1025,10 +978,8 @@ Optional `/etc/fstab` for auto-mount:
     # SMB backup mount
     //WINDOWS_HOST/BackupFolder /mnt/smb_backups cifs username=winuser,password=winpass,vers=3.0,iocharset=utf8 0 0
 
-***
 
-
-# **2️⃣ Combined backup script**
+***# 2️⃣ Combined backup script***
 
 Create `/usr/local/bin/mariadb_full_backup_on_stop.sh`:
 
@@ -1104,7 +1055,7 @@ Make it executable:
 ***
 
 
-# **3️⃣ Docker event listener**
+***# 3️⃣ Docker event listener***
 
 Create `/usr/local/bin/docker_mariadb_event_listener.sh`:
 
@@ -1134,10 +1085,8 @@ Make it executable:
 
     sudo chmod +x /usr/local/bin/docker_mariadb_event_listener.sh
 
-***
 
-
-# **4️⃣ Run listener in background**
+***# 4️⃣ Run listener in background***
 
     nohup /usr/local/bin/docker_mariadb_event_listener.sh > /var/log/mariadb_backup_listener.log 2>&1 &
 
@@ -1145,18 +1094,16 @@ Make it executable:
 
 - Automatically triggers both **mysqldump** and **raw snapshot** backups
 
-***
 
+***# 5️⃣ Restore Instructions***
 
-# **5️⃣ Restore Instructions**
-
-### **A. Restore SQL dump**
+***### A. Restore SQL dump***
 
     gzip -dc /mnt/smb_backups/sql_backups/mariadb_backup_2026-02-05_120000.sql.gz | \
     docker exec -i mariadb_container mysql -u root -p"$MYSQL_ROOT_PASSWORD"
 
 
-### **B. Restore raw snapshot**
+***### B. Restore raw snapshot***
 
     docker stop mariadb_container
 
@@ -1169,7 +1116,7 @@ Make it executable:
 ***
 
 
-# **6️⃣ Advantages**
+***# 6️⃣ Advantages***
 
 ✅ Automatic on stop or crash (`stop` + `die`)\
 &#x20;✅ Safe mysqldump backup (logical)\
@@ -1178,10 +1125,8 @@ Make it executable:
 &#x20;✅ Backup rotation for both SQL and raw snapshots\
 &#x20;✅ Logging for monitoring
 
-***
 
-
-# **7️⃣ Notes / Caveats**
+***# 7️⃣ Notes / Caveats***
 
 - **Do not copy raw data while DB is running**, only safe after stop or via snapshot
 
@@ -1191,7 +1136,6 @@ Make it executable:
 
 - Always test restores regularly
 
-***
 
 This gives you a **full production-ready system** that automatically keeps:
 
@@ -1201,10 +1145,8 @@ This gives you a **full production-ready system** that automatically keeps:
 
 All automatically pushed to **Windows SMB**, triggered **only when the container stops or crashes**.
 
-***
 
 I can also **write a ready-made systemd service unit** to run the event listener on VM boot, so it always monitors MariaDB and never needs manual start.
 
 Do you want me to do that next?
 
-\
