@@ -35,21 +35,6 @@
 
 # Bash.md
 
-## Websites
-
-* [GNU Bash](https://www.gnu.org/software/bash/)
-* [koalaman/shellcheck GitHub](https://github.com/koalaman/shellcheck)
-
-* Auto-Completion
-  * [lincheney/fzf-tab-completion GitHub => Tab completion using fzf](https://github.com/lincheney/fzf-tab-completion)
-
-* Tutorials
-  * [tutorialspoint.com => Shell Scripting Tutorial](https://www.tutorialspoint.com/unix/shell_scripting.htm)
-  * [learnshell.org => Interactive Shell Programming tutorial](https://www.learnshell.org/)
-  * [Ryans Tutorials => Bash Scripting Tutorial](https://ryanstutorials.net/bash-scripting-tutorial/)
-  * [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/)
-  * [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/index.html)
-
 ## Notes
 
 * If Bash is not default shell, then open any terminal and run command `bash` to enter into Bash-Shell.
@@ -58,6 +43,23 @@
 # References
 
 * next-sl: {4}
+
+## Websites
+
+* [GNU Bash](https://www.gnu.org/software/bash/)
+* [koalaman/shellcheck GitHub](https://github.com/koalaman/shellcheck)
+
+* Auto-Completion
+  * [lincheney/fzf-tab-completion GitHub => Tab completion using fzf](https://github.com/lincheney/fzf-tab-completion)
+
+## Tutorials
+  
+* [w3schools.com => Bash Tutorial](https://www.w3schools.com/bash/index.php)
+* [tutorialspoint.com => Shell Scripting Tutorial](https://www.tutorialspoint.com/unix/shell_scripting.htm)
+* [learnshell.org => Interactive Shell Programming tutorial](https://www.learnshell.org/)
+* [Ryans Tutorials => Bash Scripting Tutorial](https://ryanstutorials.net/bash-scripting-tutorial/)
+* [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/)
+* [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/index.html)
 
 ## Guides
 

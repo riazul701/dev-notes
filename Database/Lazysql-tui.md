@@ -1,4 +1,36 @@
+# Keybindings
+
+## General
+
+* `Esc` : To close window or get out from various situation.
+
+* `PageDown` / `Shift+J` : Scroll page down in main window (Logs, Stats etc.)
+
+* `PageUp` / `Shift+K` : Scroll page up in main window (Logs, Stats etc.)
+
 # Lazysql-TUI.md
+
+# Installation
+
+## Debian-Server (Standard Edition)
+
+**[Binary Release (Linux/OSX/Windows)](https://github.com/jesseduffield/lazydocker#binary-release-linuxosxwindows)**
+
+* `curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash` : Automated install/update, don't forget to always verify what you're piping into bash.
+
+* The script installs downloaded binary to `$HOME/.local/bin` directory by default, but it can be changed by setting `DIR` environment variable.
+
+* To add `$HOME/.local/bin` to your PATH permanently in Bash, add this line to your `~/.bashrc`:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+* `source ~/.bashrc` : Then reload your shell configuration.
+
+* `echo $PATH` : Verify it was added.
+
+* `which lazydocker` : Check whether a command in that directory is found.
 
 # References
 

@@ -23,8 +23,9 @@
 ## Documentation
 
 * TUI
-  * navi
-  * tldr
+  * [navi](https://github.com/denisidoro/navi)
+  * tldr.sh
+  * cheat.sh
 
 * Command
   * man

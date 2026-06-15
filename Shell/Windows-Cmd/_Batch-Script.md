@@ -1,5 +1,11 @@
 # Batch-Script.md
 
+## Notes
+
+* Batch script has `.bat` or `.cmd` extension.
+
+# References
+
 ## Websites
 
 * Tutorials

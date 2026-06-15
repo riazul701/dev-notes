@@ -16,3 +16,7 @@
   * [kristijanhusak/vim-dadbod-ui GitHub](https://github.com/kristijanhusak/vim-dadbod-ui)
   * [Maxteabag/sqlit GitHub => TUI for SQL databases](https://github.com/Maxteabag/sqlit)
   * [tconbeer/harlequin GitHub => SQL IDE for Your Terminal](https://github.com/tconbeer/harlequin)
+
+* Sample Database
+  * [harryho/db-samples => Northwind sample database](https://github.com/harryho/db-samples)
+  * [jOOQ/sakila GitHub => Sakila Database](https://github.com/jOOQ/sakila)

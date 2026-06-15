@@ -1,3 +1,0 @@
-# xargs-cmd.md
-
-## Websites
