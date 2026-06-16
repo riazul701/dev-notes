@@ -4,6 +4,22 @@
 
 * `usql "database-url" --command ` option does not support multi-line input. To solve this issue convert "new-line" into "space".
 
+## W3Schools SQL Tutorial Database
+
+* [uwla/sample_mysql_database GitHub => W3Schools MySQL Tutorials Database CSV & SQL files](https://github.com/uwla/sample_mysql_database)
+
+# Installation
+
+## Windows-OS
+
+* Open powershell in administrator mode to install scoop apps globally for all windows users.
+
+* `scoop install main/git --global`
+
+* `scoop install main/fzf --global`
+
+* `scoop install main/usql --global`
+
 # Instruction
 
 ## Command Changing
@@ -60,7 +76,7 @@ tr '\n' ' ' |
 xargs -I{} usql "mysql://username:password@localhost:3306/database_name" --command {}
 ```
 
-* Change-4
+* Change-4 => Problem: `usql --command` single/double quote issue.
 
 ```bash
 #!/bin/bash
@@ -79,6 +95,46 @@ echo "$query" |
 sed '/^#/d' |
 tr '\n' ' ' |
 xargs -I{} usql "mysql://username:password@localhost:3306/database_name" --command {}
+```
+
+* Change-5
+
+  * [Configuration](https://github.com/xo/usql#configuration)
+  * `usql` config file path
+    * Windows: `%AppData%/usql/config.yaml`
+      * `C:\Users\{{user-name}}\AppData\Roaming\usql\config.yaml`
+    * Linux/Unix: `$HOME/.config/usql/config.yaml`
+    * macOS: `$HOME/Library/Application Support/usql/config.yaml`
+
+```yaml
+connections:
+    w3schools: mysql://username:password@localhost:3306/database_name
+```
+
+```bash
+#!/bin/bash
+
+file=$(
+    ls | 
+    grep '\.sql$' | 
+    grep -v -- '-sample\.sql$' | 
+    fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
+) || exit
+
+query=$(
+    grep -v '^[[:space:]]*$' "$file" | 
+    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' |
+    fzf --read0 --delimiter=$'\r\n' --with-nth=1 --preview 'bat --language=sql --color=always --paging=never <<< {}'
+) || exit
+
+sql=$(
+    echo "$query" |
+    sed '/^#/d' |
+    tr '\n' ' ' | 
+    tr '"' "'"
+)
+
+usql w3schools --command "$sql"
 ```
 
 # Concept
@@ -539,3 +595,94 @@ printf "%s" "$block" | usql ...
 ---
 
 If you want, I can help you build a **3-stage SQL fzf tool (file → query block → execute)** that behaves like a mini SQL IDE in terminal.
+
+===================================================================================
+
+> ChatGPT Question: 
+> 
+> In fzf, show only first line from multi-line standard input
+
+If your input items are multi-line records (for example, separated by NULs with `--read0`), you can tell `fzf` to display only the first line while still returning the full record:
+
+```bash
+awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' file.md |
+fzf --read0 --with-nth=1
+```
+
+For more control, use a delimiter and transform the display:
+
+```bash
+awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" }
+{
+    first = $0
+    sub(/\n.*/, "", first)
+    print first "\t" $0
+}' file.md |
+fzf --read0 --delimiter=$'\t' --with-nth=1
+```
+
+A cleaner solution is often to use `--preview`:
+
+```bash
+awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' file.md |
+fzf --read0 \
+    --preview 'printf "%s" {}'
+```
+
+This shows only the first line of each record in the selection list:
+
+```bash
+... | fzf --read0 --preview 'printf "%s" {}' \
+          --preview-window=down:70% \
+          --nth=1
+```
+
+Or explicitly collapse each record to its first line for display:
+
+```bash
+... | fzf --read0 \
+          --preview 'printf "%s" {}' \
+          --with-nth='{1}'
+```
+
+The most reliable pattern is:
+
+```bash
+records -> fzf list shows first line only
+        -> preview shows full multi-line record
+        -> selected output is the full record
+```
+
+using `--preview` rather than trying to make `fzf` itself render only part of a multi-line entry.
+
+==================================================================================
+
+> ChatGPT Question: 
+> 
+> In bash, remove empty line that contains tabs and spaces inside pipe redirection
+
+The simplest and fastest solution is usually to filter before `awk`:
+
+```bash id="k7cp1i"
+grep -v '^[[:space:]]*$' "$file" |
+awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }'
+```
+
+Or if you want to keep it entirely in `awk` (one process instead of two), use:
+
+```bash id="4mpq56"
+awk '
+BEGIN { RS="\n==================================================\n"; ORS="\0" }
+{
+    gsub(/\n[[:space:]]*\n/, "\n")
+    print
+}' "$file"
+```
+
+However, this only collapses a single whitespace-only line between content. For removing **all** whitespace-only lines, the `grep` solution is both simpler and typically faster:
+
+```bash id="fuvrzr"
+grep -v '^[[:space:]]*$' "$file"
+```
+
+then pipe to whatever comes next.

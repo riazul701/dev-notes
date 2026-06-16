@@ -20,3 +20,5 @@
 * Sample Database
   * [harryho/db-samples => Northwind sample database](https://github.com/harryho/db-samples)
   * [jOOQ/sakila GitHub => Sakila Database](https://github.com/jOOQ/sakila)
+  * [uwla/sample_mysql_database GitHub => W3Schools MySQL Tutorials Database CSV & SQL files](https://github.com/uwla/sample_mysql_database)
+  * [AndrejWeb/w3schools-database GitHub => W3Schools Database for the SQL Tutorial](https://github.com/AndrejWeb/w3schools-database)
