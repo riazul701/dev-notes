@@ -13,13 +13,12 @@ file=$(
 ) || exit
 
 text=$(
-    grep -v '^[[:space:]]*$' "$file" | 
-    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' |
+    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { sub(/^[ \t]*\n+/, ""); print }' "$file" | 
     fzf --read0 --delimiter=$'\r\n' --with-nth=1 --preview 'bat --language=php --color=always --paging=never <<< {}' --preview-window=up:70%
 ) || exit
 
 code=$(
-    echo "$text" |
+    echo "$text" | 
     sed '/^#/d'
 )
 

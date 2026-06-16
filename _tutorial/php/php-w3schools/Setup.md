@@ -2,7 +2,7 @@
 
 ## PHP Web Server
 
-* `cd "$HOME/tmp/code/php"` (bash) : Go to `$HOME/tmp/code/php` directory.
+* `cd "$HOME/tmp/code/php"` (bash, powershell) : Go to `$HOME/tmp/code/php` directory.
 
 * `php -S localhost:9000` (powershell) : Start php web server.
 

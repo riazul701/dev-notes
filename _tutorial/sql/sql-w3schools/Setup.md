@@ -122,14 +122,14 @@ file=$(
 ) || exit
 
 query=$(
-    grep -v '^[[:space:]]*$' "$file" | 
-    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' |
+    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { sub(/^[ \t]*\n+/, ""); print }' "$file" |
     fzf --read0 --delimiter=$'\r\n' --with-nth=1 --preview 'bat --language=sql --color=always --paging=never <<< {}' --preview-window=up:70%
 ) || exit
 
 sql=$(
-    echo "$query" |
-    sed '/^#/d' |
+    echo "$query" | 
+    grep -v '^[[:space:]]*$' | 
+    sed '/^#/d' | 
     tr '\n' ' ' | 
     tr '"' "'"
 )
@@ -686,3 +686,62 @@ grep -v '^[[:space:]]*$' "$file"
 ```
 
 then pipe to whatever comes next.
+
+==================================================================================
+
+> ChatGPT Question: 
+> 
+> awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' "$file"
+> Using awk, remove one or multiple single empty line that contains spaces and tabs after "\0" character
+
+If you want to collapse/remove empty lines that contain only spaces or tabs within each record before outputting it as NUL-separated data, you can modify the AWK script like this:
+
+```bash
+awk '
+BEGIN {
+    RS="\n==================================================\n"
+    ORS="\0"
+}
+{
+    gsub(/\n[ \t]*\n+/, "\n")
+    print
+}
+' "$file" |
+fzf --read0 \
+    --delimiter=$'\r\n' \
+    --with-nth=1 \
+    --preview 'bat --language=php --color=always --paging=never <<< {}' \
+    --preview-window=up:70%
+```
+
+If the blank lines occur specifically at the beginning of a record (immediately after the record separator), remove them with:
+
+```bash
+awk '
+BEGIN {
+    RS="\n==================================================\n"
+    ORS="\0"
+}
+{
+    sub(/^[ \t]*\n+/, "")
+    print
+}
+' "$file"
+```
+
+Or, to remove **all consecutive blank lines (including lines containing only spaces/tabs)** anywhere in the record:
+
+```bash
+awk '
+BEGIN {
+    RS="\n==================================================\n"
+    ORS="\0"
+}
+{
+    gsub(/(\n[ \t]*)+\n/, "\n")
+    print
+}
+' "$file"
+```
+
+If you can show a small input/output example, I can give the exact regex for your case.

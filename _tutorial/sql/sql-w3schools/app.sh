@@ -8,14 +8,14 @@ file=$(
 ) || exit
 
 query=$(
-    grep -v '^[[:space:]]*$' "$file" | 
-    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { print }' |
+    awk 'BEGIN { RS="\n==================================================\n"; ORS="\0" } { sub(/^[ \t]*\n+/, ""); print }' "$file" |
     fzf --read0 --delimiter=$'\r\n' --with-nth=1 --preview 'bat --language=sql --color=always --paging=never <<< {}' --preview-window=up:70%
 ) || exit
 
 sql=$(
-    echo "$query" |
-    sed '/^#/d' |
+    echo "$query" | 
+    grep -v '^[[:space:]]*$' | 
+    sed '/^#/d' | 
     tr '\n' ' ' | 
     tr '"' "'"
 )
