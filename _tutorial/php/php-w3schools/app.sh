@@ -19,7 +19,8 @@ text=$(
 
 code=$(
     echo "$text" | 
-    sed '/^#/d'
+    sed '/^#/d' | 
+    sed '/[^[:space:]]/,$!d'
 )
 
 echo "$code" > "$destination_dir/index.php"
