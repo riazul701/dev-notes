@@ -1,6 +1,6 @@
 #!/bin/bash
 
-destination_dir="$HOME/tmp/code/php"
+destination_dir="$HOME/tmp/php"
 
 if [ ! -d "$destination_dir" ]; then
     mkdir -p "$destination_dir"

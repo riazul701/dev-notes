@@ -1,20 +1,23 @@
 #!/bin/bash
 
-destination_root="$HOME/tmp/code/laravel/laravel-13"
+destination_root="$HOME/tmp/laravel-13"
+original_pwd="$PWD"
 
 if [ ! -d "$destination_root" ]; then
     parent_dir="${destination_root%/*}"
     mkdir -p "$parent_dir"
-    if [[ ($(php -m | grep openssl) == '') || ($(php -m | grep fileinfo) == '') || ($(php -m | grep sqlite) == '') ]]
-    then
+    if [[ ($(php -m | grep openssl) == '') || ($(php -m | grep fileinfo) == '') || ($(php -m | grep sqlite) == '') ]]; then
         echo -e "\033[1;31m Enable Required PHP Extension - openssl, fileinfo, sqlite! \033[0m"
         echo -e "\033[1;31m Open php.ini file and uncomment 'extension=openssl', 'extension=fileinfo', 'extension=pdo_sqlite' line \033[0m" 
         php --ini
         exit
     fi
     composer create-project laravel/laravel:^13.8.0 "$destination_root"
+    cd "$destination_root"
     git init
+    git add .
     git commit -m "Initial Commit"
+    cd "$original_pwd"
 fi
 
 dir_level_1=$(
@@ -51,7 +54,11 @@ mapfile -t files < <(echo "$selected_list")
 first_run=true
 for file in "${files[@]}"; do
     if $first_run; then
-        echo "This runs only once"
+        cd "$destination_root"
+        git reset --hard HEAD
+        git clean -fd
+        echo "Cleaned Git Repo At: $PWD"
+        cd "$dir_level_1"
         first_run=false
     fi
     source_absolute="$PWD/$file"
