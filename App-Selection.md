@@ -42,6 +42,7 @@
 * TUI
   * Yazi
   * Vifm
+  * Broot
 
 * Command
   * czkawka-cli
@@ -119,6 +120,7 @@
 
 * GUI
   * Visual Studio Code
+  * Zed
 
 * TUI
   * LunvarVim

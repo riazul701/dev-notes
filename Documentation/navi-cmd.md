@@ -10,9 +10,9 @@
 
 ## Set Config `PATH` Environment Variable
 
-* `$env:NAVI_PATH = "C:\Users\YourName\navi-cheats"` : Current PowerShell session only, set environment variable. This disappears when you close the terminal.
+* `$env:NAVI_PATH = "C:\Users\YourName\navi-cheats"` (powershell) : Current PowerShell session only, set environment variable. This disappears when you close the terminal.
 
-* `$env:NAVI_PATH` : Check/print environment variable.
+* `$env:NAVI_PATH` (powershell) : Check/print environment variable.
 
 # References
 
