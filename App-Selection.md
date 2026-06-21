@@ -121,8 +121,10 @@
 * GUI
   * Visual Studio Code
   * Zed
+  * Sublime-Text/Sublime-Merge
 
 * TUI
+  * LazyVim
   * LunvarVim
   * Vim/NeoVim
 
