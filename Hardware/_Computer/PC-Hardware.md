@@ -86,6 +86,7 @@
   * {19} [OpenHardwareMonitor replacement?](https://www.reddit.com/r/buildapc/comments/enzh2a/openhardwaremonitor_replacement/)
 
 * PC Assembly
+  * [ঘরে বসে নিজেই PC Build করুন! | Step-by-Step PC Building Tutorial for Beginners BY PC Helpline Bangladesh](https://www.youtube.com/watch?v=NLuWFX9NQ3g)
   * {6} [DIY PC Build I EPISODE- 01 I কম্পিউটার Assembling গাইড শুরু থেকে শেষ পর্যন্ত I Windows setup Ato Z BY TechMania |BD|](https://www.youtube.com/watch?v=PfiQb8pca10)
   * {7} [DIY PC Build I EPISODE- 02 I কম্পিউটার Assembling গাইড শুরু থেকে শেষ পর্যন্ত I Windows setup Ato Z BY TechMania |BD|](https://www.youtube.com/watch?v=9WLjJWtA27s)
   * {8} [DIY PC Build I EPISODE- 03 I কম্পিউটার Assembling গাইড শুরু থেকে শেষ পর্যন্ত I Windows setup Ato Z BY TechMania |BD|](https://www.youtube.com/watch?v=5TwzXdBIPDY)

@@ -1,5 +1,63 @@
 # Multiplexing.md
 
+# Instruction
+
+## General
+
+* WezTerm multiplexing supports workspaces. Press `Ctrl+Shift+P`, to open command palette, search for `workspace`, then switch among workspaces.
+
+## On Remote PC (Windows/Linux)
+
+* Create a local Unix domain (works on Windows too). In your `~/.wezterm.lua`:
+
+```lua
+local wezterm = require 'wezterm'
+
+return {
+  unix_domains = {
+    {
+      name = 'unix',
+    },
+  },
+}
+```
+
+* This tells WezTerm to create/connect to a local mux server.
+
+* `wezterm connect unix` (powershell/bash): Start the mux server => The first time, WezTerm will start the mux server if it isn't already running and connect to it.
+
+* Close the GUI => Click the X button. The GUI closes. The mux server should remain running, and the shell/process continues because it belongs to the mux server, not the GUI client. This is exactly the tmux-style architecture.
+
+* `wezterm connect unix` (powershell/bash) : Reattach later => You reconnect to the same mux domain and should see the running pane/tab.
+
+* `wezterm cli list --prefer-mux` : Check whether it is still alive => The CLI can talk to a running mux server and list panes/tabs.
+
+## On Local PC (Windows/Linux)
+
+* Create an SSH domain. On the local machine, edit your WezTerm configuration. In your `~/.wezterm.lua`:
+
+```lua
+local wezterm = require 'wezterm'
+
+return {
+  ssh_domains = {
+    {
+      name = 'work-pc',
+      remote_address = '192.168.1.100',
+      username = 'your_username',
+    },
+  },
+}
+```
+
+* Replace: `192.168.1.100` and `your_username` with your actual values.
+
+* Connect to the remote machine
+  * Open `Luncher` (WezTerm) by right-clicking the `+` button in the tab bar.
+  * Then select: `Connect to SSH Domain`
+  * Choose: `work-pc`
+  * You should now have a shell running on the remote Windows machine.
+
 # Concept
 
 > ChatGPT Question: 
@@ -925,6 +983,81 @@ open GUI
 Reconnect to the mux and switch workspaces as needed.
 
 This is probably the closest WezTerm gets to the "multiple tmux sessions" workflow, except that the workspaces are built into the multiplexer rather than managed by a separate tool.
+
+======================================================================================
+
+> ChatGPT Question: 
+> 
+> In wezterm open command palette by pressing "CTRL+SHIFT+P", then "Connect to SSH Domain", no such option exists
+
+If **WezTerm's Command Palette (`Ctrl+Shift+P`) doesn't show "Connect to SSH Domain"**, the most common reason is that you haven't defined any SSH domains in your WezTerm configuration.
+
+WezTerm only shows the command when at least one SSH domain exists.
+
+Example `~/.wezterm.lua`:
+
+```lua
+local wezterm = require 'wezterm'
+
+return {
+  ssh_domains = {
+    {
+      name = 'myserver',
+      remote_address = 'user@example.com',
+    },
+  },
+}
+```
+
+After reloading WezTerm, you should see:
+
+```
+Connect to SSH Domain
+```
+
+in the command palette.
+
+***### Alternative ways to check***
+
+You can also list configured SSH domains from a shell:
+
+```bash
+wezterm cli list
+```
+
+or inspect your config:
+
+```bash
+wezterm show-keys
+```
+
+***### If you're using the newer launcher***
+
+In recent WezTerm versions, SSH connections are often accessed through:
+
+* `Launcher` (`Ctrl+Shift+L` by default)
+* `New Tab`
+* `New Window`
+
+where SSH domains appear as launchable targets.
+
+***### Verify your version***
+
+Run:
+
+```bash
+wezterm --version
+```
+
+Older versions had slightly different launcher and command-palette behavior.
+
+If you share:
+
+```bash
+wezterm --version
+```
+
+and your `~/.wezterm.lua` (or the SSH-related section), I can tell you exactly why the option is missing.
 
 # References
 

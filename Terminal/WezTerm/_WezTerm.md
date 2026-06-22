@@ -30,12 +30,15 @@
 
 ## PATH
 
-* WezTerm log file location: "C:\Users\<user-name>\.local\share\wezterm" [Lua-function: "wezterm.log_error()"] [Log to file #1576](https://github.com/wez/wezterm/issues/1576)
+**Config File**
 
 * {16} [Configuration Files](https://wezfurlong.org/wezterm/config/files.html#configuration-files)
-  * wezterm will look for a lua configuration file using the logic shown below.
-  * Tip: The recommendation is to place your configuration file at `$HOME/.wezterm.lua` (`%HOME%/.wezterm.lua` on Windows) to get started.
+  * The recommendation is to place your configuration file at `$HOME/.wezterm.lua` (`%USERPROFILE%/.wezterm.lua` on Windows. `%USERPROFILE%` means `C:\Users\{{user-name}}` path) to get started.
   * More complex configurations that need to span multiple files can be placed in `$XDG_CONFIG_HOME/wezterm/wezterm.lua` (for X11/Wayland) or `$HOME/.config/wezterm/wezterm.lua` (for all other systems).
+
+**Log File**
+
+* WezTerm log file location: "C:\Users\<user-name>\.local\share\wezterm" [Lua-function: "wezterm.log_error()"] [Log to file #1576](https://github.com/wez/wezterm/issues/1576)
 
 ## Keyboard Shortcuts
 
