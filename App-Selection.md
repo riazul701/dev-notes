@@ -550,6 +550,14 @@
   * Taskwarrior
   * Timewarrior
 
+## AI
+
+* TUI
+  * [geminicli.com](https://geminicli.com/)
+
+* GUI
+  * ChatGPT
+
 ## Other Commands
 
 * dict

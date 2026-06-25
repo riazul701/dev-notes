@@ -1,5 +1,9 @@
 # Mini-Package.md
 
+## Notes
+
+* For Solar => Many MPPT controllers are designed to be connected directly to their own solar panels. From same solar panel, multiple parallel operations in multiple MPPT controllers are not supported.
+
 # Features
 
 ## Solar Table Fan+Light
@@ -246,6 +250,8 @@ IPS Bazar - Bangladesh](https://www.youtube.com/watch?v=FXuxVQ6GyvM)
 * [How to make 9 inchi High speed rechargeable fan | নিজেই তৈরি করুন হাই স্পিড রিচার্জেবল ফ্যান। BY Signal Mastar Diy](https://www.youtube.com/watch?v=fZQpYB956zE)
 
 **Solar**
+
+* [ডিসি হতে ডিসি নাকি ডিসি হতে এসি লোড চললে বেশী সুবিধা পাওয়া যাবে, DC vs AC Load. BY Training 24](https://www.youtube.com/watch?v=xH_aHPF13vM)
 
 * [একাধিক সোলার প্যানেল কিভাবে কানেকশন করলে ১২ এবং ২৪ ভোল্ট পাওয়া য়ায়।how to connect solar panels. BY Training 24](https://www.youtube.com/watch?v=bSDWY-JfbZY)
 

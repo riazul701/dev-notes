@@ -1,5 +1,9 @@
 # Multiplexing.md
 
+## Notes
+
+* WezTerm multiplexing supports `yazi` file manager's image preview, when connected using SSH to remote computer. 
+
 # Instruction
 
 ## General
