@@ -6,7 +6,9 @@
 
 * `<Esc>` OR `Ctrl + C` OR `q` : Press to exit from various situation.
 
-* `y` : Popup yank/copy to selection menu.
+* `y` : Popup yank/copy dialog menu for range selection.
+
+* `d` : Popup cut/delete dialog menu for range selection.
 
 ## Telescope
 
@@ -23,6 +25,10 @@
 * `<Tab>` : Select down text from auto-completion.
 
 * `<Shift> + <Tab>` : Select upper text from auto-completion.
+
+## `y` yank/copy dialog menu
+
+## `d` cut/delete dialog menu
 
 # [Keymaps Official](https://www.lazyvim.org/keymaps)
 
@@ -311,7 +317,7 @@
 * `<c-space>` (n,o,x) : Treesitter Incremental Selection
   * If this keybinding does not work, modify like `<c-r>`, according to this file `https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/editor.lua`
 
-**Additional Keybindings**
+### Additional Keybindings
 
 * Enhanced `f`, `t`, `F`, `T` motions
   * After typing `f{char}` or `F{char}`, you can repeat the motion with `f` or go to the previous match with `F` to undo a jump.
@@ -336,22 +342,46 @@
 
 * `<leader>sr` (n,x) : Search and Replace
 
-**Additional Keybindings**
+### Additional Keybindings
+
+**Dependencies Install**
+
+* `scoop install main/ripgrep --global`
+
+* `scoop install main/ast-grep --global`
+
+**Problem And Solution**
+
+* In `lazy.nvim` plugin manager, check `grug-far.nvim` plugin is loaded or not. If it is loaded then, press it's leader key `\` inside search result buffer/pane, shows which-key's popup menu with possible options.
+
+* Most of the time, `lazy.nvim` plugin manager does not load `grug-far.nvim` plugin instantly.
+
+* If required, restart `grug-far.nvim` plugin interface, by pressing `\c` (close) and `<leader>sr` (Open: Search and Replace, vim-mode: n, x).
+
+**Notes**
+
+* Keybindings only work, when cursor in search field, not in search result text.
+
+* Cookbook Commands
+  * Write `grug-far.nvim` cookbook commands only in vim's command mode, means when typing `:` character. Example `:lua require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } })`
 
 * Vim Modes
   * Press `<Esc>` OR `Ctrl + C` to go back to normal mode.
   * Press `i`, to activate vim's insert mode.
 
-Actions:
+* Result Buffer
+  * Use `Up-Arrow` and `Down-Arrow` key for up/down navigation.
+
+**Actions:**
    
 * Help `g?` : Open up help window.
    
 * Replace `\r` : Perform replace. Note that compared to 'Sync All', replace can also handle multiline replacements.
-   
+
 * Sync All `\s` : Sync all result lines text (potentially manually modified) back to their originating files. You can refine the effect by manually deleting lines to exclude them.
 
 * Sync Line `\l` : Sync current result line text (potentially manually modified) back to its originating file.
-   
+
 * Sync Next `\n` : Sync change at current line and move cursor to next match
    
 * Sync Prev `\p` : Sync change at current line and move cursor to prev match
@@ -394,6 +424,25 @@ Actions:
 
 * Prev Input `<s-tab>` : Goto prev input. Cycles back.
 
+## [noice.nvim](https://github.com/folke/noice.nvim)
+
+* `<c-b>` (n,i,s) : Scroll Backward
+
+* `<c-f>` (n,i,s) : Scroll Forward
+
+* `<leader>sn` (n) : +noice
+
+* `<leader>sna` (n) : Noice All
+  * Press `q` to quit
+
+* `<leader>snd` (n) : Dismiss All
+
+* `<leader>snh` (n) : Noice History
+  * Press `q` to quit
+
+* `<leader>snl` (n) : Noice Last Message
+  * Press `q` to quit
+
 # Keybind-LazyVim.md
 
 ## Notes
@@ -402,3 +451,10 @@ Actions:
   * Normal mode (`n`), Insert mode (`i`), Visual mode (`v`), Visual mode only (`x`), Select mode (`s`), Operator-pending mode (`o`), Command-line mode (`c`), Terminal mode (`t`)
 
 * `:checkhealth mason` : Shows LSP, DAP, Linter, Formatter Dependencies.
+
+# References
+
+## Tutorials
+
+* [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim)
+  * [Neovim Multiline Search and Replace with grug-far.nvim | ast-grep and waaaaaay more](https://linkarzu.com/posts/neovim/grug-far/)
