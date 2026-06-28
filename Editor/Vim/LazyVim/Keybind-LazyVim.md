@@ -5,10 +5,15 @@
 ## Common
 
 * `<Esc>` OR `Ctrl + C` OR `q` : Press to exit from various situation.
+  * Also can press `Down-Arrow`, `Up-Arrow` key.
 
 * `y` : Popup yank/copy dialog menu for range selection.
 
 * `d` : Popup cut/delete dialog menu for range selection.
+
+* `[` : Goto previous entry => file, parameter, class, function, hunk, reference, buffer, diagnostic, error, warning, method, quickfix/trouble, todo-comment.
+
+* `]` : Goto next entry => file, parameter, class, function, hunk, reference, buffer, diagnostic, error, warning, method, quickfix/trouble, todo-comment.
 
 ## Telescope
 
@@ -29,6 +34,168 @@
 ## `y` yank/copy dialog menu
 
 ## `d` cut/delete dialog menu
+
+## Built-In File Manager (Keybind-List Toggle: `?`)
+
+* Note: `<M-w>` means `Alt + w`
+
+* `q` : cancel
+
+* `<Esc>` : cancel
+
+* `l` : confirm
+
+* `<CR>` : confirm
+
+* `<2-LeftMouseClick` : confirm
+
+* `<M-w>` : cycle_win
+
+* `<C-S>` : edit_split
+
+* `<C-V>` : edit_vsplit
+
+* `a` : explorer_add
+  * Add a new file or directory (directories end with a "/")
+
+* `h` : explorer_close
+
+* `Z` : explorer_close_all
+
+* `c` : explorer_copy
+
+* `d` : explorer_del
+  * Move file/folder to recycle-bin
+  * Select files/folders with `<Tab>` and `<S-Tab>` key
+
+* `[d` : explorer_diagnostic_previous
+
+* `]d` : explorer_diagnostic_next
+
+* `]e` : explorer_error_next
+
+* `[e` : explorer_error_previous
+
+* `.` : explorer_focus
+
+* `]g` : explorer_git_next
+
+* `[g` : explorer_git_prev
+
+* `m` : explorer_move
+  * Select files first, then move
+  * Select files/folders with `<Tab>` and `<S-Tab>` key
+
+* `o` : explorer_open
+  * Open with system default application
+
+* `p` : explorer_paste
+  * Error: The `+` register does not contain any files
+
+* `r` : explorer_rename
+
+* `<BS>` : explorer_up
+
+* `u` : explorer_update
+
+* `]w` : explorer_warn_next
+
+* `[w` : explorer_warn_previous
+
+* `y` : explorer_yank
+  * Select files/folders with `<Tab>` and `<S-Tab>` key
+  * Mark files/folders with vim's visual mode `v`, `V`
+
+* `i` : focus_input
+
+* `<M-d>` : inspect
+
+* `<C-W>J` : layout_bottom
+
+* `<C-W>H` : layout_left
+
+* `<C-W>L` : layout_right
+
+* `<C-W>K` : layout_top
+
+* `G` : list_bottom
+
+* `<Down>` : list_down
+
+* `<C-J>` : list_down
+
+* `j` : list_down
+
+* `<C-N>` : list_down
+
+* `zb` : list_scroll_bottom
+
+* `zz` : list_scroll_center
+
+* `<C-D>` : list_scroll_down
+
+* `zt` : list_scroll_top
+
+* `<C-U>` : list_scroll_up
+
+* `gg` : list_top
+
+* `<C-K>` : list_up
+
+* `<C-P>` : list_up
+
+* `<Up>` : list_up
+
+* `k` : list_up
+
+* `<S-CR>` : pick_win, jump
+  * `<S-CR>` means `Shift + Enter` keybinding
+
+* `<Space>/` : picker_grep
+
+* `<C-F>` : preview_scroll_down
+
+* `<C-B>` : preview_scroll_up
+
+* `<C-G>` : print_path
+
+* `<C-Q>` : qflist
+
+* `<C-A>` : select_all
+
+* `<Tab>` : select_and_next
+
+* `<S-Tab>` : select_and_prev  
+
+* `<C-C>` : tcd
+  * Same s `.` keybindig
+
+* `<C-T>` : terminal
+  * Enter command `exit` to close terminal
+
+* `/` : toggle_focus
+
+* `<M-f>` : toggle_follow
+
+* `?` : toggle_help_list
+
+* `<M-h>` : toggle_hidden
+  * Supports only linux (not windows) hidden file/folder, where name starts with `.` character
+
+* `H` : toggle_hidden
+  * Supports only linux (not windows) hidden file/folder, where name starts with `.` character                            
+
+* `I` : toggle_ignored                                                   
+
+* `<M-i>` : toggle_ignored
+
+* `<M-m>` : toggle_maximize
+
+* `<M-p>` : toggle_preview
+  * In preview, press `Ctrl + f` to down scroll and `Ctrl + b` to up scroll.
+
+* `P` : toggle_preview
+  * In preview, press `Ctrl + f` to down scroll and `Ctrl + b` to up scroll.
 
 # [Keymaps Official](https://www.lazyvim.org/keymaps)
 
@@ -442,6 +609,202 @@
 
 * `<leader>snl` (n) : Noice Last Message
   * Press `q` to quit
+
+* `<leader>snt` (n) : Noice Picker (Telescope/FzfLua)
+
+* `<S-Enter>` (c) : Redirect Cmdline
+
+## [persistence.nvim](https://github.com/folke/persistence.nvim)
+
+* `<leader>qd` (n) : Don't Save Current Session
+
+* `<leader>ql` (n) : Restore Last Session
+
+* `<leader>qs` (n) : Restore Session
+
+* `<leader>qS` (n) : Select Session
+
+## [snacks.nvim](https://github.com/folke/snacks.nvim)
+
+* `<leader><space>` (n) : Find Files (Root Dir)
+
+* `<leader>,` (n) : Buffers
+
+* `<leader>.` (n) : Toggle Scratch Buffer
+  * Every project folder has differenct scratch buffer files, stored in user's `$HOME` folder's sub-folder.
+
+* `<leader>/` (n) : Grep (Root Dir)
+
+* `<leader>:` (n) : Command History
+
+* `<leader>dps` (n) : Profiler Scratch Buffer
+
+* `<leader>e` (n) : Explorer Snacks (root dir)
+
+* `<leader>E` (n) : Explorer Snacks (cwd)
+
+* `<leader>fb` (n) : Buffers
+  * Shows all open files
+
+* `<leader>fB` (n) : Buffers (all)
+  * Shows all open files and scratch files
+
+* `<leader>fc` (n) : Find Config File
+
+* `<leader>fe` (n) : Explorer Snacks (root dir)
+
+* `<leader>fE` (n) : Explorer Snacks (cwd)
+
+* `<leader>ff` (n) : Find Files (Root Dir)
+
+* `<leader>fF` (n) : Find Files (cwd)
+
+* `<leader>fg` (n) : Find Files (git-files)
+
+* `<leader>fp` (n) : Projects
+
+* `<leader>fr` (n) : Recent
+
+* `<leader>fR` (n) : Recent (cwd)
+
+* `<leader>gd` : Git Diff (hunks)
+  * Dependent on - currently opened project `<leader>fp` (n)
+
+* `<leader>gD` (n) : Git Diff (origin)
+
+* `<leader>gi` (n) : GitHub Issues (open)
+  * `gh issue list --limit 50 --json` : Shows output from this command.
+
+* `<leader>gI` (n) : GitHub Issues (all)
+  * `gh issue list --limit 50 --search {{search-text}} --state all --json` : Shows output from this command
+
+* `<leader>gp` (n) : GitHub Pull Requests (open)
+  * `gh pr list --limit 50 --search {{search-text}} --json` : Shows output from this command
+
+* `<leader>gP` : GitHub Pull Requests (all)
+  * `gh pr list --limit 50 --search {{search-text}} --state all --json` : Shows output for this command
+
+* `<leader>gs` (n) : Git Status
+
+* `<leader>gS` (n) : Git Stash
+
+* `<leader>n` (n) : Notification History
+
+* `<leader>S` (n) : Select Scratch Buffer
+
+* `<leader>s"` (n) : Registers
+
+* `<leader>s/` (n) : Search History
+
+* `<leader>sa` (n) : Autocmds
+
+* `<leader>sb` (n) : Buffer Lines
+
+* `<leader>sB` (n) : Grep Open Buffers
+
+* `<leader>sc` (n) : Command History
+
+* `<leader>sC` (n) : Commands
+
+* `<leader>sd` (n) : Diagnostics
+  * Shows diagnostics for all open files
+
+* `<leader>sD` (n) : Buffer Diagnostics
+  * Shows diagnostics for only current file
+
+* `<leader>sg` (n) : Grep (Root Dir)
+
+* `<leader>sG` (n) : Grep (cwd)
+
+* `<leader>sh` (n) : Help Pages
+  * Press `q` to quit
+
+* `<leader>sH` (n) : Highlights
+
+* `<leader>si` (n) : Icons
+
+* `<leader>sj` (n) : Jumps
+  * Among open buffer files
+
+* `<leader>sk` (n) : Keymaps
+
+* `<leader>sl` (n) : Location List
+
+* `<leader>sm` (n) : Marks
+
+* `<leader>sM` (n) : Man Pages
+
+* `<leader>sp` (n) : Search for Plugin Spec
+
+* `<leader>sq` (n) : Quickfix List
+
+* `<leader>sR` (n) : Resume
+
+* `<leader>su` (n) : Undotree
+
+* `<leader>sw` (n,x) : Visual selection or word (Root Dir)
+
+* `<leader>sW` (n,x) : Visual selection or word (cwd)
+
+* `<leader>uC` (n) : Colorschemes
+
+* `<leader>un` (n) : Dismiss All Notifications
+
+## [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+
+* `<leader>st` (n) : Todo
+
+* `<leader>sT` (n) : Todo/Fix/Fixme
+
+* `<leader>xt` (n) : Todo (Trouble)
+
+* `<leader>xT` (n) : Todo/Fix/Fixme (Trouble)
+
+* `[t` (n) : Previous Todo Comment
+  * Works inside
+
+* `]t` (n) : Next Todo Comment
+
+### Additional Keybindings
+
+* Writing rules (add space before and after of text): ` TODO: `, ` PERF: `, ` HACK: `, ` NOTE: `, ` FIX: `, ` WARNING: `
+
+## [trouble.nvim](https://github.com/folke/trouble.nvim)
+
+* `<leader>cs` (n) : Symbols (Trouble)
+  * Press `q` to quit, when trouble.nvim window is in focus
+
+* `<leader>cS` (n) : LSP references/definitions/... (Trouble)
+
+* `<leader>xL` (n) : Location List (Trouble)
+
+* `<leader>xQ` (n) : Quickfix List (Trouble)
+
+* `<leader>xx` (n) : Diagnostics (Trouble)
+
+* `<leader>xX` (n) : Buffer Diagnostics (Trouble)
+
+* `[q` (n) : Previous Trouble/Quickfix Item
+
+* `]q` (n) : Next Trouble/Quickfix Item
+
+## [which-key.nvim](https://github.com/folke/which-key.nvim)
+
+* `<c-w><space>` (n) : Window Hydra Mode (which-key)
+
+* `<leader>?` (n) : Buffer Keymaps (which-key)
+
+### Additional Keybindings
+
+* When which-key.nvim popup is open
+  
+  * `<Esc>` : Close
+
+  * `<Backspace>` : Back
+
+  * `Ctrl + d` : Scroll down
+
+  * `Ctrl + U` : Scroll up
 
 # Keybind-LazyVim.md
 

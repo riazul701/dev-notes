@@ -16,6 +16,18 @@
 
 * LazyVim-Extra plugin config file path: `C:\Users\{{user-name}}\AppData\Local\nvim\lua\config\options.lua`
 
+# Dependencies
+
+## [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim)
+
+* `scoop install main/ripgrep --global`
+
+* `scoop install main/ast-grep --global`
+
+## [snacks.nvim](https://github.com/folke/snacks.nvim)
+
+* `scoop install main/gh --global`
+
 # References
 
 ## Websites
