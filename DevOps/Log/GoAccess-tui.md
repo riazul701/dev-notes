@@ -1,6 +1,6 @@
-# GoAccess.md
+# GoAccess-tui.md
 
 ## Websites
 
+* [goaccess.io](https://goaccess.io/)
 * [allinurl/goaccess](https://github.com/allinurl/goaccess)
-* [GoAccess Site](https://goaccess.io/)

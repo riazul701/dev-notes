@@ -1,0 +1,9 @@
+shell:
+  command: powershell
+style:
+  tag:
+    color: cyan
+  comment:
+    color: white
+  snippet:
+    color: red

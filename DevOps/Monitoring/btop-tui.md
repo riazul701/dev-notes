@@ -1,5 +1,9 @@
 # btop-tui.md
 
+## Notes
+
+* `glances` is slow on Windows-OS, than `btop`, `bottom`.
+
 # References
 
 ## Websites

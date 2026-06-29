@@ -10,6 +10,26 @@
 
 # Lazysql-TUI.md
 
+## PATH
+
+* Config file path: `C:\Users\{{user-name}}\AppData\Roaming\lazysql\config.toml`
+
+# Configuration
+
+## config.toml
+
+* Config file path: `C:\Users\{{user-name}}\AppData\Roaming\lazysql\config.toml`. Contents:
+
+```toml
+[application]
+DefaultPageSize = 500
+
+[[database]]
+Name = 'Local development'
+Provider = 'mysql'
+URL = 'mysql://{{user-name}}:{{url-encoded-password}}@localhost:3306/{{db-name}}'
+```
+
 # Installation
 
 ## Debian-Server (Standard Edition)

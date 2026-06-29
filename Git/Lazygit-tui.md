@@ -1546,7 +1546,7 @@ git config --global merge.conflictStyle zdiff3
 
 * `winpty lazygit` : Open Lazygit in Git-Bash <sup>{4}</sup>
 
-# Lazygit.md
+# Lazygit-tui.md
 
 ## Notes
 

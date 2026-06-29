@@ -35,3 +35,8 @@
 * [LazyVim Site](https://www.lazyvim.org/)
 * [LazyVim GitHub](https://github.com/LazyVim/LazyVim)
 * [LazyVim/starter GitHub](https://github.com/LazyVim/starter)
+
+## Error
+
+* Lazygit
+  * [Close menu in integrated neovim terminal #2425](https://github.com/jesseduffield/lazygit/issues/2425)

@@ -151,7 +151,6 @@
     * jq/jid/fx
     * expand
 
-
 ## Git
 
 * GUI
@@ -159,8 +158,10 @@
 
 * TUI
   * LazyGit
+  * [LazyWorktree](https://github.com/chmouel/lazyworktree)
   * Vimdiff
   * Delta
+  * [gh-dash](https://github.com/dlvhdr/gh-dash)
 
 * Command
   * Fzf-Git
@@ -188,6 +189,7 @@
 
 * TUI
   * Lazysql
+  * [harlequin.sh](https://harlequin.sh/)
   * Vim-Dadbod
 
 * Command
@@ -195,13 +197,14 @@
   * mycli
   * mysql/mysqlbinlog/mysqlcheck/mysqld/mysqldump/mytop/mysqlsh
 
-## File Transfer
+## File Transfer/Connection
 
 * GUI
   * Filezilla
 
 * TUI
   * Termscp
+  * Lazyssh
 
 * Command
   * Lftp
@@ -278,6 +281,7 @@
   * Free File Sync
 
 * TUI
+  * [craigderington/lazyrestic](https://github.com/craigderington/lazyrestic)
 
 * Command
   * rclone
@@ -285,6 +289,7 @@
   * lsyncd
   * unison
   * syncthing
+  * restic
 
 ## Partition Manager
 
@@ -307,10 +312,8 @@
   * Stacer (Linux)
 
 * TUI
-  * bottom
   * btop/btop4win
-  * Glances
-  * Htop
+  * Systemctl-tui (Linux)
 
 * Command
   * lsof
@@ -481,8 +484,10 @@
 * GUI
 
 * TUI
+  * [Lifailon/lazyjournal](https://github.com/Lifailon/lazyjournal)
   * [Lnav](https://lnav.org/)
   * [bensadeh/tailspin](https://github.com/bensadeh/tailspin)
+  * ULogViewer
 
 * Command
   * logger
@@ -538,17 +543,23 @@
 * Command
   * VBoxManage
 
-## ToDo & Issue-Tracker
+## ToDo & Issue-Tracker & Note & Documentation
 
 * GUI
-  * Trello
-  * Jira
+  * Jira Atlassian
+  * Trello Atlassian
+  * Confluence Atlassian
   * Mantis-BT
   * BugZilla
+  * Joplin
 
 * TUI
+  * [textfuel/lazyjira](https://github.com/textfuel/lazyjira)
   * Taskwarrior
   * Timewarrior
+
+* CLI
+  * [ankitpokhrel/jira-cli](https://github.com/ankitpokhrel/jira-cli)
 
 ## AI
 
