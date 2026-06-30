@@ -132,6 +132,40 @@ style:
     color: red
 ```
 
+# Error & Solution
+
+## Variable prompt error on Windows-OS
+
+### Error-1 Details
+
+* `navi` and `fzf` are installed via scoop package manager.
+
+* Create cheatsheet `test.cheat` with content:
+
+```shell
+% test
+
+# Echo
+echo <name>
+```
+
+* Run this using `navi` : `navi --path . --print`
+
+* Above command show error from `navi` :
+
+```shell
+error: the following required arguments were not provided:
+<VARIABLE>
+Usage: navi.exe preview-var <SELECTION> <QUERY> <VARIABLE>
+For more information, try '--help'.
+```
+
+* But on Debian-Server linux, no such issue. 
+
+### Solution-1: 
+
+* On Windows-OS, it works, but does not show variable filling infomation in `fzf` preview, like Linux-OS (Debian-Server).
+
 # References
 
 ## Websites

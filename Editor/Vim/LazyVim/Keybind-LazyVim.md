@@ -11,6 +11,10 @@
 
 * `d` : Popup cut/delete dialog menu for range selection.
 
+* `v` : Popup visual selection dialog menu for range selection.
+
+* `g` : Popup goto dialog menu.
+
 * `[` : Goto previous entry => file, parameter, class, function, hunk, reference, buffer, diagnostic, error, warning, method, quickfix/trouble, todo-comment.
 
 * `]` : Goto next entry => file, parameter, class, function, hunk, reference, buffer, diagnostic, error, warning, method, quickfix/trouble, todo-comment.

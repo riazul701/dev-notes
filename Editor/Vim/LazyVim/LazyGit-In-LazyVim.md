@@ -1,4 +1,17 @@
-# LazyGit-In-LazyVim.md
+# LazyGit-In-LazyVim.m
+
+# Issues
+
+## Issue-1
+
+* Problem
+  * Cannot close any menu (opened with x) in integrated neovim's terminal. ESC brings you to normal mode and q closes lazygit.
+  * Also when typing, inserts same input character twice in lazygit inside of neovim terminal floating mode.
+
+* Possible Solutions
+  * When launching neovim using command `nvim`, it loads `lazyvim` plugins.
+  * Run plain `nvim` without `lazyvim` plugins, using `nvim --clean`, If possible specify separate `init.lua` config file.
+  * On fresh `nvim`, install any `lazygit` plugin and test it works or not.
 
 # Error (`<Esc>` Not Working)
 
@@ -153,7 +166,7 @@ If you want, I can show you how to make Lazygit behave *identically to a standal
 
 > ChatGPT Question: 
 > 
-> Also inserts same input character twice in lazygit inside of neovim terminal
+> Also when typing, inserts same input character twice in lazygit inside of neovim terminal floating mode
 
 Got it — that’s an important correction.
 
