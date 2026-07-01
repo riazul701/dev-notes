@@ -1,15 +1,32 @@
 # Double-Commander.md
 
+## Notes
+
+* Double-Commander supports multiple keybindings for same command/function.
+
+* If `doublecmd-gtk` freezes on Fedora-42-LXDE, install `doublecmd-qt`
+  * `qt5ct` Control Qt5/Qt6 appearance independently of the desktop environment
+
 ## PATH
 
 * Keyboard Shortcut File PATH: `C:\ProgramData\scoop\apps\doublecmd\current\settings\shortcuts.scf`
   * First, make a backup of this file.
-  * Change this file to make `vifm` or `vim` like keyboard shortcuts.
+  * Change this file to make `yazi` or `vifm` or `vim` like keyboard shortcuts.
 
-## Notes
+## Plugins
 
-* If `doublecmd-gtk` freezes on Fedora-42-LXDE, install `doublecmd-qt`
-  * `qt5ct` Control Qt5/Qt6 appearance independently of the desktop environment
+* `double-commander` supports all `total-commander` file manager's plugins on Windows-OS.
+
+* Different plugin types for different works
+  * DSX : Search plugins allow one to use alternative search algorithms or external tools (like "locate", etc)
+  * WCX : Packer plugins are used to work with archives
+    * [Packer Plugins By Total Commander](https://totalcmd.net/directory/packer.html)
+  * WDX : Content plugins allow one to display extended file details like mp3 tags or image attributes in file lists, or use them in search and multi-rename tool
+    * [Content Plugins By Total Commander](https://totalcmd.net/directory/content.html)
+  * WFX : File system plugins allow access to disks inaccessible by operating system or to external devices like Palm/PocketPC
+    * [File System Plugins By Total Commander](https://totalcmd.net/directory/fsplugin.html)
+  * WLX : Viwer plugins allow one to display file formats like images, spreadsheets, databases etc. in Viewer/Quick-View-panel (F3, Ctrl+Q)
+    * [Lister Plugins By Total Commander](https://totalcmd.net/directory/lister.html)
 
 # Installation
 
@@ -186,6 +203,10 @@ QT_SCALE_FACTOR=1.5 doublecmd-qt
   * Because double-commander does not support hotkey like `gg`, which is used in vifm/yazi/vim. Choose application specific key-remapper.
   * [AutoHotkey/AutoHotkey GitHub => Only Windows-OS, app specific](https://github.com/autohotkey/autohotkey)
   * [xremap/xremap GitHub => Only Linux-OS, app specific](https://github.com/xremap/xremap)
+
+## Plugins
+
+* [TC SumatraPDF Plugin 1.21 => Requires SumatraPDF portable edition](https://totalcmd.net/plugring/wlx_TCSumatraPDF.html)
 
 ## Tutorials
 

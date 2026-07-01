@@ -23,17 +23,17 @@
 
 * `Ctrl + n` OR `<Down-Arrow>` : Select next file.
 
-* `Ctrl + p` OR `<Up-Arrow>` : Select previous file.
+* `Ctrl + n` OR `<Up-Arrow>` : Select previous file.
 
 * `Ctrl + f` : Telescope preview down scroll.
 
 * `Ctrl + b` : Telescope preview up scroll.
 
-## Suggestions
+## Suggestions/Auto-Completion
 
-* `<Tab>` : Select down text from auto-completion.
+* `<Tab>` OR `Ctrl + n`: Select down text from auto-completion.
 
-* `<Shift> + <Tab>` : Select upper text from auto-completion.
+* `<Shift> + <Tab>` OR `Ctrl + p`: Select upper text from auto-completion.
 
 ## `y` yank/copy dialog menu
 

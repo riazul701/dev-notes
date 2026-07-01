@@ -4,9 +4,21 @@
 
 * Snap installation `ya` command: `/snap/yazi/current/ya --help` [`sudo snap install yazi --classic`]
 
-* Yazi config file path: `~/.config/yazi/yazi.toml`
+* On Linux-OS, config files path
+  * Main configuration: `~/.config/yazi/yazi.toml`
+  * Keybindings: `~/.config/yazi/keymap.toml`
+  * Theme/Colors: `~/.config/yazi/theme.toml`
+  * Lua initialization (plugins/custom logic): `~/.config/yazi/init.lua`
+  * User plugins `~/.config/plugins/`
+  * Themes/flavors: `~/.config/yazi/flavors/`
 
-* Yazi theme file path: `~/.config/yazi/theme.toml`
+* On Windows-OS, config files path:
+  * Main configuration: `C:\Users\<YourUser>\AppData\Roaming\yazi\config\yazi.toml`
+  * Keybindings: `C:\Users\<YourUser>\AppData\Roaming\yazi\config\keymap.toml`
+  * Theme/Colors: `C:\Users\<YourUser>\AppData\Roaming\yazi\config\theme.toml`
+  * Lua initialization (plugins/custom logic): `C:\Users\<YourUser>\AppData\Roaming\yazi\config\init.lua`
+  * User plugins `C:\Users\<YourUser>\AppData\Roaming\yazi\config\plugins\`
+  * Themes/flavors: `C:\Users\<YourUser>\AppData\Roaming\yazi\config\flavors\`
 
 # Install Yazi
 
@@ -17,7 +29,7 @@
 * Install Yazi using Nix package manager
   * On Non NixOS (without flakes): `nix-env -iA nixpkgs.yazi`
 
-## Fodora
+## Fedora
 
 * To install ExifTool on Fedora: `sudo dnf install perl-Image-ExifTool`, `which exiftool`. `exiftool` is used to show details of file, when pressed "Shift+O" on file.
 

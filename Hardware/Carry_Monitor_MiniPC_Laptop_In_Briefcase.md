@@ -1,5 +1,24 @@
 # Carry_Monitor_MiniPC_Laptop_In_Briefcase.md
 
+## DIY 18.5 Inch Desktop Monitor Stand
+
+* HP V194 18.5 inch monitor's dimension
+  * Width: 17.5 Inch
+  * Height (Monitor Only): 11 Inch
+  * Height (With Stand): 13.5 Inch
+
+* For making DIY monitor stand, do not use screw, instead use hinge.
+
+* Use SS (Stainless Steel), not MS (Mild Steel) or plain steel. Because SS steel is stronger and lighter.
+
+* VESA Plate: Monitor VESA mount has two sizes, 75x75cm and 100x100cm. According to VESA size, make a SS plate and make 4 holes for screws. 
+
+* Vertical Stand: Attach verical stand with "VESA Plate" using hinge, so that monitor can be tilted. Hinge must be strong so that, it can hold tilted monitor.
+  * Example: [Zeno S510 10-32 Inch LCD/LED/PLASMA TV Wall Mount Bracket](https://www.ryans.com/zeno-s510-10-32-inch-tv-wall-mount-bracket)
+* Floor Plate: Attach floor plate with "Vertical Stand" using hinge, so that it can be fully folded at backside of monitor.
+
+* Buy briefcase, by calculating whole monitor setup with DIY stand.
+
 ## Monitor Stand Tilt Solution
 
 * Distance of TV Wall Mount Bracket, From Wall To Monitor Is About 4 Inches. Plus Vertical Stand 1 or 0.5 Inch. Total 6 Inches Space Required Inside Of Briefcase.

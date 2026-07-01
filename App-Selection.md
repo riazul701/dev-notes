@@ -561,6 +561,21 @@
 * CLI
   * [ankitpokhrel/jira-cli](https://github.com/ankitpokhrel/jira-cli)
 
+## Markdown
+
+* GUI
+  * mkdocs
+  * [MarkText](https://github.com/marktext/marktext)
+  * [Zettlr](https://github.com/Zettlr/Zettlr)
+  * [Obsidian](https://obsidian.md/)
+
+* TUI
+  * [glow](https://github.com/charmbracelet/glow)
+  * [leaf](https://github.com/rivolink/leaf)
+
+* CLI
+  * grip
+
 ## AI
 
 * TUI
@@ -582,10 +597,6 @@
   * lighthouse
   * linkchecker
   * loc
-* Markdown
-  * mkdocs
-  * glow
-  * grip
 * Regular-Expression
   * grex
 * Metadata
