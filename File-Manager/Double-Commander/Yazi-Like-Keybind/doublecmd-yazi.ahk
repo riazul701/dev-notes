@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 
 ; ==========================================================
-; Double Commander -> Vifm-like Keybindings
+; Double Commander -> Yazi-like Keybindings
 ; Works only when Double Commander window is active
 ; ==========================================================
 
@@ -10,6 +10,7 @@
 ; -------------------------
 ; Debug Code
 ; -------------------------
+
 ; MsgBox("Double-Commander Window Activated.")
 
 ;F1::
@@ -23,104 +24,108 @@
 ; -------------------------
 ; Movement (hjkl)
 ; -------------------------
-h::Send("{Left}")
-j::Send("{Down}")
-k::Send("{Up}")
-l::Send("{Right}")
+
+h::Send("{Left}") ; h = Go to parent directory
+j::Send("{Down}") ; j = Move down
+k::Send("{Up}") ; k = Move up
+l::Send("{Right}") ; l = Go to child directory
 
 ; -------------------------
-; Open / Enter
+; Scroll
 ; -------------------------
+
+^d:: {  ; Ctrl+D = scroll down ~half page
+    Loop 15
+        Send "{Down}"
+}
+
+^u:: {  ; Ctrl+U = scroll up ~half page
+    Loop 15
+        Send "{Up}"
+}
+
+; Shift+PgDn = half page down
++PgDn:: {
+    Loop 15
+        Send "{Down}"
+}
+
+; Shift+PgUp = half page up
++PgUp:: {
+    Loop 15
+        Send "{Up}"
+}
+
+; Ctrl+F = full page down
+^f::Send "{PgDn}"
+
+; Ctrl+B = full page up
+^b::Send "{PgUp}"
+
+; gg = Jump to top
+g & g::Send("^{Home}")
+
+~g::
+{
+    static last := 0
+    now := A_TickCount
+
+    ; if second y within 400 ms
+    if (now - last < 400)
+    {
+        Send("^{Home}")
+        last := 0
+    }
+    else
+    {
+        last := now
+    }
+}
+
+; Shift+g = Jump to bottom
++g::Send("^{End}")
+
+; -------------------------
+; Selection
+; -------------------------
+
+; Ctrl+r = Invert selection (cm_MarkInvert)
+^r::Send "{NumpadMult}"
+
+; Ctrl+[ = Unselect all (cm_MarkUnmarkAll)
+^[::
+{
+    Send "^-{NumpadSub}"
+}
+
+; -------------------------
+; Open File/Folder
+; -------------------------
+
+; o = Open file/folder (cm_Open)
 o::Send("{Enter}")
 
-; -------------------------
-; Go to parent directory
-; -------------------------
-u::Send("!{Up}")
+; Shift+o = Mouse right-click menu
++o::Send "{AppsKey}"
+
+; Shift+Enter = Mouse right-click menu
++Enter::Send "{AppsKey}"
 
 ; -------------------------
-; Refresh
+; Copy / Move / Delete
 ; -------------------------
-r::Send("{F2}")
 
-; -------------------------
-; Rename
-; -------------------------
-; c & w::Send("{F6}")
+; y = Copy (cm_Copy)
+y::Send("{F5}")
 
-c::
-{
-    ih := InputHook("L1 T0.3")
-    ih.Start()
-    ih.Wait()
+; x = Move (cm_Rename)
+x::Send("{F6}")
 
-    if (ih.Input = "w")
-        Send("{F6}")
-    ;else
-        ;Send("c" ih.Input)
-}
+; d = Delete to trash (cm_Delete)
+d::Send("{F8}")
 
-; -------------------------
-; Copy / Move
-; -------------------------
-y & y::Send("{F5}")   ; copy
-;y::Send("{F5}")   ; copy
-
-
-~y::
-{
-    static last := 0
-    now := A_TickCount
-
-    ; if second y within 400 ms
-    if (now - last < 400)
-    {
-        Send("{F5}")
-        last := 0
-    }
-    else
-    {
-        last := now
-    }
-}
-
-; d & d::Send("{F8}")   ; delete
-
-~d::
-{
-    static last := 0
-    now := A_TickCount
-
-    ; if second y within 400 ms
-    if (now - last < 400)
-    {
-        Send("{F8}")
-        last := 0
-    }
-    else
-    {
-        last := now
-    }
-}
-
-; p & p::Send("^v")     ; paste
-
-p::
-{
-    ih := InputHook("L1 T0.3")
-    ih.Start()
-    ih.Wait()
-
-    if (ih.Input = "p")
-        Send("^v")
-    ;else
-        ;Send("c" ih.Input)
-}
-
-; -------------------------
-; Create directory
-; -------------------------
-; m & d::Send("+{F7}")
+; Shift+d = Delete permanently (cm_Delete)
++d::Send "+{Delete}"
 
 m::
 {
@@ -135,86 +140,7 @@ m::
 }
 
 ; -------------------------
-; Search
-; -------------------------
-/::Send("^f")
-
-; -------------------------
 ; Tabs
 ; -------------------------
-; g & t::Send("^{Tab}")
-; g & T::Send("^+{Tab}")
-
-g::
-{
-    ih := InputHook("L1 T0.3")
-    ih.Start()
-    ih.Wait()
-
-    if (ih.Input == "t")
-        Send("^Tab")
-
-    else if (ih.Input == "T")
-        Send("^+Tab")
-
-    ;else
-        ;Send("c" ih.Input)
-}
-
-; -------------------------
-; Jump to top / bottom
-; -------------------------
-g & g::Send("^{Home}")
-+g::Send("^{End}")
-
-; -------------------------
-; Toggle selection with space
-; -------------------------
-Space::Send("{Insert}")
-
-; -------------------------
-; Select all
-; -------------------------
-v::Send("^a")
-
-; -------------------------
-; Quit tab
-; -------------------------
-q::Send("^w")
-
-; -------------------------
-; Open terminal
-; -------------------------
-; t::Send("^`")
-
-; -------------------------
-; Reload panel
-; -------------------------
-; R::Send("^r")
-
-; -------------------------
-; Home directory
-; -------------------------
-g & h::Send("!{Home}")
-
-; -------------------------
-; Root directory
-; -------------------------
-g & /::Send("^\")
-
-; -------------------------
-; New tab
-; -------------------------
-t & n::Send("^t")
-
-; -------------------------
-; Close tab
-; -------------------------
-t & c::Send("^w")
-
-; -------------------------
-; Split focus panels
-; -------------------------
-Tab::Send("{Tab}")
 
 #HotIf
