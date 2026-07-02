@@ -7,9 +7,9 @@
 
 #HotIf WinActive("ahk_exe doublecmd.exe") && !(WinGetClass("ahk_id " ControlGetFocus("A")) = "Edit")
 
-; -------------------------
+; --------------------------------------------------
 ; Debug Code
-; -------------------------
+; --------------------------------------------------
 
 ; MsgBox("Double-Commander Window Activated.")
 
@@ -21,25 +21,25 @@
 ;    MsgBox("HWND: " hwnd "`nClass: " class)
 ;}
 
-; -------------------------
+; --------------------------------------------------
 ; Movement (hjkl)
-; -------------------------
+; --------------------------------------------------
 
 h::Send("{Left}") ; h = Go to parent directory
 j::Send("{Down}") ; j = Move down
 k::Send("{Up}") ; k = Move up
 l::Send("{Right}") ; l = Go to child directory
 
-; -------------------------
+; --------------------------------------------------
 ; Scroll
-; -------------------------
+; --------------------------------------------------
 
-^d:: {  ; Ctrl+D = scroll down ~half page
+^d:: {  ; Ctrl+d = scroll down ~half page
     Loop 15
         Send "{Down}"
 }
 
-^u:: {  ; Ctrl+U = scroll up ~half page
+^u:: {  ; Ctrl+u = scroll up ~half page
     Loop 15
         Send "{Up}"
 }
@@ -85,9 +85,9 @@ g & g::Send("^{Home}")
 ; Shift+g = Jump to bottom
 +g::Send("^{End}")
 
-; -------------------------
+; --------------------------------------------------
 ; Selection
-; -------------------------
+; --------------------------------------------------
 
 ; Ctrl+r = Invert selection (cm_MarkInvert)
 ^r::Send "{NumpadMult}"
@@ -98,9 +98,9 @@ g & g::Send("^{Home}")
     Send "^-{NumpadSub}"
 }
 
-; -------------------------
+; --------------------------------------------------
 ; Open File/Folder
-; -------------------------
+; --------------------------------------------------
 
 ; o = Open file/folder (cm_Open)
 o::Send("{Enter}")
@@ -111,9 +111,9 @@ o::Send("{Enter}")
 ; Shift+Enter = Mouse right-click menu
 +Enter::Send "{AppsKey}"
 
-; -------------------------
-; Copy / Move / Delete
-; -------------------------
+; --------------------------------------------------
+; Copy / Move / Delete / Rename
+; --------------------------------------------------
 
 ; y = Copy (cm_Copy)
 y::Send("{F5}")
@@ -127,20 +127,124 @@ d::Send("{F8}")
 ; Shift+d = Delete permanently (cm_Delete)
 +d::Send "+{Delete}"
 
-m::
-{
-    ih := InputHook("L1 T0.3")
-    ih.Start()
-    ih.Wait()
+; r = Rename (cm_RenameOnly)
+r::Send("{F2}")
 
-    if (ih.Input = "d")
-        Send("{F6}")
-    ;else
-        ;Send("c" ih.Input)
+; --------------------------------------------------
+; Terminal
+; --------------------------------------------------
+
+; ";" = Terminal open (cm_RunTerm)
+`;::Send("{F9}")
+
+; --------------------------------------------------
+; Search / Sort
+; --------------------------------------------------
+
+; Type sequential keys within 0.5 seconds
+leader := false
+
+$,::
+{
+    global leader
+    leader := true
+    SetTimer LeaderTimeout, -500
 }
 
-; -------------------------
+m::
+{
+    global leader
+
+    if leader
+    {
+        leader := false
+        Send("^{F5}") ; ",m" = Sort by date (cm_SortByDate)
+    }
+}
+
+e::
+{
+    global leader
+
+    if leader
+    {
+        leader := false
+        Send("^{F4}") ; ",e" = Sort by extension (cm_SortByExt)
+    }
+}
+
+a::
+{
+    global leader
+
+    if leader
+    {
+        leader := false
+        Send("^{F3}") ; ",a" = Sort by name (cm_SortByName)
+    }
+    else
+    {
+        Send("{F7}") ; a = Create directory (cm_MakeDir)
+    }
+}
+
+s::
+{
+    global leader
+
+    if leader
+    {
+        leader := false
+        Send("^{F6}") ; ",s" = Sort by size (cm_SortbySize)
+
+    }
+    else
+    {
+        Send("!{F7}") ; s = Search (cm_Search)
+    }
+}
+
+LeaderTimeout()
+{
+    global leader
+    leader := false
+}
+
+;$,::
+;{
+;    ih := InputHook("L1 T0.3")
+;    ih.Start()
+;    ih.Wait()
+;
+;    if (ih.Input = "s")
+;        Send("^{F6}")
+;}
+
+; --------------------------------------------------
 ; Tabs
-; -------------------------
+; --------------------------------------------------
+
+; t = New tab (cm_NewTab)
+t::Send("^{t}")
+
+; Ctrl+c = Close tab (cm_CloseTab)
+^c::Send("^w")
+
+; "1", "2", "3", "4", "5", "6", "7", "8" = Activate tab by index (cm_ActivateTabByIndex)
+1::Send("!{1}")
+2::Send("!{2}")
+3::Send("!{3}")
+4::Send("!{4}")
+5::Send("!{5}")
+6::Send("!{6}")
+7::Send("!{7}")
+8::Send("!{8}")
+9::Send("!{9}")
+
+; "[" = Switch to previous tab (cm_PrevTab)
+[::Send("^+{Tab}")
+
+; "]" = Switch to next tab (cm_NextTab)
+]::Send("^{Tab}")
 
 #HotIf

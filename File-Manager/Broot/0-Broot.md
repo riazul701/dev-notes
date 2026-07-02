@@ -4,6 +4,28 @@
 
 * Config Reset: The simplest solution is to remove your old configuration directory (or rename if you want to keep things) so that broot recreates it.
 
+## PATH
+
+* On Windows-OS, broot config folder : `C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\config`
+
+## Install `br` Command
+
+* If Broot is launched using `broot` command instead of `br`, then `:cd` verb/command and other shell integration features will not work.
+
+**On Windows-OS**
+
+* Launch terminal in Administrator mode, otherwise error is displayed.
+
+* Install `br` command, for both git-bash and powershell.
+
+* Error: Installation check resulted in Permission Denied. Please relaunch with elevated privilege. This is typically only needed once.
+
+* `broot --install` : Install `br` command, for shell integration. Supports `:cd` verb/command.
+
+* Open `~/.bashrc` file and correct path from `source C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\config\launcher\bash\br` to `source /C/Users/{{user-name}}/AppData/Roaming/dystroy/broot/config/launcher/bash/br`
+
+* `which br` command will not work, just call `br` command, because it is a shell function and not added to PATH. `br` command will only work inside shell.
+
 # Installation
 
 ## Debian

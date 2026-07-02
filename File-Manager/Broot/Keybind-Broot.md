@@ -2,11 +2,12 @@
 
 ## Important
 
-* You should start `broot` with `br` in order to use its full power.
+* You should start `broot` with `br` in order to use its shell integration and full power.
 * Enter `:` or `space`, and then enter verb.
 * Press `tab` to auto-complete verb/command.
 * If go to another command/terminal, then execute `exit` to go back to "Broot".
 * Press `esc` (single/multiple times) to go at tree root, and press `enter` to go at parent directory.
+* In bash shell, set `export EDITOR=nvim`, to edit files using neovim, add this line to `~/.bashrc` file to set permanently. Run `echo $EDITOR` to check. 
 
 ## PATH
 
@@ -237,6 +238,7 @@
   * `↓` or `↑` : select the next or previous line
   * `ctrl←` or `ctrl→` : focus (or open) a panel to the left or to the right
     * Press again to move between panels. Also remove panel.
+    * Place cursor on folder, to open it on other panel. Place cursor on file to preview.
   * `⏎` on a file : open the file using xdg-open (or your OS equivalent)
   * `alt⏎` on a file : leave broot and open the file using xdg-open
   * `⏎` on a directory : focus the directory (i.e. make it the new root)
@@ -263,6 +265,7 @@
 * `create file-1.txt` : `$EDITOR {directory}/{subpath}`
 * `ctrl-b` OR `backup {{version}}` : `cp -r {file} {parent}/{file-stem}-{version}{file-dot-extension}`
 * `ctrl-t` OR `terminal` : `$SHELL`
+  * Type `exit` in terminal to go back to broot.
 * `Esc` OR `escape` : escape from edition, completion, page, etc.
 * `back` : revert to the previous state (mapped to esc)
 * `open_stay` : open file or directory according to OS (stay in broot)
@@ -271,7 +274,7 @@
 * `set_syntax_theme {{theme:theme}}` : set the theme of code preview
 * `apply_flags sd` : apply flags (eg -sd to show sizes and dates)
 * `alt-Enter` OR `open_leave` OR `ol` : open file or directory according to OS (quit broot)
-* `alt-Enter` OR `cd` OR `ol` : change directory and quit
+* `alt-Enter` OR `cd` OR `ol` : change directory and quit. Does not work in git-bash on windows-os, becauese of windows style path.
 * `chmod a+rwx` : `chmod {args} {file}`. This applies to file when cursor is on file.
 * `chmod a+rwx` : `chmod -R {args} {file}`. This applies to directory when curson is on directory.
 * `ctrl→` OR `open_preview` : open the preview panel
@@ -411,17 +414,40 @@
 
 **Solution**
 
-* `broot --install` : Install `br` command to shell. This command shows output
+* On Linux-OS:
+  * `broot --install` : Install `br` command to shell. This command shows output:
 
-> You requested a clean (re)install.
-> Removing `/home/{{user}}/.local/share/broot/launcher/bash/1`.
-> Waiting `br` shell function in `/home/{{user}}/.local/share/broot/launcher/bash/1`.
-> Creating link from `/home/{{user}}/.config/broot/launcher/bash/br` to `/home/{{user}}/.local/share/broot/launcher/bash/1`.
-> `/home/{{user}}/.bashrc` successfully patched, you can make the function immediately available with `source /home/{{user}}/.bashrc`
-> 
-> The `br` function has been successfully installed.
-> You may have to restart your shell or source your shell init files.
-> Afterwards, you should start `broot` with `br` in order to use its full power.
+  > You requested a clean (re)install.
+  > Removing `/home/{{user}}/.local/share/broot/launcher/bash/1`.
+  > Waiting `br` shell function in `/home/{{user}}/.local/share/broot/launcher/bash/1`.
+  > Creating link from `/home/{{user}}/.config/broot/launcher/bash/br` to `/home/{{user}}/.local/share/broot/launcher/bash/1`.
+  > `/home/{{user}}/.bashrc` successfully patched, you can make the function immediately available with `source /home/{{user}}/.bashrc`
+  > 
+  > The `br` function has been successfully installed.
+  > You may have to restart your shell or source your shell init files.
+  > Afterwards, you should start `broot` with `br` in order to use its full power.
+
+* On Windows-OS:
+  * Launch terminal in Administrator mode, otherwise error is displayed.
+  * Install `br` command, for both git-bash and powershell.
+  * Error: Installation check resulted in Permission Denied. Please relaunch with elevated privilege. This is typically only needed once.
+  * `broot --install` : Install `br` command to shell. This command shows output:
+
+  > You requested a clean (re)install.
+  > Writing br shell function in C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\data\launcher\bash\1.
+  > Creating link from C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\config\launcher\bash\br to C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\data\launcher\bash\1.
+  > C:\Users\{{user-name}}\.bashrc successfully patched, you can make the function immediately available with source C:\Users\{{user-name}}\.bashrc
+  > C:\Users\{{user-name}}\.bash_profile successfully patched, you can make the function immediately available with source C:\Users\{{user-name}}\.bash_profile
+  > Writing br shell function in C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\data\launcher\powershell\1.
+  > Creating link from C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\config\launcher\powershell\br.ps1 to C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\data\launcher\powershell\1.
+  > C:\Users\{{user-name}}\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 successfully patched.
+  > 
+  > The br function has been successfully installed.
+  > You may have to restart your shell or source your shell init files.
+  > Afterwards, you should start broot with br in order to use its full power.
+
+  * Open `~/.bashrc` file and correct path from `source C:\Users\{{user-name}}\AppData\Roaming\dystroy\broot\config\launcher\bash\br` to `source /C/Users/{{user-name}}/AppData/Roaming/dystroy/broot/config/launcher/bash/br`
+  * `which br` command will not work, just call `br` command, because it is a shell function and not added to PATH. `br` command will only work inside shell.
 
 # References
 

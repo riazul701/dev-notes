@@ -21,6 +21,14 @@
 
 * Buy briefcase, by calculating whole monitor setup with DIY stand.
 
+## Monitor Stand Tilt Solution
+
+* Distance of TV Wall Mount Bracket, From Wall To Monitor Is About 4 Inches. Plus Vertical Stand 1 or 0.5 Inch. Total 6 Inches Space Required Inside Of Briefcase.
+
+* Tilt Supported Wall Mount Products
+  * [Zeno S510 10-32 Inch LCD/LED/PLASMA TV Wall Mount Bracket](https://www.ryans.com/zeno-s510-10-32-inch-tv-wall-mount-bracket)
+  * [LED/LCD TV Monitor Wall Mount 14”-24”](https://www.daraz.com.bd/products/ledlcd-tv-monitor-wall-mount-14-24-i130790624.html)
+
 ## Slim Desktop PC Case For Easy Carrying
 
 ## TO-DO
