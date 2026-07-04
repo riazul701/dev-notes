@@ -1,14 +1,14 @@
 # VirtualBox.md
 
-## Websites
-* [Linux VM Images](https://www.linuxvmimages.com/)
-* [OSBoxes](https://www.osboxes.org/)
-
 ## Notes
 
 * In machine settings, use "Bridge" adapter to get IP from WiFi router. This is dynamic IP.
 
 * Sometimes, turn on and off `Scaled Mode`, by pressing `Host+C`, makes guest operating system to full screen. `Host` key is `Right-Ctrl` on keyboard.
+
+## Control Remote VirtualBox Using SSH
+
+* [bytemystery-com/vboxssh GitHub](https://github.com/bytemystery-com/vboxssh/)
 
 # UEFI Boot
 
@@ -153,20 +153,40 @@ Ensure that the guest OS has the necessary drivers for the host's Wi-Fi adapter 
 
 * Next Serial: {11}
 
-* Tutorial
+## Websites
+
+* [virtualbox.org](https://www.virtualbox.org/)
+
+* [bytemystery-com/vboxssh GitHub](https://github.com/bytemystery-com/vboxssh/)
+
+* [Linux VM Images](https://www.linuxvmimages.com/)
+
+* [OSBoxes](https://www.osboxes.org/)
+
+## Tutorial
   
-* Guides
-  * {1} [How To Boot From USB Drive In Virtualbox In Linux](https://ostechnix.com/how-to-boot-from-usb-drive-in-virtualbox-in-linux/)
-  * {2} [How To Create An ISO From A Bootable USB Drive In Linux](https://ostechnix.com/create-iso-bootable-usb-drive-linux/)
-  * {3} [How to Make VirtualBox Boot from USB? (Windows-OS)](https://www.partitionwizard.com/partitionmanager/virtualbox-boot-from-usb.html)
-  * {9} [F12 boot device selection does not work after manually selecting boot order in EFI](https://forums.virtualbox.org/viewtopic.php?t=103602)
-  * {10} [http://www.webdesignblog.asia/software/virtualbox-moving-vdi-file-re-linking-guest/#sthash.1QOHeiw5.dpbs](http://www.webdesignblog.asia/software/virtualbox-moving-vdi-file-re-linking-guest/#sthash.1QOHeiw5.dpbs)
+## Guides
+  
+* {1} [How To Boot From USB Drive In Virtualbox In Linux](https://ostechnix.com/how-to-boot-from-usb-drive-in-virtualbox-in-linux/)
 
-* Configuration
-  * {4} [How to Enable EFI on VirtualBox Virtual Machines Running Linux](https://www.makeuseof.com/set-up-efi-linux-virtual-machine-virtualbox/)
-  * {5} [Virtualbox enable nested vtx/amd-v greyed out](https://stackoverflow.com/questions/54251855/virtualbox-enable-nested-vtx-amd-v-greyed-out)
-  * {6} [VM launch fail on Windows 10 when WSL2 and Docker is enabled](https://www.virtualbox.org/ticket/20357)
-  * {7} [Virtualbox shared folder permissions [closed]](https://stackoverflow.com/questions/26740113/virtualbox-shared-folder-permissions)
+* {2} [How To Create An ISO From A Bootable USB Drive In Linux](https://ostechnix.com/create-iso-bootable-usb-drive-linux/)
 
-* Error and Solution
-  * {8} [VirtualBox Cannot register the hard disk already exists](https://stackoverflow.com/questions/44114854/virtualbox-cannot-register-the-hard-disk-already-exists)
+* {3} [How to Make VirtualBox Boot from USB? (Windows-OS)](https://www.partitionwizard.com/partitionmanager/virtualbox-boot-from-usb.html)
+
+* {9} [F12 boot device selection does not work after manually selecting boot order in EFI](https://forums.virtualbox.org/viewtopic.php?t=103602)
+
+* {10} [http://www.webdesignblog.asia/software/virtualbox-moving-vdi-file-re-linking-guest/#sthash.1QOHeiw5.dpbs](http://www.webdesignblog.asia/software/virtualbox-moving-vdi-file-re-linking-guest/#sthash.1QOHeiw5.dpbs)
+
+## Configuration
+
+* {4} [How to Enable EFI on VirtualBox Virtual Machines Running Linux](https://www.makeuseof.com/set-up-efi-linux-virtual-machine-virtualbox/)
+
+* {5} [Virtualbox enable nested vtx/amd-v greyed out](https://stackoverflow.com/questions/54251855/virtualbox-enable-nested-vtx-amd-v-greyed-out)
+
+* {6} [VM launch fail on Windows 10 when WSL2 and Docker is enabled](https://www.virtualbox.org/ticket/20357)
+
+* {7} [Virtualbox shared folder permissions [closed]](https://stackoverflow.com/questions/26740113/virtualbox-shared-folder-permissions)
+
+## Error and Solution
+
+* {8} [VirtualBox Cannot register the hard disk already exists](https://stackoverflow.com/questions/44114854/virtualbox-cannot-register-the-hard-disk-already-exists)

@@ -2,6 +2,8 @@
 
 ## Notes
 
+* Execute custom commands like "zip", "rclone" on selected files.
+
 * Config Reset: The simplest solution is to remove your old configuration directory (or rename if you want to keep things) so that broot recreates it.
 
 ## PATH

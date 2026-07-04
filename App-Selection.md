@@ -377,6 +377,7 @@
 
 * Terminal Multiplexer
   * Tmux
+  * Psmux => Real Tmux On Windows-OS
   * WezTerm Like Tmux On Window-OS
 
 * Command
@@ -414,6 +415,7 @@
 
 * GUI
   * Navidrome
+    * [dweymouth/supersonic](https://github.com/dweymouth/supersonic)
   * Strawberry
   * Clementine
 
@@ -572,6 +574,7 @@
 * TUI
   * [glow](https://github.com/charmbracelet/glow)
   * [leaf](https://github.com/rivolink/leaf)
+  * [treemd](https://github.com/Epistates/treemd)
 
 * CLI
   * grip
@@ -619,3 +622,45 @@
   * handbrakecli
 * Benchmark/Performance
   * hyperfine
+
+## Build Applications
+
+* Work
+
+  * GUI
+    * Create GUI application for "Backup-N-Sync" project using "Go + Fyne"
+    * Input file and generate sum "sha256sum", "sha512sum" using command line program inside/backend. Example:  [base64-encoder-decoder](https://github.com/able8/base64-encoder-decoder)
+  * TUI
+    * Create TUI application for "Backup-N-Sync" project using "Go + Bubble-Tea"
+    * VirtualBox TUI by using "VBoxManage" command as backend. Example: [vboxssh](https://github.com/bytemystery-com/vboxssh/)
+  * Android
+    * Create Android application for "Backup-N-Sync" project using "react-native"
+
+* GUI
+  * Go + Fyne
+  * Example
+    * [base64-encoder-decoder](https://github.com/able8/base64-encoder-decoder)
+    * [Fynance](https://github.com/clinton-mwachia/Fynance)
+    * [vboxssh](https://github.com/bytemystery-com/vboxssh/)
+    * [ytget/yt-downloader](https://github.com/ytget/yt-downloader)
+    * [anhcraft/ytb-downloader](https://github.com/anhcraft/ytb-downloader)
+
+* TUI
+
+  * Go + Bubble-Tea (charmbracelet) + Bubbles (charmbracelet) + Lipgloss (charmbracelet) + Harmonica (charmbracelet) + bubblezone (lrstanley) + ntcharts (NimbleMarkets)
+    * Features:
+      * Has Concurrency (goroutine), means multiple parallel/asynchronous command execution like "rclone", "rsync", "cp" at the same time.
+      * Makes cross-platform single binary
+      * Responsiveness => Suppose "rclone" is copying 500,000 files while the user is: searching, switching tabs,  cancelling transfers, viewing logs. Bubble Tea stays responsive because background work and UI updates are cleanly separated.
+      * Packaging => This is a big difference. Bubble Tea "myapp.exe". That's it. One file. Runs everywhere. No interpreter. No dependencies.
+      * When choose Bubble Tea => If want to build rclone frontend, rsync frontend, Git frontend, Docker frontend, yt-dlp manager, ffmpeg queue, package manager, backup manager, SSH manager, server monitor. Pick Bubble Tea every time. These applications are command-centric, process-oriented, and keyboard-driven—exactly where Bubble Tea shines.
+      * Go makes cross-compilation extremely easy. It has no Go runtime dependency—the runtime is built into the executable. If app calls external tools like rclone, rysnc, those tools still need to exist.
+    * Example: [Lazyjira](https://github.com/textfuel/lazyjira)
+    * Tutorial: [W3Schools Go Tutorial](https://www.w3schools.com/go/)
+
+* Android
+  * React-Native
+
+* Web-Application
+  * PHP + Laravel + VueJS + JavaScript + Bootstrap + HTML + CSS
+
