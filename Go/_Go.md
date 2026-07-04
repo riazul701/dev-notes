@@ -11,6 +11,10 @@
   * `go run .`
   * `go run .\main.go` : Run single script
 
+## PATH
+
+* Go package installation path: `C:\Users\{{user-name}}\go\pkg`
+
 ## Programming Rules
 
 **Go Package (Multiple Files Inside A Folder)**
