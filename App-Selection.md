@@ -433,6 +433,7 @@
 * TUI
   * [mps-youtube/yewtube](https://github.com/mps-youtube/yewtube)
   * [pystardust/ytfzf](https://github.com/pystardust/ytfzf)
+  * [xdagiz/xytz](https://github.com/xdagiz/xytz)
 
 * Command
   * Yewtube
@@ -630,18 +631,25 @@
   * GUI
     * Create GUI application for "Backup-N-Sync" project using "Go + Fyne"
     * Input file and generate sum "sha256sum", "sha512sum" using command line program inside/backend. Example:  [base64-encoder-decoder](https://github.com/able8/base64-encoder-decoder)
+    * Income/Expense Manager
   * TUI
     * Create TUI application for "Backup-N-Sync" project using "Go + Bubble-Tea"
     * VirtualBox TUI by using "VBoxManage" command as backend. Example: [vboxssh](https://github.com/bytemystery-com/vboxssh/)
+    * Income/Expense Manager
   * Android
     * Create Android application for "Backup-N-Sync" project using "react-native"
+    * Income/Expense Manager
 
 * GUI
   * Go + Fyne
   * Example
+    * [apps.fyne.io](https://apps.fyne.io/)
     * [base64-encoder-decoder](https://github.com/able8/base64-encoder-decoder)
     * [Fynance](https://github.com/clinton-mwachia/Fynance)
     * [vboxssh](https://github.com/bytemystery-com/vboxssh/)
+    * [fynelabs/notes](https://github.com/fynelabs/notes)
+    * [midu-SA/Taskmgr](https://github.com/midu-SA/Taskmgr)
+    * [romanitalian/fyne-weather => Weather forecast](https://github.com/romanitalian/fyne-weather)
     * [ytget/yt-downloader](https://github.com/ytget/yt-downloader)
     * [anhcraft/ytb-downloader](https://github.com/anhcraft/ytb-downloader)
 
@@ -655,7 +663,12 @@
       * Packaging => This is a big difference. Bubble Tea "myapp.exe". That's it. One file. Runs everywhere. No interpreter. No dependencies.
       * When choose Bubble Tea => If want to build rclone frontend, rsync frontend, Git frontend, Docker frontend, yt-dlp manager, ffmpeg queue, package manager, backup manager, SSH manager, server monitor. Pick Bubble Tea every time. These applications are command-centric, process-oriented, and keyboard-driven—exactly where Bubble Tea shines.
       * Go makes cross-compilation extremely easy. It has no Go runtime dependency—the runtime is built into the executable. If app calls external tools like rclone, rysnc, those tools still need to exist.
-    * Example: [Lazyjira](https://github.com/textfuel/lazyjira)
+    * Example
+      * [Lazyjira](https://github.com/textfuel/lazyjira)
+      * [madalinpopa/gocost](https://github.com/madalinpopa/gocost)
+      * [armandsauzay/note](https://github.com/armandsauzay/note)
+      * [handlebargh/yatto => ToDo list](https://github.com/handlebargh/yatto)
+      * [Cladamos/clawea => Weather forecast](https://github.com/Cladamos/clawea)
     * Tutorial: [W3Schools Go Tutorial](https://www.w3schools.com/go/)
 
 * Android

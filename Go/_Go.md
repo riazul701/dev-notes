@@ -8,7 +8,8 @@
   * `go get {{package-url}}` : This is manual setup and not required, instead use `go mod tidy`
   * `go mod tidy` : Get dependencies list and downloads them from `main.go` script
   * `go build .`
-  * `go run .`
+  * `go build -o C:\path\to\output\myapp.exe .`
+  * `go run .` : Does not produce a persistent `.exe` file. It compiles program into a temporary executable (stored in Go's cache or a temporary directory), runs it, and then cleans it up.
   * `go run .\main.go` : Run single script
 
 ## PATH
