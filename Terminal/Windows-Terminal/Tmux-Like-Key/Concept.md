@@ -369,4 +369,94 @@ But still:
 
 If you want next step, I can upgrade this into a **“100% muscle-memory clone config”** that matches tmux defaults exactly (including copy-mode keybindings and pane cycling behavior 1:1).
 
+======================================================================================================
+
+> ChatGPT Question: 
+> 
+> In below code "c" key is taken, can not type it in windows terminal
+
+Here's a complete AutoHotkey v2 script that implements a **leader key** (`Ctrl+Space`) for **Windows Terminal**. After pressing `Ctrl+Space`, you have **1.5 seconds** to press `c`, which sends `Ctrl+Shift+T`. Otherwise, `c` behaves normally.
+
+```ahk
+#Requires AutoHotkey v2.0
+
+leader := false
+
+; --------------------------------------------------
+; Leader key (Ctrl+Space)
+; --------------------------------------------------
+
+#HotIf WinActive("ahk_exe WindowsTerminal.exe")
+
+^Space::
+{
+    global leader
+    leader := true
+    SetTimer(LeaderTimeout, -1500)
+}
+
+#HotIf WinActive("ahk_exe WindowsTerminal.exe") && leader
+
+c::
+{
+    global leader
+    leader := false
+    Send("^+t")
+}
+
+#HotIf
+
+LeaderTimeout()
+{
+    global leader
+    leader := false
+}
+```
+
+***### How it works***
+
+* `Ctrl+Space` enables **leader mode** for 1.5 seconds.
+* While leader mode is active:
+
+  * Pressing `c` sends `Ctrl+Shift+T`.
+* When leader mode is **not** active:
+
+  * `c` is **not intercepted at all**, so it types normally in Windows Terminal.
+
+This approach is better than using `if leader` inside `c::` because the `c` hotkey only exists while `leader` is `true`, so the key is never "eaten."
+
+You can easily add more leader shortcuts, for example:
+
+```ahk
+#HotIf WinActive("ahk_exe WindowsTerminal.exe") && leader
+
+c::
+{
+    global leader
+    leader := false
+    Send("^+t")
+}
+
+n::
+{
+    global leader
+    leader := false
+    Send("^{Tab}")
+}
+
+p::
+{
+    global leader
+    leader := false
+    Send("^+{Tab}")
+}
+
+#HotIf
+```
+
+This gives you:
+
+* `Ctrl+Space`, `c` → `Ctrl+Shift+T`
+* `Ctrl+Space`, `n` → `Ctrl+Tab`
+* `Ctrl+Space`, `p` → `Ctrl+Shift+Tab`
 
