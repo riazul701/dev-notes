@@ -582,11 +582,25 @@
 
 ## AI
 
+* GUI
+  * ChatGPT
+
 * TUI
   * [geminicli.com](https://geminicli.com/)
 
+## Office Application
+
 * GUI
-  * ChatGPT
+  * LibreOffice (Word, Excel, Powerpoint)
+  * Microsoft-Office (Work, Excel, Powerpoint)
+
+## Graphics Application
+
+* GUI
+
+  * Image Editing
+    * GIMP
+    * Adobe Photoshop
 
 ## Other Commands
 
