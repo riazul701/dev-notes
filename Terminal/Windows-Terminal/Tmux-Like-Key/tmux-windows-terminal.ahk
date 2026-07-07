@@ -159,7 +159,7 @@ n::
 ; --------------------------------------------------
 
 
-~%::
+%::
 {
     global leader
     if leader
@@ -169,13 +169,33 @@ n::
     }
 }
 
-~"::
+"::
 {
     global leader
     if leader
     {
         leader := false
         Send("!+{-}") ; Split pane vertically
+    }
+}
+
++[::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("^+!r") ; Rotate panes counter-clockwise
+    }
+}
+
++]::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("^+r") ; Rotate panes clockwise
     }
 }
 
@@ -216,6 +236,66 @@ Right::
     {
         leader := false
         Send("!{Right}") ; Select the pane to the right of the active pane
+    }
+}
+
+z::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("^+z") ; Zoom/unzoom current pane
+    }
+}
+
+^Up::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("!+{Up}") ; Resize the pane up
+    }
+}
+
+^Down::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("!+{Down}") ; Resize the pane down
+    }
+}
+
+^Left::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("!+{Left}") ; Resize the pane left
+    }
+}
+
+^Right::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("!+{Right}") ; Resize the pane right
+    }
+}
+
+x::
+{
+    global leader
+    if leader
+    {
+        leader := false
+        Send("^+w") ; Close current pane
     }
 }
 
