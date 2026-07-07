@@ -31,6 +31,10 @@
         {
             "id": "Terminal.TogglePaneZoom",
             "keys": "ctrl+shift+z"
+        },
+        {
+            "id": "Terminal.ToggleMarkMode",
+            "keys": "ctrl+shift+m"
         }
     ],
     "newTabMenu": 

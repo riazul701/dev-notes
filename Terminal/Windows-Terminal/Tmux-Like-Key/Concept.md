@@ -460,3 +460,594 @@ This gives you:
 * `Ctrl+Space`, `n` → `Ctrl+Tab`
 * `Ctrl+Space`, `p` → `Ctrl+Shift+Tab`
 
+============================================================================================
+
+> ChatGPT Question: 
+> 
+> Implement tmux like copy mode in windows terminal using auto-hotkey
+
+A faithful tmux copy mode isn't possible with AutoHotkey alone because **Windows Terminal doesn't expose APIs to move a text cursor or manipulate the selection**. AHK can only send keystrokes and mouse events.
+
+The closest implementation is to **wrap Windows Terminal's Mark Mode** with a tmux-like modal layer.
+
+Below is an **AutoHotkey v2** script that provides:
+
+* `Ctrl+b [` → Enter copy mode
+* `h/j/k/l` → Arrow keys
+* `w`/`b` → Ctrl+Right/Ctrl+Left
+* `g` → Home
+* `G` → End
+* `Space` → Begin selection (hold Shift)
+* `y` → Copy and exit
+* `Esc` or `q` → Cancel
+
+> **Prerequisite:** Create a Windows Terminal action (or key binding) that opens **Mark Mode**. In the example below it's assumed to be `Ctrl+Shift+M`. Replace that shortcut if you use a different one.
+
+```ahk
+#Requires AutoHotkey v2.0
+
+copyMode := false
+selecting := false
+
+#HotIf WinActive("ahk_exe WindowsTerminal.exe")
+
+; Ctrl+b then [
+^b & [::
+{
+    global copyMode, selecting
+
+    if copyMode
+        return
+
+    copyMode := true
+    selecting := false
+
+    ; Open Windows Terminal Mark Mode
+    Send "^+m"
+
+    ToolTip "COPY MODE"
+}
+
+#HotIf copyMode
+
+; navigation
+h::Send "{Left}"
+j::Send "{Down}"
+k::Send "{Up}"
+l::Send "{Right}"
+
++w::Send "^{Right}"
+b::Send "^{Left}"
+
+g::Send "{Home}"
++g::Send "{End}"
+
+; page movement
+^u::Send "{PgUp}"
+^d::Send "{PgDn}"
+
+; start visual selection
+Space::
+{
+    global selecting
+
+    if !selecting
+    {
+        selecting := true
+        Send "{Shift Down}"
+    }
+}
+
+; copy
+y::
+{
+    global copyMode, selecting
+
+    if selecting
+        Send "{Shift Up}"
+
+    Sleep 50
+    Send "^c"
+
+    copyMode := false
+    selecting := false
+    ToolTip
+}
+
+; cancel
+Esc::
+q::
+{
+    global copyMode, selecting
+
+    if selecting
+        Send "{Shift Up}"
+
+    Send "{Esc}"
+
+    copyMode := false
+    selecting := false
+    ToolTip
+}
+
+#HotIf
+```
+
+***## Limitations***
+
+This won't behave exactly like tmux because Mark Mode is different:
+
+* ❌ No independent text cursor.
+* ❌ No Vim search (`/`, `?`, `n`, `N`).
+* ❌ No character-wise motions (`f`, `t`, `%`).
+* ❌ No tmux selection buffer.
+
+***## A closer alternative***
+
+If your shell runs in **WSL**, **PowerShell**, or **Git Bash**, a much closer experience is to use **Neovim as the scrollback viewer**:
+
+1. Dump the terminal's scrollback.
+2. Open it in Neovim.
+3. Use native Vim motions (`hjkl`, `w`, `b`, `/`, `n`, `v`, `y`, etc.).
+4. Copy to the Windows clipboard.
+
+This provides an experience that's much closer to tmux's copy mode because you're navigating actual text with Vim, rather than trying to drive the terminal's selection model.
+
+If you're interested in the closest possible tmux-like workflow on Windows Terminal, I can also show how to implement that Neovim-based approach.
+
+==========================================================================================
+
+> ChatGPT Question: 
+> 
+> Implement Neovim-based approach, for window terminal copy mode
+
+This is the approach I'd recommend. Instead of fighting Windows Terminal's selection model, you treat the **entire scrollback as a temporary text file** and open it in Neovim. Once it's in Neovim, you get **real tmux/Vim copy mode**:
+
+* `hjkl`
+* `w`, `b`, `e`
+* `gg`, `G`
+* `/`, `?`, `n`, `N`
+* `f`, `t`, `%`
+* Visual mode (`v`, `V`, `Ctrl+v`)
+* `y`, `yy`, `"*y`, `"+y`
+* Search highlighting
+* Macros
+* Everything Vim already provides
+
+***## Architecture***
+
+```text
+Ctrl+b [
+        │
+        ▼
+AHK intercepts
+        │
+        ▼
+Windows Terminal copies its entire buffer
+        │
+        ▼
+Clipboard → temp file
+        │
+        ▼
+nvim temp.txt
+        │
+        ▼
+Navigate exactly like tmux copy mode
+        │
+        ▼
+y
+        │
+        ▼
+Copied to Windows clipboard
+        │
+        ▼
+:q
+```
+
+---
+
+***## Step 1. Install Neovim***
+
+Make sure `nvim` is on your `PATH`.
+
+---
+
+***## Step 2. Configure clipboard***
+
+Install `win32yank.exe` (or use Neovim's built-in clipboard support if available).
+
+Your `init.lua` can contain:
+
+```lua
+vim.opt.clipboard = "unnamedplus"
+```
+
+Now `y` copies directly to the Windows clipboard.
+
+---
+
+***## Step 3. Windows Terminal keybinding***
+
+Add a keybinding that copies **the entire scrollback**.
+
+In `settings.json`:
+
+```json
+{
+    "command": {
+        "action": "copy",
+        "singleLine": false,
+        "copyFormatting": false
+    },
+    "keys": "ctrl+shift+c"
+}
+```
+
+If you want the *entire* buffer rather than just a selection, Windows Terminal doesn't currently expose a built-in "copy all scrollback" action. One workaround is to use Mark Mode with "Select All" (`Ctrl+A`) followed by Copy, or use the shell itself (examples below) to dump history.
+
+---
+
+***## Step 4. AutoHotkey v2 launcher***
+
+```ahk
+#Requires AutoHotkey v2.0
+
+temp := A_Temp "\terminal_scrollback.txt"
+
+^b & [::
+{
+    global temp
+
+    Clipboard := ""
+
+    ; assumes WT has copied the buffer
+    Send "^+c"
+
+    if !ClipWait(2)
+        return
+
+    FileDelete(temp)
+    FileAppend(A_Clipboard, temp, "UTF-8")
+
+    Run('nvim "' temp '"')
+}
+```
+
+---
+
+***## Better: dump from the shell***
+
+Instead of relying on terminal selection, have the shell write its scrollback/output to a file.
+
+***### PowerShell***
+
+```powershell
+Get-Content $PROFILE
+```
+
+or, for command history:
+
+```powershell
+Get-History
+```
+
+To capture a session, use:
+
+```powershell
+Start-Transcript
+# ... work ...
+Stop-Transcript
+```
+
+***### Bash / Zsh***
+
+For command history:
+
+```bash
+history
+```
+
+For session logging:
+
+```bash
+script /tmp/session.log
+# ...
+exit
+```
+
+Your AutoHotkey script can then open the generated log directly in Neovim.
+
+---
+
+***## Step 5. Make Neovim feel like tmux copy mode***
+
+Useful mappings:
+
+```lua
+vim.keymap.set("n", "q", "<cmd>q<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>q<CR>")
+```
+
+Then your workflow becomes:
+
+```
+Ctrl+b [
+
+nvim opens
+
+/search
+n
+N
+v
+y
+
+q
+```
+
+---
+
+***## An even cleaner solution***
+
+If you're using **PowerShell**, **WSL**, or **Git Bash**, you can skip AutoHotkey almost entirely:
+
+1. Add a shell function (or script) that captures the current terminal output or log.
+2. Launch Neovim on that file.
+3. Bind `Ctrl+b [` to invoke that shell function (via Windows Terminal or AutoHotkey).
+
+This avoids trying to automate UI interactions and makes the workflow much more reliable.
+
+If you're primarily using **PowerShell**, **WSL (Bash/Zsh)**, or **cmd.exe**, I can tailor the capture step to that environment so it feels as close as possible to tmux's copy mode.
+
+=========================================================================================
+
+> ChatGPT Question: 
+> 
+> How window terminal's mark mode works
+
+Windows Terminal's **Mark Mode** is essentially a **keyboard-driven text selection mode**. It's inherited conceptually from the legacy Windows Console (conhost.exe), but Windows Terminal implements it on top of its own terminal buffer.
+
+Here's how it works internally.
+
+***## Normal mode***
+
+Normally, every key you press is sent to the terminal application.
+
+```text
+Keyboard
+    ↓
+Windows Terminal
+    ↓
+Shell (bash/pwsh/cmd)
+```
+
+For example:
+
+* `h` → shell receives `h`
+* `Ctrl+C` → shell receives SIGINT (or copy if text is already selected)
+* Arrow keys → shell receives escape sequences
+
+Windows Terminal is mostly just forwarding input.
+
+---
+
+***## Mark Mode***
+
+When you enter Mark Mode:
+
+```text
+Keyboard
+    ↓
+Windows Terminal
+    ↓
+Selection Engine
+```
+
+The shell **stops receiving navigation keys**.
+
+Instead:
+
+* Arrow keys move a selection cursor.
+* Shift+Arrow extends the selection.
+* PageUp/PageDown scroll the viewport.
+* Home/End jump within the visible line (or buffer, depending on the command).
+* Enter or Ctrl+C copies the selection.
+* Esc cancels.
+
+So Mark Mode temporarily turns the terminal into a read-only text viewer.
+
+---
+
+***## Internal data structures***
+
+A simplified model looks like this:
+
+```cpp
+ScreenBuffer
+{
+    Cell cells[history + viewport][columns];
+}
+
+Selection
+{
+    Coord anchor;
+    Coord cursor;
+    bool active;
+}
+```
+
+Every character occupies one cell:
+
+```text
+┌──┬──┬──┬──┬──┐
+│ l│ s│  │ -│ l│
+└──┴──┴──┴──┴──┘
+```
+
+Each cell stores more than just the character:
+
+```cpp
+Cell
+{
+    wchar_t glyph;
+    Color fg;
+    Color bg;
+    Attributes attr;
+}
+```
+
+When you press an arrow key in Mark Mode:
+
+```text
+cursor.x++
+```
+
+Nothing is sent to the shell.
+
+When you hold Shift:
+
+```text
+selection = rectangle(anchor, cursor)
+```
+
+The renderer simply paints the selected cells with inverted colors.
+
+---
+
+***## Rendering***
+
+Each frame:
+
+```cpp
+for every visible cell
+{
+    draw character
+
+    if selected(cell)
+        draw highlighted
+}
+```
+
+Selection is just another rendering layer.
+
+---
+
+***## Copying***
+
+When you press Ctrl+C:
+
+Windows Terminal walks the selected cells.
+
+Example:
+
+```text
+hello
+world
+```
+
+Selection:
+
+```text
+hello
+wor
+```
+
+Internally:
+
+```cpp
+for each row
+    append selected characters
+    append '\n'
+```
+
+Result:
+
+```text
+hello
+wor
+```
+
+This text is then placed on the Windows clipboard.
+
+If "copy formatting" is enabled, Terminal also emits HTML/RTF alongside plain text.
+
+---
+
+***## Why it isn't tmux copy mode***
+
+tmux has its own cursor independent of the terminal.
+
+```text
+tmux
+    cursor
+       ↓
+history buffer
+```
+
+Windows Terminal's cursor in Mark Mode is simply the endpoint of the current selection.
+
+There are no concepts like:
+
+* search (`/`)
+* regex
+* jump to word
+* Vim motions
+* text objects
+* incremental search
+* marks
+
+It's intentionally minimal.
+
+---
+
+***## Could AutoHotkey drive it?***
+
+Yes, because Mark Mode consumes keyboard input.
+
+For example:
+
+```text
+h → Left
+j → Down
+k → Up
+l → Right
+```
+
+works well.
+
+You could also map:
+
+```text
+w → Ctrl+Right
+b → Ctrl+Left
+0 → Home
+$ → End
+Space → Shift down
+```
+
+However, there are limitations:
+
+* AHK cannot query the cursor position.
+* It cannot read the selection.
+* It cannot know whether you're at the beginning or end of the buffer.
+* It cannot perform searches because Mark Mode doesn't support them.
+
+---
+
+***## Why Kitty's scrollback feels more powerful***
+
+Kitty doesn't implement its own selection editor. Instead, it launches a full-featured pager (typically `less` or `nvim`) with the scrollback contents:
+
+```text
+Terminal Buffer
+      ↓
+Dump to pipe
+      ↓
+less / nvim
+```
+
+Now you're navigating an actual text document rather than a terminal screen buffer, which is why features like `/`, `?`, `n`, `N`, and full Vim motions are available.
+
+---
+
+If your goal is to build a **true tmux-like copy mode for Windows Terminal**, one promising approach is to **intercept input before it reaches Windows Terminal**, maintain your own cursor and selection state in AutoHotkey (or another helper), and draw a visual overlay on top of the terminal. That would avoid the limitations of Mark Mode and allow features like Vim motions and search, though it would be a substantially more complex project.
+
