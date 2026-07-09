@@ -7,6 +7,9 @@
 
 #HotIf WinActive("ahk_exe WindowsTerminal.exe")
 
+; Copy mode like Tmux
+copyMode := false
+selecting := false
 
 ; Type sequential keys within 0.5 seconds
 leader := false
@@ -158,7 +161,6 @@ n::
 ; Panes
 ; --------------------------------------------------
 
-
 %::
 {
     global leader
@@ -297,6 +299,94 @@ x::
         leader := false
         Send("^+w") ; Close current pane
     }
+}
+
+[::
+{
+    global copyMode, selecting
+
+    if copyMode
+        return
+
+    copyMode := true
+    selecting := false
+
+    ; Open Windows Terminal Mark Mode
+    Send "^+m"
+
+    ToolTip "COPY MODE"
+}
+
+#HotIf
+
+#HotIf WinActive("ahk_exe WindowsTerminal.exe") && copyMode && !selecting
+
+; start visual selection
+Space::
+{
+    global copyMode, selecting
+
+    selecting := true
+    copyMode := false
+}
+
+; navigation
+h::Send "{Left}"
+j::Send "{Down}"
+k::Send "{Up}"
+l::Send "{Right}"
+
+w::Send "^{Right}"
+b::Send "^{Left}"
+
+g::Send "{Home}"
++g::Send "{End}"
+
+; page movement
+^u::Send "{PgUp}"
+^d::Send "{PgDn}"
+
+; cancel
+Esc::
+q::
+{
+    global copyMode, selecting
+    Send "{Esc}"
+    copyMode := false
+    selecting := false
+    ToolTip
+}
+
+#HotIf
+
+#HotIf WinActive("ahk_exe WindowsTerminal.exe") && selecting && !copyMode
+
+; copy mode selection
+h::Send "+{Left}"
+j::Send "+{Down}"
+k::Send "+{Up}"
+l::Send "+{Right}"
+
+; Copy selected text
+Enter::
+y::
+{
+    global copyMode, selecting
+    Send "{Enter}"
+    copyMode := false
+    selecting := false
+    ToolTip
+}
+
+; cancel
+Esc::
+q::
+{
+    global copyMode, selecting
+    Send "{Esc}"
+    copyMode := false
+    selecting := false
+    ToolTip
 }
 
 #HotIf
