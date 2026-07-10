@@ -314,7 +314,8 @@ x::
     ; Open Windows Terminal Mark Mode
     Send "^+m"
 
-    ToolTip "COPY MODE"
+;    ToolTip "COPY MODE"
+    ShowToolTipTopRight("COPY MODE")
 }
 
 #HotIf
@@ -345,6 +346,20 @@ g::Send "{Home}"
 ; page movement
 ^u::Send "{PgUp}"
 ^d::Send "{PgDn}"
+
+; Transfer entire output buffer to neovim: Enter into mark mode. Select all text. Copy all text. Open neovim with clipboard text.
+^n::
+{
+    copyMode := false
+    selecting := false
+    ToolTip
+    
+    Send "^a"
+    Send "^+c"
+;    Run('powershell.exe -NoProfile -Command "Get-Clipboard | nvim -"') ; Open new powershell.exe window
+    SendText('powershell.exe -NoProfile -Command "Get-Clipboard | nvim -"') ; Use built-in powershell-5 (pwershell.exe), not powershell-7 (pwsh)
+    Send('{Enter}')
+}
 
 ; cancel
 Esc::
@@ -395,6 +410,11 @@ LeaderTimeout()
 {
     global leader
     leader := false
+}
+
+ShowToolTipTopRight(text) {
+    WinGetPos(&x, &y, &w, &h, "A")
+    ToolTip(text, x + w - 200, y + 10)
 }
 
 #HotIf
