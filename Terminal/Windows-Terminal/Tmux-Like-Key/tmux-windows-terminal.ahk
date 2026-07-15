@@ -350,6 +350,7 @@ g::Send "{Home}"
 ; Transfer entire output buffer to neovim: Enter into mark mode. Select all text. Copy all text. Open neovim with clipboard text.
 ^n::
 {
+    global copyMode, selecting
     copyMode := false
     selecting := false
     ToolTip
@@ -357,7 +358,7 @@ g::Send "{Home}"
     Send "^a"
     Send "^+c"
 ;    Run('powershell.exe -NoProfile -Command "Get-Clipboard | nvim -"') ; Open new powershell.exe window
-    SendText('powershell.exe -NoProfile -Command "Get-Clipboard | nvim -"') ; Use built-in powershell-5 (pwershell.exe), not powershell-7 (pwsh)
+    SendText('powershell.exe -NoProfile -Command "Get-Clipboard | nvim -"') ; Use built-in powershell-5 (pwershell.exe), not powershell-7 (pwsh). Vim does not copy to clipboard, so use Neovim.
     Send('{Enter}')
 }
 
