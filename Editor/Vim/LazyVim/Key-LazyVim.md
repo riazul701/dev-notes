@@ -21,9 +21,9 @@
 
 ## Telescope
 
-* `Ctrl + n` OR `<Down-Arrow>` : Select next file.
+* `Ctrl + n` OR `Ctrl + j` OR `<Down-Arrow>` : Select next file.
 
-* `Ctrl + n` OR `<Up-Arrow>` : Select previous file.
+* `Ctrl + p` OR `Ctrl + k` OR `<Up-Arrow>` : Select previous file.
 
 * `Ctrl + f` : Telescope preview down scroll.
 

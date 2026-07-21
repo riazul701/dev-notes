@@ -2,6 +2,8 @@
 
 ## Notes
 
+* If the initialized source directory contains a .chezmoi.$FORMAT.tmpl file, a new configuration file will be created using that file as a template. <sup>`chezmoi init --help`</sup>
+
 * If chezmoi's template syntax `{{ }}` conflicts with bash/other script, then put them in bash/other script's comment `#`
 
 * Make sure `encryption` is added to the top level section at the beginning of the config, before any other sections.

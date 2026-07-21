@@ -63,7 +63,7 @@ n::
     if leader
     {
         leader := false
-        Send("^{Tab}") ; 	Switch to next tab
+        Send("^{Tab}") ; Switch to next tab
     }
 }
 

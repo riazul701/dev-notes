@@ -34,6 +34,7 @@ $scoop_office_softwares = @(
     "main/chezmoi"
     "extras/keepassxc"
     "main/pwsh" # PowerShell
+    "main/psmux" # Tmux, terminal multiplexer
     "main/git"
     "main/git-lfs"
     "extras/git-credential-manager"
@@ -127,7 +128,6 @@ $scoop_office_softwares = @(
     #"extras/android-studio"
     "extras/xnviewmp"
     "extras/xnconvert"
-    "extras/sirikali"
     #-------GUI (End)-------
     
     #-------Optional (Start)---------
@@ -182,7 +182,7 @@ $scoop_home_softwares = @(
 # https://chocolatey.org/ => Non-Portable Applications. Provides mouse right click context menu. Works on all systems like Official-Windows-7, 8, 8.1, 10, 11 or Windows-X-Lite without any dependency or issue.
 
 $chocolatey_office_softwares = @(
-    "rainmeter" # Right click plugin install and administrator privileges
+    "rainmeter" # Right click install and administrator privileges for plugin
     "files"
     "mysql.workbench"
     "obs-studio" # On scoop, does not auto install virtual camera module
@@ -205,8 +205,8 @@ $winget_office_softwares = @(
     "Mozilla.Firefox"
     "Opera.Opera"
     "Mozilla.Thunderbird"
-    "wez.wezterm"
-    "Microsoft.WindowsTerminal"
+    "wez.wezterm" # Scoop: old version, no context-menu
+    "Microsoft.WindowsTerminal" # Scoop: no context-menu
     "Oracle.VirtualBox"
     "Hashicorp.Vagrant"
     "HTTPie.HTTPie"
