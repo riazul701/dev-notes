@@ -1,44 +1,8 @@
 # Commands/Usage
 
-## Config PATH
-
-**Rainmeter config file: `Rainmeter.ini`**
-
-* Scoop installation path: `C:\ProgramData\scoop\apps\rainmeter\current\Rainmeter.ini`
-
-**[Default File Locations](https://docs.rainmeter.net/manual/installing-rainmeter/#DefaultFileLocations)**
-
-* Program folder: `C:\Program Files\Rainmeter`
-
-* Skins folder: `C:\Users\YourName\Documents\Rainmeter\Skins`
-
-* Settings and Layouts folder: `C:\Users\YourName\Appdata\Roaming\Rainmeter`
-
-**[Portable Installation](https://docs.rainmeter.net/manual/installing-rainmeter/#PortableInstallation)**
-
-* To run Rainmeter from a single folder, so it can be copied to another computer or run directly from a removable drive, select Portable installation during the install process and browse to the desired installation folder.
-
-* No changes to the Windows Registry or Start menu will be made.
-
-* All program, skins and settings folders and files will remain in the selected program folder.
-
 ## Autostart
 
 ## Coding
-
-**[Unicode in Rainmeter](https://docs.rainmeter.net/tips/unicode-in-rainmeter/)**
-
-* We will refer to this as UTF-16 from here out. NEVER encode any of these files in UTF-8. Rainmeter and the Quote plugin will not be able to properly read them.
-
-* Simply encode the .lua file as UTF-16, and it will work seamlessly when you are using Unicode in the Lua or in Rainmeter. NEVER encode a .lua script file in UTF-8. The Rainmeter implementation of Lua will not be able to properly read it.
-
-* To read an external file which will contain Unicode characters, you should encode the external file as UTF-8 with BOM.
-
-* Anyway, as long as your .lua is encoded in UTF-16, and the external file is encoded in UTF-8, there is nothing special you need to do to read in the file contents in Lua.
-
-* Two file extension: `.ini` (skin) and `.inc` (include) file.
-
-**Others**
 
 * Lines starting with `;` means comment.
 
@@ -64,75 +28,43 @@
 
 * Download `.zip`, `.7z` archive file to manually install skin.
 
+## Config PATH
+
+**Rainmeter config file: `Rainmeter.ini`**
+
+* Scoop installation path: `C:\ProgramData\scoop\apps\rainmeter\current\Rainmeter.ini`
+
+**[Default File Locations](https://docs.rainmeter.net/manual/installing-rainmeter/#DefaultFileLocations)**
+
+* Program folder: `C:\Program Files\Rainmeter`
+
+* Skins folder: `C:\Users\YourName\Documents\Rainmeter\Skins`
+
+* Settings and Layouts folder: `C:\Users\YourName\Appdata\Roaming\Rainmeter`
+
+**[Portable Installation](https://docs.rainmeter.net/manual/installing-rainmeter/#PortableInstallation)**
+
+* To run Rainmeter from a single folder, so it can be copied to another computer or run directly from a removable drive, select Portable installation during the install process and browse to the desired installation folder.
+
+* No changes to the Windows Registry or Start menu will be made.
+
+* All program, skins and settings folders and files will remain in the selected program folder.
+
 # Installation
 
-## Scoop Package Manager
-
-### ChatGPT: "In rainmeter scoop installation, install .rmskin file, because there is no mouse right click context menu"
-
-If you installed **Rainmeter** using **Scoop**, sometimes the **right-click “Install with Rainmeter” context menu** is missing. That happens because Scoop installs apps in a **portable-style directory**, so Windows doesn’t register the `.rmskin` file association automatically.
-
-Here are the ways to install a `.rmskin` file without the context menu.
-
----
-
-***## Method 1 — Open the `.rmskin` file with Rainmeter manually (easiest)***
-
-1. Find the `.rmskin` file.
-2. **Double-click** it.
-3. If Windows asks what app to use:
-
-   * Click **More apps → Look for another app on this PC**
-   * Navigate to your Scoop Rainmeter path:
-
-```
-C:\Users\<your-username>\scoop\apps\rainmeter\current\Rainmeter.exe
-```
-
-4. Select **Rainmeter.exe**.
-
-Now the **Rainmeter Skin Installer** will open and you can install the skin.
-
----
-
-***## Method 2 — Install from inside Rainmeter***
-
-1. Open **Rainmeter**.
-2. Open **Manage**.
-3. Drag the `.rmskin` file **onto the Rainmeter window**.
-
-The installer will launch.
-
----
-
-***## Method 3 — Fix the `.rmskin` file association permanently***
-
-If you want the normal behavior:
-
-1. Right-click the `.rmskin` file
-2. Select **Open with → Choose another app**
-3. Browse to:
-
-```
-C:\Users\<username>\scoop\apps\rainmeter\current\Rainmeter.exe
-```
-
-4. Enable **Always use this app for .rmskin files**
-
-After this, **double-clicking `.rmskin` installs skins normally**.
-
----
-
-💡 **Tip:** If you want the full Windows integration (context menu, registry entries), installing Rainmeter via the official installer from **Rainmeter** instead of Scoop will add those automatically.
-
----
-
-✅ If you want, I can also show:
-
-* how to **add the “Install with Rainmeter” right-click menu manually**, or
-* the **fast command-line method to install `.rmskin` skins**.
-
 # Configuration
+
+## [Unicode in Rainmeter](https://docs.rainmeter.net/tips/unicode-in-rainmeter/)
+
+* We will refer to this as UTF-16 from here out. NEVER encode any of these files in UTF-8. Rainmeter and the Quote plugin will not be able to properly read them.
+
+* Simply encode the .lua file as UTF-16, and it will work seamlessly when you are using Unicode in the Lua or in Rainmeter. NEVER encode a .lua script file in UTF-8. The Rainmeter implementation of Lua will not be able to properly read it.
+
+* To read an external file which will contain Unicode characters, you should encode the external file as UTF-8 with BOM.
+
+* Anyway, as long as your .lua is encoded in UTF-16, and the external file is encoded in UTF-8, there is nothing special you need to do to read in the file contents in Lua.
+
+* Two file extension: `.ini` (skin) and `.inc` (include) file.
 
 ## Always On Top
 
