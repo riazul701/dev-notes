@@ -549,12 +549,16 @@
 ## ToDo & Issue-Tracker & Note & Documentation
 
 * GUI
-  * Jira Atlassian
-  * Trello Atlassian
-  * Confluence Atlassian
-  * Mantis-BT
-  * BugZilla
-  * Joplin
+  * Project Based
+    * Jira Atlassian
+    * Trello Atlassian
+    * Confluence Atlassian
+    * Mantis-BT
+    * BugZilla
+  * Note Based
+    * AppFlowy
+    * Notion
+    * Joplin
 
 * TUI
   * [textfuel/lazyjira](https://github.com/textfuel/lazyjira)
@@ -679,6 +683,7 @@
       * Go makes cross-compilation extremely easy. It has no Go runtime dependency—the runtime is built into the executable. If app calls external tools like rclone, rysnc, those tools still need to exist.
     * Example
       * [Lazyjira](https://github.com/textfuel/lazyjira)
+      * [Lazynotion](https://github.com/justinm35/lazynotion)
       * [madalinpopa/gocost](https://github.com/madalinpopa/gocost)
       * [armandsauzay/note](https://github.com/armandsauzay/note)
       * [handlebargh/yatto => ToDo list](https://github.com/handlebargh/yatto)

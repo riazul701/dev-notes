@@ -11,7 +11,19 @@
 
 **[Enable Autostart](https://lgug2z.github.io/komorebi/common-workflows/autostart.html)**
 
-* If you would like to autostart `komorebi`, you can use the `komorebic enable-autostart` command to generate a shortcut in the `shell:startup` folder.
+* `komorebic enable-autostart --whkd` : If you would like to autostart `komorebi`, you can use this command to generate a shortcut in the `shell:startup` folder. This command shows output:
+  
+> NOTE: If your komorebi.json file contains a reference to $Env:KOMOREBI_CONFIG_HOME,
+> you need to add this to System Properties > Environment Variables > User Variables
+> in order for the autostart command to work properly
+
+  * If use command `komorebic enable-autostart` without `--whkd`, then komorebi will start without [WHKD](https://github.com/LGUG2Z/whkd) and komorebi-keybindings will not work.
+
+  * Check `--whkd` is enabled or not : Go to `shell:startup` folder -> right click on `komorebi` shortcut -> click on `Properties` menu -> click on `Shortcut` tab -> check `Target` is `C:\ProgramData\scoop\apps\komorebi\current\komorebic-no-console.exe start --whkd`. If `--whkd` option is missing, manually write it or re-run `komorebic disable-autostart`, then `komorebic enable-autostart --whkd` command.
+
+  * `shell:startup` folder path : Press `WindowsKey + R` to open windows run window -> enter text `shell:startup` -> press `Enter`. It will open folder `C:\Users\{{user-name}}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
+
+* `komorebic enable-autostart --help` : This command shows output
 
 ```shell
 Generates the komorebi.lnk shortcut in shell:startup to autostart komorebi
@@ -40,7 +52,9 @@ Options:
 
 **[Disable Autostart](https://lgug2z.github.io/komorebi/cli/disable-autostart.html)**
 
-* disable-autostart
+* `komorebic disable-autostart` : Disable komorebi autostart
+  
+* `komorebic disable-autostart --help` : This command shows output
 
 ```shell
 Deletes the komorebi.lnk shortcut in shell:startup to disable autostart

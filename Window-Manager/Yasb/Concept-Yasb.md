@@ -42,10 +42,11 @@ To get API credentials from OpenAI, follow these steps:
 
 If you want, I can show how to set it up in Node.js, Python, or a .env file.
 
-
 # GPU
 
-## ChatGPT: "Print gpu usage percentage in command line"
+> ChatGPT Question: 
+> 
+> Print gpu usage percentage in command line
 
 Here is a **faster real-time GPU usage command** for **Windows 10 CLI**. It avoids the slow `Get-Counter` polling and reads the GPU engine counters more efficiently.
 
@@ -107,7 +108,11 @@ Measure-Object CookedValue -Sum
 
 💡 If you want, I can also show a **much better method used by system monitors** that reads GPU usage via **WMI from Open Hardware Monitor**, which gives **GPU + CPU + Disk usage all in one command line dashboard**.
 
-## ChatGPT: ""powershell -command" alternative to execute command in YASB status bar"
+===============================================================================
+
+> ChatGPT Question: 
+> 
+> "powershell -command" alternative to execute command in YASB status bar
 
 If you're using **YASB**, you don’t have to use `powershell -command`. There are several **faster and cleaner alternatives** to run commands.
 
@@ -220,8 +225,12 @@ command: "C:\\scripts\\gpu.ps1"
 💡 If you'd like, I can also show a **much faster trick used by advanced YASB setups**:
 a **persistent PowerShell process that updates GPU/CPU/RAM instantly without restarting PowerShell every refresh** (reduces CPU usage of the status bar by ~90%).
 
-## ChatGPT: `much faster alternative of this command
-powershell -command "$s=0;(Get-Counter '\GPU Engine(*engtype_3D)\Utilization Percentage').CounterSamples|%{$s+=$_.CookedValue};'{0:N2} %%' -f $s;"`
+===============================================================================
+
+> ChatGPT Question: 
+> 
+> Much faster alternative of this command
+> `powershell -command "$s=0;(Get-Counter '\GPU Engine(*engtype_3D)\Utilization Percentage').CounterSamples|%{$s+=$_.CookedValue};'{0:N2} %%' -f $s;"`
 
 Your command is slow mainly because:
 
@@ -315,7 +324,12 @@ powershell -command "[math]::Round(((Get-CimInstance Win32_PerfFormattedData_GPU
 
 If you want, I can also show a **very small 2-line C program (~20 KB exe)** that prints GPU usage **100× faster than PowerShell**, which many Windows status bars use.
 
-## ChatGPT: "If you want, I can also show a very small 2-line C program (~20 KB exe) that prints GPU usage 100× faster than PowerShell, which many Windows status bars use."
+================================================================================
+
+> ChatGPT: 
+> 
+> If you want, I can also show a very small 2-line C program (~20 KB exe) that 
+> prints GPU usage 100× faster than PowerShell, which many Windows status bars use.
 
 For **maximum speed**, compile a tiny program that reads the Windows GPU performance counters directly.
 A small **C program (~20–30 KB)** will run **~100× faster than `powershell -command`** and is ideal for **YASB**.
@@ -450,8 +464,11 @@ It uses **Windows Performance Data Helper** directly, the same API used by **Tas
 
 (about **60 lines of C but still <30 KB exe**).
 
+================================================================================
 
-## ChatGPT: "above c program always print 0%"
+> ChatGPT Question: 
+> 
+> Above C program always print 0%
 
 Your first C program prints **0%** because the counter path
 
@@ -590,8 +607,11 @@ Same method used internally by **Windows Task Manager**.
 * supports **Intel / AMD / NVIDIA**
 * avoids **>100% spikes** that naive summing causes.
 
-## ChatGPT: `translate this to yasb config folder path
-"D:\\scripts\\gpu.exe"`
+================================================================================
+
+> ChatGPT Question: 
+> 
+> Translate this to yasb config folder path "D:\\scripts\\gpu.exe"
 
 If you want to place `gpu.exe` inside your **YASB** config folder and reference it from the config, convert the path to the typical YASB config directory on Windows.
 
@@ -665,7 +685,7 @@ run_cmd: "%USERPROFILE%\\.config\\yasb\\scripts\\gpu.exe"
 
 If you want, I can also show a **clean GPU custom widget config for YASB** (with refresh interval and formatted output).
 
-## YASB Status Bar For GPU
+***## YASB Status Bar For GPU***
 
 ```yaml
   gpu:
@@ -684,7 +704,9 @@ If you want, I can also show a **clean GPU custom widget config for YASB** (with
 
 # Hard Disk Drive
 
-## ChatGPT: "Show each hard disk performance percentage like windows task manager separately using c program"
+> ChatGPT Question: 
+> 
+> Show each hard disk performance percentage like windows task manager separately using c program
 
 You're correct — the **no-sleep version may output nothing** because **rate counters like `% Disk Time` require two samples**. With only one `PdhCollectQueryData()` call, PDH cannot compute the rate yet, so the formatted array may be empty.
 
@@ -832,7 +854,7 @@ Execution time ≈ **50–60 ms**, which is still **10× faster than PowerShell 
 
 If you want, I can also show a **much more accurate Task-Manager-style implementation (~150 lines)** that uses the **`Avg. Disk Queue Length` + disk service time** counters to reproduce **Windows' exact disk activity algorithm**.
 
-## YASB Status Bar For Hard Disk Drive
+***## YASB Status Bar For Hard Disk Drive***
 
 ```yaml
   hddisk:

@@ -10,3 +10,9 @@
   * Turn on Clipboard History: Goto, Windows Menu -> Settings -> System -> Clipboard, then enable "Clipboard history"
 
 * In WallpapersWidget, on gallery view press `Enter` to set wallpaper on windows desktop.
+
+# GPU
+
+# Disk
+
+
