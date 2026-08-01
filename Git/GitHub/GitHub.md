@@ -1,19 +1,22 @@
 # GitHub.md
 
-## Websites
-
-* [GitHub Pages](https://pages.github.com/)
-* [cli.github.com](https://cli.github.com/)
-* [github/gitignore GitHub](https://github.com/github/gitignore)
-* [GitHub Copilot => The AI editor for everyone](https://github.com/features/copilot)
-
-* Two-Factor Authentication
-  * [getaegis.app](https://getaegis.app/) OR [beemdevelopment/Aegis](https://github.com/beemdevelopment/aegis)
-
 ## GitHub Pages
 * [How to see an HTML page on Github as a normal rendered HTML page to see preview in browser, without downloading?](https://stackoverflow.com/questions/8446218/how-to-see-an-html-page-on-github-as-a-normal-rendered-html-page-to-see-preview)
   * [htmlpreview/htmlpreview.github.com](https://github.com/htmlpreview/htmlpreview.github.com)
   * [GitHub Pages](https://pages.github.com/)
+
+## GitHub Features
+
+GitHub
+│
+├── Repository       → Store code
+├── Issues           → Track bugs/tasks
+├── Projects         → Manage work
+├── Actions          → Automate CI/CD
+├── Packages         → Store software packages
+├── Security         → Find vulnerabilities
+├── Codespaces       → Cloud development machine
+└── Marketplace      → Add extensions/tools
 
 ## Two-Factor Authentication
 
@@ -68,6 +71,16 @@
 # References
 
 * next-sl: {4}
+
+## Websites
+
+* [GitHub Pages](https://pages.github.com/)
+* [cli.github.com](https://cli.github.com/)
+* [github/gitignore GitHub](https://github.com/github/gitignore)
+* [GitHub Copilot => The AI editor for everyone](https://github.com/features/copilot)
+
+* Two-Factor Authentication
+  * [getaegis.app](https://getaegis.app/) OR [beemdevelopment/Aegis](https://github.com/beemdevelopment/aegis)
 
 ## Guides
 

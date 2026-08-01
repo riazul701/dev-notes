@@ -1,5 +1,9 @@
 # Carry_Monitor_MiniPC_Laptop_In_Briefcase.md
 
+## Notes
+
+* Buy Fiber Briefcase From Good Brand, Which Is Lightweight, Strong And WaterProof. Must Be Opened Fully And Have Clearance, To Get Out Monitor/MiniPC/Laptop Easily. Briefcase Must Have Strong Outer Shell, So That It Can Protect Inner Monitor From Impact.
+
 ## DIY 18.5 Inch Desktop Monitor Stand
 
 * HP V194 18.5 inch monitor's dimension
@@ -64,7 +68,7 @@
 
 * Use Same Strong-Build Briefcase To Carry Both 24.5 Inch MSI Full-HD Monitor And 15.6 Inch Laptop. Also Carry A Slim Multiplug Inside Brifcase To Provide Power In Laptop From Nearest Electric Socket.
 
-## Purchase Note
+## Purchase Instructions
 
 * First Get Concept About Build Quality, Size And Price Of Briefcase From Dhaka New Market. Stand By Leg On Top Of Briefcase To Check Build Quality.
 

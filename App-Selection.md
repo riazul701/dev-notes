@@ -555,6 +555,7 @@
     * Confluence Atlassian
     * Mantis-BT
     * BugZilla
+    * GitBook
   * Note Based
     * AppFlowy
     * Notion

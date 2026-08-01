@@ -1,4 +1,4 @@
-# Carry_Slim_PC_Case.md
+# Carry-Slim-PC-Case.md
 
 ## Slim Desktop PC Case For Easy Carrying
 
