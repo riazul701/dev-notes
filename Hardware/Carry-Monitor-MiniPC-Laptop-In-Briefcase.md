@@ -4,6 +4,8 @@
 
 * Buy Fiber Briefcase From Good Brand, Which Is Lightweight, Strong And WaterProof. Must Be Opened Fully And Have Clearance, To Get Out Monitor/MiniPC/Laptop Easily. Briefcase Must Have Strong Outer Shell, So That It Can Protect Inner Monitor From Impact.
 
+## DIY Make Monitor Stand Like Xiaomi Android Tablet Cover
+
 ## DIY 18.5 Inch Desktop Monitor Stand
 
 * HP V194 18.5 inch monitor's dimension

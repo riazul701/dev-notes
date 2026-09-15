@@ -5,7 +5,7 @@
 ## Control Remote-PC
 
 * Mesh-VPN Notes
-  * Can not use multiple mesh-vpn at the same time, they conflicts with each other.
+  * Can not use multiple mesh-vpn at the same time, they conflict with each other.
   * Transfer large files from pc to pc using rclone and google-drive. 
   * Use one mesh-vpn on host-pc and another inside virtualbox. Transfer large files using virtualbox.
 

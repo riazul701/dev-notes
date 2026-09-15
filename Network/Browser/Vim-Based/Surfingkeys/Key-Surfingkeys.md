@@ -96,6 +96,7 @@
 * `$` : Scroll all the way to the right
 
 * `%` : Scroll to percentage of current page
+  * Example: `50%`
 
 * `;w` : Focus top window
   * Move focus from iframe to main window
