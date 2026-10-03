@@ -629,6 +629,8 @@ float readDHTHumidity() {
   * [electronics.com.bd => Arduino, ESP32, Farmgate, Dhaka](https://www.electronics.com.bd/)
   * [bdtronics.com => Arduino, ESP32, Fakirapool, Motijheel, Dhaka](https://www.bdtronics.com/)
   * [citytechbd.com => Arduino, ESP32, Nawabpur, Dhaka](https://www.citytechbd.com/)
+  * [rcshopbd.com => Arduino, ESP32, Nawabpur, Dhaka](https://www.rcshopbd.com/)
+  * [rongdhanu.online => Arduino, ESP32, Nawabpur, Dhaka](https://www.rongdhanu.online/)
   * [store.roboticsbd.com => Arduino, ESP32](https://store.roboticsbd.com/)
   * [robohub.com.bd => Arduino, ESP32, Khilkhet, Dhaka](https://robohub.com.bd/)
 

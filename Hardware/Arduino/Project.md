@@ -12,6 +12,30 @@
 
 * User router ups like "wgp", "pcpower", "olax", "ske" etc.
 
+## Load Shedding Tracker
+
+* Do not use battery backup in ESP32.
+
+* Per minute insert a record in database, to track electricity exists or no load shedding.
+
+## IPS Power Backup Tracker
+
+## Turn On/Off Charger Fan Based On Electricity Presence
+
+* Run solar dc 12volt fan/light from a 12volt battery.
+
+* In the middle of fan-battery wire place ESP32 controlled switch.
+
+* On main electricity AC current socket place an ESP32. This ESP32 makes wifi hotspot.
+
+* At every minute, ping from fan's ESP32 to AC current's ESP32. If AC current's ESP32 is offline, then turn on the fan/light, otherwise turn off.
+
+* Place auto-cutoff module on battery, to prevent battery from over-discharge. For LiFePO4 battery, this module auto-cutoff loads from battery before BMS (Battery Management System).
+
+* Use multiple barrel jacks, to connect battery with charger and fan/light.
+
+* [XH-M609 Over Discharge Battery Protection Module 12-36V Low Voltage Disconnect with Digital Display => 305/-](https://www.dunia.com.bd/product/xh-m609-over-discharge-battery-protection-module-12-36v-low-voltage-disconnect-with-digital-display/)
+
 ## Automatically Switch Wifi/Sim Network On Devices
 
 * Keep network/wifi/sim based internet usage logs on each device.

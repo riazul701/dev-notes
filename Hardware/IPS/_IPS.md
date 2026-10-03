@@ -1,20 +1,27 @@
 # IPS.md
 
-## Websites
-
-* [aptpowers.com => IPS Price in BD](https://aptpowers.com/)
-* [tahaeshop.com](https://www.tahaeshop.com/public/index.php)
+## IPS Must Have Pure Sine Wave And UPS Feature
 
 ## Notes
 
 * Must Buy Pure Sine Wave IPS. Otherwise Fan Regulator, Electronic Devices May Damage. <sup>{1}</sup>
+
+* IPS Must Have UPS Feature To Run Computer.
+
 * Buy Tall/Short Tubular Battery For IPS. Tall Tubular Battery Is Better. <sup>{1}</sup>
+
 * IPS Machine: Watt / PF (Power-Factor) = VA (Volt-Ampere). For IPS (Instant-Power-Supply), Power-Factor is 0.8 (Zero Point Eight). For UPS (Uninterruptible-Power-Supply) Power-Factor is 0.6, also it may be 0.5 OR 0.55 . <sup>{1} {4}</sup>
+
 * Battery: AH (Ampere-Hour) = [Load (VA) * Time (Hour)] / [Battery Voltage * Battery Efficiency] . Battery Efficiency is 0.7 <sup>{1}</sup>
 
 # References
 
 * next-sl: {7}
+
+## Websites
+
+* [aptpowers.com => IPS Price in BD](https://aptpowers.com/)
+* [tahaeshop.com](https://www.tahaeshop.com/public/index.php)
 
 ## YouTube Tutorials
 
