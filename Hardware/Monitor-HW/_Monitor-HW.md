@@ -235,6 +235,16 @@
   * Linux
     * [jonls/redshift](https://github.com/jonls/redshift/)
 
+## Computer Shops
+
+**Used Brand Monitor**
+
+* FUSION TECH, Shop No: 112/A(Level :2), Subastu ICT Bhaban, New Elephant Road, Dhaka - 1205, ☎ 01931-852487,01348-092496
+  * [গেমিং মনিটর 🔥Used Monitor Price in Bangladesh 2026 | Brand Computer Monitor BY Vlogs by Shohag](https://www.youtube.com/watch?v=TsbRSuwbdus)
+
+* Jam Jam Computer, Shop: 607, 5th Floor, Popular Tower, Coffee House Goli, Elephant Road, Dhaka, Mobile: 01981-330981
+  * [Branded Monitors 🔥 Monitor Price in Bangladesh 2026 | Computer Monitor Price BY Mk Vlogs BD](https://www.youtube.com/watch?v=8rW5i_3BfNg)
+
 ## Guides
 
 * Linux Brightness
@@ -328,3 +338,5 @@
 
 * Monitor Light Bar
   * [MONITOR LIGHT BAR complete buying guide. Pros and Cons. Prices. Types etc. BY INDIAN GAMER](https://www.youtube.com/watch?v=3yVOBVpzbIs)
+
+* Product => Used Monitor

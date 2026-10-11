@@ -218,71 +218,73 @@
 
 ## YouTube Tutorials
 
-**Charger**
+* Charger
 
-* [12v Battery charger How to select best Battery charger BY MS Technology](https://www.youtube.com/watch?v=qA_yCeXUCq4)
+  * [12v Battery charger How to select best Battery charger BY MS Technology](https://www.youtube.com/watch?v=qA_yCeXUCq4)
 
-* [Adapter vs Charger 🔋 | Which one should you use for what purpose? | 12V Lithium Battery Charging ... BY Electronics Insight Bangla](https://www.youtube.com/watch?v=pigdIRrMhHQ)
+  * [Adapter vs Charger 🔋 | Which one should you use for what purpose? | 12V Lithium Battery Charging ... BY Electronics Insight Bangla](https://www.youtube.com/watch?v=pigdIRrMhHQ)
 
-* [A good quality 12 volt battery charger (tested) BY BD MADE](https://www.youtube.com/watch?v=mTjYUzXcnww)
+  * [A good quality 12 volt battery charger (tested) BY BD MADE](https://www.youtube.com/watch?v=mTjYUzXcnww)
 
-* [6v 12v 24v 48v Digital Battery Charger Price | কোন বেটারিতে কি ধরনের কত এমপিআর চার্জার ব্যবহার করবেন BY Sheetal Room](https://www.youtube.com/watch?v=9BMtk74nkGc)
+  * [6v 12v 24v 48v Digital Battery Charger Price | কোন বেটারিতে কি ধরনের কত এমপিআর চার্জার ব্যবহার করবেন BY Sheetal Room](https://www.youtube.com/watch?v=9BMtk74nkGc)
 
-**DC Current Cable**
+* DC Current Cable
 
-* [Dc Cabol Size Bangla Tutorial | সোলার ক্যাবল এর সঠিক সাইজ কত জেনে নিন BY 
+  * [Dc Cabol Size Bangla Tutorial | সোলার ক্যাবল এর সঠিক সাইজ কত জেনে নিন BY 
 IPS Bazar - Bangladesh](https://www.youtube.com/watch?v=FXuxVQ6GyvM)
 
-**UPS Battery + Charger + DC Fan/Light**
+* UPS Battery + Charger + DC Fan/Light
   
-* [ব্যাটারি দিয়ে ফ্যান বানান ব্যাকআপ পাবেন ২৪ ঘণ্টা | How to make Solar/charger FAN at Home BY Signal Mastar Diy](https://www.youtube.com/watch?v=8rYsVnm228k)
+  * [ব্যাটারি দিয়ে ফ্যান বানান ব্যাকআপ পাবেন ২৪ ঘণ্টা | How to make Solar/charger FAN at Home BY Signal Mastar Diy](https://www.youtube.com/watch?v=8rYsVnm228k)
 
-* [ব্যাটারি দিয়ে ফ্যান বানান ব্যাটারি ব্যাকআপ পাবেন ৮/১০ ঘন্টা | Home Made Charger Fan | Solar BY E Tech Home](https://www.youtube.com/watch?v=Am8_a8nlBp4)
+  * [ব্যাটারি দিয়ে ফ্যান বানান ব্যাটারি ব্যাকআপ পাবেন ৮/১০ ঘন্টা | Home Made Charger Fan | Solar BY E Tech Home](https://www.youtube.com/watch?v=Am8_a8nlBp4)
 
-**Mini DC IPS => Readymade + DIY**
+* Mini DC IPS => Readymade + DIY
 
-* [আইপিএস মাত্র ৩৯৯০টাকায় DC 12v IPS Set with Light Fan onu-Router Cable only 3990tk BY Sheetal Room](https://www.youtube.com/watch?v=MYACfMASd6c)
+  * [আইপিএস মাত্র ৩৯৯০টাকায় DC 12v IPS Set with Light Fan onu-Router Cable only 3990tk BY Sheetal Room](https://www.youtube.com/watch?v=MYACfMASd6c)
 
-* [How to make 12.Volt DC mini ips at home কিভাবে একটি মিনি আইপিএস বানাবেন। Ips Price In Bangladesh BY Power Solution](https://www.youtube.com/watch?v=Ekq26Eh3s5E)
+  * [How to make 12.Volt DC mini ips at home কিভাবে একটি মিনি আইপিএস বানাবেন। Ips Price In Bangladesh BY Power Solution](https://www.youtube.com/watch?v=Ekq26Eh3s5E)
 
-**DIY Charger Fan**
+* DIY Charger Fan
 
-* [How to make 9 inchi High speed rechargeable fan | নিজেই তৈরি করুন হাই স্পিড রিচার্জেবল ফ্যান। BY Signal Mastar Diy](https://www.youtube.com/watch?v=fZQpYB956zE)
+  * [How to make 9 inchi High speed rechargeable fan | নিজেই তৈরি করুন হাই স্পিড রিচার্জেবল ফ্যান। BY Signal Mastar Diy](https://www.youtube.com/watch?v=fZQpYB956zE)
 
-**Solar**
+* Solar
 
-* [ডিসি হতে ডিসি নাকি ডিসি হতে এসি লোড চললে বেশী সুবিধা পাওয়া যাবে, DC vs AC Load. BY Training 24](https://www.youtube.com/watch?v=xH_aHPF13vM)
+  * [ডিসি হতে ডিসি নাকি ডিসি হতে এসি লোড চললে বেশী সুবিধা পাওয়া যাবে, DC vs AC Load. BY Training 24](https://www.youtube.com/watch?v=xH_aHPF13vM)
 
-* [একাধিক সোলার প্যানেল কিভাবে কানেকশন করলে ১২ এবং ২৪ ভোল্ট পাওয়া য়ায়।how to connect solar panels. BY Training 24](https://www.youtube.com/watch?v=bSDWY-JfbZY)
+  * [একাধিক সোলার প্যানেল কিভাবে কানেকশন করলে ১২ এবং ২৪ ভোল্ট পাওয়া য়ায়।how to connect solar panels. BY Training 24](https://www.youtube.com/watch?v=bSDWY-JfbZY)
 
-* [কত এম্পিয়ার ব্যাটারিতে কত ওয়াট সোলার প্যানেল ও চার্জ কন্ট্রোলার লাগবে।solar panel calculation. BY Training 24](https://www.youtube.com/watch?v=JkCxkvVopt0)
+  * [কত এম্পিয়ার ব্যাটারিতে কত ওয়াট সোলার প্যানেল ও চার্জ কন্ট্রোলার লাগবে।solar panel calculation. BY Training 24](https://www.youtube.com/watch?v=JkCxkvVopt0)
 
-* [সোলার সিস্টেম।অনগ্রিড অফগ্রিড হাইব্রিড কোন সোলার সিস্টেম স্থাপন করবেন।Solar system install. BY Training 24](https://www.youtube.com/watch?v=ZUEPUUoB6W4)
+  * [সোলার সিস্টেম।অনগ্রিড অফগ্রিড হাইব্রিড কোন সোলার সিস্টেম স্থাপন করবেন।Solar system install. BY Training 24](https://www.youtube.com/watch?v=ZUEPUUoB6W4)
 
-* [লক্ষ টাকার সোলার লাগানোর পরে | এখন কেন আবার কারেন্ট বিল বেশি উঠে। Why is the current bill not saved? BY Electric BD](https://www.youtube.com/watch?v=3Bz2Yf7QExE)
+  * [লক্ষ টাকার সোলার লাগানোর পরে | এখন কেন আবার কারেন্ট বিল বেশি উঠে। Why is the current bill not saved? BY Electric BD](https://www.youtube.com/watch?v=3Bz2Yf7QExE)
 
-* [I lost all my money on a solar system. BY Showrove's World](https://www.youtube.com/watch?v=AqkHu-H6_Zk)
+  * [I lost all my money on a solar system. BY Showrove's World](https://www.youtube.com/watch?v=AqkHu-H6_Zk)
 
-* [Think 100 times before building a solar system? Solar System BY Learning Engineering Bangla and Learning Engineering Institute](https://www.youtube.com/watch?v=V-GukBWp1y8)
+  * [Think 100 times before building a solar system? Solar System BY Learning Engineering Bangla and Learning Engineering Institute](https://www.youtube.com/watch?v=V-GukBWp1y8)
 
-* [DC vs AC Solar Setup | Advantages and Disadvantages? Which one to take? DC vs AC Solar System | W... BY Learning Engineering Bangla and 2 more](https://www.youtube.com/watch?v=d1of1vggL0o)
+  * [DC vs AC Solar Setup | Advantages and Disadvantages? Which one to take? DC vs AC Solar System | W... BY Learning Engineering Bangla and 2 more](https://www.youtube.com/watch?v=d1of1vggL0o)
 
-* [সোলার ডিসি সিস্টেম নাকি সোলার এসি সিস্টেম - কোনটা আপনার জন্য ভালো হবে BY Showrove's World](https://www.youtube.com/watch?v=umQjXTfegCM)
+  * [সোলার ডিসি সিস্টেম নাকি সোলার এসি সিস্টেম - কোনটা আপনার জন্য ভালো হবে BY Showrove's World](https://www.youtube.com/watch?v=umQjXTfegCM)
 
-* [Solar System 100% Profit | Learn from My Mistakes |100% Profit in Solar System | Learn from My Mi... BY Learning Engineering Bangla and Learning Engineering Institute](https://www.youtube.com/watch?v=J7iVZVr04GU)
+  * [Solar System 100% Profit | Learn from My Mistakes |100% Profit in Solar System | Learn from My Mi... BY Learning Engineering Bangla and Learning Engineering Institute](https://www.youtube.com/watch?v=J7iVZVr04GU)
 
-**DIY Wall Fan**
+* DIY Wall Fan
 
-* [Stand Fan convert to wall fan DIY Easily. BY it's me](https://www.youtube.com/watch?v=7aKrG58CJXs)
+  * [Stand Fan convert to wall fan DIY Easily. BY it's me](https://www.youtube.com/watch?v=7aKrG58CJXs)
 
-* [How To Convert Stand Fan Into Wall Fan BY DIY @ home](https://www.youtube.com/watch?v=AHPWd7p2P2Q)
+  * [How To Convert Stand Fan Into Wall Fan BY DIY @ home](https://www.youtube.com/watch?v=AHPWd7p2P2Q)
 
-* [Table Fan Convert To Wall Fan!! Table Fan Repair'' Multi angle Fan BY Halibali atoz](https://www.youtube.com/watch?v=wp49BBD8Nbk)
+  * [Table Fan Convert To Wall Fan!! Table Fan Repair'' Multi angle Fan BY Halibali atoz](https://www.youtube.com/watch?v=wp49BBD8Nbk)
 
-**Table Fan Safety**
+  * [How To Convert Pedestal Fan To Wall Mount Fan | Samuel Sam Tech Official BY Samuel Sam Tech Official](https://www.youtube.com/watch?v=R_ZHObRMVmY)
 
-* [Ensuring Your Baby's Safety Around Fans: The Electric Fan Cover Mesh Finger Protection! #cutebaby BY BabyVK](https://www.youtube.com/shorts/ve565PXaMqk)
+* Table Fan Safety
 
-* [Fan Safety Net Cover For Finger Protection BY Jaliwale](https://www.youtube.com/watch?v=VkRM870MfWQ)
+  * [Ensuring Your Baby's Safety Around Fans: The Electric Fan Cover Mesh Finger Protection! #cutebaby BY BabyVK](https://www.youtube.com/shorts/ve565PXaMqk)
 
-* [How To Install Finger Protection Net Cover in Industrial Fan BY NEST PROTECTION](https://www.youtube.com/watch?v=UUiVcFkpYIs)
+  * [Fan Safety Net Cover For Finger Protection BY Jaliwale](https://www.youtube.com/watch?v=VkRM870MfWQ)
+
+  * [How To Install Finger Protection Net Cover in Industrial Fan BY NEST PROTECTION](https://www.youtube.com/watch?v=UUiVcFkpYIs)

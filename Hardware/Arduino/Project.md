@@ -16,7 +16,11 @@
 
 * Do not use battery backup in ESP32.
 
-* Per minute insert a record in database, to track electricity exists or no load shedding.
+* Use memory card to store data, not ESP32's internal memory to prevent ESP32 itself from damaging. Frequent write operation to ESP32's internal memory will damage it.
+
+* Per minute insert a record in a log (execl csv) file, to track electricity exists or no load shedding. Make separate log (csv) file for every day.
+
+* Do no use database, it will be corrupted if power-cut happens during write operation.
 
 ## IPS Power Backup Tracker
 

@@ -9,6 +9,28 @@
 
 # Hardware.md
 
+## Notes
+
+* During Motherboard BIOS upgrade, if electricity loss occurs, then motherboard may be dead. <sup>{35}</sup>
+* Change Thermal-Paste after years, because it dried out over time. <sup>{37}</sup>
+
+## Trusted Platform Module (TPM)
+
+* [Find Windows 11 specs, features, and computer requirements](https://www.microsoft.com/en-us/windows/windows-11-specifications)
+* [Enable TPM 2.0 on your PC](https://support.microsoft.com/en-us/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c)
+
+## Desktop-PC Transport
+
+* Transport Desktop-PC in Trolley Luggage.
+
+## Resource Monitoring
+
+* {39} [I need a good OSD GPU/CPU temp monitoring software for games](https://www.reddit.com/r/pcgamingtechsupport/comments/i8c3f7/i_need_a_good_osd_gpucpu_temp_monitoring_software/)
+
+# References
+
+* next-sl: {40}
+
 ## Websites
 
 * Benchmark
@@ -42,27 +64,41 @@
 * Tutorials
   * [YouTube => Branch Education](https://www.youtube.com/@BranchEducation/videos)
 
-## Notes
+## Computer Shops
 
-* During Motherboard BIOS upgrade, if electricity loss occurs, then motherboard may be dead. <sup>{35}</sup>
-* Change Thermal-Paste after years, because it dried out over time. <sup>{37}</sup>
+**Old And New Parts**
 
-## Trusted Platform Module (TPM)
+* SELL TECH BD, Shop: 728-740, Lift -7 , Suvastu Arcade ( ICT Bhaban), New Elephants Road, Dhaka -1205, Helpline:01757-058034 , 01973-546431
+  * [selltech.com.bd](https://selltech.com.bd/)
 
-* [Find Windows 11 specs, features, and computer requirements](https://www.microsoft.com/en-us/windows/windows-11-specifications)
-* [Enable TPM 2.0 on your PC](https://support.microsoft.com/en-us/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c)
+* Technology BD, Shop # 316-317, Level- 3, Alpona Plaza, Science Lab Elephant Road, Dhaka-1205, ☎01786-850070, 01608-958239
+  * [গেমিং কম্পিউটার 🔥Computer Price in Bangladesh 2026 | Desktop PC Build Under Budget BY Vlogs by Shohag](https://www.youtube.com/watch?v=LbSSsgQK0qQ)
 
-## Desktop-PC Transport
+* Micro Gates IT, ECS. Computer City, Shop# 905, Level# 9 Multiplan Center, New Elephant Road, Dhaka-1205, ☎01883 635205, 01610 307990
+  * [বাজেটে সেরা সেটাপ🔥 Computer Price in Bangladesh 2026 | Gaming PC Build | Ryzen Pc Build BY Vlogs by Shohag](https://www.youtube.com/watch?v=OZAlR90FJBQ)
 
-* Transport Desktop-PC in Luggage.
+* Expert World, ECS. Computer City, Shop# 908-909, Level# 9 Multiplan Center, New Elephant Road, Dhaka-1205, ☎ 01812-288708, 01914-686399
+  * [সেরা Budget PC Build🔥 Gaming & Editing PC 2026 | Computer Price in Bangladesh BY Vlogs by Shohag](https://www.youtube.com/watch?v=msY6qDJKTe0)
 
-## Resource Monitoring
+* Madani Technology, Shop no:319 2nd Floor, Alpana Plaza Market, New Elephant Road, Dhaka-1205, ☎ 01772-829072
+  * [স্বপ্ন পূরণ হবে এই WHITE PC Setup-এ! 😱 Budget PC Build 2026 BY Vlogs by Shohag](https://www.youtube.com/watch?v=ut65f-8iyCI)
 
-* {39} [I need a good OSD GPU/CPU temp monitoring software for games](https://www.reddit.com/r/pcgamingtechsupport/comments/i8c3f7/i_need_a_good_osd_gpucpu_temp_monitoring_software/)
+* CSM Technology, Shop no: 215-217, 2nd Floor, Alpana Plaza Market, New Elephant Road, Dhaka-1205, ☎ 01833-685828, 01602-269517
+  * [বাজেটের মধ্যে সেরা কম্পিউটার🔥 Gaming PC Build & Computer Price BD 2026 BY Vlogs by Shohag](https://www.youtube.com/watch?v=jSOeVPJwQGY)
 
-# References
+* Great Plus, Shop no: 123, 1st Floor, Sheltech Sierra Computer City Market, New Elephant Road, Bata Signal, Dhaka-1205, ☎01770-220436, 01309-928181
+  * [কম বাজেটে গেমিং কম্পিউটার🔥Computer Price in Bangladesh 2026 | Desktop PC Build BY Vlogs by Shohag](https://www.youtube.com/watch?v=CHO7Fm6l5zs)
 
-* next-sl: {40}
+* POWER LAND BD, Shop: 658,659,665,666. Level-6, Lift -6  Suvastu Arcade, ICT Bhaban New Elephant Road, Dhaka -1205, 📞Hotline:- 01770-822664 📞01628-795588
+  * [বাজেট কম্পিউটার 🔥Desktop PC Price In Bangladesh 2026 | Computer Price | Best PC Build BY Vlogs by Shohag](https://www.youtube.com/watch?v=y9YWdy-xpE0)
+
+**New Parts Only**
+
+* {{Low Price 1}} [ultratech.com.bd](https://www.ultratech.com.bd/)
+* [ryans.com](https://www.ryans.com/)
+* [startech.com.bd](https://www.startech.com.bd/)
+* [creatus.com.bd](https://www.creatus.com.bd/)
+* [techlandbd.com](https://www.techlandbd.com/)
 
 ## Tutorials
 

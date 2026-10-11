@@ -119,3 +119,21 @@ curl -6 http://[200
 ```
 
 * Would you like help checking if your ISP supports IPv6 or help with a specific Mini PC (e.g., Raspberry Pi, Beelink)?
+
+# References
+
+## Computer Shops
+
+**Used Mini PC**
+  
+* Bikrampur IT Point, Shop, 955, Level - 9, Multiplan Center, New Elephant Road, Dhaka - 1205, Mobile: 01775-846600
+  * [সস্তায় বিশ্বের সবচেয়ে ছোট কম্পিউটার 🔥 Mini Brand PC Price In Bangladesh 2025 | Brand PC Price 2026 BY Robin Vlogs => 3 Months Replacement Warranty](https://www.youtube.com/watch?v=3bM22gP11mA)
+
+* Jam Jam Computer, Shop: 607, 5th Floor, Popular Tower, Coffee House Goli, Elephant Road, Dhaka, Mobile: 01981-330981
+  * [ছোট কম্পিউটার 🔥 Mini Brand PC Price In Bangladesh 2026 | Brand PC Price 2026 => 3 Months Replacement Warranty](https://www.youtube.com/watch?v=SFPs3-1a8bc)
+
+* 🏬 PC Tech BD, Shop No. 833, Level 8, Multiplan Centre, New Elephant Road, Dhaka 1205, 📞 Contact: 01774-217600, 01737-042410
+  * [Mini PC Price In Bangladesh 2026 🔥Intel Ryzen Mini PC💥HP Dell Lenovo Mini PC😱Latest Mini PC 2026 BY Mithu Vlogs](https://www.youtube.com/watch?v=MK4hD8izoRI)
+
+* Tech Media, 🎯Dhaka, Elephant Road, Multiplan Center, Level 5, Shop 502, 📱Call/WhatsApp: 01813188767 // 01862069620
+  * [Buy Mini PC at a Low Price 🔥 Mini Brand PC Price In Bangladesh 2026 | Brand PC | Mini Computer BY Vlogs by Saiful](https://www.youtube.com/watch?v=Yy1CT6m96MM)
