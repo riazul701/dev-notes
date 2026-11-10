@@ -12,6 +12,12 @@
 
 * User router ups like "wgp", "pcpower", "olax", "ske" etc.
 
+## 3.5 Inch Hard Disk As Portable
+
+* Cheap. 500 GB refurbished HDD is 1500/- taka with 1 year warranty.
+
+* Use Ugreen SATA to USB converter.
+
 ## Load Shedding Tracker
 
 * Do not use battery backup in ESP32.
@@ -122,6 +128,10 @@
 
 ## Timely Provide Water In Garden
 
+* Use Solenoid Valve OR Motorized Valve To Turn On/Off Water Supply.
+
+* Use Long HDPE Pipe and Saline Pipe For Drip Irrigation.
+
 * Safety
   * Three types of working: "auto/schedule", "manual", and "off". In "auto/schedule" mode, timely turn on/off garden water pump. In "manual" mode, turn on garden water pump from android mobile for a time duration like 30 seconds. In "off" mode, turn on garden water pump by physical switch only. 
 
@@ -143,6 +153,32 @@
 
 * Products
   * [PWM Motor Speed Switch Controller 1203BK DC 6V 12V 24V 28V 3A](https://nabatechshop.com/product/pwm-motor-speed-switch-controller-1203bk-dc-6v-12v-24v-28v-3a/)
+
+* Products
+
+  * Solenoid Valve
+    * [Buy 12V Solenoid Water Valve 3/4 Inch Water Control Valve => 399/- => Patuatuli, Dhaka](https://www.electronicspartsbd.com/product/buy-12v-solenoid-water-valve-3-4-inch-water-control-valve-1423)
+    * [Buy 220V Solenoid Valve 1/2 Inch Water Pressure Control => 375/- => Patuatuli, Dhaka](https://www.electronicspartsbd.com/product/buy-220v-solenoid-valve-1-2-inch-water-pressure-control-1421)
+
+  * Badminton Net For Malabar spinach, Bottle gourd, Pumpkin
+
+* YouTube Videos
+
+  * PVC/Coil Pipe Thread Cutter
+    * [HOW TO THREAD PVC PIPE BY Tradesman Ph](https://www.youtube.com/watch?v=aakUQM0Nido)
+
+  * Drip Irrigation
+    * [End the Lack of Water for your Plants BY Agro em Casa](https://www.youtube.com/watch?v=gFnAhb21MbE)
+      * Use Screw/Nut And Washer
+
+  * Sprinkler Irrigation
+    * [Aspersor de riego casero BY Primitive Bil](https://www.youtube.com/watch?v=J_HtfOWCSRQ)
+    * [Adding Plastic Bottles to the pipe helped me save a lot of money on my Sprinkler System BY DIY-Craft Master](https://www.youtube.com/watch?v=nswbUpJDLms)
+    * [How to make a ROTATING Irrigation SPRINKLER easy and cheap BY Roll Garden](https://www.youtube.com/watch?v=0LMvDNywFrI)
+    * [গার্ডেন - খেলার মাঠ - ফল বাগান - কৃষি জমির স্প্রিংকলার // ইরিগেশন সরঞ্জাম পাইকারি BY Hat bd](https://www.youtube.com/watch?v=rsqpULcbS68)
+
+  * Rain Irrigation
+    * [बारिश होगी अब आपकी मर्जी से || Artificial Rain || Rain Pipe आधे घंटे में खेत की सिचाई|| Hello Kisaan BY Hello Kisaan](https://www.youtube.com/watch?v=gNQ0AfrUCMc)
 
 ## Log Rain Sensor Data To Firebase To Use During Garden Watering
 
@@ -190,6 +226,94 @@
   * [ESP32-CAM USB Programmer with FT232RL Adapter (Type-C)](https://nabatechshop.com/product/esp32-cam-usb-programmer-with-ft232rl-adapter/)
 
 # Project Details
+
+## 3.5 Inch Hard Disk As Portable <sup>ChatGPT</sup>
+
+> ChatGPT Question: 
+> 
+> 3.5 inch desktop hdd sata to usb converter has separate power cable and usb cable. does usb cable carry electricity to hdd. If I attach hdd converter's two cable power and usb all time to computer and turn off power cable when not using it. Is it sufficient?
+
+Yes, your setup is generally fine. A 3.5-inch desktop HDD needs separate power, because a USB port usually cannot supply enough power to run it.
+
+***## 1. Does the USB cable carry electricity?***
+
+Yes. The USB cable carries both:
+
+- Data — transfers files between the HDD and your computer.
+- Electrical power — powers the USB-to-SATA converter and sometimes provides a small amount of power to the HDD.
+
+However, a 3.5-inch desktop HDD typically needs 12V and 5V power, including a 12V supply for its motor. A normal USB port cannot provide that 12V power, so your converter uses a separate power adapter.
+
+***## 2. Is your proposed setup sufficient?***
+
+Keep the USB cable connected to your computer
+
+This is fine. The converter may remain connected and receive a small amount of power through USB.
+
+Turn off the HDD's separate power supply when not using it
+
+This is generally fine, provided you safely disconnect or eject the drive in your operating system first.
+
+Do not switch off the power while the HDD is being used
+
+First eject the drive, close any files or programs using it, and wait for disk activity to stop. Then turn off its power.
+
+***## 3. What happens when you turn off the separate power cable?***
+
+- The HDD motor stops, and the drive shuts down.
+- The USB-to-SATA converter may remain powered by the computer's USB port.
+- The computer may still detect the converter even though the HDD itself is no longer available.
+- When you turn the separate power back on, the HDD will usually spin up and may become accessible again. Sometimes you may need to reconnect the USB cable or rescan the drive.
+
+***## 4. My recommendation***
+
+Your arrangement is suitable for a desktop HDD that you use occasionally:
+
+1. Leave the USB cable connected if you want.
+2. Eject the HDD safely in Windows before shutting off its power.
+3. Turn off the HDD's power adapter or its power switch.
+4. Turn the power back on when you need to use the drive.
+
+One important distinction: If you want to prevent all electrical power from reaching the converter, disconnecting the USB cable too is the safest way to ensure that. Leaving USB connected may keep the converter's electronics powered, but this is normally not a problem.
+
+> ChatGPT Question: 
+> 
+> If I cut the usb cable in middle and place a switch for red and black wire. Both turn off power adapter and usb cable's middle switch.
+
+Yes, you can install a switch in the USB cable's red (+5V) and black (GND) wires, but for your 3.5-inch SATA HDD converter, there is usually no need to do this.
+
+***## How your proposed setup works***
+
+A typical USB 2.0 cable uses these wires:
+
+| Wire color | Function |
+| --- | --- |
+| Red | +5V power |
+| Black | Ground (GND) |
+| White | Data − |
+| Green | Data + |
+
+If you install a switch that disconnects both the red and black wires, it will interrupt USB power and ground. However, disconnecting the ground wire is not recommended while the USB data wires remain connected.
+
+***## A safer way to do it***
+
+1. Switch off the HDD power adapter
+
+This cuts the main power to the 3.5-inch HDD.
+
+2. If you want to cut USB power too, switch only the red wire
+
+Leave the black ground and both data wires connected. An inline USB power switch is a safer, cleaner option than cutting the cable.
+
+3. Eject the drive before switching off
+
+Always safely eject it in Windows before turning off the HDD power or USB connection.
+
+***### My advice***
+
+For the simplest and safest arrangement, use the HDD's power adapter switch alone. If you want to disconnect all USB connections, use a USB switch designed to disconnect the entire USB connection rather than modifying the cable.
+
+One question: Do you want to cut USB power mainly to prevent electricity from reaching the converter while the HDD is off, or to prevent any possible electrical backfeed into the HDD or computer? The best solution differs slightly depending on your goal.
 
 ## DIY Smart Button Presser(Pusher) <sup>ChatGPT</sup>
 
